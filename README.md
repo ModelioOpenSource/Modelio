@@ -19,7 +19,8 @@ Dedicated to developers, analysts and software and systems architects, Modelio i
 
 * **UML Modeler** : Modelio is a first and foremost a modeling environment, supporting a wide range of models and diagrams, and providing model assistance and consistency checking features.
 * **BPMN support** integrated with UML : Modelio combines BPMN support and UML support in one tool, with dedicated diagrams to support business process modeling.
-Java code generatorThe Java Designer module uses an RCP/Eclipse-style project file structure, and supports Java code generation and reverse, Javadoc generation and Java automation.
+
+* **Java code generator** : The Java Designer module uses an RCP/Eclipse-style project file structure, and supports Java code generation and reverse, Javadoc generation and Java automation.
 * **XMI import/export** : Modelio provides an XMI import/export feature that enables you to exchange UML2 models between different tools.
 * **HTML model publishing** : With the HTML Publisher module, publish your models in HTML format.
 * **Extension system** : Modelio can be extended for any language, methodology or modeling technique just by adding modules to your configuration. You can either use existing modules or else develop your own.
