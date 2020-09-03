@@ -45,5 +45,5 @@ Dedicated to developers, analysts and software and systems architects, Modelio i
 
 # Quick Start Guide 
 
-## Creating a project ##
-
+Creating a project 
+------------------
