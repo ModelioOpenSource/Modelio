@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_hOppgIkdEeWbO4MnNK7ogg">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ZvrNwEN6EeK0D9nRHZj9jw" featurename="handlers" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Handler" xmi:id="_QfCosAwtEeSH5aYHJXwCdg" elementId="org.modelio.diagram.diagramauto.handler.UpdateAutomaticDiagramId" contributionURI="bundleclass://org.modelio.diagram.diagramauto/org.modelio.diagram.diagramauto.handlers.UpdateAutomaticDiagram" command="_DlimsAwtEeSH5aYHJXwCdg"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_3GORAEN6EeK0D9nRHZj9jw" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_DlimsAwtEeSH5aYHJXwCdg" elementId="org.modelio.diagram.diagramauto.command.UpdateAutomaticDiagramId" commandName="%UpdateAutomaticDiagram.name" description="%UpdateAutomaticDiagram.description"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_t_u1AJL3EeKKiboSF5LovA" featurename="children" parentElementId="org.modelio.model.browser.view.popupmenu">
+    <elements xsi:type="menu:Menu" xmi:id="_9oFC4JL3EeKKiboSF5LovA" elementId="org.modelio.diagram.diagramauto.popupmenu" label="%PopupMenu.label" iconURI="platform:/plugin/org.modelio.diagram.diagramauto/icons/autodiagram.png">
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_ITBCcAwtEeSH5aYHJXwCdg" elementId="diagram.auto.handledmenuitem.UpdateAutomaticDiagramId" label="%UpdateAutomaticDiagram.label" tooltip="%UpdateAutomaticDiagram.tooltip" command="_DlimsAwtEeSH5aYHJXwCdg">
+        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_ITBCcQwtEeSH5aYHJXwCdg" coreExpressionId="diagram.auto.test.updatediagram.id"/>
+      </children>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

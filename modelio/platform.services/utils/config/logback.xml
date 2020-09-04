@@ -1,0 +1,35 @@
+<configuration debug="true">
+
+  <appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+       <!-- daily rollover -->
+       <fileNamePattern>${user.home}/.modelio/3.8/modelio-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+      
+       <!-- keep 10 days' worth of history -->
+       <maxHistory>10</maxHistory> 
+       
+      <!-- limit file size to 50MB -->
+      <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+          <maxFileSize>50MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+       
+    </rollingPolicy>
+    <encoder>
+      <pattern>%date{ISO8601} %-5level %-16.16logger{16} - %message%n%ex{full}</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <!-- see http://logback.qos.ch/manual/layouts.html for pattern -->
+    <encoder>
+      <pattern>%date{HH:mm:ss.SSS} %-5level %-16.16logger{16} - %message%n%ex{short}</pattern>
+    </encoder>
+  </appender>
+
+  <root level="TRACE">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="LOGFILE" />
+  </root>
+
+</configuration>

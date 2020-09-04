@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="org.modelio.app.preferencepages">
+    <page id="org.modelio.app.project.ui.preferences"
+    	  name="%Project.preferences.label"
+    	  class="org.modelio.app.project.ui.prefs.ProjectPreferencesPage"
+    	  icon="icons/closedproject.png" />
+  </extension>
+</plugin>

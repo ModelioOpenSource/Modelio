@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension-point id="org.modelio.edition.dialogs.panels" name="EditionDialogsPanels" schema="schema/org.modelio.edition.dialogs.panels.exsd"/>
+
+  <extension id="org.modelio.edition.dialogs.initializer" point="org.eclipse.e4.workbench.model">
+    <fragment uri="e4model/fragment.e4xmi"/>
+    <processor beforefragment="false" class="org.modelio.edition.dialogs.EditionDialogsInitializer"/>
+  </extension>
+
+  <extension id="org.modelio.edition" point="org.modelio.edition.dialogs.panels">
+    <panel class="org.modelio.edition.dialogs.dialog.panels.operation.OperationEditPanel"
+		   id="org.modelio.edition.dialogs.standard.panel.operation" relevance="Standard.Operation"
+		   label="%operation"
+		   />
+    <panel class="org.modelio.edition.dialogs.dialog.panels.usecase.UseCaseEditPanel"
+		   id="org.modelio.edition.dialogs.standard.panel.usecase" relevance = "Standard.UseCase"
+		   label="%usecase"
+		   />
+    <panel class="org.modelio.edition.dialogs.dialog.panels.note.NoteEditPanel"
+		   id="org.modelio.edition.dialogs.standard.panel.note" relevance = "Infrastructure.Note"
+		   label="%note"
+		   />
+    <panel class="org.modelio.edition.dialogs.dialog.panels.element.ElementEditPanel"
+		   id="org.modelio.edition.dialogs.standard.panel.element" relevance="*"
+		   label="%properties"
+		   />
+  </extension>
+</plugin>

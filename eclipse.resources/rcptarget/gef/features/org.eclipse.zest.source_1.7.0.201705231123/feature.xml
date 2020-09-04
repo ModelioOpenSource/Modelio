@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.zest.source"
+      label="%featureName"
+      version="1.7.0.201705231123"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://download.eclipse.org/tools/gef/updates/legacy/releases/"/>
+      <discovery label="%updateSiteName" url="http://download.eclipse.org/tools/gef/updates/legacy/releases/"/>
+   </url>
+
+   <plugin
+         id="org.eclipse.zest.core.source"
+         download-size="100"
+         install-size="331"
+         version="1.5.300.201705231123"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.zest.layouts.source"
+         download-size="78"
+         install-size="239"
+         version="1.1.300.201705231123"
+         unpack="false"/>
+
+</feature>

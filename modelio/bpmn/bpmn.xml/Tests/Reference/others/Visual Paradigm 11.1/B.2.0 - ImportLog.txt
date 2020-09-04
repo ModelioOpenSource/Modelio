@@ -1,0 +1,16 @@
+[warning 11:25:29]The ID of Pool Participant, _cde15ee4-b395-43a3-9f5e-9028446f8a52, is duplicated. Thus, a new ID, WFP-6-1, is generated and assigned.
+Model: Participant
+Diagram: B.2.0 > Element: Participant
+
+[warning 11:25:29]The ID of Pool Pool, _55bb31e8-9e62-48ea-8f0e-1a748c04bbf6, is duplicated. Thus, a new ID, ls_55bb31e8-9e62-48ea-8f0e-1a748c04bbf6, is generated and assigned.
+Model: Pool
+Diagram: B.2.0 > Element: Pool
+
+[warning 11:25:29]The ID of Pool Pool, WFP-6-2, is duplicated. Thus, a new ID, ls_55bb31e8-9e62-48ea-8f0e-1a748c04bbf6, is generated and assigned.
+Model: Pool
+Diagram: B.2.0 > Element: Pool
+
+[warning 11:25:29]The ID of Sub-Process Collapsed Call Activity, _1237e756-d53c-4591-a731-dafffbf0b3f9, is duplicated. Thus, a new ID, WFP-0-, is generated and assigned.
+Model: Collapsed Call Activity
+Diagram: B.2.0 > Element: Collapsed Call Activity
+

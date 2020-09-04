@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension id="diagram.bpmn" point="org.eclipse.e4.workbench.model">
+    <fragment uri="e4model/diagram_bpmn_editor.e4xmi"></fragment>
+    <processor beforefragment="true" class="org.modelio.diagram.editor.bpmn.plugin.BpmnProcessor"/>
+  </extension>
+  
+  <extension point="org.modelio.diagram.editor.inputprovider">
+    <inputprovider class="org.modelio.diagram.editor.bpmn.editor.BpmnDiagramEditorInputProvider"/>
+  </extension>
+  
+  <extension id="org.modelio.diagram.editor.bpmn.MutateBpmnTaskId" point="org.modelio.diagram.editor.toolregistry">
+    <creationtool id="CREATE_BPMNBUSINESSRULETASK" interactor="node" label="%BpmnBusinessRuleTask.label" tooltip="%BpmnBusinessRuleTask.tooltip" icon="icons/tools/businessruletask.png">
+      <context metaclass="Standard.BpmnBusinessRuleTask"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNTASK" interactor="node" label="%BpmnTask.label" tooltip="%BpmnTask.tooltip" icon="icons/tools/task.png">
+      <context metaclass="Standard.BpmnTask"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSENDTASK" interactor="node" label="%BpmnSendTask.label" tooltip="%BpmnSendTask.tooltip"  icon="icons/tools/sendtask.png">
+      <context metaclass="Standard.BpmnSendTask"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNRECEIVETASK" interactor="node" label="%BpmnReceiveTask.label" tooltip="%BpmnReceiveTask.tooltip" icon="icons/tools/receivetask.png">
+      <context metaclass="Standard.BpmnReceiveTask"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSERVICETASK" interactor="node" label="%BpmnServiceTask.label" tooltip="%BpmnServiceTask.tooltip" icon="icons/tools/servicetask.png">
+      <context metaclass="Standard.BpmnServiceTask"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNUSERTASK" interactor="node" label="%BpmnUserTask.label" tooltip="%BpmnUserTask.tooltip"  icon="icons/tools/usertask.png">
+      <context metaclass="Standard.BpmnUserTask"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNMANUALTASK" interactor="node" label="%BpmnManualTask.label" tooltip="%BpmnManualTask.tooltip"  icon="icons/tools/manualtask.png">
+      <context metaclass="Standard.BpmnManualTask"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSCRIPTTASK" interactor="node" label="%BpmnScriptTask.label" tooltip="%BpmnScriptTask.tooltip" icon="icons/tools/scripttask.png">
+      <context metaclass="Standard.BpmnScriptTask"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSEQUENCEFLOW" interactor="linkAndNode" label="%BpmnSequenceFlow.label" tooltip="%BpmnSequenceFlow.tooltip" icon="icons/tools/sequenceflow.png">
+      <context metaclass="Standard.BpmnSequenceFlow" router="BPMNSEQUENCEFLOW_ROUTINGMODE"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSTARTEVENT" interactor="point" label="%BpmnStartEvent.label" tooltip="%BpmnStartEvent.tooltip" icon="icons/tools/startevent.png" >
+      <context metaclass="Standard.BpmnStartEvent"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSTARTEVENT_COMPENSATE" interactor="point" label="%BpmnStartEvent.compensate.label" tooltip="%BpmnStartEvent.compensate.tooltip" icon="icons/tools/startevent_compensation.png" >
+      <context metaclass="Standard.BpmnStartEvent" >
+      	<property name="type" value="COMPENSATE"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSTARTEVENT_CONDITIONAL" interactor="point" label="%BpmnStartEvent.conditional.label" tooltip="%BpmnStartEvent.conditional.tooltip" icon="icons/tools/startevent_conditional.png" >
+      <context metaclass="Standard.BpmnStartEvent" >
+      	<property name="type" value="CONDITIONAL"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSTARTEVENT_ERROR" interactor="point" label="%BpmnStartEvent.error.label" tooltip="%BpmnStartEvent.error.tooltip" icon="icons/tools/startevent_error.png" >
+      <context metaclass="Standard.BpmnStartEvent" >
+      	<property name="type" value="ERROR"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSTARTEVENT_ESCALATION" interactor="point" label="%BpmnStartEvent.escalation.label" tooltip="%BpmnStartEvent.escalation.tooltip" icon="icons/tools/startevent_escalation.png" >
+      <context metaclass="Standard.BpmnStartEvent" >
+      	<property name="type" value="ESCALATION"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSTARTEVENT_MESSAGE" interactor="point" label="%BpmnStartEvent.message.label" tooltip="%BpmnStartEvent.message.tooltip" icon="icons/tools/startevent_message.png" >
+      <context metaclass="Standard.BpmnStartEvent" >
+      	<property name="type" value="MESSAGE"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSTARTEVENT_MULTIPLE" interactor="point" label="%BpmnStartEvent.multiple.label" tooltip="%BpmnStartEvent.multiple.tooltip" icon="icons/tools/startevent_multiple.png" >
+      <context metaclass="Standard.BpmnStartEvent" >
+      	<property name="type" value="MULTIPLE"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSTARTEVENT_SIGNAL" interactor="point" label="%BpmnStartEvent.signal.label" tooltip="%BpmnStartEvent.signal.tooltip" icon="icons/tools/startevent_signal.png" >
+      <context metaclass="Standard.BpmnStartEvent" >
+      	<property name="type" value="SIGNAL"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNSTARTEVENT_TIMER" interactor="point" label="%BpmnStartEvent.timer.label" tooltip="%BpmnStartEvent.timer.tooltip" icon="icons/tools/startevent_timer.png" >
+      <context metaclass="Standard.BpmnStartEvent" >
+      	<property name="type" value="TIMER"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINTERMEDIATECATCHEVENT" interactor="point" label="%BpmnIntermediateCatchEvent.label" tooltip="%BpmnIntermediateCatchEvent.tooltip" icon="icons/tools/catchevent.png" >
+      <context metaclass="Standard.BpmnIntermediateCatchEvent"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINTERMEDIATECATCHEVENT_CONDITIONAL" interactor="point" label="%BpmnIntermediateCatchEvent.conditional.label" tooltip="%BpmnIntermediateCatchEvent.conditional.tooltip" icon="icons/tools/catchevent_conditional.png">
+      <context metaclass="Standard.BpmnIntermediateCatchEvent">
+      	<property name="type" value="CONDITIONAL"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNINTERMEDIATECATCHEVENT_LINK" interactor="point" label="%BpmnIntermediateCatchEvent.link.label" tooltip="%BpmnIntermediateCatchEvent.link.tooltip" icon="icons/tools/catchevent_link.png">
+      <context metaclass="Standard.BpmnIntermediateCatchEvent">
+      	<property name="type" value="LINK"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINTERMEDIATECATCHEVENT_MESSAGE" interactor="point" label="%BpmnIntermediateCatchEvent.message.label" tooltip="%BpmnIntermediateCatchEvent.message.tooltip" icon="icons/tools/catchevent_message.png">
+      <context metaclass="Standard.BpmnIntermediateCatchEvent">
+      	<property name="type" value="MESSAGE"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNINTERMEDIATECATCHEVENT_MULTIPLE" interactor="point" label="%BpmnIntermediateCatchEvent.multiple.label" tooltip="%BpmnIntermediateCatchEvent.multiple.tooltip" icon="icons/tools/catchevent_multiple.png">
+      <context metaclass="Standard.BpmnIntermediateCatchEvent">
+      	<property name="type" value="MULTIPLE"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINTERMEDIATECATCHEVENT_SIGNAL" interactor="point" label="%BpmnIntermediateCatchEvent.signal.label" tooltip="%BpmnIntermediateCatchEvent.signal.tooltip" icon="icons/tools/catchevent_signal.png">
+      <context metaclass="Standard.BpmnIntermediateCatchEvent">
+      	<property name="type" value="SIGNAL"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNINTERMEDIATECATCHEVENT_TIMER" interactor="point" label="%BpmnIntermediateCatchEvent.timer.label" tooltip="%BpmnIntermediateCatchEvent.timer.tooltip" icon="icons/tools/catchevent_timer.png">
+      <context metaclass="Standard.BpmnIntermediateCatchEvent">
+      	<property name="type" value="TIMER"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINTERMEDIATETHROWEVENT" interactor="point" label="%BpmnIntermediateThrowEvent.label" tooltip="%BpmnIntermediateThrowEvent.tooltip" icon="icons/tools/throwevent.png">
+      <context metaclass="Standard.BpmnIntermediateThrowEvent"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINTERMEDIATETHROWEVENT_COMPENSATE" interactor="point" label="%BpmnIntermediateThrowEvent.compensate.label" tooltip="%BpmnIntermediateThrowEvent.compensate.tooltip" icon="icons/tools/throwevent_compensation.png">
+      <context metaclass="Standard.BpmnIntermediateThrowEvent">
+      	<property name="type" value="COMPENSATE"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINTERMEDIATETHROWEVENT_ESCALATION" interactor="point" label="%BpmnIntermediateThrowEvent.escalation.label" tooltip="%BpmnIntermediateThrowEvent.escalation.tooltip" icon="icons/tools/throwevent_escalation.png">
+      <context metaclass="Standard.BpmnIntermediateThrowEvent">
+      	<property name="type" value="ESCALATION"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINTERMEDIATETHROWEVENT_LINK" interactor="point" label="%BpmnIntermediateThrowEvent.link.label" tooltip="%BpmnIntermediateThrowEvent.link.tooltip" icon="icons/tools/throwevent_link.png">
+      <context metaclass="Standard.BpmnIntermediateThrowEvent">
+      	<property name="type" value="LINK"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINTERMEDIATETHROWEVENT_MESSAGE" interactor="point" label="%BpmnIntermediateThrowEvent.message.label" tooltip="%BpmnIntermediateThrowEvent.message.tooltip" icon="icons/tools/throwevent_message.png">
+      <context metaclass="Standard.BpmnIntermediateThrowEvent">
+      	<property name="type" value="MESSAGE"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINTERMEDIATETHROWEVENT_MULTIPLE" interactor="point" label="%BpmnIntermediateThrowEvent.multiple.label" tooltip="%BpmnIntermediateThrowEvent.multiple.tooltip" icon="icons/tools/throwevent_multiple.png">
+      <context metaclass="Standard.BpmnIntermediateThrowEvent">
+      	<property name="type" value="MULTIPLE"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINTERMEDIATETHROWEVENT_SIGNAL" interactor="point" label="%BpmnIntermediateThrowEvent.signal.label" tooltip="%BpmnIntermediateThrowEvent.signal.tooltip" icon="icons/tools/throwevent_signal.png">
+      <context metaclass="Standard.BpmnIntermediateThrowEvent">
+      	<property name="type" value="SIGNAL"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNBOUNDARYEVENT" interactor="point" label="%BpmnBoundaryEvent.label" tooltip="%BpmnBoundaryEvent.tooltip" icon="icons/tools/boundaryevent.png">
+      <context metaclass="Standard.BpmnBoundaryEvent"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNBOUNDARYEVENT_CANCEL" interactor="point" label="%BpmnBoundaryEvent.cancel.label" tooltip="%BpmnBoundaryEvent.cancel.tooltip" icon="icons/tools/boundaryevent_cancel.png">
+      <context metaclass="Standard.BpmnBoundaryEvent">
+      	<property name="type" value="CANCEL"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNBOUNDARYEVENT_COMPENSATE" interactor="point" label="%BpmnBoundaryEvent.compensate.label" tooltip="%BpmnBoundaryEvent.compensate.tooltip" icon="icons/tools/boundaryevent_compensation.png">
+      <context metaclass="Standard.BpmnBoundaryEvent">
+      	<property name="type" value="COMPENSATE"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNBOUNDARYEVENT_CONDITIONAL" interactor="point" label="%BpmnBoundaryEvent.conditional.label" tooltip="%BpmnBoundaryEvent.conditional.tooltip" icon="icons/tools/boundaryevent_conditional.png">
+      <context metaclass="Standard.BpmnBoundaryEvent">
+      	<property name="type" value="CONDITIONAL"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNBOUNDARYEVENT_ERROR" interactor="point" label="%BpmnBoundaryEvent.error.label" tooltip="%BpmnBoundaryEvent.error.tooltip" icon="icons/tools/boundaryevent_error.png">
+      <context metaclass="Standard.BpmnBoundaryEvent">
+      	<property name="type" value="ERROR"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNBOUNDARYEVENT_ESCALATION" interactor="point" label="%BpmnBoundaryEvent.escalation.label" tooltip="%BpmnBoundaryEvent.escalation.tooltip" icon="icons/tools/boundaryevent_escalation.png">
+      <context metaclass="Standard.BpmnBoundaryEvent">
+      	<property name="type" value="ESCALATION"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNBOUNDARYEVENT_MESSAGE" interactor="point" label="%BpmnBoundaryEvent.message.label" tooltip="%BpmnBoundaryEvent.message.tooltip" icon="icons/tools/boundaryevent_message.png">
+      <context metaclass="Standard.BpmnBoundaryEvent">
+      	<property name="type" value="MESSAGE"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNBOUNDARYEVENT_MULTIPLE" interactor="point" label="%BpmnBoundaryEvent.multiple.label" tooltip="%BpmnBoundaryEvent.multiple.tooltip" icon="icons/tools/boundaryevent_multiple.png">
+      <context metaclass="Standard.BpmnBoundaryEvent">
+      	<property name="type" value="MULTIPLE"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNBOUNDARYEVENT_SIGNAL" interactor="point" label="%BpmnBoundaryEvent.signal.label" tooltip="%BpmnBoundaryEvent.signal.tooltip" icon="icons/tools/boundaryevent_signal.png">
+      <context metaclass="Standard.BpmnBoundaryEvent">
+      	<property name="type" value="SIGNAL"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNBOUNDARYEVENT_TIMER" interactor="point" label="%BpmnBoundaryEvent.timer.label" tooltip="%BpmnBoundaryEvent.timer.tooltip" icon="icons/tools/boundaryevent_timer.png">
+      <context metaclass="Standard.BpmnBoundaryEvent">
+      	<property name="type" value="TIMER"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNENDEVENT" interactor="point" label="%BpmnEndEvent.label" tooltip="%BpmnEndEvent.tooltip" icon="icons/tools/endevent.png">
+      <context metaclass="Standard.BpmnEndEvent">
+      	<property name="type" value="NONE"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNENDEVENT_CANCEL" interactor="point" label="%BpmnEndEvent.cancel.label" tooltip="%BpmnEndEvent.cancel.tooltip" icon="icons/tools/endevent_cancel.png">
+      <context metaclass="Standard.BpmnEndEvent">
+      	<property name="type" value="CANCEL"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNENDEVENT_COMPENSATE" interactor="point" label="%BpmnEndEvent.compensate.label" tooltip="%BpmnEndEvent.compensate.tooltip" icon="icons/tools/endevent_compensation.png">
+      <context metaclass="Standard.BpmnEndEvent">
+      	<property name="type" value="COMPENSATE"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNENDEVENT_ERROR" interactor="point" label="%BpmnEndEvent.error.label" tooltip="%BpmnEndEvent.error.tooltip" icon="icons/tools/endevent_error.png">
+      <context metaclass="Standard.BpmnEndEvent">
+      	<property name="type" value="ERROR"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNENDEVENT_ESCALATION" interactor="point" label="%BpmnEndEvent.escalation.label" tooltip="%BpmnEndEvent.escalation.tooltip" icon="icons/tools/endevent_escalation.png">
+      <context metaclass="Standard.BpmnEndEvent">
+      	<property name="type" value="ESCALATION"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNENDEVENT_MESSAGE" interactor="point" label="%BpmnEndEvent.message.label" tooltip="%BpmnEndEvent.message.tooltip" icon="icons/tools/endevent_message.png">
+      <context metaclass="Standard.BpmnEndEvent">
+      	<property name="type" value="MESSAGE"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNENDEVENT_MULTIPLE" interactor="point" label="%BpmnEndEvent.multiple.label" tooltip="%BpmnEndEvent.multiple.tooltip" icon="icons/tools/endevent_multiple.png">
+      <context metaclass="Standard.BpmnEndEvent">
+      	<property name="type" value="MULTIPLE"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNENDEVENT_SIGNAL" interactor="point" label="%BpmnEndEvent.signal.label" tooltip="%BpmnEndEvent.signal.tooltip" icon="icons/tools/endevent_signal.png">
+      <context metaclass="Standard.BpmnEndEvent">
+      	<property name="type" value="SIGNAL"/>
+      </context>
+    </creationtool>    
+    <creationtool id="CREATE_BPMNENDEVENT_TERMINATE" interactor="point" label="%BpmnEndEvent.terminate.label" tooltip="%BpmnEndEvent.terminate.tooltip" icon="icons/tools/endevent_terminate.png">
+      <context metaclass="Standard.BpmnEndEvent">
+      	<property name="type" value="TERMINATE"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNEXCLUSIVEGATEWAY" interactor="point" label="%ExclusiveGateway.label" tooltip="%ExclusiveGateway.tooltip" icon="icons/tools/exclusivegateway.png">
+      <context metaclass="Standard.BpmnExclusiveGateway"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNINCLUSIVEGATEWAY" interactor="point" label="%InclusiveGateway.label" tooltip="%InclusiveGateway.tooltip" icon="icons/tools/inclusivegateway.png">
+      <context metaclass="Standard.BpmnInclusiveGateway"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNCOMPLEXGATEWAY" interactor="point" label="%ComplexGateway.label" tooltip="%ComplexGateway.tooltip" icon="icons/tools/complexgateway.png">
+      <context metaclass="Standard.BpmnComplexGateway"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNPARALLELGATEWAY" interactor="point" label="%ParallelGateway.label" tooltip="%ParallelGateway.tooltip" icon="icons/tools/parallelgateway.png">
+      <context metaclass="Standard.BpmnParallelGateway"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNEVENTBASEDGATEWAY" interactor="point" label="%EventBasedGateway.label" tooltip="%EventBasedGateway.tooltip" icon="icons/tools/eventbasedgateway.png">
+      <context metaclass="Standard.BpmnEventBasedGateway"/>
+    </creationtool>
+    <creationtool id="CREATE_SUBPROCESS" interactor="node" label="%BpmnSubProcess.label" tooltip="%BpmnSubProcess.tooltip" icon="icons/tools/subprocess.png">
+      <context metaclass="Standard.BpmnSubProcess"/>
+    </creationtool>
+    <creationtool id="CREATE_ADHOCSUBPROCESS" interactor="node" label="%BpmnAdHocSubProcess.label" tooltip="%BpmnAdHocSubProcess.tooltip" icon="icons/tools/adhocsubprocess.png">
+      <context metaclass="Standard.BpmnAdHocSubProcess"/>
+    </creationtool>
+    <creationtool id="CREATE_TRANSACTION" interactor="node" label="%BpmnTransaction.label" tooltip="%BpmnTransaction.tooltip" icon="icons/tools/transaction.png">
+      <context metaclass="Standard.BpmnTransaction"/>
+    </creationtool>
+    <creationtool id="CREATE_CALLACTIVITY" interactor="node" label="%BpmnCallActivity.label" tooltip="%BpmnCallActivity.tooltip" icon="icons/tools/callactivity.png">
+      <context metaclass="Standard.BpmnCallActivity"/>
+    </creationtool>
+    <creationtool id="CREATE_PARTICIPANT" interactor="node" label="%BpmnParticipant.label" tooltip="%BpmnParticipant.tooltip" icon="icons/tools/participant.png">
+      <context metaclass="Standard.BpmnParticipant">
+        <property name="kind" value="HORIZONTAL_CONTAINER"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_PROCESS" interactor="node" label="%BpmnProcess.label" tooltip="%BpmnProcess.tooltip" icon="icons/tools/process.png">
+      <context metaclass="Standard.BpmnProcess"/>
+    </creationtool>
+    <creationtool id="CREATE_LANE" interactor="node" label="%BpmnLane.label" tooltip="%BpmnLane.tooltip" icon="icons/tools/lane.png">>
+      <context metaclass="Standard.BpmnLane">
+        <property name="kind" value="INNER"/>
+      </context>
+    </creationtool>
+    <creationtool id="CREATE_BPMNMESSAGEFLOW" interactor="link" label="%BpmnMessageFlow.label" tooltip="%BpmnMessageFlow.tooltip" icon="icons/tools/messageflow.png">
+      <context metaclass="Standard.BpmnMessageFlow" router="BPMNMESSAGEFLOW_ROUTINGMODE"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNMESSAGE" interactor="linkedNode" label="%BpmnMessage.label" tooltip="%BpmnMessage.tooltip" icon="icons/tools/message.png">
+      <context metaclass="Standard.BpmnMessage"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNDATAINPUT" interactor="node" label="%BpmnDataInput.label" tooltip="%BpmnDataInput.tooltip" icon="icons/tools/datainput.png">
+      <context metaclass="Standard.BpmnDataInput"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNDATAASSOCIATION" interactor="linkAndNode" label="%BpmnDataAssociation.label" tooltip="%BpmnDataAssociation.tooltip" icon="icons/tools/dataassociation.png">
+      <context metaclass="Standard.BpmnDataAssociation" router="BPMNDATAASSOCIATION_ROUTINGMODE"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNDATAOUTPUT" interactor="node" label="%BpmnDataOutput.label" tooltip="%BpmnDataOutput.tooltip" icon="icons/tools/dataoutput.png">
+      <context metaclass="Standard.BpmnDataOutput"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNDATAOBJECT" interactor="point" label="%BpmnDataObject.label" tooltip="%BpmnDataObject.tooltip" icon="icons/tools/dataobject.png">
+      <context metaclass="Standard.BpmnDataObject"/>
+    </creationtool>
+    <creationtool id="CREATE_BPMNDATASTORE" interactor="point" label="%BpmnDataStore.label" tooltip="%BpmnDataStore.tooltip" icon="icons/tools/datastore.png">
+      <context metaclass="Standard.BpmnDataStore"/>
+    </creationtool>
+    
+    <!-- TODO temporary tools, created with bigger images. To be removed as soon as every diagram tool has a big image -->
+    <creationtool id="CREATE_NOTE_BIG" label="%Note.label" tooltip="%Note.tooltip"  interactor="linkedNode" icon="icons/tools/note.png">
+	    <context metaclass="Infrastructure.Note"/>
+    </creationtool>
+    <creationtool id="CREATE_EXTERNDOCUMENT_BIG" label="%Document.label" tooltip="%Document.tooltip"  interactor="linkedNode" icon="icons/tools/document.png">
+	    <context metaclass="Infrastructure.Document" />
+	</creationtool>
+    <creationtool id="CREATE_RELATED_DIAGRAM_LINK_BIG" label="%RelatedDiagramLink.label" tooltip="%RelatedDiagramLink.tooltip" interactor="linkedNode" icon="icons/tools/relateddiagramlink.png">
+	    <context metaclass="Infrastructure.Dependency" dependency="ModelElement.DependsOnDependency" stereotype="related_diagram" router="DEPENDENCY_ROUTINGMODE"/>
+    </creationtool>
+    <creationtool id="CREATE_DEPENDENCY_BIG" label="%Dependency.label" tooltip="%Dependency.tooltip" interactor="link" icon="icons/tools/dependency.png">
+	    <context metaclass="Infrastructure.Dependency" router="DEPENDENCY_ROUTINGMODE"/>
+    </creationtool>
+	<creationtool id="CREATE_TRACEABILITY_BIG" label="%Traceability.label" tooltip="%Traceability.tooltip" interactor="link" icon="icons/tools/traceability.png">
+		<context metaclass="Infrastructure.Dependency" stereotype="trace" router="DEPENDENCY_ROUTINGMODE" />
+	</creationtool>
+  </extension>
+  
+  <extension point="org.modelio.creation.wizard.contributor">
+    <creation categoryType = "%ContributorCategoryType.UML" categoryLabel = "%ContributorCategoryLabel.UML" categoryIcon = "./icons/uml.png" contributor="org.modelio.diagram.editor.bpmn.contributor.BpmnCollaborationDiagramCreationContributor"></creation>
+    <creation categoryType = "%ContributorCategoryType.UML" categoryLabel = "%ContributorCategoryLabel.UML" categoryIcon = "./icons/uml.png" contributor="org.modelio.diagram.editor.bpmn.contributor.BpmnProcessDesignDiagramCreationContributor"></creation>
+    <creation categoryType = "%ContributorCategoryType.UML" categoryLabel = "%ContributorCategoryLabel.UML" categoryIcon = "./icons/uml.png" contributor="org.modelio.diagram.editor.bpmn.contributor.BpmnSubProcessDiagramCreationContributor"></creation>
+  </extension>
+  
+  <extension name="BPMN drop extension" point="org.modelio.diagram.editor.droppolicy.extensions">
+    <droppolicyextension class="org.modelio.diagram.editor.bpmn.elements.diagrams.BpmnDiagramDropEditPolicyExtension">
+      <scope editorId="org.modelio.diagram.editor.bpmn.BpmnDiagramEditorID"/>
+    </droppolicyextension>
+  </extension>
+  
+  <extension point="org.modelio.diagram.editor.palette">
+    <palette id="org.modelio.diagram.editor.bpmn.BpmnProcessDesignDiagram.PaletteID">
+      <palette_group collapsible="false" label="main">
+        <selection_tool default="true"/>
+        <marquee_tool/>
+        <universal_link_tool/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Workflow" initialState="open">
+        <creation_tool id="CREATE_BPMNTASK"/>
+        <creation_tool id="CREATE_BPMNSENDTASK"/>
+        <creation_tool id="CREATE_BPMNRECEIVETASK"/>
+        <creation_tool id="CREATE_BPMNSERVICETASK"/>
+        <creation_tool id="CREATE_BPMNUSERTASK"/>
+        <creation_tool id="CREATE_BPMNMANUALTASK"/>
+        <creation_tool id="CREATE_BPMNSCRIPTTASK"/>
+        <creation_tool id="CREATE_BPMNBUSINESSRULETASK"/>
+        <creation_tool id="CREATE_SUBPROCESS"/>
+        <creation_tool id="CREATE_ADHOCSUBPROCESS"/>
+        <creation_tool id="CREATE_TRANSACTION"/>
+        <creation_tool id="CREATE_CALLACTIVITY"/>
+		<separator/>
+        <creation_tool id="CREATE_BPMNEXCLUSIVEGATEWAY"/>
+        <creation_tool id="CREATE_BPMNINCLUSIVEGATEWAY"/>
+        <creation_tool id="CREATE_BPMNCOMPLEXGATEWAY"/>
+        <creation_tool id="CREATE_BPMNPARALLELGATEWAY"/>
+        <creation_tool id="CREATE_BPMNEVENTBASEDGATEWAY"/>
+        <creation_tool id="CREATE_BPMNSEQUENCEFLOW"/>
+		<separator/>
+        <creation_tool id="CREATE_LANE"/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Data" initialState="open">
+        <creation_tool id="CREATE_BPMNDATAINPUT"/>
+        <creation_tool id="CREATE_BPMNDATAOUTPUT"/>
+        <creation_tool id="CREATE_BPMNDATAOBJECT"/>
+        <creation_tool id="CREATE_BPMNDATASTORE"/>
+        <creation_tool id="CREATE_BPMNDATAASSOCIATION"/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Event">
+        <creation_tool id="CREATE_BPMNSTARTEVENT"/>
+        <creation_tool id="CREATE_BPMNSTARTEVENT_MESSAGE" />
+        <creation_tool id="CREATE_BPMNSTARTEVENT_SIGNAL" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_CONDITIONAL" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_ESCALATION" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_TIMER" />
+	    <separator/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT"/>
+    	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_COMPENSATE" />
+    	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_ESCALATION" />
+    	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_LINK" />
+   	 	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_MESSAGE" />
+    	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_MULTIPLE" />
+   	 	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_SIGNAL" />
+        <separator/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_MESSAGE"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_SIGNAL"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_LINK"/>        
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_CONDITIONAL"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_TIMER"/>
+        <separator/>
+        <creation_tool id="CREATE_BPMNENDEVENT"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_MESSAGE"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_SIGNAL"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_TERMINATE"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_ERROR"/>        
+        <creation_tool id="CREATE_BPMNENDEVENT_CANCEL"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_COMPENSATE"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_ESCALATION"/>
+        <separator/>
+        <creation_tool id="CREATE_BPMNBOUNDARYEVENT"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_MESSAGE"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_SIGNAL"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_ERROR"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_CANCEL"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_TIMER"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_CONDITIONAL"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_COMPENSATE"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_ESCALATION"/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Annotations">
+        <creation_tool id="CREATE_NOTE_BIG"/>
+        <creation_tool id="CREATE_EXTERNDOCUMENT_BIG"/>
+        <creation_tool id="CREATE_DEPENDENCY_BIG"/>
+        <creation_tool id="CREATE_TRACEABILITY_BIG"/>
+        <creation_tool id="CREATE_RELATED_DIAGRAM_LINK_BIG"/>
+        <separator/>
+        <creation_tool id="CREATE_DRAWING_LINE"/>
+        <creation_tool id="CREATE_DRAWING_TEXT"/>
+        <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
+        <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+      </palette_group>
+    </palette>
+    
+    <palette id="org.modelio.diagram.editor.bpmn.BpmnSubProcessDiagram.PaletteID">
+      <palette_group collapsible="false" label="main">
+        <selection_tool default="true"/>
+        <marquee_tool/>
+        <universal_link_tool/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Workflow" initialState="open">
+        <creation_tool id="CREATE_BPMNTASK"/>
+        <creation_tool id="CREATE_BPMNSENDTASK"/>
+        <creation_tool id="CREATE_BPMNRECEIVETASK"/>
+        <creation_tool id="CREATE_BPMNSERVICETASK"/>
+        <creation_tool id="CREATE_BPMNUSERTASK"/>
+        <creation_tool id="CREATE_BPMNMANUALTASK"/>
+        <creation_tool id="CREATE_BPMNSCRIPTTASK"/>
+        <creation_tool id="CREATE_BPMNBUSINESSRULETASK"/>
+        <creation_tool id="CREATE_SUBPROCESS"/>
+        <creation_tool id="CREATE_ADHOCSUBPROCESS"/>
+        <creation_tool id="CREATE_TRANSACTION"/>
+        <creation_tool id="CREATE_CALLACTIVITY"/>
+        <separator/>
+        <creation_tool id="CREATE_BPMNEXCLUSIVEGATEWAY"/>
+        <creation_tool id="CREATE_BPMNINCLUSIVEGATEWAY"/>
+        <creation_tool id="CREATE_BPMNCOMPLEXGATEWAY"/>
+        <creation_tool id="CREATE_BPMNPARALLELGATEWAY"/>
+        <creation_tool id="CREATE_BPMNEVENTBASEDGATEWAY"/>
+        <creation_tool id="CREATE_BPMNSEQUENCEFLOW"/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Event">
+        <creation_tool id="CREATE_BPMNSTARTEVENT"/>
+        <creation_tool id="CREATE_BPMNSTARTEVENT_MESSAGE" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_SIGNAL" />        
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_CONDITIONAL" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_COMPENSATE" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_ESCALATION" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_TIMER" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_ERROR" />
+	    <separator/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_MESSAGE" />
+        <creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_SIGNAL" />
+        <creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_LINK" />
+    	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_COMPENSATE" />
+    	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_ESCALATION" />
+        <separator/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_MESSAGE"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_SIGNAL"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_LINK"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_CONDITIONAL"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_TIMER"/>
+        <separator/>
+        <creation_tool id="CREATE_BPMNENDEVENT"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_MESSAGE"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_SIGNAL"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_TERMINATE"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_ERROR"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_CANCEL"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_COMPENSATE"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_ESCALATION"/>
+        <separator/>
+        <creation_tool id="CREATE_BPMNBOUNDARYEVENT"/>
+   	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_MESSAGE"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_SIGNAL"/>
+        <creation_tool id="CREATE_BPMNBOUNDARYEVENT_ERROR"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_CANCEL"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_TIMER"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_CONDITIONAL"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_COMPENSATE"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_ESCALATION"/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Data">
+        <creation_tool id="CREATE_BPMNDATAINPUT"/>
+        <creation_tool id="CREATE_BPMNDATAOUTPUT"/>
+        <creation_tool id="CREATE_BPMNDATAOBJECT"/>
+        <creation_tool id="CREATE_BPMNDATASTORE"/>
+        <creation_tool id="CREATE_BPMNDATAASSOCIATION"/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Annotations">
+        <creation_tool id="CREATE_NOTE_BIG"/>
+        <creation_tool id="CREATE_EXTERNDOCUMENT_BIG"/>
+        <creation_tool id="CREATE_DEPENDENCY_BIG"/>
+        <creation_tool id="CREATE_TRACEABILITY_BIG"/>
+        <creation_tool id="CREATE_RELATED_DIAGRAM_LINK_BIG"/>
+      	<separator/>
+        <creation_tool id="CREATE_DRAWING_LINE"/>
+        <creation_tool id="CREATE_DRAWING_TEXT"/>
+        <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
+        <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+      </palette_group>
+    </palette>
+    <palette id="org.modelio.diagram.editor.bpmn.BpmnCollaborationDiagram.PaletteID">
+      <palette_group collapsible="false" label="main">
+        <selection_tool default="true"/>
+        <marquee_tool/>
+        <universal_link_tool/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Workflow" initialState="open">
+        <creation_tool id="CREATE_BPMNTASK"/>
+        <creation_tool id="CREATE_BPMNSENDTASK"/>
+        <creation_tool id="CREATE_BPMNRECEIVETASK"/>
+        <creation_tool id="CREATE_BPMNSERVICETASK"/>
+        <creation_tool id="CREATE_BPMNUSERTASK"/>
+        <creation_tool id="CREATE_BPMNMANUALTASK"/>
+        <creation_tool id="CREATE_BPMNSCRIPTTASK"/>
+        <creation_tool id="CREATE_BPMNBUSINESSRULETASK"/>
+        <creation_tool id="CREATE_SUBPROCESS"/>
+        <creation_tool id="CREATE_ADHOCSUBPROCESS"/>
+        <creation_tool id="CREATE_TRANSACTION"/>
+        <creation_tool id="CREATE_CALLACTIVITY"/>
+        <separator/>
+        <creation_tool id="CREATE_BPMNEXCLUSIVEGATEWAY"/>
+        <creation_tool id="CREATE_BPMNINCLUSIVEGATEWAY"/>
+        <creation_tool id="CREATE_BPMNCOMPLEXGATEWAY"/>
+        <creation_tool id="CREATE_BPMNPARALLELGATEWAY"/>
+        <creation_tool id="CREATE_BPMNEVENTBASEDGATEWAY"/>
+        <creation_tool id="CREATE_BPMNSEQUENCEFLOW"/>
+        <separator/>
+        <creation_tool id="CREATE_PARTICIPANT"/>
+        <creation_tool id="CREATE_PROCESS"/>
+        <creation_tool id="CREATE_LANE"/>
+        <creation_tool id="CREATE_BPMNMESSAGEFLOW"/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Event">
+        <creation_tool id="CREATE_BPMNSTARTEVENT"/>
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_CONDITIONAL" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_ESCALATION" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_MESSAGE" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_SIGNAL" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_TIMER" />
+	    <creation_tool id="CREATE_BPMNSTARTEVENT_MULTIPLE"/>
+	    <separator/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT"/>
+    	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_COMPENSATE" />
+    	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_ESCALATION" />
+    	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_LINK" />
+   	 	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_MESSAGE" />
+    	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_MULTIPLE" />
+   	 	<creation_tool id="CREATE_BPMNINTERMEDIATETHROWEVENT_SIGNAL" />
+        <separator/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_CONDITIONAL"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_LINK"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_MESSAGE"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_MULTIPLE"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_SIGNAL"/>
+        <creation_tool id="CREATE_BPMNINTERMEDIATECATCHEVENT_TIMER"/>
+        <separator/>
+        <creation_tool id="CREATE_BPMNENDEVENT"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_CANCEL"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_COMPENSATE"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_ERROR"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_ESCALATION"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_MESSAGE"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_MULTIPLE"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_SIGNAL"/>
+        <creation_tool id="CREATE_BPMNENDEVENT_TERMINATE"/>
+        <separator/>
+        <creation_tool id="CREATE_BPMNBOUNDARYEVENT"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_CANCEL"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_COMPENSATE"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_CONDITIONAL"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_ERROR"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_ESCALATION"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_MESSAGE"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_MULTIPLE"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_SIGNAL"/>
+	    <creation_tool id="CREATE_BPMNBOUNDARYEVENT_TIMER"/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Data">
+        <creation_tool id="CREATE_BPMNDATAINPUT"/>
+        <creation_tool id="CREATE_BPMNDATAOUTPUT"/>
+        <creation_tool id="CREATE_BPMNDATAOBJECT"/>
+        <creation_tool id="CREATE_BPMNDATASTORE"/>
+        <creation_tool id="CREATE_BPMNMESSAGE"/>
+        <creation_tool id="CREATE_BPMNDATAASSOCIATION"/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Annotations">
+        <creation_tool id="CREATE_NOTE_BIG"/>
+        <creation_tool id="CREATE_EXTERNDOCUMENT_BIG"/>
+        <creation_tool id="CREATE_DEPENDENCY_BIG"/>
+        <creation_tool id="CREATE_TRACEABILITY_BIG"/>
+        <creation_tool id="CREATE_RELATED_DIAGRAM_LINK_BIG"/>
+      	<separator/>
+        <creation_tool id="CREATE_DRAWING_LINE"/>
+        <creation_tool id="CREATE_DRAWING_TEXT"/>
+        <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
+        <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+      </palette_group>
+    </palette>
+    <palette id="org.modelio.diagram.editor.bpmn.BpmnCollaborationDiagram2.PaletteID">
+      <palette_group collapsible="false" label="main">
+        <selection_tool default="true"/>
+        <marquee_tool/>
+        <universal_link_tool/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Collaboration" initialState="open">
+        <creation_tool id="CREATE_PARTICIPANT"/>
+        <creation_tool id="CREATE_PROCESS"/>
+        <creation_tool id="CREATE_BPMNMESSAGEFLOW"/>
+        <creation_tool id="CREATE_BPMNMESSAGE"/>
+      </palette_group>
+      <palette_group label="%BPMNPaletteGroup.Annotations">
+        <creation_tool id="CREATE_NOTE_BIG"/>
+        <creation_tool id="CREATE_EXTERNDOCUMENT_BIG"/>
+        <creation_tool id="CREATE_DEPENDENCY_BIG"/>
+        <creation_tool id="CREATE_TRACEABILITY_BIG"/>
+        <creation_tool id="CREATE_RELATED_DIAGRAM_LINK_BIG"/>
+      	<separator/>
+        <creation_tool id="CREATE_DRAWING_LINE"/>
+        <creation_tool id="CREATE_DRAWING_TEXT"/>
+        <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
+        <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+      </palette_group>
+    </palette>
+  </extension>
+  <!-- Migration contribution that opens all diagrams on 3.6 - 3.7 migration -->
+  <extension point="org.modelio.app.project.core.services.IFragmentMigrationContributor">
+     <contributor
+           class="org.modelio.diagram.editor.bpmn.contributor.BpmnMmMigrationContributor">
+     </contributor>
+  </extension>
+  
+  <extension point="org.eclipse.core.expressions.definitions">
+    <definition id="org.modelio.diagram.editor.bpmn.corexp.is-opendiagramavailable">
+      <or>
+        <test property="org.modelio.diagram.editor.corexp.is-gmdiagramview"/>
+        <with variable="org.eclipse.ui.selection">
+          <iterate ifEmpty="false" operator="and">
+            <or>
+              <adapt type="org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant"/>
+              <adapt type="org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess"/>
+              <adapt type="org.modelio.metamodel.bpmn.activities.BpmnSubProcess"/>
+            </or>
+          </iterate>
+        </with>
+      </or>
+    </definition>
+  </extension>
+</plugin>

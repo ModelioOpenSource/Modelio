@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:signavio="http://www.signavio.com"
+             xmlns:inspire="http://bpminspire.com/bpmn2/extension/inspire"
+             xmlns:activiti="http://activiti.org/bpmn"
+             xmlns:adonis="http://www.boc-group.com"
+             xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             exporter="ADONIS"
+             exporterVersion="6.1.4.0"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.omg.org/bpmn20"
+             id="def_29535"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <process id="process_29535" name="A.3.0" isExecutable="false">
+      <extensionElements>
+         <adonis:modelattributes>
+            <adonis:attribute name="Name" type="STRING">A.3.0</adonis:attribute>
+         </adonis:modelattributes>
+      </extensionElements>
+      <laneSet id="laneSet_29535"/>
+      <startEvent name="Start Event" id="obj.29613">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <outgoing>con.29619</outgoing>
+      </startEvent>
+      <task name="Task 1" id="obj.29616" isForCompensation="false">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <incoming>con.29619</incoming>
+         <outgoing>con.29623</outgoing>
+         <ioSpecification>
+            <inputSet/>
+            <outputSet/>
+         </ioSpecification>
+      </task>
+      <subProcess name="Collapsed Sub-Process" id="obj.29620" isForCompensation="false">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <incoming>con.29623</incoming>
+         <outgoing>con.29627</outgoing>
+         <ioSpecification>
+            <inputSet/>
+            <outputSet/>
+         </ioSpecification>
+      </subProcess>
+      <task name="Task 2" id="obj.29624" isForCompensation="false">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <incoming>con.29627</incoming>
+         <outgoing>con.29631</outgoing>
+         <ioSpecification>
+            <inputSet/>
+            <outputSet/>
+         </ioSpecification>
+      </task>
+      <endEvent name="End Event 1" id="obj.29628">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <incoming>con.29631</incoming>
+         <incoming>con.29645</incoming>
+         <inputSet/>
+      </endEvent>
+      <boundaryEvent name="Boundary Intermediate Event Interrupting Escalation" id="obj.29632"
+                     cancelActivity="true"
+                     attachedToRef="obj.29620">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <outgoing>con.29649</outgoing>
+         <escalationEventDefinition id="escalationEventDefinition_obj.29632"/>
+      </boundaryEvent>
+      <boundaryEvent name="Boundary Intermediate Event Non-Interrupting Message" id="obj.29635"
+                     cancelActivity="false"
+                     attachedToRef="obj.29620">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <outgoing>con.29641</outgoing>
+         <messageEventDefinition/>
+      </boundaryEvent>
+      <task name="Task 3" id="obj.29638" isForCompensation="false">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <incoming>con.29641</incoming>
+         <outgoing>con.29645</outgoing>
+         <ioSpecification>
+            <inputSet/>
+            <outputSet/>
+         </ioSpecification>
+      </task>
+      <task name="Task 4" id="obj.29646" isForCompensation="false">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <incoming>con.29649</incoming>
+         <outgoing>con.29653</outgoing>
+         <ioSpecification>
+            <inputSet/>
+            <outputSet/>
+         </ioSpecification>
+      </task>
+      <endEvent name="End Event 2" id="obj.29650">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <incoming>con.29653</incoming>
+         <inputSet/>
+      </endEvent>
+      <sequenceFlow sourceRef="obj.29613" targetRef="obj.29616" name="" id="con.29619">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="obj.29616" targetRef="obj.29620" name="" id="con.29623">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="obj.29620" targetRef="obj.29624" name="" id="con.29627">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="obj.29624" targetRef="obj.29628" name="" id="con.29631">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="obj.29635" targetRef="obj.29638" name="" id="con.29641">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="obj.29638" targetRef="obj.29628" name="" id="con.29645">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="obj.29632" targetRef="obj.29646" name="" id="con.29649">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="obj.29646" targetRef="obj.29650" name="" id="con.29653">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+   </process>
+   <bpmndi:BPMNDiagram name="A.3.0" id="Diagram_29535">
+      <bpmndi:BPMNPlane id="BPMNPlane_29535" bpmnElement="process_29535">
+         <bpmndi:BPMNShape bpmnElement="obj.29613" id="BPMN_Shape_obj.29613">
+            <omgdc:Bounds width="53" height="53" x="49" y="144"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="obj.29616" id="BPMN_Shape_obj.29616">
+            <omgdc:Bounds height="57" width="106" x="155" y="142"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="obj.29620" isExpanded="true" id="BPMN_Shape_obj.29620">
+            <omgdc:Bounds height="95" width="106" x="306" y="123"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="obj.29624" id="BPMN_Shape_obj.29624">
+            <omgdc:Bounds height="57" width="106" x="476" y="142"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="obj.29628" id="BPMN_Shape_obj.29628">
+            <omgdc:Bounds width="53" height="53" x="635" y="144"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="obj.29632" id="BPMN_Shape_obj.29632">
+            <omgdc:Bounds width="53" height="53" x="370" y="181"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="obj.29635" id="BPMN_Shape_obj.29635">
+            <omgdc:Bounds width="53" height="53" x="370" y="87"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="obj.29638" id="BPMN_Shape_obj.29638">
+            <omgdc:Bounds height="57" width="106" x="476" y="9"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="obj.29646" id="BPMN_Shape_obj.29646">
+            <omgdc:Bounds height="57" width="106" x="476" y="255"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="obj.29650" id="BPMN_Shape_obj.29650">
+            <omgdc:Bounds width="53" height="53" x="635" y="257"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge id="BPMN_Edge_con.29619" bpmnElement="con.29619">
+            <omgdi:waypoint x="76" y="170"/>
+            <omgdi:waypoint x="208" y="170"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge_con.29623" bpmnElement="con.29623">
+            <omgdi:waypoint x="208" y="170"/>
+            <omgdi:waypoint x="359" y="170"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge_con.29627" bpmnElement="con.29627">
+            <omgdi:waypoint x="359" y="170"/>
+            <omgdi:waypoint x="529" y="170"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge_con.29631" bpmnElement="con.29631">
+            <omgdi:waypoint x="529" y="170"/>
+            <omgdi:waypoint x="662" y="170"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge_con.29641" bpmnElement="con.29641">
+            <omgdi:waypoint x="397" y="113"/>
+            <omgdi:waypoint x="397" y="38"/>
+            <omgdi:waypoint x="529" y="38"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge_con.29645" bpmnElement="con.29645">
+            <omgdi:waypoint x="529" y="38"/>
+            <omgdi:waypoint x="662" y="38"/>
+            <omgdi:waypoint x="662" y="170"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge_con.29649" bpmnElement="con.29649">
+            <omgdi:waypoint x="397" y="208"/>
+            <omgdi:waypoint x="397" y="283"/>
+            <omgdi:waypoint x="529" y="283"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge_con.29653" bpmnElement="con.29653">
+            <omgdi:waypoint x="529" y="283"/>
+            <omgdi:waypoint x="662" y="283"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+</definitions>

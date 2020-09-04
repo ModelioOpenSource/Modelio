@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<semantic:definitions id="definitionsA12" name="A.1.2" targetNamespace="http://www.trisotech.com/definitions/_1398204189821" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:trisofeed="http://trisotech.com/feed" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:rss="http://purl.org/rss/2.0/" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:service="http://www.w3schools.com/webservices" xmlns:miwg="http://www.omgwiki.org/bpmn-miwg">
+	<semantic:import importType="http://schemas.xmlsoap.org/wsdl/" location="http://www.w3schools.com/webservices/tempconvert.asmx?WSDL" namespace="http://www.w3schools.com/webservices"/>
+	<semantic:itemDefinition id="serviceInput" structureRef="service:CelsiusToFahrenheitSoapIn"/>
+	<semantic:itemDefinition id="serviceOutput" structureRef="service:CelsiusToFahrenheitSoapOut"/>
+	<semantic:resource name="Performer 1" id="resource_Performer_1"/>
+	<semantic:resource name="Performer 2" id="resource_Performer_2"/>
+	<semantic:message name="In Message" id="inMessage" itemRef="serviceInput"/>
+	<semantic:message name="Out Message" id="outMessage" itemRef="serviceOutput"/>
+	<semantic:interface id="serviceInterface" name="Service Interface" implementationRef="service:TempConvertSoap">
+		<semantic:operation id="operation1" name="Operation 1" implementationRef="service:CelsiusToFahrenheit">
+			<semantic:inMessageRef>inMessage</semantic:inMessageRef>
+			<semantic:outMessageRef>outMessage</semantic:outMessageRef>
+		</semantic:operation>
+	</semantic:interface>
+	<semantic:interface id="processInterface" name="Process Service Interface" implementationRef="miwg:startProcessService">
+		<semantic:operation id="startOperation" name="Start Operation" implementationRef="miwg:startProcess">
+			<semantic:inMessageRef>inMessage</semantic:inMessageRef>
+		</semantic:operation>
+	</semantic:interface>
+	<semantic:interface id="resultInterface" name="Send result Interface" implementationRef="miwg:receiveResultService">
+		<semantic:operation id="sendResultOperation" name="Send Result Operation" implementationRef="miwg:sendResultOperation">
+			<semantic:inMessageRef>outMessage</semantic:inMessageRef>
+		</semantic:operation>
+	</semantic:interface>
+	<semantic:process isExecutable="true" id="process1">
+    <semantic:ioSpecification>
+      <semantic:dataInput id="dataInputProcess" name="Data Input Process" itemSubjectRef="serviceInput"/>
+      <semantic:dataOutput id="dataOutputProcess" name="Data Output Process" itemSubjectRef="serviceOutput"/>
+      <semantic:inputSet>
+        <semantic:dataInputRefs>dataInputProcess</semantic:dataInputRefs>
+      </semantic:inputSet>
+      <semantic:outputSet>
+        <semantic:dataOutputRefs>dataOutputProcess</semantic:dataOutputRefs>
+      </semantic:outputSet>
+    </semantic:ioSpecification>
+		<semantic:dataObject isCollection="false" name="Data Object 1" id="dataObject1" itemSubjectRef="serviceInput"/>
+		<semantic:dataObject isCollection="false" name="Data Object 2" id="dataObject2" itemSubjectRef="serviceOutput"/>
+		<semantic:startEvent name="Start Event" id="startEvent">
+			<semantic:outgoing>_57dd58ed-7ab9-43e8-8d5c-e017940339a5</semantic:outgoing>
+			<semantic:dataOutput id="startEventDataOutput" name="Start Event Data Output" itemSubjectRef="serviceInput"/>
+			<semantic:dataOutputAssociation id="startEventDataOutputAssociation">
+				<semantic:sourceRef>startEventDataOutput</semantic:sourceRef>
+				<semantic:targetRef>dataInputProcess</semantic:targetRef>
+			</semantic:dataOutputAssociation>
+			<semantic:outputSet>
+				<semantic:dataOutputRefs>startEventDataOutput</semantic:dataOutputRefs>
+			</semantic:outputSet>
+			<semantic:messageEventDefinition messageRef="inMessage">
+				<semantic:operationRef>startOperation</semantic:operationRef>
+			</semantic:messageEventDefinition>
+		</semantic:startEvent>
+		<semantic:userTask implementation="##unspecified" completionQuantity="1" isForCompensation="false" startQuantity="1" name="Task 1" id="task1">
+			<semantic:incoming>_57dd58ed-7ab9-43e8-8d5c-e017940339a5</semantic:incoming>
+			<semantic:outgoing>_1a66ccd9-a80c-44bc-a06f-a684b8370443</semantic:outgoing>
+			<semantic:ioSpecification>
+				<semantic:dataInput id="dataInputTask1" name="Data Input Task 1" itemSubjectRef="serviceInput"/>
+				<semantic:dataOutput id="dataOutputTask1" name="Data Output Task 1" itemSubjectRef="serviceInput"/>
+				<semantic:inputSet>
+					<semantic:dataInputRefs>dataInputTask1</semantic:dataInputRefs>
+				</semantic:inputSet>
+				<semantic:outputSet>
+					<semantic:dataOutputRefs>dataOutputTask1</semantic:dataOutputRefs>
+				</semantic:outputSet>
+			</semantic:ioSpecification>
+      <semantic:dataInputAssociation id="dataInputAssociationTask1">
+        <semantic:sourceRef>dataInputProcess</semantic:sourceRef>
+        <semantic:targetRef>dataInputTask1</semantic:targetRef>
+      </semantic:dataInputAssociation>
+			<semantic:dataOutputAssociation id="dataOutputAssociationTask1">
+				<semantic:sourceRef>dataOutputTask1</semantic:sourceRef>
+				<semantic:targetRef>dataObject1Ref2</semantic:targetRef>
+			</semantic:dataOutputAssociation>
+			<semantic:performer>
+				<semantic:resourceRef>resource_Performer_1</semantic:resourceRef>
+			</semantic:performer>
+		</semantic:userTask>
+		<semantic:serviceTask implementation="##WebService" completionQuantity="1" isForCompensation="false" startQuantity="1" name="Task 2" id="task2" operationRef="operation1">
+			<semantic:incoming>_1a66ccd9-a80c-44bc-a06f-a684b8370443</semantic:incoming>
+			<semantic:outgoing>_725826e9-0e8b-4cb4-842b-e0279515d821</semantic:outgoing>
+			<semantic:ioSpecification>
+				<semantic:dataInput id="dataInputTask2" name="Data Input Task 2" itemSubjectRef="serviceInput"/>
+				<semantic:dataOutput id="dataOutputTask2" name="Data Output Task 2" itemSubjectRef="serviceOutput"/>
+				<semantic:inputSet>
+					<semantic:dataInputRefs>dataInputTask2</semantic:dataInputRefs>
+				</semantic:inputSet>
+				<semantic:outputSet>
+					<semantic:dataOutputRefs>dataOutputTask2</semantic:dataOutputRefs>
+				</semantic:outputSet>
+			</semantic:ioSpecification>
+			<semantic:dataInputAssociation id="dataInputAssociationTask2">
+				<semantic:sourceRef>dataObject1Ref2</semantic:sourceRef>
+				<semantic:targetRef>dataInputTask2</semantic:targetRef>
+			</semantic:dataInputAssociation>
+			<semantic:dataOutputAssociation id="dataOutputAssociationTask2">
+				<semantic:sourceRef>dataOutputTask2</semantic:sourceRef>
+				<semantic:targetRef>dataObject2Ref1</semantic:targetRef>
+			</semantic:dataOutputAssociation>
+		</semantic:serviceTask>
+		<semantic:userTask implementation="##unspecified" completionQuantity="1" isForCompensation="false" startQuantity="1" name="Task 3" id="task3">
+			<semantic:incoming>_725826e9-0e8b-4cb4-842b-e0279515d821</semantic:incoming>
+			<semantic:outgoing>_737085c4-8771-41e9-b30e-fa2668d0a481</semantic:outgoing>
+			<semantic:ioSpecification>
+				<semantic:dataInput id="dataInputTask3" name="Data Input Task 3" itemSubjectRef="serviceOutput"/>
+				<semantic:dataOutput id="dataOutputTask3" name="Data Output Task 3" itemSubjectRef="serviceOutput"/>
+				<semantic:inputSet>
+					<semantic:dataInputRefs>dataInputTask3</semantic:dataInputRefs>
+				</semantic:inputSet>
+				<semantic:outputSet>
+					<semantic:dataOutputRefs>dataOutputTask3</semantic:dataOutputRefs>
+				</semantic:outputSet>
+			</semantic:ioSpecification>
+			<semantic:dataInputAssociation id="dataInputAssociationTask3">
+				<semantic:sourceRef>dataObject2Ref1</semantic:sourceRef>
+				<semantic:targetRef>dataInputTask3</semantic:targetRef>
+			</semantic:dataInputAssociation>
+			<semantic:dataOutputAssociation id="dataOutputAssociationTask3">
+				<semantic:sourceRef>dataOutputTask3</semantic:sourceRef>
+				<semantic:targetRef>dataOutputProcess</semantic:targetRef>			
+			</semantic:dataOutputAssociation>
+			<semantic:performer>
+				<semantic:resourceRef>resource_Performer_2</semantic:resourceRef>
+			</semantic:performer>
+		</semantic:userTask>
+		<semantic:endEvent name="End Event" id="endEvent">
+			<semantic:incoming>_737085c4-8771-41e9-b30e-fa2668d0a481</semantic:incoming>
+			<semantic:dataInput id="endEventDataInput" name="End Event Data Input" itemSubjectRef="serviceOutput"/>
+			<semantic:dataInputAssociation id="endEventDataInputAssociation">
+        <semantic:sourceRef>dataOutputProcess</semantic:sourceRef>
+        <semantic:targetRef>endEventDataInput</semantic:targetRef>
+      </semantic:dataInputAssociation>
+      <semantic:inputSet>
+				<semantic:dataInputRefs>endEventDataInput</semantic:dataInputRefs>
+			</semantic:inputSet>
+			<semantic:messageEventDefinition messageRef="outMessage">
+				<semantic:operationRef>sendResultOperation</semantic:operationRef>
+			</semantic:messageEventDefinition>
+		</semantic:endEvent>
+		<semantic:dataObjectReference dataObjectRef="dataObject1" name="Data Object 1" id="dataObject1Ref1">
+      <semantic:dataState id="dataObject1Received" name="Received"/>
+    </semantic:dataObjectReference>
+    <semantic:dataObjectReference dataObjectRef="dataObject1" name="Data Object 1" id="dataObject1Ref2">
+      <semantic:dataState id="dataObject1Reviewed" name="Reviewed"/>
+    </semantic:dataObjectReference>
+		<semantic:dataObjectReference dataObjectRef="dataObject2" name="Data Object 2" id="dataObject2Ref1">
+      <semantic:dataState id="dataObject2Received" name="Received"/>
+    </semantic:dataObjectReference>
+		<semantic:dataObjectReference dataObjectRef="dataObject2" name="Data Object 2" id="dataObject2Ref2">
+      <semantic:dataState id="dataObject2Reviewed" name="Reviewed"/>
+    </semantic:dataObjectReference>
+    <semantic:sequenceFlow sourceRef="startEvent" targetRef="task1" name="" id="_57dd58ed-7ab9-43e8-8d5c-e017940339a5" isImmediate="true"/>
+		<semantic:sequenceFlow sourceRef="task1" targetRef="task2" name="" id="_1a66ccd9-a80c-44bc-a06f-a684b8370443" isImmediate="true"/>
+		<semantic:sequenceFlow sourceRef="task2" targetRef="task3" name="" id="_725826e9-0e8b-4cb4-842b-e0279515d821" isImmediate="true"/>
+		<semantic:sequenceFlow sourceRef="task3" targetRef="endEvent" name="" id="_737085c4-8771-41e9-b30e-fa2668d0a481" isImmediate="true"/>
+	</semantic:process>
+	<bpmndi:BPMNDiagram documentation="" id="diagramA12" name="A.1.2" resolution="96.00000267028808">
+		<bpmndi:BPMNPlane bpmnElement="process1">
+			<bpmndi:BPMNShape bpmnElement="startEvent" id="shape_startEvent">
+				<dc:Bounds height="30.0" width="30.0" x="201.0" y="336.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883">
+					<dc:Bounds height="12.804751171875008" width="94.93333333333335" x="168.67766754457273" y="371.3333333333333"/>
+				</bpmndi:BPMNLabel>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="task1" id="shape_task1">
+				<dc:Bounds height="68.0" width="83.0" x="267.0" y="317.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883">
+					<dc:Bounds height="12.804751171875008" width="72.48293963254594" x="272.3333333333333" y="344.5818763825664"/>
+				</bpmndi:BPMNLabel>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="task2" id="shape_task2">
+				<dc:Bounds height="68.0" width="83.0" x="386.0" y="317.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883">
+					<dc:Bounds height="12.804751171875008" width="72.48293963254594" x="391.3333333333333" y="344.5818763825664"/>
+				</bpmndi:BPMNLabel>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="task3" id="shape_task3">
+				<dc:Bounds height="68.0" width="83.0" x="505.0" y="317.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883">
+					<dc:Bounds height="12.804751171875008" width="72.48293963254594" x="510.3333333333333" y="344.5818763825664"/>
+				</bpmndi:BPMNLabel>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="endEvent" id="shape_endEvent">
+				<dc:Bounds height="32.0" width="32.0" x="625.0" y="335.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883">
+					<dc:Bounds height="12.804751171875004" width="105.60000000000001" x="588.2629921259844" y="372.3333333333333"/>
+				</bpmndi:BPMNLabel>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="dataObject1Ref1" id="S1398204189937_dataObject1Ref1">
+        <dc:Bounds height="38.0" width="30.0" x="200.0" y="216.0"/>
+        <bpmndi:BPMNLabel labelStyle="LS1398190038883">
+          <dc:Bounds height="12.804751171875004" width="105.60000000000001" x="150.31811023622043" y="257.0464433117003"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="dataObject1Ref2" id="S1398204189937_dataObject1Ref2">
+				<dc:Bounds height="38.0" width="30.0" x="345.0" y="216.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883">
+					<dc:Bounds height="12.804751171875004" width="105.60000000000001" x="307.31811023622043" y="257.0464433117003"/>
+				</bpmndi:BPMNLabel>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="dataObject2Ref1" id="S1398204189938_dataObject2Ref1">
+				<dc:Bounds height="38.0" width="30.0" x="492.0" y="216.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883">
+					<dc:Bounds height="12.804751171875004" width="105.60000000000001" x="454.31811023622043" y="257.04644331170033"/>
+				</bpmndi:BPMNLabel>
+			</bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="dataObject2Ref2" id="S1398204189937_dataObject2Ref2">
+        <dc:Bounds height="38.0" width="30.0" x="600.0" y="216.0"/>
+        <bpmndi:BPMNLabel labelStyle="LS1398190038883">
+          <dc:Bounds height="12.804751171875004" width="105.60000000000001" x="600.31811023622043" y="257.0464433117003"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="_737085c4-8771-41e9-b30e-fa2668d0a481" id="E1398204189944__737085c4-8771-41e9-b30e-fa2668d0a481">
+				<di:waypoint x="589.0" y="351.0"/>
+				<di:waypoint x="625.0" y="351.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="startEventDataOutputAssociation" sourceElement="shape_startEvent" targetElement="dataObject1Ref1" id="E1398204189946_startEventDataOutputAssociation">
+        <di:waypoint x="150.0" y="317.0"/>
+        <di:waypoint x="150.0" y="235.0"/>
+        <di:waypoint x="200.0" y="235.0"/>
+        <bpmndi:BPMNLabel labelStyle="LS1398190038883"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="dataOutputAssociationTask2" sourceElement="shape_task2" id="E1398204189945_dataOutputAssociationTask2">
+				<di:waypoint x="441.0" y="317.0"/>
+				<di:waypoint x="441.0" y="235.0"/>
+				<di:waypoint x="492.0" y="235.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="dataOutputAssociationTask1" sourceElement="shape_task1" id="E1398204189946_dataOutputAssociationTask1">
+        <di:waypoint x="308.0" y="317.0"/>
+        <di:waypoint x="308.0" y="235.0"/>
+        <di:waypoint x="345.0" y="235.0"/>
+        <bpmndi:BPMNLabel labelStyle="LS1398190038883"/>
+      </bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="_57dd58ed-7ab9-43e8-8d5c-e017940339a5" id="E1398204189947__57dd58ed-7ab9-43e8-8d5c-e017940339a5">
+				<di:waypoint x="231.0" y="351.0"/>
+				<di:waypoint x="267.0" y="351.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="dataInputAssociationTask3" targetElement="shape_task3" id="E1398204189948_dataInputAssociationTask3">
+				<di:waypoint x="522.0" y="235.0"/>
+				<di:waypoint x="560.0" y="235.0"/>
+				<di:waypoint x="560.0" y="317.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="dataInputAssociationTask2" targetElement="shape_task2" id="E1398204189949_dataInputAssociationTask2">
+				<di:waypoint x="375.0" y="235.0"/>
+				<di:waypoint x="414.0" y="235.0"/>
+				<di:waypoint x="414.0" y="317.0"/>
+				<bpmndi:BPMNLabel labelStyle="LS1398190038883"/>
+			</bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="endEventDataInputAssociation" targetElement="shape_endEvent" id="E1398204189949_endEventDataInputAssociation">
+        <di:waypoint x="550.0" y="235.0"/>
+        <di:waypoint x="600.0" y="235.0"/>
+        <di:waypoint x="600.0" y="317.0"/>
+        <bpmndi:BPMNLabel labelStyle="LS1398190038883"/>
+      </bpmndi:BPMNEdge>      
+			<bpmndi:BPMNEdge bpmnElement="_725826e9-0e8b-4cb4-842b-e0279515d821" id="E1398204189950__725826e9-0e8b-4cb4-842b-e0279515d821">
+				<di:waypoint x="469.0" y="351.0"/>
+				<di:waypoint x="505.0" y="351.0"/>
+				<bpmndi:BPMNLabel/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="_1a66ccd9-a80c-44bc-a06f-a684b8370443" id="E1398204189951__1a66ccd9-a80c-44bc-a06f-a684b8370443">
+				<di:waypoint x="350.0" y="351.0"/>
+				<di:waypoint x="386.0" y="351.0"/>
+				<bpmndi:BPMNLabel/>
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+		<bpmndi:BPMNLabelStyle id="LS1398190038883">
+			<dc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="8.0"/>
+		</bpmndi:BPMNLabelStyle>
+	</bpmndi:BPMNDiagram>
+</semantic:definitions>

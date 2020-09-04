@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_-tLWUIkYEeWbO4MnNK7ogg">
+  <imports xsi:type="menu:PopupMenu" xmi:id="_tBnbgJF5EeKahJnWyBbcxA" elementId="org.modelio.model.browser.view.popupmenu"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_COOjMJF6EeKahJnWyBbcxA" featurename="children" parentElementId="org.modelio.model.browser.view.popupmenu">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_O10V0JF6EeKahJnWyBbcxA" elementId="app.ramcs.package" label="%PackageRamc.label" iconURI="platform:/plugin/org.modelio.app.ramcs/icons/editramc.png" tooltip="%PackageRamc.tooltip" command="_dULc0JF6EeKahJnWyBbcxA">
+      <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_O10V0ZF6EeKahJnWyBbcxA" coreExpressionId="app.ramcs.test.package.id"/>
+    </elements>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_WJpIwJF6EeKahJnWyBbcxA" elementId="app.ramcs.createramc" label="%CreateRamc.label" iconURI="platform:/plugin/org.modelio.app.ramcs/icons/createramc.png" tooltip="%CreateRamc.tooltip" command="_eGhfwJF6EeKahJnWyBbcxA">
+      <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_WJpIwZF6EeKahJnWyBbcxA" coreExpressionId="app.ramcs.test.create.id"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ZX08AJF6EeKahJnWyBbcxA" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_dULc0JF6EeKahJnWyBbcxA" elementId="app.ramcs.command.packageramc" commandName="%PackageRamc.name" description="%PackageRamc.description"/>
+    <elements xsi:type="commands:Command" xmi:id="_eGhfwJF6EeKahJnWyBbcxA" elementId="app.ramcs.command.createramc" commandName="%CreateRamc.name" description="%CreateRamc.description"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_gAyNAJF6EeKahJnWyBbcxA" featurename="handlers" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Handler" xmi:id="_jkar0JF6EeKahJnWyBbcxA" elementId="app.ramcs.handler.packageramc" contributionURI="bundleclass://org.modelio.app.ramcs/org.modelio.app.ramcs.handlers.PackageRamcHandler" command="_dULc0JF6EeKahJnWyBbcxA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_kTQHwJF6EeKahJnWyBbcxA" elementId="app.ramcs.handler.createramc" contributionURI="bundleclass://org.modelio.app.ramcs/org.modelio.app.ramcs.handlers.CreateRamcHandler" command="_eGhfwJF6EeKahJnWyBbcxA"/>
+  </fragments>
+</fragment:ModelFragments>

@@ -1,0 +1,4 @@
+[warning 11:19:37]The ID of Pool Pool, _046bff4f-cea3-4512-a6b1-30517fb29f2c, is duplicated. Thus, a new ID, WFP-6-1, is generated and assigned.
+Model: Pool
+Diagram: A.4.0 > Element: Pool
+

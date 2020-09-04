@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension id="diagram.usecase" point="org.eclipse.e4.workbench.model">
+    <fragment uri="e4model/diagram_usecase_editor.e4xmi"/>
+    <processor beforefragment="true" class="org.modelio.diagram.editor.usecase.plugin.UseCaseProcessor"/>
+  </extension>
+  
+  <extension point="org.modelio.diagram.editor.inputprovider">
+    <inputprovider class="org.modelio.diagram.editor.usecase.editor.UseCaseDiagramEditorInputProvider"/>
+  </extension>
+  
+  <extension point="org.modelio.diagram.editor.toolregistry">
+    <creationtool id="CREATE_USECASE" interactor="node" label="%UseCase.label" tooltip="%UseCase.tooltip">
+      <context metaclass="Standard.UseCase"/>
+    </creationtool>
+    <creationtool id="CREATE_EXTENSIONPOINT" interactor="node" label="%ExtensionPoint.label" tooltip="%ExtensionPoint.tooltip">
+      <context metaclass="Standard.ExtensionPoint"/>
+    </creationtool>
+    <creationtool id="CREATE_USECASEDEPENDENCYINCLUDE" interactor="link" label="%UseCaseDependencyInclude.label" tooltip="%UseCaseDependencyInclude.tooltip">
+      <context metaclass="Standard.UseCaseDependency" stereotype="include" router="USECASEDEPENDENCY_ROUTINGMODE"/>
+    </creationtool>
+    <creationtool id="CREATE_USECASEDEPENDENCYEXTEND" interactor="link" label="%UseCaseDependencyExtend.label" tooltip="%UseCaseDependencyExtend.tooltip">
+      <context metaclass="Standard.UseCaseDependency" stereotype="extend" router="USECASEDEPENDENCY_ROUTINGMODE"></context>
+    </creationtool>
+    <creationtool id="CREATE_ACTOR" interactor="point" label="%Actor.label" tooltip="%Actor.tooltip">
+      <context metaclass="Standard.Actor"/>
+    </creationtool>
+    <creationtool id="CREATE_ACTORSECONDARY" interactor="point" label="%ActorSecondary.label" tooltip="%ActorSecondary.tooltip">
+      <context metaclass="Standard.Actor" stereotype="secondary"/>
+    </creationtool>
+    <creationtool id="CREATE_ACTORPRIMARY" interactor="point" label="%ActorPrimary.label" tooltip="%ActorPrimary.tooltip">
+      <context metaclass="Standard.Actor" stereotype="primary"/>
+    </creationtool>
+    <creationtool id="CREATE_ACTORSYSTEM" interactor="point" label="%ActorSystem.label" tooltip="%ActorSystem.tooltip">
+      <context metaclass="Standard.Actor" stereotype="system"/>
+    </creationtool>
+    <creationtool id="CREATE_COMMUNICATIONLINK" interactor="link" label="%CommunicationLink.label" tooltip="%CommunicationLink.tooltip" icon="icons/communicationlink.png">
+      <context metaclass="Standard.AssociationEnd" router="ASSOC_CONNECTIONROUTER"/>
+    </creationtool>
+  </extension>
+  
+  <extension point="org.modelio.creation.wizard.contributor">
+    <creation categoryType = "%ContributorCategoryType.UML" categoryLabel = "%ContributorCategoryLabel.UML" categoryIcon = "./icons/uml.png" contributor="org.modelio.diagram.editor.usecase.contributor.UseCaseDiagramCreationContributor"/>
+  </extension>
+  
+  <extension name="UseCase drop extension" point="org.modelio.diagram.editor.droppolicy.extensions">
+    <droppolicyextension class="org.modelio.diagram.editor.statik.editor.StaticDiagramDropEditPolicyExtension">
+      <scope editorId="org.modelio.diagram.editor.usecase.UseCaseDiagramEditorID"/>
+    </droppolicyextension>
+  </extension>
+  
+  <extension point="org.modelio.diagram.editor.palette">
+    <palette id="org.modelio.diagram.editor.usecase.UseCaseDiagramEditorID">
+      <palette_group collapsible="false" label="main">
+        <selection_tool default="true"/>
+        <marquee_tool/>
+        <universal_link_tool/>
+      </palette_group>
+      <palette_group label="%UseCasePaletteGroup.Nodes" initialState="open">
+        <creation_tool id="CREATE_ACTOR"/>
+        <creation_tool id="CREATE_ACTORPRIMARY"/>
+        <creation_tool id="CREATE_ACTORSECONDARY"/>
+        <creation_tool id="CREATE_USECASE"/>
+        <creation_tool id="CREATE_EXTENSIONPOINT"/>
+        <creation_tool id="CREATE_ATTRIBUTE"/>
+        <creation_tool id="CREATE_OPERATION"/>
+      </palette_group>
+      <palette_group label="%UseCasePaletteGroup.Links" initialState="open">
+        <creation_tool id="CREATE_COMMUNICATIONLINK"/>
+        <creation_tool id="CREATE_USECASEDEPENDENCYINCLUDE"/>
+        <creation_tool id="CREATE_USECASEDEPENDENCYEXTEND"/>
+        <creation_tool id="CREATE_GENERALIZATION"/>
+      </palette_group>
+      <palette_group label="%UseCasePaletteGroup.InformationFlow">
+        <creation_tool id="CREATE_INFORMATIONFLOW"/>
+        <creation_tool id="CREATE_INFORMATIONFLOWNODE"/>
+        <creation_tool id="CREATE_INFORMATIONITEM"/>
+      </palette_group>
+      <palette_group label="%UseCasePaletteGroup.Common">
+        <creation_tool id="CREATE_NOTE"/>
+        <creation_tool id="CREATE_CONSTRAINT"/>
+        <creation_tool id="CREATE_EXTERNDOCUMENT"/>
+        <creation_tool id="CREATE_DEPENDENCY"/>
+        <creation_tool id="CREATE_TRACEABILITY"/>
+        <creation_tool id="CREATE_RELATED_DIAGRAM_LINK"/>
+      </palette_group>
+      <palette_group label="%UseCasePaletteGroup.Drawings">
+        <creation_tool id="CREATE_DRAWING_LINE"/>
+        <creation_tool id="CREATE_DRAWING_TEXT"/>
+        <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
+        <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+      </palette_group>
+    </palette>
+  </extension>
+</plugin>

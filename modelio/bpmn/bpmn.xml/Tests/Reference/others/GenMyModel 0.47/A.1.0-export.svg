@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Arial" font-size="11" width="750" height="102">
+	<desc>BPMN2 diagram model</desc>
+	<g id="_9dmp4x8iEeW9keBtFZy97Q">
+		<defs>
+			<linearGradient id="greyGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#E5E5E5" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="packageGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#EFE9DE" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="EndEvent" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#E59492" stop-opacity="1" />
+				<stop offset="100%" stop-color="#F27572" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="StartEvent" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#60E496" stop-opacity="1" />
+				<stop offset="100%" stop-color="#31A761" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="TaskWidget" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#F5F7F9" stop-opacity="1" />
+				<stop offset="100%" stop-color="#D9EDF7" stop-opacity="1" />
+				
+			</linearGradient>
+			
+		</defs>
+		<g id="_-AonsAFQEDOhh5XY8MpSSg" transform="translate(82 12)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#StartEvent)" stroke="#216B3F" stroke-width="1.0" />
+			
+		</g>
+		<g id="_-UG9UAFQEDOhh5XY8MpSSg" transform="translate(172 2)">
+			<rect x="0" y="0" width="90" height="60" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<text y="23" text-anchor="middle" fill="#000000">
+				<tspan x="46" dy="11">Task 1</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_-6Bt0AFQEDOhh5XY8MpSSg" transform="translate(332 2)">
+			<rect x="0" y="0" width="90" height="60" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<text y="23" text-anchor="middle" fill="#000000">
+				<tspan x="46" dy="11">Task 2</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="__y4BYAFQEDOhh5XY8MpSSg" transform="translate(492 2)">
+			<rect x="0" y="0" width="90" height="60" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<text y="23" text-anchor="middle" fill="#000000">
+				<tspan x="46" dy="11">Task 3</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_AVvd4AFREDOhh5XY8MpSSg" transform="translate(642 12)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#EndEvent)" stroke="#C9302C" stroke-width="4.0" />
+			
+		</g>
+		<g id="_Dp2S8AFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="117,29 144,29" />
+			
+		</g>
+		<g id="_Dp2S8AFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="144,29 145,29" />
+			
+		</g>
+		<g id="_Dp2S8AFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="145,29 172,29" />
+			<g transform="translate(172,29)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_D1WYUAFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="262,32 297,32" />
+			
+		</g>
+		<g id="_D1WYUAFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="297,32 297,32" />
+			
+		</g>
+		<g id="_D1WYUAFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="297,32 332,32" />
+			<g transform="translate(332,32)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_ES86UAFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="422,32 457,32" />
+			
+		</g>
+		<g id="_ES86UAFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="457,32 457,32" />
+			
+		</g>
+		<g id="_ES86UAFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="457,32 492,32" />
+			<g transform="translate(492,32)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_FSu8UAFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="582,29 612,29" />
+			
+		</g>
+		<g id="_FSu8UAFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="612,29 612,29" />
+			
+		</g>
+		<g id="_FSu8UAFREDOhh5XY8MpSSg">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="612,29 642,29" />
+			<g transform="translate(642,29)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<text y="50" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="100" dy="11">Start Event</tspan>
+			
+		</text>
+		<text y="50" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="660" dy="11">End Event</tspan>
+			
+		</text>
+		<text y="31" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="170" dy="11"> </tspan>
+			
+		</text>
+		<text y="34" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="322" dy="11"> </tspan>
+			
+		</text>
+		<text y="34" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="482" dy="11"> </tspan>
+			
+		</text>
+		<text y="31" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="637" dy="11"> </tspan>
+			
+		</text>
+		
+	</g>
+	
+</svg>

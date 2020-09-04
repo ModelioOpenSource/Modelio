@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.examples.feature"
+      label="Nebula Examples View Feature"
+      version="1.0.4.201804011600"
+      provider-name="Eclipse Nebula">
+
+   <description url="%featureDescriptionURL">
+      %featureDescriptionText
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.examples"
+         download-size="190"
+         install-size="215"
+         version="1.0.4.201804011600"
+         unpack="false"/>
+
+</feature>

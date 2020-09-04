@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_ydEPgP9lEeaiOOi4kgEweQ">
+  <imports xsi:type="commands:Command" xmi:id="_oZPQYAQWEeep-6MQCrPPxw" elementId="org.modelio.creation.wizard.command.diagramcreation"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ab558Kj5EeKKC9R6FKgnOw" featurename="handlers" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Handler" xmi:id="_p14NgAQWEeep-6MQCrPPxw" elementId="org.modelio.creation.wizard.handler.diagram.creation" contributionURI="bundleclass://org.modelio.creation.wizard.ext/org.modelio.creation.wizard.ext.handler.DiagramCreationHandler" command="_oZPQYAQWEeep-6MQCrPPxw"/>
+  </fragments>
+</fragment:ModelFragments>

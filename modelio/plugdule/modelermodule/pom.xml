@@ -1,0 +1,15 @@
+<project xmlns:pom="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+    <!--Modelio Studio: This part of the file is generated and automatically updated, do not modify.-->
+    <groupId>org.modelio</groupId>
+    <artifactId>org.modelio.modelermodule</artifactId>
+    <version>9.0.6</version>
+    <!--Modelio Studio: Beyond this line the file is freely modifiable.-->
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.modelio</groupId>
+        <artifactId>modelio-parent</artifactId>
+        <version>3.8.0-SNAPSHOT</version>
+        <relativePath>../../..</relativePath>
+    </parent>
+    <packaging>eclipse-plugin</packaging>
+</project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- contextQualifierLength=14 -->
+<!-- contextQualifierLength=14 -->
+<feature
+      id="org.eclipse.emf"
+      label="%featureName"
+      version="2.9.0.v20130610-0406"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2002-2011 IBM Corporation and others.
+All rights reserved.   This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%ModelingUpdateSiteName" url="http://www.eclipse.org/modeling/updates/"/>
+      <discovery label="%ModelingUpdateSiteName" url="http://www.eclipse.org/modeling/updates/"/>
+   </url>
+
+   <includes
+         id="org.eclipse.emf.common"
+         version="2.9.0.v20130528-0742"/>
+
+   <includes
+         id="org.eclipse.emf.common.ui"
+         version="2.8.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.ecore"
+         version="2.9.0.v20130528-0742"/>
+
+   <includes
+         id="org.eclipse.emf.edit"
+         version="2.9.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.edit.ui"
+         version="2.9.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.ecore.edit"
+         version="2.8.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.ecore.editor"
+         version="2.9.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.codegen"
+         version="2.9.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.codegen.ui"
+         version="2.7.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.codegen.ecore"
+         version="2.9.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.codegen.ecore.ui"
+         version="2.9.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.converter"
+         version="2.9.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.databinding"
+         version="1.3.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.databinding.edit"
+         version="1.3.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.mapping"
+         version="2.7.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.mapping.ecore"
+         version="2.7.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.mapping.ui"
+         version="2.7.0.v20130610-0406"/>
+
+   <includes
+         id="org.eclipse.emf.mapping.ecore.editor"
+         version="2.8.0.v20130610-0406"/>
+
+   <plugin
+         id="org.eclipse.emf"
+         download-size="0"
+         install-size="0"
+         version="2.6.0.v20130610-0406"
+         unpack="false"/>
+
+</feature>

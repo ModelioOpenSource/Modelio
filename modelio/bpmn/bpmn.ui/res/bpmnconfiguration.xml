@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration id="BPMN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="auditconfiguration.xsd">
+	<Category id="BPMN">
+		<Rule id="R3080" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3080" />
+		<Rule id="R3090" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3090" />
+		<Rule id="R3100" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3100" />
+		<Rule id="R3110" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3110" />
+		<Rule id="R3120" severity="warning" status="enabled" class="org.modelio.bpmn.ui.audit.R3120" />		
+		<Rule id="R3130" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3130" />
+		<Rule id="R3140" severity="warning" status="enabled" class="org.modelio.bpmn.ui.audit.R3140" />
+		<Rule id="R3150" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3150" />
+		<Rule id="R3160" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3160" />
+		<Rule id="R3170" severity="warning" status="enabled" class="org.modelio.bpmn.ui.audit.R3170" />
+		<Rule id="R3180" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3180" />
+		<Rule id="R3190" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3190" />
+		<Rule id="R3200" severity="tip" status="enabled" class="org.modelio.bpmn.ui.audit.R3200" />
+		<Rule id="R3220" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3220" />
+		<Rule id="R3230" severity="warning" status="enabled" class="org.modelio.bpmn.ui.audit.R3230" />
+		<Rule id="R3240" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3240" />
+		<Rule id="R3250" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3250" />
+		<Rule id="R3270" severity="warning" status="enabled" class="org.modelio.bpmn.ui.audit.R3270" />
+		<Rule id="R3280" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3280" />
+		<Rule id="R3290" severity="error" status="enabled" class="org.modelio.bpmn.ui.audit.R3290" />
+		<Rule id="R3320" severity="tip" status="enabled" class="org.modelio.bpmn.ui.audit.R3320" />
+	</Category>
+</Configuration>

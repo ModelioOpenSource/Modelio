@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="id1"
+         point="org.eclipse.e4.workbench.model">
+   </extension>
+
+   <extension-point 
+      id="org.modelio.core.metamodelprovider" 
+      name="Modelio metamodel fragment provider" 
+      schema="schema/org.modelio.core.metamodelprovider.exsd"/>
+    
+</plugin>

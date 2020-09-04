@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_ErK-wIkZEeWbO4MnNK7ogg">
+  <imports xsi:type="menu:Menu" xmi:id="_7R2skJ0iEeKaydzfJ-iV-g" elementId="org.modelio.model.browser.view.popupmenu.interop.import"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_QFw7oIfNEeWj6a9oyLXySQ" featurename="handlers" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Handler" xmi:id="_n0RtcIfPEeWj6a9oyLXySQ" elementId="org.modelio.app.model.import.handler.modelimport" contributionURI="bundleclass://org.modelio.app.model.import/org.modelio.app.model.imp.handler.ModelImportHandler" command="_cbWQ4IfQEeWj6a9oyLXySQ"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_szNgkIkXEeWbO4MnNK7ogg" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_cbWQ4IfQEeWj6a9oyLXySQ" elementId="org.modelio.app.model.import.command.modelimport" commandName="%ModelImport.name" description="%ModelImport.description"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_4mercJ0iEeKaydzfJ-iV-g" featurename="children" parentElementId="org.modelio.model.browser.view.popupmenu.interop.import">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_6t9x8IkcEeWbO4MnNK7ogg" elementId="org.modelio.app.model.import.contribution.modelimport" label="%ModelImport.label" iconURI="platform:/plugin/org.modelio.app.model.import/icons/import_model.png" tooltip="%ModelImport.tooltip" command="_cbWQ4IfQEeWj6a9oyLXySQ">
+      <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_siRUML4HEeKa_Z5OvMh8Mw" coreExpressionId="app.model.import.test.modelimport.id"/>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.e4.workbench.model" id="modelContribution">
+		<fragment uri="e4model/xmi.e4xmi"></fragment> 
+	</extension>
+ <extension
+       point="org.modelio.app.preferencepages">
+    <page class="org.modelio.xmi.preferences.XmiPreferencesPage"
+          id="org.modelio.xmi.preferences.XmiPreferencesPage"
+          name="%xmiprefpage.name"
+          icon="icons/xmi.png" />
+ </extension>
+ <extension
+       point="org.eclipse.core.expressions.definitions">
+    <definition
+          id="xmi.definition.command.exportprofile">
+           <test property="xmi.test.exportprofile"/>
+    </definition>
+     <definition
+          id="xmi.definition.command.importprofile">
+           <test property="xmi.test.importprofile"/>
+    </definition>
+     <definition
+          id="xmi.definition.command.export">
+           <test property="xmi.test.export"/>
+    </definition>
+     <definition
+          id="xmi.definition.command.import">
+           <test property="xmi.test.import"/>
+    </definition>
+ </extension>
+ 
+  <extension
+        point="org.eclipse.core.expressions.propertyTesters">
+     <propertyTester
+           class="org.modelio.xmi.eclipse.properties.CommandVisiblePropertyTester"
+           id="xmi.propertyTester.updatevisible"
+           namespace="xmi.test"
+           properties="exportprofile,importprofile,export,import"
+           type="org.eclipse.jface.viewers.ISelection">
+     </propertyTester>
+  </extension>
+
+</plugin>

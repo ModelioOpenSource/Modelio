@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns2="http://www.ibm.com/bpm/Extensions" xmlns:ns3="http://www.omg.org/spec/DD/20100524/DI" xmlns:ns4="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:ns5="http://www.omg.org/spec/DD/20100524/DC" exporterVersion="2.0" exporter="http://www.ibm.com/WebSphere/bpm/BlueworksLive" targetNamespace="http://www.ibm.com/WebSphere/bpm/BlueworksLive/20000133fe77a5c-800002f4048b509" id="bpmn-2a75b3c2-b147-4fb3-aa55-18efb6d0b118" xmlns:res="http://www.ibm.com/WebSphere/bpm/BlueworksLive/Resources" xmlns:bwl0="http://www.ibm.com/WebSphere/bpm/BlueworksLive/Glossaries">
+    <import importType="http://www.omg.org/spec/BPMN/20100524/MODEL" location="../Glossaries.bpmn" namespace="http://www.ibm.com/WebSphere/bpm/BlueworksLive/Glossaries"/>
+    <import importType="http://www.omg.org/spec/BPMN/20100524/MODEL" location="../Resources.bpmn" namespace="http://www.ibm.com/WebSphere/bpm/BlueworksLive/Resources"/>
+    <process isExecutable="false" processType="Private" name="A.1.0" id="bpmn-e5938887-6804-41ef-867a-4e11f4a2343f">
+        <extensionElements>
+            <ns2:bpmAttributes>
+                <ns2:milestones id="bpmn-e60e0003-4aa3-4e32-8fac-732cd2904248">
+                    <ns2:milestone name="Milestone" id="bpmn-b95a9d0e-7a3d-45a7-b6e2-f59ac86c2580">
+                        <flowNodeRef>bpmn-5832868e-eb44-4a24-81e5-8901973d771f</flowNodeRef>
+                        <flowNodeRef>bpmn-6f761412-9760-48a1-84b1-6233af4c064a</flowNodeRef>
+                        <flowNodeRef>bpmn-30fc038b-538e-4b4d-84bd-5667883aa297</flowNodeRef>
+                        <flowNodeRef>bpmn-08c202d3-2ee5-4d55-81e3-f1451ac6cb83</flowNodeRef>
+                        <flowNodeRef>bpmn-88b627aa-e3fb-494e-b526-5c78e304b4d4</flowNodeRef>
+                    </ns2:milestone>
+                </ns2:milestones>
+                <ns2:properties/>
+            </ns2:bpmAttributes>
+        </extensionElements>
+        <laneSet id="bpmn-71c92a27-d59b-42eb-9226-28cdf4e98e9b"/>
+        <sequenceFlow targetRef="bpmn-6f761412-9760-48a1-84b1-6233af4c064a" sourceRef="bpmn-5832868e-eb44-4a24-81e5-8901973d771f" id="bpmn-902dbd2c-0960-499c-823d-7cca00eadbf6"/>
+        <sequenceFlow targetRef="bpmn-30fc038b-538e-4b4d-84bd-5667883aa297" sourceRef="bpmn-6f761412-9760-48a1-84b1-6233af4c064a" id="bpmn-7e42ef84-2342-4f29-8098-15245ee34434"/>
+        <sequenceFlow targetRef="bpmn-08c202d3-2ee5-4d55-81e3-f1451ac6cb83" sourceRef="bpmn-30fc038b-538e-4b4d-84bd-5667883aa297" id="bpmn-ad5b92e7-49b4-4d46-b2f3-c697e11e824e"/>
+        <sequenceFlow targetRef="bpmn-88b627aa-e3fb-494e-b526-5c78e304b4d4" sourceRef="bpmn-08c202d3-2ee5-4d55-81e3-f1451ac6cb83" id="bpmn-24bed86a-cbe4-4b05-b307-b399d64c3087"/>
+        <startEvent name="Start Event" id="bpmn-5832868e-eb44-4a24-81e5-8901973d771f"/>
+        <task name="Task 1" id="bpmn-6f761412-9760-48a1-84b1-6233af4c064a"/>
+        <task name="Task 2" id="bpmn-30fc038b-538e-4b4d-84bd-5667883aa297"/>
+        <task name="Task 3" id="bpmn-08c202d3-2ee5-4d55-81e3-f1451ac6cb83"/>
+        <endEvent name="End Event" id="bpmn-88b627aa-e3fb-494e-b526-5c78e304b4d4"/>
+    </process>
+</definitions>

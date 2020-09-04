@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.uml2.sdk"
+      label="%feature.label"
+      version="3.2.1.v201109082252"
+      provider-name="%feature.provider-name"
+      image="eclipse_update_120.jpg">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2003, 2011 IBM Corporation, Embarcadero Technologies, and others.
+All rights reserved.   This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%update.label" url="http://www.eclipse.org/modeling/updates/"/>
+      <discovery label="%update.label" url="http://www.eclipse.org/modeling/updates/"/>
+   </url>
+
+   <includes
+      id="org.eclipse.uml2"
+      version="3.2.1.v201109082252"/> 
+
+   <includes
+      id="org.eclipse.uml2.source"
+      version="3.2.1.v201109082252"/> 
+
+   <includes
+      id="org.eclipse.uml2.examples"
+      version="3.2.0.v201103291514"/> 
+
+   <includes
+      id="org.eclipse.uml2.doc"
+      version="3.2.0.v201103291514"/>
+
+</feature>

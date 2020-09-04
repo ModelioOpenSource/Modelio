@@ -1,0 +1,1739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by Process Modeler 6 SR1 for Microsoft Visio (http://www.itp-commerce.com)-->
+<definitions xmlns:camunda="http://activiti.org/bpmn" xmlns:signavio="http://www.signavio.com" xmlns:style="http://www.w4.eu/spec/DataComposer/20120927/Diagram/Style" xmlns:w4="http://www.w4.eu/spec/BPMN/20110701/MODEL" xmlns:w4graph="http://www.w4.eu/spec/BPMN/20110930/GRAPH" xmlns:xsd="http://www.w3.org/2001/XMLSchema" w4:version="1.0" targetNamespace="http://www.signavio.com/bpmn20" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:itp="http://www.itp-commerce.com/BPMN2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL schemas/BPMN20.xsd" exporter="Process Modeler 6 for Microsoft Visio" exporterVersion="6.2769.13758 SR1" name="sid-bdb880ac-c464-4e5c-aa56-569d709436e0" itp:creationDate="11.03.2015 17:02:10" itp:modificationDate="11.03.2015 17:05:52" itp:createdWithVersion="6.2769.13758 SR1" itp:conformanceSubClass="Full" id="sid-bdb880ac-c464-4e5c-aa56-569d709436e0" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0">
+  <message id="sid-328811a0-7f72-468f-92de-6ab19e353312" name="invoice-received-C.1.0">
+    <extensionElements>
+      <itp:systemDefinedAttributes>
+        <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+        <attribute name="ExternalId" type="String" value="sid-328811a0-7f72-468f-92de-6ab19e353312" />
+      </itp:systemDefinedAttributes>
+      <itp:localization default="unspecified">
+        <itp:label lang="unspecified">invoice-received-C.1.0</itp:label>
+      </itp:localization>
+    </extensionElements>
+  </message>
+  <collaboration id="sid-e5defbed-c12d-4c0a-9b5e-0f187e35ffd3">
+    <extensionElements>
+      <itp:systemDefinedAttributes>
+        <attribute name="ExternalId" type="String" value="sid-e5defbed-c12d-4c0a-9b5e-0f187e35ffd3" />
+      </itp:systemDefinedAttributes>
+      <w4graph:graphStyle>
+        <w4graph:basic background="0,0,0" foreground="0,0,0" autoResize="false" borderColor="255,255,255" collapsed="false" />
+        <w4graph:root gridVisible="true" snapToGrid="true" rulerVisible="true" snapToGuide="true" rulerUnit="Pixels">
+          <Grid spacing="15" color="230,230,230" />
+          <VerticalRuler />
+          <HorizontalRuler />
+        </w4graph:root>
+      </w4graph:graphStyle>
+    </extensionElements>
+    <participant id="_c5b99877-f696-47aa-b514-7b8037a5c022" name="Team-Assistant" processRef="sid-5FBB6CB3-8A7C-42B5-9024-15BB2684EC57">
+      <extensionElements>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Team-Assistant</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="rolle" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="192,192,192" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </participant>
+    <participant id="_4dcb780a-0dd2-4ee1-b3e2-711285d798f7" name="BPMN MIWG Test Case C.1.0" processRef="bpmn-miwg-test-case-c.1.0">
+      <extensionElements>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">BPMN MIWG Test Case C.1.0</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="rolle" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="192,192,192" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </participant>
+    <messageFlow id="sid-915AC9A0-CD35-4DF2-93F7-4535397622F8" sourceRef="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D" targetRef="reviewInvoice" messageRef="_b7a88070-7e90-410b-b050-7c279007336a">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-915AC9A0-CD35-4DF2-93F7-4535397622F8" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="153,153,153" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </messageFlow>
+    <messageFlow id="sid-AB6EB7C8-DF5E-42C2-88D0-FA166583AF15" sourceRef="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD" targetRef="assignApprover" messageRef="_ce1a44bb-b07b-4044-9e5e-5d62909516b4">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-AB6EB7C8-DF5E-42C2-88D0-FA166583AF15" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="153,153,153" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </messageFlow>
+    <messageFlow id="sid-7A070DED-8B83-48E1-88A1-5543C481E7BC" sourceRef="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF" targetRef="StartEvent_1" messageRef="_cefc9ed7-8ec7-4cbd-81eb-3dff468f4742">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-7A070DED-8B83-48E1-88A1-5543C481E7BC" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="153,153,153" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </messageFlow>
+    <messageFlow id="sid-90902E27-C1CD-4F90-A8F2-486DA4F42117" sourceRef="assignApprover" targetRef="sid-40EC6574-E644-425C-8CE7-EE384F0C3520" messageRef="_db71d2d7-bb75-4559-bae9-f7821bedae7f">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-90902E27-C1CD-4F90-A8F2-486DA4F42117" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="153,153,153" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </messageFlow>
+    <messageFlow id="sid-0518A412-1ED3-4CFD-A75C-69FF37EFFC16" sourceRef="reviewInvoice" targetRef="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D" messageRef="_57f268de-cf37-4583-8946-d7e266b7b028">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-0518A412-1ED3-4CFD-A75C-69FF37EFFC16" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="153,153,153" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </messageFlow>
+  </collaboration>
+  <process id="sid-5FBB6CB3-8A7C-42B5-9024-15BB2684EC57" name="Team-Assistant" processType="None" isClosed="true">
+    <extensionElements>
+      <itp:systemDefinedAttributes>
+        <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+        <attribute name="ExternalId" type="String" value="sid-5FBB6CB3-8A7C-42B5-9024-15BB2684EC57" />
+        <attribute name="QualityAnalysis" type="String">
+          <attribute name="KeyData" type="String">
+            <attribute name="ElementsCountKey" type="String" value="21" />
+            <attribute name="ErrorsKey" type="String" value="6" />
+            <attribute name="WarningsKey" type="String" value="0" />
+            <attribute name="InformationKey" type="String" value="0" />
+            <attribute name="MethodAndStyleKey" type="String" value="0" />
+            <attribute name="eCHKey" type="String" value="0" />
+            <attribute name="DescriptiveConformanceSubClassKey" type="String" value="17" />
+            <attribute name="AnalyticConformanceSubClassKey" type="String" value="21" />
+            <attribute name="ExecutableConformanceSubClassKey" type="String" value="17" />
+            <attribute name="StartEventsKey" type="String" value="1" />
+            <attribute name="ActivitiesKey" type="String" value="1" />
+            <attribute name="SubLevelsKey" type="String" value="0" />
+            <attribute name="GatewaysKey" type="String" value="1" />
+            <attribute name="GatesKey" type="String" value="0" />
+            <attribute name="BlackboxPoolsKey" type="String" value="1" />
+            <attribute name="UnlinkedSubProcessesKey" type="String" value="0" />
+            <attribute name="UnlinkedCallActivitiesKey" type="String" value="0" />
+            <attribute name="EndMessageEventsKey" type="String" value="1" />
+            <attribute name="TypedTasksKey" type="String" value="0" />
+            <attribute name="UntypedTasksKey" type="String" value="4" />
+            <attribute name="ReadingDataObjectsKey" type="String" value="0" />
+            <attribute name="WritingDataObjectsKey" type="String" value="0" />
+            <attribute name="UnnamedDataObjectsKey" type="String" value="0" />
+            <attribute name="UnnamedDataStoresKey" type="String" value="0" />
+            <attribute name="ActivitesWithoutRoleKey" type="String" value="0" />
+            <attribute name="TextAnnotationFlowElementRatioKey" type="String" value="0" />
+            <attribute name="OrComplexGatewaysKey" type="String" value="0" />
+            <attribute name="CollaborationTasksKey" type="String" value="0" />
+          </attribute>
+          <attribute name="ProcessAnalysis" type="String" value="70" />
+          <attribute name="ProcessExecution" type="String" value="62" />
+          <attribute name="DiagramInterchange" type="String" value="62" />
+          <attribute name="ProcessSimulation" type="String" value="71" />
+        </attribute>
+        <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+        <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+          <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+          <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+        </attribute>
+      </itp:systemDefinedAttributes>
+      <itp:localization default="unspecified">
+        <itp:label lang="unspecified">Team-Assistant</itp:label>
+      </itp:localization>
+      <w4graph:graphStyle>
+        <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+      </w4graph:graphStyle>
+    </extensionElements>
+    <laneSet id="sid-c6eca5e8-8b8f-4e42-b8d8-6b7e858672df">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="ExternalId" type="String" value="sid-c6eca5e8-8b8f-4e42-b8d8-6b7e858672df" />
+        </itp:systemDefinedAttributes>
+      </extensionElements>
+      <lane id="sid-744AEFB3-C93D-46A3-8976-EFA91784A51F">
+        <extensionElements>
+          <itp:systemDefinedAttributes>
+            <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+            <attribute name="ExternalId" type="String" value="sid-744AEFB3-C93D-46A3-8976-EFA91784A51F" />
+          </itp:systemDefinedAttributes>
+          <itp:localization default="unspecified">
+            <itp:label lang="unspecified">
+            </itp:label>
+          </itp:localization>
+          <signavio:signavioMetaData metaKey="bgcolor" metaValue="" />
+          <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+          <w4graph:graphStyle>
+            <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          </w4graph:graphStyle>
+        </extensionElements>
+        <flowNodeRef>sid-36EA43D1-0FE6-4197-AC57-7A43785B784B</flowNodeRef>
+        <flowNodeRef>sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF</flowNodeRef>
+        <flowNodeRef>sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44</flowNodeRef>
+        <flowNodeRef>sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D</flowNodeRef>
+        <flowNodeRef>sid-40EC6574-E644-425C-8CE7-EE384F0C3520</flowNodeRef>
+        <flowNodeRef>sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD</flowNodeRef>
+        <flowNodeRef>sid-F0D29912-929D-491C-8D23-73BD80CF980A</flowNodeRef>
+        <flowNodeRef>sid-B548B980-12E3-408E-9AC4-7031B85A8F2D</flowNodeRef>
+        <flowNodeRef>sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D</flowNodeRef>
+        <flowNodeRef>sid-0E349B8B-14A7-4565-988A-38F3A9B624D2</flowNodeRef>
+        <flowNodeRef>sid-282524E6-660F-431D-8F19-1C3E9E9DE817</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B" name="Invoice&#xD;&#xA;received">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Invoice
+received</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="109,183,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <outgoing>sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF</outgoing>
+      <messageEventDefinition id="sid-7f89416b-58ec-4e26-b9bc-390f9e8f2ae0">
+        <extensionElements>
+          <itp:systemDefinedAttributes>
+            <attribute name="ExternalId" type="String" value="sid-7f89416b-58ec-4e26-b9bc-390f9e8f2ae0" />
+          </itp:systemDefinedAttributes>
+        </extensionElements>
+      </messageEventDefinition>
+    </startEvent>
+    <task id="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF" name="Scan Invoice">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Scan Invoice</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="adaptereventtype" metaValue="" />
+        <signavio:signavioMetaData metaKey="documentationlink" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="test" metaValue="" />
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue="" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue="" />
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue="" />
+        <signavio:signavioMetaData metaKey="servicereferenz" metaValue="" />
+        <signavio:signavioMetaData metaKey="risiko" metaValue="" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="riskandcontrols" metaValue="" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF</incoming>
+      <outgoing>sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96</outgoing>
+    </task>
+    <task id="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44" name="Archive&#xD;&#xA;original">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Archive
+original</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="adaptereventtype" metaValue="" />
+        <signavio:signavioMetaData metaKey="documentationlink" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="test" metaValue="" />
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue="" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue="" />
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue="" />
+        <signavio:signavioMetaData metaKey="servicereferenz" metaValue="" />
+        <signavio:signavioMetaData metaKey="risiko" metaValue="" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="riskandcontrols" metaValue="" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96</incoming>
+      <outgoing>sid-C0540F47-C3C0-4FA8-B000-6D87640A6178</outgoing>
+    </task>
+    <endEvent id="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="190,0,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sid-3019478F-48D5-4B85-95B1-E192B9BE4183</incoming>
+    </endEvent>
+    <intermediateCatchEvent id="sid-40EC6574-E644-425C-8CE7-EE384F0C3520" name="Approver to &#xD;&#xA;be assigned">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-40EC6574-E644-425C-8CE7-EE384F0C3520" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Approver to 
+be assigned</itp:label>
+        </itp:localization>
+        <signavio:signavioLabel ref="text_name" valign="bottom" x="16.0" y="-8.0" />
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="41,83,231" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sid-C0540F47-C3C0-4FA8-B000-6D87640A6178</incoming>
+      <outgoing>sid-4AD2006C-9290-42B0-A904-DD8076B791C4</outgoing>
+      <messageEventDefinition id="sid-29fbb68c-e460-48c1-bba9-a1b16906afec">
+        <extensionElements>
+          <itp:systemDefinedAttributes>
+            <attribute name="ExternalId" type="String" value="sid-29fbb68c-e460-48c1-bba9-a1b16906afec" />
+          </itp:systemDefinedAttributes>
+        </extensionElements>
+      </messageEventDefinition>
+    </intermediateCatchEvent>
+    <task id="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD" name="Assign approver">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Assign approver</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="adaptereventtype" metaValue="" />
+        <signavio:signavioMetaData metaKey="documentationlink" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="test" metaValue="" />
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue="" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue="" />
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue="" />
+        <signavio:signavioMetaData metaKey="servicereferenz" metaValue="" />
+        <signavio:signavioMetaData metaKey="risiko" metaValue="" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="riskandcontrols" metaValue="" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sid-4AD2006C-9290-42B0-A904-DD8076B791C4</incoming>
+      <outgoing>sid-26030150-7369-4B7F-8264-B3ABC62BA735</outgoing>
+    </task>
+    <eventBasedGateway id="sid-F0D29912-929D-491C-8D23-73BD80CF980A" gatewayDirection="Diverging">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-F0D29912-929D-491C-8D23-73BD80CF980A" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="185,139,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sid-26030150-7369-4B7F-8264-B3ABC62BA735</incoming>
+      <outgoing>sid-71EF9530-A32A-49BC-A783-9B98A5801362</outgoing>
+      <outgoing>sid-4686AFBC-E33A-4657-95A0-B2E27E704152</outgoing>
+    </eventBasedGateway>
+    <intermediateCatchEvent id="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D" name="Invoice review&#xD;&#xA; needed">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Invoice review
+ needed</itp:label>
+        </itp:localization>
+        <signavio:signavioLabel ref="text_name" valign="bottom" x="16.0" y="-8.0" />
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="41,83,231" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sid-4686AFBC-E33A-4657-95A0-B2E27E704152</incoming>
+      <outgoing>sid-D03CC374-8575-4F38-98B4-4DFF014C43CB</outgoing>
+      <messageEventDefinition id="sid-b9aae81c-0006-46ad-9445-89307e8eeed8">
+        <extensionElements>
+          <itp:systemDefinedAttributes>
+            <attribute name="ExternalId" type="String" value="sid-b9aae81c-0006-46ad-9445-89307e8eeed8" />
+          </itp:systemDefinedAttributes>
+        </extensionElements>
+      </messageEventDefinition>
+    </intermediateCatchEvent>
+    <task id="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D" name="Review and document result">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Review and document result</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="adaptereventtype" metaValue="" />
+        <signavio:signavioMetaData metaKey="documentationlink" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="test" metaValue="" />
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue="" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue="" />
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue="" />
+        <signavio:signavioMetaData metaKey="servicereferenz" metaValue="" />
+        <signavio:signavioMetaData metaKey="risiko" metaValue="" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="riskandcontrols" metaValue="" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sid-D03CC374-8575-4F38-98B4-4DFF014C43CB</incoming>
+      <outgoing>sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1</outgoing>
+    </task>
+    <intermediateCatchEvent id="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2" name="7 days">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">7 days</itp:label>
+        </itp:localization>
+        <signavio:signavioLabel ref="text_name" valign="bottom" x="16.0" y="-8.0" />
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="41,83,231" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sid-71EF9530-A32A-49BC-A783-9B98A5801362</incoming>
+      <outgoing>sid-3019478F-48D5-4B85-95B1-E192B9BE4183</outgoing>
+      <timerEventDefinition id="sid-6517379a-613c-497d-81cc-b710878d9ebb">
+        <extensionElements>
+          <itp:systemDefinedAttributes>
+            <attribute name="ExternalId" type="String" value="sid-6517379a-613c-497d-81cc-b710878d9ebb" />
+          </itp:systemDefinedAttributes>
+        </extensionElements>
+      </timerEventDefinition>
+    </intermediateCatchEvent>
+    <endEvent id="sid-282524E6-660F-431D-8F19-1C3E9E9DE817">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-282524E6-660F-431D-8F19-1C3E9E9DE817" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="190,0,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1</incoming>
+    </endEvent>
+    <sequenceFlow id="sid-71EF9530-A32A-49BC-A783-9B98A5801362" sourceRef="sid-F0D29912-929D-491C-8D23-73BD80CF980A" targetRef="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-71EF9530-A32A-49BC-A783-9B98A5801362" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-C0540F47-C3C0-4FA8-B000-6D87640A6178" sourceRef="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44" targetRef="sid-40EC6574-E644-425C-8CE7-EE384F0C3520">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-C0540F47-C3C0-4FA8-B000-6D87640A6178" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-4AD2006C-9290-42B0-A904-DD8076B791C4" sourceRef="sid-40EC6574-E644-425C-8CE7-EE384F0C3520" targetRef="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-4AD2006C-9290-42B0-A904-DD8076B791C4" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96" sourceRef="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF" targetRef="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-4686AFBC-E33A-4657-95A0-B2E27E704152" sourceRef="sid-F0D29912-929D-491C-8D23-73BD80CF980A" targetRef="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-4686AFBC-E33A-4657-95A0-B2E27E704152" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1" sourceRef="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D" targetRef="sid-282524E6-660F-431D-8F19-1C3E9E9DE817">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-D03CC374-8575-4F38-98B4-4DFF014C43CB" sourceRef="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D" targetRef="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-D03CC374-8575-4F38-98B4-4DFF014C43CB" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-3019478F-48D5-4B85-95B1-E192B9BE4183" sourceRef="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2" targetRef="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-3019478F-48D5-4B85-95B1-E192B9BE4183" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-26030150-7369-4B7F-8264-B3ABC62BA735" sourceRef="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD" targetRef="sid-F0D29912-929D-491C-8D23-73BD80CF980A">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-26030150-7369-4B7F-8264-B3ABC62BA735" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF" sourceRef="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B" targetRef="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+  </process>
+  <process id="bpmn-miwg-test-case-c.1.0" name="BPMN MIWG Test Case C.1.0" processType="None" isExecutable="true" isClosed="true">
+    <extensionElements>
+      <itp:systemDefinedAttributes>
+        <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+        <attribute name="ExternalId" type="String" value="bpmn-miwg-test-case-c.1.0" />
+        <attribute name="QualityAnalysis" type="String">
+          <attribute name="KeyData" type="String">
+            <attribute name="ElementsCountKey" type="String" value="20" />
+            <attribute name="ErrorsKey" type="String" value="5" />
+            <attribute name="WarningsKey" type="String" value="0" />
+            <attribute name="InformationKey" type="String" value="0" />
+            <attribute name="MethodAndStyleKey" type="String" value="0" />
+            <attribute name="eCHKey" type="String" value="0" />
+            <attribute name="DescriptiveConformanceSubClassKey" type="String" value="20" />
+            <attribute name="AnalyticConformanceSubClassKey" type="String" value="20" />
+            <attribute name="ExecutableConformanceSubClassKey" type="String" value="20" />
+            <attribute name="StartEventsKey" type="String" value="1" />
+            <attribute name="ActivitiesKey" type="String" value="0" />
+            <attribute name="SubLevelsKey" type="String" value="0" />
+            <attribute name="GatewaysKey" type="String" value="2" />
+            <attribute name="GatesKey" type="String" value="0" />
+            <attribute name="BlackboxPoolsKey" type="String" value="1" />
+            <attribute name="UnlinkedSubProcessesKey" type="String" value="0" />
+            <attribute name="UnlinkedCallActivitiesKey" type="String" value="0" />
+            <attribute name="EndMessageEventsKey" type="String" value="1" />
+            <attribute name="TypedTasksKey" type="String" value="5" />
+            <attribute name="UntypedTasksKey" type="String" value="0" />
+            <attribute name="ReadingDataObjectsKey" type="String" value="0" />
+            <attribute name="WritingDataObjectsKey" type="String" value="0" />
+            <attribute name="UnnamedDataObjectsKey" type="String" value="0" />
+            <attribute name="UnnamedDataStoresKey" type="String" value="0" />
+            <attribute name="ActivitesWithoutRoleKey" type="String" value="0" />
+            <attribute name="TextAnnotationFlowElementRatioKey" type="String" value="0" />
+            <attribute name="OrComplexGatewaysKey" type="String" value="0" />
+            <attribute name="CollaborationTasksKey" type="String" value="0" />
+          </attribute>
+          <attribute name="ProcessAnalysis" type="String" value="72" />
+          <attribute name="ProcessExecution" type="String" value="73" />
+          <attribute name="DiagramInterchange" type="String" value="73" />
+          <attribute name="ProcessSimulation" type="String" value="73" />
+        </attribute>
+        <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+        <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+          <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+          <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+        </attribute>
+      </itp:systemDefinedAttributes>
+      <itp:localization default="unspecified">
+        <itp:label lang="unspecified">BPMN MIWG Test Case C.1.0</itp:label>
+      </itp:localization>
+      <w4graph:graphStyle>
+        <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+      </w4graph:graphStyle>
+    </extensionElements>
+    <laneSet id="sid-499dfba4-1449-4914-9e85-55b252800bad">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="ExternalId" type="String" value="sid-499dfba4-1449-4914-9e85-55b252800bad" />
+        </itp:systemDefinedAttributes>
+      </extensionElements>
+      <lane id="Approver" name="Approver">
+        <extensionElements>
+          <itp:systemDefinedAttributes>
+            <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+            <attribute name="ExternalId" type="String" value="Approver" />
+          </itp:systemDefinedAttributes>
+          <itp:localization default="unspecified">
+            <itp:label lang="unspecified">Approver</itp:label>
+          </itp:localization>
+          <signavio:signavioMetaData metaKey="bgcolor" metaValue="" />
+          <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+          <w4graph:graphStyle>
+            <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          </w4graph:graphStyle>
+        </extensionElements>
+        <flowNodeRef>approveInvoice</flowNodeRef>
+        <flowNodeRef>invoice_approved</flowNodeRef>
+      </lane>
+      <lane id="teamAssistant" name="Team Assistant">
+        <extensionElements>
+          <itp:systemDefinedAttributes>
+            <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+            <attribute name="ExternalId" type="String" value="teamAssistant" />
+          </itp:systemDefinedAttributes>
+          <itp:localization default="unspecified">
+            <itp:label lang="unspecified">Team Assistant</itp:label>
+          </itp:localization>
+          <signavio:signavioMetaData metaKey="bgcolor" metaValue="" />
+          <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+          <w4graph:graphStyle>
+            <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          </w4graph:graphStyle>
+        </extensionElements>
+        <flowNodeRef>assignApprover</flowNodeRef>
+        <flowNodeRef>reviewInvoice</flowNodeRef>
+        <flowNodeRef>reviewSuccessful_gw</flowNodeRef>
+        <flowNodeRef>invoiceNotProcessed</flowNodeRef>
+        <flowNodeRef>StartEvent_1</flowNodeRef>
+      </lane>
+      <lane id="Accountant" name="Accountant">
+        <extensionElements>
+          <itp:systemDefinedAttributes>
+            <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+            <attribute name="ExternalId" type="String" value="Accountant" />
+          </itp:systemDefinedAttributes>
+          <itp:localization default="unspecified">
+            <itp:label lang="unspecified">Accountant</itp:label>
+          </itp:localization>
+          <signavio:signavioMetaData metaKey="bgcolor" metaValue="" />
+          <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+          <w4graph:graphStyle>
+            <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          </w4graph:graphStyle>
+        </extensionElements>
+        <flowNodeRef>prepareBankTransfer</flowNodeRef>
+        <flowNodeRef>invoiceProcessed</flowNodeRef>
+        <flowNodeRef>archiveInvoice</flowNodeRef>
+      </lane>
+    </laneSet>
+    <userTask id="approveInvoice" camunda:assignee="${approver}" camunda:formKey="app:approveInvoice.jsf" name="Approve Invoice" implementation="webService">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="approveInvoice" />
+          <attribute name="ImportAttributes" type="String" value="camunda:assignee=${approver}|;|camunda:formKey=app:approveInvoice.jsf|;|" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Approve Invoice</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="adaptereventtype" metaValue="" />
+        <signavio:signavioMetaData metaKey="documentationlink" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="test" metaValue="" />
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue="" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue="" />
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue="" />
+        <signavio:signavioMetaData metaKey="servicereferenz" metaValue="" />
+        <signavio:signavioMetaData metaKey="risiko" metaValue="" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="riskandcontrols" metaValue="" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>reviewSuccessful</incoming>
+      <incoming>sequenceFlow_178</incoming>
+      <outgoing>sequenceFlow_180</outgoing>
+    </userTask>
+    <exclusiveGateway id="invoice_approved" name="Invoice&#xD;&#xA;approved?" gatewayDirection="Diverging">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="invoice_approved" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Invoice
+approved?</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue="" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue="" />
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue="" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="185,139,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sequenceFlow_180</incoming>
+      <outgoing>invoiceApproved</outgoing>
+      <outgoing>invoiceNotApproved</outgoing>
+    </exclusiveGateway>
+    <userTask id="assignApprover" camunda:assignee="demo" camunda:formKey="app:assignApprover.jsf" name="Assign&#xD;&#xA;Approver" implementation="webService">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="assignApprover" />
+          <attribute name="ImportAttributes" type="String" value="camunda:formKey=app:assignApprover.jsf|;|camunda:assignee=demo|;|" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Assign
+Approver</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="adaptereventtype" metaValue="" />
+        <signavio:signavioMetaData metaKey="documentationlink" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="test" metaValue="" />
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue="" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue="" />
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue="" />
+        <signavio:signavioMetaData metaKey="servicereferenz" metaValue="" />
+        <signavio:signavioMetaData metaKey="risiko" metaValue="" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="riskandcontrols" metaValue="" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>SequenceFlow_1</incoming>
+      <outgoing>sequenceFlow_178</outgoing>
+    </userTask>
+    <userTask id="reviewInvoice" camunda:assignee="demo" camunda:formKey="app:reviewInvoice.jsf" name="Rechnung klären" implementation="webService">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="reviewInvoice" />
+          <attribute name="ImportAttributes" type="String" value="camunda:formKey=app:reviewInvoice.jsf|;|camunda:assignee=demo|;|" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Rechnung klären</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="adaptereventtype" metaValue="" />
+        <signavio:signavioMetaData metaKey="documentationlink" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="test" metaValue="" />
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue="" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue="" />
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue="" />
+        <signavio:signavioMetaData metaKey="servicereferenz" metaValue="" />
+        <signavio:signavioMetaData metaKey="risiko" metaValue="" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="riskandcontrols" metaValue="" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>invoiceNotApproved</incoming>
+      <outgoing>sequenceFlow_183</outgoing>
+    </userTask>
+    <exclusiveGateway id="reviewSuccessful_gw" name="Review&#xD;&#xA;successful?" gatewayDirection="Diverging">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="reviewSuccessful_gw" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Review
+successful?</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue="" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue="" />
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue="" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="185,139,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>sequenceFlow_183</incoming>
+      <outgoing>reviewSuccessful</outgoing>
+      <outgoing>reviewNotSuccessful</outgoing>
+    </exclusiveGateway>
+    <endEvent id="invoiceNotProcessed" name="Invoice not&#xD;&#xA;processed">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="invoiceNotProcessed" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Invoice not
+processed</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="190,0,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>reviewNotSuccessful</incoming>
+    </endEvent>
+    <startEvent id="StartEvent_1" camunda:formKey="app:startProcess.jsf" name="Invoice&#xD;&#xA;received">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="StartEvent_1" />
+          <attribute name="ImportAttributes" type="String" value="camunda:formKey=app:startProcess.jsf|;|" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Invoice
+received</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="109,183,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <outgoing>SequenceFlow_1</outgoing>
+      <messageEventDefinition id="sid-14929637-5f1e-4d27-811c-ef5e4ddaa4c7" messageRef="sid-328811a0-7f72-468f-92de-6ab19e353312">
+        <extensionElements>
+          <itp:systemDefinedAttributes>
+            <attribute name="ExternalId" type="String" value="sid-14929637-5f1e-4d27-811c-ef5e4ddaa4c7" />
+          </itp:systemDefinedAttributes>
+        </extensionElements>
+      </messageEventDefinition>
+    </startEvent>
+    <userTask id="prepareBankTransfer" camunda:candidateGroups="accounting" camunda:formKey="app:prepareBankTransfer.jsf" name="Prepare&#xD;&#xA;Bank&#xD;&#xA;Transfer" implementation="webService">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="prepareBankTransfer" />
+          <attribute name="ImportAttributes" type="String" value="camunda:formKey=app:prepareBankTransfer.jsf|;|camunda:candidateGroups=accounting|;|" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Prepare
+Bank
+Transfer</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="adaptereventtype" metaValue="" />
+        <signavio:signavioMetaData metaKey="documentationlink" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="test" metaValue="" />
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue="" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue="" />
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue="" />
+        <signavio:signavioMetaData metaKey="servicereferenz" metaValue="" />
+        <signavio:signavioMetaData metaKey="risiko" metaValue="" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="riskandcontrols" metaValue="" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>invoiceApproved</incoming>
+      <outgoing>SequenceFlow_2</outgoing>
+    </userTask>
+    <endEvent id="invoiceProcessed" name="Invoice&#xD;&#xA;processed">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="invoiceProcessed" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Invoice
+processed</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="190,0,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>SequenceFlow_3</incoming>
+    </endEvent>
+    <serviceTask id="archiveInvoice" camunda:delegateExpression="#{archiveService}" name="Archive&#xD;&#xA;Invoice" implementation="webService">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="archiveInvoice" />
+          <attribute name="ImportAttributes" type="String" value="camunda:delegateExpression=#{archiveService}|;|" />
+          <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2" />
+          <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3" />
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3" />
+          </attribute>
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">Archive
+Invoice</itp:label>
+        </itp:localization>
+        <camunda:field name="text0" stringValue="Hello World" />
+        <camunda:field name="text1">
+          <camunda:expression>${genderBean.getGenderString(gender)}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="text2">
+          <camunda:expression>Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="text3">
+          <camunda:string><![CDATA[
+	          Hello World
+	      ]]></camunda:string>
+        </camunda:field>
+        <camunda:field name="text4">
+          <camunda:string><![CDATA[
+	          <p>Hello World</p><br>
+	      ]]></camunda:string>
+        </camunda:field>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="adaptereventtype" metaValue="" />
+        <signavio:signavioMetaData metaKey="documentationlink" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="test" metaValue="" />
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue="" />
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue="" />
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue="" />
+        <signavio:signavioMetaData metaKey="servicereferenz" metaValue="" />
+        <signavio:signavioMetaData metaKey="risiko" metaValue="" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="riskandcontrols" metaValue="" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>SequenceFlow_2</incoming>
+      <outgoing>SequenceFlow_3</outgoing>
+    </serviceTask>
+    <sequenceFlow id="invoiceApproved" name="yes" sourceRef="invoice_approved" targetRef="prepareBankTransfer">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="invoiceApproved" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">yes</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <conditionExpression id="_d2e4daea-cabd-4943-bedb-957e17ab4645">${approved}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="invoiceNotApproved" name="no" sourceRef="invoice_approved" targetRef="reviewInvoice">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="invoiceNotApproved" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">no</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <conditionExpression id="_66aae236-75c7-4c32-b09c-a92309e52b8e">${!approved}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="reviewSuccessful" name="yes" sourceRef="reviewSuccessful_gw" targetRef="approveInvoice">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="reviewSuccessful" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">yes</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <conditionExpression id="_f77bbc5a-d2b3-4d39-ab07-3bf4400bb97b">${clarified == 'yes'}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="reviewNotSuccessful" name="no" sourceRef="reviewSuccessful_gw" targetRef="invoiceNotProcessed">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="reviewNotSuccessful" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">no</itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+      <conditionExpression id="_a0dd8434-6ff8-436f-813a-df41f105f396">${clarified == 'no'}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sequenceFlow_180" sourceRef="approveInvoice" targetRef="invoice_approved">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sequenceFlow_180" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sequenceFlow_183" sourceRef="reviewInvoice" targetRef="reviewSuccessful_gw">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sequenceFlow_183" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sequenceFlow_178" sourceRef="assignApprover" targetRef="approveInvoice">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="sequenceFlow_178" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_2" sourceRef="prepareBankTransfer" targetRef="archiveInvoice">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="SequenceFlow_2" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_3" sourceRef="archiveInvoice" targetRef="invoiceProcessed">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="SequenceFlow_3" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="assignApprover">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+          <attribute name="ExternalId" type="String" value="SequenceFlow_1" />
+        </itp:systemDefinedAttributes>
+        <itp:localization default="unspecified">
+          <itp:label lang="unspecified">
+          </itp:label>
+        </itp:localization>
+        <signavio:signavioMetaData metaKey="userstory" metaValue="[]" />
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false" />
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false" />
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+  </process>
+  <message id="_b7a88070-7e90-410b-b050-7c279007336a">
+    <extensionElements>
+      <itp:systemDefinedAttributes>
+        <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+        <attribute name="ExternalId" type="String" />
+      </itp:systemDefinedAttributes>
+      <itp:localization default="unspecified">
+        <itp:label lang="unspecified">
+        </itp:label>
+      </itp:localization>
+    </extensionElements>
+  </message>
+  <message id="_ce1a44bb-b07b-4044-9e5e-5d62909516b4">
+    <extensionElements>
+      <itp:systemDefinedAttributes>
+        <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+        <attribute name="ExternalId" type="String" />
+      </itp:systemDefinedAttributes>
+      <itp:localization default="unspecified">
+        <itp:label lang="unspecified">
+        </itp:label>
+      </itp:localization>
+    </extensionElements>
+  </message>
+  <message id="_cefc9ed7-8ec7-4cbd-81eb-3dff468f4742">
+    <extensionElements>
+      <itp:systemDefinedAttributes>
+        <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+        <attribute name="ExternalId" type="String" />
+      </itp:systemDefinedAttributes>
+      <itp:localization default="unspecified">
+        <itp:label lang="unspecified">
+        </itp:label>
+      </itp:localization>
+    </extensionElements>
+  </message>
+  <message id="_db71d2d7-bb75-4559-bae9-f7821bedae7f">
+    <extensionElements>
+      <itp:systemDefinedAttributes>
+        <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+        <attribute name="ExternalId" type="String" />
+      </itp:systemDefinedAttributes>
+      <itp:localization default="unspecified">
+        <itp:label lang="unspecified">
+        </itp:label>
+      </itp:localization>
+    </extensionElements>
+  </message>
+  <message id="_57f268de-cf37-4583-8946-d7e266b7b028">
+    <extensionElements>
+      <itp:systemDefinedAttributes>
+        <attribute name="Hyperlinks" type="String" value="0 Hyperlinks" />
+        <attribute name="ExternalId" type="String" />
+      </itp:systemDefinedAttributes>
+      <itp:localization default="unspecified">
+        <itp:label lang="unspecified">
+        </itp:label>
+      </itp:localization>
+    </extensionElements>
+  </message>
+  <bpmndi:BPMNDiagram name="Collaboration C.1.0" resolution="72">
+    <bpmndi:BPMNPlane id="_1" bpmnElement="sid-e5defbed-c12d-4c0a-9b5e-0f187e35ffd3">
+      <bpmndi:BPMNEdge id="_51CF8562-DF6C-4CD7-A6F1-36AE72EC726D" bpmnElement="sid-915AC9A0-CD35-4DF2-93F7-4535397622F8" itp:label="(unnamed)" itp:elementType="messageFlow" color:border-color="#000000">
+        <di:waypoint x="846.00002834645682" y="610.5510708661418" />
+        <di:waypoint x="846.00002834645682" y="650.551096062992" />
+        <di:waypoint x="628.9999653543307" y="650.551096062992" />
+        <di:waypoint x="628.9999653543307" y="718.29909921259832" />
+        <di:waypoint x="628.9999653543307" y="718.29918425196854" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="618.84" y="641.026686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_03D30C45-4B02-45DF-B597-F417790DE8BE" bpmnElement="sid-AB6EB7C8-DF5E-42C2-88D0-FA166583AF15" itp:label="(unnamed)" itp:elementType="messageFlow" color:border-color="#000000">
+        <di:waypoint x="575.99997165354341" y="569.5510677165355" />
+        <di:waypoint x="575.99997165354341" y="650.551096062992" />
+        <di:waypoint x="260.9999716535433" y="650.551096062992" />
+        <di:waypoint x="260.9999716535433" y="718.29909921259832" />
+        <di:waypoint x="260.9999716535433" y="718.29918425196854" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="250.92" y="641.026686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_56592A8E-8C62-4D53-BD83-6EB71A3830CC" bpmnElement="sid-7A070DED-8B83-48E1-88A1-5543C481E7BC" itp:label="(unnamed)" itp:elementType="messageFlow" color:border-color="#000000">
+        <di:waypoint x="215.99997165354333" y="569.5510677165355" />
+        <di:waypoint x="215.99997165354333" y="649.55108976377937" />
+        <di:waypoint x="124.99999370078741" y="649.55108976377937" />
+        <di:waypoint x="124.99999370078741" y="743.5274456692913" />
+        <di:waypoint x="124.99999370078741" y="743.5275307086614" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="114.84" y="640.306686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_7ED4B64F-B1C3-4863-81A5-729D8A4F6C41" bpmnElement="sid-90902E27-C1CD-4F90-A8F2-486DA4F42117" itp:label="(unnamed)" itp:elementType="messageFlow" color:border-color="#000000">
+        <di:waypoint x="227.9999905511811" y="718.55109921259839" />
+        <di:waypoint x="227.9999905511811" y="631.55106141732267" />
+        <di:waypoint x="469.99998425196856" y="631.55106141732267" />
+        <di:waypoint x="469.99998425196856" y="544.55110866141717" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="459" y="623.026686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_5861A6CF-11B4-4B20-98CC-AEC72C401261" bpmnElement="sid-0518A412-1ED3-4CFD-A75C-69FF37EFFC16" itp:label="(unnamed)" itp:elementType="messageFlow" color:border-color="#000000">
+        <di:waypoint x="595.9999842519685" y="718.55109921259839" />
+        <di:waypoint x="595.9999842519685" y="633.5511023622048" />
+        <di:waypoint x="745.99996535433081" y="633.5511023622048" />
+        <di:waypoint x="745.99996535433081" y="585.55105511811007" />
+        <di:waypoint x="745.99996535433081" y="585.5511401574804" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="734.76" y="625.186686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_316E01FC-AF7F-46DF-AA14-09491F5120C8" bpmnElement="_c5b99877-f696-47aa-b514-7b8037a5c022" isHorizontal="true" itp:label="Team-Assistant" itp:elementType="participant" color:border-color="#FF0000">
+        <dc:Bounds x="16.999993700787456" y="411.5511496062993" width="1006.9999937007875" height="204.99998740157483" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#FF0000">
+          <dc:Bounds x="22.68" y="482.626686614173" width="10.8" height="63.36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_2EB5E5BA-CA27-4931-A680-0FAAA4C7EDE4" bpmnElement="sid-744AEFB3-C93D-46A3-8976-EFA91784A51F" isHorizontal="true" itp:label="(unnamed)" itp:elementType="lane" color:border-color="#FF0000">
+        <dc:Bounds x="47.000026771653552" y="411.5511496062993" width="976.9999464566929" height="204.99998740157483" />
+        <bpmndi:BPMNLabel labelStyle="_18362a2c-1781-4d2a-9398-f833e5839d69" color:color="#FF0000">
+          <dc:Bounds x="54" y="512.146686614173" width="14.4" height="4.32" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_94605DE6-4BA5-4DEF-B06F-5418192AE772" bpmnElement="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B" itp:label="Invoice&#xD;&#xA;received" itp:elementType="startEvent" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="98.999985826771649" y="514.55113228346465" width="29.999990551181103" height="29.999990551181103" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="96.48" y="551.746686614173" width="36" height="21.6" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_20A6DCE6-8C60-4CA1-B025-70A579B85765" bpmnElement="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF" itp:label="Scan Invoice" itp:elementType="task" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="167.00001732283465" y="489.5511307086615" width="99.9999779527559" height="79.9999937007874" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="191.52" y="524.746686614173" width="51.84" height="9.36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_2204E5EE-80C9-45B3-8D3B-E6F7934705E8" bpmnElement="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44" itp:label="Archive&#xD;&#xA;original" itp:elementType="task" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="314.99998582677171" y="489.5511307086615" width="99.9999779527559" height="79.9999937007874" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="349.56" y="520.426686614173" width="32.4" height="18" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_442EB4D0-5192-4E0B-A848-D0B5C83AC6B1" bpmnElement="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D" itp:label="(unnamed)" itp:elementType="endEvent" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="940.999988976378" y="459.55115433070853" width="27.999977952755906" height="27.999977952755906" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="954.72" y="489.466686614173" width="0" height="10.8" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_94706FCA-BDE5-4845-AA67-4449D18E4FDC" bpmnElement="sid-40EC6574-E644-425C-8CE7-EE384F0C3520" itp:label="Approver to &#xD;&#xA;be assigned" itp:elementType="intermediateCatchEvent" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="455.75000787401581" y="514.55113228346465" width="29.999990551181103" height="29.999990551181103" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="443.88" y="485.506686614173" width="52.56" height="21.6" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_DC3C9FC9-1736-4AAB-81FE-9E5749C21E20" bpmnElement="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD" itp:label="Assign approver" itp:elementType="task" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="527.50002047244107" y="489.5511307086615" width="99.9999779527559" height="79.9999937007874" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="543.24" y="524.746686614173" width="66.96" height="9.36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_77C744C6-B361-47EE-81D1-1C270DECE843" bpmnElement="sid-F0D29912-929D-491C-8D23-73BD80CF980A" itp:label="(unnamed)" itp:elementType="eventBasedGateway" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="652.49998582677176" y="509.55112913385835" width="39.9999968503937" height="39.9999968503937" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="672.48" y="552.826686614173" width="0" height="9.36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_2F87A3B4-4DCB-47F3-ABEE-975C90866217" bpmnElement="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D" itp:label="Invoice review&#xD;&#xA; needed" itp:elementType="intermediateCatchEvent" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="731.74996062992125" y="555.55116377952743" width="29.999990551181103" height="29.999990551181103" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="717.48" y="521.506686614173" width="58.32" height="21.6" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_33B42608-3C81-4256-ACC9-3D4CC7A7431B" bpmnElement="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D" itp:label="Review and document result" itp:elementType="task" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="797.49996377952766" y="530.55116220472428" width="99.9999779527559" height="79.9999937007874" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="813.6" y="561.466686614173" width="67.68" height="18" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_6EDA35EA-A1C7-4965-BAD3-3EBBBA81A223" bpmnElement="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2" itp:label="7 days" itp:elementType="intermediateCatchEvent" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="731.74996062992125" y="458.55114803149593" width="29.999990551181103" height="29.999990551181103" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="732.6" y="440.506686614173" width="28.08" height="10.8" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_1990EE03-301D-4926-B0D3-E4F11262DD51" bpmnElement="sid-282524E6-660F-431D-8F19-1C3E9E9DE817" itp:label="(unnamed)" itp:elementType="endEvent" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="940.999988976378" y="556.55117007874" width="27.999977952755906" height="27.999977952755906" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="954.72" y="586.666686614173" width="0" height="10.8" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_BCF1E60A-18D3-4D1A-81FB-5509D2350401" bpmnElement="sid-71EF9530-A32A-49BC-A783-9B98A5801362" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="671.99998110236231" y="509.55108661417307" />
+        <di:waypoint x="671.99998110236231" y="473.55114330708648" />
+        <di:waypoint x="731.75000314960641" y="473.55114330708648" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="667.8" y="471.826686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_17617AE3-1592-4F37-A59B-39D6430FE6C0" bpmnElement="sid-C0540F47-C3C0-4FA8-B000-6D87640A6178" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="414.99997795275596" y="529.5511275590552" />
+        <di:waypoint x="455.7499937007874" y="529.5511275590552" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="431.64" y="513.586686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_33E1B2BA-7896-4334-88BB-2E180B1358DB" bpmnElement="sid-4AD2006C-9290-42B0-A904-DD8076B791C4" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="484.9999937007874" y="529.5511275590552" />
+        <di:waypoint x="527.5000062992126" y="529.5511275590552" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="502.2" y="513.586686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_FEBB387D-C9D1-437F-BEF9-5FDC1F8686E3" bpmnElement="sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="266.9999811023622" y="529.5511275590552" />
+        <di:waypoint x="315" y="529.5511275590552" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="286.92" y="513.586686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_97184F4B-D69E-49ED-A580-51A8F4279388" bpmnElement="sid-4686AFBC-E33A-4657-95A0-B2E27E704152" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="671.99998110236231" y="549.55108346456677" />
+        <di:waypoint x="671.99998110236231" y="570.551159055118" />
+        <di:waypoint x="731.75000314960641" y="570.551159055118" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="674.28" y="571.186686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_64F65457-2BDC-4A10-A263-46D661EE7556" bpmnElement="sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="897.00003779527572" y="570.551159055118" />
+        <di:waypoint x="940.99991811023631" y="570.551159055118" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="914.76" y="554.626686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_54520A79-5333-4967-8295-D884FE85764F" bpmnElement="sid-D03CC374-8575-4F38-98B4-4DFF014C43CB" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="761.0000031496063" y="570.551159055118" />
+        <di:waypoint x="797.4999779527559" y="570.551159055118" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="775.8" y="554.626686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_06DCB467-11CD-448E-971F-4C834D5CE27F" bpmnElement="sid-3019478F-48D5-4B85-95B1-E192B9BE4183" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="761.0000031496063" y="473.55114330708648" />
+        <di:waypoint x="940.99991811023631" y="473.55114330708648" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="847.08" y="458.146686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_C360D4E7-7402-4C1D-B64F-19FBCDD72893" bpmnElement="sid-26030150-7369-4B7F-8264-B3ABC62BA735" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="626.99998110236231" y="529.5511275590552" />
+        <di:waypoint x="652.5" y="529.5511275590552" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="636.12" y="513.586686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_BD888414-937F-4C2F-A922-F293A4103B6A" bpmnElement="sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="128.9999905511811" y="529.5511275590552" />
+        <di:waypoint x="167.00000314960633" y="529.5511275590552" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="144.36" y="513.586686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_56353E16-70C8-417F-AD41-A8C5EA0E527B" bpmnElement="_4dcb780a-0dd2-4ee1-b3e2-711285d798f7" isHorizontal="true" itp:label="BPMN MIWG Test Case C.1.0" itp:elementType="participant" color:border-color="#FF0000">
+        <dc:Bounds x="14.999981102362142" y="666.55114015748029" width="1009.0000062992127" height="487.99995590551185" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#FF0000">
+          <dc:Bounds x="20.52" y="852.706686614173" width="10.8" height="116.64" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_CBD8829F-2B6E-4745-A228-8EE99986E572" bpmnElement="Approver" isHorizontal="true" itp:label="Approver" itp:elementType="lane" color:border-color="#FF0000">
+        <dc:Bounds x="45" y="849.55115905511809" width="978.9999874015748" height="160.99999370078743" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#FF0000">
+          <dc:Bounds x="50.76" y="909.946686614173" width="10.8" height="39.6" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_4B9872E4-9E9F-4E60-B776-F93778C17030" bpmnElement="teamAssistant" isHorizontal="true" itp:label="Team Assistant" itp:elementType="lane" color:border-color="#FF0000">
+        <dc:Bounds x="45" y="666.55109763779512" width="978.9999874015748" height="182.9999905511811" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#FF0000">
+          <dc:Bounds x="50.76" y="726.706686614173" width="10.8" height="61.92" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9033E8E1-D1A7-464D-AC39-DF63A0CCD111" bpmnElement="Accountant" isHorizontal="true" itp:label="Accountant" itp:elementType="lane" color:border-color="#FF0000">
+        <dc:Bounds x="45" y="1010.5511385826771" width="978.9999874015748" height="143.99997165354333" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#FF0000">
+          <dc:Bounds x="50.76" y="1059.34668661417" width="10.8" height="47.52" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_7F9C97A2-48B2-4EE6-90F6-762EEC7CC9AF" bpmnElement="approveInvoice" itp:label="Approve Invoice" itp:elementType="userTask" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="367.99997952755905" y="891.55108346456689" width="99.9999779527559" height="79.9999937007874" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="400.32" y="922.906686614173" width="36" height="18" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_A4C79554-D2B4-40D2-8A06-C5DA6916E151" bpmnElement="invoice_approved" isMarkerVisible="false" itp:label="Invoice&#xD;&#xA;approved?" itp:elementType="exclusiveGateway" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="502.99997952755905" y="911.55108188976374" width="39.9999968503937" height="39.9999968503937" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="500.4" y="958.546686614173" width="44.64" height="21.6" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_A5B54FB3-CDA5-4166-90BB-04D2F7B9A00D" bpmnElement="assignApprover" itp:label="Assign&#xD;&#xA;Approver" itp:elementType="userTask" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="194.99999527559055" y="718.55109921259839" width="99.9999779527559" height="79.9999937007874" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="225" y="749.386686614173" width="39.6" height="18" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_07C30281-BF95-406F-B49B-D827E62D6D93" bpmnElement="reviewInvoice" itp:label="Rechnung klären" itp:elementType="userTask" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="562.999988976378" y="718.55109921259839" width="99.9999779527559" height="79.9999937007874" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="578.88" y="753.706686614173" width="69.12" height="9.36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_3FE1E453-CF20-4762-BDCD-2ACE5AE6CF41" bpmnElement="reviewSuccessful_gw" isMarkerVisible="false" itp:label="Review&#xD;&#xA;successful?" itp:elementType="exclusiveGateway" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="708.00002362204725" y="738.55109763779524" width="39.9999968503937" height="39.9999968503937" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="705.6" y="785.746686614173" width="46.08" height="21.6" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_424DC7C9-AE8B-42BC-896B-A51C3402DD39" bpmnElement="invoiceNotProcessed" itp:label="Invoice not&#xD;&#xA;processed" itp:elementType="endEvent" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="940.999988976378" y="744.55110708661414" width="27.999977952755906" height="27.999977952755906" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="931.32" y="779.986686614173" width="46.8" height="21.6" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_7434C9D2-F2AB-418B-A783-B1BB83AD9E25" bpmnElement="StartEvent_1" itp:label="Invoice&#xD;&#xA;received" itp:elementType="startEvent" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="109.99999842519686" y="743.55110078740154" width="29.999990551181103" height="29.999990551181103" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="107.28" y="780.706686614173" width="36" height="21.6" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_D48A78CE-8B41-494A-BD71-220888509EC7" bpmnElement="prepareBankTransfer" itp:label="Prepare&#xD;&#xA;Bank&#xD;&#xA;Transfer" itp:elementType="userTask" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="652.999988976378" y="1051.5511275590552" width="99.9999779527559" height="79.9999937007874" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="686.16" y="1078.06668661417" width="34.56" height="27.36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_205FA45F-C0A3-4C8D-8198-A9D36A0F84C3" bpmnElement="invoiceProcessed" itp:label="Invoice&#xD;&#xA;processed" itp:elementType="endEvent" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="940.999988976378" y="1077.5511354330708" width="27.999977952755906" height="27.999977952755906" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="934.2" y="1112.62668661417" width="42.48" height="21.6" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_B42B56AE-58B0-40C7-A73A-E386675C5308" bpmnElement="archiveInvoice" itp:label="Archive&#xD;&#xA;Invoice" itp:elementType="serviceTask" color:background-color="#ECECFF" color:border-color="#000000">
+        <dc:Bounds x="795.00000472440945" y="1051.5511275590552" width="99.9999779527559" height="79.9999937007874" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="829.44" y="1082.74668661417" width="31.68" height="18" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_5C74DC29-C5B1-4B43-B42D-0C8D84E4D69B" bpmnElement="invoiceApproved" itp:label="yes" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="542.99999055118121" y="931.55116535433069" />
+        <di:waypoint x="601.9999937007874" y="931.55116535433069" />
+        <di:waypoint x="601.9999937007874" y="1091.5511811023621" />
+        <di:waypoint x="653.0000031496063" y="1091.5511811023621" />
+        <di:waypoint x="653.0000031496063" y="1091.5511244094487" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="556.2" y="950.986686614173" width="15.12" height="10.8" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_11BF9ECC-0576-4404-B4E8-62506CD061CC" bpmnElement="invoiceNotApproved" itp:label="no" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="522.9999779527559" y="911.55112440944879" />
+        <di:waypoint x="522.9999779527559" y="758.55109606299209" />
+        <di:waypoint x="563.0000031496063" y="758.55109606299209" />
+        <di:waypoint x="563.0000031496063" y="758.5512094488189" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="533.52" y="895.546686614173" width="12.96" height="10.8" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_FB42A34A-3CAB-43E2-AD1F-45F4E3C89894" bpmnElement="reviewSuccessful" itp:label="yes" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="728.0000220472441" y="738.55114015748029" />
+        <di:waypoint x="728.0000220472441" y="701.55119055118109" />
+        <di:waypoint x="631.36216062992128" y="701.55119055118109" />
+        <di:waypoint x="598.36217952755908" y="701.55119055118109" />
+        <di:waypoint x="417.999968503937" y="701.55119055118109" />
+        <di:waypoint x="417.999968503937" y="891.551168503937" />
+        <di:waypoint x="417.999968503937" y="891.55108346456689" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="741.24" y="722.026686614173" width="15.12" height="10.8" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9590AE26-C124-4385-92EA-54EB42F0AEFC" bpmnElement="reviewNotSuccessful" itp:label="no" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="747.9999779527559" y="758.5512094488189" />
+        <di:waypoint x="940.99991811023631" y="758.5512094488189" />
+        <bpmndi:BPMNLabel labelStyle="_161f52cc-ce1b-4d06-8075-4f9c4a135743" color:color="#000000">
+          <dc:Bounds x="758.16" y="770.986686614173" width="12.96" height="10.8" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_CF362708-57F8-4595-AE6B-4AE3CFBF59F2" bpmnElement="sequenceFlow_180" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="467.9999716535433" y="931.55116535433069" />
+        <di:waypoint x="502.99996535433075" y="931.55116535433069" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="481.32" y="916.066686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_490A21F0-36F9-40C1-8E4C-EA06C70CAEE6" bpmnElement="sequenceFlow_183" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="662.9999811023622" y="758.5512094488189" />
+        <di:waypoint x="708.0000094488189" y="758.5512094488189" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="681.48" y="742.546686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_C16A0FAC-1261-4A01-8A53-DEF61A2E30DC" bpmnElement="sequenceFlow_178" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="295.0000157480315" y="758.5512094488189" />
+        <di:waypoint x="325.00000629921266" y="758.5512094488189" />
+        <di:waypoint x="325.00000629921266" y="931.55116535433069" />
+        <di:waypoint x="368.0000220472441" y="931.55116535433069" />
+        <di:waypoint x="367.99996535433075" y="931.55116535433069" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="320.04" y="929.026686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_D3354240-167E-4290-BCE0-3D24227EBA74" bpmnElement="SequenceFlow_2" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="752.9999811023622" y="1091.5511244094487" />
+        <di:waypoint x="795.00001889763791" y="1091.5511244094487" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="770.04" y="1075.90668661417" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_23B7A4F8-50E4-4A58-808F-F19D8044E289" bpmnElement="SequenceFlow_3" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="894.9999968503937" y="1091.5511244094487" />
+        <di:waypoint x="940.99991811023631" y="1091.5511244094487" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="914.04" y="1075.90668661417" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_C83C3386-5048-4099-B263-3CF1CC250676" bpmnElement="SequenceFlow_1" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000">
+        <di:waypoint x="139.99997480314963" y="758.5512094488189" />
+        <di:waypoint x="195.0000094488189" y="758.5512094488189" />
+        <bpmndi:BPMNLabel labelStyle="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d" color:color="#000000">
+          <dc:Bounds x="163.8" y="742.546686614173" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="_3794f2d6-9fc5-41d1-ab93-c8296b5a3f4d">
+      <dc:Font name="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="_161f52cc-ce1b-4d06-8075-4f9c4a135743">
+      <dc:Font name="Segoe UI" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="_18362a2c-1781-4d2a-9398-f833e5839d69">
+      <dc:Font name="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</definitions>

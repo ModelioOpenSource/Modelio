@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<semantic:definitions id="definitionsA11" name="A.1.1" targetNamespace="http://www.trisotech.com/definitions/_1398195902533" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:trisofeed="http://trisotech.com/feed" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:rss="http://purl.org/rss/2.0/" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:miwg="http://www.omg.org/bpmn/miwg/test/" xmlns:miwg-types="http://www.omg.org/bpmn/miwg/test/types/">
+	<semantic:import importType="http://schemas.xmlsoap.org/wsdl/" location="A.1.1.wsdl" namespace="http://www.omg.org/bpmn/miwg/test/"/>
+	<semantic:import importType="http://www.w3.org/2001/XMLSchema" location="A.1.1.xsd" namespace="http://www.omg.org/bpmn/miwg/test/types/"/>
+	<semantic:itemDefinition id="serviceInput" structureRef="miwg-types:in_A_1_1"></semantic:itemDefinition>
+    <semantic:resource name="Performer 1" id="resource_Performer_1"/>
+    <semantic:resource name="Performer 2" id="resource_Performer_2"/>
+    <semantic:message name="In Message" id="inMessage" itemRef="serviceInput"/>
+    <semantic:interface id="serviceInterface" name="MIWG Service Interface" implementationRef="miwg:Service_A_1_1Interface">
+		<semantic:operation id="operation1" name="Operation 1" implementationRef="miwg:operation_A_1_1">
+			<semantic:inMessageRef>inMessage</semantic:inMessageRef>
+		</semantic:operation>
+    </semantic:interface>
+    <semantic:process isExecutable="true" id="process1" isClosed="true">
+        <semantic:startEvent name="Start Event" id="startEvent">
+            <semantic:outgoing>_57dd58ed-7ab9-43e8-8d5c-e017940339a5</semantic:outgoing>
+        </semantic:startEvent>
+        <semantic:userTask completionQuantity="1" isForCompensation="false" startQuantity="1" name="Task 1" id="task1">
+            <semantic:incoming>_57dd58ed-7ab9-43e8-8d5c-e017940339a5</semantic:incoming>
+            <semantic:outgoing>_1a66ccd9-a80c-44bc-a06f-a684b8370443</semantic:outgoing>
+            <semantic:potentialOwner id="po1">
+                <semantic:resourceRef>resource_Performer_1</semantic:resourceRef>
+            </semantic:potentialOwner>
+        </semantic:userTask>
+        <semantic:serviceTask implementation="##WebService" completionQuantity="1" isForCompensation="false" startQuantity="1" name="Task 2" id="task2" operationRef="operation1">
+            <semantic:incoming>_1a66ccd9-a80c-44bc-a06f-a684b8370443</semantic:incoming>
+            <semantic:outgoing>_725826e9-0e8b-4cb4-842b-e0279515d821</semantic:outgoing>
+            <semantic:ioSpecification>
+				<semantic:dataInput id="dataInputTask2"  name="Data Input Task 2" itemSubjectRef="serviceInput"/>
+				<semantic:inputSet id="inputSet">
+					<semantic:dataInputRefs>dataInputTask2</semantic:dataInputRefs>
+					<semantic:outputSetRefs>outputSet</semantic:outputSetRefs>
+				</semantic:inputSet>
+				<semantic:outputSet id="outputSet">
+				    <semantic:inputSetRefs>inputSet</semantic:inputSetRefs>
+				</semantic:outputSet>
+            </semantic:ioSpecification>
+            <semantic:dataInputAssociation id="dataInputAssociation">
+                <semantic:targetRef>dataInputTask2</semantic:targetRef>
+                <semantic:transformation id="transformation">???</semantic:transformation>
+            </semantic:dataInputAssociation>
+        </semantic:serviceTask>
+        <semantic:userTask completionQuantity="1" isForCompensation="false" startQuantity="1" name="Task 3" id="task3">
+            <semantic:incoming>_725826e9-0e8b-4cb4-842b-e0279515d821</semantic:incoming>
+            <semantic:outgoing>_737085c4-8771-41e9-b30e-fa2668d0a481</semantic:outgoing>
+            <semantic:potentialOwner id="po2">
+                <semantic:resourceRef>resource_Performer_2</semantic:resourceRef>
+            </semantic:potentialOwner>
+        </semantic:userTask>
+        <semantic:endEvent name="End Event" id="endEvent">
+            <semantic:incoming>_737085c4-8771-41e9-b30e-fa2668d0a481</semantic:incoming>
+        </semantic:endEvent>
+        <semantic:sequenceFlow sourceRef="startEvent" targetRef="task1" name="" id="_57dd58ed-7ab9-43e8-8d5c-e017940339a5" isImmediate="true"/>
+        <semantic:sequenceFlow sourceRef="task1" targetRef="task2" name="" id="_1a66ccd9-a80c-44bc-a06f-a684b8370443"  isImmediate="true"/>
+        <semantic:sequenceFlow sourceRef="task2" targetRef="task3" name="" id="_725826e9-0e8b-4cb4-842b-e0279515d821"  isImmediate="true"/>
+        <semantic:sequenceFlow sourceRef="task3" targetRef="endEvent" name="" id="_737085c4-8771-41e9-b30e-fa2668d0a481"  isImmediate="true"/>
+    </semantic:process>
+    <bpmndi:BPMNDiagram documentation="" id="diagramA11" name="A.1.1" resolution="96.00000267028808">
+        <bpmndi:BPMNPlane bpmnElement="process1">
+            <bpmndi:BPMNShape bpmnElement="startEvent" id="shape_startEvent">
+                <dc:Bounds height="30.0" width="30.0" x="201.0" y="336.0"/>
+                <bpmndi:BPMNLabel labelStyle="LS1398190038883">
+                    <dc:Bounds height="12.804751171875008" width="94.93333333333335" x="168.67766754457273" y="371.3333333333333"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="task1" id="shape_task1">
+                <dc:Bounds height="68.0" width="83.0" x="267.0" y="317.0"/>
+                <bpmndi:BPMNLabel labelStyle="LS1398190038883">
+                    <dc:Bounds height="12.804751171875008" width="72.48293963254594" x="272.3333333333333" y="344.5818763825664"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="task2" id="shape_task2">
+                <dc:Bounds height="68.0" width="83.0" x="386.0" y="317.0"/>
+                <bpmndi:BPMNLabel labelStyle="LS1398190038883">
+                    <dc:Bounds height="12.804751171875008" width="72.48293963254594" x="391.3333333333333" y="344.5818763825664"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="task3" id="shape_task3">
+                <dc:Bounds height="68.0" width="83.0" x="505.0" y="317.0"/>
+                <bpmndi:BPMNLabel labelStyle="LS1398190038883">
+                    <dc:Bounds height="12.804751171875008" width="72.48293963254594" x="510.3333333333333" y="344.5818763825664"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="endEvent" id="shape_endEvent">
+                <dc:Bounds height="32.0" width="32.0" x="625.0" y="335.0"/>
+                <bpmndi:BPMNLabel labelStyle="LS1398190038883">
+                    <dc:Bounds height="12.804751171875004" width="105.60000000000001" x="588.2629921259844" y="372.3333333333333"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="_737085c4-8771-41e9-b30e-fa2668d0a481" id="E1398190040068__737085c4-8771-41e9-b30e-fa2668d0a481">
+                <di:waypoint x="589.0" y="351.0"/>
+                <di:waypoint x="607.0" y="351.0"/>
+                <di:waypoint x="625.0" y="351.0"/>
+                <bpmndi:BPMNLabel/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="_57dd58ed-7ab9-43e8-8d5c-e017940339a5" id="E1398190040102__57dd58ed-7ab9-43e8-8d5c-e017940339a5">
+                <di:waypoint x="231.0" y="351.0"/>
+                <di:waypoint x="249.0" y="351.0"/>
+                <di:waypoint x="267.0" y="351.0"/>
+                <bpmndi:BPMNLabel/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="_725826e9-0e8b-4cb4-842b-e0279515d821" id="E1398190040103__725826e9-0e8b-4cb4-842b-e0279515d821">
+                <di:waypoint x="469.0" y="351.0"/>
+                <di:waypoint x="505.0" y="351.0"/>
+                <bpmndi:BPMNLabel/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="_1a66ccd9-a80c-44bc-a06f-a684b8370443" id="E1398190040105__1a66ccd9-a80c-44bc-a06f-a684b8370443">
+                <di:waypoint x="350.0" y="351.0"/>
+                <di:waypoint x="386.0" y="351.0"/>
+                <bpmndi:BPMNLabel/>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+        <bpmndi:BPMNLabelStyle id="LS1398190038883">
+            <dc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="8.0"/>
+        </bpmndi:BPMNLabelStyle>
+    </bpmndi:BPMNDiagram>
+</semantic:definitions>
+

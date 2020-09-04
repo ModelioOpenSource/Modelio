@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="org.modelio.app.preferencepages">
+		<page class="org.modelio.app.update.preferences.UpdatePreferencesPage" 
+		      id="org.modelio.app.preferences.update" 
+		      name="%Update"
+		      icon="icons/updatemodelio.png" />
+	</extension>
+</plugin>

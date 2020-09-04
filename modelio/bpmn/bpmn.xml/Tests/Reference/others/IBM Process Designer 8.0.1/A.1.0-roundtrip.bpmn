@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsd="http://www.w3.org/2001/XMLSchema" exporter="http://www.ibm.com/BPM" exporterVersion="8.0.1" id="bpmnid-e25cec90-057e-457a-91a1-35e65537a644" targetNamespace="http://A.1.0/Initial Import/Process">
+  <bpmn:process id="bpmnid-80c796ae-c11d-42d8-92ae-1d88bab84536" name="Process" isClosed="false" processType="None">
+    <bpmn:serviceTask id="bpmnid-11047880-09d8-4147-8382-523145eeb8b6" name="Task 1"/>
+    <bpmn:serviceTask id="bpmnid-2f925dd9-4ec8-45b7-936c-0c14597319a9" name="Task 2"/>
+    <bpmn:serviceTask id="bpmnid-21a0fc44-3c02-4a00-9b6e-aa6c058992d3" name="Task 3"/>
+    <bpmn:startEvent id="bpmnid-196c656e-baa2-4306-809b-56ba006057b9" name="Start Event"/>
+    <bpmn:endEvent id="bpmnid-5cfcf354-ba3f-4b13-a5bf-bdf27ca70acc" name="End Event"/>
+    <bpmn:sequenceFlow id="bpmnid-be0a37d4-8054-4367-82ae-b43430d5fc6f" name="Sequence Flow0" sourceRef="bpmnid-11047880-09d8-4147-8382-523145eeb8b6" targetRef="bpmnid-2f925dd9-4ec8-45b7-936c-0c14597319a9"/>
+    <bpmn:sequenceFlow id="bpmnid-01d687a3-66ee-40d7-9e17-97aa5724eef7" name="Sequence Flow" sourceRef="bpmnid-196c656e-baa2-4306-809b-56ba006057b9" targetRef="bpmnid-11047880-09d8-4147-8382-523145eeb8b6"/>
+    <bpmn:sequenceFlow id="bpmnid-b687d3ec-b6d7-480a-a1e1-57fbe220e579" name="Sequence Flow2" sourceRef="bpmnid-21a0fc44-3c02-4a00-9b6e-aa6c058992d3" targetRef="bpmnid-5cfcf354-ba3f-4b13-a5bf-bdf27ca70acc"/>
+    <bpmn:sequenceFlow id="bpmnid-4596a8fb-f1dc-46b3-bc28-9a2e11c26f96" name="Sequence Flow1" sourceRef="bpmnid-2f925dd9-4ec8-45b7-936c-0c14597319a9" targetRef="bpmnid-21a0fc44-3c02-4a00-9b6e-aa6c058992d3"/>
+  </bpmn:process>
+</bpmn:definitions>

@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions targetNamespace="empty" xmlns:ix="http://www.igrafx.com/2007/igrafx-document" xmlns:ixbpmn="http://www.igrafx.com/2011/bpmn" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:i="http://www.igrafx.com/2007/igxmldoc" xmlns:ixtim="http://www.igrafx.com/2012/timext" xmlns:tns="empty">
+	<itemDefinition id="TransactionAttributes_Item"/>
+	<itemDefinition id="message_IDAZP4JB_Item"/>
+	<itemDefinition id="NumberItem"/>
+	<itemDefinition id="StringItem"/>
+	<itemDefinition id="type_TrueFalse_Item"/>
+	<itemDefinition id="type_YesNo_Item"/>
+	<collaboration id="diagram_IDAO01KB" name="BPD1">
+		<extensionElements></extensionElements>
+		<participant id="dept_IDA5OCJB" name="Pool" processRef="process_IDA5OCJB"/>
+		<participant id="dept_IDALQCJB" name="Paticipant" processRef="process_IDALQCJB"/>
+		<messageFlow id="connector_IDAHO3JB" name="Message Flow 2" sourceRef="shape_IDAQH3JB" targetRef="shape_IDAMM3JB"></messageFlow>
+		<messageFlow id="connector_IDAM30KB" name="Message Flow 1" sourceRef="shape_IDAVW5KB" targetRef="shape_IDAOG1JB"></messageFlow>
+	</collaboration>
+	<process id="process_IDA5OCJB" name="Pool">
+		<extensionElements></extensionElements>
+		<property name="TransactionAttributes" itemSubjectRef="TransactionAttributes_Item"/>
+		<laneSet>
+			<lane id="dept_IDAWNCJB" name="Lane 1">
+				<extensionElements></extensionElements>
+				<flowNodeRef>shape_IDASTCJB</flowNodeRef>
+				<flowNodeRef>shape_IDAOG1JB</flowNodeRef>
+				<flowNodeRef>shape_IDAW01JB</flowNodeRef>
+				<flowNodeRef>shape_IDATA2JB</flowNodeRef>
+				<flowNodeRef>shape_IDAMF2JB</flowNodeRef>
+				<flowNodeRef>shape_IDAUK2JB</flowNodeRef>
+				<flowNodeRef>shape_IDA1R2JB</flowNodeRef>
+				<flowNodeRef>shape_IDACV2JB</flowNodeRef>
+				<flowNodeRef>shape_IDAS02JB</flowNodeRef>
+				<flowNodeRef>shape_IDANA3JB</flowNodeRef>
+				<flowNodeRef>shape_IDAQH3JB</flowNodeRef>
+			</lane>
+			<lane id="dept_IDAMMCJB" name="Lane 2">
+				<extensionElements></extensionElements>
+				<flowNodeRef>shape_IDAZWCJB</flowNodeRef>
+				<flowNodeRef>shape_IDAE35KB</flowNodeRef>
+				<flowNodeRef>shape_IDABDALB</flowNodeRef>
+				<flowNodeRef>shape_IDAEIALB</flowNodeRef>
+				<flowNodeRef>shape_IDA4MALB</flowNodeRef>
+				<flowNodeRef>shape_IDAGE0KB</flowNodeRef>
+				<flowNodeRef>shape_IDANH0KB</flowNodeRef>
+				<flowNodeRef>shape_IDAQO0KB</flowNodeRef>
+				<flowNodeRef>shape_IDAYS0KB</flowNodeRef>
+				<flowNodeRef>shape_IDAHY0KB</flowNodeRef>
+			</lane>
+		</laneSet>
+		<subProcess triggeredByEvent="false" id="shape_IDASTCJB" name="Call Activity - Expanded">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDA1N2JB</incoming>
+			<outgoing>connector_IDAAC3JB</outgoing>
+			<startEvent id="shape_IDA1R2JB" name="Start Event None 1">
+				<extensionElements>
+					<ixbpmn:duration>PT0H</ixbpmn:duration>
+				</extensionElements>
+				<outgoing>connector_IDAVW2JB</outgoing>
+			</startEvent>
+			<task id="shape_IDACV2JB" name="Abstract Task 4">
+				<extensionElements></extensionElements>
+				<incoming>connector_IDAVW2JB</incoming>
+				<outgoing>connector_IDAF22JB</outgoing>
+			</task>
+			<endEvent id="shape_IDAS02JB" name="End Event None 2">
+				<extensionElements>
+					<ixbpmn:duration>PT0H</ixbpmn:duration>
+				</extensionElements>
+				<incoming>connector_IDAF22JB</incoming>
+			</endEvent>
+			<sequenceFlow id="connector_IDAVW2JB" sourceRef="shape_IDA1R2JB" targetRef="shape_IDACV2JB"/>
+			<sequenceFlow id="connector_IDAF22JB" sourceRef="shape_IDACV2JB" targetRef="shape_IDAS02JB"/>
+		</subProcess>
+		<subProcess triggeredByEvent="false" id="shape_IDAZWCJB" name="Sub-Proces - Expanded">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAMA0KB</incoming>
+			<outgoing>connector_IDALU0KB</outgoing>
+			<startEvent id="shape_IDAGE0KB" name="Start Event None 2">
+				<extensionElements>
+					<ixbpmn:duration>PT0H</ixbpmn:duration>
+				</extensionElements>
+				<outgoing>connector_IDADJ0KB</outgoing>
+			</startEvent>
+			<task id="shape_IDANH0KB" name="Abstract Task 6">
+				<extensionElements></extensionElements>
+				<incoming>connector_IDADJ0KB</incoming>
+				<outgoing>connector_IDAWK0KB</outgoing>
+			</task>
+			<endEvent id="shape_IDAQO0KB" name="End Event None 3">
+				<extensionElements>
+					<ixbpmn:duration>PT0H</ixbpmn:duration>
+				</extensionElements>
+				<incoming>connector_IDAWK0KB</incoming>
+			</endEvent>
+			<sequenceFlow id="connector_IDADJ0KB" sourceRef="shape_IDAGE0KB" targetRef="shape_IDANH0KB"/>
+			<sequenceFlow id="connector_IDAWK0KB" sourceRef="shape_IDANH0KB" targetRef="shape_IDAQO0KB"/>
+		</subProcess>
+		<startEvent id="shape_IDAOG1JB" name="Start Event Message">
+			<extensionElements></extensionElements>
+			<outgoing>connector_IDAJ21JB</outgoing>
+			<messageEventDefinition messageRef="message_IDAZP4JB"/>
+		</startEvent>
+		<parallelGateway gatewayDirection="Mixed" id="shape_IDAW01JB" name="Parallel Gateway Divergence">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAJ21JB</incoming>
+			<outgoing>connector_IDAGC2JB</outgoing>
+			<outgoing>connector_IDAX45KB</outgoing>
+		</parallelGateway>
+		<exclusiveGateway gatewayDirection="Diverging" id="shape_IDATA2JB" name="Exclusive Gateway Divergence 1">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAGC2JB</incoming>
+			<outgoing>connector_IDAEH2JB</outgoing>
+			<outgoing>connector_IDAIM2JB</outgoing>
+		</exclusiveGateway>
+		<task id="shape_IDAMF2JB" name="Call Activity Calling a Global Task">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAEH2JB</incoming>
+			<outgoing>connector_IDAXD3JB</outgoing>
+		</task>
+		<callActivity calledElement="dept_" id="shape_IDAUK2JB" name="Call Activity - Collapsed">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAIM2JB</incoming>
+			<outgoing>connector_IDA1N2JB</outgoing>
+			<dataInputAssociation></dataInputAssociation>
+			<dataOutputAssociation></dataOutputAssociation>
+		</callActivity>
+		<exclusiveGateway gatewayDirection="Converging" id="shape_IDANA3JB" name="Exclusive Gateway Convergence 1">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAAC3JB</incoming>
+			<incoming>connector_IDAXD3JB</incoming>
+			<outgoing>connector_IDAGJ3JB</outgoing>
+		</exclusiveGateway>
+		<endEvent id="shape_IDAQH3JB" name="End Event Message">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAGJ3JB</incoming>
+			<messageEventDefinition messageRef="message_IDAZP4JB"/>
+		</endEvent>
+		<userTask id="shape_IDAE35KB" name="User Task 5">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAX45KB</incoming>
+			<outgoing>connector_IDAUEALB</outgoing>
+		</userTask>
+		<exclusiveGateway gatewayDirection="Diverging" id="shape_IDABDALB" name="Exclusive Gateway Divergence 2">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAUEALB</incoming>
+			<outgoing>connector_IDAYJALB</outgoing>
+			<outgoing>connector_IDAWOALB</outgoing>
+		</exclusiveGateway>
+		<subProcess triggeredByEvent="false" id="shape_IDAEIALB" name="Collapsed Sub-Process">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAYJALB</incoming>
+			<outgoing>connector_IDAMA0KB</outgoing>
+			<startEvent id="shape_IDALY4JB" name="Start Event None 3">
+				<extensionElements></extensionElements>
+				<outgoing>connector_IDAB34JB</outgoing>
+			</startEvent>
+			<task id="shape_IDAO14JB" name="Abstarct Task 8">
+				<extensionElements></extensionElements>
+				<incoming>connector_IDAB34JB</incoming>
+				<outgoing>connector_IDAZB5JB</outgoing>
+			</task>
+			<endEvent id="shape_IDAGA5JB" name="End Event None 4">
+				<extensionElements>
+					<ixbpmn:duration>PT0H</ixbpmn:duration>
+				</extensionElements>
+				<incoming>connector_IDAZB5JB</incoming>
+			</endEvent>
+			<sequenceFlow id="connector_IDAB34JB" sourceRef="shape_IDALY4JB" targetRef="shape_IDAO14JB"/>
+			<sequenceFlow id="connector_IDAZB5JB" sourceRef="shape_IDAO14JB" targetRef="shape_IDAGA5JB"/>
+		</subProcess>
+		<serviceTask id="shape_IDA4MALB" name="Service Task 7">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAWOALB</incoming>
+			<outgoing>connector_IDAR10KB</outgoing>
+		</serviceTask>
+		<exclusiveGateway gatewayDirection="Converging" id="shape_IDAYS0KB" name="Exclusive Gateway Convergence 2">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDALU0KB</incoming>
+			<incoming>connector_IDAR10KB</incoming>
+			<outgoing>connector_IDA0Z0KB</outgoing>
+		</exclusiveGateway>
+		<endEvent id="shape_IDAHY0KB" name="End Event Terminate">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDA0Z0KB</incoming>
+			<terminateEventDefinition/>
+		</endEvent>
+		<sequenceFlow id="connector_IDAJ21JB" sourceRef="shape_IDAOG1JB" targetRef="shape_IDAW01JB"/>
+		<sequenceFlow id="connector_IDAGC2JB" sourceRef="shape_IDAW01JB" targetRef="shape_IDATA2JB"/>
+		<sequenceFlow id="connector_IDAEH2JB" sourceRef="shape_IDATA2JB" targetRef="shape_IDAMF2JB" name="Nie">
+			<extensionElements>
+				<ixbpmn:percentage>50.000000</ixbpmn:percentage>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="connector_IDAIM2JB" sourceRef="shape_IDATA2JB" targetRef="shape_IDAUK2JB" name="Tak">
+			<extensionElements>
+				<ixbpmn:percentage>50.000000</ixbpmn:percentage>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="connector_IDA1N2JB" sourceRef="shape_IDAUK2JB" targetRef="shape_IDASTCJB"/>
+		<sequenceFlow id="connector_IDAAC3JB" sourceRef="shape_IDASTCJB" targetRef="shape_IDANA3JB"/>
+		<sequenceFlow id="connector_IDAXD3JB" sourceRef="shape_IDAMF2JB" targetRef="shape_IDANA3JB"/>
+		<sequenceFlow id="connector_IDAGJ3JB" sourceRef="shape_IDANA3JB" targetRef="shape_IDAQH3JB"/>
+		<sequenceFlow id="connector_IDAX45KB" sourceRef="shape_IDAW01JB" targetRef="shape_IDAE35KB"/>
+		<sequenceFlow id="connector_IDAUEALB" sourceRef="shape_IDAE35KB" targetRef="shape_IDABDALB"/>
+		<sequenceFlow id="connector_IDAYJALB" sourceRef="shape_IDABDALB" targetRef="shape_IDAEIALB" name="Nie">
+			<extensionElements>
+				<ixbpmn:percentage>50.000000</ixbpmn:percentage>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="connector_IDAWOALB" sourceRef="shape_IDABDALB" targetRef="shape_IDA4MALB" name="Tak">
+			<extensionElements>
+				<ixbpmn:percentage>50.000000</ixbpmn:percentage>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="connector_IDAMA0KB" sourceRef="shape_IDAEIALB" targetRef="shape_IDAZWCJB"/>
+		<sequenceFlow id="connector_IDALU0KB" sourceRef="shape_IDAZWCJB" targetRef="shape_IDAYS0KB"/>
+		<sequenceFlow id="connector_IDA0Z0KB" sourceRef="shape_IDAYS0KB" targetRef="shape_IDAHY0KB"/>
+		<sequenceFlow id="connector_IDAR10KB" sourceRef="shape_IDA4MALB" targetRef="shape_IDAYS0KB"/>
+		<association id="connector_IDANT1KB" sourceRef="shape_IDA4MALB" targetRef="text_IDAWR1KB"/>
+		<association id="connector_IDA4X1KB" sourceRef="text_IDAHW1KB" targetRef="shape_IDA4MALB"/>
+		<textAnnotation id="text_IDAMA1KB">
+			<text>Text Annotatiom</text>
+		</textAnnotation>
+		<association id="callout_IDAMA1KB" sourceRef="text_IDAMA1KB" targetRef="shape_IDAUK2JB" associationDirection="None"/>
+		<textAnnotation id="text_IDAWR1KB">
+			<text>Data Store Reference</text>
+		</textAnnotation>
+		<textAnnotation id="text_IDAHW1KB">
+			<text>Data Object</text>
+		</textAnnotation>
+		<textAnnotation id="text_IDAG01KB">
+			<text>Group</text>
+		</textAnnotation>
+	</process>
+	<process id="process_IDALQCJB" name="Paticipant">
+		<extensionElements></extensionElements>
+		<property name="TransactionAttributes" itemSubjectRef="TransactionAttributes_Item"/>
+		<laneSet></laneSet>
+		<startEvent id="shape_IDAVC1JB" name="Start Event Timer">
+			<extensionElements></extensionElements>
+			<outgoing>connector_IDAPT5KB</outgoing>
+			<eventDefinitionRef>timer_IDAVL5JB</eventDefinitionRef>
+		</startEvent>
+		<serviceTask id="shape_IDAMM3JB" name="Service Task 3">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDA4Z5KB</incoming>
+			<outgoing>connector_IDAT43JB</outgoing>
+		</serviceTask>
+		<endEvent id="shape_IDAA33JB" name="End Event None">
+			<extensionElements>
+				<ixbpmn:duration>PT0H</ixbpmn:duration>
+			</extensionElements>
+			<incoming>connector_IDAT43JB</incoming>
+		</endEvent>
+		<userTask id="shape_IDA2R5KB" name="User Task 2">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDALY5KB</incoming>
+			<outgoing>connector_IDA4Z5KB</outgoing>
+		</userTask>
+		<task id="shape_IDAVW5KB" name="Abstract Task 1">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAPT5KB</incoming>
+			<outgoing>connector_IDALY5KB</outgoing>
+		</task>
+		<sequenceFlow id="connector_IDAT43JB" sourceRef="shape_IDAMM3JB" targetRef="shape_IDAA33JB"/>
+		<sequenceFlow id="connector_IDAPT5KB" sourceRef="shape_IDAVC1JB" targetRef="shape_IDAVW5KB"/>
+		<sequenceFlow id="connector_IDALY5KB" sourceRef="shape_IDAVW5KB" targetRef="shape_IDA2R5KB"/>
+		<sequenceFlow id="connector_IDA4Z5KB" sourceRef="shape_IDA2R5KB" targetRef="shape_IDAMM3JB"/>
+	</process>
+	<process id="diagram_IDAGW4JB" name="BPD2">
+		<extensionElements></extensionElements>
+		<property name="TransactionAttributes" itemSubjectRef="TransactionAttributes_Item"/>
+		<startEvent id="shape_IDAQU2KB" name="Start Event None 9">
+			<extensionElements></extensionElements>
+			<outgoing>connector_IDAJR4JB</outgoing>
+		</startEvent>
+		<task id="shape_IDATX2KB" name="Abstract Task 8">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAJR4JB</incoming>
+			<outgoing>connector_IDA4V4JB</outgoing>
+		</task>
+		<endEvent id="shape_IDALU4JB" name="End Event None 9">
+			<extensionElements>
+				<ixbpmn:duration>PT0H</ixbpmn:duration>
+			</extensionElements>
+			<incoming>connector_IDA4V4JB</incoming>
+		</endEvent>
+		<sequenceFlow id="connector_IDAJR4JB" sourceRef="shape_IDAQU2KB" targetRef="shape_IDATX2KB"/>
+		<sequenceFlow id="connector_IDA4V4JB" sourceRef="shape_IDATX2KB" targetRef="shape_IDALU4JB"/>
+	</process>
+	<timerEventDefinition id="timer_IDAVL5JB">
+		<extensionElements>
+			<ixbpmn:name>Każdy_poranek</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<timerEventDefinition id="timer_IDA3L5JB">
+		<extensionElements>
+			<ixbpmn:name>Każde_popołudnie</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<timerEventDefinition id="timer_IDAFM5JB">
+		<extensionElements>
+			<ixbpmn:name>Każdy_koniec_dnia</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<timerEventDefinition id="timer_IDANM5JB">
+		<extensionElements>
+			<ixbpmn:name>Tygodniowo</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<timerEventDefinition id="timer_IDAVM5JB">
+		<extensionElements>
+			<ixbpmn:name>Pierwszy_dzień_miesiąca</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<timerEventDefinition id="timer_IDA3M5JB">
+		<extensionElements>
+			<ixbpmn:name>Ostatni_dzień_miesiąca</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<message id="message_IDAZP4JB" name="Komunikat"/>
+	<bpmndi:BPMNDiagram resolution="96" name="BPD1">
+		<bpmndi:BPMNPlane bpmnElement="diagram_IDAO01KB">
+			<bpmndi:BPMNShape bpmnElement="dept_IDAMMCJB" isHorizontal="true">
+				<dc:Bounds x="32" y="430" width="1092.0666666666666" height="396"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="dept_IDAWNCJB" isHorizontal="true">
+				<dc:Bounds x="32" y="192" width="1092.0666666666666" height="238"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="dept_IDA5OCJB" isHorizontal="true">
+				<dc:Bounds x="0" y="192" width="1124.0666666666666" height="634"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="dept_IDALQCJB" isHorizontal="true">
+				<dc:Bounds x="0" y="0" width="1124.0666666666666" height="144"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDASTCJB" isExpanded="true">
+				<dc:Bounds x="552.0666666666667" y="202.9" width="297.73333333333335" height="120.86666666666666"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAZWCJB" isExpanded="true">
+				<dc:Bounds x="574.4333333333333" y="450.6" width="303.1333333333333" height="125.33333333333333"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAVC1JB">
+				<dc:Bounds x="79.33333333333333" y="58" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAOG1JB">
+				<dc:Bounds x="105" y="247" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAW01JB">
+				<dc:Bounds x="163" y="235" width="48" height="48"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAJ21JB">
+				<di:waypoint x="129" y="259"/>
+				<di:waypoint x="163" y="259"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDATA2JB" isMarkerVisible="false">
+				<dc:Bounds x="276" y="235" width="48" height="48"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAGC2JB">
+				<di:waypoint x="211" y="259"/>
+				<di:waypoint x="276" y="259"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAMF2JB">
+				<dc:Bounds x="357" y="334" width="114" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAEH2JB">
+				<di:waypoint x="300" y="283"/>
+				<di:waypoint x="300" y="370"/>
+				<di:waypoint x="357" y="370"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAUK2JB" isExpanded="false">
+				<dc:Bounds x="358.6666666666667" y="223" width="114" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAIM2JB">
+				<di:waypoint x="324" y="259"/>
+				<di:waypoint x="358.6666666666667" y="259"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDA1N2JB">
+				<di:waypoint x="472.6666666666667" y="259"/>
+				<di:waypoint x="552.0666666666667" y="259"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDA1R2JB">
+				<dc:Bounds x="582.6666666666666" y="252.33333333333334" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDACV2JB">
+				<dc:Bounds x="636.6666666666666" y="228.33333333333334" width="114" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAVW2JB">
+				<di:waypoint x="606.6666666666666" y="264.3333333333333"/>
+				<di:waypoint x="636.6666666666666" y="264.3333333333333"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAS02JB">
+				<dc:Bounds x="788.6666666666666" y="252.33333333333334" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAF22JB">
+				<di:waypoint x="750.6666666666666" y="264.3333333333333"/>
+				<di:waypoint x="788.6666666666666" y="264.3333333333333"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDANA3JB" isMarkerVisible="false">
+				<dc:Bounds x="957" y="237.66666666666666" width="48" height="48"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAAC3JB">
+				<di:waypoint x="849.8" y="263.4"/>
+				<di:waypoint x="957" y="263.4"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAXD3JB">
+				<di:waypoint x="471" y="370"/>
+				<di:waypoint x="981" y="370"/>
+				<di:waypoint x="981" y="285.6666666666667"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAQH3JB">
+				<dc:Bounds x="1059" y="249.66666666666666" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAGJ3JB">
+				<di:waypoint x="1005" y="261.6666666666667"/>
+				<di:waypoint x="1059" y="261.6666666666667"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAMM3JB">
+				<dc:Bounds x="889.3333333333334" y="34.333333333333336" width="114" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAHO3JB">
+				<di:waypoint x="1071" y="249.66666666666666"/>
+				<di:waypoint x="1071" y="171.93333333333334"/>
+				<di:waypoint x="946.3333333333334" y="171.93333333333334"/>
+				<di:waypoint x="946.3333333333334" y="106.33333333333333"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAA33JB">
+				<dc:Bounds x="1059" y="58.333333333333336" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAT43JB">
+				<di:waypoint x="1003.3333333333334" y="70.33333333333333"/>
+				<di:waypoint x="1059" y="70.33333333333333"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDA2R5KB">
+				<dc:Bounds x="353.6666666666667" y="34" width="114" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAPT5KB">
+				<di:waypoint x="103.33333333333333" y="70"/>
+				<di:waypoint x="146" y="70"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAVW5KB">
+				<dc:Bounds x="146" y="34" width="114" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDALY5KB">
+				<di:waypoint x="260" y="70"/>
+				<di:waypoint x="353.6666666666667" y="70"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDA4Z5KB">
+				<di:waypoint x="467.6666666666667" y="70"/>
+				<di:waypoint x="889.3333333333334" y="70"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAE35KB">
+				<dc:Bounds x="130" y="472" width="114" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAX45KB">
+				<di:waypoint x="187" y="283"/>
+				<di:waypoint x="187" y="472"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDABDALB" isMarkerVisible="false">
+				<dc:Bounds x="288" y="484" width="48" height="48"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAUEALB">
+				<di:waypoint x="244" y="508"/>
+				<di:waypoint x="288" y="508"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAEIALB" isExpanded="false">
+				<dc:Bounds x="375" y="472" width="114" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAYJALB">
+				<di:waypoint x="336" y="508"/>
+				<di:waypoint x="375" y="508"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDA4MALB">
+				<dc:Bounds x="445.6666666666667" y="663" width="114" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAWOALB">
+				<di:waypoint x="312" y="532"/>
+				<di:waypoint x="312" y="699"/>
+				<di:waypoint x="445.6666666666667" y="699"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAMA0KB">
+				<di:waypoint x="489" y="508"/>
+				<di:waypoint x="574.4666666666667" y="508"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAGE0KB">
+				<dc:Bounds x="616" y="500.26666666666665" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDANH0KB">
+				<dc:Bounds x="677" y="476.26666666666665" width="114" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDADJ0KB">
+				<di:waypoint x="640" y="512.3333333333334"/>
+				<di:waypoint x="677" y="512.3333333333334"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAWK0KB">
+				<di:waypoint x="791" y="512.3333333333334"/>
+				<di:waypoint x="822" y="512.3333333333334"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAQO0KB">
+				<dc:Bounds x="822" y="500.26666666666665" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAYS0KB" isMarkerVisible="false">
+				<dc:Bounds x="966.6666666666666" y="486.3333333333333" width="48" height="48"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDALU0KB">
+				<di:waypoint x="877.6" y="513.2666666666666"/>
+				<di:waypoint x="966.6666666666666" y="513.2666666666666"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAHY0KB">
+				<dc:Bounds x="1059" y="498.3333333333333" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDA0Z0KB">
+				<di:waypoint x="1014.6666666666666" y="510.3333333333333"/>
+				<di:waypoint x="1059" y="510.3333333333333"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAR10KB">
+				<di:waypoint x="559.6666666666666" y="699"/>
+				<di:waypoint x="990.6666666666666" y="699"/>
+				<di:waypoint x="990.6666666666666" y="534.3333333333334"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAM30KB">
+				<di:waypoint x="203" y="106"/>
+				<di:waypoint x="203" y="170.46666666666667"/>
+				<di:waypoint x="117" y="170.46666666666667"/>
+				<di:waypoint x="117" y="247"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="text_IDAMA1KB">
+				<dc:Bounds x="361.43333333333333" y="153.7" width="112.6" height="26.2"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="callout_IDAMA1KB">
+				<di:waypoint x="417.73333333333335" y="166.8"/>
+				<di:waypoint x="415.6666666666667" y="259"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="text_IDAWR1KB">
+				<dc:Bounds x="600.6" y="755.1333333333333" width="32.53333333333333" height="30.8"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDANT1KB">
+				<di:waypoint x="502.6666666666667" y="735"/>
+				<di:waypoint x="502.6666666666667" y="770.7333333333333"/>
+				<di:waypoint x="600.6" y="770.7333333333333"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="text_IDAHW1KB">
+				<dc:Bounds x="382.2" y="608" width="25.6" height="37.6"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDA4X1KB">
+				<di:waypoint x="407.8" y="626.8"/>
+				<di:waypoint x="502.6666666666667" y="626.8"/>
+				<di:waypoint x="502.6666666666667" y="663"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="text_IDAG01KB">
+				<dc:Bounds x="105.93333333333334" y="445.1666666666667" width="410.8" height="132.73333333333332"/>
+			</bpmndi:BPMNShape>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+	<bpmndi:BPMNDiagram resolution="96" name="BPD2">
+		<bpmndi:BPMNPlane bpmnElement="diagram_IDAGW4JB">
+			<bpmndi:BPMNShape bpmnElement="shape_IDAQU2KB">
+				<dc:Bounds x="44.666666666666664" y="63.53333333333333" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDATX2KB">
+				<dc:Bounds x="106" y="39.53333333333333" width="96" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAJR4JB">
+				<di:waypoint x="68.66666666666667" y="75.53333333333333"/>
+				<di:waypoint x="106" y="75.53333333333333"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDALU4JB">
+				<dc:Bounds x="245" y="63.53333333333333" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDA4V4JB">
+				<di:waypoint x="202" y="75.53333333333333"/>
+				<di:waypoint x="245" y="75.53333333333333"/>
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+	<bpmndi:BPMNDiagram resolution="96" name="BPD3">
+		<bpmndi:BPMNPlane bpmnElement="shape_IDAEIALB">
+			<bpmndi:BPMNShape bpmnElement="shape_IDALY4JB">
+				<dc:Bounds x="44.666666666666664" y="63.53333333333333" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAO14JB">
+				<dc:Bounds x="106" y="39.53333333333333" width="96" height="72"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAB34JB">
+				<di:waypoint x="68.66666666666667" y="75.53333333333333"/>
+				<di:waypoint x="106" y="75.53333333333333"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAGA5JB">
+				<dc:Bounds x="246.6" y="63.53333333333333" width="24" height="24"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAZB5JB">
+				<di:waypoint x="202" y="75.53333333333333"/>
+				<di:waypoint x="246.66666666666666" y="75.53333333333333"/>
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</definitions>

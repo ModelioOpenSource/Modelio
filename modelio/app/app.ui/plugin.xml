@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+   <extension id="modelio-themes" point="org.eclipse.e4.ui.css.swt.theme">
+      <theme id="org.modelio.app.theme.default"
+             basestylesheeturi="css/default.gtk.css"
+             label="Default"
+             os="linux">
+      </theme>
+      <theme id="org.modelio.app.theme.default"
+             basestylesheeturi="css/default.win.css"
+             label="Default"
+             os="win32">
+      </theme>
+      <theme id="org.modelio.app.theme.modelio1"
+            basestylesheeturi="css/modelio1.gtk.css"
+            label="Modelio1"
+            os="linux">
+      </theme>
+      <theme id="org.modelio.app.theme.modelio1"
+            basestylesheeturi="css/modelio1.win.css"
+            label="Modelio 1"
+            os="win32">
+      </theme>
+      <theme id="org.modelio.app.theme.modelio2"
+            basestylesheeturi="css/modelio2.gtk.css"
+            label="Modelio 2"
+            os="linux">
+      </theme>
+      <theme id="org.modelio.app.theme.modelio2"
+            basestylesheeturi="css/modelio2.win.css"
+            label="Modelio 2"
+            os="win32">
+      </theme>
+   </extension>
+
+   <extension id="id1" point="org.eclipse.e4.workbench.model">
+      <processor beforefragment="true" class="org.modelio.app.ui.plugin.AppUiInitializer" />
+   </extension>
+   
+  <extension id="modelio"  point="org.eclipse.core.runtime.products">
+    <product application="org.eclipse.e4.ui.workbench.swt.E4Application" name="Modelio 3">
+       <property name="appName"                 value="Modelio 3" />
+       <property name="lifeCycleURI"            value="bundleclass://org.modelio.app.ui/org.modelio.app.ui.lifecycle.LifeCycleManager" />
+       <property name="applicationXMI"          value="org.modelio.app.ui/e4model/modelio.e4xmi" />
+       <property name="applicationCSSResources" value="platform:/plugin/org.modelio.app.ui/css" />
+       <property name="cssTheme"                value="org.eclipse.e4.ui.css.theme.e4_classic" />
+    </product>
+  </extension>
+</plugin>

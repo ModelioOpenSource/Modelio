@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.modelio.creation.wizard.contributor" name="DiagramCreationContributor" schema="schema/org.modelio.creation.wizard.contributor.exsd"/>
+
+	<extension point="org.eclipse.e4.workbench.model"  id="modelContribution">
+	      <fragment uri="e4model/creation.wizard.e4xmi"></fragment>
+	</extension>
+
+</plugin>

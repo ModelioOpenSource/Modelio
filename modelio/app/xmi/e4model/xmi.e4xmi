@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_8KapMIkZEeWbO4MnNK7ogg">
+  <imports xsi:type="menu:Menu" xmi:id="_loNtwACdEeaDgIFl5pnvCw" elementId="org.modelio.model.browser.view.popupmenu.interop.import"/>
+  <imports xsi:type="menu:Menu" xmi:id="_si7dIACdEeaDgIFl5pnvCw" elementId="org.modelio.model.browser.view.popupmenu.interop.export"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_7fEgQJL9EeKzwNCVVnW3jA" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_6O5EENJyEeKUafBn9f5aXg" elementId="xmi.command.import" commandName="%importxmi.name"/>
+    <elements xsi:type="commands:Command" xmi:id="__sPoENM3EeKf_7glQmJA1Q" elementId="xmi.command.export" commandName="%exportxmi.name"/>
+    <elements xsi:type="commands:Command" xmi:id="_BEIoENM4EeKf_7glQmJA1Q" elementId="xmi.command.importprofile" commandName="%importprofile.name"/>
+    <elements xsi:type="commands:Command" xmi:id="_ETzCANM4EeKf_7glQmJA1Q" elementId="xmi.command.exportprofile" commandName="%exportprofile.name"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_GRPU0JhNEeK5iOV-ihQRrA" featurename="handlers" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Handler" xmi:id="_-KPfUNJyEeKUafBn9f5aXg" elementId="xmi.handler.import" contributionURI="bundleclass://org.modelio.xmi/org.modelio.xmi.handlers.ImportXMI" command="_6O5EENJyEeKUafBn9f5aXg"/>
+    <elements xsi:type="commands:Handler" xmi:id="_ILu84NM4EeKf_7glQmJA1Q" elementId="xmi.handler.export" contributionURI="bundleclass://org.modelio.xmi/org.modelio.xmi.handlers.ExportXMI" command="__sPoENM3EeKf_7glQmJA1Q"/>
+    <elements xsi:type="commands:Handler" xmi:id="_UXknoNM4EeKf_7glQmJA1Q" elementId="xmi.handler.importprofile" contributionURI="bundleclass://org.modelio.xmi/org.modelio.xmi.handlers.ImportProfile" command="_BEIoENM4EeKf_7glQmJA1Q"/>
+    <elements xsi:type="commands:Handler" xmi:id="_XwE0gNM4EeKf_7glQmJA1Q" elementId="xmi.handler.exportprofile" contributionURI="bundleclass://org.modelio.xmi/org.modelio.xmi.handlers.ExportProfile" command="_ETzCANM4EeKf_7glQmJA1Q"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_nLYhcNJzEeKUafBn9f5aXg" featurename="children" parentElementId="org.modelio.model.browser.view.popupmenu.interop.import">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_uIHDANJzEeKUafBn9f5aXg" elementId="xmi.handledmenuitem.import" label="%importxmi.label" iconURI="platform:/plugin/org.modelio.xmi/icons/import.png" tooltip="%importxmi.tooltip" command="_6O5EENJyEeKUafBn9f5aXg">
+      <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_87qv0Nl3EeKAPpCnSzYXkg" coreExpressionId="xmi.definition.command.import"/>
+    </elements>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_eRJ74NM4EeKf_7glQmJA1Q" elementId="xmi.handledmenuitem.importprofile" label="%importprofile.label" iconURI="platform:/plugin/org.modelio.xmi/icons/importprofile.png" tooltip="%importprofile.tooltip" command="_BEIoENM4EeKf_7glQmJA1Q">
+      <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_RyCrUNmEEeKAPpCnSzYXkg" coreExpressionId="xmi.definition.command.importprofile"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_MbBaoACfEeaDgIFl5pnvCw" featurename="children" parentElementId="org.modelio.model.browser.view.popupmenu.interop.export">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_cZOw8NM4EeKf_7glQmJA1Q" elementId="xmi.handledmenuitem.export" label="%exportxmi.label" iconURI="platform:/plugin/org.modelio.xmi/icons/export.png" tooltip="%exportxmi.tooltip" command="__sPoENM3EeKf_7glQmJA1Q">
+      <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_PmI0cNmEEeKAPpCnSzYXkg" coreExpressionId="xmi.definition.command.export"/>
+    </elements>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_iesTUNM4EeKf_7glQmJA1Q" elementId="xmi.handledmenuitem.exportprofile" label="%exportprofile.label" iconURI="platform:/plugin/org.modelio.xmi/icons/exportprofile.png" tooltip="%exportprofile.tooltip" command="_ETzCANM4EeKf_7glQmJA1Q">
+      <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_VP3dENmEEeKAPpCnSzYXkg" coreExpressionId="xmi.definition.command.exportprofile"/>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

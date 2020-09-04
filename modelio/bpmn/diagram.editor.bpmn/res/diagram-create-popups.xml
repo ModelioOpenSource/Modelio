@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<create-popups>
+  <popup metaclass="Standard.BpmnTask">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnReceiveTask">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnServiceTask">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnManualTask">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnBusinessRuleTask">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnAdHocSubProcess">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnSubProcess"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnAdHocSubProcess"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnTransaction"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnCallActivity"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnReceiveTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnSendTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnServiceTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnUserTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnManualTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnScriptTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnBusinessRuleTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnExclusiveGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnInclusiveGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnParallelGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnEventBasedGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnComplexGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnStartEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnIntermediateThrowEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnIntermediateCatchEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnEndEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataObject"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataInput"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataOutput"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataStore"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnCallActivity">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnUserTask">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnScriptTask">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnSubProcess">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnSubProcess"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnAdHocSubProcess"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnTransaction"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnCallActivity"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnReceiveTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnSendTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnServiceTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnUserTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnManualTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnScriptTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnBusinessRuleTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnExclusiveGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnInclusiveGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnParallelGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnEventBasedGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnComplexGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnStartEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnIntermediateThrowEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnIntermediateCatchEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnEndEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataObject"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataInput"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataOutput"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataStore"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnTransaction">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnSubProcess"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnAdHocSubProcess"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnTransaction"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnCallActivity"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnReceiveTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnSendTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnServiceTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnUserTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnManualTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnScriptTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnBusinessRuleTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnExclusiveGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnInclusiveGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnParallelGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnEventBasedGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnComplexGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnStartEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnIntermediateThrowEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnIntermediateCatchEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnEndEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataObject"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataInput"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataOutput"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataStore"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnSendTask">
+    <command id="org.modelio.CreateBpmnBoundaryEventCommand">
+      <parameter name="metaclass" value="Standard.BpmnBoundaryEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnProcess">
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnSubProcess"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnAdHocSubProcess"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnTransaction"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnCallActivity"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnReceiveTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnSendTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnServiceTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnUserTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnManualTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnScriptTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnBusinessRuleTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnExclusiveGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnInclusiveGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnParallelGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnEventBasedGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnComplexGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnStartEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnIntermediateThrowEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnIntermediateCatchEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnEndEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataObject"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataInput"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataOutput"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataStore"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+  <popup metaclass="Standard.BpmnLane">
+  	<command id="org.modelio.app.ui.command.create.element">
+		<parameter name="metaclass" value="Standard.BpmnLane" />
+		<parameter name="dependency" value="LaneSet" />
+	</command>
+	<separator />
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnSubProcess"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnAdHocSubProcess"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnTransaction"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnCallActivity"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnReceiveTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnSendTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnServiceTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnUserTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnManualTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnScriptTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnBusinessRuleTask"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnExclusiveGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnInclusiveGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnParallelGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnEventBasedGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnComplexGateway"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnStartEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnIntermediateThrowEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnIntermediateCatchEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnEndEvent"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <separator/>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataObject"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataInput"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataOutput"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+    <command id="org.modelio.CreateBpmnFlowElementCommand">
+      <parameter name="metaclass" value="Standard.BpmnDataStore"/>
+      <parameter name="dependency" value="FlowElement"/>
+    </command>
+  </popup>
+</create-popups>
+
+

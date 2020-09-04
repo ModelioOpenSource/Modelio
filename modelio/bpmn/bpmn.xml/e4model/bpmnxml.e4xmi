@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_osPrELoPEeGR05fGaOD0Vw">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_z6xioInnEeW0p7B16jMKFA" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_pglpMO5LEeSmL7iDhFiUAQ" elementId="org.modelio.bpmn-xml.command.BPMImport" commandName="%BPMImport.name" description="%BPMImport.tooltip"/>
+    <elements xsi:type="commands:Command" xmi:id="_yLN3AO5LEeSmL7iDhFiUAQ" elementId="org.modelio.bpmn-xml.command.BPMExport" commandName="%BPMExport.name" description="%BPMExport.tooltip"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_urG_0InnEeW0p7B16jMKFA" featurename="handlers" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Handler" xmi:id="__avMUO5LEeSmL7iDhFiUAQ" elementId="org.modelio.bpmn-xml.handler.BPMExport" contributionURI="bundleclass://org.modelio.bpmn-xml/org.modelio.bpmnxml.exporter.commands.BPMExportHandler" command="_yLN3AO5LEeSmL7iDhFiUAQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_iu_cQE92EeecO7dId6WG1w" elementId="org.modelio.bpmn-xml.handler.BPMImport" contributionURI="bundleclass://org.modelio.bpmn-xml/org.modelio.bpmnxml.importer.commands.BPMImportHandler" command="_pglpMO5LEeSmL7iDhFiUAQ"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_JfMBYE91EeecO7dId6WG1w" featurename="children" parentElementId="org.modelio.model.browser.view.popupmenu.interop.import">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_LzPusE91EeecO7dId6WG1w" elementId="org.modelio.bpmn-xml.handledmenuitem.BPMImport" label="%BPMImport.label" iconURI="platform:/plugin/org.modelio.bpmn-xml/icons/bpm_import.png" tooltip="%BPMImport.tooltip" command="_pglpMO5LEeSmL7iDhFiUAQ"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_UK1EsE91EeecO7dId6WG1w" featurename="children" parentElementId="org.modelio.model.browser.view.popupmenu.interop.export">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_V8J4YE91EeecO7dId6WG1w" elementId="org.modelio.bpmn-xml.handledmenuitem.BPMExport" label="%BPMExport.label" iconURI="platform:/plugin/org.modelio.bpmn-xml/icons/bpm_export.png" tooltip="%BPMExport.tooltip" command="_yLN3AO5LEeSmL7iDhFiUAQ"/>
+  </fragments>
+</fragment:ModelFragments>

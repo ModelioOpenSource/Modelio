@@ -1,0 +1,457 @@
+/*
+ * Copyright (c) 2005, 2006 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ *
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial implementation
+ */
+
+body {
+	background-image: none;
+	background-color: #ffffff;
+ 	font-family: arial, helvetica, sans-serif;
+ 	font-size: 10pt;
+	margin: 3px;
+	padding: 0px; 	
+}
+
+p {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+h1 {
+	font-family: arial, helvetica, sans-serif;
+	font-size: large;
+}
+
+h2 {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 150%;
+}
+
+h3 {
+	font-family: arial, helvetica, sans-serif;
+}
+
+h4, h5, h6 {
+	font-family: arial, helvetica, sans-serif;
+}
+
+a:link {
+	color: #003399;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-decoration: none;
+}
+
+a:active {
+	color: #003399;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #003399;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #ff0000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-decoration: underline;
+}
+
+ol {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	list-style-type: decimal;
+	margin-left: 30px;
+}
+
+ol li {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-align: left
+}
+
+ul {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	list-style-type: disc;
+	margin-left: 30px;
+	margin-top: 0px;
+}
+
+ul li {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+}
+
+table {
+	background-image: none;
+	background: #ffffff;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;	
+}
+
+tbody {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	valign: baseline;
+}
+
+th {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+}
+
+td {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+td ul {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	margin-bottom: 0px;
+	margin-left: 30px;
+}
+
+.pageTitle {
+	background: #9999cc;
+	color: #ffffff;
+	font-size: 12pt;
+	font-weight: bold;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	text-align: left;
+}
+
+.pageTitleSeparator {
+	background-color: #000000;
+	padding: 0px;
+}
+
+.tab {
+	background-color: #5c81a7;
+	color: #ffffff;
+	font-family: verdana, arial, sans-serif; 
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.activeTab {
+	background-color: #c8d7e3;
+	color: #293d6b;	
+	font-family: verdana, arial, sans-serif; 
+	font-size: 11px;
+	font-weight: bold;
+}
+
+a.tab:link, a.tab:active, a.tab:visited {
+	color: #ffffff;
+	font-family: verdana, arial, sans-serif; 
+	font-size: 11px;
+	font-weight: bold;
+}
+
+a.tab:hover {
+	text-decoration: underline;	
+}
+
+.overview {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: normal;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 0px;
+	padding-top: 10px;
+}
+
+.overviewTable {
+	background: #ffffff;
+	width: 100%;	
+}
+
+.overviewTable td {
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+}
+
+.overviewSeparator {
+	background-color: #000000;
+	padding: 0px;
+}
+
+.expandCollapseText {
+	font-family: verdana, arial, sans-serif;
+	font-size: 8pt;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.expandCollapseLink {
+	color: #333333;
+	padding-bottom: 5px;
+	text-decoration: none;
+}
+
+.expandCollapseLink:hover {
+	color: #0000ff;
+	text-decoration: underline;
+}
+
+.expandCollapseLink:visited {
+	color: #333333;
+}
+
+.sectionHeading {
+	background-color: #98b1c4;
+	color: #ffffff;
+	cursor: hand;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-top: 2px;
+	text-decoration: none;
+}
+
+.sectionContent {
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	text-align: right;
+}
+
+.sectionTable {
+	border-bottom: #ccc solid 0px;
+	border-left: #ccc solid 1px;
+	border-right: #ccc solid 0px;
+	border-top: #ccc solid 1px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	width: 100%;
+}
+
+.sectionTableHeading {
+	background: #eee;
+	border-bottom: #ccc solid 1px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 1px;
+	border-top: #ccc solid 0px;
+	color: #333333;
+	height: 20;
+	text-align: left;
+	width: 20%;
+}
+
+.sectionTableCell {
+	border-bottom: #ccc solid 1px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 1px;
+	border-top: #ccc solid 0px;
+}
+
+.breakdownTable {
+	border-bottom: #ccc solid 0px;
+	border-left: #ccc solid 1px;
+	border-right: #ccc solid 0px;
+	border-top: #ccc solid 1px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	width: 100%;
+}
+
+.breakdownTable th {
+	background: #eee;
+	border-bottom: #ccc solid 1px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 1px;
+	border-top: #ccc solid 0px;
+	color: #333333;
+	height: 20;
+	text-align: left;
+}
+
+.breakdownTable td {
+	border-bottom: #ccc solid 1px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 1px;
+	border-top: #ccc solid 0px;
+}
+
+.defaultTable {
+	border-bottom: #ccc solid 0px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 0px;
+	border-top: #ccc solid 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	width: 100%;
+}
+
+.defaultTable td {
+	border-bottom: #ccc solid 0px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 0px;
+	border-top: #ccc solid 0px;
+	text-align: left;
+}
+
+.subSectionHeading {
+	color: #333333;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.subSectionContent {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-decoration: none;	
+}
+
+.stepHeading {
+	background-color: #ffffff;
+	color: #293d6b;
+	cursor: hand;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-top: 2px;
+	text-decoration: none;
+}
+
+.stepContent {
+	border-bottom: #ccc solid 0px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 0px;
+	border-top: #ccc solid 0px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	text-align: right;
+}
+
+.stepTable {
+	border-bottom: #999999 solid 1px;
+	border-left: #999999 solid 0px;
+	border-right: #999999 solid 0px;
+	border-top: #999999 solid 0px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	width: 100%;
+}
+
+.stepTable td {
+	border: #ccc solid 0px;
+}
+
+.stepSeparator {
+	background-color: #cccccc;
+	padding: 0px;
+}
+
+.backToTopLink {
+	color: #ffffff;
+	font-family: verdana, arial, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;	
+	margin: 0px;
+	padding-bottom: 10px;
+	text-align: middle;	
+	text-decoration: none;
+}
+
+.backToTopLink:hover {
+	color: #969;
+	text-decoration: underline;
+}
+
+.backToTopLink:visited {
+	color: #5c81a7;
+	text-decoration: none;	
+}
+
+.copyright {
+	color: #7080b0;
+	font-family: verdana, arial, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	padding-left: 0px;
+	padding-right: 10px;
+	padding-top: 25px;
+	text-align: left;
+	width: 100%;
+}
+
+.versionInfo {
+	color: #7080b0;
+	font-family: verdana, arial, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	padding-left: 10px;
+	padding-right: 0px;
+	padding-top: 25px;
+	text-align: right;
+}
+
+.quote {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-style: italic;
+}
+
+.codeSample {
+	font-family: courier;
+	font-size: 10pt;		
+}
+
+.elementLink {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;	
+	color: #0000ff;
+}
+
+.elementLinkWithType {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: #0000ff;
+}
+
+.elementLinkWithUserText {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: #0000ff;
+}

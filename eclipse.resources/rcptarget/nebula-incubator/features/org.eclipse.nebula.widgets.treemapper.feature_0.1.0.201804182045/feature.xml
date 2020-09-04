@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.treemapper.feature"
+      label="TreeMapper Feature"
+      version="0.1.0.201804182045"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://eclipse.org/nebula">
+      Treemapper
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.treemapper"
+         download-size="27"
+         install-size="50"
+         version="0.1.0.201804182045"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.treemapper.source"
+         download-size="17"
+         install-size="39"
+         version="0.1.0.201804182045"
+         unpack="false"/>
+
+</feature>

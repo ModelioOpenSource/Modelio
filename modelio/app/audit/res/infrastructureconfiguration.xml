@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration id="Infrastructure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="auditconfiguration.xsd">
+	<Category id="Common">
+		<Rule id="R2850" class="org.modelio.audit.infrastructure.R2850" status="enabled" severity="error" />
+		<Rule id="R3260" class="org.modelio.audit.infrastructure.R3260" status="enabled" severity="tip" />
+		<Rule id="R2030" class="org.modelio.audit.infrastructure.R2030" status="enabled" severity="error" />
+		<Rule id="R2080" class="org.modelio.audit.infrastructure.R2080" status="enabled" severity="error" />
+		<Rule id="R2100" class="org.modelio.audit.infrastructure.R2100" status="enabled" severity="error" />
+		<Rule id="R2120" class="org.modelio.audit.infrastructure.R2120" status="enabled" severity="error" />
+		<Rule id="R2140" class="org.modelio.audit.infrastructure.R2140" status="enabled" severity="error" />
+		<Rule id="R2240" class="org.modelio.audit.infrastructure.R2240" status="enabled" severity="error" />
+		<Rule id="R2680" class="org.modelio.audit.infrastructure.R2680" status="enabled" severity="error" />
+	</Category>
+</Configuration>

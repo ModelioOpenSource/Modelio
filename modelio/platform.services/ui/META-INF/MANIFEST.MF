@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ui Plug-in
+Bundle-SymbolicName: org.modelio.ui;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Version: 3.8.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.modelio.utils,
+ org.eclipse.core.runtime,
+ org.eclipse.gef,
+ org.modelio.core.utils,
+ org.modelio.core.rcp
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: modelio.org
+Export-Package: org.modelio.ui,
+ org.modelio.ui.dialog,
+ org.modelio.ui.gef,
+ org.modelio.ui.htmleditor,
+ org.modelio.ui.panel,
+ org.modelio.ui.plugin,
+ org.modelio.ui.progress,
+ org.modelio.ui.swt
+Bundle-ClassPath: .,
+ rte/
+Bundle-Activator: org.modelio.ui.plugin.UI
+Eclipse-BundleShape: dir
+

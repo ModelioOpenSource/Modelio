@@ -1,0 +1,3 @@
+This folder contains the ARIS Business Architect 7.2.4 export test files which
+some element names have been revised in order to be able to run the xpath test.
+The semantics of the process have not been changed.

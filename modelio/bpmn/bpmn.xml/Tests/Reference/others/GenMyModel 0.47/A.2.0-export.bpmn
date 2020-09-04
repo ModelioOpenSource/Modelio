@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="_Vsep4B89EeW9keBtFZy97Q" exporter="GenMyModel" exporterVersion="0.1" name="model" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL">
+  <bpmn2:process id="_Vsep4R89EeW9keBtFZy97Q" name="Process">
+    <bpmn2:startEvent id="_Vsep4h89EeW9keBtFZy97Q" name="Start Event">
+      <bpmn2:outgoing>_Vsep4x89EeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:task id="_Vsep5B89EeW9keBtFZy97Q" name="Task 1">
+      <bpmn2:incoming>_Vsep4x89EeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_Vsep5R89EeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="_Vsep5h89EeW9keBtFZy97Q" name="Task 2">
+      <bpmn2:incoming>_Vsep5x89EeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_Vsep6B89EeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="_Vsep6R89EeW9keBtFZy97Q" name="Task 3">
+      <bpmn2:incoming>_Vsep6h89EeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_Vsep6x89EeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="_Vsep7B89EeW9keBtFZy97Q" name="Task 4">
+      <bpmn2:incoming>_Vsep7R89EeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_Vsep7h89EeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:exclusiveGateway id="_Vsep7x89EeW9keBtFZy97Q" name="Gateway (Split Flow)">
+      <bpmn2:incoming>_Vsep5R89EeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_Vsep5x89EeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:outgoing>_Vsep7R89EeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:outgoing>_Vsep6h89EeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_Vsep4x89EeW9keBtFZy97Q" name="" sourceRef="_Vsep4h89EeW9keBtFZy97Q" targetRef="_Vsep5B89EeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_Vsep5R89EeW9keBtFZy97Q" name="" sourceRef="_Vsep5B89EeW9keBtFZy97Q" targetRef="_Vsep7x89EeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_Vsep5x89EeW9keBtFZy97Q" name="" sourceRef="_Vsep7x89EeW9keBtFZy97Q" targetRef="_Vsep5h89EeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_Vsep6h89EeW9keBtFZy97Q" name="" sourceRef="_Vsep7x89EeW9keBtFZy97Q" targetRef="_Vsep6R89EeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_Vsep7R89EeW9keBtFZy97Q" name="" sourceRef="_Vsep7x89EeW9keBtFZy97Q" targetRef="_Vsep7B89EeW9keBtFZy97Q"/>
+    <bpmn2:endEvent id="_Vsep8B89EeW9keBtFZy97Q" name="End Event">
+      <bpmn2:incoming>_Vsep6B89EeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:incoming>_Vsep8R89EeW9keBtFZy97Q</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="_Vsep6B89EeW9keBtFZy97Q" name="" sourceRef="_Vsep5h89EeW9keBtFZy97Q" targetRef="_Vsep8B89EeW9keBtFZy97Q"/>
+    <bpmn2:parallelGateway id="_Vsep8h89EeW9keBtFZy97Q" name="Gateway (Merge Flow)">
+      <bpmn2:incoming>_Vsep7h89EeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:incoming>_Vsep6x89EeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_Vsep8R89EeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="_Vsep6x89EeW9keBtFZy97Q" name="" sourceRef="_Vsep6R89EeW9keBtFZy97Q" targetRef="_Vsep8h89EeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_Vsep7h89EeW9keBtFZy97Q" name="" sourceRef="_Vsep7B89EeW9keBtFZy97Q" targetRef="_Vsep8h89EeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_Vsep8R89EeW9keBtFZy97Q" name="" sourceRef="_Vsep8h89EeW9keBtFZy97Q" targetRef="_Vsep8B89EeW9keBtFZy97Q"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_VsfQ8B89EeW9keBtFZy97Q" name="process-diagram">
+    <bpmndi:BPMNPlane id="_VsfQ8R89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep4R89EeW9keBtFZy97Q">
+      <bpmndi:BPMNShape id="_VsfQ8h89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep4h89EeW9keBtFZy97Q">
+        <dc:Bounds height="35.0" width="35.0" x="90.0" y="150.0"/>
+        <bpmndi:BPMNLabel id="_VsfQ8x89EeW9keBtFZy97Q" labelStyle="bpmn2:_VsfQ9B89EeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="58.0" y="186.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_VsfQ9R89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep5B89EeW9keBtFZy97Q">
+        <dc:Bounds height="60.0" width="90.0" x="160.0" y="140.0"/>
+        <bpmndi:BPMNLabel id="_VsfQ9h89EeW9keBtFZy97Q" labelStyle="bpmn2:_VsfQ9B89EeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_VsfQ9x89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep5h89EeW9keBtFZy97Q">
+        <dc:Bounds height="60.0" width="90.0" x="440.0" y="50.0"/>
+        <bpmndi:BPMNLabel id="_VsfQ-B89EeW9keBtFZy97Q" labelStyle="bpmn2:_VsfQ9B89EeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_VsfQ-R89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep6R89EeW9keBtFZy97Q">
+        <dc:Bounds height="60.0" width="90.0" x="440.0" y="140.0"/>
+        <bpmndi:BPMNLabel id="_VsfQ-h89EeW9keBtFZy97Q" labelStyle="bpmn2:_VsfQ9B89EeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_VsfQ-x89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep7B89EeW9keBtFZy97Q">
+        <dc:Bounds height="60.0" width="90.0" x="440.0" y="230.0"/>
+        <bpmndi:BPMNLabel id="_VsfQ_B89EeW9keBtFZy97Q" labelStyle="bpmn2:_VsfQ9B89EeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_VsfQ_R89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep7x89EeW9keBtFZy97Q">
+        <dc:Bounds height="40.0" width="40.0" x="320.0" y="150.0"/>
+        <bpmndi:BPMNLabel id="_VsfQ_h89EeW9keBtFZy97Q" labelStyle="bpmn2:_VsfQ9B89EeW9keBtFZy97Q">
+          <dc:Bounds height="33.0" width="60.0" x="267.0" y="191.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_VsfQ_x89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep8B89EeW9keBtFZy97Q">
+        <dc:Bounds height="35.0" width="35.0" x="680.0" y="100.0"/>
+        <bpmndi:BPMNLabel id="_VsfRAB89EeW9keBtFZy97Q" labelStyle="bpmn2:_VsfQ9B89EeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="70.0" x="604.0" y="109.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_VsfRAR89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep8h89EeW9keBtFZy97Q">
+        <dc:Bounds height="40.0" width="40.0" x="630.0" y="200.0"/>
+        <bpmndi:BPMNLabel id="_VsfRAh89EeW9keBtFZy97Q" labelStyle="bpmn2:_VsfQ9B89EeW9keBtFZy97Q">
+          <dc:Bounds height="22.0" width="80.0" x="675.0" y="241.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_VshtMB89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep4x89EeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="125.0" y="167.0"/>
+        <di:waypoint xsi:type="dc:Point" x="142.0" y="167.0"/>
+        <di:waypoint xsi:type="dc:Point" x="143.0" y="167.0"/>
+        <di:waypoint xsi:type="dc:Point" x="160.0" y="167.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_VshtMR89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep5R89EeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="250.0" y="170.0"/>
+        <di:waypoint xsi:type="dc:Point" x="285.0" y="170.0"/>
+        <di:waypoint xsi:type="dc:Point" x="285.0" y="170.0"/>
+        <di:waypoint xsi:type="dc:Point" x="320.0" y="170.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_VshtMh89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep5x89EeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="340.0" y="150.0"/>
+        <di:waypoint xsi:type="dc:Point" x="340.0" y="130.0"/>
+        <di:waypoint xsi:type="dc:Point" x="340.0" y="80.0"/>
+        <di:waypoint xsi:type="dc:Point" x="440.0" y="80.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_VshtMx89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep6h89EeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="360.0" y="170.0"/>
+        <di:waypoint xsi:type="dc:Point" x="400.0" y="170.0"/>
+        <di:waypoint xsi:type="dc:Point" x="400.0" y="170.0"/>
+        <di:waypoint xsi:type="dc:Point" x="440.0" y="170.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_VshtNB89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep7R89EeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="340.0" y="190.0"/>
+        <di:waypoint xsi:type="dc:Point" x="340.0" y="210.0"/>
+        <di:waypoint xsi:type="dc:Point" x="340.0" y="260.0"/>
+        <di:waypoint xsi:type="dc:Point" x="440.0" y="260.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_VshtNR89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep6B89EeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="530.0" y="79.0"/>
+        <di:waypoint xsi:type="dc:Point" x="605.0" y="79.0"/>
+        <di:waypoint xsi:type="dc:Point" x="698.0" y="79.0"/>
+        <di:waypoint xsi:type="dc:Point" x="698.0" y="100.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_VshtNh89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep6x89EeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="530.0" y="170.0"/>
+        <di:waypoint xsi:type="dc:Point" x="650.0" y="170.0"/>
+        <di:waypoint xsi:type="dc:Point" x="650.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="650.0" y="200.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_VshtNx89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep7h89EeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="530.0" y="264.0"/>
+        <di:waypoint xsi:type="dc:Point" x="580.0" y="264.0"/>
+        <di:waypoint xsi:type="dc:Point" x="649.0" y="264.0"/>
+        <di:waypoint xsi:type="dc:Point" x="649.0" y="240.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_VshtOB89EeW9keBtFZy97Q" bpmnElement="bpmn2:_Vsep8R89EeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="670.0" y="220.0"/>
+        <di:waypoint xsi:type="dc:Point" x="698.0" y="220.0"/>
+        <di:waypoint xsi:type="dc:Point" x="698.0" y="155.0"/>
+        <di:waypoint xsi:type="dc:Point" x="698.0" y="135.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="_VsfQ9B89EeW9keBtFZy97Q">
+      <dc:Font name=".Arial" size="12.0"/>
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

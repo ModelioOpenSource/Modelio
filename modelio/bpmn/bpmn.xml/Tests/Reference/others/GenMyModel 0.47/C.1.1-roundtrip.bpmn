@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsdTypes.org="http://xsdTypes.org/" id="sid-bdb880ac-c464-4e5c-aa56-569d709436e0" exporter="GenMyModel" exporterVersion="0.1" name="sid-bdb880ac-c464-4e5c-aa56-569d709436e0" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL">
+  <bpmn2:import importType="http://www.w3.org/2001/XMLSchema" location="xsdTypes.xsd" namespace="http://xsdTypes.org/"/>
+  <bpmn2:dataStore id="sid-14ef3d18-7218-4f57-98f0-bb595114754b" isUnlimited="false" name="Financial Accounting System"/>
+  <bpmn2:message id="sid-328811a0-7f72-468f-92de-6ab19e353312" name="invoice-received-C.1.0"/>
+  <bpmn2:process id="handle-invoice" name="Invoice Handling (OMG BPMN MIWG Demo)" isClosed="true" isExecutable="true">
+    <bpmn2:userTask id="approveInvoice" name="Approve Invoice" implementation="##unspecified">
+      <bpmn2:incoming>sequenceFlow_178</bpmn2:incoming>
+      <bpmn2:incoming>reviewSuccessful</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceFlow_180</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="Bpmn_InputOutputSpecification_Y6GAsLH1EeSuDf0W70XLGw">
+        <bpmn2:dataOutput id="Bpmn_DataOutput_Y6S1ALH1EeSuDf0W70XLGw" itemSubjectRef="bpmn2:xsdBool" name="approved"/>
+        <bpmn2:inputSet id="Bpmn_InputSet_Y6GAsrH1EeSuDf0W70XLGw" name="default input set">
+          <bpmn2:outputSetRefs>Bpmn_OutputSet_Y6GAsbH1EeSuDf0W70XLGw</bpmn2:outputSetRefs>
+          <bpmn2:outputSetRefs>Bpmn_OutputSet_Y6GAsbH1EeSuDf0W70XLGw</bpmn2:outputSetRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="Bpmn_OutputSet_Y6GAsbH1EeSuDf0W70XLGw" name="default output set">
+          <bpmn2:dataOutputRefs>Bpmn_DataOutput_Y6S1ALH1EeSuDf0W70XLGw</bpmn2:dataOutputRefs>
+          <bpmn2:inputSetRefs>Bpmn_InputSet_Y6GAsrH1EeSuDf0W70XLGw</bpmn2:inputSetRefs>
+          <bpmn2:inputSetRefs>Bpmn_InputSet_Y6GAsrH1EeSuDf0W70XLGw</bpmn2:inputSetRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataOutputAssociation id="Bpmn_DataOutputAssociation_Y55MYrH1EeSuDf0W70XLGw">
+        <bpmn2:sourceRef>Bpmn_DataOutput_Y6S1ALH1EeSuDf0W70XLGw</bpmn2:sourceRef>
+        <bpmn2:targetRef>Bpmn_DataObjectReference_YGA4YLH1EeSuDf0W70XLGw</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:potentialOwner id="Bpmn_ResourceRole_MdyGcLH0EeS1nbPdxxCzlg" name="Approve Invoice Potential Owner">
+        <bpmn2:resourceRef>bpmn2:Bpmn_Resource_8nPrkLHzEeS1nbPdxxCzlg</bpmn2:resourceRef>
+      </bpmn2:potentialOwner>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="invoice_approved" name="Invoice&#xA;approved?" gatewayDirection="Diverging">
+      <bpmn2:incoming>sequenceFlow_180</bpmn2:incoming>
+      <bpmn2:outgoing>invoiceApproved</bpmn2:outgoing>
+      <bpmn2:outgoing>invoiceNotApproved</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:userTask id="assignApprover" name="Assign&#xA;Approver" implementation="##unspecified">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceFlow_178</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="Bpmn_InputOutputSpecification_assignApprover">
+        <bpmn2:dataOutput id="Bpmn_DataOutput_assignApprover" itemSubjectRef="bpmn2:xsdString" name="approver"/>
+        <bpmn2:inputSet id="Bpmn_InputSet_assignApprover" name="default input set">
+          <bpmn2:outputSetRefs>Bpmn_OutputSet_assignApprover</bpmn2:outputSetRefs>
+          <bpmn2:outputSetRefs>Bpmn_OutputSet_assignApprover</bpmn2:outputSetRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="Bpmn_OutputSet_assignApprover" name="default output set">
+          <bpmn2:dataOutputRefs>Bpmn_DataOutput_assignApprover</bpmn2:dataOutputRefs>
+          <bpmn2:inputSetRefs>Bpmn_InputSet_assignApprover</bpmn2:inputSetRefs>
+          <bpmn2:inputSetRefs>Bpmn_InputSet_assignApprover</bpmn2:inputSetRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataOutputAssociation id="Bpmn_DataOutputAssociation_assignApprover">
+        <bpmn2:sourceRef>Bpmn_DataOutput_assignApprover</bpmn2:sourceRef>
+        <bpmn2:targetRef>Bpmn_DataObjectReference_assignApprover</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:potentialOwner id="Bpmn_ResourceRole_DSeNcLH0EeS1nbPdxxCzlg" name="Assign Approver Potential Owner">
+        <bpmn2:resourceRef>bpmn2:Bpmn_Resource_6vVHsLHzEeS1nbPdxxCzlg</bpmn2:resourceRef>
+      </bpmn2:potentialOwner>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="reviewInvoice" name="Rechnung klären" implementation="##unspecified">
+      <bpmn2:incoming>invoiceNotApproved</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceFlow_183</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="Bpmn_InputOutputSpecification_dB6xs7H1EeSuDf0W70XLGw">
+        <bpmn2:dataOutput id="Bpmn_DataOutput_dCG-8LH1EeSuDf0W70XLGw" itemSubjectRef="bpmn2:xsdString" name="clarified"/>
+        <bpmn2:inputSet id="Bpmn_InputSet_dB6xtbH1EeSuDf0W70XLGw" name="default input set">
+          <bpmn2:outputSetRefs>Bpmn_OutputSet_dB6xtLH1EeSuDf0W70XLGw</bpmn2:outputSetRefs>
+          <bpmn2:outputSetRefs>Bpmn_OutputSet_dB6xtLH1EeSuDf0W70XLGw</bpmn2:outputSetRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="Bpmn_OutputSet_dB6xtLH1EeSuDf0W70XLGw" name="default output set">
+          <bpmn2:dataOutputRefs>Bpmn_DataOutput_dCG-8LH1EeSuDf0W70XLGw</bpmn2:dataOutputRefs>
+          <bpmn2:inputSetRefs>Bpmn_InputSet_dB6xtbH1EeSuDf0W70XLGw</bpmn2:inputSetRefs>
+          <bpmn2:inputSetRefs>Bpmn_InputSet_dB6xtbH1EeSuDf0W70XLGw</bpmn2:inputSetRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataOutputAssociation id="Bpmn_DataOutputAssociation_dB6xsrH1EeSuDf0W70XLGw">
+        <bpmn2:sourceRef>Bpmn_DataOutput_dCG-8LH1EeSuDf0W70XLGw</bpmn2:sourceRef>
+        <bpmn2:targetRef>Bpmn_DataObjectReference_cdsDQLH1EeSuDf0W70XLGw</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:potentialOwner id="Bpmn_ResourceRole_GrG9MLH0EeS1nbPdxxCzlg" name="Review Invoice Potential Owner">
+        <bpmn2:resourceRef>bpmn2:Bpmn_Resource_6vVHsLHzEeS1nbPdxxCzlg</bpmn2:resourceRef>
+      </bpmn2:potentialOwner>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="reviewSuccessful_gw" name="Review&#xA;successful?" gatewayDirection="Diverging">
+      <bpmn2:incoming>sequenceFlow_183</bpmn2:incoming>
+      <bpmn2:outgoing>reviewSuccessful</bpmn2:outgoing>
+      <bpmn2:outgoing>reviewNotSuccessful</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:endEvent id="invoiceNotProcessed" name="Invoice not&#xA;processed">
+      <bpmn2:incoming>reviewNotSuccessful</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:startEvent id="StartEvent_1" name="Invoice&#xA;received">
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:userTask id="prepareBankTransfer" name="Prepare&#xD;&#xA;Bank&#xD;&#xA;Transfer" implementation="##unspecified">
+      <bpmn2:incoming>invoiceApproved</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:potentialOwner id="Bpmn_ResourceRole_PKHJ0LH0EeS1nbPdxxCzlg" name="Prepare Bank Transfer Potential Owner">
+        <bpmn2:resourceRef>bpmn2:Bpmn_Resource_-IajYLHzEeS1nbPdxxCzlg</bpmn2:resourceRef>
+      </bpmn2:potentialOwner>
+    </bpmn2:userTask>
+    <bpmn2:endEvent id="invoiceProcessed" name="Invoice&#xA;processed">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:serviceTask id="archiveInvoice" name="Archive&#xA;Invoice" implementation="##unspecified">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="invoiceApproved" name="yes" isImmediate="true" sourceRef="invoice_approved" targetRef="prepareBankTransfer">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="sid-0ed8a0cb-f28a-4689-bbd8-77dafd0ccfa0">bpmn:getDataObject('approved')</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="invoiceNotApproved" name="no" isImmediate="true" sourceRef="invoice_approved" targetRef="reviewInvoice">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="sid-d4f3f0f7-79c3-4b1c-817e-13d9bdd96666">not(bpmn:getDataObject('approved'))</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="reviewSuccessful" name="yes" isImmediate="true" sourceRef="reviewSuccessful_gw" targetRef="approveInvoice">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="sid-e669aead-8bad-4dbb-b282-e9f811e02f77">bpmn:getDataObject('clarified') = 'yes'</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="reviewNotSuccessful" name="no" isImmediate="true" sourceRef="reviewSuccessful_gw" targetRef="invoiceNotProcessed">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="sid-628a2fdc-7654-4273-930d-8e3127b9e8b2">bpmn:getDataObject('clarified') = 'no'</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="sequenceFlow_180" isImmediate="true" sourceRef="approveInvoice" targetRef="invoice_approved"/>
+    <bpmn2:sequenceFlow id="sequenceFlow_183" isImmediate="true" sourceRef="reviewInvoice" targetRef="reviewSuccessful_gw"/>
+    <bpmn2:sequenceFlow id="sequenceFlow_178" isImmediate="true" sourceRef="assignApprover" targetRef="approveInvoice"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" isImmediate="true" sourceRef="prepareBankTransfer" targetRef="archiveInvoice"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" isImmediate="true" sourceRef="archiveInvoice" targetRef="invoiceProcessed"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" isImmediate="true" sourceRef="StartEvent_1" targetRef="assignApprover"/>
+    <bpmn2:dataObject id="Bpmn_DataObject_approver" name="approver" itemSubjectRef="bpmn2:xsdString"/>
+    <bpmn2:dataObjectReference id="Bpmn_DataObjectReference_assignApprover" name="approver" dataObjectRef="Bpmn_DataObject_approver"/>
+    <bpmn2:dataObject id="Bpmn_DataObject_WUfQYrH1EeSuDf0W70XLGw" name="approved" itemSubjectRef="bpmn2:xsdBool"/>
+    <bpmn2:dataObjectReference id="Bpmn_DataObjectReference_YGA4YLH1EeSuDf0W70XLGw" name="approved" dataObjectRef="Bpmn_DataObject_WUfQYrH1EeSuDf0W70XLGw"/>
+    <bpmn2:dataObject id="Bpmn_DataObject_aT_L0rH1EeSuDf0W70XLGw" name="clarified" itemSubjectRef="bpmn2:xsdString"/>
+    <bpmn2:dataObjectReference id="Bpmn_DataObjectReference_cdsDQLH1EeSuDf0W70XLGw" name="clarified" dataObjectRef="Bpmn_DataObject_aT_L0rH1EeSuDf0W70XLGw"/>
+  </bpmn2:process>
+  <bpmn2:resource id="Bpmn_Resource_6vVHsLHzEeS1nbPdxxCzlg" name="Team Assistant"/>
+  <bpmn2:resource id="Bpmn_Resource_8nPrkLHzEeS1nbPdxxCzlg" name="Approver"/>
+  <bpmn2:resource id="Bpmn_Resource_-IajYLHzEeS1nbPdxxCzlg" name="Accountant"/>
+  <bpmn2:itemDefinition id="xsdString" structureRef="xsdtypes.org:tString"/>
+  <bpmn2:itemDefinition id="xsdBool" structureRef="xsdtypes.org:tBool"/>
+  <bpmndi:BPMNDiagram id="_d9KR8B_SEeW9keBtFZy97Q" name="Process-diag">
+    <bpmndi:BPMNPlane id="_d9KR8R_SEeW9keBtFZy97Q" bpmnElement="bpmn2:handle-invoice">
+      <bpmndi:BPMNShape id="_d9KR8h_SEeW9keBtFZy97Q" bpmnElement="bpmn2:approveInvoice">
+        <dc:Bounds height="80.0" width="100.0" x="353.0" y="225.0"/>
+        <bpmndi:BPMNLabel id="_d9KR8x_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KR9R_SEeW9keBtFZy97Q" bpmnElement="bpmn2:invoice_approved">
+        <dc:Bounds height="40.0" width="40.0" x="488.0" y="245.0"/>
+        <bpmndi:BPMNLabel id="_d9KR9h_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KR9x_SEeW9keBtFZy97Q" bpmnElement="bpmn2:assignApprover">
+        <dc:Bounds height="80.0" width="100.0" x="180.0" y="52.0"/>
+        <bpmndi:BPMNLabel id="_d9KR-B_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KR-R_SEeW9keBtFZy97Q" bpmnElement="bpmn2:reviewInvoice">
+        <dc:Bounds height="80.0" width="100.0" x="548.0" y="52.0"/>
+        <bpmndi:BPMNLabel id="_d9KR-h_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KR-x_SEeW9keBtFZy97Q" bpmnElement="bpmn2:reviewSuccessful_gw">
+        <dc:Bounds height="40.0" width="40.0" x="693.0" y="72.0"/>
+        <bpmndi:BPMNLabel id="_d9KR_B_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KR_R_SEeW9keBtFZy97Q" bpmnElement="bpmn2:invoiceNotProcessed">
+        <dc:Bounds height="35.0" width="35.0" x="926.0" y="78.0"/>
+        <bpmndi:BPMNLabel id="_d9KR_h_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KR_x_SEeW9keBtFZy97Q" bpmnElement="bpmn2:StartEvent_1">
+        <dc:Bounds height="35.0" width="35.0" x="95.0" y="77.0"/>
+        <bpmndi:BPMNLabel id="_d9KSAB_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KSAR_SEeW9keBtFZy97Q" bpmnElement="bpmn2:prepareBankTransfer">
+        <dc:Bounds height="80.0" width="100.0" x="638.0" y="385.0"/>
+        <bpmndi:BPMNLabel id="_d9KSAh_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KSAx_SEeW9keBtFZy97Q" bpmnElement="bpmn2:invoiceProcessed">
+        <dc:Bounds height="35.0" width="35.0" x="926.0" y="411.0"/>
+        <bpmndi:BPMNLabel id="_d9KSBB_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KSBR_SEeW9keBtFZy97Q" bpmnElement="bpmn2:archiveInvoice">
+        <dc:Bounds height="80.0" width="100.0" x="780.0" y="385.0"/>
+        <bpmndi:BPMNLabel id="_d9KSBh_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KSBx_SEeW9keBtFZy97Q" bpmnElement="bpmn2:Bpmn_DataObjectReference_assignApprover">
+        <dc:Bounds height="35.0" width="35.0" x="212.0" y="174.0"/>
+        <bpmndi:BPMNLabel id="_d9KSCB_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="64.0" x="198.0" y="229.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KSCR_SEeW9keBtFZy97Q" bpmnElement="bpmn2:Bpmn_DataObjectReference_YGA4YLH1EeSuDf0W70XLGw">
+        <dc:Bounds height="35.0" width="35.0" x="385.0" y="350.0"/>
+        <bpmndi:BPMNLabel id="_d9KSCh_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="67.0" x="362.0" y="400.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_d9KSCx_SEeW9keBtFZy97Q" bpmnElement="bpmn2:Bpmn_DataObjectReference_cdsDQLH1EeSuDf0W70XLGw">
+        <dc:Bounds height="35.0" width="35.0" x="580.0" y="174.0"/>
+        <bpmndi:BPMNLabel id="_d9KSDB_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="59.0" x="553.0" y="229.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_d9KSDR_SEeW9keBtFZy97Q" bpmnElement="bpmn2:invoiceApproved">
+        <di:waypoint xsi:type="dc:Point" x="528.0" y="265.0"/>
+        <di:waypoint xsi:type="dc:Point" x="587.0" y="265.0"/>
+        <di:waypoint xsi:type="dc:Point" x="587.0" y="425.0"/>
+        <di:waypoint xsi:type="dc:Point" x="638.0" y="425.0"/>
+        <bpmndi:BPMNLabel id="_d9KSDh_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="32.0" x="561.0" y="238.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9KSDx_SEeW9keBtFZy97Q" bpmnElement="bpmn2:invoiceNotApproved">
+        <di:waypoint xsi:type="dc:Point" x="508.0" y="245.0"/>
+        <di:waypoint xsi:type="dc:Point" x="508.0" y="225.0"/>
+        <di:waypoint xsi:type="dc:Point" x="508.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="548.0" y="92.0"/>
+        <bpmndi:BPMNLabel id="_d9KSEB_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="20.0" x="520.0" y="201.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9KSER_SEeW9keBtFZy97Q" bpmnElement="bpmn2:reviewSuccessful">
+        <di:waypoint xsi:type="dc:Point" x="713.0" y="72.0"/>
+        <di:waypoint xsi:type="dc:Point" x="713.0" y="35.0"/>
+        <di:waypoint xsi:type="dc:Point" x="403.0" y="35.0"/>
+        <di:waypoint xsi:type="dc:Point" x="403.0" y="225.0"/>
+        <bpmndi:BPMNLabel id="_d9KSEh_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="27.0" x="720.0" y="28.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9KSEx_SEeW9keBtFZy97Q" bpmnElement="bpmn2:reviewNotSuccessful">
+        <di:waypoint xsi:type="dc:Point" x="733.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="829.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="830.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="926.0" y="92.0"/>
+        <bpmndi:BPMNLabel id="_d9KSFB_SEeW9keBtFZy97Q" labelStyle="bpmn2:_d9KR9B_SEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="24.0" x="741.0" y="91.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9KSFR_SEeW9keBtFZy97Q" bpmnElement="bpmn2:sequenceFlow_180">
+        <di:waypoint xsi:type="dc:Point" x="453.0" y="265.0"/>
+        <di:waypoint xsi:type="dc:Point" x="470.0" y="265.0"/>
+        <di:waypoint xsi:type="dc:Point" x="471.0" y="265.0"/>
+        <di:waypoint xsi:type="dc:Point" x="488.0" y="265.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9KSFh_SEeW9keBtFZy97Q" bpmnElement="bpmn2:sequenceFlow_183">
+        <di:waypoint xsi:type="dc:Point" x="648.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="670.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="671.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="693.0" y="92.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9KSFx_SEeW9keBtFZy97Q" bpmnElement="bpmn2:sequenceFlow_178">
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="310.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="310.0" y="265.0"/>
+        <di:waypoint xsi:type="dc:Point" x="353.0" y="265.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9KSGB_SEeW9keBtFZy97Q" bpmnElement="bpmn2:SequenceFlow_2">
+        <di:waypoint xsi:type="dc:Point" x="738.0" y="425.0"/>
+        <di:waypoint xsi:type="dc:Point" x="759.0" y="425.0"/>
+        <di:waypoint xsi:type="dc:Point" x="759.0" y="425.0"/>
+        <di:waypoint xsi:type="dc:Point" x="780.0" y="425.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9K5AB_SEeW9keBtFZy97Q" bpmnElement="bpmn2:SequenceFlow_3">
+        <di:waypoint xsi:type="dc:Point" x="880.0" y="425.0"/>
+        <di:waypoint xsi:type="dc:Point" x="903.0" y="425.0"/>
+        <di:waypoint xsi:type="dc:Point" x="903.0" y="425.0"/>
+        <di:waypoint xsi:type="dc:Point" x="926.0" y="425.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9K5AR_SEeW9keBtFZy97Q" bpmnElement="bpmn2:SequenceFlow_1">
+        <di:waypoint xsi:type="dc:Point" x="130.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="155.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="155.0" y="92.0"/>
+        <di:waypoint xsi:type="dc:Point" x="180.0" y="92.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9K5Ah_SEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="229.0" y="132.0"/>
+        <di:waypoint xsi:type="dc:Point" x="229.0" y="153.0"/>
+        <di:waypoint xsi:type="dc:Point" x="229.0" y="153.0"/>
+        <di:waypoint xsi:type="dc:Point" x="229.0" y="174.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9K5Ax_SEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="402.0" y="305.0"/>
+        <di:waypoint xsi:type="dc:Point" x="402.0" y="328.0"/>
+        <di:waypoint xsi:type="dc:Point" x="402.0" y="327.0"/>
+        <di:waypoint xsi:type="dc:Point" x="402.0" y="350.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_d9K5BB_SEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="597.0" y="132.0"/>
+        <di:waypoint xsi:type="dc:Point" x="597.0" y="153.0"/>
+        <di:waypoint xsi:type="dc:Point" x="597.0" y="153.0"/>
+        <di:waypoint xsi:type="dc:Point" x="597.0" y="174.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="_d9KR9B_SEeW9keBtFZy97Q">
+      <dc:Font name=".Arial" size="12.0"/>
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

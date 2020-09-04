@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Process="http://A.3.0/Initial Import/Process" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsd="http://www.w3.org/2001/XMLSchema" exporter="http://www.ibm.com/BPM" exporterVersion="8.0.1" id="bpmnid-e393f0fc-8988-4366-bf2d-9acbcc624e56" targetNamespace="http://A.3.0/Initial Import/Process">
+  <bpmn:process id="bpmnid-b06553db-31aa-4969-8b64-8c200c139c4e" name="Process" isClosed="false" processType="None">
+    <bpmn:serviceTask id="bpmnid-5a8d2dd6-b607-407b-9148-80a04b8f2069" name="Task 1"/>
+    <bpmn:serviceTask id="bpmnid-415e27a1-4fcf-4b8e-a1d2-c3682b273c9d" name="Task 4"/>
+    <bpmn:serviceTask id="bpmnid-08e6f3c1-a85d-4c98-b8de-0be0f6f8a466" name="Task 3"/>
+    <bpmn:serviceTask id="bpmnid-4c589cd5-9a44-4816-a92c-1a16ba80a3ea" name="Task 2"/>
+    <bpmn:subProcess id="bpmnid-08faa26e-6e1a-45a6-8784-2dafb04fc21e" name="Collapsed  Sub-Process"/>
+    <bpmn:boundaryEvent id="bpmnid-15be4680-36b4-4e77-a72a-12c57562fe2f" name="Boundary Intermediate Event Non-Interrupting Message" attachedToRef="Process:bpmnid-08faa26e-6e1a-45a6-8784-2dafb04fc21e" cancelActivity="true">
+      <bpmn:messageEventDefinition/>
+    </bpmn:boundaryEvent>
+    <bpmn:startEvent id="bpmnid-805419c4-af2d-4517-a648-12bcf64c65a9" name="Start Event"/>
+    <bpmn:endEvent id="bpmnid-640ad3e3-ba38-4711-949d-06b8799f925b" name="End Event 1"/>
+    <bpmn:endEvent id="bpmnid-0c745602-31a0-4c6f-915a-21aa86115839" name="End Event 2"/>
+    <bpmn:parallelGateway id="bpmnid-fb89344b-d6ab-4fad-8b6a-0c6eca31c131" name="Gateway" gatewayDirection="Diverging"/>
+    <bpmn:sequenceFlow id="bpmnid-f1bdeec3-da57-4b3d-a73b-d3f94f349264" name="Sequence Flow7" sourceRef="bpmnid-08faa26e-6e1a-45a6-8784-2dafb04fc21e" targetRef="bpmnid-fb89344b-d6ab-4fad-8b6a-0c6eca31c131"/>
+    <bpmn:sequenceFlow id="bpmnid-08035a74-b32f-4c7d-b6f8-98579f026d83" name="Sequence Flow" sourceRef="bpmnid-805419c4-af2d-4517-a648-12bcf64c65a9" targetRef="bpmnid-5a8d2dd6-b607-407b-9148-80a04b8f2069"/>
+    <bpmn:sequenceFlow id="bpmnid-3880e7cf-2000-4934-9aeb-0d57099ab631" name="Sequence Flow2" sourceRef="bpmnid-15be4680-36b4-4e77-a72a-12c57562fe2f" targetRef="bpmnid-08e6f3c1-a85d-4c98-b8de-0be0f6f8a466"/>
+    <bpmn:sequenceFlow id="bpmnid-96b8e4f9-d7ca-4058-a39f-7a9b4cf0b0a5" name="Sequence Flow4" sourceRef="bpmnid-4c589cd5-9a44-4816-a92c-1a16ba80a3ea" targetRef="bpmnid-640ad3e3-ba38-4711-949d-06b8799f925b"/>
+    <bpmn:sequenceFlow id="bpmnid-91f56240-1658-4250-aca5-82e451dd5056" name="Sequence Flow1" sourceRef="bpmnid-fb89344b-d6ab-4fad-8b6a-0c6eca31c131" targetRef="bpmnid-415e27a1-4fcf-4b8e-a1d2-c3682b273c9d"/>
+    <bpmn:sequenceFlow id="bpmnid-0df47c7f-3859-415d-8fbe-ce0478f6bd17" name="Sequence Flow3" sourceRef="bpmnid-fb89344b-d6ab-4fad-8b6a-0c6eca31c131" targetRef="bpmnid-4c589cd5-9a44-4816-a92c-1a16ba80a3ea"/>
+    <bpmn:sequenceFlow id="bpmnid-4547aa9e-d5bd-41ce-af50-aa5ceb8e832b" name="Sequence Flow6" sourceRef="bpmnid-415e27a1-4fcf-4b8e-a1d2-c3682b273c9d" targetRef="bpmnid-0c745602-31a0-4c6f-915a-21aa86115839"/>
+    <bpmn:sequenceFlow id="bpmnid-4ce69c77-f007-4515-a226-dfe404efdbf7" name="Sequence Flow0" sourceRef="bpmnid-5a8d2dd6-b607-407b-9148-80a04b8f2069" targetRef="bpmnid-08faa26e-6e1a-45a6-8784-2dafb04fc21e"/>
+    <bpmn:sequenceFlow id="bpmnid-2fd67638-fc75-4593-843a-f70ebd22fb4a" name="Sequence Flow5" sourceRef="bpmnid-08e6f3c1-a85d-4c98-b8de-0be0f6f8a466" targetRef="bpmnid-640ad3e3-ba38-4711-949d-06b8799f925b"/>
+  </bpmn:process>
+</bpmn:definitions>

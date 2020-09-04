@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<create-popups>
+  <!-- Popup for Actor -->
+  <popup metaclass="Standard.Actor">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.BindableInstance"/>
+      <parameter name="dependency" value="InternalStructure"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.CollaborationUse"/>
+      <parameter name="dependency" value="OwnedCollaborationUse"/>
+    </command>
+  </popup>
+  <!-- Popup for Artifact -->
+  <popup metaclass="Standard.Artifact">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.BindableInstance"/>
+      <parameter name="dependency" value="InternalStructure"/>
+    </command>
+  </popup>
+  <!-- Popup for BindableInstance -->
+  <popup metaclass="Standard.BindableInstance">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.BindableInstance"/>
+      <parameter name="dependency" value="Part"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.AttributeLink"/>
+      <parameter name="dependency" value="Slot"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Port"/>
+      <parameter name="dependency" value="Part"/>
+    </command>
+  </popup>
+  <!-- Popup for Class -->
+  <popup metaclass="Standard.Class">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.BindableInstance"/>
+      <parameter name="dependency" value="InternalStructure"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.CollaborationUse"/>
+      <parameter name="dependency" value="OwnedCollaborationUse"/>
+    </command>
+  </popup>
+  <!-- Popup for Collaboration -->
+  <popup metaclass="Standard.Collaboration">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.BindableInstance"/>
+      <parameter name="dependency" value="Declared"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.CollaborationUse"/>
+      <parameter name="dependency" value="OwnedCollaborationUse"/>
+    </command>
+  </popup>
+  <!-- Popup for CollaborationUse -->
+  <popup metaclass="Standard.CollaborationUse">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Binding"/>
+      <parameter name="dependency" value="RoleBinding"/>
+    </command>
+  </popup>
+  <!-- Popup for Component -->
+  <popup metaclass="Standard.Component">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.BindableInstance"/>
+      <parameter name="dependency" value="InternalStructure"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.CollaborationUse"/>
+      <parameter name="dependency" value="OwnedCollaborationUse"/>
+    </command>
+  </popup>
+  <!-- Popup for DataType -->
+  <popup metaclass="Standard.DataType">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.BindableInstance"/>
+      <parameter name="dependency" value="InternalStructure"/>
+    </command>
+  </popup>
+  <!-- Popup for Instance -->
+  <popup metaclass="Standard.Instance">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.BindableInstance"/>
+      <parameter name="dependency" value="Part"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.AttributeLink"/>
+      <parameter name="dependency" value="Slot"/>
+    </command>
+  </popup>
+  <!-- Popup for Node -->
+  <popup metaclass="Standard.Node">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.BindableInstance"/>
+      <parameter name="dependency" value="InternalStructure"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.CollaborationUse"/>
+      <parameter name="dependency" value="OwnedCollaborationUse"/>
+    </command>
+  </popup>
+  <!-- Popup for Package -->
+  <popup metaclass="Standard.Package">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Instance"/>
+      <parameter name="dependency" value="Declared"/>
+    </command>
+  </popup>
+  <!-- Popup for Signal -->
+  <popup metaclass="Standard.Signal">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.CollaborationUse"/>
+      <parameter name="dependency" value="OwnedCollaborationUse"/>
+    </command>
+  </popup>
+  <!-- Popup for UseCase -->
+  <popup metaclass="Standard.UseCase">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.BindableInstance"/>
+      <parameter name="dependency" value="InternalStructure"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.CollaborationUse"/>
+      <parameter name="dependency" value="OwnedCollaborationUse"/>
+    </command>
+  </popup>
+</create-popups>

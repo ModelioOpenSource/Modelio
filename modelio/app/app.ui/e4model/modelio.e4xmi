@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_AWbLYJnlEeGY6K1_JhyUmg" elementId="org.modelio.app.application">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_AWbLd5nlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.trimmed" label="%Modelio.window.label" iconURI="platform:/plugin/org.modelio.app.ui/images/modelio256x256.png" tooltip="%Modelio.window.tooltip" bindingContexts="_AWbLYZnlEeGY6K1_JhyUmg" x="150" y="110" width="1024" height="768">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_AWbLf5nlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.stack.perspectives" selectedElement="_AWbLgJnlEeGY6K1_JhyUmg">
+      <children xsi:type="advanced:Perspective" xmi:id="_AWbLgJnlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.model.perspective" selectedElement="_AWbLgZnlEeGY6K1_JhyUmg" label="%Model.perspective.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/modelpersp.png" tooltip="%Model.perspective.tooltip">
+        <tags>project</tags>
+        <tags>default</tags>
+        <tags>user</tags>
+        <children xsi:type="basic:PartSashContainer" xmi:id="_AWbLgZnlEeGY6K1_JhyUmg" elementId="" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_AWbycJnlEeGY6K1_JhyUmg" elementId="org.modelio.app.left.parts" containerData="25"/>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_kaYO0Jq2EeGkc791dEOVVA" containerData="75">
+            <children xsi:type="advanced:Placeholder" xmi:id="_McuAIDL2EeKL_YUGDpxo2Q" elementId="org.eclipse.ui.editorss" containerData="72" ref="_hYHjYDLzEeKL_YUGDpxo2Q" closeable="true"/>
+            <children xsi:type="basic:PartStack" xmi:id="_lWQoQJq2EeGkc791dEOVVA" elementId="org.modelio.app.bottom.parts" containerData="28">
+              <tags>MODULE_STACK</tags>
+            </children>
+          </children>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="basic:PartStack" xmi:id="_ko2DEMk6EeKxb-L244Rupg" elementId="org.modelio.app.ui.welcome.view">
+      <children xsi:type="basic:Part" xmi:id="_epz9AMbCEeK8yIoiqNn7ow" elementId="org.modelio.app.ui.welcome.part" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.welcome.WelcomeView" label="%Welcome.label" closeable="true"/>
+    </children>
+    <mainMenu xmi:id="_AWbLeJnlEeGY6K1_JhyUmg" elementId="menu:org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_AWbLeZnlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.menu.file" label="%File.label">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_JFkz8ECFEeKYDuxvZV8bnA" elementId="org.modelio.app.ui.menu.file.create" label="%NewProject.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/newproject.png" tooltip="%NewProject.tooltip" command="_6hXP4K5FEeGlecv-eW6Gzw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_IflK8ECFEeKYDuxvZV8bnA" elementId="org.modelio.app.ui.menu.file.save" label="%SaveProject.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/save.png" tooltip="%SaveProject.tooltip" command="_AWbLcZnlEeGY6K1_JhyUmg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Hy4dAECFEeKYDuxvZV8bnA" elementId="org.modelio.app.ui.menu.file.close" label="%CloseProject.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/closedproject.png" tooltip="%CloseProject.tooltip" command="_886m0K-6EeGULYtICt83xA"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_4aI78ECFEeKYDuxvZV8bnA" elementId="app.ui.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_F34v8ECFEeKYDuxvZV8bnA" elementId="org.modelio.app.ui.menu.file.importproject" label="%ImportProject.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/importproject.png" tooltip="%ImportProject.tooltip" command="_cMH-sMRdEeGfTJvj0MrGIA"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_43-HcECFEeKYDuxvZV8bnA" elementId="app.ui.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_4QKWAECEEeKYDuxvZV8bnA" elementId="org.modelio.app.ui.menu.file.switchworkspace" label="%SwitchWorkspace.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/switchworkspace.png" tooltip="%SwitchWorkspace.tooltip" command="_n0XPEDfKEeKWLJlmAiIZXQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_6-B1AECFEeKYDuxvZV8bnA" elementId="app.ui.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_AWbLfJnlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.menu.file.exit" label="%Quit.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/exit.png" tooltip="%Quit.tooltip" command="_AWbLapnlEeGY6K1_JhyUmg"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_l0JkIMtIEeGui52_xt6Wog" elementId="org.modelio.app.ui.menu.edit" label="%Edit.label">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_OdLIkEB2EeKYDuxvZV8bnA" elementId="app.ui.handledmenuitem.0" label="%Undo.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/undo.png" tooltip="%Undo.tooltip" command="_D_NBgDJXEeKZiaivSH_IWA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_ZDeY4EB2EeKYDuxvZV8bnA" elementId="app.ui.handledmenuitem.1" label="%Redo.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/redo.png" tooltip="%Redo.tooltip" command="_Ek_2MDJXEeKZiaivSH_IWA"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_edpikEB2EeKYDuxvZV8bnA" elementId="app.ui.menuseparator.0"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_NsytsAPfEeKD97V4xVW10Q" elementId="org.modelio.app.ui.menu.configuration" label="%Configuration.label">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_a6NPAECMEeKYDuxvZV8bnA" elementId="app.ui.handledmenuitem.0" label="%ManageModels.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/workmodels.png" tooltip="%ManageModels.tooltip" command="_pqL2AECCEeKYDuxvZV8bnA">
+          <parameters xmi:id="_a6NPAUCMEeKYDuxvZV8bnA" elementId="folder" name="folder" value="WORK_MODEL"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_VQ4PAECMEeKYDuxvZV8bnA" elementId="app.ui.handledmenuitem.0" label="%ManageLibraries.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/libraries.png" tooltip="%ManageLibraries.tooltip" command="_pqL2AECCEeKYDuxvZV8bnA">
+          <parameters xmi:id="_VQ4PAUCMEeKYDuxvZV8bnA" elementId="folder" name="folder" value="LIBRARIES"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_5Nn_oECLEeKYDuxvZV8bnA" elementId="app.ui.handledmenuitem.0" label="%ManageModules.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/module.png" tooltip="%ManageModules.tooltip" command="_pqL2AECCEeKYDuxvZV8bnA">
+          <parameters xmi:id="_Q5v2sECMEeKYDuxvZV8bnA" elementId="folder" name="folder" value="MODULES"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_RshQoHRDEeKG4eQPlHIsdQ" elementId="app.ui.handledmenuitem.0" label="%ManageAudit.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/audit.png" tooltip="%ManageAudit.tooltip" command="_pqL2AECCEeKYDuxvZV8bnA">
+          <parameters xmi:id="_0Eb8AHRDEeKG4eQPlHIsdQ" elementId="folder" name="folder" value="AUDIT"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_TD1oUECPEeKYDuxvZV8bnA" elementId="org.modelio.app.ui.menu.configuration.1"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_EGXDANdWEeKODOpBUEKbEw" elementId="org.modelio.app.ui.menu.configuration.2" toBeRendered="false" visible="false"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_gwd3ANdWEeKODOpBUEKbEw" elementId="org.modelio.app.ui.menu.configuration.3"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_OkK_EECPEeKYDuxvZV8bnA" elementId="app.ui.handledmenuitem.0" label="%DiagramStyles.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/diagram_style.png" tooltip="%DiagramStyles.tooltip" command="_IspLAECPEeKYDuxvZV8bnA"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_IUEZkNdWEeKODOpBUEKbEw" elementId="org.modelio.app.ui.menu.configuration.4"/>
+        <children xsi:type="menu:Menu" xmi:id="_o3Dd4MhTEeKP5aeCtKUXnw" elementId="app.ui.menu.0" toBeRendered="false" label="%Themes.label">
+          <children xsi:type="menu:DynamicMenuContribution" xmi:id="_Fe9X0MhnEeK2uOopmB8dvw" elementId="app.ui.dynamicmenucontribution.0" label="%Themes" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.handlers.ThemeMenuHandler"/>
+        </children>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_d3hP4APfEeKD97V4xVW10Q" elementId="org.modelio.app.ui.menu.views" label="%Views.label"/>
+      <children xsi:type="menu:Menu" xmi:id="_AWbLfZnlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.menu.help" label="%Help.label">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_-Cq50KdTEeK8tp9C4lOIPQ" elementId="app.ui.handledmenuitem.2" label="%Help.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/help.png" tooltip="%Help.tooltip" command="_G-wrEKdUEeK8tp9C4lOIPQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_2j6pQKdTEeK8tp9C4lOIPQ" elementId="app.ui.menuseparator.1"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_AWbLfpnlEeGY6K1_JhyUmg" label="%About.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/about.png" tooltip="%About.tooltip" command="_AWbLdJnlEeGY6K1_JhyUmg"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_6iD50KdTEeK8tp9C4lOIPQ" elementId="app.ui.menuseparator.2"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_OtgOUMbjEeK8yIoiqNn7ow" elementId="app.ui.handledmenuitem.3" label="%Welcome.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/welcome.png" tooltip="%Welcome.tooltip" command="_csM90MbjEeK8yIoiqNn7ow"/>
+      </children>
+    </mainMenu>
+    <sharedElements xsi:type="advanced:Area" xmi:id="_hYHjYDLzEeKL_YUGDpxo2Q" elementId="org.modelio.app.ui.area" label="%EditorsArea.label" tooltip="%EditorsArea.tooltip">
+      <children xsi:type="basic:PartStack" xmi:id="_UX_wMDh-EeKUp8G8r5Kyqg" elementId="">
+        <tags>TEXT_EDITOR</tags>
+        <tags>TEST_EDITOR</tags>
+      </children>
+    </sharedElements>
+    <trimBars xmi:id="_AWbycZnlEeGY6K1_JhyUmg" elementId="org.modelio.app.trimbar.main">
+      <children xsi:type="menu:ToolControl" xmi:id="_NjqOAP3UEeaSsdNblAj4RQ" elementId="org.modelio.app.projecttoolbar" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.project.ProjectToolbar"/>
+      <children xsi:type="menu:ToolControl" xmi:id="_jHisgN_wEeKYSOCeOIScJg" elementId="org.eclipse.e4.ui.PerspectiveSwitcher" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.persp.PerspectiveSwitcher"/>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_AWbLdZnlEeGY6K1_JhyUmg" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.about.AboutHandler" command="_AWbLdJnlEeGY6K1_JhyUmg"/>
+  <handlers xmi:id="_n7mjYMtJEeGui52_xt6Wog" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.handlers.ThemeSwitchHandler" command="_x_TSYMtIEeGui52_xt6Wog"/>
+  <handlers xmi:id="_7XznAH87EeK-XvSICEmsLA" elementId="org.modelio.app.ui.handler.showview" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.handlers.ShowViewHandler" command="_TOlEUH87EeK-XvSICEmsLA"/>
+  <handlers xmi:id="_fXKZUKdUEeK8tp9C4lOIPQ" elementId="org.modelio.app.ui.handler.help" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.handlers.HelpHandler" command="_G-wrEKdUEeK8tp9C4lOIPQ"/>
+  <handlers xmi:id="_TWRq4MlBEeKxb-L244Rupg" elementId="org.modelio.app.ui.handler.welcome" contributionURI="bundleclass://org.modelio.app.ui/org.modelio.app.ui.handlers.WelcomeHandler" command="_csM90MbjEeK8yIoiqNn7ow"/>
+  <bindingTables xmi:id="_AWbLbJnlEeGY6K1_JhyUmg" bindingContext="_AWbLYZnlEeGY6K1_JhyUmg">
+    <bindings xmi:id="_1ZVnIPRTEeahYs8pXmmB1Q" elementId="app.ui.keybinding.redo" keySequence="M1+Y" command="_Ek_2MDJXEeKZiaivSH_IWA">
+      <tags>type:user</tags>
+    </bindings>
+    <bindings xmi:id="_4VKfEPRTEeahYs8pXmmB1Q" elementId="app.ui.keybinding.undo" keySequence="M1+Z" command="_D_NBgDJXEeKZiaivSH_IWA">
+      <tags>type:user</tags>
+    </bindings>
+    <bindings xmi:id="_67ZhgPRTEeahYs8pXmmB1Q" elementId="app.ui.keybinding.openproject" keySequence="M1+O" command="_AWbLbpnlEeGY6K1_JhyUmg">
+      <tags>type:user</tags>
+    </bindings>
+  </bindingTables>
+  <rootContext xmi:id="_AWbLYZnlEeGY6K1_JhyUmg" elementId="org.eclipse.ui.contexts.window" name="Application context"/>
+  <commands xmi:id="_AWbLbpnlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.command.openproject" commandName="%OpenProject.name" description="%OpenProject.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
+  <commands xmi:id="_AWbLcZnlEeGY6K1_JhyUmg" elementId="org.eclipse.ui.file.save" commandName="%SaveProject.name" description="%SaveProject.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
+  <commands xmi:id="_6hXP4K5FEeGlecv-eW6Gzw" elementId="org.modelio.app.ui.command.newproject" commandName="%NewProject.name" description="%NewProject.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
+  <commands xmi:id="_886m0K-6EeGULYtICt83xA" elementId="org.modelio.app.ui.command.closeproject" commandName="%CloseProject.name" description="%CloseProject.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
+  <commands xmi:id="_xB234LofEeGCerjZvtGzMQ" elementId="org.modelio.app.ui.command.deleteproject" commandName="%DeleteProject.name" description="%DeleteProject.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
+  <commands xmi:id="_y5yCMMQ4EeGfTJvj0MrGIA" elementId="org.modelio.app.ui.command.exportproject" commandName="%ExportProject.name" description="%ExportProject.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
+  <commands xmi:id="_cMH-sMRdEeGfTJvj0MrGIA" elementId="org.modelio.app.ui.command.importproject" commandName="%ImportProject.name" description="%ImportProject.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
+  <commands xmi:id="_AWbLapnlEeGY6K1_JhyUmg" elementId="org.eclipse.ui.file.exit" commandName="%Quit.name" description="%Quit.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
+  <commands xmi:id="_AWbLdJnlEeGY6K1_JhyUmg" elementId="org.modelio.app.ui.command.about" commandName="%About.name" description="%About.description"/>
+  <commands xmi:id="_x_TSYMtIEeGui52_xt6Wog" elementId="org.modelio.app.ui.command.switchtheme" commandName="%SwitchTheme.name" description="%SwitchTheme.description">
+    <parameters xmi:id="_XrIwIMtKEeGui52_xt6Wog" elementId="org.modelio.app.ui.command.switchtheme.parameter.themeId" name="themeId" optional="false"/>
+  </commands>
+  <commands xmi:id="_s2znANJ5EeGg_6Go0hQ63g" elementId="org.modelio.app.ui.command.addfragment" commandName="%AddFragment.name" description="%AddFragment.description"/>
+  <commands xmi:id="_6ctcANJ5EeGg_6Go0hQ63g" elementId="org.modelio.app.ui.command.removefragment" commandName="%RemoveFragment.name" description="%RemoveFragment.description"/>
+  <commands xmi:id="_D_NBgDJXEeKZiaivSH_IWA" elementId="org.eclipse.ui.edit.undo" commandName="%Undo.name" description="%Undo.description"/>
+  <commands xmi:id="_Ek_2MDJXEeKZiaivSH_IWA" elementId="org.eclipse.ui.edit.redo" commandName="%Redo.name" description="%Redo.description"/>
+  <commands xmi:id="_n0XPEDfKEeKWLJlmAiIZXQ" elementId="org.modelio.app.ui.command.switchworkspace" commandName="%SwitchWorkspace.name" description="%SwitchWorkspace.description"/>
+  <commands xmi:id="_pqL2AECCEeKYDuxvZV8bnA" elementId="org.modelio.app.ui.command.openprojectconfigurator" commandName="%OpenProjectConfigurator.name" description="%OpenProjectConfigurator.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg">
+    <parameters xmi:id="_ybg9MECMEeKYDuxvZV8bnA" elementId="folder" name="folder"/>
+  </commands>
+  <commands xmi:id="_dz-cAECNEeKYDuxvZV8bnA" elementId="org.modelio.app.ui.command.preferences" commandName="%Preferences.name" description="%Preferences.description"/>
+  <commands xmi:id="_IspLAECPEeKYDuxvZV8bnA" elementId="org.modelio.app.ui.command.diagramstyles" commandName="%DiagramStyles.name" description="%DiagramStyles.description"/>
+  <commands xmi:id="_TOlEUH87EeK-XvSICEmsLA" elementId="org.modelio.app.ui.command.showview" commandName="%ShowView.name" description="%ShowView.description">
+    <parameters xmi:id="_rs83sH87EeK-XvSICEmsLA" elementId="org.modelio.app.ui.command.showview.viewid" name="org.modelio.app.ui.command.showview.viewid" optional="false"/>
+  </commands>
+  <commands xmi:id="_G-wrEKdUEeK8tp9C4lOIPQ" elementId="org.modelio.app.ui.command.help" commandName="%Help.name" description="%Help.description">
+    <parameters xmi:id="_UuZD0KdUEeK8tp9C4lOIPQ" elementId="org.modelio.app.ui.command.help.topicid" name="topic"/>
+  </commands>
+  <commands xmi:id="_csM90MbjEeK8yIoiqNn7ow" elementId="org.modelio.app.ui.command.showwelcome" commandName="%Welcome.name" description="%Welcome.description"/>
+  <commands xmi:id="_zpmiIBnvEeOGGr1SecQnQA" elementId="org.modelio.app.ui.command.renameproject" commandName="%RenameProject.name" description="%RenameProject.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
+  <commands xmi:id="_wTLloBn_EeOGGr1SecQnQA" elementId="org.modelio.app.ui.command.refreshworkspace" commandName="%RefreshWorkspace.name" description="%RefreshWorkspace.description" category="_Ob9P0MUgEeGS9ZgZd3XbUg"/>
+  <commands xmi:id="_uP5fQPRTEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.cut" commandName="%CutElement.name" description="%CutElement.description"/>
+  <commands xmi:id="_AFZhMPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.create.element" commandName="Create Element">
+    <parameters xmi:id="_AFZhMfRUEeahYs8pXmmB1Q" elementId="metaclass" name="metaclass" optional="false"/>
+    <parameters xmi:id="_AFZhMvRUEeahYs8pXmmB1Q" elementId="dependency" name="dependency" optional="false"/>
+    <parameters xmi:id="_AFZhM_RUEeahYs8pXmmB1Q" elementId="stereotype" name="stereotype"/>
+    <parameters xmi:id="_AFZhNPRUEeahYs8pXmmB1Q" elementId="i18nKey" name="i18nKey"/>
+  </commands>
+  <commands xmi:id="_Ag8NsPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.create.cmselement" commandName="Create CMS Element">
+    <parameters xmi:id="_Ag8NsfRUEeahYs8pXmmB1Q" elementId="metaclass" name="metaclass" optional="false"/>
+    <parameters xmi:id="_Ag8NsvRUEeahYs8pXmmB1Q" elementId="dependency" name="dependency" optional="false"/>
+    <parameters xmi:id="_Ag8Ns_RUEeahYs8pXmmB1Q" elementId="stereotype" name="stereotype"/>
+    <parameters xmi:id="_Ag8NtPRUEeahYs8pXmmB1Q" elementId="i18nKey" name="i18nKey"/>
+  </commands>
+  <commands xmi:id="_BAnMQPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.copy" commandName="%CopyElement.name" description="%CopyElement.description"/>
+  <commands xmi:id="_BpRHsPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.paste" commandName="%PasteElement.name" description="%PasteElement.description"/>
+  <commands xmi:id="_B8keMPRUEeahYs8pXmmB1Q" elementId="org.eclipse.ui.edit.delete" commandName="%DeleteElement.name" description="%DeleteElement.description"/>
+  <commands xmi:id="_CS23QPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.create.diagram" commandName="%CreateDiagram.name" description="%CreateDiagram.description">
+    <parameters xmi:id="_CS23QfRUEeahYs8pXmmB1Q" elementId="metaclass" name="metaclass" optional="false"/>
+    <parameters xmi:id="_CS23QvRUEeahYs8pXmmB1Q" elementId="dependency" name="dependency" optional="false"/>
+    <parameters xmi:id="_CS23Q_RUEeahYs8pXmmB1Q" elementId="stereotype" name="stereotype"/>
+    <parameters xmi:id="_CS23RPRUEeahYs8pXmmB1Q" elementId="i18nKey" name="i18nKey"/>
+  </commands>
+  <commands xmi:id="_CqbCsPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.addstereotype" commandName="%AddStereotype.name" description="%AddStereotype.description"/>
+  <commands xmi:id="_C-4PwPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.rename" commandName="%RenameElement.name" description="%RenameElement.description"/>
+  <commands xmi:id="_DWYJwPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.createstereotype" commandName="%CreateStereotype.name" description="%CreateStereotype.description">
+    <parameters xmi:id="_DWYJwfRUEeahYs8pXmmB1Q" elementId="metaclass" name="metaclass" optional="false"/>
+    <parameters xmi:id="_DWYJwvRUEeahYs8pXmmB1Q" elementId="dependency" name="dependency" optional="false"/>
+    <parameters xmi:id="_DWYJw_RUEeahYs8pXmmB1Q" elementId="stereotype" name="stereotype"/>
+    <parameters xmi:id="_DWYJxPRUEeahYs8pXmmB1Q" elementId="i18nKey" name="i18nKey"/>
+  </commands>
+  <commands xmi:id="_DszswPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.editstereotype" commandName="%EditStereotype.name" description="%EditStereotype.description"/>
+  <commands xmi:id="_D_QusPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.ShowImpactCause" commandName="%ShowImpactCause.name" description="%ShowImpactCause.description"/>
+  <commands xmi:id="_ET3FsPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.openrelateddiagram" commandName="%OpenRelatedDiagram.name" description="%OpenRelatedDiagram.description">
+    <parameters xmi:id="_ET3FsfRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.parameter.related_diagram" name="org.modelio.app.ui.command.parameter.related_diagram"/>
+  </commands>
+  <commands xmi:id="_EmGsQPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.openproperties" commandName="%OpenProperties.name" description="%OpenProperties.description"/>
+  <commands xmi:id="_Ez-wMPRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.opendiagram" commandName="%OpenDiagram.name" description="%OpenDiagram.description">
+    <parameters xmi:id="_Ez-wMfRUEeahYs8pXmmB1Q" elementId="org.modelio.app.ui.command.parameter.related_diagram" name="org.modelio.app.ui.command.parameter.related_diagram"/>
+  </commands>
+  <commands xmi:id="__aerQATCEeeOCYhBbYwtnA" elementId="org.modelio.app.ui.command.switchselectionsynchronizedmode" commandName="%SwitchSelectionSynchronizedMode.name" description="%SwitchSelectionSynchronizedMode.description"/>
+  <addons xmi:id="_AWbLZJnlEeGY6K1_JhyUmg" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_AWbLZZnlEeGY6K1_JhyUmg" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_AWbLZpnlEeGY6K1_JhyUmg" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_AWbLZ5nlEeGY6K1_JhyUmg" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_AWbLaJnlEeGY6K1_JhyUmg" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_AWbLaZnlEeGY6K1_JhyUmg" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+  <addons xmi:id="_M3yMsHdsEeKm-MZExWC6Xg" elementId="org.eclipse.e4.ui.internal.workbench.addons.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <categories xmi:id="_Ob9P0MUgEeGS9ZgZd3XbUg" elementId="org.modelio.app.ui.category.project" name="%ProjectManagement.category.name" description="%ProjectManagement.category.description"/>
+  <categories xmi:id="_1WO5UEB1EeKYDuxvZV8bnA" elementId="org.modelio.app.ui.category.modules" name="%ModulesManagement.category.name" description="%ModulesManagement.category.description"/>
+</application:Application>

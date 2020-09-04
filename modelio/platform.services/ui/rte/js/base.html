@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2010 Tom Seidel, Remus Software
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+  Contributors:
+     Tom Seidel - initial API and implementation
+-->
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+	<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="integration.js"></script>
+	<script type="text/javascript" src="externalconfiguration.js"></script>
+	<script type="text/javascript" src="format.js"></script>
+	<script type="text/javascript">
+	//<![CDATA[
+
+// The instanceReady event is fired when an instance of CKEditor has finished
+// its initialization.
+var integration = new EclipseIntegration();
+CKEDITOR.on( 'instanceReady', function( ev )
+{
+	integration.init(CKEDITOR.instances.editor1);
+	
+	//registerListeners();
+});
+
+CKEDITOR.editorConfig = function( config )
+{
+	// Define changes to default configuration here. For example:
+	// config.language = 'fr';
+	// config.uiColor = '#AADC6E';
+	config.skin = 'office2003';
+	config.resize_enabled = false;
+	config.toolbar =[[]];
+	config.toolbarLocation = 'bottom';
+	config.toolbarCanCollapse = true;
+	config.toolbarStartupExpanded = false;
+	config.scayt_autoStartup = false;
+	config.startupFocus = false;
+	
+	// phv removed : doExternalConfiguration(config);
+};
+
+
+var fireOuter = function(selection)
+{
+	var editor = CKEDITOR.instances.editor1;
+	var state = editor.getCommand('bold').state
+	selectionChanged("test",selection);
+};
+
+
+function registerListeners()
+{
+	var editor = CKEDITOR.instances.editor1;
+	// at first we register a node selection change listener
+	editor.on( 'selectionChange', function( ev )
+		{
+			var env = CKEDITOR.env,
+				selection = ev.data.selection,
+				element = selection.getStartElement(),
+				html = [],
+				editor = ev.editor,
+				elementsList = editor._.elementsPath.list = [],
+				filters = editor._.elementsPath.filters;
+			
+			while ( element )
+			{
+				var ignore = 0;
+				for ( var i = 0; i < filters.length; i++ )
+				{
+					if ( filters[ i ]( element ) === false )
+					{
+						ignore = 1;
+						break;
+					}
+				}
+
+				if ( !ignore )
+				{
+					var index = elementsList.push( element ) - 1;
+					var name;
+					if ( element.getAttribute( '_cke_real_element_type' ) )
+						name = element.getAttribute( '_cke_real_element_type' );
+					else
+						name = element.getName();
+
+					// Use this variable to add conditional stuff to the
+					// HTML (because we are doing it in reverse order... unshift).
+					var extra = '';
+
+					// Some browsers don't cancel key events in the keydown but in the
+					// keypress.
+					// TODO: Check if really needed for Gecko+Mac.
+					if ( env.opera || ( env.gecko && env.mac ) )
+						extra += ' onkeypress="return false;"';
+
+					// With Firefox, we need to force the button to redraw, otherwise it
+					// will remain in the focus state.
+					if ( env.gecko )
+						extra += ' onblur="this.style.cssText = this.style.cssText;"';
+
+					
+
+				}
+				
+				if ( name == 'body' )
+					break;
+
+				element = element.getParent();	
+			}
+			fireOuter(elementsList);
+		});
+}
+
+
+
+
+function SetContents()
+{
+	// Get the editor instance that we want to interact with.
+	var oEditor = CKEDITOR.instances.editor1;
+	var value = document.getElementById( 'plainArea' ).value;
+
+	// Set the editor contents (replace the actual one).
+	oEditor.setData( value );
+}
+
+function registerStyleStateChange() 
+{
+	var oEditor = CKEDITOR.instances.editor1;
+	editor.attachStyleStateChange( style, function( state )
+	{
+		editor.getCommand( commandName ).setState( state );
+	});
+}
+
+function getHtml()
+{
+	// Get the editor instance that we want to interact with.
+	var oEditor = CKEDITOR.instances.editor1;
+
+	// Get the editor contents
+	return oEditor.getData();
+}
+
+
+function CheckDirty()
+{
+	// Get the editor instance that we want to interact with.
+	var oEditor = CKEDITOR.instances.editor1;
+	alert( oEditor.checkDirty() );
+}
+
+function ResetDirty()
+{
+	// Get the editor instance that we want to interact with.
+	var oEditor = CKEDITOR.instances.editor1;
+	oEditor.resetDirty();
+	alert( 'The "IsDirty" status has been reset' );
+}
+
+	//]]>
+	</script>
+
+</head>
+<body>  
+       
+		
+		<textarea style="width:100%;height:100%;" cols="10" id="editor1" name="editor1" rows="10"></textarea>
+		
+		<script type="text/javascript">
+		//<![CDATA[
+			// Replace the <textarea id="editor1"> with an CKEditor instance.
+			var editor = CKEDITOR.replace( 'editor1' );
+		//]]>
+		</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+BPMN0024I: The message "null" was transformed into business object "Business Object".
+BPMN0020I: The process "" was transformed into business process diagram "Process".
+BPMN0206W: The boundary event "Boundary Intermediate Event Interrupting Escalation" in process or subprocess "null" is an unsupported kind. It was dropped during the transformation.

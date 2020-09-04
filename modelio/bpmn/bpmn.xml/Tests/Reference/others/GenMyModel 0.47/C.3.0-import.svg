@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Arial" font-size="11" width="1091" height="645">
+	<desc>BPMN2 diagram Fridge Repair Service</desc>
+	<g id="_yG6jkR_UEeW9keBtFZy97Q">
+		<defs>
+			<linearGradient id="greyGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#E5E5E5" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="packageGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#EFE9DE" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="StartEvent" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#60E496" stop-opacity="1" />
+				<stop offset="100%" stop-color="#31A761" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="TaskWidget" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#F5F7F9" stop-opacity="1" />
+				<stop offset="100%" stop-color="#D9EDF7" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="EndEvent" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#E59492" stop-opacity="1" />
+				<stop offset="100%" stop-color="#F27572" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="IntermediateEvent" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#F5F7F9" stop-opacity="1" />
+				<stop offset="100%" stop-color="#D9EDF7" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="GatewayWidget" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#F5DEB3" stop-opacity="1" />
+				
+			</linearGradient>
+			
+		</defs>
+		<g id="_yHImDx_UEeW9keBtFZy97Q" transform="translate(523 162)">
+			<rect x="0" y="0" width="121" height="59" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<text y="17" text-anchor="middle" fill="#000000">
+				<tspan x="61" dy="11">Perform emergency</tspan>
+				<tspan x="61" dy="11">repair</tspan>
+				
+			</text>
+			<image x="54" y="45" width="12" height="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wQUCTYafugx0gAAAW1JREFUOMudk7tOAkEUhr8ZBrLcQlBCCA0WWhKtjKUFHY0VjVb4BtBAxSPYUPAGxs6ChEJMbDQhgQQKEirXUEGhzZLdLQaw0AJBcfWvJmfmfOfMuYib6+sr8/n5bL5c8hcppTg6PLwVl8Wi+fj0tJfNZgkEAp6cHceh2+1ycX7+olzXJZ/PUy6XMQzDE8CyLGq1Gq7rogCi0SjxeHwDMJvNkFISCoU20o9EIgDIbZGazSbtdntrNlsB/X6f4XD4f4Cnbqz/udVqMZ1OAej1ehiGQb1eByCTyZDL5X4G2LbNeDzGNE0AJpMJwWCQ0WgEgM/nw3Ec/H7/94BkMkmpVGL5OVTVapVYLEalUgFACIEQAsuyvgesPlo9Sym91WBd6XSacDjsvYjrKhQKKKV+B8znc7TWaK2/XCYSCYANu9aaxWLxARBS0ul0aDQanpfJtm0GgwEnx8eog/39h7fX19P7u7s/DdDuzg6pVOr2HTxDfPbpPoVUAAAAAElFTkSuQmCC" />
+			
+		</g>
+		<g id="_yHCfbB_UEeW9keBtFZy97Q" transform="translate(83 71)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#StartEvent)" stroke="#216B3F" stroke-width="1.0" />
+			<g>
+				<path fill-opacity="0.7" d="M8.75 12.25L26.25 12.25L26.25 22.75L8.75 22.75L8.75 12.25" fill="#fff" stroke-width="1" stroke="#194F2F" />
+				<path fill-opacity="0.0" d="M8.75 12.25L17.5 17.5L26.25 12.25" fill="#fff" stroke-width="1" stroke="#194F2F" />
+				
+			</g>
+			
+		</g>
+		<g id="_yHImAB_UEeW9keBtFZy97Q" transform="translate(183 50)">
+			<rect x="0" y="0" width="121" height="59" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<image x="6" y="5" width="12" height="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMGDzc1gJ8CfAAAAndJREFUOMuNktFLU2EYxp/v8+x829jYjg7diclE3GrMSSC5my5UoosJIkGSQabVReFldiERBNFf0GV/hVB5kTDMGuWgJHVdTJI2hLOdI9s6Z46d7ZzTha1U1HrhgZeX5/nxvvACJ1QsFutljD3jOG6TUrrjcrk+uN3uWfxPBQIBh9vtfkkpNSmlVks2m00SBOHmPwFdXV1jHMeVCSHWcfE8vySKou+wnzsOsNvtMUKIJxwOI9YfA7MzNBoNeD1eJJPJQHY7S88EGIYhJxKJxvzDeVs4HAYhBKZpQpZlZL5latnt7BE/PQ7QNC3NGMsCAM/z4HkejDGsvl+18vn8EgD5TIDTMHYXFxc/p1IpS9d1AEC1WsXO9x21pCgyAHbY39ZqgsGg1+fz3bs8euVpe7swOnN7homiiNYm+7V9lt/dHTwfifQoslyt1+s5AFYL4I/H48+nb888mr17p0/TVN7pcKC7uxuUUui6jvUv64hEo64bU1ODgiBc3VMUXpblVBuAzomJa09uTU/fvz45afN6vbA7HEgmk0in09jY2MDKuxWUymWMj4/jQiRCotF+t643LuVyP8pkeHj4xYO5ublEYowQQv7cJkkSCpIEVVPh8XggiufQ0dGBlkeSJDxeWFjjgsGesZGR0SNhAPD7/fD7/ac+nCAIcDodnZTSg6RlWchkMtA07dSQYRjY2tpCs9n8PSGgB1kLpmliefkt8rncqQBNVfHm9StUKuW/n2gYRq1QKMDpdEJVVSh7CorF4omAn5UKSqUSZFlBrVaDrtdBQqHQwsDAxV5KKTY3v6IvFIKdOU4EmGYTH9fWEB8aQhvlkE5/Kv4CB5n4CmsuYk0AAAAASUVORK5CYII=" />
+			<text y="17" text-anchor="middle" fill="#000000">
+				<tspan x="61" dy="11">Analyse customer</tspan>
+				<tspan x="61" dy="11">request</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_yHImAx_UEeW9keBtFZy97Q" transform="translate(747 13)">
+			<rect x="0" y="0" width="121" height="59" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<image x="6" y="5" width="12" height="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMGDzc1gJ8CfAAAAndJREFUOMuNktFLU2EYxp/v8+x829jYjg7diclE3GrMSSC5my5UoosJIkGSQabVReFldiERBNFf0GV/hVB5kTDMGuWgJHVdTJI2hLOdI9s6Z46d7ZzTha1U1HrhgZeX5/nxvvACJ1QsFutljD3jOG6TUrrjcrk+uN3uWfxPBQIBh9vtfkkpNSmlVks2m00SBOHmPwFdXV1jHMeVCSHWcfE8vySKou+wnzsOsNvtMUKIJxwOI9YfA7MzNBoNeD1eJJPJQHY7S88EGIYhJxKJxvzDeVs4HAYhBKZpQpZlZL5latnt7BE/PQ7QNC3NGMsCAM/z4HkejDGsvl+18vn8EgD5TIDTMHYXFxc/p1IpS9d1AEC1WsXO9x21pCgyAHbY39ZqgsGg1+fz3bs8euVpe7swOnN7homiiNYm+7V9lt/dHTwfifQoslyt1+s5AFYL4I/H48+nb888mr17p0/TVN7pcKC7uxuUUui6jvUv64hEo64bU1ODgiBc3VMUXpblVBuAzomJa09uTU/fvz45afN6vbA7HEgmk0in09jY2MDKuxWUymWMj4/jQiRCotF+t643LuVyP8pkeHj4xYO5ublEYowQQv7cJkkSCpIEVVPh8XggiufQ0dGBlkeSJDxeWFjjgsGesZGR0SNhAPD7/fD7/ac+nCAIcDodnZTSg6RlWchkMtA07dSQYRjY2tpCs9n8PSGgB1kLpmliefkt8rncqQBNVfHm9StUKuW/n2gYRq1QKMDpdEJVVSh7CorF4omAn5UKSqUSZFlBrVaDrtdBQqHQwsDAxV5KKTY3v6IvFIKdOU4EmGYTH9fWEB8aQhvlkE5/Kv4CB5n4CmsuYk0AAAAASUVORK5CYII=" />
+			<text y="23" text-anchor="middle" fill="#000000">
+				<tspan x="61" dy="11">Replace fridge</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_yHImBR_UEeW9keBtFZy97Q" transform="translate(987 33)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#EndEvent)" stroke="#C9302C" stroke-width="4.0" />
+			
+		</g>
+		<g id="_yHImBh_UEeW9keBtFZy97Q" transform="translate(388 64)">
+			<path d="M20.0 1L39 20.0L20.0 39L1 20.0L20.0 1" fill="url(#GatewayWidget)" stroke-width="1" stroke="#888888" />
+			<path fill-opacity="0.0" d="M14.0 10.0L26.0 30.0M26.0 10.0L14.0 30.0" fill="#fff" stroke-width="4" stroke="#000" />
+			
+		</g>
+		<g id="_yHImBx_UEeW9keBtFZy97Q" transform="translate(979 183)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#EndEvent)" stroke="#C9302C" stroke-width="4.0" />
+			
+		</g>
+		<g id="_yHImCB_UEeW9keBtFZy97Q" transform="translate(388 361)">
+			<path d="M20.0 1L39 20.0L20.0 39L1 20.0L20.0 1" fill="url(#GatewayWidget)" stroke-width="1" stroke="#888888" />
+			<path fill-opacity="0.0" d="M14.0 10.0L26.0 30.0M26.0 10.0L14.0 30.0" fill="#fff" stroke-width="4" stroke="#000" />
+			
+		</g>
+		<g id="_yHImCR_UEeW9keBtFZy97Q" transform="translate(523 515)">
+			<rect x="0" y="0" width="121" height="59" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<image x="6" y="5" width="12" height="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMGDzc1gJ8CfAAAAndJREFUOMuNktFLU2EYxp/v8+x829jYjg7diclE3GrMSSC5my5UoosJIkGSQabVReFldiERBNFf0GV/hVB5kTDMGuWgJHVdTJI2hLOdI9s6Z46d7ZzTha1U1HrhgZeX5/nxvvACJ1QsFutljD3jOG6TUrrjcrk+uN3uWfxPBQIBh9vtfkkpNSmlVks2m00SBOHmPwFdXV1jHMeVCSHWcfE8vySKou+wnzsOsNvtMUKIJxwOI9YfA7MzNBoNeD1eJJPJQHY7S88EGIYhJxKJxvzDeVs4HAYhBKZpQpZlZL5latnt7BE/PQ7QNC3NGMsCAM/z4HkejDGsvl+18vn8EgD5TIDTMHYXFxc/p1IpS9d1AEC1WsXO9x21pCgyAHbY39ZqgsGg1+fz3bs8euVpe7swOnN7homiiNYm+7V9lt/dHTwfifQoslyt1+s5AFYL4I/H48+nb888mr17p0/TVN7pcKC7uxuUUui6jvUv64hEo64bU1ODgiBc3VMUXpblVBuAzomJa09uTU/fvz45afN6vbA7HEgmk0in09jY2MDKuxWUymWMj4/jQiRCotF+t643LuVyP8pkeHj4xYO5ublEYowQQv7cJkkSCpIEVVPh8XggiufQ0dGBlkeSJDxeWFjjgsGesZGR0SNhAPD7/fD7/ac+nCAIcDodnZTSg6RlWchkMtA07dSQYRjY2tpCs9n8PSGgB1kLpmliefkt8rncqQBNVfHm9StUKuW/n2gYRq1QKMDpdEJVVSh7CorF4omAn5UKSqUSZFlBrVaDrtdBQqHQwsDAxV5KKTY3v6IvFIKdOU4EmGYTH9fWEB8aQhvlkE5/Kv4CB5n4CmsuYk0AAAAASUVORK5CYII=" />
+			<text y="17" text-anchor="middle" fill="#000000">
+				<tspan x="61" dy="11">Perform repair</tspan>
+				<tspan x="61" dy="11">(standard level)</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_yHImCx_UEeW9keBtFZy97Q" transform="translate(523 347)">
+			<rect x="0" y="0" width="121" height="59" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<image x="6" y="5" width="12" height="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMGDzc1gJ8CfAAAAndJREFUOMuNktFLU2EYxp/v8+x829jYjg7diclE3GrMSSC5my5UoosJIkGSQabVReFldiERBNFf0GV/hVB5kTDMGuWgJHVdTJI2hLOdI9s6Z46d7ZzTha1U1HrhgZeX5/nxvvACJ1QsFutljD3jOG6TUrrjcrk+uN3uWfxPBQIBh9vtfkkpNSmlVks2m00SBOHmPwFdXV1jHMeVCSHWcfE8vySKou+wnzsOsNvtMUKIJxwOI9YfA7MzNBoNeD1eJJPJQHY7S88EGIYhJxKJxvzDeVs4HAYhBKZpQpZlZL5latnt7BE/PQ7QNC3NGMsCAM/z4HkejDGsvl+18vn8EgD5TIDTMHYXFxc/p1IpS9d1AEC1WsXO9x21pCgyAHbY39ZqgsGg1+fz3bs8euVpe7swOnN7homiiNYm+7V9lt/dHTwfifQoslyt1+s5AFYL4I/H48+nb888mr17p0/TVN7pcKC7uxuUUui6jvUv64hEo64bU1ODgiBc3VMUXpblVBuAzomJa09uTU/fvz45afN6vbA7HEgmk0in09jY2MDKuxWUymWMj4/jQiRCotF+t643LuVyP8pkeHj4xYO5ublEYowQQv7cJkkSCpIEVVPh8XggiufQ0dGBlkeSJDxeWFjjgsGesZGR0SNhAPD7/fD7/ac+nCAIcDodnZTSg6RlWchkMtA07dSQYRjY2tpCs9n8PSGgB1kLpmliefkt8rncqQBNVfHm9StUKuW/n2gYRq1QKMDpdEJVVSh7CorF4omAn5UKSqUSZFlBrVaDrtdBQqHQwsDAxV5KKTY3v6IvFIKdOU4EmGYTH9fWEB8aQhvlkE5/Kv4CB5n4CmsuYk0AAAAASUVORK5CYII=" />
+			<text y="17" text-anchor="middle" fill="#000000">
+				<tspan x="61" dy="11">Perform repair</tspan>
+				<tspan x="61" dy="11">(premium level)</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_yHImDR_UEeW9keBtFZy97Q" transform="translate(981 368)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#EndEvent)" stroke="#C9302C" stroke-width="4.0" />
+			
+		</g>
+		<g id="_yHImDh_UEeW9keBtFZy97Q" transform="translate(787 176)">
+			<path d="M20.0 1L39 20.0L20.0 39L1 20.0L20.0 1" fill="url(#GatewayWidget)" stroke-width="1" stroke="#888888" />
+			<path fill-opacity="0.0" d="M14.0 10.0L26.0 30.0M26.0 10.0L14.0 30.0" fill="#fff" stroke-width="4" stroke="#000" />
+			
+		</g>
+		<g id="_yHImHx_UEeW9keBtFZy97Q" transform="translate(571 391)">
+			<ellipse cx="15" cy="15" rx="13" ry="13" fill="url(#IntermediateEvent)" stroke="#325A6E" stroke-width="1.0" />
+			<ellipse fill-opacity="0.0" cx="15" cy="15" rx="10" ry="10" fill="#fff" stroke="#325A6E" stroke-width="1.0" />
+			<g>
+				<ellipse fill-opacity="0.7" cx="15" cy="15" rx="7" ry="7" fill="#fff" stroke="#325A6E" stroke-width="1.0" />
+				<path fill-opacity="0.0" d="M18.75 15.0L15.0 15.0L17.25 9.75" fill="#fff" stroke-width="1" stroke="#325A6E" />
+				
+			</g>
+			
+		</g>
+		<g id="_yHJNEh_UEeW9keBtFZy97Q" transform="translate(571 559)">
+			<ellipse cx="15" cy="15" rx="13" ry="13" fill="url(#IntermediateEvent)" stroke="#325A6E" stroke-width="1.0" />
+			<ellipse fill-opacity="0.0" cx="15" cy="15" rx="10" ry="10" fill="#fff" stroke="#325A6E" stroke-width="1.0" />
+			<g>
+				<path fill-opacity="0.7" d="M7.5 10.5L22.5 10.5L22.5 19.5L7.5 19.5L7.5 10.5" fill="#fff" stroke-width="1" stroke="#325A6E" />
+				<path fill-opacity="0.0" d="M7.5 10.5L15.0 15.0L22.5 10.5" fill="#fff" stroke-width="1" stroke="#325A6E" />
+				
+			</g>
+			
+		</g>
+		<g id="_yHImER_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="304,80 346,80" />
+			
+		</g>
+		<g id="_yHImER_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="346,80 346,80" />
+			
+		</g>
+		<g id="_yHImER_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="346,80 388,80" />
+			<g transform="translate(388,80)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImEh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="404,64 404,42" />
+			
+		</g>
+		<g id="_yHImEh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="404,42 588,42" />
+			
+		</g>
+		<g id="_yHImEh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="588,42 747,42" />
+			<g transform="translate(747,42)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImEx_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="428,84 584,84" />
+			
+		</g>
+		<g id="_yHImEx_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="584,84 584,142" />
+			
+		</g>
+		<g id="_yHImEx_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="584,142 584,162" />
+			<g transform="translate(584,162)">
+				<g transform="rotate(-180)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImFB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="403,104 403,233" />
+			
+		</g>
+		<g id="_yHImFB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="403,233 403,232" />
+			
+		</g>
+		<g id="_yHImFB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="403,232 403,361" />
+			<g transform="translate(403,361)">
+				<g transform="rotate(-180)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImFR_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="403,401 403,421" />
+			
+		</g>
+		<g id="_yHImFR_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="403,421 403,540" />
+			
+		</g>
+		<g id="_yHImFR_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="403,540 523,540" />
+			<g transform="translate(523,540)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImFh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="428,377 475,377" />
+			
+		</g>
+		<g id="_yHImFh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="475,377 476,377" />
+			
+		</g>
+		<g id="_yHImFh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="476,377 523,377" />
+			<g transform="translate(523,377)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImGB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="644,543 999,543" />
+			
+		</g>
+		<g id="_yHImGB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="999,543 999,423" />
+			
+		</g>
+		<g id="_yHImGB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="999,423 999,403" />
+			<g transform="translate(999,403)">
+				<g transform="rotate(0)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImGR_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="644,377 812,377" />
+			
+		</g>
+		<g id="_yHImGR_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="812,377 813,377" />
+			
+		</g>
+		<g id="_yHImGR_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="813,377 981,377" />
+			<g transform="translate(981,377)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImGh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="644,191 715,191" />
+			
+		</g>
+		<g id="_yHImGh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="715,191 716,191" />
+			
+		</g>
+		<g id="_yHImGh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="716,191 787,191" />
+			<g transform="translate(787,191)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImGx_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="868,43 927,43" />
+			
+		</g>
+		<g id="_yHImGx_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="927,43 928,43" />
+			
+		</g>
+		<g id="_yHImGx_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="928,43 987,43" />
+			<g transform="translate(987,43)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImHB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="827,192 903,192" />
+			
+		</g>
+		<g id="_yHImHB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="903,192 903,192" />
+			
+		</g>
+		<g id="_yHImHB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="903,192 979,192" />
+			<g transform="translate(979,192)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImHR_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="802,176 802,124" />
+			
+		</g>
+		<g id="_yHImHR_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="802,124 802,124" />
+			
+		</g>
+		<g id="_yHImHR_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="802,124 802,72" />
+			<g transform="translate(802,72)">
+				<g transform="rotate(0)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHImHh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="118,80 150,80" />
+			
+		</g>
+		<g id="_yHImHh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="150,80 151,80" />
+			
+		</g>
+		<g id="_yHImHh_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="151,80 183,80" />
+			<g transform="translate(183,80)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHJNER_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="585,421 583,448" />
+			
+		</g>
+		<g id="_yHJNER_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="583,448 670,448" />
+			
+		</g>
+		<g id="_yHJNER_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="670,448 670,273" />
+			
+		</g>
+		<g id="_yHJNER_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="670,273 551,273" />
+			
+		</g>
+		<g id="_yHJNER_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="551,273 572,221" />
+			<g transform="translate(572,221)">
+				<g transform="rotate(22)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yHJNFB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="585,589 583,605" />
+			
+		</g>
+		<g id="_yHJNFB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="583,605 670,605" />
+			
+		</g>
+		<g id="_yHJNFB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="670,605 670,481" />
+			
+		</g>
+		<g id="_yHJNFB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="670,481 553,481" />
+			
+		</g>
+		<g id="_yHJNFB_UEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="553,481 575,406" />
+			<g transform="translate(575,406)">
+				<g transform="rotate(16)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<text y="99" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="101" dy="11">Receive customer</tspan>
+			<tspan x="101" dy="11">request</tspan>
+			
+		</text>
+		<text y="61" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="1005" dy="11">Fridge replaced</tspan>
+			
+		</text>
+		<text y="101" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="458" dy="11">Service type</tspan>
+			
+		</text>
+		<text y="211" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="997" dy="11">Emergency repair</tspan>
+			<tspan x="997" dy="11">completed</tspan>
+			
+		</text>
+		<text y="398" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="356" dy="11">Service level</tspan>
+			
+		</text>
+		<text y="366" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="999" dy="11">Repair completed</tspan>
+			
+		</text>
+		<text y="213" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="807" dy="11">Successful?</tspan>
+			
+		</text>
+		<text y="420" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="622" dy="11">2 hours</tspan>
+			
+		</text>
+		<text y="588" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="640" dy="11"> </tspan>
+			
+		</text>
+		<text y="42" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="49" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="435" dy="11">Warranty</tspan>
+			
+		</text>
+		<text y="87" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="638" dy="11">Emergency</tspan>
+			<tspan x="638" dy="11">service</tspan>
+			
+		</text>
+		<text y="216" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="447" dy="11">Regular</tspan>
+			<tspan x="447" dy="11">repair service</tspan>
+			
+		</text>
+		<text y="547" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="434" dy="11">Standard</tspan>
+			
+		</text>
+		<text y="384" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="471" dy="11">Premium</tspan>
+			
+		</text>
+		<text y="550" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="237" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="131" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="4" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="199" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="898" dy="11">yes</tspan>
+			
+		</text>
+		<text y="159" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="817" dy="11">no</tspan>
+			
+		</text>
+		<text y="42" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="368" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="550" font-size="11" text-anchor="middle" fill="#000000"></text>
+		
+	</g>
+	
+</svg>

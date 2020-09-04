@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns2="http://www.omg.org/spec/DD/20100524/DI" xmlns:ns3="http://www.omg.org/spec/DD/20100524/DC" xmlns:ns4="http://www.omg.org/spec/BPMN/20100524/DI" id="MO-73ddf9f7-3bd5-4f69-91bb-013015a1c382" name="A.3.0">
+    <collaboration name="" isClosed="false" id="MO-2f179424-6e28-4c61-b8ee-0c77216e6d92"/>
+    <process isClosed="false" isExecutable="false" processType="None" name="WFP-6-" id="MO-cd726abd-9b9d-42a7-ae29-1c530880bf71">
+        <sequenceFlow sourceRef="MO-17cffc77-a254-49dd-9617-6994a6b64201" targetRef="MO-a803cd4a-63c3-4df6-a133-9fe02f63b6e9" name="" id="MO-053d4653-8a88-4d4b-8472-a71aeeb41a0d"/>
+        <sequenceFlow sourceRef="MO-a803cd4a-63c3-4df6-a133-9fe02f63b6e9" targetRef="MO-947ec13d-9266-42f2-bbc9-dc73bb2a8f12" name="" id="MO-f4683db1-3e50-4760-b702-09c9e5f3db3d"/>
+        <sequenceFlow sourceRef="MO-550d4b95-caf1-4956-9373-82e9e1f29b1c" targetRef="MO-e1cc8637-3d46-4bc0-abcd-6eb851d72135" name="" id="MO-5d082146-9fc0-4dfc-b168-4c48816dbeb4"/>
+        <sequenceFlow sourceRef="MO-2eb6d831-dfce-4504-9480-d9181b713dd2" targetRef="MO-2beec56e-41d8-43bf-8aa4-c02e7b043005" name="" id="MO-5568937b-a0fd-42fa-9314-4183e6d2b719"/>
+        <sequenceFlow sourceRef="MO-947ec13d-9266-42f2-bbc9-dc73bb2a8f12" targetRef="MO-0d33337d-9a80-43cb-ba5a-45cb1de585b6" name="" id="MO-a25e133b-397f-45b8-919c-b22f48ca18a8"/>
+        <sequenceFlow sourceRef="MO-0d33337d-9a80-43cb-ba5a-45cb1de585b6" targetRef="MO-2afdca38-192a-40ce-a7d4-83c499379612" name="" id="MO-da9a2ba6-571e-4541-81c1-2cd6db42f228"/>
+        <sequenceFlow sourceRef="MO-2beec56e-41d8-43bf-8aa4-c02e7b043005" targetRef="MO-2afdca38-192a-40ce-a7d4-83c499379612" name="" id="MO-87dfd1a2-6b99-41e1-aa94-d6583d54bacd"/>
+        <sequenceFlow sourceRef="MO-e1cc8637-3d46-4bc0-abcd-6eb851d72135" targetRef="MO-18b44274-105f-4b84-b24f-089f0be8f7e7" name="" id="MO-10228212-c1f9-487f-abad-204f4ab5892b"/>
+        <startEvent isInterrupting="true" parallelMultiple="false" name="Start Event" id="MO-17cffc77-a254-49dd-9617-6994a6b64201">
+            <ns5:outgoing xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-053d4653-8a88-4d4b-8472-a71aeeb41a0d</ns5:outgoing>
+        </startEvent>
+        <task isForCompensation="false" startQuantity="1" completionQuantity="1" name="Task 1" id="MO-a803cd4a-63c3-4df6-a133-9fe02f63b6e9">
+            <ns5:incoming xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-053d4653-8a88-4d4b-8472-a71aeeb41a0d</ns5:incoming>
+            <ns5:outgoing xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-f4683db1-3e50-4760-b702-09c9e5f3db3d</ns5:outgoing>
+        </task>
+        <subProcess triggeredByEvent="false" isForCompensation="false" startQuantity="1" completionQuantity="1" name="Collapsed  Sub-Process" id="MO-947ec13d-9266-42f2-bbc9-dc73bb2a8f12">
+            <ns5:incoming xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-f4683db1-3e50-4760-b702-09c9e5f3db3d</ns5:incoming>
+            <ns5:outgoing xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-a25e133b-397f-45b8-919c-b22f48ca18a8</ns5:outgoing>
+        </subProcess>
+        <ns5:boundaryEvent xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="" attachedToRef="MO-947ec13d-9266-42f2-bbc9-dc73bb2a8f12" parallelMultiple="false" name="Boundary Intermediate Event Non-Interrupting Message" id="MO-2eb6d831-dfce-4504-9480-d9181b713dd2">
+            <ns5:outgoing>MO-5568937b-a0fd-42fa-9314-4183e6d2b719</ns5:outgoing>
+            <ns5:messageEventDefinition/>
+        </ns5:boundaryEvent>
+        <ns5:boundaryEvent xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="" attachedToRef="MO-947ec13d-9266-42f2-bbc9-dc73bb2a8f12" parallelMultiple="false" name="Boundary Intermediate Event Interrupting Escalation" id="MO-550d4b95-caf1-4956-9373-82e9e1f29b1c">
+            <ns5:outgoing>MO-5d082146-9fc0-4dfc-b168-4c48816dbeb4</ns5:outgoing>
+            <ns5:escalationEventDefinition/>
+        </ns5:boundaryEvent>
+        <task isForCompensation="false" startQuantity="1" completionQuantity="1" name="Task 4" id="MO-e1cc8637-3d46-4bc0-abcd-6eb851d72135">
+            <ns5:incoming xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-5d082146-9fc0-4dfc-b168-4c48816dbeb4</ns5:incoming>
+            <ns5:outgoing xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-10228212-c1f9-487f-abad-204f4ab5892b</ns5:outgoing>
+        </task>
+        <endEvent name="End Event 1" id="MO-2afdca38-192a-40ce-a7d4-83c499379612">
+            <ns5:incoming xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-da9a2ba6-571e-4541-81c1-2cd6db42f228</ns5:incoming>
+            <ns5:incoming xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-87dfd1a2-6b99-41e1-aa94-d6583d54bacd</ns5:incoming>
+        </endEvent>
+        <task isForCompensation="false" startQuantity="1" completionQuantity="1" name="Task 3" id="MO-2beec56e-41d8-43bf-8aa4-c02e7b043005">
+            <ns5:incoming xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-5568937b-a0fd-42fa-9314-4183e6d2b719</ns5:incoming>
+            <ns5:outgoing xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-87dfd1a2-6b99-41e1-aa94-d6583d54bacd</ns5:outgoing>
+        </task>
+        <task isForCompensation="false" startQuantity="1" completionQuantity="1" name="Task 2" id="MO-0d33337d-9a80-43cb-ba5a-45cb1de585b6">
+            <ns5:incoming xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-a25e133b-397f-45b8-919c-b22f48ca18a8</ns5:incoming>
+            <ns5:outgoing xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-da9a2ba6-571e-4541-81c1-2cd6db42f228</ns5:outgoing>
+        </task>
+        <endEvent name="End Event 2" id="MO-18b44274-105f-4b84-b24f-089f0be8f7e7">
+            <ns5:incoming xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="">MO-10228212-c1f9-487f-abad-204f4ab5892b</ns5:incoming>
+        </endEvent>
+    </process>
+    <ns4:BPMNDiagram name="A.3.0" id="MO-51648aef-41ef-41f1-b908-30096b2d6b67">
+        <ns4:BPMNPlane xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns="" bpmnElement="MO-cd726abd-9b9d-42a7-ae29-1c530880bf71">
+            <ns4:BPMNEdge bpmnElement="MO-053d4653-8a88-4d4b-8472-a71aeeb41a0d" id="MO-053d4653-8a88-4d4b-8472-a71aeeb41a0d-gr">
+                <ns2:waypoint x="-15.0" y="310.0"/>
+                <ns2:waypoint x="25.0" y="310.0"/>
+            </ns4:BPMNEdge>
+            <ns4:BPMNEdge bpmnElement="MO-f4683db1-3e50-4760-b702-09c9e5f3db3d" id="MO-f4683db1-3e50-4760-b702-09c9e5f3db3d-gr">
+                <ns2:waypoint x="108.0" y="306.0"/>
+                <ns2:waypoint x="246.0" y="306.0"/>
+                <ns2:waypoint x="282.0" y="306.0"/>
+            </ns4:BPMNEdge>
+            <ns4:BPMNEdge bpmnElement="MO-5d082146-9fc0-4dfc-b168-4c48816dbeb4" id="MO-5d082146-9fc0-4dfc-b168-4c48816dbeb4-gr">
+                <ns2:waypoint x="363.0" y="367.0"/>
+                <ns2:waypoint x="363.0" y="412.0"/>
+                <ns2:waypoint x="406.0" y="417.0"/>
+            </ns4:BPMNEdge>
+            <ns4:BPMNEdge bpmnElement="MO-5568937b-a0fd-42fa-9314-4183e6d2b719" id="MO-5568937b-a0fd-42fa-9314-4183e6d2b719-gr">
+                <ns2:waypoint x="354.0" y="246.0"/>
+                <ns2:waypoint x="354.0" y="204.0"/>
+                <ns2:waypoint x="414.0" y="204.0"/>
+            </ns4:BPMNEdge>
+            <ns4:BPMNEdge bpmnElement="MO-a25e133b-397f-45b8-919c-b22f48ca18a8" id="MO-a25e133b-397f-45b8-919c-b22f48ca18a8-gr">
+                <ns2:waypoint x="390.0" y="306.0"/>
+                <ns2:waypoint x="408.0" y="306.0"/>
+                <ns2:waypoint x="426.0" y="306.0"/>
+            </ns4:BPMNEdge>
+            <ns4:BPMNEdge bpmnElement="MO-da9a2ba6-571e-4541-81c1-2cd6db42f228" id="MO-da9a2ba6-571e-4541-81c1-2cd6db42f228-gr">
+                <ns2:waypoint x="509.0" y="310.0"/>
+                <ns2:waypoint x="527.0" y="310.0"/>
+                <ns2:waypoint x="567.0" y="313.0"/>
+            </ns4:BPMNEdge>
+            <ns4:BPMNEdge bpmnElement="MO-87dfd1a2-6b99-41e1-aa94-d6583d54bacd" id="MO-87dfd1a2-6b99-41e1-aa94-d6583d54bacd-gr">
+                <ns2:waypoint x="497.0" y="192.0"/>
+                <ns2:waypoint x="583.0" y="192.0"/>
+                <ns2:waypoint x="583.0" y="303.0"/>
+            </ns4:BPMNEdge>
+            <ns4:BPMNEdge bpmnElement="MO-10228212-c1f9-487f-abad-204f4ab5892b" id="MO-10228212-c1f9-487f-abad-204f4ab5892b-gr">
+                <ns2:waypoint x="489.0" y="432.0"/>
+                <ns2:waypoint x="525.0" y="432.0"/>
+            </ns4:BPMNEdge>
+            <ns4:BPMNShape bpmnElement="MO-17cffc77-a254-49dd-9617-6994a6b64201" id="MO-17cffc77-a254-49dd-9617-6994a6b64201-gr">
+                <ns3:Bounds x="-48.0" y="291.0" width="33.0" height="33.0"/>
+            </ns4:BPMNShape>
+            <ns4:BPMNShape bpmnElement="MO-a803cd4a-63c3-4df6-a133-9fe02f63b6e9" id="MO-a803cd4a-63c3-4df6-a133-9fe02f63b6e9-gr">
+                <ns3:Bounds x="25.0" y="272.0" width="83.0" height="68.0"/>
+            </ns4:BPMNShape>
+            <ns4:BPMNShape bpmnElement="MO-947ec13d-9266-42f2-bbc9-dc73bb2a8f12" id="MO-947ec13d-9266-42f2-bbc9-dc73bb2a8f12-gr">
+                <ns3:Bounds x="282.0" y="262.0" width="108.0" height="88.0"/>
+            </ns4:BPMNShape>
+            <ns4:BPMNShape bpmnElement="MO-2eb6d831-dfce-4504-9480-d9181b713dd2" id="MO-2eb6d831-dfce-4504-9480-d9181b713dd2-gr">
+                <ns3:Bounds x="338.0" y="246.0" width="33.0" height="33.0"/>
+            </ns4:BPMNShape>
+            <ns4:BPMNShape bpmnElement="MO-550d4b95-caf1-4956-9373-82e9e1f29b1c" id="MO-550d4b95-caf1-4956-9373-82e9e1f29b1c-gr">
+                <ns3:Bounds x="347.0" y="334.0" width="33.0" height="33.0"/>
+            </ns4:BPMNShape>
+            <ns4:BPMNShape bpmnElement="MO-e1cc8637-3d46-4bc0-abcd-6eb851d72135" id="MO-e1cc8637-3d46-4bc0-abcd-6eb851d72135-gr">
+                <ns3:Bounds x="406.0" y="407.0" width="83.0" height="68.0"/>
+            </ns4:BPMNShape>
+            <ns4:BPMNShape bpmnElement="MO-2afdca38-192a-40ce-a7d4-83c499379612" id="MO-2afdca38-192a-40ce-a7d4-83c499379612-gr">
+                <ns3:Bounds x="567.0" y="303.0" width="33.0" height="33.0"/>
+            </ns4:BPMNShape>
+            <ns4:BPMNShape bpmnElement="MO-2beec56e-41d8-43bf-8aa4-c02e7b043005" id="MO-2beec56e-41d8-43bf-8aa4-c02e7b043005-gr">
+                <ns3:Bounds x="414.0" y="158.0" width="83.0" height="68.0"/>
+            </ns4:BPMNShape>
+            <ns4:BPMNShape bpmnElement="MO-0d33337d-9a80-43cb-ba5a-45cb1de585b6" id="MO-0d33337d-9a80-43cb-ba5a-45cb1de585b6-gr">
+                <ns3:Bounds x="426.0" y="276.0" width="83.0" height="68.0"/>
+            </ns4:BPMNShape>
+            <ns4:BPMNShape bpmnElement="MO-18b44274-105f-4b84-b24f-089f0be8f7e7" id="MO-18b44274-105f-4b84-b24f-089f0be8f7e7-gr">
+                <ns3:Bounds x="525.0" y="416.0" width="33.0" height="33.0"/>
+            </ns4:BPMNShape>
+        </ns4:BPMNPlane>
+    </ns4:BPMNDiagram>
+</definitions>

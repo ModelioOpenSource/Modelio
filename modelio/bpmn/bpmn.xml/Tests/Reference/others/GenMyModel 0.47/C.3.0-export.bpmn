@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="_65PYAB_YEeW9keBtFZy97Q" exporter="GenMyModel" exporterVersion="0.1" name="Fridge Repair Service" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL">
+  <bpmn2:process id="_65PYAR_YEeW9keBtFZy97Q" name="Fridge Repair Process">
+    <bpmn2:startEvent id="_65PYAh_YEeW9keBtFZy97Q" name="Receive customer request">
+      <bpmn2:outgoing>_65PYAx_YEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:messageEventDefinition id="_65PYBB_YEeW9keBtFZy97Q"/>
+    </bpmn2:startEvent>
+    <bpmn2:userTask id="_65PYBR_YEeW9keBtFZy97Q" name="Analyse customer request" implementation="##unspecified">
+      <bpmn2:incoming>_65PYAx_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_65PYBh_YEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="_65PYBx_YEeW9keBtFZy97Q" name="Service type">
+      <bpmn2:incoming>_65PYBh_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_65PYCB_YEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:outgoing>_65PYCR_YEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:outgoing>_65PYCh_YEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:subProcess id="_65PYCx_YEeW9keBtFZy97Q" name="Perform emergency repair">
+      <bpmn2:incoming>_65PYDB_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:incoming>_65PYCB_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_65PYDR_YEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:subProcess>
+    <bpmn2:userTask id="_65PYDh_YEeW9keBtFZy97Q" name="Perform repair (premium level)" implementation="##unspecified">
+      <bpmn2:incoming>_65PYDx_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:incoming>_65PYEB_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_65PYER_YEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="_65PYEx_YEeW9keBtFZy97Q" name="Perform repair (standard level)" implementation="##unspecified">
+      <bpmn2:incoming>_65PYFB_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_65PYFR_YEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="_65PYFx_YEeW9keBtFZy97Q" name="Replace fridge" implementation="##unspecified">
+      <bpmn2:incoming>_65PYCh_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:incoming>_65PYGB_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_65P_EB_YEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="_65P_ER_YEeW9keBtFZy97Q" name="Service level">
+      <bpmn2:incoming>_65PYCR_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_65PYEB_YEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:outgoing>_65PYFB_YEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_65PYAx_YEeW9keBtFZy97Q" name="" sourceRef="_65PYAh_YEeW9keBtFZy97Q" targetRef="_65PYBR_YEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_65PYBh_YEeW9keBtFZy97Q" name="" sourceRef="_65PYBR_YEeW9keBtFZy97Q" targetRef="_65PYBx_YEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_65PYCh_YEeW9keBtFZy97Q" name="" sourceRef="_65PYBx_YEeW9keBtFZy97Q" targetRef="_65PYFx_YEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_65PYCB_YEeW9keBtFZy97Q" name="Emergency service" sourceRef="_65PYBx_YEeW9keBtFZy97Q" targetRef="_65PYCx_YEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_65PYCR_YEeW9keBtFZy97Q" name="Regular repair service" sourceRef="_65PYBx_YEeW9keBtFZy97Q" targetRef="_65P_ER_YEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_65PYEB_YEeW9keBtFZy97Q" name="Premium" sourceRef="_65P_ER_YEeW9keBtFZy97Q" targetRef="_65PYDh_YEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_65PYFB_YEeW9keBtFZy97Q" name="Standard" sourceRef="_65P_ER_YEeW9keBtFZy97Q" targetRef="_65PYEx_YEeW9keBtFZy97Q"/>
+    <bpmn2:endEvent id="_65P_Eh_YEeW9keBtFZy97Q" name="Fridge replaced">
+      <bpmn2:incoming>_65P_EB_YEeW9keBtFZy97Q</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:endEvent id="_65P_Ex_YEeW9keBtFZy97Q" name="Emergency repair completed">
+      <bpmn2:incoming>_65P_FB_YEeW9keBtFZy97Q</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:endEvent id="_65P_FR_YEeW9keBtFZy97Q" name="Repair completed">
+      <bpmn2:incoming>_65PYER_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:incoming>_65PYFR_YEeW9keBtFZy97Q</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="_65PYER_YEeW9keBtFZy97Q" name="" sourceRef="_65PYDh_YEeW9keBtFZy97Q" targetRef="_65P_FR_YEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_65PYFR_YEeW9keBtFZy97Q" name="" sourceRef="_65PYEx_YEeW9keBtFZy97Q" targetRef="_65P_FR_YEeW9keBtFZy97Q"/>
+    <bpmn2:exclusiveGateway id="_65P_Fh_YEeW9keBtFZy97Q" name="Successful?">
+      <bpmn2:incoming>_65PYDR_YEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_65PYGB_YEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:outgoing>_65P_FB_YEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_65PYDR_YEeW9keBtFZy97Q" name="" sourceRef="_65PYCx_YEeW9keBtFZy97Q" targetRef="_65P_Fh_YEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_65PYGB_YEeW9keBtFZy97Q" name="" sourceRef="_65P_Fh_YEeW9keBtFZy97Q" targetRef="_65PYFx_YEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_65P_FB_YEeW9keBtFZy97Q" name="" sourceRef="_65P_Fh_YEeW9keBtFZy97Q" targetRef="_65P_Ex_YEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_65P_EB_YEeW9keBtFZy97Q" name="" sourceRef="_65PYFx_YEeW9keBtFZy97Q" targetRef="_65P_Eh_YEeW9keBtFZy97Q"/>
+    <bpmn2:boundaryEvent id="_65PYFh_YEeW9keBtFZy97Q" name="" attachedToRef="_65PYEx_YEeW9keBtFZy97Q">
+      <bpmn2:outgoing>_65PYDx_YEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:messageEventDefinition id="_65P_Fx_YEeW9keBtFZy97Q"/>
+    </bpmn2:boundaryEvent>
+    <bpmn2:boundaryEvent id="_65PYEh_YEeW9keBtFZy97Q" name="2 hours" attachedToRef="_65PYDh_YEeW9keBtFZy97Q">
+      <bpmn2:outgoing>_65PYDB_YEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:timerEventDefinition id="_65P_GB_YEeW9keBtFZy97Q"/>
+    </bpmn2:boundaryEvent>
+    <bpmn2:sequenceFlow id="_65PYDB_YEeW9keBtFZy97Q" name="" sourceRef="_65PYEh_YEeW9keBtFZy97Q" targetRef="_65PYCx_YEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_65PYDx_YEeW9keBtFZy97Q" name="" sourceRef="_65PYFh_YEeW9keBtFZy97Q" targetRef="_65PYDh_YEeW9keBtFZy97Q"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_65P_GR_YEeW9keBtFZy97Q" name="Process-diag">
+    <bpmndi:BPMNPlane id="_65P_Gh_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYAR_YEeW9keBtFZy97Q">
+      <bpmndi:BPMNShape id="_65P_Gx_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYAh_YEeW9keBtFZy97Q">
+        <dc:Bounds height="35.0" width="35.0" x="60.0" y="100.0"/>
+        <bpmndi:BPMNLabel id="_65P_HB_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="22.0" width="100.0" x="28.0" y="129.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_Hh_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYBR_YEeW9keBtFZy97Q">
+        <dc:Bounds height="60.0" width="120.0" x="160.0" y="80.0"/>
+        <bpmndi:BPMNLabel id="_65P_Hx_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_IB_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYBx_YEeW9keBtFZy97Q">
+        <dc:Bounds height="40.0" width="40.0" x="370.0" y="100.0"/>
+        <bpmndi:BPMNLabel id="_65P_IR_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="70.0" x="409.0" y="131.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_Ih_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYFx_YEeW9keBtFZy97Q">
+        <dc:Bounds height="60.0" width="120.0" x="730.0" y="40.0"/>
+        <bpmndi:BPMNLabel id="_65P_Ix_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_JB_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYDh_YEeW9keBtFZy97Q">
+        <dc:Bounds height="60.0" width="120.0" x="510.0" y="380.0"/>
+        <bpmndi:BPMNLabel id="_65P_JR_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_Jh_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYEx_YEeW9keBtFZy97Q">
+        <dc:Bounds height="60.0" width="120.0" x="510.0" y="540.0"/>
+        <bpmndi:BPMNLabel id="_65P_Jx_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_KB_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYCx_YEeW9keBtFZy97Q">
+        <dc:Bounds height="60.0" width="120.0" x="510.0" y="190.0"/>
+        <bpmndi:BPMNLabel id="_65P_KR_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_Kh_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65P_ER_YEeW9keBtFZy97Q">
+        <dc:Bounds height="40.0" width="40.0" x="370.0" y="390.0"/>
+        <bpmndi:BPMNLabel id="_65P_Kx_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="296.0" y="431.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_LB_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65P_Eh_YEeW9keBtFZy97Q">
+        <dc:Bounds height="35.0" width="35.0" x="970.0" y="60.0"/>
+        <bpmndi:BPMNLabel id="_65P_LR_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="939.0" y="89.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_Lh_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65P_Ex_YEeW9keBtFZy97Q">
+        <dc:Bounds height="35.0" width="35.0" x="960.0" y="200.0"/>
+        <bpmndi:BPMNLabel id="_65P_Lx_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="22.0" width="100.0" x="928.0" y="229.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_MB_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65P_FR_YEeW9keBtFZy97Q">
+        <dc:Bounds height="35.0" width="35.0" x="960.0" y="390.0"/>
+        <bpmndi:BPMNLabel id="_65P_MR_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="927.0" y="387.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_Mh_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65P_Fh_YEeW9keBtFZy97Q">
+        <dc:Bounds height="40.0" width="40.0" x="770.0" y="200.0"/>
+        <bpmndi:BPMNLabel id="_65P_Mx_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="740.0" y="241.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_NB_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYFh_YEeW9keBtFZy97Q">
+        <dc:Bounds height="30.0" width="30.0" x="560.0" y="585.0"/>
+        <bpmndi:BPMNLabel id="_65P_NR_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="525.0" y="618.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_65P_Nh_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYEh_YEeW9keBtFZy97Q">
+        <dc:Bounds height="30.0" width="30.0" x="570.0" y="425.0"/>
+        <bpmndi:BPMNLabel id="_65P_Nx_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="50.0" x="605.0" y="448.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_65P_OB_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYAx_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="95.0" y="117.0"/>
+        <di:waypoint xsi:type="dc:Point" x="127.0" y="117.0"/>
+        <di:waypoint xsi:type="dc:Point" x="128.0" y="117.0"/>
+        <di:waypoint xsi:type="dc:Point" x="160.0" y="117.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_OR_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYBh_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="120.0"/>
+        <di:waypoint xsi:type="dc:Point" x="325.0" y="120.0"/>
+        <di:waypoint xsi:type="dc:Point" x="325.0" y="120.0"/>
+        <di:waypoint xsi:type="dc:Point" x="370.0" y="120.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_Oh_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYCh_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="100.0"/>
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="80.0"/>
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="70.0"/>
+        <di:waypoint xsi:type="dc:Point" x="730.0" y="70.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_Ox_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYCB_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="410.0" y="120.0"/>
+        <di:waypoint xsi:type="dc:Point" x="570.0" y="120.0"/>
+        <di:waypoint xsi:type="dc:Point" x="570.0" y="170.0"/>
+        <di:waypoint xsi:type="dc:Point" x="570.0" y="190.0"/>
+        <bpmndi:BPMNLabel id="_65P_PB_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="110.0" x="571.0" y="119.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_PR_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYCR_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="140.0"/>
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="265.0"/>
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="265.0"/>
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="390.0"/>
+        <bpmndi:BPMNLabel id="_65P_Ph_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="22.0" width="90.0" x="390.0" y="247.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_Px_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYEB_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="410.0" y="410.0"/>
+        <di:waypoint xsi:type="dc:Point" x="460.0" y="410.0"/>
+        <di:waypoint xsi:type="dc:Point" x="460.0" y="410.0"/>
+        <di:waypoint xsi:type="dc:Point" x="510.0" y="410.0"/>
+        <bpmndi:BPMNLabel id="_65P_QB_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="50.0" x="433.0" y="410.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_QR_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYFB_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="430.0"/>
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="450.0"/>
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="570.0"/>
+        <di:waypoint xsi:type="dc:Point" x="510.0" y="570.0"/>
+        <bpmndi:BPMNLabel id="_65P_Qh_YEeW9keBtFZy97Q" labelStyle="bpmn2:_65P_HR_YEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="50.0" x="393.0" y="571.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_Qx_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYER_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="407.0"/>
+        <di:waypoint xsi:type="dc:Point" x="795.0" y="407.0"/>
+        <di:waypoint xsi:type="dc:Point" x="795.0" y="407.0"/>
+        <di:waypoint xsi:type="dc:Point" x="960.0" y="407.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_RB_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYFR_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="570.0"/>
+        <di:waypoint xsi:type="dc:Point" x="978.0" y="570.0"/>
+        <di:waypoint xsi:type="dc:Point" x="978.0" y="445.0"/>
+        <di:waypoint xsi:type="dc:Point" x="978.0" y="425.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_RR_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYDR_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="220.0"/>
+        <di:waypoint xsi:type="dc:Point" x="700.0" y="220.0"/>
+        <di:waypoint xsi:type="dc:Point" x="700.0" y="220.0"/>
+        <di:waypoint xsi:type="dc:Point" x="770.0" y="220.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_Rh_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYGB_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="200.0"/>
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="150.0"/>
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="150.0"/>
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="100.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_Rx_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65P_FB_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="810.0" y="217.0"/>
+        <di:waypoint xsi:type="dc:Point" x="885.0" y="217.0"/>
+        <di:waypoint xsi:type="dc:Point" x="885.0" y="217.0"/>
+        <di:waypoint xsi:type="dc:Point" x="960.0" y="217.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_SB_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65P_EB_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="850.0" y="77.0"/>
+        <di:waypoint xsi:type="dc:Point" x="910.0" y="77.0"/>
+        <di:waypoint xsi:type="dc:Point" x="910.0" y="77.0"/>
+        <di:waypoint xsi:type="dc:Point" x="970.0" y="77.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_SR_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYDB_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="587.0" y="455.0"/>
+        <di:waypoint xsi:type="dc:Point" x="590.0" y="480.0"/>
+        <di:waypoint xsi:type="dc:Point" x="660.0" y="480.0"/>
+        <di:waypoint xsi:type="dc:Point" x="660.0" y="300.0"/>
+        <di:waypoint xsi:type="dc:Point" x="570.0" y="300.0"/>
+        <di:waypoint xsi:type="dc:Point" x="570.0" y="250.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_65P_Sh_YEeW9keBtFZy97Q" bpmnElement="bpmn2:_65PYDx_YEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="577.0" y="615.0"/>
+        <di:waypoint xsi:type="dc:Point" x="580.0" y="630.0"/>
+        <di:waypoint xsi:type="dc:Point" x="650.0" y="630.0"/>
+        <di:waypoint xsi:type="dc:Point" x="650.0" y="510.0"/>
+        <di:waypoint xsi:type="dc:Point" x="570.0" y="510.0"/>
+        <di:waypoint xsi:type="dc:Point" x="570.0" y="440.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="_65P_HR_YEeW9keBtFZy97Q">
+      <dc:Font name=".Arial" size="12.0"/>
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.gef.source"
+      label="%featureName"
+      version="3.11.0.201705231123"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://download.eclipse.org/tools/gef/updates/legacy/releases/"/>
+      <discovery label="%updateSiteName" url="http://download.eclipse.org/tools/gef/updates/legacy/releases/"/>
+   </url>
+
+   <plugin
+         id="org.eclipse.gef.source"
+         download-size="781"
+         install-size="2012"
+         version="3.11.0.201705231123"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<create-popups>
+	<!-- Popup for Actor -->
+  <popup metaclass="Standard.Actor">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Attribute"/>
+      <parameter name="dependency" value="OwnedAttribute"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Operation"/>
+      <parameter name="dependency" value="OwnedOperation"/>
+    </command>
+  </popup>
+  <!-- Popup for Artifact -->
+  <popup metaclass="Standard.Artifact">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Attribute"/>
+      <parameter name="dependency" value="OwnedAttribute"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Operation"/>
+      <parameter name="dependency" value="OwnedOperation"/>
+    </command>
+  </popup>
+  <!-- Popup for AssociationEnd -->
+  <popup metaclass="Standard.AssociationEnd">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Attribute"/>
+      <parameter name="dependency" value="Qualifier"/>
+    </command>
+  </popup>
+  <!-- Popup for Class -->
+  <popup metaclass="Standard.Class">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Attribute"/>
+      <parameter name="dependency" value="OwnedAttribute"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Operation"/>
+      <parameter name="dependency" value="OwnedOperation"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Actor"/>
+      <parameter name="dependency" value="OwnedElement"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.UseCase"/>
+      <parameter name="dependency" value="OwnedElement"/>
+    </command>
+  </popup>
+  <!-- Popup for DataType -->
+  <popup metaclass="Standard.DataType">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Attribute"/>
+      <parameter name="dependency" value="OwnedAttribute"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Operation"/>
+      <parameter name="dependency" value="OwnedOperation"/>
+    </command>
+  </popup>
+  <!-- Popup for Package -->
+  <popup metaclass="Standard.Package">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Actor"/>
+      <parameter name="dependency" value="OwnedElement"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.UseCase"/>
+      <parameter name="dependency" value="OwnedElement"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.InformationItem"/>
+      <parameter name="dependency" value="OwnedElement"/>
+    </command>
+  </popup>
+  <!-- Popup for Signal -->
+  <popup metaclass="Standard.Signal">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Attribute"/>
+      <parameter name="dependency" value="OwnedAttribute"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Operation"/>
+      <parameter name="dependency" value="OwnedOperation"/>
+    </command>
+  </popup>
+  <!-- Popup for UseCase -->
+  <popup metaclass="Standard.UseCase">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Attribute"/>
+      <parameter name="dependency" value="OwnedAttribute"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.Operation"/>
+      <parameter name="dependency" value="OwnedOperation"/>
+    </command>
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.ExtensionPoint"/>
+      <parameter name="dependency" value="OwnedExtension"/>
+    </command>
+  </popup>
+</create-popups>
+
+

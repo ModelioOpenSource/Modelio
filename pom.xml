@@ -1,0 +1,171 @@
+<!--
+
+This pom executes a maven target on ALL the (eclipse) features that compose the different Modelio distribution.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.modelio</groupId>
+	<artifactId>modelio-parent</artifactId>
+	<version>3.8.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<tycho-version>1.2.0</tycho-version>
+		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
+
+		<modelio.rootFolder>Modelio 3.8</modelio.rootFolder>
+		<modelio.version>3.8.0-SNAPSHOT</modelio.version>
+		<modelio.ws.path>${project.basedir}/${project.parent.relativePath}</modelio.ws.path>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>modelio-repository-maven</id>
+			<layout>default</layout>
+			<url>http://repository.modelio.org/</url>
+		</repository>
+		<repository>
+			<id>eclipse</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/eclipse/</url>
+		</repository>
+		<repository>
+			<id>astyle</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/astyle/</url>
+		</repository>
+		<repository>
+			<id>emf</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/emf/</url>
+		</repository>
+		<repository>
+			<id>gef</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/gef/</url>
+		</repository>
+		<repository>
+			<id>jdbm</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/jdbm/</url>
+		</repository>
+		<repository>
+			<id>nebula</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/nebula/</url>
+		</repository>
+		<repository>
+			<id>nebula-nattable</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/nebula-nattable/</url>
+		</repository>
+		<repository>
+			<id>nebula-incubator</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/nebula-incubator/</url>
+		</repository>
+		<repository>
+			<id>apache-commons-lang</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/commons-lang/</url>
+		</repository>
+		<repository>
+			<id>uml2-3.2</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/uml2_3.2/</url>
+		</repository>
+		<repository>
+			<id>praticalxml</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/praticalxml/</url>
+		</repository>
+		<repository>
+			<id>modelio-doc-en</id>
+			<layout>p2</layout>
+			<url>file:///${modelio.ws.path}/eclipse.resources/rcptarget/documentation-en/</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<resolver>p2</resolver>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<strictBinIncludes>false</strictBinIncludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<extraClasspathElements>
+						<extraClasspathElement>
+							<groupId>org.modelio</groupId>
+							<artifactId>javadesigner</artifactId>
+							<version>2.2.0</version>
+						</extraClasspathElement>
+					</extraClasspathElements>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>linux</os><ws>gtk</ws> <arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os><ws>gtk</ws><arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os><ws>win32</ws><arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os><ws>win32</ws><arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os><ws>cocoa</ws><arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>${tycho-groupid}</groupId>
+					<artifactId>tycho-compiler-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+	</build>
+
+</project>
+

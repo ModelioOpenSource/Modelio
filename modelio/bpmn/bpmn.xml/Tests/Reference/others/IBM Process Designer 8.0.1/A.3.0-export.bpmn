@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:A.3.0-export="http://A.3.0-MIO/A.3.0-export/A.3.0-export" xmlns:Process="http://A.3.0-MIO/A.3.0-export/Collapsed Process" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsd="http://www.w3.org/2001/XMLSchema" exporter="http://www.ibm.com/BPM" exporterVersion="8.0.1" id="bpmnid-a56501df-a2e5-4210-9813-7842208193b4" targetNamespace="http://A.3.0-MIO/A.3.0-export/A.3.0-export">
+  <bpmn:import importType="http://www.omg.org/spec/BPMN/20100524/MODEL" location="Collapsed Process.bpmn" namespace="http://A.3.0-MIO/A.3.0-export/Collapsed Process"/>
+  <bpmn:process id="bpmnid-67e85040-ef82-48df-82fa-370bb45c3b1e" name="A.3.0-export" isClosed="false" processType="None">
+    <bpmn:endEvent id="bpmnid-93104c68-344f-46cf-b711-944178615e81" name="End event1"/>
+    <bpmn:serviceTask id="bpmnid-53d140a1-b6a3-409f-9d25-577993c363ce" name="Task2"/>
+    <bpmn:serviceTask id="bpmnid-a15b91b7-3de5-4082-9fab-f8cfd8b9d951" name="Task3"/>
+    <bpmn:serviceTask id="bpmnid-54b7dce8-4500-4a74-8a01-bf2fbb4eb429" name="Task4"/>
+    <bpmn:endEvent id="bpmnid-ad3e89d5-4f62-4dc4-bb05-6247f85879cc" name="End event2"/>
+    <bpmn:callActivity id="bpmnid-6c0bb0bb-e7c4-412a-a7b7-d84807aa35f9" name="Collapsed Process" calledElement="Process:bpmnid-39863212-029e-4da1-9b79-7085f0e99c3e"/>
+    <bpmn:boundaryEvent id="bpmnid-23a1f4c5-4f22-44fc-b2d9-edb5df0dd032" name="Untitled1" attachedToRef="A.3.0-export:bpmnid-6c0bb0bb-e7c4-412a-a7b7-d84807aa35f9" cancelActivity="true">
+      <bpmn:messageEventDefinition/>
+    </bpmn:boundaryEvent>
+    <bpmn:boundaryEvent id="bpmnid-f045fce0-7ea6-471a-80e1-b6c60ca7baf8" name="Untitled" attachedToRef="A.3.0-export:bpmnid-6c0bb0bb-e7c4-412a-a7b7-d84807aa35f9" cancelActivity="false">
+      <bpmn:messageEventDefinition/>
+    </bpmn:boundaryEvent>
+    <bpmn:serviceTask id="bpmnid-a91e2fcc-68fa-490b-9d83-1eae7bfa6fdc" name="Task1"/>
+    <bpmn:startEvent id="bpmnid-3c367d2a-f018-41cc-9681-d400ce1188b7" name="Start"/>
+    <bpmn:sequenceFlow id="bpmnid-4378bfa6-3063-47cd-83df-4821871c11ad" name="to Task2" sourceRef="bpmnid-f045fce0-7ea6-471a-80e1-b6c60ca7baf8" targetRef="bpmnid-53d140a1-b6a3-409f-9d25-577993c363ce"/>
+    <bpmn:sequenceFlow id="bpmnid-83253ea6-994e-45af-aa46-7ced38c96c4f" name="to Task1" sourceRef="bpmnid-3c367d2a-f018-41cc-9681-d400ce1188b7" targetRef="bpmnid-a91e2fcc-68fa-490b-9d83-1eae7bfa6fdc"/>
+    <bpmn:sequenceFlow id="bpmnid-91753438-f046-4065-885f-f5ae28186d1a" name="to End event2" sourceRef="bpmnid-54b7dce8-4500-4a74-8a01-bf2fbb4eb429" targetRef="bpmnid-ad3e89d5-4f62-4dc4-bb05-6247f85879cc"/>
+    <bpmn:sequenceFlow id="bpmnid-4d166c24-958a-4c11-8a8f-4831b204c94e" name="to End event1" sourceRef="bpmnid-a15b91b7-3de5-4082-9fab-f8cfd8b9d951" targetRef="bpmnid-93104c68-344f-46cf-b711-944178615e81"/>
+    <bpmn:sequenceFlow id="bpmnid-41fee93f-4d66-4254-9bf2-e8c7e50e4a62" name="to Task4" sourceRef="bpmnid-23a1f4c5-4f22-44fc-b2d9-edb5df0dd032" targetRef="bpmnid-54b7dce8-4500-4a74-8a01-bf2fbb4eb429"/>
+    <bpmn:sequenceFlow id="bpmnid-a35847f1-985e-4818-a96d-1375ab63c3f7" name="to Task3" sourceRef="bpmnid-6c0bb0bb-e7c4-412a-a7b7-d84807aa35f9" targetRef="bpmnid-a15b91b7-3de5-4082-9fab-f8cfd8b9d951"/>
+    <bpmn:sequenceFlow id="bpmnid-c72b0a14-f386-48b7-85d9-efa51defe1a2" name="to Collapsed Process" sourceRef="bpmnid-a91e2fcc-68fa-490b-9d83-1eae7bfa6fdc" targetRef="bpmnid-6c0bb0bb-e7c4-412a-a7b7-d84807aa35f9"/>
+    <bpmn:sequenceFlow id="bpmnid-cf6b0a75-94bd-47c8-8166-65ff123a6d71" name="to End event1" sourceRef="bpmnid-53d140a1-b6a3-409f-9d25-577993c363ce" targetRef="bpmnid-93104c68-344f-46cf-b711-944178615e81"/>
+  </bpmn:process>
+</bpmn:definitions>

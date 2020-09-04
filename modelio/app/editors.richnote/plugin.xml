@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension id="id1" point="org.eclipse.e4.workbench.model">
+      <processor beforefragment="true" class="org.modelio.editors.richnote.management.RichNoteEditorsManager"/>
+      <processor beforefragment="true" class="org.modelio.editors.richnote.management.ExternEditorsManager"/>
+   </extension>
+   
+   <extension-point id="org.modelio.documentformatprovider" name="Document format provider" schema="schema/org.modelio.documentformatprovider.exsd"/>
+   
+   <extension point="org.modelio.core.ui.nattable.viewer.model.IPropertyTableConfigurationProvider">
+      <provider class="org.modelio.editors.richnote.gui.nattable.ConfigurationProvider" />
+   </extension>
+   
+   <extension point="org.modelio.documentformatprovider">
+     <provider class="org.modelio.editors.richnote.plugin.ImageEditorProvider">
+       <format mime="image/bmp" 
+                     label="%format.label.bmp" 
+                     support="native"
+                     extensions="bmp"/>
+       <format mime="image/gif" 
+                     label="%format.label.gif" 
+                     support="native"
+                     extensions="gif"/>
+       <format mime="image/jpeg" 
+                     label="%format.label.jpeg" 
+                     support="native"
+                     extensions="jpg,jpeg"/>
+       <format mime="image/png" 
+                     label="%format.label.png" 
+                     support="native"
+                     extensions="png"/>
+     </provider>
+   </extension>
+</plugin>	

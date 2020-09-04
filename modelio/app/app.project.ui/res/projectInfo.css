@@ -1,0 +1,79 @@
+html {margin: 0;padding:0;}
+* {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+body {
+	margin: 0; padding: 0;
+	background: url(./img/body-bg.jpg) 0 0 repeat-x;
+	color: #333;
+}
+h1 {
+	border-bottom: 1px solid #000; 	
+	margin-bottom: 10px;
+	font-size: 1.8rem;
+}
+h2 {
+	font-size: 1.6rem;
+}
+h3 {
+	font-size: 1.4rem;
+}
+h1, h2, h3, h4 {font-weight: bold;}
+
+section {
+	padding-bottom: 20px;
+}
+section h2{
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+ul {
+	list-style: none;
+}
+ul li {
+	list-style: none;
+}
+
+#wrapper {background: url(./img/header.jpg) 0 0 no-repeat; margin: 0; padding: 40px 20px; min-width:400px;}
+.emailInput[readonly]{border: none; width:100%;}
+#mailcontainer {position: relative; padding-right: 22px}
+span.sendMail {background: url(./img/mail.png) 0 0 no-repeat; width: 24px; height: 24px; display: block; cursor: pointer;position: absolute; right: 0; top: 0}
+
+.project_version_newer[readonly]{color:#800000 !important}
+.project_version_older[readonly]{color:#805000 !important}
+.project_version_same{}
+
+table.box-infos  {table-layout: fixed; border-collapse: collapse; width: 100%; min-width: 300px}
+table.box-infos  label {font-weight: bold;}
+table.box-infos  input {padding: 2px 0px; font-size: 0.9em;}
+table.box-infos  td {padding-bottom: 3px; padding-right: 4px;}
+table.box-infos  td input.readonlyInput {width: 98%;}
+table.box-infos  td p{overflow: hidden; min-width: 150px}
+table.box-infos  tr td:first-child { width: 130px}
+.label {font-weight: bold;}
+
+
+.contentlist-container {	
+	width: 33.33%;
+	float: left;
+	margin-bottom: 10px;
+	padding: 0 10px;
+}
+h3 {
+	border-bottom: 1px solid #ccc;
+	background-color: #eaeaea;
+	padding: 5px 10px;
+}
+.contentlist {
+	padding: 5px 10px;
+	margin-bottom: 10px;
+}
+.contentlist img {
+	vertical-align: middle;
+}
+.contentlist ul li, .listitem {
+	margin-bottom: 5px;
+}
+

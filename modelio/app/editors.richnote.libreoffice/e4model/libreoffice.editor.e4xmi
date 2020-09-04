@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/descriptor/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="__bXeEIfQEeWj6a9oyLXySQ">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_QgucgIfREeWj6a9oyLXySQ" featurename="descriptors" parentElementId="org.modelio.app.application">
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_PPGF8IkYEeWbO4MnNK7ogg" elementId="editors.richnote.libreoffice.editorpart" allowMultiple="true" category="TEXT_EDITOR" closeable="true" dirtyable="true" contributionURI="bundleclass://org.modelio.editors.richnote.libreoffice/org.modelio.editors.richnote.libreoffice.editor.LibreOfficeEditor">
+      <handlers xmi:id="_6v2n8M6UEeKokIEX2UZrTQ" elementId="editors.richnote.libreoffice.handler.save" contributionURI="bundleclass://org.modelio.editors.richnote/org.modelio.editors.richnote.handlers.SaveMPartHandler" command="__LTCEM6gEeKokIEX2UZrTQ"/>
+      <toolbar xmi:id="_mmitgIkYEeWbO4MnNK7ogg" elementId="editors.richnote.libreoffice.toolbar.0">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_3SItcM6gEeKokIEX2UZrTQ" elementId="editors.richnote.libreoffice.handledtoolitem.save" label="%Ui.Save.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/save.png" tooltip="%Ui.Save.tooltip" command="__LTCEM6gEeKokIEX2UZrTQ"/>
+      </toolbar>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_6DNt8M6gEeKokIEX2UZrTQ" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="__LTCEM6gEeKokIEX2UZrTQ" elementId="editors.richnote.libreoffice.command.save" commandName="Save LibreOffice note" description="Save the edited  LibreOffice note"/>
+  </fragments>
+</fragment:ModelFragments>

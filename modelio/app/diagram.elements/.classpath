@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="lib/jtidy-r938.jar" sourcepath="lib/jtidy-r938-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/flying-saucer-core-9.0.7.jar" sourcepath="/home/cmarin/work/qilin/.cache/maven/repository/org/xhtmlrenderer/flying-saucer-core/9.0.7/flying-saucer-core-9.0.7-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/flying-saucer-swt-9.0.7.jar" sourcepath="/home/cmarin/work/qilin/.cache/maven/repository/org/xhtmlrenderer/flying-saucer-swt/9.0.7/flying-saucer-swt-9.0.7-sources.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry excluding=".svn/" kind="src" path="src"/>
+	<classpathentry kind="lib" path="/lib/javadesigner.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

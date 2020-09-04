@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+    xmlns:miwg="http://www.omg.org/bpmn/miwg/test/" 
+    xmlns:miwg-types="http://www.omg.org/bpmn/miwg/test/types/" 
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    name="Service_A_1_2" 
+    targetNamespace="http://www.omg.org/bpmn/miwg/test/">
+    
+  <wsdl:types>
+     <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+       <xsd:import schemaLocation="types.xsd" namespace="http://www.omg.org/bpmn/miwg/test/types" />
+     </xsd:schema>
+  </wsdl:types>
+  
+  <wsdl:message name="a_1_2Request">
+    <wsdl:part name="parameters" element="miwg-types:foo"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="a_1_2Response">
+    <wsdl:part name="parameters" element="miwg-types:bar"></wsdl:part>
+  </wsdl:message>
+  
+  <wsdl:portType name="Service_A_1_2Interface">
+    <wsdl:operation name="operation_A_1_2">
+      <wsdl:input message="miwg:a_1_2Request"/>
+      <wsdl:output message="miwg:a_1_2Response"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+  <wsdl:binding name="Service_A_1_2SOAP"
+    type="miwg:Service_A_1_2Interface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="operation_A_1_2">
+      <soap:operation soapAction="http://www.omg.org/bpmn/miwg/test/a_1_2" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  <wsdl:service name="Service_A_1_2Impl">
+    <wsdl:port binding="miwg:Service_A_1_2SOAP" name="Service_A_1_2ImplSOAP">
+      <soap:address location="https://www.knowprocess.com/soap/A.1.2"/>
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>

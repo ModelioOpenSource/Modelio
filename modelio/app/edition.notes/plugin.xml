@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.e4.workbench.model"
+   		 id="modelContribution">
+      <fragment uri="e4model/notes.e4xmi"></fragment> 
+   </extension>
+   <extension point="org.modelio.edition.dialogs.panels">
+      <panel class="org.modelio.edition.notes.panelprovider.NotesPanelProvider"
+             id="edition.notes.panel1" relevance = "*"
+             label="%Notes.label">
+      </panel>
+   </extension>
+   
+   <extension point="org.modelio.propertyview.panels">
+    	<panel  class="org.modelio.edition.notes.panelprovider.NotesPanelProvider"
+          		id="org.modelio.propertyview.panels.panel3"
+				label="%Notes.label"
+          		icon="icons/note.png"
+          		primary="true">
+    	</panel>
+    </extension>
+
+</plugin>

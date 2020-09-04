@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension id="patterns" point="org.eclipse.e4.workbench.model">
+      <fragment uri="e4model/patterns.e4xmi"/>
+      <processor
+            beforefragment="false"
+            class="org.modelio.patterns.engine.PatternServiceInitializer">
+      </processor>
+   </extension>
+
+   <extension point="org.modelio.script.engine.classloaders">
+      <jython-api-provider classloaderprovider="org.modelio.patterns.plugin.PatternsClassLoaderProvider" />
+   </extension>
+
+   	<extension point="org.eclipse.core.expressions.definitions">
+   		<definition id="model.property.test.ispattern.id">
+        	<test property="model.property.test.ispattern"/>
+		</definition>
+		<definition id="model.property.test.isnotpattern.id">
+        	<test property="model.property.test.isnotpattern"/>
+		</definition>
+	</extension>
+
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+		<propertyTester
+			class="org.modelio.patterns.commands.properties.CommandVisiblePropertyTester"
+			id="model.property.propertyTester.updatevisible"
+			namespace="model.property.test"
+			properties="ispattern, isnotpattern"
+			type="org.eclipse.jface.viewers.ISelection">
+		</propertyTester>
+	</extension>
+</plugin>

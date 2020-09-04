@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.modeliosoft.modelio.documentation.modeler.feature"
+      label="%featureName"
+      version="3.7.0"
+      provider-name="Modeliosoft">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <plugin
+         id="com.modeliosoft.modelio.documentation.copyright"
+         download-size="4"
+         install-size="9"
+         version="3.7.0"/>
+
+   <plugin
+         id="com.modeliosoft.modelio.documentation.welcome"
+         download-size="5388"
+         install-size="6035"
+         version="3.7.0"/>
+
+   <plugin
+         id="com.modeliosoft.modelio.documentation.welcome.ba"
+         download-size="94"
+         install-size="96"
+         version="3.7.0"/>
+
+   <plugin
+         id="com.modeliosoft.modelio.documentation.welcome.sa"
+         download-size="47"
+         install-size="49"
+         version="3.7.0"/>
+
+   <plugin
+         id="com.modeliosoft.modelio.documentation.welcome.sd"
+         download-size="92"
+         install-size="93"
+         version="3.7.0"/>
+
+   <plugin
+         id="com.modeliosoft.modelio.documentation.analyst"
+         download-size="1282"
+         install-size="1379"
+         version="3.7.0"/>
+
+   <plugin
+         id="com.modeliosoft.modelio.documentation.archimate"
+         download-size="532"
+         install-size="598"
+         version="3.7.0"/>
+
+   <plugin
+         id="org.modelio.documentation.modeler"
+         download-size="7693"
+         install-size="8683"
+         version="3.7.0"/>
+
+   <plugin
+         id="com.modeliosoft.modelio.documentation.modeler"
+         download-size="2379"
+         install-size="2761"
+         version="3.7.0"/>
+
+   <plugin
+         id="com.modeliosoft.modelio.documentation.modelioapi"
+         download-size="6972"
+         install-size="73736"
+         version="3.7.0"/>
+
+   <plugin
+         id="org.modelio.documentation.vaudit"
+         download-size="299"
+         install-size="459"
+         version="3.7.0"/>
+
+   <plugin
+         id="org.modelio.documentation.bpmn"
+         download-size="467"
+         install-size="509"
+         version="3.7.0"/>
+
+   <plugin
+         id="org.modelio.documentation.metamodel.archimate"
+         download-size="1639"
+         install-size="2475"
+         version="3.7.0"/>
+
+   <plugin
+         id="com.modeliosoft.modelio.documentation.metamodel.analyst"
+         download-size="341"
+         install-size="491"
+         version="3.7.0"/>
+         
+   <plugin
+         id="org.modelio.documentation.metamodel.uml"
+         download-size="5240"
+         install-size="7642"
+         version="3.7.0"/>
+
+
+</feature>

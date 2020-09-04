@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<semantic:definitions xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="ARISBPMN_d327f7f0-3bdd-11e3-3329-080027000095" targetNamespace="http://www.softwareag.com/bpmn2Serialisation/A.2.0">
+  <semantic:collaboration id="COLLABORATION_d327f7f0-3bdd-11e3-3329-080027000095">
+    <semantic:participant id="FLOWNODE_d327f7f0-3bdd-11e3-3329-080027000095" name="A.2.0" processRef="PROCESS_d327f7f0-3bdd-11e3-3329-080027000095" />
+  </semantic:collaboration>
+  <semantic:process id="PROCESS_d327f7f0-3bdd-11e3-3329-080027000095" isExecutable="false" name="A.2.0">
+    <semantic:task id="FLOWNODE_28a18483-3bda-11e3-3329-080027000095" name="Task 1">
+      <semantic:incoming>FLOW_28a18484-3bda-11e3-3329-080027000095</semantic:incoming>
+      <semantic:outgoing>FLOW_28a18487-3bda-11e3-3329-080027000095</semantic:outgoing>
+    </semantic:task>
+    <semantic:task id="FLOWNODE_28a18491-3bda-11e3-3329-080027000095" name="Task 2">
+      <semantic:incoming>FLOW_28a18492-3bda-11e3-3329-080027000095</semantic:incoming>
+      <semantic:outgoing>FLOW_28a1849b-3bda-11e3-3329-080027000095</semantic:outgoing>
+    </semantic:task>
+    <semantic:task id="FLOWNODE_28a18493-3bda-11e3-3329-080027000095" name="Task 3">
+      <semantic:incoming>FLOW_28a18494-3bda-11e3-3329-080027000095</semantic:incoming>
+      <semantic:outgoing>FLOW_28a18498-3bda-11e3-3329-080027000095</semantic:outgoing>
+    </semantic:task>
+    <semantic:startEvent id="FLOWNODE_28a1847f-3bda-11e3-3329-080027000095" name="Start Event">
+      <semantic:outgoing>FLOW_28a18484-3bda-11e3-3329-080027000095</semantic:outgoing>
+    </semantic:startEvent>
+    <semantic:exclusiveGateway gatewayDirection="Diverging" id="FLOWNODE_28a18486-3bda-11e3-3329-080027000095" name="Gateway (Split Flow)">
+      <semantic:incoming>FLOW_28a18487-3bda-11e3-3329-080027000095</semantic:incoming>
+      <semantic:outgoing>FLOW_28a18492-3bda-11e3-3329-080027000095</semantic:outgoing>
+      <semantic:outgoing>FLOW_28a18494-3bda-11e3-3329-080027000095</semantic:outgoing>
+      <semantic:outgoing>FLOW_28a18490-3bda-11e3-3329-080027000095</semantic:outgoing>
+    </semantic:exclusiveGateway>
+    <semantic:task id="FLOWNODE_28a1848f-3bda-11e3-3329-080027000095" name="Task 4">
+      <semantic:incoming>FLOW_28a18490-3bda-11e3-3329-080027000095</semantic:incoming>
+      <semantic:outgoing>FLOW_28a18497-3bda-11e3-3329-080027000095</semantic:outgoing>
+    </semantic:task>
+    <semantic:exclusiveGateway gatewayDirection="Converging" id="FLOWNODE_28a18496-3bda-11e3-3329-080027000095" name="Gateway (Merge Flows)">
+      <semantic:incoming>FLOW_28a18498-3bda-11e3-3329-080027000095</semantic:incoming>
+      <semantic:incoming>FLOW_28a18497-3bda-11e3-3329-080027000095</semantic:incoming>
+      <semantic:outgoing>FLOW_28a1849c-3bda-11e3-3329-080027000095</semantic:outgoing>
+    </semantic:exclusiveGateway>
+    <semantic:endEvent id="FLOWNODE_28a1849a-3bda-11e3-3329-080027000095" name="End Event">
+      <semantic:incoming>FLOW_28a1849b-3bda-11e3-3329-080027000095</semantic:incoming>
+      <semantic:incoming>FLOW_28a1849c-3bda-11e3-3329-080027000095</semantic:incoming>
+    </semantic:endEvent>
+    <semantic:sequenceFlow id="FLOW_28a18484-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a1847f-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a18483-3bda-11e3-3329-080027000095" />
+    <semantic:sequenceFlow id="FLOW_28a18492-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a18486-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a18491-3bda-11e3-3329-080027000095" />
+    <semantic:sequenceFlow id="FLOW_28a18494-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a18486-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a18493-3bda-11e3-3329-080027000095" />
+    <semantic:sequenceFlow id="FLOW_28a18487-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a18483-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a18486-3bda-11e3-3329-080027000095" />
+    <semantic:sequenceFlow id="FLOW_28a18490-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a18486-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a1848f-3bda-11e3-3329-080027000095" />
+    <semantic:sequenceFlow id="FLOW_28a18498-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a18493-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a18496-3bda-11e3-3329-080027000095" />
+    <semantic:sequenceFlow id="FLOW_28a18497-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a1848f-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a18496-3bda-11e3-3329-080027000095" />
+    <semantic:sequenceFlow id="FLOW_28a1849b-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a18491-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a1849a-3bda-11e3-3329-080027000095" />
+    <semantic:sequenceFlow id="FLOW_28a1849c-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a18496-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a1849a-3bda-11e3-3329-080027000095" />
+  </semantic:process>
+  <bpmndi:BPMNDiagram id="BPMNDIAGRAM_d327f7f0-3bdd-11e3-3329-080027000095" name="A.2.0">
+    <bpmndi:BPMNPlane bpmnElement="COLLABORATION_d327f7f0-3bdd-11e3-3329-080027000095">
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a18484-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a18484-3bda-11e3-3329-080027000095">
+        <di:waypoint x="105" y="131" />
+        <di:waypoint x="147" y="131" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a18492-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a18492-3bda-11e3-3329-080027000095">
+        <di:waypoint x="328" y="110" />
+        <di:waypoint x="328" y="39" />
+        <di:waypoint x="371" y="39" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a18494-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a18494-3bda-11e3-3329-080027000095">
+        <di:waypoint x="349" y="131" />
+        <di:waypoint x="371" y="131" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a18487-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a18487-3bda-11e3-3329-080027000095">
+        <di:waypoint x="246" y="131" />
+        <di:waypoint x="307" y="131" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a18490-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a18490-3bda-11e3-3329-080027000095">
+        <di:waypoint x="328" y="152" />
+        <di:waypoint x="328" y="223" />
+        <di:waypoint x="371" y="223" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a18498-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a18498-3bda-11e3-3329-080027000095">
+        <di:waypoint x="469" y="131" />
+        <di:waypoint x="525" y="131" />
+        <di:waypoint x="525" y="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a18497-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a18497-3bda-11e3-3329-080027000095">
+        <di:waypoint x="469" y="223" />
+        <di:waypoint x="525" y="223" />
+        <di:waypoint x="525" y="191" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a1849b-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a1849b-3bda-11e3-3329-080027000095">
+        <di:waypoint x="469" y="39" />
+        <di:waypoint x="591" y="39" />
+        <di:waypoint x="591" y="91" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a1849c-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a1849c-3bda-11e3-3329-080027000095">
+        <di:waypoint x="546" y="170" />
+        <di:waypoint x="591" y="170" />
+        <di:waypoint x="591" y="118" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a1847f-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a1847f-3bda-11e3-3329-080027000095">
+        <dc:Bounds height="26" width="26" x="78" y="118" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a18483-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a18483-3bda-11e3-3329-080027000095">
+        <dc:Bounds height="60" width="98" x="147" y="100" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a18486-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a18486-3bda-11e3-3329-080027000095" isMarkerVisible="false">
+        <dc:Bounds height="41" width="41" x="307" y="110" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a18493-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a18493-3bda-11e3-3329-080027000095">
+        <dc:Bounds height="60" width="98" x="371" y="100" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a18491-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a18491-3bda-11e3-3329-080027000095">
+        <dc:Bounds height="60" width="98" x="371" y="8" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a1848f-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a1848f-3bda-11e3-3329-080027000095">
+        <dc:Bounds height="60" width="98" x="371" y="192" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a18496-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a18496-3bda-11e3-3329-080027000095" isMarkerVisible="false">
+        <dc:Bounds height="41" width="41" x="504" y="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a1849a-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a1849a-3bda-11e3-3329-080027000095">
+        <dc:Bounds height="26" width="26" x="578" y="91" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</semantic:definitions>
+

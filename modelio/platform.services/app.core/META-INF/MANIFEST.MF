@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Modelio Application Core
+Bundle-SymbolicName: org.modelio.app.core;singleton:=true
+Bundle-Version: 3.8.0.qualifier
+Bundle-Activator: org.modelio.app.core.plugin.AppCore
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.jface,
+ org.eclipse.e4.core.di,
+ org.eclipse.e4.core.contexts,
+ org.eclipse.e4.core.services,
+ org.modelio.utils,
+ org.modelio.core.utils,
+ org.modelio.core.kernel,
+ org.modelio.core.project,
+ org.modelio.version,
+ org.modelio.app.preferences,
+ org.modelio.core.session
+Bundle-Vendor: modelio.org
+Bundle-ActivationPolicy: lazy
+Bundle-Localization: plugin
+Export-Package: org.modelio.app.core,
+ org.modelio.app.core.activation,
+ org.modelio.app.core.events,
+ org.modelio.app.core.metamodel,
+ org.modelio.app.core.navigate,
+ org.modelio.app.core.picking,
+ org.modelio.app.core.project
+Bundle-ClassPath: res/,
+ .
+Import-Package: javax.annotation;version="1.1.0",
+ javax.inject;version="1.0.0"
+

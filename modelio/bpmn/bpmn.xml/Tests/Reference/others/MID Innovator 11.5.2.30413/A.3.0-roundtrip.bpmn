@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL">
+  <bpmn:process isExecutable="false" processType="Private" name="Neuer Prozess" id="WFP-6-">
+    <bpmn:subProcess triggeredByEvent="false" isForCompensation="false" startQuantity="1" name="Collapsed  Sub-Process" id="_1ae31d1b-2559-4f78-a3ec-47986a49db48">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_927b6497-f172-8bf5-efdd-108b2db1d6ba</bpmn:incoming>
+      <bpmn:outgoing>_757d01f7-9276-76b3-7152-72f2f1455fc4</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:boundaryEvent cancelActivity="true" attachedToRef="_1ae31d1b-2559-4f78-a3ec-47986a49db48" name="Boundary Intermediate Event Interrupting Escalation" id="_178e16eb-4c9e-4ea0-9644-7c5fb2b71825">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:outgoing>_ce3d515d-aa78-6ac1-307a-7a83a5c671e5</bpmn:outgoing>
+      <bpmn:eventDefinitionRef>_f8314e06-9f8d-02c0-ddcf-76419da67b1a</bpmn:eventDefinitionRef>
+    </bpmn:boundaryEvent>
+    <bpmn:task isForCompensation="false" startQuantity="1" name="Task 4" id="_9fad8da5-a28c-4b6b-bb71-fbd5c65b9681">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_ce3d515d-aa78-6ac1-307a-7a83a5c671e5</bpmn:incoming>
+      <bpmn:outgoing>_a83bf954-b68d-d7cc-7c51-987faee6ee08</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent name="End Event 1" id="_ce253897-4300-4b24-b71f-4c9535698c70">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_49cb6baa-b115-fb2b-089f-fc38fd5fb3b7</bpmn:incoming>
+      <bpmn:incoming>_050cc2ea-972c-69f5-a072-2e7f61a78148</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent name="End Event 2" id="_10ce0b26-1b3e-46a2-85a5-62538ed2da13">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_a83bf954-b68d-d7cc-7c51-987faee6ee08</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task isForCompensation="false" startQuantity="1" name="Task 2" id="_2d2d0d29-896f-49f9-8109-77a7304309c5">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_757d01f7-9276-76b3-7152-72f2f1455fc4</bpmn:incoming>
+      <bpmn:outgoing>_49cb6baa-b115-fb2b-089f-fc38fd5fb3b7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task isForCompensation="false" startQuantity="1" name="Task 3" id="_72204cd7-709c-4656-9554-3ae29b3844ce">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_7ecb243a-74e6-530a-f253-5a4e0b8a75c0</bpmn:incoming>
+      <bpmn:outgoing>_050cc2ea-972c-69f5-a072-2e7f61a78148</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task isForCompensation="false" startQuantity="1" name="Task 1" id="_65f5459f-44ae-436d-a089-a91d6d78075b">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_ea26a47f-e827-0353-0e34-f332776b25ef</bpmn:incoming>
+      <bpmn:outgoing>_927b6497-f172-8bf5-efdd-108b2db1d6ba</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:boundaryEvent cancelActivity="true" attachedToRef="_1ae31d1b-2559-4f78-a3ec-47986a49db48" name="Boundary Intermediate Event Non-Interrupting Message" id="_428dcbf5-8e5e-48e0-9c0c-d93003fa8c82">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:outgoing>_7ecb243a-74e6-530a-f253-5a4e0b8a75c0</bpmn:outgoing>
+      <bpmn:eventDefinitionRef>_eba0b570-cdb7-967d-5cb5-d01367f71018</bpmn:eventDefinitionRef>
+    </bpmn:boundaryEvent>
+    <bpmn:startEvent name="Start Event" id="_1ac4b759-40e3-4dfb-b0e3-ad1d201d6c3d">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:outgoing>_ea26a47f-e827-0353-0e34-f332776b25ef</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow sourceRef="_72204cd7-709c-4656-9554-3ae29b3844ce" targetRef="_ce253897-4300-4b24-b71f-4c9535698c70" id="_050cc2ea-972c-69f5-a072-2e7f61a78148">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_2d2d0d29-896f-49f9-8109-77a7304309c5" targetRef="_ce253897-4300-4b24-b71f-4c9535698c70" id="_49cb6baa-b115-fb2b-089f-fc38fd5fb3b7">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_428dcbf5-8e5e-48e0-9c0c-d93003fa8c82" targetRef="_72204cd7-709c-4656-9554-3ae29b3844ce" id="_7ecb243a-74e6-530a-f253-5a4e0b8a75c0">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_1ac4b759-40e3-4dfb-b0e3-ad1d201d6c3d" targetRef="_65f5459f-44ae-436d-a089-a91d6d78075b" id="_ea26a47f-e827-0353-0e34-f332776b25ef">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_1ae31d1b-2559-4f78-a3ec-47986a49db48" targetRef="_2d2d0d29-896f-49f9-8109-77a7304309c5" id="_757d01f7-9276-76b3-7152-72f2f1455fc4">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_178e16eb-4c9e-4ea0-9644-7c5fb2b71825" targetRef="_9fad8da5-a28c-4b6b-bb71-fbd5c65b9681" id="_ce3d515d-aa78-6ac1-307a-7a83a5c671e5">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_65f5459f-44ae-436d-a089-a91d6d78075b" targetRef="_1ae31d1b-2559-4f78-a3ec-47986a49db48" id="_927b6497-f172-8bf5-efdd-108b2db1d6ba">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_9fad8da5-a28c-4b6b-bb71-fbd5c65b9681" targetRef="_10ce0b26-1b3e-46a2-85a5-62538ed2da13" id="_a83bf954-b68d-d7cc-7c51-987faee6ee08">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <geometry x="0" y="0" width="0" height="0" />
+  </bpmn:process>
+  <bpmn:escalationEventDefinition name="Eskalation-Ereignisdefinition" id="_f8314e06-9f8d-02c0-ddcf-76419da67b1a" />
+  <bpmn:messageEventDefinition name="Nachrichten-Ereignisdefinition" id="_eba0b570-cdb7-967d-5cb5-d01367f71018" />
+</bpmn:definitions>

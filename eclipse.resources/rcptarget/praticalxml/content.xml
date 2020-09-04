@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='file:/home/fferran/mtools/modelio3.x.x/tmp/praticalxml/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1423469898766'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='1'>
+    <unit id='practicalxml' version='1.1.13' singleton='false'>
+      <update id='practicalxml' range='[0.0.0,1.1.13)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='Practicalxml'/>
+      </properties>
+      <provides size='14'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='practicalxml' version='1.1.13'/>
+        <provided namespace='osgi.bundle' name='practicalxml' version='1.1.13'/>
+        <provided namespace='java.package' name='net.sf.practicalxml' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.practicalxml.builder' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.practicalxml.converter' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.practicalxml.converter.bean' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.practicalxml.converter.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.practicalxml.converter.json' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.practicalxml.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.practicalxml.junit' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.practicalxml.util' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.practicalxml.xpath' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.practicalxml.xpath.function' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='practicalxml' version='1.1.13'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: practicalxml&#xA;Bundle-Version: 1.1.13&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL">
+  <bpmn:process isExecutable="false" processType="Private" name="Neuer Prozess" id="WFP-6-">
+    <bpmn:task isForCompensation="false" startQuantity="1" name="Task 3" id="_e6eb725a-34bc-45c7-aed0-9f9596cd7bee">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_86283944-15ab-721e-47d5-7e36b0290a15</bpmn:incoming>
+      <bpmn:outgoing>_8d356fe6-1a25-2038-bd23-4077f46a1d4c</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task isForCompensation="false" startQuantity="1" name="Task 2" id="_4f7d62d7-f0e6-46bc-be00-69e02da38f65">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_74bd94af-6db0-e91b-f0a4-a2c0685eff2d</bpmn:incoming>
+      <bpmn:outgoing>_ff91bce4-0f61-4833-0091-9da29153a5ba</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway gatewayDirection="Diverging" name="Gateway  (Split Flow)" id="_35fe57a7-1302-44e2-bf58-032f11af7ecb">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_2ba63fdb-c309-0d96-c1a6-f4aa892fff57</bpmn:incoming>
+      <bpmn:outgoing>_74bd94af-6db0-e91b-f0a4-a2c0685eff2d</bpmn:outgoing>
+      <bpmn:outgoing>_86283944-15ab-721e-47d5-7e36b0290a15</bpmn:outgoing>
+      <bpmn:outgoing>_27c55441-6bcd-bff8-184a-7766b9a3cd72</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway gatewayDirection="Converging" name="Gateway  (Merge Flows)" id="_33c66216-391c-49c2-aa19-d8f0b7f5f91d">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_8d356fe6-1a25-2038-bd23-4077f46a1d4c</bpmn:incoming>
+      <bpmn:incoming>_056460e5-ccc4-ad06-fe0b-85509507c872</bpmn:incoming>
+      <bpmn:outgoing>_bf5b8361-451b-4505-3513-a7b14ca628d4</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task isForCompensation="false" startQuantity="1" name="Task 4" id="_7d399717-1aba-47ac-8d7d-8aaa033255e0">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_27c55441-6bcd-bff8-184a-7766b9a3cd72</bpmn:incoming>
+      <bpmn:outgoing>_056460e5-ccc4-ad06-fe0b-85509507c872</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:startEvent name="Start Event" id="_6b5db6a9-037a-49ad-9201-09201e2aaa97">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:outgoing>_2302043a-8dd6-e626-df69-733a673f043c</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task isForCompensation="false" startQuantity="1" name="Task 1" id="_5a972b87-735d-454a-b31c-f52fb3afc5c7">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_2302043a-8dd6-e626-df69-733a673f043c</bpmn:incoming>
+      <bpmn:outgoing>_2ba63fdb-c309-0d96-c1a6-f4aa892fff57</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent name="End Event" id="_258f51eb-b764-4a71-b681-3a01cca14143">
+      <geometry x="0" y="0" width="0" height="0" />
+      <bpmn:incoming>_ff91bce4-0f61-4833-0091-9da29153a5ba</bpmn:incoming>
+      <bpmn:incoming>_bf5b8361-451b-4505-3513-a7b14ca628d4</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow sourceRef="_35fe57a7-1302-44e2-bf58-032f11af7ecb" targetRef="_4f7d62d7-f0e6-46bc-be00-69e02da38f65" id="_74bd94af-6db0-e91b-f0a4-a2c0685eff2d">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_6b5db6a9-037a-49ad-9201-09201e2aaa97" targetRef="_5a972b87-735d-454a-b31c-f52fb3afc5c7" id="_2302043a-8dd6-e626-df69-733a673f043c">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_33c66216-391c-49c2-aa19-d8f0b7f5f91d" targetRef="_258f51eb-b764-4a71-b681-3a01cca14143" id="_bf5b8361-451b-4505-3513-a7b14ca628d4">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_7d399717-1aba-47ac-8d7d-8aaa033255e0" targetRef="_33c66216-391c-49c2-aa19-d8f0b7f5f91d" id="_056460e5-ccc4-ad06-fe0b-85509507c872">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_5a972b87-735d-454a-b31c-f52fb3afc5c7" targetRef="_35fe57a7-1302-44e2-bf58-032f11af7ecb" id="_2ba63fdb-c309-0d96-c1a6-f4aa892fff57">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_4f7d62d7-f0e6-46bc-be00-69e02da38f65" targetRef="_258f51eb-b764-4a71-b681-3a01cca14143" id="_ff91bce4-0f61-4833-0091-9da29153a5ba">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_e6eb725a-34bc-45c7-aed0-9f9596cd7bee" targetRef="_33c66216-391c-49c2-aa19-d8f0b7f5f91d" id="_8d356fe6-1a25-2038-bd23-4077f46a1d4c">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_35fe57a7-1302-44e2-bf58-032f11af7ecb" targetRef="_7d399717-1aba-47ac-8d7d-8aaa033255e0" id="_27c55441-6bcd-bff8-184a-7766b9a3cd72">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow sourceRef="_35fe57a7-1302-44e2-bf58-032f11af7ecb" targetRef="_e6eb725a-34bc-45c7-aed0-9f9596cd7bee" id="_86283944-15ab-721e-47d5-7e36b0290a15">
+      <waypoint x="0" y="0" />
+      <waypoint x="0" y="0" />
+    </bpmn:sequenceFlow>
+    <geometry x="0" y="0" width="0" height="0" />
+  </bpmn:process>
+</bpmn:definitions>

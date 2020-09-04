@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:signavio="http://www.signavio.com"
+             xmlns:inspire="http://bpminspire.com/bpmn2/extension/inspire"
+             xmlns:activiti="http://activiti.org/bpmn"
+             xmlns:adonis="http://www.boc-group.com"
+             xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             exporter="ADONIS"
+             exporterVersion="6.1.4.0"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.omg.org/bpmn20"
+             id="def_26652"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <process id="process_26652" name="A.1.2" isExecutable="false">
+      <extensionElements>
+         <adonis:modelattributes>
+            <adonis:attribute name="Name" type="STRING">A.1.2</adonis:attribute>
+         </adonis:modelattributes>
+      </extensionElements>
+      <laneSet id="laneSet_26652"/>
+      <dataObject name="Data Object 1" id="dataObject_dataObjectRef1"/>
+      <dataObject name="Data Object 2" id="dataObject_dataObjectRef2"/>
+      <startEvent name="Start Event" id="startEvent">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <outgoing>_57dd58ed-7ab9-43e8-8d5c-e017940339a5</outgoing>
+         <messageEventDefinition/>
+      </startEvent>
+      <userTask name="Task 1" id="task1" isForCompensation="false"
+                implementation="##WebService">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <incoming>_57dd58ed-7ab9-43e8-8d5c-e017940339a5</incoming>
+         <outgoing>_1a66ccd9-a80c-44bc-a06f-a684b8370443</outgoing>
+         <ioSpecification>
+            <dataOutput id="dataOutput_con.26681"/>
+            <inputSet/>
+            <outputSet>
+               <dataOutputRefs>dataOutput_con.26681</dataOutputRefs>
+            </outputSet>
+         </ioSpecification>
+         <dataOutputAssociation id="dataOutputAssociationTask1">
+            <sourceRef>dataOutput_con.26681</sourceRef>
+            <targetRef>dataObjectRef1</targetRef>
+         </dataOutputAssociation>
+      </userTask>
+      <serviceTask name="Task 2" id="task2" isForCompensation="false"
+                   implementation="##WebService">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <incoming>_1a66ccd9-a80c-44bc-a06f-a684b8370443</incoming>
+         <outgoing>_725826e9-0e8b-4cb4-842b-e0279515d821</outgoing>
+         <ioSpecification>
+            <dataInput id="dataInput_con.26679"/>
+            <dataOutput id="dataOutput_con.26682"/>
+            <inputSet>
+               <dataInputRefs>dataInput_con.26679</dataInputRefs>
+            </inputSet>
+            <outputSet>
+               <dataOutputRefs>dataOutput_con.26682</dataOutputRefs>
+            </outputSet>
+         </ioSpecification>
+         <dataInputAssociation id="dataInputAssociationTask2">
+            <sourceRef>dataObjectRef1</sourceRef>
+            <targetRef>dataInput_con.26679</targetRef>
+         </dataInputAssociation>
+         <dataOutputAssociation id="dataOutputAssociationTask2">
+            <sourceRef>dataOutput_con.26682</sourceRef>
+            <targetRef>dataObjectRef2</targetRef>
+         </dataOutputAssociation>
+      </serviceTask>
+      <userTask name="Task 3" id="task3" isForCompensation="false"
+                implementation="##WebService">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <incoming>_725826e9-0e8b-4cb4-842b-e0279515d821</incoming>
+         <outgoing>_737085c4-8771-41e9-b30e-fa2668d0a481</outgoing>
+         <ioSpecification>
+            <dataInput id="dataInput_con.26680"/>
+            <inputSet>
+               <dataInputRefs>dataInput_con.26680</dataInputRefs>
+            </inputSet>
+            <outputSet/>
+         </ioSpecification>
+         <dataInputAssociation id="dataInputAssociationTask3">
+            <sourceRef>dataObjectRef2</sourceRef>
+            <targetRef>dataInput_con.26680</targetRef>
+         </dataInputAssociation>
+      </userTask>
+      <endEvent name="End Event" id="endEvent">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+         <incoming>_737085c4-8771-41e9-b30e-fa2668d0a481</incoming>
+         <inputSet/>
+         <messageEventDefinition/>
+      </endEvent>
+      <dataObjectReference id="dataObjectRef1" name="Data Object 1"
+                           dataObjectRef="dataObject_dataObjectRef1">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+      </dataObjectReference>
+      <dataObjectReference id="dataObjectRef2" name="Data Object 2"
+                           dataObjectRef="dataObject_dataObjectRef2">
+         <extensionElements>
+            <adonis:instance>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:instance>
+         </extensionElements>
+      </dataObjectReference>
+      <sequenceFlow sourceRef="startEvent" targetRef="task1" name=""
+                    id="_57dd58ed-7ab9-43e8-8d5c-e017940339a5">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="task1" targetRef="task2" name=""
+                    id="_1a66ccd9-a80c-44bc-a06f-a684b8370443">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="task2" targetRef="task3" name=""
+                    id="_725826e9-0e8b-4cb4-842b-e0279515d821">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="task3" targetRef="endEvent" name=""
+                    id="_737085c4-8771-41e9-b30e-fa2668d0a481">
+         <extensionElements>
+            <adonis:connector>
+               <adonis:attribute name="Monitoring" type="ENUMERATION">Nein</adonis:attribute>
+            </adonis:connector>
+         </extensionElements>
+      </sequenceFlow>
+   </process>
+   <bpmndi:BPMNDiagram name="A.1.2" id="Diagram_26652">
+      <bpmndi:BPMNPlane id="BPMNPlane_26652" bpmnElement="process_26652">
+         <bpmndi:BPMNShape bpmnElement="startEvent" id="BPMN_Shape_startEvent">
+            <omgdc:Bounds width="53" height="53" x="189" y="325"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="task1" id="BPMN_Shape_task1">
+            <omgdc:Bounds height="68" width="106" x="256" y="317"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="task2" id="BPMN_Shape_task2">
+            <omgdc:Bounds height="68" width="106" x="375" y="317"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="task3" id="BPMN_Shape_task3">
+            <omgdc:Bounds height="68" width="83" x="505" y="317"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="endEvent" id="BPMN_Shape_endEvent">
+            <omgdc:Bounds width="53" height="53" x="615" y="325"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="dataObjectRef1" id="BPMN_Shape_dataObjectRef1">
+            <omgdc:Bounds width="45" height="53" x="337" y="209"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="dataObjectRef2" id="BPMN_Shape_dataObjectRef2">
+            <omgdc:Bounds width="45" height="53" x="484" y="209"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge id="BPMN_Edge__57dd58ed-7ab9-43e8-8d5c-e017940339a5"
+                          bpmnElement="_57dd58ed-7ab9-43e8-8d5c-e017940339a5">
+            <omgdi:waypoint x="216" y="351"/>
+            <omgdi:waypoint x="308" y="351"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge__1a66ccd9-a80c-44bc-a06f-a684b8370443"
+                          bpmnElement="_1a66ccd9-a80c-44bc-a06f-a684b8370443">
+            <omgdi:waypoint x="308" y="351"/>
+            <omgdi:waypoint x="428" y="351"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge__725826e9-0e8b-4cb4-842b-e0279515d821"
+                          bpmnElement="_725826e9-0e8b-4cb4-842b-e0279515d821">
+            <omgdi:waypoint x="428" y="351"/>
+            <omgdi:waypoint x="547" y="351"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge__737085c4-8771-41e9-b30e-fa2668d0a481"
+                          bpmnElement="_737085c4-8771-41e9-b30e-fa2668d0a481">
+            <omgdi:waypoint x="547" y="351"/>
+            <omgdi:waypoint x="641" y="351"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge_dataInputAssociationTask2"
+                          bpmnElement="dataInputAssociationTask2">
+            <omgdi:waypoint x="360" y="235"/>
+            <omgdi:waypoint x="414" y="235"/>
+            <omgdi:waypoint x="428" y="351"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge_dataInputAssociationTask3"
+                          bpmnElement="dataInputAssociationTask3">
+            <omgdi:waypoint x="507" y="235"/>
+            <omgdi:waypoint x="560" y="235"/>
+            <omgdi:waypoint x="547" y="351"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge_dataOutputAssociationTask1"
+                          bpmnElement="dataOutputAssociationTask1">
+            <omgdi:waypoint x="308" y="351"/>
+            <omgdi:waypoint x="308" y="235"/>
+            <omgdi:waypoint x="360" y="235"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge_dataOutputAssociationTask2"
+                          bpmnElement="dataOutputAssociationTask2">
+            <omgdi:waypoint x="428" y="351"/>
+            <omgdi:waypoint x="441" y="235"/>
+            <omgdi:waypoint x="507" y="235"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+</definitions>

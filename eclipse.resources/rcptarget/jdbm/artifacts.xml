@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='file:/home/fferran/mtools/modelio3.x.x/tmp/jdbm/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1423237285851'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='1'>
+    <artifact classifier='osgi.bundle' id='jdbm' version='2.4.0'>
+      <properties size='3'>
+        <property name='artifact.size' value='556269'/>
+        <property name='download.size' value='556269'/>
+        <property name='download.md5' value='0073d20972ec9a1a6421a0beb4c7ee22'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

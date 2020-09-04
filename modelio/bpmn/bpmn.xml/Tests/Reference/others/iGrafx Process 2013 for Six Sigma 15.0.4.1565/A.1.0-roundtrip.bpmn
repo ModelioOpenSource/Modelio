@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions targetNamespace="empty" xmlns:ix="http://www.igrafx.com/2007/igrafx-document" xmlns:ixbpmn="http://www.igrafx.com/2011/bpmn" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:i="http://www.igrafx.com/2007/igxmldoc" xmlns:ixtim="http://www.igrafx.com/2012/timext" xmlns:tns="empty">
+	<itemDefinition id="TransactionAttributes_Item"/>
+	<itemDefinition id="NumberItem"/>
+	<itemDefinition id="StringItem"/>
+	<itemDefinition id="type_TrueFalse_Item"/>
+	<itemDefinition id="type_YesNo_Item"/>
+	<process id="diagram_IDAMQDYB" name="A.1.0">
+		<extensionElements></extensionElements>
+		<property name="TransactionAttributes" itemSubjectRef="TransactionAttributes_Item"/>
+		<startEvent id="shape_IDAA44XB" name="">
+			<extensionElements></extensionElements>
+			<outgoing>connector_IDA1MDYB</outgoing>
+		</startEvent>
+		<task id="shape_IDA5IMCC" name="">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDA1MDYB</incoming>
+			<outgoing>connector_IDAILDYB</outgoing>
+		</task>
+		<task id="shape_IDA1LMCC" name="">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAILDYB</incoming>
+			<outgoing>connector_IDAOODYB</outgoing>
+		</task>
+		<task id="shape_IDAXOMCC" name="">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAOODYB</incoming>
+			<outgoing>connector_IDAEQDYB</outgoing>
+		</task>
+		<endEvent id="shape_IDAVJDYB" name="">
+			<extensionElements></extensionElements>
+			<incoming>connector_IDAEQDYB</incoming>
+		</endEvent>
+		<sequenceFlow id="connector_IDAILDYB" sourceRef="shape_IDA5IMCC" targetRef="shape_IDA1LMCC"/>
+		<sequenceFlow id="connector_IDA1MDYB" sourceRef="shape_IDAA44XB" targetRef="shape_IDA5IMCC"/>
+		<sequenceFlow id="connector_IDAOODYB" sourceRef="shape_IDA1LMCC" targetRef="shape_IDAXOMCC"/>
+		<sequenceFlow id="connector_IDAEQDYB" sourceRef="shape_IDAXOMCC" targetRef="shape_IDAVJDYB"/>
+	</process>
+	<timerEventDefinition id="timer_IDAAZDYB">
+		<extensionElements>
+			<ixbpmn:name>Every_Morning</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<timerEventDefinition id="timer_IDAIZDYB">
+		<extensionElements>
+			<ixbpmn:name>Every_Afternoon</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<timerEventDefinition id="timer_IDAQZDYB">
+		<extensionElements>
+			<ixbpmn:name>Every_End_of_Day</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<timerEventDefinition id="timer_IDAYZDYB">
+		<extensionElements>
+			<ixbpmn:name>Weekly</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<timerEventDefinition id="timer_IDAA0DYB">
+		<extensionElements>
+			<ixbpmn:name>First_of_Month</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<timerEventDefinition id="timer_IDAI0DYB">
+		<extensionElements>
+			<ixbpmn:name>Last_of_Month</ixbpmn:name>
+		</extensionElements>
+	</timerEventDefinition>
+	<bpmndi:BPMNDiagram resolution="96" name="A.1.0">
+		<bpmndi:BPMNPlane bpmnElement="diagram_IDAMQDYB">
+			<bpmndi:BPMNShape bpmnElement="shape_IDAA44XB">
+				<dc:Bounds x="185.96666666666667" y="335.96666666666664" width="29.933333333333333" height="29.933333333333333"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDA5IMCC">
+				<dc:Bounds x="258" y="316.96666666666664" width="82.93333333333334" height="67.93333333333334"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDA1LMCC">
+				<dc:Bounds x="390" y="316.96666666666664" width="82.93333333333334" height="67.93333333333334"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAXOMCC">
+				<dc:Bounds x="522" y="316.96666666666664" width="82.93333333333334" height="67.93333333333334"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="shape_IDAVJDYB">
+				<dc:Bounds x="647.9666666666667" y="334.96666666666664" width="31.933333333333333" height="31.933333333333333"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAILDYB">
+				<di:waypoint x="340.93333333333333" y="351"/>
+				<di:waypoint x="389.93333333333333" y="351"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDA1MDYB">
+				<di:waypoint x="215.93333333333334" y="350.93333333333333"/>
+				<di:waypoint x="257.93333333333333" y="350.93333333333333"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAOODYB">
+				<di:waypoint x="472.93333333333333" y="351"/>
+				<di:waypoint x="521.9333333333333" y="351"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="connector_IDAEQDYB">
+				<di:waypoint x="604.9333333333333" y="351"/>
+				<di:waypoint x="647.9333333333333" y="351"/>
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</definitions>

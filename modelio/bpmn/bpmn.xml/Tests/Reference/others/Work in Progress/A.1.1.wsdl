@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://www.omg.org/bpmn/miwg/test/"
+             xmlns:types="http://www.omg.org/bpmn/miwg/test/types/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="http://www.omg.org/bpmn/miwg/test/"
+             name="Service_A_1_1">
+
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://www.omg.org/bpmn/miwg/test/types/" schemaLocation="A.1.1.xsd"/>
+    </xsd:schema>
+  </types>
+
+  <message name="inMessage_A_1_1">
+    <part name="parameters" element="types:in_A_1_1"/>
+  </message>
+
+  <portType name="Service_A_1_1Interface">
+    <operation name="operation_A_1_1">
+      <input message="tns:inMessage_A_1_1"/>
+    </operation>
+  </portType>
+
+  <binding name="Service_A_1_SOAPBinding" type="tns:Service_A_1_1Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="operation_A_1_1">
+      <soap:operation soapAction="http://www.omg.org/bpmn/miwg/test/a_1_1"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+    </operation>
+  </binding>
+
+  <service name="Service_A_1_1">
+    <port name="Service_A_1_SOAP" binding="tns:Service_A_1_SOAPBinding">
+      <soap:address location="http://localhost/WebService"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+
+   <extension
+         id="id1"
+         point="org.eclipse.e4.workbench.model">
+      <fragment uri="e4model/libreoffice.editor.e4xmi"/>
+   </extension>
+	
+
+ <extension point="org.modelio.documentformatprovider">
+    <provider class="org.modelio.editors.richnote.libreoffice.plugin.LibreOfficeEditorProvider">
+       <format mime="application/vnd.oasis.opendocument.database" 
+                     label="%format.label.ooo.odb" 
+                     support="alternate"
+                     data="private:factory/sbase"
+                     icon="icons/odb_16_8.png"
+                     extensions="odb"/>
+       <format mime="application/vnd.oasis.opendocument.chart" 
+                     label="%format.label.ooo.odc" 
+                     support="alternate"
+                     data="private:factory/schart"
+                     icon="icons/odg_16_8.png"
+                     extensions="odc"/>
+       <format mime="application/vnd.oasis.opendocument.formula" 
+                     label="%format.label.ooo.odf" 
+                     support="native"
+                     data="private:factory/smath"
+                     icon="icons/odf_16_8.png"
+                     extensions="odf"/>
+       <format mime="application/vnd.oasis.opendocument.graphics"
+             label="%format.label.ooo.odg"
+             extensions="odg"
+             icon="icons/odg_16_8.png"
+             data="private:factory/sdraw"
+             support="native"/>
+       <format mime="application/vnd.oasis.opendocument.graphics-template" 
+                     label="%format.label.ooo.odg.templ" 
+                     support="alternate"
+                     icon="icons/odg_16_8.png"
+                     extensions="odg"/>
+       <format mime="application/vnd.oasis.opendocument.image" 
+                     label="%format.label.ooo.odi" 
+                     support="alternate"
+                     data="private:factory/sdraw"
+                     icon="icons/odg_16_8.png"
+                     extensions="odi"/>
+       <format mime="application/vnd.oasis.opendocument.presentation" 
+                     label="%format.label.ooo.odp" 
+                     support="native"
+                     data="private:factory/simpress"
+                     icon="icons/odp_16_8.png"
+                     extensions="odp"/>
+       <format mime="application/vnd.oasis.opendocument.presentation-template" 
+                     label="%format.label.ooo.otp" 
+                     support="alternate"
+                     icon="icons/otp_16_8.png"
+                     extensions="otp"/>
+       <format mime="application/vnd.oasis.opendocument.spreadsheet" 
+                     label="%format.label.ooo.ods" 
+                     support="native"
+                     data="private:factory/scalc"
+                     icon="icons/ods_16_8.png"
+                     extensions="ods"/>
+       <format mime="application/vnd.oasis.opendocument.spreadsheet-template" 
+                     label="%format.label.ooo.ots" 
+                     support="alternate"
+                     icon="icons/ots_16_8.png"
+                     extensions="ots"/>
+       <format mime="application/vnd.oasis.opendocument.text" 
+                     label="%format.label.ooo.odt" 
+                     support="native"
+                     data="private:factory/swriter"
+                     icon="icons/odt_16_8.png"
+                     extensions="odt"/>
+       <format mime="application/vnd.oasis.opendocument.text-web" 
+                     label="%format.label.ooo.odh" 
+                     support="native"
+                     data="private:factory/swriter/web"
+                     icon="icons/odt_16_8.png"
+                     extensions="odh"/>
+
+       <format mime="application/vnd.oasis.opendocument.text-template" 
+                     label="%format.label.ooo.ott"
+                     support="alternate" 
+                     icon="icons/ott_16_8.png"
+                     extensions="ott"/>
+       <!-- OpenOffice.org (version <= 1.1.4) and Sun StarOffice (version >= 6.0) -->
+       <format mime="application/vnd.sun.xml.calc.template" 
+                     label="%format.label.ooo.sc" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sc"/>
+       <format mime="application/vnd.sun.xml.draw.template" 
+                     label="%format.label.ooo.std" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="std"/>
+       <format mime="application/vnd.sun.xml.impress.template" 
+                     label="%format.label.ooo.sti" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sti"/>
+       <format mime="application/vnd.sun.xml.writer.template" 
+                     label="%format.label.ooo.stw" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="stw"/>
+       <format mime="application/vnd.sun.xml.calc" 
+                     label="%format.label.ooo.stc" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="stc"/>
+       <format mime="application/vnd.sun.xml.draw" 
+                     label="%format.label.ooo.sxd" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sxd"/>
+       <format mime="application/vnd.sun.xml.writer.global" 
+                     label="%format.label.ooo.sxg" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sxg"/>
+       <format mime="application/vnd.sun.xml.impress" 
+                     label="%format.label.ooo.sxi" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sxi"/>
+       <format mime="application/vnd.sun.xml.math" 
+                     label="%format.label.ooo.smath" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sxm"/>
+       <format mime="application/vnd.sun.xml.writer" 
+                     label="%format.label.ooo.sxw" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sxw"/>
+       <!-- StarDivision and Sun StarOffice (4.0 < version <= 5.2) -->
+       <format mime="application/vnd.stardivision.draw"
+             extensions="sda"
+             icon="icons/ooo_16.png"
+             label="%format.label.ooo.sdraw"
+             support="alternate"/>
+       <format mime="application/vnd.stardivision.calc" 
+                     label="%format.label.ooo.sdc" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sdc"/>
+       <format mime="application/vnd.stardivision.impress" 
+                     label="%format.label.ooo.sdd" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sdd"/>
+       <format mime="application/vnd.stardivision.mail" 
+                     label="%format.label.ooo.sdm" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sdm"/>
+       <format mime="application/vnd.stardivision.impress.packed" 
+                     label="%format.label.ooo.sdp" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sdp"/>
+       <format mime="application/vnd.stardivision.chart" 
+                     label="%format.label.ooo.sds" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sds"/>
+       <format mime="application/vnd.stardivision.writer" 
+                     label="%format.label.ooo.sdw" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sdw,vob,vor"/>
+       <format mime="application/vnd.stardivision.writer-global" 
+                     label="%format.label.ooo.sgl" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="sgl"/>
+       <format mime="application/vnd.stardivision.math" 
+                     label="%format.label.ooo.smf" 
+                     support="alternate"
+                     icon="icons/ooo_16.png"
+                     extensions="smf"/>
+       <!-- HTML -->
+       <format mime="text/html/ooo"
+             label="%format.label.ooo.html"
+             extensions="html"
+             data="private:factory/swriter/web"
+             icon="icons/odt_16_8.png"
+             support="native"/>
+
+       <format mime="text/html"
+             label="%format.label.html"
+             extensions="html, htm, xhtml"
+             data="private:factory/swriter/web"
+             icon="icons/odt_16_8.png"
+             support="alternate"/>
+       <!-- Microsoft Office -->
+       <format mime="text/rtf" 
+                     label="%format.label.rtf" 
+                     extensions="rtf"
+                     icon="icons/odt_16_8.png"
+                     support="alternate"/>
+       <format mime="application/msword" 
+                     label="%format.label.doc" 
+                     extensions="doc"
+                     icon="icons/odt_16_8.png"
+                     support="alternate"/>
+       <format mime="application/vnd.ms-excel" 
+                     label="%format.label.xls" 
+                     extensions="xls"
+                     icon="icons/ods_16_8.png"
+                     support="alternate"/>
+       <format mime="application/vnd.ms-powerpoint" 
+                     label="%format.label.ppt" 
+                     extensions="ppt, pps"
+                     icon="icons/odp_16_8.png"
+                     support="alternate"/>
+
+       <format mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document" 
+                     label="%format.label.docx" 
+                     extensions="docx"
+                     icon="icons/odt_16_8.png"
+                     support="alternate"/>
+       <format mime="application/vnd.openxmlformats-officedocument.presentationml.presentation" 
+                     label="%format.label.pptx" 
+                     extensions="pptx, ppsx"
+                     icon="icons/odp_16_8.png"
+                     support="alternate"/>
+       <format mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
+                     label="%format.label.xlsx" 
+                     extensions="xlsx"
+                     icon="icons/ods_16_8.png"
+                     support="alternate"/>
+       
+    </provider>
+ </extension>
+ 
+ 
+ 
+ <extension
+       point="org.eclipse.core.runtime.preferences">
+    <initializer
+          class="org.modelio.editors.richnote.libreoffice.preferences.PreferenceInitializer">
+    </initializer>
+ </extension>
+ 
+ <extension point="org.modelio.app.preferencepages">
+    <page class="org.modelio.editors.richnote.libreoffice.preferences.LibreOfficePreferencePage"
+          id="org.modelio.edition.extern.libreoffice.preferences.OpenOfficePreferencePage"
+          name="%preference.page.name"
+          icon="icons/ooo.png" />
+ </extension>
+</plugin>
+ 

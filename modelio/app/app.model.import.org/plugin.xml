@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.e4.workbench.model" id="modelContribution">
+		<fragment uri="e4model/modelimport_org.e4xmi"/> 
+	</extension>
+	
+	<extension point="org.eclipse.core.expressions.definitions">
+		<definition id="app.model.import.test.modelimport.id">
+			<test property="app.model.import.test.modelimport"/>
+		</definition>
+	</extension>
+	
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+		<propertyTester
+			class="org.modelio.app.model.imp.handler.properties.CommandVisiblePropertyTester"
+			id="app.model.import.propertyTester.updatevisible"
+			namespace="app.model.import.test"
+			properties="modelimport"
+			type="org.eclipse.jface.viewers.ISelection">
+		</propertyTester>
+	</extension>
+</plugin>

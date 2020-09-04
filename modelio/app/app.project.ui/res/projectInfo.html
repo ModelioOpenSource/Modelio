@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>[#ProjectInfoHtmlPage.page_title#]</title>
+
+$css_files
+
+$javascript_files
+
+<script type="text/javascript">
+	window.onload = function()
+	{
+		//windowOnLoadFunction
+	}
+
+	function sendEmailTo() {
+		window.open('mailto:$project_contact?subject=$mail_subject');
+	}
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	})
+</script>
+
+</head>
+
+<body style="font-family:$body_font_family; font-size:$body_font_size">
+<div id="wrapper">
+	<h1>$project_icon $project_name</h1>	
+	<section>
+	$project_description
+	</section>
+	<section>
+		<h2>[#ProjectInfoHtmlPage.lbl_summary#]</h2>
+		<table class="box-infos">
+			<tr>
+				<td class="label">[#ProjectInfoHtmlPage.lbl_contact#]</td>
+				<td><div id="mailcontainer"><input class="emailInput" type="text" value="$project_contact" readonly="readonly" /><span class="sendMail" onclick="sendEmailTo()" style="display: $display_sendMail_icon">&nbsp</span></div></td>
+			</tr>
+			<tr>
+				<td class="label">[#ProjectInfoHtmlPage.lbl_modelio_version#]</td>
+				<td>$project_modelio_version_str</td>
+			</tr>
+			<tr>
+				<td class="label">[#ProjectInfoHtmlPage.lbl_storage_path#]</td>
+				<td>$project_storage_path</td>
+			</tr>
+			<tr style="display: $project_display_constellation_row;">
+				<td class="label">[#ProjectInfoHtmlPage.lbl_remote_location#]</td>
+				<td>$project_remote_location</td>
+			</tr>
+			<tr style="display: $project_display_constellation_row;">
+				<td class="label">[#ProjectInfoHtmlPage.lbl_login#]</td>
+				<td>$project_login</td>
+			</tr>
+			<tr>
+				<td class="label">[#ProjectInfoHtmlPage.lbl_storage_last_modification#]</td>
+				<td>$project_storage_last_modification_time</td>
+			</tr>
+		</table>
+	</section>
+	<section>
+		<h2>[#ProjectInfoHtmlPage.lbl_content#]</h2>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md">
+					<h3>[#ProjectInfoHtmlPage.title_workModels#]</h3>
+					<div class="contentlist" id="AccordionContainerWorkModels">				
+					$tbl_workModels_content				
+					</div>
+				</div>
+				<div class="col-md">
+					<h3>[#ProjectInfoHtmlPage.title_libraries#]</h3>
+					<div class="contentlist" id="AccordionContainerLibraries">				
+					$tbl_libraries_content				
+					</div>
+				</div>
+				<div class="col-md">
+					<h3>[#ProjectInfoHtmlPage.title_modules#]</h3>
+					<div class="contentlist">				
+					$tbl_modules_content				
+					</div>
+				</div>
+			</div>
+		</div>			
+	</section>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/descriptor/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_AxUWIMxbEeKoCeKbW6UGSA">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_BthfsMxbEeKoCeKbW6UGSA" featurename="descriptors" parentElementId="org.modelio.app.application">
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_IUo9oMxbEeKoCeKbW6UGSA" elementId="org.modelio.editors.richnote.microsoft" allowMultiple="true" category="TEXT_EDITOR" closeable="true" dirtyable="true" contributionURI="bundleclass://org.modelio.editors.richnote.microsoft/org.modelio.editors.richnote.microsoft.editor.MicrosoftEditor">
+      <handlers xmi:id="_byhSYM9rEeKy_eWPqfjcmA" elementId="editors.richnote.microsoft.handler.save" contributionURI="bundleclass://org.modelio.editors.richnote/org.modelio.editors.richnote.handlers.SaveMPartHandler" command="_PYgowM9rEeKy_eWPqfjcmA"/>
+      <toolbar xmi:id="_L8aVkMxbEeKoCeKbW6UGSA" elementId="editors.richnote.microsoft.toolbar.0">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_T5JioMxbEeKoCeKbW6UGSA" elementId="editors.richnote.microsoft.saveitem" label="%Ui.Save.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/save.png" tooltip="%Ui.Save.tooltip" command="_PYgowM9rEeKy_eWPqfjcmA"/>
+      </toolbar>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_NdK9cM9rEeKy_eWPqfjcmA" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_PYgowM9rEeKy_eWPqfjcmA" elementId="org.modelio.editors.richnote.microsoft.command.save" commandName="Save Microsoft file"/>
+  </fragments>
+</fragment:ModelFragments>

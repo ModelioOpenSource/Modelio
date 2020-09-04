@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/descriptor/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_tkhKcHiXEd-pEoU9D4-ITQ">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_EYHtoCjcEeKlZJIRx7Xb_Q" featurename="descriptors" parentElementId="org.modelio.app.application">
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_FiWsICjcEeKlZJIRx7Xb_Q" elementId="org.modelio.editors.texteditors.txt" label="%TextEditor.label" tooltip="%TextEditor.tooltip" bindingContexts="_T4yOgC_UEeKsl_h0Q2c6vQ" allowMultiple="true" category="TEXT_EDITOR" closeable="true" dirtyable="true" contributionURI="bundleclass://org.modelio.editors.texteditors/org.modelio.editors.texteditors.txt.TXTEditor"/>
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_O0Sg0Cj4EeKlZJIRx7Xb_Q" elementId="org.modelio.editors.texteditors.mdd" label="%MDDEditor.label" tooltip="%MDDEditor.tooltip" bindingContexts="_T4yOgC_UEeKsl_h0Q2c6vQ" allowMultiple="true" category="TEXT_EDITOR" closeable="true" dirtyable="true" contributionURI="bundleclass://org.modelio.editors.texteditors/org.modelio.editors.texteditors.mdd.MDDEditor"/>
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_v2HqICmUEeKlZJIRx7Xb_Q" elementId="org.modelio.editors.texteditors.rt" label="%RTEditor.label" tooltip="%RTEditor.tooltip" bindingContexts="_T4yOgC_UEeKsl_h0Q2c6vQ" allowMultiple="true" category="TEXT_EDITOR" closeable="true" dirtyable="true" contributionURI="bundleclass://org.modelio.editors.texteditors/org.modelio.editors.texteditors.rt.RTEditor"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_JFTUkC5lEeKjKPy-6EwoLA" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_MSwvEC5lEeKjKPy-6EwoLA" elementId="org.modelio.editors.texteditors.save" commandName="%Save.name" description="%Save.description"/>
+    <elements xsi:type="commands:Command" xmi:id="_3zH-UBuGEeOP_4GuiUlu8A" elementId="org.modelio.editors.command.showlog" commandName="%ShowLog.name" description="%ShowLog.description"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_-xKV0C5lEeKjKPy-6EwoLA" featurename="handlers" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Handler" xmi:id="_cpAvUC5mEeKjKPy-6EwoLA" contributionURI="bundleclass://org.modelio.editors.texteditors/org.modelio.editors.texteditors.SaveHandler" command="_MSwvEC5lEeKjKPy-6EwoLA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_1dqi0BuGEeOP_4GuiUlu8A" elementId="org.modelio.editors.texteditors.handler.openlogfile" contributionURI="bundleclass://org.modelio.editors.texteditors/org.modelio.editors.log.ShowLogHandler" command="_3zH-UBuGEeOP_4GuiUlu8A"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_rEbEcC5wEeKjKPy-6EwoLA" featurename="children" parentElementId="org.eclipse.ui.contexts.window">
+    <elements xsi:type="commands:BindingContext" xmi:id="_T4yOgC_UEeKsl_h0Q2c6vQ" elementId="org.modelio.editors.texteditors.binding" name="%TextEditor.context.name" description="%TextEditor.context.description"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_2GkZsC5kEeKjKPy-6EwoLA" featurename="bindingTables" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:BindingTable" xmi:id="_73rcsC5kEeKjKPy-6EwoLA" bindingContext="_T4yOgC_UEeKsl_h0Q2c6vQ">
+      <bindings xmi:id="_EMSXMC5lEeKjKPy-6EwoLA" keySequence="M1+S" command="_MSwvEC5lEeKjKPy-6EwoLA"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_iG3tQBuGEeOP_4GuiUlu8A" featurename="children" parentElementId="org.modelio.app.ui.menu.help">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_upUhMBuGEeOP_4GuiUlu8A" elementId="org.modelio.editors.menuitem.openlogfile" label="%ShowLog.label" iconURI="platform:/plugin/org.modelio.editors.texteditors/icons/showlog.png" tooltip="%ShowLog.tooltip" command="_3zH-UBuGEeOP_4GuiUlu8A"/>
+  </fragments>
+</fragment:ModelFragments>

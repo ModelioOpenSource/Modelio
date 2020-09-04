@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:signavio="http://activiti.org/bpmn"
+             xmlns:inspire="http://bpminspire.com/bpmn2/extension/inspire"
+             xmlns:camunda="http://activiti.org/bpmn"
+             xmlns:yaoqiang="http://bpmn.sourceforge.net"
+             xmlns:itp="http://www.itp-commerce.com/BPMN2.0"
+             xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:w4="http://www.w4.eu/spec/BPMN/20110701/MODEL"
+             xmlns:w4graph="http://www.w4.eu/spec/BPMN/20110930/GRAPH"
+             xmlns:ns2="http://www.ibm.com/bpm/Extensions"
+             xmlns:ns3="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:ns4="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:ns5="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:res="http://www.ibm.com/WebSphere/bpm/BlueworksLive/Resources"
+             xmlns:bwl0="http://www.ibm.com/WebSphere/bpm/BlueworksLive/Glossaries"
+             xmlns:xmi="http://www.omg.org/XMI"
+             xmlns:trisofeed="http://trisotech.com/feed"
+             xmlns:bpsim="http://www.bpsim.org/schemas/1.0"
+             xmlns:rss="http://purl.org/rss/2.0/"
+             xmlns:vp="http://www.visual-paradigm.com/bpmn/vpspecificcontent"
+             xmlns:style="http://www.w4.eu/spec/DataComposer/20120927/Diagram/Style"
+             xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:ix="http://www.igrafx.com/2007/igrafx-document"
+             xmlns:ixbpmn="http://www.igrafx.com/2011/bpmn"
+             xmlns:xs="http://xsdTypes.org/"
+             xmlns:i="http://www.igrafx.com/2007/igxmldoc"
+             xmlns:ixtim="http://www.igrafx.com/2012/timext"
+             xmlns:ibo="http://www.ibo.de/XML/BPMN"
+             xmlns:fox="http://www.camunda.com/fox"
+             xmlns:adonis="http://www.boc-group.com"
+             xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:GRAPH="http://www.w4.eu/spec/BPMN/20110930/GRAPH"
+             xmlns:bpmn2_1="http://www.sap.com/bpm/bpmn2"
+             xmlns:BPMN2.0="http://www.itp-commerce.com/BPMN2.0"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             exporter="ADONIS"
+             exporterVersion="6.1.4.1"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.omg.org/bpmn20"
+             id="_1373649849716"
+             name="A.1.0"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <process id="WFP-6-" name="A.1.0" isExecutable="false" isClosed="false">
+      <extensionElements>
+         <adonis:modelattributes/>
+      </extensionElements>
+      <startEvent name="Start Event" id="_93c466ab-b271-4376-a427-f4c353d55ce8">
+         <extensionElements>
+            <adonis:instance/>
+         </extensionElements>
+         <outgoing>_e16564d7-0c4c-413e-95f6-f668a3f851fb</outgoing>
+      </startEvent>
+      <task name="Task 1" id="_ec59e164-68b4-4f94-98de-ffb1c58a84af"
+            isForCompensation="false">
+         <extensionElements>
+            <adonis:instance/>
+         </extensionElements>
+         <incoming>_e16564d7-0c4c-413e-95f6-f668a3f851fb</incoming>
+         <outgoing>_d77dd5ec-e4e7-420e-bbe7-8ac9cd1df599</outgoing>
+      </task>
+      <task name="Task 2" id="_820c21c0-45f3-473b-813f-06381cc637cd"
+            isForCompensation="false">
+         <extensionElements>
+            <adonis:instance/>
+         </extensionElements>
+         <incoming>_d77dd5ec-e4e7-420e-bbe7-8ac9cd1df599</incoming>
+         <outgoing>_2aa47410-1b0e-4f8b-ad54-d6f798080cb4</outgoing>
+      </task>
+      <task name="Task 3" id="_e70a6fcb-913c-4a7b-a65d-e83adc73d69c"
+            isForCompensation="false">
+         <extensionElements>
+            <adonis:instance/>
+         </extensionElements>
+         <incoming>_2aa47410-1b0e-4f8b-ad54-d6f798080cb4</incoming>
+         <outgoing>_8e8fe679-eb3b-4c43-a4d6-891e7087ff80</outgoing>
+      </task>
+      <endEvent name="End Event" id="_a47df184-085b-49f7-bb82-031c84625821">
+         <extensionElements>
+            <adonis:instance/>
+         </extensionElements>
+         <incoming>_8e8fe679-eb3b-4c43-a4d6-891e7087ff80</incoming>
+         <inputSet/>
+      </endEvent>
+      <sequenceFlow sourceRef="_93c466ab-b271-4376-a427-f4c353d55ce8"
+                    targetRef="_ec59e164-68b4-4f94-98de-ffb1c58a84af"
+                    name=""
+                    id="_e16564d7-0c4c-413e-95f6-f668a3f851fb">
+         <extensionElements>
+            <adonis:connector/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="_ec59e164-68b4-4f94-98de-ffb1c58a84af"
+                    targetRef="_820c21c0-45f3-473b-813f-06381cc637cd"
+                    name=""
+                    id="_d77dd5ec-e4e7-420e-bbe7-8ac9cd1df599">
+         <extensionElements>
+            <adonis:connector/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="_820c21c0-45f3-473b-813f-06381cc637cd"
+                    targetRef="_e70a6fcb-913c-4a7b-a65d-e83adc73d69c"
+                    name=""
+                    id="_2aa47410-1b0e-4f8b-ad54-d6f798080cb4">
+         <extensionElements>
+            <adonis:connector/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow sourceRef="_e70a6fcb-913c-4a7b-a65d-e83adc73d69c"
+                    targetRef="_a47df184-085b-49f7-bb82-031c84625821"
+                    name=""
+                    id="_8e8fe679-eb3b-4c43-a4d6-891e7087ff80">
+         <extensionElements>
+            <adonis:connector/>
+         </extensionElements>
+      </sequenceFlow>
+   </process>
+   <bpmndi:BPMNDiagram name="A.1.0" id="Trisotech_Visio-_6">
+      <bpmndi:BPMNPlane id="BPMNPlane_141401" bpmnElement="WFP-6-">
+         <bpmndi:BPMNShape bpmnElement="_93c466ab-b271-4376-a427-f4c353d55ce8"
+                           id="BPMN_Shape__93c466ab-b271-4376-a427-f4c353d55ce8">
+            <omgdc:Bounds width="53" height="53" x="175" y="325"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="_ec59e164-68b4-4f94-98de-ffb1c58a84af"
+                           id="BPMN_Shape__ec59e164-68b4-4f94-98de-ffb1c58a84af">
+            <omgdc:Bounds height="68" width="106" x="246" y="317"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="_820c21c0-45f3-473b-813f-06381cc637cd"
+                           id="BPMN_Shape__820c21c0-45f3-473b-813f-06381cc637cd">
+            <omgdc:Bounds height="68" width="106" x="379" y="317"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="_e70a6fcb-913c-4a7b-a65d-e83adc73d69c"
+                           id="BPMN_Shape__e70a6fcb-913c-4a7b-a65d-e83adc73d69c">
+            <omgdc:Bounds height="68" width="83" x="522" y="317"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="_a47df184-085b-49f7-bb82-031c84625821"
+                           id="BPMN_Shape__a47df184-085b-49f7-bb82-031c84625821">
+            <omgdc:Bounds width="53" height="53" x="638" y="325"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge id="BPMN_Edge__e16564d7-0c4c-413e-95f6-f668a3f851fb"
+                          bpmnElement="_e16564d7-0c4c-413e-95f6-f668a3f851fb">
+            <omgdi:waypoint x="201" y="351"/>
+            <omgdi:waypoint x="234" y="351"/>
+            <omgdi:waypoint x="299" y="351"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge__d77dd5ec-e4e7-420e-bbe7-8ac9cd1df599"
+                          bpmnElement="_d77dd5ec-e4e7-420e-bbe7-8ac9cd1df599">
+            <omgdi:waypoint x="299" y="351"/>
+            <omgdi:waypoint x="432" y="351"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge__2aa47410-1b0e-4f8b-ad54-d6f798080cb4"
+                          bpmnElement="_2aa47410-1b0e-4f8b-ad54-d6f798080cb4">
+            <omgdi:waypoint x="432" y="351"/>
+            <omgdi:waypoint x="564" y="351"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge id="BPMN_Edge__8e8fe679-eb3b-4c43-a4d6-891e7087ff80"
+                          bpmnElement="_8e8fe679-eb3b-4c43-a4d6-891e7087ff80">
+            <omgdi:waypoint x="564" y="351"/>
+            <omgdi:waypoint x="624" y="351"/>
+            <omgdi:waypoint x="664" y="351"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+</definitions>

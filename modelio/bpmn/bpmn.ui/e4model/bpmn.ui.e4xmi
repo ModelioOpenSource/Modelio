@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_PsVjUDknEeaqWoLYUSg6nw">
+  <imports xsi:type="basic:Part" xmi:id="_W8ld0DknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.view.part"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_X32MMDknEeaqWoLYUSg6nw" featurename="handlers" parentElementId="org.modelio.model.browser.view.part">
+    <elements xsi:type="commands:Handler" xmi:id="_AGo_EKHyEeexzvGlRDn-Vg" elementId="org.modelio.model.browser.handler.create.bpmn.collaboration" contributionURI="bundleclass://org.modelio.bpmn.ui/org.modelio.bpmn.ui.browser.handlers.CreateBpmnCollaborationHandler" command="_7wO_gKHxEeexzvGlRDn-Vg"/>
+    <elements xsi:type="commands:Handler" xmi:id="_aLQZQDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.bpmn.process" contributionURI="bundleclass://org.modelio.bpmn.ui/org.modelio.bpmn.ui.browser.handlers.CreateBpmnProcessHandler" command="_vrRjQFAfEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_bCNPYDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.bpmn.laneset" contributionURI="bundleclass://org.modelio.bpmn.ui/org.modelio.bpmn.ui.browser.handlers.CreateBpmnLaneSetHandler" command="_xxxVsFAfEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_bfrOgDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.bpmn.flowelement" contributionURI="bundleclass://org.modelio.bpmn.ui/org.modelio.bpmn.ui.browser.handlers.CreateBpmnFlowElement" command="_yWdXIFAfEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_b8UuQDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.bpmn.boundaryevent" contributionURI="bundleclass://org.modelio.bpmn.ui/org.modelio.bpmn.ui.browser.handlers.CreateBpmnBoundaryEventHandler" command="_yqZm0FAfEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_cYshMDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.bpmn.lane" contributionURI="bundleclass://org.modelio.bpmn.ui/org.modelio.bpmn.ui.browser.handlers.CreateBpmnLaneHandler" command="_zBaYoFAfEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_UqbM8DkyEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.bpmn.uniqueelement" contributionURI="bundleclass://org.modelio.bpmn.ui/org.modelio.bpmn.ui.browser.handlers.CreateUniqueBpmnElementHandler" command="_zWpo0FAfEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_C8XgAERxEeeA05uXQ2qKjw" elementId="org.modelio.model.browser.handler.create.bpmn.subprocess" contributionURI="bundleclass://org.modelio.bpmn.ui/org.modelio.bpmn.ui.browser.handlers.CreateBpmnSubProcessHandler" command="_04XZwERwEeeA05uXQ2qKjw"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_tA_HQFAfEeazYIndPQYOqA" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_7wO_gKHxEeexzvGlRDn-Vg" elementId="org.modelio.app.ui.command.create.bpmn.collaboration" commandName="Create BPMN Collaboration">
+      <parameters xmi:id="_7wO_gaHxEeexzvGlRDn-Vg" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_7wO_gqHxEeexzvGlRDn-Vg" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_7wO_g6HxEeexzvGlRDn-Vg" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_7wO_hKHxEeexzvGlRDn-Vg" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_vrRjQFAfEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.bpmn.process" commandName="Create BPMN Process">
+      <parameters xmi:id="_vrRjQVAfEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_vrRjQlAfEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_vrRjQ1AfEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_vrRjRFAfEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_xxxVsFAfEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.bpmn.laneset" commandName="Create BPMN LaneSet">
+      <parameters xmi:id="_xxxVsVAfEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_xxxVslAfEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_xxxVs1AfEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_xxxVtFAfEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_yWdXIFAfEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.bpmn.flowelement" commandName="Create BPMN Flow Element">
+      <parameters xmi:id="_yWdXIVAfEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_yWdXIlAfEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_yWdXI1AfEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_yWdXJFAfEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_yqZm0FAfEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.bpmn.boundaryevent" commandName="Create BPMN Boundary Event">
+      <parameters xmi:id="_yqZm0VAfEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_yqZm0lAfEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_yqZm01AfEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_yqZm1FAfEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_zBaYoFAfEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.bpmn.lane" commandName="Create BPMN Lane">
+      <parameters xmi:id="_zBaYoVAfEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_zBaYolAfEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_zBaYo1AfEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_zBaYpFAfEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_zWpo0FAfEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.bpmn.uniqueelement" commandName="Create BPMN Unique Element">
+      <parameters xmi:id="_zWpo0VAfEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_zWpo0lAfEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_zWpo01AfEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_zWpo1FAfEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_04XZwERwEeeA05uXQ2qKjw" elementId="org.modelio.app.ui.command.create.bpmn.subprocess" commandName="Create BPMN SubProcess">
+      <parameters xmi:id="_04XZwURwEeeA05uXQ2qKjw" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_04XZwkRwEeeA05uXQ2qKjw" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_04XZw0RwEeeA05uXQ2qKjw" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_04XZxERwEeeA05uXQ2qKjw" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

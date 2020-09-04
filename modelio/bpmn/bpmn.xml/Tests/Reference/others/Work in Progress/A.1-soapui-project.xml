@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="A.1" resourceRoot="${projectDir}" soapui-version="5.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ServiceA1SOAP" type="wsdl" bindingName="{http://www.omg.org/bpmn/miwg/test/}ServiceA1SOAP" soapVersion="1_1" anonymous="optional" definition="A.1.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/home/tstephen/git/bpmn-miwg-test-suite/Reference/A.1.wsdl"><con:part><con:url>file:/home/tstephen/git/bpmn-miwg-test-suite/Reference/A.1.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ServiceA1" targetNamespace="http://www.omg.org/bpmn/miwg/test/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.omg.org/bpmn/miwg/test/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.omg.org/bpmn/miwg/test/">
+      <xsd:element name="a_1_1">
+        <xsd:complexType>
+          <xsd:sequence></xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="a_1_2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="a_1_2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+            <xsd:element name="NewElement" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="a_1_1Request">
+    <wsdl:part name="parameters" element="tns:a_1_1"/>
+  </wsdl:message>
+  <wsdl:message name="a_1_1Response"></wsdl:message>
+  <wsdl:message name="a_1_2Request">
+    <wsdl:part name="parameters" element="tns:a_1_2"/>
+  </wsdl:message>
+  <wsdl:message name="a_1_2Response">
+    <wsdl:part name="parameters" element="tns:a_1_2Response"/>
+  </wsdl:message>
+  <wsdl:portType name="ServiceA1Interface">
+    <wsdl:operation name="a_1_1">
+      <wsdl:input message="tns:a_1_1Request"/>
+      <wsdl:output message="tns:a_1_1Response"/>
+    </wsdl:operation>
+    <wsdl:operation name="a_1_2">
+      <wsdl:input message="tns:a_1_2Request"/>
+      <wsdl:output message="tns:a_1_2Response"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceA1SOAP" type="tns:ServiceA1Interface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="a_1_1">
+      <soap:operation soapAction="http://www.omg.org/bpmn/miwg/test/a_1_1"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="a_1_2">
+      <soap:operation soapAction="http://www.omg.org/bpmn/miwg/test/a_1_2"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceA1Impl">
+    <wsdl:port binding="tns:ServiceA1SOAP" name="ServiceA1ImplSOAP">
+      <soap:address location="https://www.knowprocess.com/miwg-service/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://www.knowprocess.com/miwg-service/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.omg.org/bpmn/miwg/test/a_1_1" name="a_1_1" bindingOperationName="a_1_1" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://www.knowprocess.com/miwg-service/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:test="http://www.omg.org/bpmn/miwg/test/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <test:a_1_1/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.omg.org/bpmn/miwg/test/a_1_1"/></con:call></con:operation><con:operation isOneWay="false" action="http://www.omg.org/bpmn/miwg/test/a_1_2" name="a_1_2" bindingOperationName="a_1_2" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://www.knowprocess.com/miwg-service/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:test="http://www.omg.org/bpmn/miwg/test/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <test:a_1_2>
+         <in>?</in>
+      </test:a_1_2>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.omg.org/bpmn/miwg/test/a_1_2"/></con:call></con:operation></con:interface><con:testSuite name="ServiceA1SOAP TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="a_1_1 TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="a_1_1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiceA1SOAP</con:interface><con:operation>a_1_1</con:operation><con:request name="a_1_1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/soap+xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://www.knowprocess.com/soap/A_1_1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:test="http://www.omg.org/bpmn/miwg/test/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <test:a_1_1/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.omg.org/bpmn/miwg/test/a_1_1" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="a_1_2 TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="a_1_2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiceA1SOAP</con:interface><con:operation>a_1_2</con:operation><con:request name="a_1_2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://www.knowprocess.com/soap/A_1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:test="http://www.omg.org/bpmn/miwg/test/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <test:a_1_2>
+         <in>tim</in>
+      </test:a_1_2>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.omg.org/bpmn/miwg/test/a_1_2" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

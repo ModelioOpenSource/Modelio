@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_FhNXwDeVEea5itNs1dsXhg">
+  <imports xsi:type="menu:Menu" xmi:id="_XpI_oDkYEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.view.menu.createroot"/>
+  <imports xsi:type="basic:Part" xmi:id="_5phMYDkmEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.view.part"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_YQZM4DkYEeaqWoLYUSg6nw" featurename="children" parentElementId="org.modelio.model.browser.view.menu.createroot">
+    <elements xsi:type="menu:DirectMenuItem" xmi:id="_c4CGYDkYEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.item.createumlroot" label="%CreateElementMenu.CreateUmlProject.label" iconURI="platform:/plugin/org.modelio.uml.ui/icons/uml.png" tooltip="%CreateElementMenu.CreateUmlProject.tooltip" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateUmlProjectHandler"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_6T4YADkmEeaqWoLYUSg6nw" featurename="handlers" parentElementId="org.modelio.model.browser.view.part">
+    <elements xsi:type="commands:Handler" xmi:id="_I1BtQDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.activity" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateActivityHandler" command="_XzYWgFAeEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_IUpkEDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.association" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateAssociationHandler" command="_YuHgcFAeEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_HrPasDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.communicationinteraction" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateCommunicationInteractionHandler" command="_W1ntwFAeEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_EPmaQDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.state.connectionpointreference" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateConnectionPointReferenceHandler" command="_R2orQFAeEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_Gr0lEDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.interaction" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateInteractionHandler" command="_WNk2UFAeEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_GOtLQDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.state.protocolstatemachine" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateProtocolStateMachineHandler" command="_TOa9kFAeEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_FvsUADknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.state.pseudostate" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreatePseudoStateHandler" command="_SxgYEFAeEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_DyCUgDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.state.state" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateStateHandler" command="_Rbkf4FAeEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_EvL5QDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.state.entryexitpoint" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateEntryExitPointHandler" command="_ipT-QFAeEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_DTU_QDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.state.statemachine" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateStateMachineHandler" command="_Q9utUFAeEeazYIndPQYOqA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_CcA8wDknEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.handler.create.state.statemachinesubstate" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateStateMachineSubStateHandler" command="_P83GMFAeEeazYIndPQYOqA"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_It8BYFAeEeazYIndPQYOqA" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_XzYWgFAeEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.activity" commandName="Create Activity">
+      <parameters xmi:id="_XzYWgVAeEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_XzYWglAeEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_XzYWg1AeEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_XzYWhFAeEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_YuHgcFAeEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.association" commandName="Create Association">
+      <parameters xmi:id="_YuHgcVAeEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_YuHgclAeEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_YuHgc1AeEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_YuHgdFAeEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_W1ntwFAeEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.communicationinteraction" commandName="Create Communication Interaction">
+      <parameters xmi:id="_W1ntwVAeEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_W1ntwlAeEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_W1ntw1AeEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_W1ntxFAeEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_R2orQFAeEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.connectionpointreference" commandName="Create Connection Point Reference">
+      <parameters xmi:id="_R2orQVAeEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_R2orQlAeEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_R2orQ1AeEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_R2orRFAeEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_WNk2UFAeEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.interaction" commandName="Create Interaction">
+      <parameters xmi:id="_WNk2UVAeEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_WNk2UlAeEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_WNk2U1AeEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_WNk2VFAeEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_TOa9kFAeEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.protocolstatemachine" commandName="Create Protocol State Machine">
+      <parameters xmi:id="_TOa9kVAeEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_TOa9klAeEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_TOa9k1AeEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_TOa9lFAeEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_SxgYEFAeEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.pseudostate" commandName="Create Pseudo State">
+      <parameters xmi:id="_SxgYEVAeEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_SxtMYFAeEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_SxtMYVAeEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_SxtMYlAeEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_Rbkf4FAeEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.state" commandName="Create State">
+      <parameters xmi:id="_Rbkf4VAeEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_Rbkf4lAeEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_Rbkf41AeEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_Rbkf5FAeEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_ipT-QFAeEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.state.entryexitpoint" commandName="Create State Entry or Exit Point">
+      <parameters xmi:id="_ipT-QVAeEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_ipT-QlAeEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_ipT-Q1AeEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_ipT-RFAeEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_Q9utUFAeEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.statemachine" commandName="Create State Machine">
+      <parameters xmi:id="_Q9utUVAeEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_Q9utUlAeEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_Q9utU1AeEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_Q9utVFAeEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_P83GMFAeEeazYIndPQYOqA" elementId="org.modelio.app.ui.command.create.statemachinesubstate" commandName="Create State Machine Sub State">
+      <parameters xmi:id="_P83GMVAeEeazYIndPQYOqA" elementId="metaclass" name="metaclass" optional="false"/>
+      <parameters xmi:id="_P83GMlAeEeazYIndPQYOqA" elementId="dependency" name="dependency" optional="false"/>
+      <parameters xmi:id="_P83GM1AeEeazYIndPQYOqA" elementId="stereotype" name="stereotype"/>
+      <parameters xmi:id="_P83GNFAeEeazYIndPQYOqA" elementId="i18nKey" name="i18nKey"/>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

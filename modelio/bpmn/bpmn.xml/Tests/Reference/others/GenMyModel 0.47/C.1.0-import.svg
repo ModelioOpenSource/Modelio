@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Arial" font-size="11" width="1134" height="785">
+	<desc>BPMN2 diagram sid-bdb880ac-c464-4e5c-aa56-569d709436e0</desc>
+	<g id="_2kXhMR8iEeW9keBtFZy97Q">
+		<defs>
+			<linearGradient id="greyGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#E5E5E5" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="packageGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#EFE9DE" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="TaskWidget" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#F5F7F9" stop-opacity="1" />
+				<stop offset="100%" stop-color="#D9EDF7" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="GatewayWidget" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#F5DEB3" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="StartEvent" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#60E496" stop-opacity="1" />
+				<stop offset="100%" stop-color="#31A761" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="EndEvent" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#E59492" stop-opacity="1" />
+				<stop offset="100%" stop-color="#F27572" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="IntermediateEvent" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#F5F7F9" stop-opacity="1" />
+				<stop offset="100%" stop-color="#D9EDF7" stop-opacity="1" />
+				
+			</linearGradient>
+			
+		</defs>
+		<g id="_2khSMh8iEeW9keBtFZy97Q" transform="translate(52 2)">
+			<rect fill-opacity="0.5" x="0" y="0" width="1042" height="205" rx="0" ry="0" fill="#fff" stroke="#ADADAD" stroke-width="1" />
+			<line x1="31" y1="0" x2="31" y2="205" stroke-width="1.0" stroke="#ADADAD" />
+			<text x="-102" y="20" font-size="13" text-anchor="middle" fill="#000000" transform="rotate(270)">Team-Assistant</text>
+			<g id="_2khSOx8iEeW9keBtFZy97Q" transform="translate(32 0)">
+				<text x="-102" y="20" font-size="12" text-anchor="middle" fill="#000000" transform="rotate(270)"></text>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSMx8iEeW9keBtFZy97Q" transform="translate(50 257)">
+			<rect fill-opacity="0.5" x="0" y="0" width="1044" height="488" rx="0" ry="0" fill="#fff" stroke="#ADADAD" stroke-width="1" />
+			<line x1="31" y1="0" x2="31" y2="488" stroke-width="1.0" stroke="#ADADAD" />
+			<text x="-244" y="20" font-size="13" text-anchor="middle" fill="#000000" transform="rotate(270)">Process Engine - Invoice Receipt</text>
+			<g id="_2kh5TB8iEeW9keBtFZy97Q" transform="translate(32 0)">
+				<text x="-91" y="20" font-size="12" text-anchor="middle" fill="#000000" transform="rotate(270)">Team Assistant</text>
+				
+			</g>
+			<g id="_2kh5TR8iEeW9keBtFZy97Q" transform="translate(32 183)">
+				<line x1="0" y1="0" x2="979" y2="0" stroke-width="1.0" stroke="#ADADAD" />
+				<text x="-80" y="20" font-size="12" text-anchor="middle" fill="#000000" transform="rotate(270)">Approver</text>
+				
+			</g>
+			<g id="_2kh5Th8iEeW9keBtFZy97Q" transform="translate(32 344)">
+				<line x1="0" y1="0" x2="979" y2="0" stroke-width="1.0" stroke="#ADADAD" />
+				<text x="-72" y="20" font-size="12" text-anchor="middle" fill="#000000" transform="rotate(270)">Accountant</text>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSPB8iEeW9keBtFZy97Q" transform="translate(134 105)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#StartEvent)" stroke="#216B3F" stroke-width="1.0" />
+			<g>
+				<path fill-opacity="0.7" d="M8.75 12.25L26.25 12.25L26.25 22.75L8.75 22.75L8.75 12.25" fill="#fff" stroke-width="1" stroke="#194F2F" />
+				<path fill-opacity="0.0" d="M8.75 12.25L17.5 17.5L26.25 12.25" fill="#fff" stroke-width="1" stroke="#194F2F" />
+				
+			</g>
+			
+		</g>
+		<g id="_2khSPh8iEeW9keBtFZy97Q" transform="translate(202 80)">
+			<rect x="0" y="0" width="100" height="80" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<text y="33" text-anchor="middle" fill="#000000">
+				<tspan x="51" dy="11">Scan Invoice</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_2khSPx8iEeW9keBtFZy97Q" transform="translate(350 80)">
+			<rect x="0" y="0" width="100" height="80" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<text y="28" text-anchor="middle" fill="#000000">
+				<tspan x="51" dy="11">Archive</tspan>
+				<tspan x="51" dy="11">original</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_2khSQB8iEeW9keBtFZy97Q" transform="translate(976 50)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#EndEvent)" stroke="#C9302C" stroke-width="4.0" />
+			
+		</g>
+		<g id="_2khSQR8iEeW9keBtFZy97Q" transform="translate(490 105)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#IntermediateEvent)" stroke="#325A6E" stroke-width="1.0" />
+			<ellipse fill-opacity="0.0" cx="17" cy="17" rx="12" ry="12" fill="#fff" stroke="#325A6E" stroke-width="1.0" />
+			<g>
+				<path fill-opacity="0.7" d="M8.75 12.25L26.25 12.25L26.25 22.75L8.75 22.75L8.75 12.25" fill="#fff" stroke-width="1" stroke="#325A6E" />
+				<path fill-opacity="0.0" d="M8.75 12.25L17.5 17.5L26.25 12.25" fill="#fff" stroke-width="1" stroke="#325A6E" />
+				
+			</g>
+			
+		</g>
+		<g id="_2khSQx8iEeW9keBtFZy97Q" transform="translate(562 80)">
+			<rect x="0" y="0" width="100" height="80" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<text y="33" text-anchor="middle" fill="#000000">
+				<tspan x="51" dy="11">Assign approver</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_2khSRB8iEeW9keBtFZy97Q" transform="translate(687 100)">
+			<path d="M20.0 1L39 20.0L20.0 39L1 20.0L20.0 1" fill="url(#GatewayWidget)" stroke-width="1" stroke="#888888" />
+			<ellipse fill-opacity="0.0" cx="20" cy="20" rx="12" ry="12" fill="#fff" stroke="#000" stroke-width="0.5" />
+			<ellipse fill-opacity="0.0" cx="20" cy="20" rx="9" ry="9" fill="#fff" stroke="#000" stroke-width="0.5" />
+			<path fill-opacity="0.0" d="M20.0 14.0L26.0 18.0L24.0 24.8L16.0 24.8L14.0 18.0L20.0 14.0" fill="#fff" stroke-width="1" stroke="#000" />
+			
+		</g>
+		<g id="_2khSRR8iEeW9keBtFZy97Q" transform="translate(766 146)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#IntermediateEvent)" stroke="#325A6E" stroke-width="1.0" />
+			<ellipse fill-opacity="0.0" cx="17" cy="17" rx="12" ry="12" fill="#fff" stroke="#325A6E" stroke-width="1.0" />
+			<g>
+				<path fill-opacity="0.7" d="M8.75 12.25L26.25 12.25L26.25 22.75L8.75 22.75L8.75 12.25" fill="#fff" stroke-width="1" stroke="#325A6E" />
+				<path fill-opacity="0.0" d="M8.75 12.25L17.5 17.5L26.25 12.25" fill="#fff" stroke-width="1" stroke="#325A6E" />
+				
+			</g>
+			
+		</g>
+		<g id="_2khSRx8iEeW9keBtFZy97Q" transform="translate(832 121)">
+			<rect x="0" y="0" width="100" height="80" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<text y="28" text-anchor="middle" fill="#000000">
+				<tspan x="51" dy="11">Review and</tspan>
+				<tspan x="51" dy="11">document result</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_2khSSB8iEeW9keBtFZy97Q" transform="translate(766 49)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#IntermediateEvent)" stroke="#325A6E" stroke-width="1.0" />
+			<ellipse fill-opacity="0.0" cx="17" cy="17" rx="12" ry="12" fill="#fff" stroke="#325A6E" stroke-width="1.0" />
+			<g>
+				<ellipse fill-opacity="0.7" cx="17" cy="17" rx="8" ry="8" fill="#fff" stroke="#325A6E" stroke-width="1.0" />
+				<path fill-opacity="0.0" d="M21.875 17.5L17.5 17.5L20.125 11.375" fill="#fff" stroke-width="1" stroke="#325A6E" />
+				
+			</g>
+			
+		</g>
+		<g id="_2khSSh8iEeW9keBtFZy97Q" transform="translate(976 147)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#EndEvent)" stroke="#C9302C" stroke-width="4.0" />
+			
+		</g>
+		<g id="_2kh5Tx8iEeW9keBtFZy97Q" transform="translate(403 482)">
+			<rect x="0" y="0" width="100" height="80" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<image x="6" y="5" width="12" height="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMGDzc1gJ8CfAAAAndJREFUOMuNktFLU2EYxp/v8+x829jYjg7diclE3GrMSSC5my5UoosJIkGSQabVReFldiERBNFf0GV/hVB5kTDMGuWgJHVdTJI2hLOdI9s6Z46d7ZzTha1U1HrhgZeX5/nxvvACJ1QsFutljD3jOG6TUrrjcrk+uN3uWfxPBQIBh9vtfkkpNSmlVks2m00SBOHmPwFdXV1jHMeVCSHWcfE8vySKou+wnzsOsNvtMUKIJxwOI9YfA7MzNBoNeD1eJJPJQHY7S88EGIYhJxKJxvzDeVs4HAYhBKZpQpZlZL5latnt7BE/PQ7QNC3NGMsCAM/z4HkejDGsvl+18vn8EgD5TIDTMHYXFxc/p1IpS9d1AEC1WsXO9x21pCgyAHbY39ZqgsGg1+fz3bs8euVpe7swOnN7homiiNYm+7V9lt/dHTwfifQoslyt1+s5AFYL4I/H48+nb888mr17p0/TVN7pcKC7uxuUUui6jvUv64hEo64bU1ODgiBc3VMUXpblVBuAzomJa09uTU/fvz45afN6vbA7HEgmk0in09jY2MDKuxWUymWMj4/jQiRCotF+t643LuVyP8pkeHj4xYO5ublEYowQQv7cJkkSCpIEVVPh8XggiufQ0dGBlkeSJDxeWFjjgsGesZGR0SNhAPD7/fD7/ac+nCAIcDodnZTSg6RlWchkMtA07dSQYRjY2tpCs9n8PSGgB1kLpmliefkt8rncqQBNVfHm9StUKuW/n2gYRq1QKMDpdEJVVSh7CorF4omAn5UKSqUSZFlBrVaDrtdBQqHQwsDAxV5KKTY3v6IvFIKdOU4EmGYTH9fWEB8aQhvlkE5/Kv4CB5n4CmsuYk0AAAAASUVORK5CYII=" />
+			<text y="33" text-anchor="middle" fill="#000000">
+				<tspan x="51" dy="11">Approve Invoice</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_2kh5UR8iEeW9keBtFZy97Q" transform="translate(538 502)">
+			<path d="M20.0 1L39 20.0L20.0 39L1 20.0L20.0 1" fill="url(#GatewayWidget)" stroke-width="1" stroke="#888888" />
+			<path fill-opacity="0.0" d="M14.0 10.0L26.0 30.0M26.0 10.0L14.0 30.0" fill="#fff" stroke-width="4" stroke="#000" />
+			
+		</g>
+		<g id="_2kh5Uh8iEeW9keBtFZy97Q" transform="translate(230 309)">
+			<rect x="0" y="0" width="100" height="80" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<image x="6" y="5" width="12" height="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMGDzc1gJ8CfAAAAndJREFUOMuNktFLU2EYxp/v8+x829jYjg7diclE3GrMSSC5my5UoosJIkGSQabVReFldiERBNFf0GV/hVB5kTDMGuWgJHVdTJI2hLOdI9s6Z46d7ZzTha1U1HrhgZeX5/nxvvACJ1QsFutljD3jOG6TUrrjcrk+uN3uWfxPBQIBh9vtfkkpNSmlVks2m00SBOHmPwFdXV1jHMeVCSHWcfE8vySKou+wnzsOsNvtMUKIJxwOI9YfA7MzNBoNeD1eJJPJQHY7S88EGIYhJxKJxvzDeVs4HAYhBKZpQpZlZL5latnt7BE/PQ7QNC3NGMsCAM/z4HkejDGsvl+18vn8EgD5TIDTMHYXFxc/p1IpS9d1AEC1WsXO9x21pCgyAHbY39ZqgsGg1+fz3bs8euVpe7swOnN7homiiNYm+7V9lt/dHTwfifQoslyt1+s5AFYL4I/H48+nb888mr17p0/TVN7pcKC7uxuUUui6jvUv64hEo64bU1ODgiBc3VMUXpblVBuAzomJa09uTU/fvz45afN6vbA7HEgmk0in09jY2MDKuxWUymWMj4/jQiRCotF+t643LuVyP8pkeHj4xYO5ublEYowQQv7cJkkSCpIEVVPh8XggiufQ0dGBlkeSJDxeWFjjgsGesZGR0SNhAPD7/fD7/ac+nCAIcDodnZTSg6RlWchkMtA07dSQYRjY2tpCs9n8PSGgB1kLpmliefkt8rncqQBNVfHm9StUKuW/n2gYRq1QKMDpdEJVVSh7CorF4omAn5UKSqUSZFlBrVaDrtdBQqHQwsDAxV5KKTY3v6IvFIKdOU4EmGYTH9fWEB8aQhvlkE5/Kv4CB5n4CmsuYk0AAAAASUVORK5CYII=" />
+			<text y="28" text-anchor="middle" fill="#000000">
+				<tspan x="51" dy="11">Assign</tspan>
+				<tspan x="51" dy="11">Approver</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_2kh5VB8iEeW9keBtFZy97Q" transform="translate(598 309)">
+			<rect x="0" y="0" width="100" height="80" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<image x="6" y="5" width="12" height="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMGDzc1gJ8CfAAAAndJREFUOMuNktFLU2EYxp/v8+x829jYjg7diclE3GrMSSC5my5UoosJIkGSQabVReFldiERBNFf0GV/hVB5kTDMGuWgJHVdTJI2hLOdI9s6Z46d7ZzTha1U1HrhgZeX5/nxvvACJ1QsFutljD3jOG6TUrrjcrk+uN3uWfxPBQIBh9vtfkkpNSmlVks2m00SBOHmPwFdXV1jHMeVCSHWcfE8vySKou+wnzsOsNvtMUKIJxwOI9YfA7MzNBoNeD1eJJPJQHY7S88EGIYhJxKJxvzDeVs4HAYhBKZpQpZlZL5latnt7BE/PQ7QNC3NGMsCAM/z4HkejDGsvl+18vn8EgD5TIDTMHYXFxc/p1IpS9d1AEC1WsXO9x21pCgyAHbY39ZqgsGg1+fz3bs8euVpe7swOnN7homiiNYm+7V9lt/dHTwfifQoslyt1+s5AFYL4I/H48+nb888mr17p0/TVN7pcKC7uxuUUui6jvUv64hEo64bU1ODgiBc3VMUXpblVBuAzomJa09uTU/fvz45afN6vbA7HEgmk0in09jY2MDKuxWUymWMj4/jQiRCotF+t643LuVyP8pkeHj4xYO5ublEYowQQv7cJkkSCpIEVVPh8XggiufQ0dGBlkeSJDxeWFjjgsGesZGR0SNhAPD7/fD7/ac+nCAIcDodnZTSg6RlWchkMtA07dSQYRjY2tpCs9n8PSGgB1kLpmliefkt8rncqQBNVfHm9StUKuW/n2gYRq1QKMDpdEJVVSh7CorF4omAn5UKSqUSZFlBrVaDrtdBQqHQwsDAxV5KKTY3v6IvFIKdOU4EmGYTH9fWEB8aQhvlkE5/Kv4CB5n4CmsuYk0AAAAASUVORK5CYII=" />
+			<text y="33" text-anchor="middle" fill="#000000">
+				<tspan x="51" dy="11">Rechnung klären</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_2kh5Vh8iEeW9keBtFZy97Q" transform="translate(743 329)">
+			<path d="M20.0 1L39 20.0L20.0 39L1 20.0L20.0 1" fill="url(#GatewayWidget)" stroke-width="1" stroke="#888888" />
+			<path fill-opacity="0.0" d="M14.0 10.0L26.0 30.0M26.0 10.0L14.0 30.0" fill="#fff" stroke-width="4" stroke="#000" />
+			
+		</g>
+		<g id="_2kh5Vx8iEeW9keBtFZy97Q" transform="translate(976 335)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#EndEvent)" stroke="#C9302C" stroke-width="4.0" />
+			
+		</g>
+		<g id="_2kh5WB8iEeW9keBtFZy97Q" transform="translate(145 334)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#StartEvent)" stroke="#216B3F" stroke-width="1.0" />
+			<g>
+				<path fill-opacity="0.7" d="M8.75 12.25L26.25 12.25L26.25 22.75L8.75 22.75L8.75 12.25" fill="#fff" stroke-width="1" stroke="#194F2F" />
+				<path fill-opacity="0.0" d="M8.75 12.25L17.5 17.5L26.25 12.25" fill="#fff" stroke-width="1" stroke="#194F2F" />
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5Wh8iEeW9keBtFZy97Q" transform="translate(688 642)">
+			<rect x="0" y="0" width="100" height="80" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<image x="6" y="5" width="12" height="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMGDzc1gJ8CfAAAAndJREFUOMuNktFLU2EYxp/v8+x829jYjg7diclE3GrMSSC5my5UoosJIkGSQabVReFldiERBNFf0GV/hVB5kTDMGuWgJHVdTJI2hLOdI9s6Z46d7ZzTha1U1HrhgZeX5/nxvvACJ1QsFutljD3jOG6TUrrjcrk+uN3uWfxPBQIBh9vtfkkpNSmlVks2m00SBOHmPwFdXV1jHMeVCSHWcfE8vySKou+wnzsOsNvtMUKIJxwOI9YfA7MzNBoNeD1eJJPJQHY7S88EGIYhJxKJxvzDeVs4HAYhBKZpQpZlZL5latnt7BE/PQ7QNC3NGMsCAM/z4HkejDGsvl+18vn8EgD5TIDTMHYXFxc/p1IpS9d1AEC1WsXO9x21pCgyAHbY39ZqgsGg1+fz3bs8euVpe7swOnN7homiiNYm+7V9lt/dHTwfifQoslyt1+s5AFYL4I/H48+nb888mr17p0/TVN7pcKC7uxuUUui6jvUv64hEo64bU1ODgiBc3VMUXpblVBuAzomJa09uTU/fvz45afN6vbA7HEgmk0in09jY2MDKuxWUymWMj4/jQiRCotF+t643LuVyP8pkeHj4xYO5ublEYowQQv7cJkkSCpIEVVPh8XggiufQ0dGBlkeSJDxeWFjjgsGesZGR0SNhAPD7/fD7/ac+nCAIcDodnZTSg6RlWchkMtA07dSQYRjY2tpCs9n8PSGgB1kLpmliefkt8rncqQBNVfHm9StUKuW/n2gYRq1QKMDpdEJVVSh7CorF4omAn5UKSqUSZFlBrVaDrtdBQqHQwsDAxV5KKTY3v6IvFIKdOU4EmGYTH9fWEB8aQhvlkE5/Kv4CB5n4CmsuYk0AAAAASUVORK5CYII=" />
+			<text y="22" text-anchor="middle" fill="#000000">
+				<tspan x="51" dy="11">Prepare				</tspan>
+				<tspan x="51" dy="11">Bank				</tspan>
+				<tspan x="51" dy="11">Transfer</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_2kh5XB8iEeW9keBtFZy97Q" transform="translate(976 668)">
+			<ellipse cx="17" cy="17" rx="15" ry="15" fill="url(#EndEvent)" stroke="#C9302C" stroke-width="4.0" />
+			
+		</g>
+		<g id="_2kh5XR8iEeW9keBtFZy97Q" transform="translate(830 642)">
+			<rect x="0" y="0" width="100" height="80" rx="3" ry="0" fill="url(#TaskWidget)" stroke="#325A6E" stroke-width="1" />
+			<image x="6" y="5" width="12" height="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMGDzMGWyOmbgAAA3lJREFUOMtt009IIwcYBfCXmQSNzWKymozDmGgyGlwlYEBNNFvcHuKfCLJ0IwmKB/Xioeeyh6UIFi/FqpR6KdQWsQqCWMSDJgfTUnZTUPQUYgyKNoyTxDHRmTUxmbgXe6j0Xb53+p2+BzymoaGhFgAJgGlra9vx+/2nJpPpHQAFTdPVtbW1avxPiMfr0Gg0C0aj8Su9Xm/u7Oxs9Hq99QRBMCqVqlmr1X5HEMQ7mqYrngIkwzC1Fovl27GxsS8pinqpUqm+cLvdrM1mU1xcXNSXl5f3+3w+tyzL7cfHx+/z+Xz8P8Dt7a308PBAmUyml5OTkxqPx1PNMIwin8/D6XRWRCIRgyiKiqOjozhBED9ks9kMACWAEh5LTaFQ+DsSiVwolcoXm5ubWFlZgSzLcDgcyOVyGBoaQiKRKJ2cnFSzLPuaIIgKURS/5zjuo9Jut//scDjYjo4OczabxdLSEux2O7RaLYLBIOx2O+rq6qDRaF5wHLfs9XpNJEkqAoFAAcCssqmpydrb21tvtVohCAKKxSL0ej2Gh4fR19cHi8WCmpoaTE1NKUZHR60URWF5eZmXJCkDoEgmk8lnwWDwmOf5epfLVSEIAkKhEFwuF4xGIzY2NhAIBBCPx+F0OpFMJjEzM7OZSqW+AQBSkqQ/s9nsaVlZWX80GjVkMhnQNI3BwUGsr6/DZDJhZGQEV1dXCIfD/yKfGQyGplKp1EpqNJpqlmWn/H6/WxRFhc/ng8fjAUVR2NnZwfj4OBiGAU3T2N3dRU9PD2w22/Pm5uY2juMspMFgeLi/v7fLsty+v79/GovFrg4PD5+3t7crYrEYJEmCXq/H3t4eRFEEy7KYn59Ph0Khf87Ozj4oAICm6QpBED6vrKyMqdVqQyaT+XV1ddVKURS2t7eRTqdRVVWFgYEBpFIpTExM/May7Fu1Wi2RACCKYkGW5bgkSRmdTvemv7//TXd3t/L6+hpdXV1wu91obGwEx3HQarUoFotMOBzmDg4O/iCfvLZSp9O9slqtryKRyNX09PSmIAjPWlpadHNzc8nZ2dnfS6USUygUyqPR6F83NzcflE+AYi6XW9ja2irlcrmMw+H45fLy8qdEImFOp9N8a2vr12tra+8BqHmeXwAgPwXAcdxHALMAind3d8poNHq2uLh4dn5+fmA2myWe5398XLEMAJ8A2O6CyKJroc0AAAAASUVORK5CYII=" />
+			<text y="28" text-anchor="middle" fill="#000000">
+				<tspan x="51" dy="11">Archive</tspan>
+				<tspan x="51" dy="11">Invoice</tspan>
+				
+			</text>
+			
+		</g>
+		<g id="_2kh5QB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="707,100 707,80" />
+			
+		</g>
+		<g id="_2kh5QB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="707,80 707,64" />
+			
+		</g>
+		<g id="_2kh5QB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="707,64 766,64" />
+			<g transform="translate(766,64)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5Xh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="578,522 637,522" />
+			
+		</g>
+		<g id="_2kh5Xh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="637,522 637,682" />
+			
+		</g>
+		<g id="_2kh5Xh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="637,682 688,682" />
+			<g transform="translate(688,682)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5QR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="450,120 470,120" />
+			
+		</g>
+		<g id="_2kh5QR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="470,120 470,120" />
+			
+		</g>
+		<g id="_2kh5QR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="470,120 490,120" />
+			<g transform="translate(490,120)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5Qh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="525,120 543,120" />
+			
+		</g>
+		<g id="_2kh5Qh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="543,120 544,120" />
+			
+		</g>
+		<g id="_2kh5Qh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="544,120 562,120" />
+			<g transform="translate(562,120)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5Qx8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="302,120 326,120" />
+			
+		</g>
+		<g id="_2kh5Qx8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="326,120 326,120" />
+			
+		</g>
+		<g id="_2kh5Qx8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="326,120 350,120" />
+			<g transform="translate(350,120)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5RB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="707,140 707,160" />
+			
+		</g>
+		<g id="_2kh5RB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="707,160 707,161" />
+			
+		</g>
+		<g id="_2kh5RB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="707,161 766,161" />
+			<g transform="translate(766,161)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5YB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="558,502 558,482" />
+			
+		</g>
+		<g id="_2kh5YB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="558,482 558,349" />
+			
+		</g>
+		<g id="_2kh5YB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="558,349 598,349" />
+			<g transform="translate(598,349)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSNB8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="881,201 881,241" />
+			<g transform="translate(881,201)">
+				<g transform="rotate(0)">
+					<ellipse fill-opacity="1.0" cx="0" cy="0" rx="4" ry="4" fill="#FFF" stroke="#333" stroke-width="1.0" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSNB8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="881,241 664,241" />
+			
+		</g>
+		<g id="_2khSNB8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="664,241 664,309" />
+			<g transform="translate(664,309)">
+				<g transform="rotate(-180)">
+					<polyline fill="#FFF" stroke-width="1" stroke="#7E7E7E" points="-6,10 0,1 6,10 -6,10" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSNR8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="611,160 611,241" />
+			<g transform="translate(611,160)">
+				<g transform="rotate(0)">
+					<ellipse fill-opacity="1.0" cx="0" cy="0" rx="4" ry="4" fill="#FFF" stroke="#333" stroke-width="1.0" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSNR8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="611,241 296,241" />
+			
+		</g>
+		<g id="_2khSNR8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="296,241 296,309" />
+			<g transform="translate(296,309)">
+				<g transform="rotate(-180)">
+					<polyline fill="#FFF" stroke-width="1" stroke="#7E7E7E" points="-6,10 0,1 6,10 -6,10" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5Yh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="763,329 763,292" />
+			
+		</g>
+		<g id="_2kh5Yh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="763,292 453,292" />
+			
+		</g>
+		<g id="_2kh5Yh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="453,292 453,482" />
+			<g transform="translate(453,482)">
+				<g transform="rotate(-180)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5ZB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="783,349 879,349" />
+			
+		</g>
+		<g id="_2kh5ZB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="879,349 880,349" />
+			
+		</g>
+		<g id="_2kh5ZB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="880,349 976,349" />
+			<g transform="translate(976,349)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kigUB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="503,522 520,522" />
+			
+		</g>
+		<g id="_2kigUB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="520,522 521,522" />
+			
+		</g>
+		<g id="_2kigUB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="521,522 538,522" />
+			<g transform="translate(538,522)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5RR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="932,161 954,161" />
+			
+		</g>
+		<g id="_2kh5RR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="954,161 954,161" />
+			
+		</g>
+		<g id="_2kh5RR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="954,161 976,161" />
+			<g transform="translate(976,161)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kigUR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="698,349 720,349" />
+			
+		</g>
+		<g id="_2kigUR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="720,349 721,349" />
+			
+		</g>
+		<g id="_2kigUR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="721,349 743,349" />
+			<g transform="translate(743,349)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSNh8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="251,160 251,240" />
+			<g transform="translate(251,160)">
+				<g transform="rotate(0)">
+					<ellipse fill-opacity="1.0" cx="0" cy="0" rx="4" ry="4" fill="#FFF" stroke="#333" stroke-width="1.0" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSNh8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="251,240 160,240" />
+			
+		</g>
+		<g id="_2khSNh8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="160,240 160,334" />
+			<g transform="translate(160,334)">
+				<g transform="rotate(-180)">
+					<polyline fill="#FFF" stroke-width="1" stroke="#7E7E7E" points="-6,10 0,1 6,10 -6,10" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5Rh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="801,161 816,161" />
+			
+		</g>
+		<g id="_2kh5Rh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="816,161 817,161" />
+			
+		</g>
+		<g id="_2kh5Rh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="817,161 832,161" />
+			<g transform="translate(832,161)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kigUh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="330,349 360,349" />
+			
+		</g>
+		<g id="_2kigUh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="360,349 360,522" />
+			
+		</g>
+		<g id="_2kigUh8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="360,522 403,522" />
+			<g transform="translate(403,522)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSNx8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="263,309 263,222" />
+			<g transform="translate(263,309)">
+				<g transform="rotate(-180)">
+					<ellipse fill-opacity="1.0" cx="0" cy="0" rx="4" ry="4" fill="#FFF" stroke="#333" stroke-width="1.0" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSNx8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="263,222 505,222" />
+			
+		</g>
+		<g id="_2khSNx8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="505,222 505,140" />
+			<g transform="translate(505,140)">
+				<g transform="rotate(0)">
+					<polyline fill="#FFF" stroke-width="1" stroke="#7E7E7E" points="-6,10 0,1 6,10 -6,10" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSOB8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="631,309 631,224" />
+			<g transform="translate(631,309)">
+				<g transform="rotate(-180)">
+					<ellipse fill-opacity="1.0" cx="0" cy="0" rx="4" ry="4" fill="#FFF" stroke="#333" stroke-width="1.0" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2khSOB8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="631,224 781,224" />
+			
+		</g>
+		<g id="_2khSOB8iEeW9keBtFZy97Q">
+			<polyline stroke-dasharray="4, 4" fill="none" stroke-width="1" stroke="#333" points="781,224 781,181" />
+			<g transform="translate(781,181)">
+				<g transform="rotate(0)">
+					<polyline fill="#FFF" stroke-width="1" stroke="#7E7E7E" points="-6,10 0,1 6,10 -6,10" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kigUx8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="788,682 809,682" />
+			
+		</g>
+		<g id="_2kigUx8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="809,682 809,682" />
+			
+		</g>
+		<g id="_2kigUx8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="809,682 830,682" />
+			<g transform="translate(830,682)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kigVB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="930,682 953,682" />
+			
+		</g>
+		<g id="_2kigVB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="953,682 953,682" />
+			
+		</g>
+		<g id="_2kigVB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="953,682 976,682" />
+			<g transform="translate(976,682)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kigVR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="180,349 205,349" />
+			
+		</g>
+		<g id="_2kigVR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="205,349 205,349" />
+			
+		</g>
+		<g id="_2kigVR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="205,349 230,349" />
+			<g transform="translate(230,349)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5Rx8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="801,64 888,64" />
+			
+		</g>
+		<g id="_2kh5Rx8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="888,64 889,64" />
+			
+		</g>
+		<g id="_2kh5Rx8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="889,64 976,64" />
+			<g transform="translate(976,64)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5SB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="662,120 674,120" />
+			
+		</g>
+		<g id="_2kh5SB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="674,120 675,120" />
+			
+		</g>
+		<g id="_2kh5SB8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="675,120 687,120" />
+			<g transform="translate(687,120)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_2kh5SR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="169,120 185,120" />
+			
+		</g>
+		<g id="_2kh5SR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="185,120 186,120" />
+			
+		</g>
+		<g id="_2kh5SR8iEeW9keBtFZy97Q">
+			<polyline fill="none" stroke-width="1" stroke="#7E7E7E" points="186,120 202,120" />
+			<g transform="translate(202,120)">
+				<g transform="rotate(90)">
+					<polyline fill="#000" stroke-width="1" stroke="#7E7E7E" points="-4,12 0,1 4,12 -4,12" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<text y="140" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="152" dy="11">Invoice</tspan>
+			<tspan x="152" dy="11">received</tspan>
+			
+		</text>
+		<text y="76" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="508" dy="11">Approver to</tspan>
+			<tspan x="508" dy="11">be assigned</tspan>
+			
+		</text>
+		<text y="117" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="784" dy="11">Invoice review</tspan>
+			<tspan x="784" dy="11">needed</tspan>
+			
+		</text>
+		<text y="37" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="784" dy="11">7 days</tspan>
+			
+		</text>
+		<text y="544" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="558" dy="11">Invoice</tspan>
+			<tspan x="558" dy="11">approved?</tspan>
+			
+		</text>
+		<text y="371" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="763" dy="11">Review</tspan>
+			<tspan x="763" dy="11">successful?</tspan>
+			
+		</text>
+		<text y="369" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="994" dy="11">Invoice not</tspan>
+			<tspan x="994" dy="11">processed</tspan>
+			
+		</text>
+		<text y="369" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="163" dy="11">Invoice</tspan>
+			<tspan x="163" dy="11">received</tspan>
+			
+		</text>
+		<text y="702" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="994" dy="11">Invoice</tspan>
+			<tspan x="994" dy="11">processed</tspan>
+			
+		</text>
+		<text y="74" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="529" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="596" dy="11">yes</tspan>
+			
+		</text>
+		<text y="122" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="122" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="122" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="163" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="483" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="574" dy="11">no</tspan>
+			
+		</text>
+		<text y="243" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="243" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="310" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="781" dy="11">yes</tspan>
+			
+		</text>
+		<text y="356" font-size="11" text-anchor="middle" fill="#000000">
+			<tspan x="799" dy="11">no</tspan>
+			
+		</text>
+		<text y="524" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="163" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="351" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="242" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="163" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="438" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="224" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="226" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="684" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="684" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="351" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="66" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="122" font-size="11" text-anchor="middle" fill="#000000"></text>
+		<text y="122" font-size="11" text-anchor="middle" fill="#000000"></text>
+		
+	</g>
+	
+</svg>

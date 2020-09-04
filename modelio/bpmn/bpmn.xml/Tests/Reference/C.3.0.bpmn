@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by Process Modeler 6 SR1 for Microsoft Visio (http://www.itp-commerce.com)-->
+<definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:itp="http://www.itp-commerce.com/BPMN2.0" xmlns:style="http://www.w4.eu/spec/DataComposer/20120927/Diagram/Style" xmlns:w4="http://www.w4.eu/spec/BPMN/20110701/MODEL" xmlns:w4graph="http://www.w4.eu/spec/BPMN/20110930/GRAPH" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL schemas/BPMN20.xsd" id="_5033f8b0-0396-494b-a52c-787034420443" itp:version="1.0" itp:author="Stephan Fischli" itp:creationDate="04.11.2008 15:43:58" itp:modificationDate="26.03.2015 10:49:31" itp:createdWithVersion="5.2739.13641 SR6" itp:conformanceSubClass="Full" w4:version="1.0" exporter="W4_BPMN_Composer" exporterVersion="9.2.0.0" expressionLanguage="http://www.w3.org/1999/XPath" name="Fridge Repair Service" targetNamespace="http://www.itp-commerce.com" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="_8170787a-3207-434d-9bea-4787059f444f" name="Fridge Repair Process" isExecutable="true" processType="Private">
+    <extensionElements>
+      <itp:systemDefinedAttributes>
+        <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+        <attribute name="ExternalId" type="String"/>
+        <attribute name="KPICost" type="Float" value="1" format="Currency;Fr.;;KPI;2"/>
+        <attribute name="KPIDuration" type="Float" value="1" format="Duration;;;KPI;3">
+          <attribute name="KPIActiveTime" type="Float" value="1" format="Duration;;;KPI;3"/>
+          <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3"/>
+        </attribute>
+        <attribute name="QualityAnalysis" type="String">
+          <attribute name="KeyData" type="String">
+            <attribute name="ElementsCountKey" type="String" value="43"/>
+            <attribute name="ErrorsKey" type="String" value="0"/>
+            <attribute name="WarningsKey" type="String" value="0"/>
+            <attribute name="InformationKey" type="String" value="0"/>
+            <attribute name="MethodAndStyleKey" type="String" value="0"/>
+            <attribute name="eCHKey" type="String" value="0"/>
+            <attribute name="DescriptiveConformanceSubClassKey" type="String" value="41"/>
+            <attribute name="AnalyticConformanceSubClassKey" type="String" value="43"/>
+            <attribute name="ExecutableConformanceSubClassKey" type="String" value="41"/>
+            <attribute name="StartEventsKey" type="String" value="1"/>
+            <attribute name="ActivitiesKey" type="String" value="1"/>
+            <attribute name="SubLevelsKey" type="String" value="1"/>
+            <attribute name="GatewaysKey" type="String" value="3"/>
+            <attribute name="GatesKey" type="String" value="0"/>
+            <attribute name="BlackboxPoolsKey" type="String" value="2"/>
+            <attribute name="UnlinkedSubProcessesKey" type="String" value="0"/>
+            <attribute name="UnlinkedCallActivitiesKey" type="String" value="0"/>
+            <attribute name="EndMessageEventsKey" type="String" value="1"/>
+            <attribute name="TypedTasksKey" type="String" value="7"/>
+            <attribute name="UntypedTasksKey" type="String" value="0"/>
+            <attribute name="ReadingDataObjectsKey" type="String" value="0"/>
+            <attribute name="WritingDataObjectsKey" type="String" value="0"/>
+            <attribute name="UnnamedDataObjectsKey" type="String" value="0"/>
+            <attribute name="UnnamedDataStoresKey" type="String" value="0"/>
+            <attribute name="ActivitesWithoutRoleKey" type="String" value="0"/>
+            <attribute name="TextAnnotationFlowElementRatioKey" type="String" value="0"/>
+            <attribute name="OrComplexGatewaysKey" type="String" value="0"/>
+            <attribute name="CollaborationTasksKey" type="String" value="0"/>
+          </attribute>
+          <attribute name="ProcessAnalysis" type="String" value="98"/>
+          <attribute name="ProcessExecution" type="String" value="71"/>
+          <attribute name="DiagramInterchange" type="String" value="71"/>
+          <attribute name="ProcessSimulation" type="String" value="100"/>
+        </attribute>
+      </itp:systemDefinedAttributes>
+      <w4graph:graphStyle>
+        <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        <w4graph:root gridVisible="true" snapToGrid="true" rulerVisible="true" snapToGuide="true" rulerUnit="Pixels">
+          <Grid spacing="15" color="230,230,230"/>
+          <VerticalRuler/>
+          <HorizontalRuler/>
+        </w4graph:root>
+      </w4graph:graphStyle>
+    </extensionElements>
+    <startEvent id="_cc9778bd-edd8-4df2-ba15-56c310f90e62" name="Receive customer request" isInterrupting="true">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="109,183,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <outgoing>_a5af06ae-bd69-464d-bbaf-3d7418702d77</outgoing>
+      <messageEventDefinition id="Bpmn_MessageEventDefinition_vaRFsAO9EeWi8fS3WiOizw" messageRef="_6840c92f-f02c-46b3-9565-f5e5b1792ba0"/>
+    </startEvent>
+    <userTask id="_c73a5f4a-72f1-4e11-bb40-2f98da75fb9a" name="Analyse customer request" completionQuantity="2" isForCompensation="false" startQuantity="2" implementation="##WebService">
+      <documentation id="Bpmn_Documentation_jcmzwe_bEeSGoscwBjzAjw" textFormat="text/plain">First contact with customer</documentation>
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+          <attribute name="KPICost" type="Float" value="0" format="Currency;SFr.;;KPI;2"/>
+          <attribute name="KPIDuration" type="Float" value="120" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="120" format="Duration;;;KPI;3;0.5"/>
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3"/>
+          </attribute>
+          <attribute name="Resource" type="String" value="PHBlcmZvcm1lci1hc3NpZ25tZW50cz4NCiAgPHBlcmZvcm1lci1hc3NpZ25tZW50IHNjZW5hcmlvLXJlZi1pZD0iNTE4MDY2MTEtZDdlYy00MWY3LTgxNzMtYjAxYjk2OWUxOTc0IiBwZXJmb3JtZXItcmVmLWlkPSJkZmJjMzg4OC05ZDI1LTQzYjktYWEyYS02NzAxZDYwMzhlYTAiIHByaW9yaXR5PSI0IiBtYXgtY2FwYWNpdHk9IjEwMCIgY3JpdGljYWwtY2FwYWNpdHk9IjgwIiAvPg0KPC9wZXJmb3JtZXItYXNzaWdubWVudHM+"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>_a5af06ae-bd69-464d-bbaf-3d7418702d77</incoming>
+      <outgoing>_acb2aca3-8851-48f0-b127-7b3c9db5e18d</outgoing>
+      <potentialOwner id="Bpmn_PotentialOwner_H_12wBqHEeWDuOtG0oS24A" name="Potential Owner">
+        <resourceRef>Bpmn_Resource__7wrkBqGEeWDuOtG0oS24A</resourceRef>
+      </potentialOwner>
+    </userTask>
+    <userTask id="_a92069f7-377b-4dbd-a1fd-1da071aabf6d" name="Replace fridge" completionQuantity="1" isForCompensation="false" startQuantity="1" implementation="WebService">
+      <documentation id="Bpmn_Documentation_jcna0O_bEeSGoscwBjzAjw" textFormat="text/plain">Fridge replaced if still under warranty.</documentation>
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+          <attribute name="KPICost" type="Float" value="0" format="Currency;SFr.;;KPI;2"/>
+          <attribute name="KPIDuration" type="Float" value="60" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="60" format="Duration;;;KPI;3;0.5"/>
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3"/>
+          </attribute>
+          <attribute name="Resource" type="String" value="PHBlcmZvcm1lci1hc3NpZ25tZW50cz4NCiAgPHBlcmZvcm1lci1hc3NpZ25tZW50IHNjZW5hcmlvLXJlZi1pZD0iNTE4MDY2MTEtZDdlYy00MWY3LTgxNzMtYjAxYjk2OWUxOTc0IiBwZXJmb3JtZXItcmVmLWlkPSJkZmJjMzg4OC05ZDI1LTQzYjktYWEyYS02NzAxZDYwMzhlYTAiIG1heC1jYXBhY2l0eT0iMTAwIiBjcml0aWNhbC1jYXBhY2l0eT0iODAiIC8+DQo8L3BlcmZvcm1lci1hc3NpZ25tZW50cz4="/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>_b99800c3-c340-460c-a43e-098014a365d0</incoming>
+      <incoming>_3fb323d5-2c59-487a-af63-804208f6c5cb</incoming>
+      <outgoing>_c5756bb9-6e6f-42d1-8799-c2d673499eb8</outgoing>
+    </userTask>
+    <endEvent id="_177bd313-c6c9-4df5-8f82-313beb30d2eb" name="Fridge replaced">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="190,0,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>_c5756bb9-6e6f-42d1-8799-c2d673499eb8</incoming>
+    </endEvent>
+    <exclusiveGateway id="_604be023-654c-44df-a64c-365254a100cd" name="Service type" gatewayDirection="Diverging">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="185,139,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>_acb2aca3-8851-48f0-b127-7b3c9db5e18d</incoming>
+      <outgoing>_b99800c3-c340-460c-a43e-098014a365d0</outgoing>
+      <outgoing>_437e5969-1e61-4cb9-aa76-4f8854f32eeb</outgoing>
+      <outgoing>_ada039b6-94dd-4a15-a6b1-c7fe662c64ee</outgoing>
+    </exclusiveGateway>
+    <endEvent id="_b3dc1906-d4d3-40c5-aaf6-5a74148ae887" name="Emergency repair completed">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="190,0,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>_cf380e47-1401-4e7e-b710-193b626e49eb</incoming>
+    </endEvent>
+    <exclusiveGateway id="_2b6bc88e-d3be-4704-87d1-c264bf704589" name="Service level" gatewayDirection="Diverging">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="185,139,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>_ada039b6-94dd-4a15-a6b1-c7fe662c64ee</incoming>
+      <outgoing>_cddf9325-a85b-4347-8c57-8b909fa77ae9</outgoing>
+      <outgoing>_be893987-caec-4605-b078-bd96b7cd6c12</outgoing>
+    </exclusiveGateway>
+    <userTask id="_d034722f-751d-4f37-a3d7-47993822e979" name="Perform repair (standard level)" completionQuantity="1" isForCompensation="false" startQuantity="1" implementation="WebService">
+      <documentation id="Bpmn_Documentation_jcoo8O_bEeSGoscwBjzAjw" textFormat="text/plain"><![CDATA[Standard service level is common for most customer support.
+This level guarantees the fridge will be repaired in a reasonable amount of time.
+Customers may decide to raise the service level to Premium while waiting for the standard service to solve the issue.]]></documentation>
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+          <attribute name="KPICost" type="Float" value="0" format="Currency;SFr.;;KPI;2"/>
+          <attribute name="KPIDuration" type="Float" value="36000" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="21600" format="Duration;;;KPI;3;0.3"/>
+            <attribute name="KPIWaitTime" type="Float" value="14400" format="Duration;;;KPI;3"/>
+          </attribute>
+          <attribute name="Resource" type="String" value="PHBlcmZvcm1lci1hc3NpZ25tZW50cz4NCiAgPHBlcmZvcm1lci1hc3NpZ25tZW50IHNjZW5hcmlvLXJlZi1pZD0iNTE4MDY2MTEtZDdlYy00MWY3LTgxNzMtYjAxYjk2OWUxOTc0IiBwZXJmb3JtZXItcmVmLWlkPSIxYWZkYWNjMS0zMDk4LTQ4YzAtOGUwNS1mYWQwZjZkMTg5OTAiIG1heC1jYXBhY2l0eT0iMjAwIiBjcml0aWNhbC1jYXBhY2l0eT0iMTgwIiAvPg0KPC9wZXJmb3JtZXItYXNzaWdubWVudHM+"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>_cddf9325-a85b-4347-8c57-8b909fa77ae9</incoming>
+      <outgoing>_435d9320-bbf4-48ad-aa56-16cb5483e95b</outgoing>
+    </userTask>
+    <userTask id="_6a34496f-8cf7-42e5-88a9-d1af98cc3cba" name="Perform repair (premium level)" completionQuantity="1" isForCompensation="false" startQuantity="1" implementation="WebService">
+      <documentation id="Bpmn_Documentation_jcoo8e_bEeSGoscwBjzAjw" textFormat="text/plain"><![CDATA[These customers get special service in case of damage.
+This service level guarantees less than two days to solve the issue.]]></documentation>
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+          <attribute name="KPICost" type="Float" value="0" format="Currency;SFr.;;KPI;2"/>
+          <attribute name="KPIDuration" type="Float" value="8100" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="7200" format="Duration;;;KPI;3;0.3"/>
+            <attribute name="KPIWaitTime" type="Float" value="900" format="Duration;;;KPI;3"/>
+          </attribute>
+          <attribute name="Resource" type="String" value="PHBlcmZvcm1lci1hc3NpZ25tZW50cz4NCiAgPHBlcmZvcm1lci1hc3NpZ25tZW50IHNjZW5hcmlvLXJlZi1pZD0iNTE4MDY2MTEtZDdlYy00MWY3LTgxNzMtYjAxYjk2OWUxOTc0IiBwZXJmb3JtZXItcmVmLWlkPSJkOGIzZTMyZC1lMDRmLTRhYzgtOWYyMC0wZDkzMTI3YWZlYWUiIHByaW9yaXR5PSI0IiBtYXgtY2FwYWNpdHk9IjEwMCIgY3JpdGljYWwtY2FwYWNpdHk9IjgwIiAvPg0KPC9wZXJmb3JtZXItYXNzaWdubWVudHM+"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>_be893987-caec-4605-b078-bd96b7cd6c12</incoming>
+      <incoming>Bpmn_SequenceFlow_-dQQwBqHEeWDuOtG0oS24A</incoming>
+      <outgoing>_d54c5707-af7a-4b36-a059-46681bbf0004</outgoing>
+    </userTask>
+    <endEvent id="_dcee5c64-3010-4ee5-b480-bce856e6f29c" name="Repair completed">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="190,0,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>_435d9320-bbf4-48ad-aa56-16cb5483e95b</incoming>
+      <incoming>_d54c5707-af7a-4b36-a059-46681bbf0004</incoming>
+    </endEvent>
+    <exclusiveGateway id="_936c0bfa-5ebf-4546-8d1a-cce556148788" name="Successful?" gatewayDirection="Diverging">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="185,139,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>_b22c01a4-1eef-4f52-9b16-a201a9621619</incoming>
+      <outgoing>_cf380e47-1401-4e7e-b710-193b626e49eb</outgoing>
+      <outgoing>_3fb323d5-2c59-487a-af63-804208f6c5cb</outgoing>
+    </exclusiveGateway>
+    <subProcess id="_cd6f230f-13c3-4027-aa3e-57de601a1ab2" itp:isCollapsed="true" itp:logicalSheetId="fc8f260a-6c44-4b3d-84e1-7a58181d251b" name="Perform emergency repair" completionQuantity="1" isForCompensation="false" startQuantity="1" triggeredByEvent="false">
+      <documentation id="Bpmn_Documentation_jcpQAO_bEeSGoscwBjzAjw" textFormat="text/plain">This is a special case for handling emergencies for clients such as Hospitals or Commercial fridges.</documentation>
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+          <attribute name="KPICost" type="Float" value="0" format="Currency;SFr.;;KPI;2"/>
+          <attribute name="KPIDuration" type="Float" value="14400" format="Duration;;;KPI;3">
+            <attribute name="KPIActiveTime" type="Float" value="14400" format="Duration;;;KPI;3;0.3"/>
+            <attribute name="KPIWaitTime" type="Float" value="0" format="Duration;;;KPI;3"/>
+          </attribute>
+          <attribute name="Resource" type="String" value="PHBlcmZvcm1lci1hc3NpZ25tZW50cz4NCiAgPHBlcmZvcm1lci1hc3NpZ25tZW50IHNjZW5hcmlvLXJlZi1pZD0iNTE4MDY2MTEtZDdlYy00MWY3LTgxNzMtYjAxYjk2OWUxOTc0IiBwZXJmb3JtZXItcmVmLWlkPSI4YjY4ZjIxOS1jOGU2LTQ5ODctYjAyMi1iNTgwMTYyM2YzOTciIG1heC1jYXBhY2l0eT0iMTAwIiBjcml0aWNhbC1jYXBhY2l0eT0iODAiIC8+DQo8L3BlcmZvcm1lci1hc3NpZ25tZW50cz4="/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="153,153,153" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <incoming>_437e5969-1e61-4cb9-aa76-4f8854f32eeb</incoming>
+      <incoming>Bpmn_SequenceFlow_tcbpgBqGEeWDuOtG0oS24A</incoming>
+      <outgoing>_b22c01a4-1eef-4f52-9b16-a201a9621619</outgoing>
+    </subProcess>
+    <sequenceFlow id="_acb2aca3-8851-48f0-b127-7b3c9db5e18d" sourceRef="_c73a5f4a-72f1-4e11-bb40-2f98da75fb9a" targetRef="_604be023-654c-44df-a64c-365254a100cd">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="_b99800c3-c340-460c-a43e-098014a365d0" name="Warranty" sourceRef="_604be023-654c-44df-a64c-365254a100cd" targetRef="_a92069f7-377b-4dbd-a1fd-1da071aabf6d">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="false" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="_437e5969-1e61-4cb9-aa76-4f8854f32eeb" name="Emergency service" sourceRef="_604be023-654c-44df-a64c-365254a100cd" targetRef="_cd6f230f-13c3-4027-aa3e-57de601a1ab2">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="_ada039b6-94dd-4a15-a6b1-c7fe662c64ee" name="Regular repair service" sourceRef="_604be023-654c-44df-a64c-365254a100cd" targetRef="_2b6bc88e-d3be-4704-87d1-c264bf704589">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="false" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="_cddf9325-a85b-4347-8c57-8b909fa77ae9" name="Standard" sourceRef="_2b6bc88e-d3be-4704-87d1-c264bf704589" targetRef="_d034722f-751d-4f37-a3d7-47993822e979">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="false" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="_be893987-caec-4605-b078-bd96b7cd6c12" name="Premium" sourceRef="_2b6bc88e-d3be-4704-87d1-c264bf704589" targetRef="_6a34496f-8cf7-42e5-88a9-d1af98cc3cba">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <conditionExpression xsi:type="tFormalExpression" id="Bpmn_FormalExpression_ipW2kBqIEeWDuOtG0oS24A"><![CDATA[Service Level == 'Premium']]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_435d9320-bbf4-48ad-aa56-16cb5483e95b" sourceRef="_d034722f-751d-4f37-a3d7-47993822e979" targetRef="_dcee5c64-3010-4ee5-b480-bce856e6f29c">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="false" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="_d54c5707-af7a-4b36-a059-46681bbf0004" sourceRef="_6a34496f-8cf7-42e5-88a9-d1af98cc3cba" targetRef="_dcee5c64-3010-4ee5-b480-bce856e6f29c">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="_b22c01a4-1eef-4f52-9b16-a201a9621619" sourceRef="_cd6f230f-13c3-4027-aa3e-57de601a1ab2" targetRef="_936c0bfa-5ebf-4546-8d1a-cce556148788">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="_c5756bb9-6e6f-42d1-8799-c2d673499eb8" sourceRef="_a92069f7-377b-4dbd-a1fd-1da071aabf6d" targetRef="_177bd313-c6c9-4df5-8f82-313beb30d2eb">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="_cf380e47-1401-4e7e-b710-193b626e49eb" name="yes" sourceRef="_936c0bfa-5ebf-4546-8d1a-cce556148788" targetRef="_b3dc1906-d4d3-40c5-aaf6-5a74148ae887">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="_3fb323d5-2c59-487a-af63-804208f6c5cb" name="no" sourceRef="_936c0bfa-5ebf-4546-8d1a-cce556148788" targetRef="_a92069f7-377b-4dbd-a1fd-1da071aabf6d">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="false" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="_a5af06ae-bd69-464d-bbaf-3d7418702d77" sourceRef="_cc9778bd-edd8-4df2-ba15-56c310f90e62" targetRef="_c73a5f4a-72f1-4e11-bb40-2f98da75fb9a">
+      <extensionElements>
+        <itp:systemDefinedAttributes>
+          <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+          <attribute name="ExternalId" type="String"/>
+        </itp:systemDefinedAttributes>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <boundaryEvent id="Bpmn_BoundaryEvent_sS9gABqGEeWDuOtG0oS24A" name="2 hours" attachedToRef="_6a34496f-8cf7-42e5-88a9-d1af98cc3cba" cancelActivity="true">
+      <extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="0,0,0" foreground="0,0,0" autoResize="false" borderColor="255,255,255" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <outgoing>Bpmn_SequenceFlow_tcbpgBqGEeWDuOtG0oS24A</outgoing>
+      <timerEventDefinition id="Bpmn_TimerEventDefinition_88uHkBqGEeWDuOtG0oS24A">
+        <timeDuration xsi:type="tFormalExpression" id="Bpmn_FormalExpression_8pPK4BqGEeWDuOtG0oS24A" language="http://www.w3.org/1999/XPath"><![CDATA[PT2H]]></timeDuration>
+      </timerEventDefinition>
+    </boundaryEvent>
+    <sequenceFlow id="Bpmn_SequenceFlow_tcbpgBqGEeWDuOtG0oS24A" isImmediate="true" sourceRef="Bpmn_BoundaryEvent_sS9gABqGEeWDuOtG0oS24A" targetRef="_cd6f230f-13c3-4027-aa3e-57de601a1ab2">
+      <extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="false" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+    <boundaryEvent id="Bpmn_BoundaryEvent_LwKtwhqHEeWDuOtG0oS24A" name="" attachedToRef="_d034722f-751d-4f37-a3d7-47993822e979" cancelActivity="true">
+      <extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="0,0,0" foreground="0,0,0" autoResize="false" borderColor="255,255,255" collapsed="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+      <outgoing>Bpmn_SequenceFlow_-dQQwBqHEeWDuOtG0oS24A</outgoing>
+      <messageEventDefinition id="Bpmn_MessageEventDefinition_zhREUBqHEeWDuOtG0oS24A" messageRef="_6840c92f-f02c-46b3-9565-f5e5b1792ba0"/>
+    </boundaryEvent>
+    <sequenceFlow id="Bpmn_SequenceFlow_-dQQwBqHEeWDuOtG0oS24A" isImmediate="true" sourceRef="Bpmn_BoundaryEvent_LwKtwhqHEeWDuOtG0oS24A" targetRef="_6a34496f-8cf7-42e5-88a9-d1af98cc3cba">
+      <extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="false" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </extensionElements>
+    </sequenceFlow>
+  </process>
+  <message id="_6840c92f-f02c-46b3-9565-f5e5b1792ba0" name="Service Level">
+    <extensionElements>
+      <itp:systemDefinedAttributes>
+        <attribute name="Hyperlinks" type="String" value="0 Hyperlinks"/>
+        <attribute name="ExternalId" type="String"/>
+      </itp:systemDefinedAttributes>
+    </extensionElements>
+  </message>
+  <resource id="Bpmn_Resource__7wrkBqGEeWDuOtG0oS24A" name="User"/>
+  <bpmndi:BPMNDiagram id="Bpmndi_BPMNDiagram_jcwkwO_bEeSGoscwBjzAjw" name="Fridge Repair Process (1)" resolution="72.0">
+    <bpmndi:BPMNPlane id="_1" bpmnElement="_8170787a-3207-434d-9bea-4787059f444f">
+      <bpmndi:BPMNShape id="_1BF9B2F3-F30D-4FD6-A820-C247ADFA711C" itp:label="Receive customer request" itp:elementType="startEvent" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_cc9778bd-edd8-4df2-ba15-56c310f90e62">
+        <dc:Bounds height="17.0" width="17.0" x="64.0" y="140.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jcxy4O_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="28.0" width="95.0" x="25.0" y="157.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_E1F1DCD4-3EF3-4AE1-A299-CA9DD87394A9" itp:label="Analyse customer request" itp:elementType="userTask" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_c73a5f4a-72f1-4e11-bb40-2f98da75fb9a">
+        <dc:Bounds height="59.0" width="121.0" x="164.0" y="119.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jcxy4e_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="28.0" width="101.0" x="174.0" y="134.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_435CF240-46A5-42AD-BF44-42FFC0F07528" itp:label="Replace fridge" itp:elementType="userTask" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_a92069f7-377b-4dbd-a1fd-1da071aabf6d">
+        <dc:Bounds height="59.0" width="121.0" x="728.0" y="82.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jcxy4u_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="85.0" x="746.0" y="104.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_EAB1A438-E5B0-499F-A12D-AF064D4E8CC0" itp:label="Fridge replaced" itp:elementType="endEvent" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_177bd313-c6c9-4df5-8f82-313beb30d2eb">
+        <dc:Bounds height="17.0" width="17.0" x="968.0" y="102.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jcxy4-_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="83.0" x="935.0" y="119.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_E1E0CD2C-68F5-4FA5-8030-3EC58F72EA27" itp:label="Service type" itp:elementType="exclusiveGateway" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_604be023-654c-44df-a64c-365254a100cd">
+        <dc:Bounds height="31.0" width="31.0" x="369.0" y="133.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jcyZ8O_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="69.0" x="400.0" y="164.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_76095EFE-FB8D-4DE6-814F-2270E01AD1B6" itp:label="Emergency repair completed" itp:elementType="endEvent" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_b3dc1906-d4d3-40c5-aaf6-5a74148ae887">
+        <dc:Bounds height="17.0" width="17.0" x="960.0" y="252.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jcyZ8e_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="28.0" width="95.0" x="921.0" y="269.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_E906D9C4-7070-4E7D-AAFE-0465F605AA03" itp:label="Service level" itp:elementType="exclusiveGateway" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_2b6bc88e-d3be-4704-87d1-c264bf704589">
+        <dc:Bounds height="31.0" width="31.0" x="369.0" y="430.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jcyZ8u_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="73.0" x="296.0" y="461.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_4DEC803E-A8C9-45DF-B46D-586C0E00B70D" itp:label="Perform repair (standard level)" itp:elementType="userTask" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_d034722f-751d-4f37-a3d7-47993822e979">
+        <dc:Bounds height="59.0" width="121.0" x="504.0" y="584.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jcyZ8-_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="28.0" width="90.0" x="519.0" y="599.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_F97318A7-9E18-4D7D-89EC-3191F6897A72" itp:label="Perform repair (premium level)" itp:elementType="userTask" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_6a34496f-8cf7-42e5-88a9-d1af98cc3cba">
+        <dc:Bounds height="59.0" width="121.0" x="504.0" y="416.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jczBAO_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="28.0" width="87.0" x="521.0" y="431.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_A458F0A3-C866-435A-AA83-9EB586E9F159" itp:label="Repair completed" itp:elementType="endEvent" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_dcee5c64-3010-4ee5-b480-bce856e6f29c">
+        <dc:Bounds height="17.0" width="17.0" x="962.0" y="437.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jczBAe_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="91.0" x="925.0" y="423.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_C965CE25-28B4-4971-B66F-CBA0D6F291E0" itp:label="Successful?" itp:elementType="exclusiveGateway" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_936c0bfa-5ebf-4546-8d1a-cce556148788">
+        <dc:Bounds height="31.0" width="31.0" x="768.0" y="245.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jczBAu_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="69.0" x="749.0" y="276.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_44EE9D7D-A31D-463D-8804-483D05C6CF42" itp:label="Perform emergency repair" itp:elementType="subProcess" color:background-color="#ECECFF" color:border-color="#000000" bpmnElement="_cd6f230f-13c3-4027-aa3e-57de601a1ab2">
+        <dc:Bounds height="59.0" width="121.0" x="504.0" y="231.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jczBA-_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="28.0" width="97.0" x="516.0" y="246.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_0F47EA76-94CD-4643-A488-490A89F16822" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_acb2aca3-8851-48f0-b127-7b3c9db5e18d">
+        <di:waypoint xsi:type="dc:Point" x="285.0" y="149.0"/>
+        <di:waypoint xsi:type="dc:Point" x="369.0" y="149.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jczoEe_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="17.0" width="8.0" x="292.0" y="109.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_FF23DD77-941C-49B1-88AF-4847097E6B49" itp:label="Warranty" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_b99800c3-c340-460c-a43e-098014a365d0">
+        <di:waypoint xsi:type="dc:Point" x="385.0" y="133.0"/>
+        <di:waypoint xsi:type="dc:Point" x="385.0" y="111.0"/>
+        <di:waypoint xsi:type="dc:Point" x="728.0" y="111.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jczoEu_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="53.0" x="390.0" y="116.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_619D999C-1964-4026-A196-FE0113FDADA8" itp:label="Emergency service" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_437e5969-1e61-4cb9-aa76-4f8854f32eeb">
+        <di:waypoint xsi:type="dc:Point" x="400.0" y="149.0"/>
+        <di:waypoint xsi:type="dc:Point" x="564.0" y="149.0"/>
+        <di:waypoint xsi:type="dc:Point" x="564.0" y="231.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jc0PIO_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="101.0" x="569.0" y="154.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_8C0818ED-B4E7-46E6-BE2B-F3931A463889" itp:label="Regular repair service" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_ada039b6-94dd-4a15-a6b1-c7fe662c64ee">
+        <di:waypoint xsi:type="dc:Point" x="384.0" y="164.0"/>
+        <di:waypoint xsi:type="dc:Point" x="384.0" y="430.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jc0PIe_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="28.0" width="78.0" x="389.0" y="283.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_A456930F-0FE9-45B9-A4C0-EF465F0C9EC4" itp:label="Standard" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_cddf9325-a85b-4347-8c57-8b909fa77ae9">
+        <di:waypoint xsi:type="dc:Point" x="384.0" y="461.0"/>
+        <di:waypoint xsi:type="dc:Point" x="384.0" y="609.0"/>
+        <di:waypoint xsi:type="dc:Point" x="504.0" y="609.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jc0PIu_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="52.0" x="389.0" y="614.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_5FE8E799-C6D8-48A1-A9D1-9737073726D1" itp:label="Premium" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_be893987-caec-4605-b078-bd96b7cd6c12">
+        <di:waypoint xsi:type="dc:Point" x="400.0" y="446.0"/>
+        <di:waypoint xsi:type="dc:Point" x="504.0" y="446.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jc0PI-_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="48.0" x="428.0" y="451.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_4A53C1A1-42C9-4475-B6A9-3798D9EEEEFB" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_435d9320-bbf4-48ad-aa56-16cb5483e95b">
+        <di:waypoint xsi:type="dc:Point" x="625.0" y="612.0"/>
+        <di:waypoint xsi:type="dc:Point" x="969.0" y="612.0"/>
+        <di:waypoint xsi:type="dc:Point" x="969.0" y="454.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jc0PJO_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="17.0" width="8.0" x="974.0" y="617.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_7DF74040-E9E3-4DD4-A637-207B563C697F" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_d54c5707-af7a-4b36-a059-46681bbf0004">
+        <di:waypoint xsi:type="dc:Point" x="625.0" y="446.0"/>
+        <di:waypoint xsi:type="dc:Point" x="962.0" y="446.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jc02MO_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="17.0" width="8.0" x="657.0" y="304.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_1B6D3757-9455-4000-8CBF-162518262CC4" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_b22c01a4-1eef-4f52-9b16-a201a9621619">
+        <di:waypoint xsi:type="dc:Point" x="625.0" y="260.0"/>
+        <di:waypoint xsi:type="dc:Point" x="768.0" y="260.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jc02Mu_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="17.0" width="8.0" x="598.0" y="198.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_BEF6DF3F-AA58-4F04-A04B-DEED916C0B5E" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_c5756bb9-6e6f-42d1-8799-c2d673499eb8">
+        <di:waypoint xsi:type="dc:Point" x="849.0" y="112.0"/>
+        <di:waypoint xsi:type="dc:Point" x="968.0" y="112.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jc02M-_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="17.0" width="8.0" x="737.0" y="71.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_6E623C3D-0A6B-4933-935A-2941B81A4DAD" itp:label="yes" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_cf380e47-1401-4e7e-b710-193b626e49eb">
+        <di:waypoint xsi:type="dc:Point" x="799.0" y="261.0"/>
+        <di:waypoint xsi:type="dc:Point" x="960.0" y="261.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jc1dQO_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="26.0" x="866.0" y="266.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_ED4E0978-EEA1-48D8-97A6-CDE203B6FB79" itp:label="no" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_3fb323d5-2c59-487a-af63-804208f6c5cb">
+        <di:waypoint xsi:type="dc:Point" x="783.0" y="245.0"/>
+        <di:waypoint xsi:type="dc:Point" x="783.0" y="141.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jc1dQe_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="14.0" width="20.0" x="788.0" y="226.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_55E23507-9E27-4074-A5D7-FB4D8A0A5328" itp:label="(unnamed)" itp:elementType="sequenceFlow" color:border-color="#000000" bpmnElement="_a5af06ae-bd69-464d-bbaf-3d7418702d77">
+        <di:waypoint xsi:type="dc:Point" x="81.0" y="149.0"/>
+        <di:waypoint xsi:type="dc:Point" x="164.0" y="149.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_jc1dQu_bEeSGoscwBjzAjw" color:color="#000000" labelStyle="_ea62b61f-473a-454a-a9bc-14475ce28686">
+          <dc:Bounds height="17.0" width="8.0" x="138.0" y="109.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Bpmndi_BPMNShape_sUfxEBqGEeWDuOtG0oS24A" bpmnElement="Bpmn_BoundaryEvent_sS9gABqGEeWDuOtG0oS24A" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="24.0" width="24.0" x="552.0" y="463.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_sUfxERqGEeWDuOtG0oS24A" labelStyle="Bpmndi_BPMNLabelStyle_sWbDsRqGEeWDuOtG0oS24A">
+          <dc:Bounds height="13.0" width="48.0" x="576.0" y="487.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Bpmndi_BPMNEdge_tcukcBqGEeWDuOtG0oS24A" bpmnElement="Bpmn_SequenceFlow_tcbpgBqGEeWDuOtG0oS24A">
+        <di:waypoint xsi:type="dc:Point" x="564.0" y="487.0"/>
+        <di:waypoint xsi:type="dc:Point" x="564.0" y="517.0"/>
+        <di:waypoint xsi:type="dc:Point" x="651.0" y="517.0"/>
+        <di:waypoint xsi:type="dc:Point" x="651.0" y="342.0"/>
+        <di:waypoint xsi:type="dc:Point" x="532.0" y="342.0"/>
+        <di:waypoint xsi:type="dc:Point" x="532.0" y="290.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_tcukcRqGEeWDuOtG0oS24A" labelStyle="Bpmndi_BPMNLabelStyle_tdDUkBqGEeWDuOtG0oS24A">
+          <dc:Bounds height="16.0" width="1.0" x="656.0" y="435.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Bpmndi_BPMNShape_Lwzm8BqHEeWDuOtG0oS24A" bpmnElement="Bpmn_BoundaryEvent_LwKtwhqHEeWDuOtG0oS24A" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="24.0" width="24.0" x="552.0" y="631.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_Lwzm8RqHEeWDuOtG0oS24A" labelStyle="Bpmndi_BPMNLabelStyle_LxeVUBqHEeWDuOtG0oS24A">
+          <dc:Bounds height="15.0" width="84.0" x="576.0" y="655.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Bpmndi_BPMNEdge_-dRe4BqHEeWDuOtG0oS24A" bpmnElement="Bpmn_SequenceFlow_-dQQwBqHEeWDuOtG0oS24A">
+        <di:waypoint xsi:type="dc:Point" x="564.0" y="655.0"/>
+        <di:waypoint xsi:type="dc:Point" x="564.0" y="674.0"/>
+        <di:waypoint xsi:type="dc:Point" x="651.0" y="674.0"/>
+        <di:waypoint xsi:type="dc:Point" x="651.0" y="550.0"/>
+        <di:waypoint xsi:type="dc:Point" x="534.0" y="550.0"/>
+        <di:waypoint xsi:type="dc:Point" x="534.0" y="475.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_-dRe4RqHEeWDuOtG0oS24A" labelStyle="Bpmndi_BPMNLabelStyle_-dmPABqHEeWDuOtG0oS24A">
+          <dc:Bounds height="16.0" width="1.0" x="656.0" y="617.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="_ea62b61f-473a-454a-a9bc-14475ce28686">
+      <dc:Font name="Arial" size="8.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_sWbDsBqGEeWDuOtG0oS24A">
+      <dc:Font name="Segoe UI" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_sWbDsRqGEeWDuOtG0oS24A">
+      <dc:Font name="Segoe UI" size="8.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_tdDUkBqGEeWDuOtG0oS24A">
+      <dc:Font name="Segoe UI" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_LxeVUBqHEeWDuOtG0oS24A">
+      <dc:Font name="Segoe UI" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_PtBk4BqHEeWDuOtG0oS24A">
+      <dc:Font name="Segoe UI" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_8D_TUBqHEeWDuOtG0oS24A">
+      <dc:Font name="Segoe UI" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_-dmPABqHEeWDuOtG0oS24A">
+      <dc:Font name="Segoe UI" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</definitions>

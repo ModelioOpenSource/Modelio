@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://www.omg.org/bpmn/miwg/test/types/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1.0"
+           targetNamespace="http://www.omg.org/bpmn/miwg/test/types/">
+
+  <xs:element name="in_A_1_1" type="tns:in_A_1_1"/>
+
+  <xs:complexType name="in_A_1_1">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>

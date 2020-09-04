@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+    xmlns:miwg-types="http://www.omg.org/bpmn/miwg/test/types/" 
+    targetNamespace="http://www.omg.org/bpmn/miwg/test/types/">
+    
+    <element name="foo" type="miwg-types:FooType"/>
+    <complexType name="FooType">
+      <sequence></sequence>
+    </complexType>
+    
+    <element name="bar" type="miwg-types:BarType"/>
+    <complexType name="BarType">
+      <sequence></sequence>
+    </complexType>
+    
+</schema>

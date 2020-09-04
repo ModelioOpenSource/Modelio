@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_0jdUUIkYEeWbO4MnNK7ogg">
+  <imports xsi:type="menu:ToolBar" xmi:id="_d22GoPQmEeag-bDuoaZL-Q" elementId="browser.view.toolbar.0"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_egBmgPQmEeag-bDuoaZL-Q" featurename="children" parentElementId="browser.view.toolbar.0">
+    <elements xsi:type="menu:DirectToolItem" xmi:id="_5iePIPgWEeagP-n6z14Jcw" elementId="org.modelio.model.browser.view.part.directtoolitem.collapseall" iconURI="platform:/plugin/org.modelio.model.browser.view.ext/icons/collapseall.png" tooltip="%CollapseAll.tooltip" contributionURI="bundleclass://org.modelio.model.browser.view.ext/org.modelio.model.browser.view.handlers.CollapseAllHandler"/>
+    <elements xsi:type="menu:DirectToolItem" xmi:id="_OCdvkM1vEeSsOeVPOeW_Xg" elementId="org.modelio.model.browser.view.part.directtoolitem.opennewbrowser" label="" iconURI="platform:/plugin/org.modelio.model.browser.view/icons/explorer.png" tooltip="%OpenNewBrowser.tooltip" contributionURI="bundleclass://org.modelio.model.browser.view.ext/org.modelio.model.browser.view.handlers.OpenNewBrowserHandler"/>
+    <elements xsi:type="menu:DirectToolItem" xmi:id="_FMBFIPgXEeagP-n6z14Jcw" elementId="org.modelio.model.browser.view.part.directtoolitem.selectasroot" iconURI="platform:/plugin/org.modelio.model.browser.view.ext/icons/selectasroot.png" tooltip="%SelectAsRoot.tooltip" type="Check" contributionURI="bundleclass://org.modelio.model.browser.view.ext/org.modelio.model.browser.view.handlers.SelectAsRootHandler"/>
+  </fragments>
+</fragment:ModelFragments>

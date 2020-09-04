@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<create-popups>
+	<!-- Popup for CommunicationInteraction -->
+  <popup metaclass="Standard.CommunicationInteraction">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.CommunicationNode"/>
+      <parameter name="dependency" value="Owned"/>
+    </command>
+  </popup>
+</create-popups>

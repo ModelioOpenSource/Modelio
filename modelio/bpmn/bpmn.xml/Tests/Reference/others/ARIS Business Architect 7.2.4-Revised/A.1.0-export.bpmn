@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<semantic:definitions xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="ARISBPMN_055e9200-3bda-11e3-3329-080027000095" targetNamespace="http://www.softwareag.com/bpmn2Serialisation/A.1.0">
+  <semantic:collaboration id="COLLABORATION_055e9200-3bda-11e3-3329-080027000095">
+    <semantic:participant id="FLOWNODE_055e9200-3bda-11e3-3329-080027000095" name="A.1.0" processRef="PROCESS_055e9200-3bda-11e3-3329-080027000095" />
+  </semantic:collaboration>
+  <semantic:process id="PROCESS_055e9200-3bda-11e3-3329-080027000095" isExecutable="false" name="A.1.0">
+    <semantic:startEvent id="FLOWNODE_28a18471-3bda-11e3-3329-080027000095" name="Start Event">
+      <semantic:outgoing>FLOW_28a18474-3bda-11e3-3329-080027000095</semantic:outgoing>
+    </semantic:startEvent>
+    <semantic:task id="FLOWNODE_28a18473-3bda-11e3-3329-080027000095" name="Task 1">
+      <semantic:incoming>FLOW_28a18474-3bda-11e3-3329-080027000095</semantic:incoming>
+      <semantic:outgoing>FLOW_28a18477-3bda-11e3-3329-080027000095</semantic:outgoing>
+    </semantic:task>
+    <semantic:task id="FLOWNODE_28a18476-3bda-11e3-3329-080027000095" name="Task 2">
+      <semantic:incoming>FLOW_28a18477-3bda-11e3-3329-080027000095</semantic:incoming>
+      <semantic:outgoing>FLOW_28a1847a-3bda-11e3-3329-080027000095</semantic:outgoing>
+    </semantic:task>
+    <semantic:task id="FLOWNODE_28a18479-3bda-11e3-3329-080027000095" name="Task 3">
+      <semantic:incoming>FLOW_28a1847a-3bda-11e3-3329-080027000095</semantic:incoming>
+      <semantic:outgoing>FLOW_28a1847d-3bda-11e3-3329-080027000095</semantic:outgoing>
+    </semantic:task>
+    <semantic:endEvent id="FLOWNODE_28a1847c-3bda-11e3-3329-080027000095" name="End Event">
+      <semantic:incoming>FLOW_28a1847d-3bda-11e3-3329-080027000095</semantic:incoming>
+    </semantic:endEvent>
+    <semantic:sequenceFlow id="FLOW_28a18474-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a18471-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a18473-3bda-11e3-3329-080027000095" />
+    <semantic:sequenceFlow id="FLOW_28a18477-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a18473-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a18476-3bda-11e3-3329-080027000095" />
+    <semantic:sequenceFlow id="FLOW_28a1847a-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a18476-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a18479-3bda-11e3-3329-080027000095" />
+    <semantic:sequenceFlow id="FLOW_28a1847d-3bda-11e3-3329-080027000095" sourceRef="FLOWNODE_28a18479-3bda-11e3-3329-080027000095" targetRef="FLOWNODE_28a1847c-3bda-11e3-3329-080027000095" />
+  </semantic:process>
+  <bpmndi:BPMNDiagram id="BPMNDIAGRAM_055e9200-3bda-11e3-3329-080027000095" name="A.1.0">
+    <bpmndi:BPMNPlane bpmnElement="COLLABORATION_055e9200-3bda-11e3-3329-080027000095">
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a18474-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a18474-3bda-11e3-3329-080027000095">
+        <di:waypoint x="118" y="118" />
+        <di:waypoint x="174" y="118" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a18477-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a18477-3bda-11e3-3329-080027000095">
+        <di:waypoint x="272" y="118" />
+        <di:waypoint x="331" y="118" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a1847a-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a1847a-3bda-11e3-3329-080027000095">
+        <di:waypoint x="430" y="118" />
+        <di:waypoint x="476" y="118" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="FLOW_28a1847d-3bda-11e3-3329-080027000095" id="BPMNEDGE_28a1847d-3bda-11e3-3329-080027000095">
+        <di:waypoint x="574" y="118" />
+        <di:waypoint x="630" y="118" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a18471-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a18471-3bda-11e3-3329-080027000095">
+        <dc:Bounds height="26" width="26" x="91" y="105" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a18473-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a18473-3bda-11e3-3329-080027000095">
+        <dc:Bounds height="60" width="98" x="174" y="87" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a18476-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a18476-3bda-11e3-3329-080027000095">
+        <dc:Bounds height="60" width="98" x="331" y="87" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a18479-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a18479-3bda-11e3-3329-080027000095">
+        <dc:Bounds height="60" width="98" x="476" y="87" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FLOWNODE_28a1847c-3bda-11e3-3329-080027000095" id="BPMNDI_FLOWNODE_28a1847c-3bda-11e3-3329-080027000095">
+        <dc:Bounds height="26" width="26" x="630" y="105" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</semantic:definitions>
+

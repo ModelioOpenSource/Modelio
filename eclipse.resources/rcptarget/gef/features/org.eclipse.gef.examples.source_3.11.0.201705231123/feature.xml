@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.gef.examples.source"
+      label="%featureName"
+      version="3.11.0.201705231123"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license>
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://download.eclipse.org/tools/gef/updates/legacy/releases/"/>
+      <discovery label="%updateSiteName" url="http://download.eclipse.org/tools/gef/updates/legacy/releases/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.gef" version="3.6.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.gef.examples.logic.source"
+         download-size="164"
+         install-size="390"
+         version="3.11.0.201705231123"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gef.examples.flow.source"
+         download-size="68"
+         install-size="151"
+         version="3.11.0.201705231123"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gef.examples.text.source"
+         download-size="95"
+         install-size="235"
+         version="3.11.0.201705231123"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gef.examples.shapes.source"
+         download-size="48"
+         install-size="122"
+         version="3.11.0.201705231123"
+         unpack="false"/>
+
+</feature>

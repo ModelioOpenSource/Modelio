@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_fylUIIkdEeWbO4MnNK7ogg">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_aJdfEKj5EeKKC9R6FKgnOw" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_cIdiYKj5EeKKC9R6FKgnOw" elementId="org.modelio.creation.wizard.command.diagramcreation" commandName="%DiagramCreationWizard.name" description="%DiagramCreationWizard.description">
+      <parameters xmi:id="_vUj8sN8kEeK30OdmOG-hcQ" elementId="contributor" name="contributor"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_RELMkP3CEeaUvdBkpXmeaQ" featurename="addons" parentElementId="org.modelio.app.application">
+    <elements xsi:type="application:Addon" xmi:id="_SbeWsP3CEeaUvdBkpXmeaQ" elementId="org.modelio.creation.wizard.plugin.CreationWizardAddOn" contributionURI="bundleclass://org.modelio.creation.wizard/org.modelio.creation.wizard.plugin.CreationWizardAddOn"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_9NYWoN50EeKc3c7jOQLKkA" featurename="children" parentElementId="org.modelio.model.browser.view.popupmenu" positionInList="before:org.modelio.model.browser.view.menu.createelement">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_767a0OjrEeSLIL1L3ifUEA" elementId="org.modelio.diagram.popup.creation.wizard.openwizard" label="%OpenDiagramWizard.label" iconURI="platform:/plugin/org.modelio.creation.wizard/icons/creatediagram.png" tooltip="%OpenDiagramWizard.tooltip" command="_cIdiYKj5EeKKC9R6FKgnOw"/>
+  </fragments>
+</fragment:ModelFragments>

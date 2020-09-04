@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamodel format="1" MetamodelDescriptor.format="1">
+  <fragment name="Analyst" version="2.0.00" provider="Modeliosoft" providerVersion="3.6.00">
+    <dependencies>
+      <metamodel_fragment name="modelio.kernel" version="1.0.00"/>
+      <metamodel_fragment name="Infrastructure" version="2.0.00"/>
+    </dependencies>
+    <metaclasses>
+      <metaclass name="AnalystContainer" version="0.0.9054" abstract="true">
+        <parent fragment="Analyst" name="AnalystItem"/>
+      </metaclass>
+      <metaclass name="AnalystElement" version="0.0.9054" abstract="true">
+        <parent fragment="Analyst" name="AnalystItem"/>
+        <attribute name="Version" type="java.lang.Integer"></attribute>
+      </metaclass>
+      <metaclass name="AnalystItem" version="0.0.9054" abstract="true">
+        <parent fragment="Infrastructure" name="ModelElement"/>
+        <attribute name="Definition" type="java.lang.String"></attribute>
+        <dependency name="AnalystProperties" min="1" max="1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="AnalystPropertyTable"/>
+          <opposite name="AnalystOwner"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="AnalystProject" version="0.0.9054" cmsNode="true">
+        <parent fragment="Infrastructure" name="AbstractProject"/>
+        <dependency name="GoalRoot" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="GoalContainer"/>
+          <opposite name="OwnerProject"/>
+        </dependency>
+        <dependency name="BusinessRuleRoot" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="BusinessRuleContainer"/>
+          <opposite name="OwnerProject"/>
+        </dependency>
+        <dependency name="DictionaryRoot" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Dictionary"/>
+          <opposite name="OwnerProject"/>
+        </dependency>
+        <dependency name="RequirementRoot" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="RequirementContainer"/>
+          <opposite name="OwnerProject"/>
+        </dependency>
+        <dependency name="GenericRoot" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="GenericAnalystContainer"/>
+          <opposite name="OwnerProject"/>
+        </dependency>
+        <dependency name="RiskRoot" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="RiskContainer"/>
+          <opposite name="OwnerProject"/>
+        </dependency>
+        <dependency name="TestRoot" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="TestContainer"/>
+          <opposite name="OwnerProject"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="AnalystPropertyTable" version="0.0.9054">
+        <parent fragment="Infrastructure" name="TypedPropertyTable"/>
+        <dependency name="AnalystOwner" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="AnalystItem"/>
+          <opposite name="AnalystProperties"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="BusinessRule" version="0.0.9054" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystElement"/>
+        <dependency name="SubRule" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="BusinessRule"/>
+          <opposite name="ParentRule"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="BusinessRuleContainer"/>
+          <opposite name="OwnedRule"/>
+        </dependency>
+        <dependency name="ParentRule" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="BusinessRule"/>
+          <opposite name="SubRule"/>
+        </dependency>
+        <dependency name="LastRuleVersion" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="BusinessRule"/>
+          <opposite name="ArchivedRuleVersion"/>
+        </dependency>
+        <dependency name="ArchivedRuleVersion" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="BusinessRule"/>
+          <opposite name="LastRuleVersion"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="BusinessRuleContainer" version="0.0.9054" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystContainer"/>
+        <dependency name="OwnedRule" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="BusinessRule"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="BusinessRuleContainer"/>
+          <opposite name="OwnedContainer"/>
+        </dependency>
+        <dependency name="OwnedContainer" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="BusinessRuleContainer"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerProject" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="AnalystProject"/>
+          <opposite name="BusinessRuleRoot"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="Dictionary" version="0.0.9054" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystContainer"/>
+        <dependency name="OwnedDictionary" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Dictionary"/>
+          <opposite name="OwnerDictionary"/>
+        </dependency>
+        <dependency name="OwnerDictionary" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="Dictionary"/>
+          <opposite name="OwnedDictionary"/>
+        </dependency>
+        <dependency name="OwnerProject" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="AnalystProject"/>
+          <opposite name="DictionaryRoot"/>
+        </dependency>
+        <dependency name="OwnedTerm" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Term"/>
+          <opposite name="OwnerDictionary"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="GenericAnalystContainer" version="0.0.9054" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystContainer"/>
+        <dependency name="OwnedElement" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="GenericAnalystElement"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="GenericAnalystContainer"/>
+          <opposite name="OwnedContainer"/>
+        </dependency>
+        <dependency name="OwnedContainer" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="GenericAnalystContainer"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerProject" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="AnalystProject"/>
+          <opposite name="GenericRoot"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="GenericAnalystElement" version="0.0.9054" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystElement"/>
+        <dependency name="SubElement" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="GenericAnalystElement"/>
+          <opposite name="ParentElement"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="GenericAnalystContainer"/>
+          <opposite name="OwnedElement"/>
+        </dependency>
+        <dependency name="ParentElement" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="GenericAnalystElement"/>
+          <opposite name="SubElement"/>
+        </dependency>
+        <dependency name="LastElementVersion" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="GenericAnalystElement"/>
+          <opposite name="ArchivedElementVersion"/>
+        </dependency>
+        <dependency name="ArchivedElementVersion" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="GenericAnalystElement"/>
+          <opposite name="LastElementVersion"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="Goal" version="0.0.9054" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystElement"/>
+        <dependency name="SubGoal" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Goal"/>
+          <opposite name="ParentGoal"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="GoalContainer"/>
+          <opposite name="OwnedGoal"/>
+        </dependency>
+        <dependency name="ParentGoal" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="Goal"/>
+          <opposite name="SubGoal"/>
+        </dependency>
+        <dependency name="LastGoalVersion" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="Goal"/>
+          <opposite name="ArchivedGoalVersion"/>
+        </dependency>
+        <dependency name="ArchivedGoalVersion" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Goal"/>
+          <opposite name="LastGoalVersion"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="GoalContainer" version="0.0.9054" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystContainer"/>
+        <dependency name="OwnedGoal" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Goal"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="GoalContainer"/>
+          <opposite name="OwnedContainer"/>
+        </dependency>
+        <dependency name="OwnedContainer" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="GoalContainer"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerProject" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="AnalystProject"/>
+          <opposite name="GoalRoot"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="Requirement" version="0.0.9054" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystElement"/>
+        <dependency name="SubRequirement" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Requirement"/>
+          <opposite name="ParentRequirement"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="RequirementContainer"/>
+          <opposite name="OwnedRequirement"/>
+        </dependency>
+        <dependency name="ParentRequirement" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="Requirement"/>
+          <opposite name="SubRequirement"/>
+        </dependency>
+        <dependency name="ArchivedRequirementVersion" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Requirement"/>
+          <opposite name="LastRequirementVersion"/>
+        </dependency>
+        <dependency name="LastRequirementVersion" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="Requirement"/>
+          <opposite name="ArchivedRequirementVersion"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="RequirementContainer" version="0.0.9054" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystContainer"/>
+        <dependency name="OwnedRequirement" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Requirement"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="RequirementContainer"/>
+          <opposite name="OwnedContainer"/>
+        </dependency>
+        <dependency name="OwnedContainer" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="RequirementContainer"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerProject" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="AnalystProject"/>
+          <opposite name="RequirementRoot"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="Risk" version="0.0.9055" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystElement"/>
+        <dependency name="SubRisk" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Risk"/>
+          <opposite name="ParentRisk"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="RiskContainer"/>
+          <opposite name="OwnedRisk"/>
+        </dependency>
+        <dependency name="ParentRisk" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="Risk"/>
+          <opposite name="SubRisk"/>
+        </dependency>
+        <dependency name="ArchivedRiskVersion" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Risk"/>
+          <opposite name="LastRiskVersion"/>
+        </dependency>
+        <dependency name="LastRiskVersion" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="Risk"/>
+          <opposite name="ArchivedRiskVersion"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="RiskContainer" version="0.0.9055" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystContainer"/>
+        <dependency name="OwnedRisk" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Risk"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="RiskContainer"/>
+          <opposite name="OwnedContainer"/>
+        </dependency>
+        <dependency name="OwnedContainer" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="RiskContainer"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerProject" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="AnalystProject"/>
+          <opposite name="RiskRoot"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="Term" version="0.0.9054" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystElement"/>
+        <dependency name="OwnerDictionary" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="Dictionary"/>
+          <opposite name="OwnedTerm"/>
+        </dependency>
+        <dependency name="ArchivedTermVersion" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Term"/>
+          <opposite name="LastTermVersion"/>
+        </dependency>
+        <dependency name="LastTermVersion" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="Term"/>
+          <opposite name="ArchivedTermVersion"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="Test" version="1.0.00" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystElement"/>
+        <dependency name="SubTest" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Test"/>
+          <opposite name="ParentTest"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="TestContainer"/>
+          <opposite name="OwnedTest"/>
+        </dependency>
+        <dependency name="ParentTest" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="Test"/>
+          <opposite name="SubTest"/>
+        </dependency>
+        <dependency name="ArchivedTestVersion" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Test"/>
+          <opposite name="LastTestVersion"/>
+        </dependency>
+        <dependency name="LastTestVersion" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="Test"/>
+          <opposite name="ArchivedTestVersion"/>
+        </dependency>
+      </metaclass>
+      <metaclass name="TestContainer" version="1.0.00" cmsNode="true">
+        <parent fragment="Analyst" name="AnalystContainer"/>
+        <dependency name="OwnedTest" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="Test"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerContainer" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="TestContainer"/>
+          <opposite name="OwnedContainer"/>
+        </dependency>
+        <dependency name="OwnedContainer" min="0" max="-1" aggregation="Composition" navigate="true">
+          <target fragment="Analyst" name="TestContainer"/>
+          <opposite name="OwnerContainer"/>
+        </dependency>
+        <dependency name="OwnerProject" min="0" max="1" navigate="false">
+          <target fragment="Analyst" name="AnalystProject"/>
+          <opposite name="TestRoot"/>
+        </dependency>
+      </metaclass>
+    </metaclasses>
+    <enumerations></enumerations>
+  </fragment>
+</metamodel>

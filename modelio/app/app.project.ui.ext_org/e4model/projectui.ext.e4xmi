@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_AdIRAIkZEeWbO4MnNK7ogg">
+  <imports xsi:type="commands:Command" xmi:id="_62gK8IkLEeioReBpG2m-OQ" elementId="org.modelio.app.ui.command.newproject"/>
+  <imports xsi:type="commands:Command" xmi:id="__yrKAIkLEeioReBpG2m-OQ" elementId="org.modelio.app.ui.command.closeproject"/>
+  <imports xsi:type="commands:Command" xmi:id="_AkzKgIkMEeioReBpG2m-OQ" elementId="org.modelio.app.ui.command.openproject"/>
+  <imports xsi:type="commands:Command" xmi:id="_BIgUgIkMEeioReBpG2m-OQ" elementId="org.modelio.app.ui.command.deleteproject"/>
+  <imports xsi:type="commands:Command" xmi:id="_B06HgIkMEeioReBpG2m-OQ" elementId="org.modelio.app.ui.command.exportproject"/>
+  <imports xsi:type="commands:Command" xmi:id="_CVtugIkMEeioReBpG2m-OQ" elementId="org.modelio.app.ui.command.importproject"/>
+  <imports xsi:type="commands:Command" xmi:id="_C9T6AIkMEeioReBpG2m-OQ" elementId="org.modelio.app.ui.command.addfragment"/>
+  <imports xsi:type="commands:Command" xmi:id="_Dk--AIkMEeioReBpG2m-OQ" elementId="org.modelio.app.ui.command.removefragment"/>
+  <imports xsi:type="commands:Command" xmi:id="_ELgLcIkMEeioReBpG2m-OQ" elementId="org.eclipse.ui.edit.redo"/>
+  <imports xsi:type="commands:Command" xmi:id="_EyujgIkMEeioReBpG2m-OQ" elementId="org.modelio.app.ui.command.switchworkspace"/>
+  <imports xsi:type="commands:Command" xmi:id="_FdEhAIkMEeioReBpG2m-OQ" elementId="org.eclipse.ui.file.exit"/>
+  <imports xsi:type="commands:Command" xmi:id="_F-8fAIkMEeioReBpG2m-OQ" elementId="org.eclipse.ui.file.save"/>
+  <imports xsi:type="commands:Command" xmi:id="_GmAfAIkMEeioReBpG2m-OQ" elementId="org.modelio.app.ui.command.renameproject"/>
+  <imports xsi:type="commands:Command" xmi:id="_HKeeAIkMEeioReBpG2m-OQ" elementId="org.modelio.app.ui.command.refreshworkspace"/>
+  <imports xsi:type="commands:Command" xmi:id="_H2kvAIkMEeioReBpG2m-OQ" elementId="org.eclipse.ui.edit.undo"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_NGUvAIfNEeWj6a9oyLXySQ" featurename="handlers" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Handler" xmi:id="_s6FIIIkYEeWbO4MnNK7ogg" elementId="org.modelio.app.ui.command.newproject.handler" contributionURI="bundleclass://org.modelio.app.project.ui.ext/org.modelio.app.project.ui.newproject.NewProjectHandler" command="_62gK8IkLEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_ZdOtcFvhEeezV89NtSXkUA" elementId="app.project.ui.handler.open" contributionURI="bundleclass://org.modelio.app.project.ui.ext/org.modelio.app.project.ui.openproject.OpenProjectHandler" command="_AkzKgIkMEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_f2RiAIkPEeioReBpG2m-OQ" elementId="app.project.ui.handler.save" contributionURI="bundleclass://org.modelio.app.project.ui/org.modelio.app.project.ui.application.saveproject.SaveProjectHandler" command="_F-8fAIkMEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_jkAYAIkPEeioReBpG2m-OQ" elementId="app.project.ui.handler.close" contributionURI="bundleclass://org.modelio.app.project.ui.ext/org.modelio.app.project.ui.closeproject.CloseProjectHandler" command="__yrKAIkLEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_oTXDEIkPEeioReBpG2m-OQ" elementId="app.project.ui.handler.delete" contributionURI="bundleclass://org.modelio.app.project.ui.ext/org.modelio.app.project.ui.deleteproject.DeleteProjectHandler" command="_BIgUgIkMEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_r8cCkIkPEeioReBpG2m-OQ" elementId="app.project.ui.handler.export" contributionURI="bundleclass://org.modelio.app.project.ui.ext/org.modelio.app.project.ui.exportproject.ExportProjectHandler" command="_B06HgIkMEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_uklwkIkPEeioReBpG2m-OQ" elementId="app.project.ui.handler.import" contributionURI="bundleclass://org.modelio.app.project.ui.ext/org.modelio.app.project.ui.importproject.ImportProjectHandler" command="_CVtugIkMEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_x9kekIkPEeioReBpG2m-OQ" elementId="app.project.ui.handler.undo" contributionURI="bundleclass://org.modelio.app.project.ui/org.modelio.app.project.ui.application.undo.UndoHandler" command="_H2kvAIkMEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_1VtfEIkPEeioReBpG2m-OQ" elementId="app.project.ui.handler.redo" contributionURI="bundleclass://org.modelio.app.project.ui/org.modelio.app.project.ui.application.redo.RedoHandler" command="_ELgLcIkMEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_3PGpoIkPEeioReBpG2m-OQ" elementId="app.project.ui.handler.switch" contributionURI="bundleclass://org.modelio.app.project.ui/org.modelio.app.project.ui.application.switchworkspace.SwitchWorkspaceHandler" command="_EyujgIkMEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_5AtKIIkPEeioReBpG2m-OQ" elementId="app.project.ui.handler.exit" contributionURI="bundleclass://org.modelio.app.project.ui/org.modelio.app.project.ui.application.quit.QuitHandler" command="_FdEhAIkMEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_7fKwoIkPEeioReBpG2m-OQ" elementId="app.project.ui.handler.rename" contributionURI="bundleclass://org.modelio.app.project.ui.ext/org.modelio.app.project.ui.renameproject.RenameProjectHandler" command="_GmAfAIkMEeioReBpG2m-OQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_9anJoIkPEeioReBpG2m-OQ" elementId="app.project.ui.handler.refresh" contributionURI="bundleclass://org.modelio.app.project.ui.ext/org.modelio.app.project.ui.views.workspace.handlers.RefreshWorkspaceHandler" command="_HKeeAIkMEeioReBpG2m-OQ"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_QjJdkIkMEeioReBpG2m-OQ" featurename="children" parentElementId="org.modelio.app.ui.stack.perspectives" positionInList="first">
+    <elements xsi:type="advanced:Perspective" xmi:id="_QjJdkYkMEeioReBpG2m-OQ" elementId="org.modelio.app.project.ui.perspective.workspace" selectedElement="_QjJdkokMEeioReBpG2m-OQ" label="%ProjectPerspective.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/workspacepersp.png" tooltip="%ProjectPerspective.tooltip">
+      <tags>default</tags>
+      <tags>user</tags>
+      <tags>workspace</tags>
+      <children xsi:type="basic:PartSashContainer" xmi:id="_QjJdkokMEeioReBpG2m-OQ" containerData="" horizontal="true">
+        <children xsi:type="basic:PartStack" xmi:id="_QjJdk4kMEeioReBpG2m-OQ" elementId="" containerData="25">
+          <children xsi:type="basic:Part" xmi:id="_QjJdlIkMEeioReBpG2m-OQ" elementId="org.modelio.app.workspace.treeview" contributionURI="bundleclass://org.modelio.app.project.ui.ext/org.modelio.app.project.ui.views.workspace.WorkspaceTreeView" label="%Workspace.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/workspace.png" tooltip="%Workspace.tooltip" bindingContexts="_xeU4IIpfEeiJL5F3Iv5k3A">
+            <menus xsi:type="menu:PopupMenu" xmi:id="_QjJdlYkMEeioReBpG2m-OQ" elementId="org.modelio.app.workspace.popupmenu" label="" iconURI="">
+              <children xsi:type="menu:HandledMenuItem" xmi:id="_QjJdmIkMEeioReBpG2m-OQ" elementId="app.project.ui.handledmenuitem.open" label="%Open.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/openproject.png" tooltip="%Open.tooltip" command="_AkzKgIkMEeioReBpG2m-OQ">
+                <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_QjJdmYkMEeioReBpG2m-OQ" coreExpressionId="app.project.ui.workspace.openProjectCommandIsVisible"/>
+              </children>
+              <children xsi:type="menu:HandledMenuItem" xmi:id="_QjJdnIkMEeioReBpG2m-OQ" elementId="app.project.ui.handledmenuitem.export" label="%Export.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/export_project.png" tooltip="%Export.tooltip" command="_B06HgIkMEeioReBpG2m-OQ">
+                <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_QjJdnYkMEeioReBpG2m-OQ" coreExpressionId="app.project.ui.workspace.exportProjectCommandIsVisible"/>
+              </children>
+              <children xsi:type="menu:HandledMenuItem" xmi:id="_QjJdnokMEeioReBpG2m-OQ" elementId="app.project.ui.handledmenuitem.close" label="%Close.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/closedproject.png" tooltip="%Close.tooltip" command="__yrKAIkLEeioReBpG2m-OQ">
+                <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_QjJdn4kMEeioReBpG2m-OQ" coreExpressionId="app.project.ui.workspace.closeProjectCommandIsVisible"/>
+              </children>
+              <children xsi:type="menu:MenuSeparator" xmi:id="_QjJdoIkMEeioReBpG2m-OQ" elementId="app.project.ui.menuseparator.0"/>
+              <children xsi:type="menu:HandledMenuItem" xmi:id="_QjJdoYkMEeioReBpG2m-OQ" elementId="app.project.ui.handledmenuitem.rename" label="%Rename.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/rename.png" tooltip="%Rename.tooltip" command="_GmAfAIkMEeioReBpG2m-OQ">
+                <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_QjJdookMEeioReBpG2m-OQ" coreExpressionId="app.project.ui.workspace.renameProjectCommandIsVisible"/>
+              </children>
+              <children xsi:type="menu:HandledMenuItem" xmi:id="_QjJdo4kMEeioReBpG2m-OQ" elementId="app.project.ui.handledmenuitem.delete" label="%Delete.label" iconURI="platform:/plugin/org.modelio.ui/icons/delete.png" tooltip="%Delete.tooltip" command="_BIgUgIkMEeioReBpG2m-OQ">
+                <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_QjJdpIkMEeioReBpG2m-OQ" coreExpressionId="app.project.ui.workspace.deleteProjectCommandIsVisible"/>
+              </children>
+              <children xsi:type="menu:MenuSeparator" xmi:id="_QjJdpYkMEeioReBpG2m-OQ" elementId="app.project.ui.menuseparator.2"/>
+            </menus>
+            <toolbar xmi:id="_QjJdrIkMEeioReBpG2m-OQ" elementId="org.modelio.app.workspace.toolbar">
+              <children xsi:type="menu:HandledToolItem" xmi:id="_5I8FUIpdEeiJL5F3Iv5k3A" elementId="org.modelio.app.workspace.handledtoolitem.createlabel" label="%CreateProject.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/newproject.png" tooltip="%CreateProject.tooltip" command="_62gK8IkLEeioReBpG2m-OQ">
+                <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_GybZ0IpeEeiJL5F3Iv5k3A" coreExpressionId="app.project.ui.workspace.createProjectCommandIsVisible"/>
+              </children>
+              <children xsi:type="menu:HandledToolItem" xmi:id="_O61rYIpeEeiJL5F3Iv5k3A" elementId="org.modelio.app.workspace.handledtoolitem.createlabel" label="%ImportProject.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/import_project.png" tooltip="%ImportProject.tooltip" command="_CVtugIkMEeioReBpG2m-OQ">
+                <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_cPpJUIpeEeiJL5F3Iv5k3A" coreExpressionId="app.project.ui.workspace.importProjectCommandIsVisible"/>
+              </children>
+              <children xsi:type="menu:ToolBarSeparator" xmi:id="_QjJdsokMEeioReBpG2m-OQ" elementId="app.project.ui.toolbarseparator.0"/>
+              <children xsi:type="menu:HandledToolItem" xmi:id="_QjJdr4kMEeioReBpG2m-OQ" elementId="org.modelio.app.workspace.handledtoolitem.0" accessibilityPhrase="" label="%Refresh.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/refresh.png" tooltip="%Refresh.tooltip" command="_HKeeAIkMEeioReBpG2m-OQ"/>
+            </toolbar>
+          </children>
+        </children>
+        <children xsi:type="basic:PartStack" xmi:id="_QjJds4kMEeioReBpG2m-OQ" elementId="org.modelio.app.project.ui.partstack.infos" containerData="75">
+          <children xsi:type="basic:Part" xmi:id="_QjJdtIkMEeioReBpG2m-OQ" elementId="org.modelio.app.project.ui.part.infos" contributionURI="bundleclass://org.modelio.app.project.ui.ext/org.modelio.app.project.ui.views.infos.ProjectInfosView" label="%ProjectInformations.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/info.png" tooltip="%ProjectInformations.tooltip"/>
+        </children>
+      </children>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_cKwM0IpfEeiJL5F3Iv5k3A" featurename="bindingTables" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:BindingTable" xmi:id="_qhoLwIpfEeiJL5F3Iv5k3A" elementId="org.modelio.app.workspace.bindings.table" bindingContext="_xeU4IIpfEeiJL5F3Iv5k3A">
+      <bindings xmi:id="_qhoLwYpfEeiJL5F3Iv5k3A" elementId="" keySequence="F2" command="_GmAfAIkMEeioReBpG2m-OQ"/>
+      <bindings xmi:id="_qhoLwopfEeiJL5F3Iv5k3A" elementId="" keySequence="DEL" command="_BIgUgIkMEeioReBpG2m-OQ"/>
+      <bindings xmi:id="_qhoLxIpfEeiJL5F3Iv5k3A" elementId="" keySequence="F5" command="_HKeeAIkMEeioReBpG2m-OQ"/>
+      <bindings xmi:id="_qhoLxYpfEeiJL5F3Iv5k3A" elementId="" keySequence="X" command="_B06HgIkMEeioReBpG2m-OQ"/>
+      <bindings xmi:id="_qhoLxopfEeiJL5F3Iv5k3A" elementId="" keySequence="I" command="_CVtugIkMEeioReBpG2m-OQ"/>
+      <bindings xmi:id="_qhoLx4pfEeiJL5F3Iv5k3A" elementId="" keySequence="M1+N" command="_62gK8IkLEeioReBpG2m-OQ"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_vkS0YIpfEeiJL5F3Iv5k3A" featurename="children" parentElementId="org.eclipse.ui.contexts.window">
+    <elements xsi:type="commands:BindingContext" xmi:id="_xeU4IIpfEeiJL5F3Iv5k3A" elementId="org.modelio.app.workspace.bindings.context" name="%Workspace.context.name" description="%Workspace.description"/>
+  </fragments>
+</fragment:ModelFragments>

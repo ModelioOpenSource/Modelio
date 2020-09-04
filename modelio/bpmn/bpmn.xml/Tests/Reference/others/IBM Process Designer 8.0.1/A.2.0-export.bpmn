@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsd="http://www.w3.org/2001/XMLSchema" exporter="http://www.ibm.com/BPM" exporterVersion="8.0.1" id="bpmnid-6155ec08-a669-467e-90fa-dc627746bdab" targetNamespace="http://A.2.0-MIO/A.2.0-export/bpd">
+  <bpmn:process id="bpmnid-72350bed-0316-4468-adb4-3658e4c96f9e" name="bpd" isClosed="false" processType="None">
+    <bpmn:startEvent id="bpmnid-25a07a56-52bc-4a36-89db-04097ab9eb2b" name="Start"/>
+    <bpmn:endEvent id="bpmnid-434b2b80-53fa-4d35-a457-e921b357450f" name="End"/>
+    <bpmn:serviceTask id="bpmnid-36fe45c6-62e9-496f-a849-403d289edc0e" name="Task 2"/>
+    <bpmn:exclusiveGateway id="bpmnid-309d74a0-e125-4c1f-9c6b-1118ff919063" name="Gateway (Split Flow)" gatewayDirection="Unspecified" default="bpmnid-871da7e9-2ac5-4b26-92af-bdfdba5fe3a1"/>
+    <bpmn:serviceTask id="bpmnid-6bc424b9-d28c-4446-af74-9cf6e4416660" name="Task 1"/>
+    <bpmn:serviceTask id="bpmnid-df5a483c-10b9-4918-9d3a-21fb9360a469" name="Task 4"/>
+    <bpmn:serviceTask id="bpmnid-5fd49d3d-6171-428d-803b-20cdf1e7dc85" name="Task 3"/>
+    <bpmn:exclusiveGateway id="bpmnid-19892064-391a-4f14-914f-28cbf91183e2" name="Gateway (Merge Flows)" gatewayDirection="Unspecified"/>
+    <bpmn:sequenceFlow id="bpmnid-9c797d7d-82ab-4c0d-ae8d-6fb5573c36e5" name="to Gateway (Merge Flows)" sourceRef="bpmnid-df5a483c-10b9-4918-9d3a-21fb9360a469" targetRef="bpmnid-19892064-391a-4f14-914f-28cbf91183e2"/>
+    <bpmn:sequenceFlow id="bpmnid-871da7e9-2ac5-4b26-92af-bdfdba5fe3a1" name="to Task 2" sourceRef="bpmnid-309d74a0-e125-4c1f-9c6b-1118ff919063" targetRef="bpmnid-36fe45c6-62e9-496f-a849-403d289edc0e"/>
+    <bpmn:sequenceFlow id="bpmnid-1cc23592-cd91-4650-9f6f-eb92472e261b" name="to Task 1" sourceRef="bpmnid-25a07a56-52bc-4a36-89db-04097ab9eb2b" targetRef="bpmnid-6bc424b9-d28c-4446-af74-9cf6e4416660"/>
+    <bpmn:sequenceFlow id="bpmnid-707e0c0a-b918-41ff-b53f-3ba37eefb611" name="to Task 4" sourceRef="bpmnid-309d74a0-e125-4c1f-9c6b-1118ff919063" targetRef="bpmnid-df5a483c-10b9-4918-9d3a-21fb9360a469">
+      <bpmn:conditionExpression/>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="bpmnid-b0fda1b2-7e3f-44da-bdbc-1ee8208ce4d2" name="to Gateway (Merge Flows)" sourceRef="bpmnid-5fd49d3d-6171-428d-803b-20cdf1e7dc85" targetRef="bpmnid-19892064-391a-4f14-914f-28cbf91183e2"/>
+    <bpmn:sequenceFlow id="bpmnid-c779ed29-761a-4b06-870f-2f92b7c22da0" name="to Gateway (Split Flow)" sourceRef="bpmnid-6bc424b9-d28c-4446-af74-9cf6e4416660" targetRef="bpmnid-309d74a0-e125-4c1f-9c6b-1118ff919063"/>
+    <bpmn:sequenceFlow id="bpmnid-899ba584-b9cd-47e0-af24-eee34b73b3db" name="to End" sourceRef="bpmnid-36fe45c6-62e9-496f-a849-403d289edc0e" targetRef="bpmnid-434b2b80-53fa-4d35-a457-e921b357450f"/>
+    <bpmn:sequenceFlow id="bpmnid-84113720-4a7e-4533-8a35-fce773b360cb" name="to Task 3" sourceRef="bpmnid-309d74a0-e125-4c1f-9c6b-1118ff919063" targetRef="bpmnid-5fd49d3d-6171-428d-803b-20cdf1e7dc85">
+      <bpmn:conditionExpression/>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+</bpmn:definitions>

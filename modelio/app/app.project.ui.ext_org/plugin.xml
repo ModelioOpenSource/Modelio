@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+  <extension point="org.eclipse.e4.workbench.model" id="modelContribution">
+      <fragment uri="e4model/projectui.ext.e4xmi"></fragment> 
+   </extension>
+   
+   
+    <!-- This tester checks the visibility of project related commands in the workspace view -->
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+    	<propertyTester id="propertytester" 
+    					class="org.modelio.app.project.ui.views.workspace.handlers.WksCommandVisibilityTester"
+				        namespace="workspace"
+        				properties="createProjectCommandIsVisible, importProjectCommandIsVisible, openProjectCommandIsVisible, closeProjectCommandIsVisible, renameProjectCommandIsVisible, deleteProjectCommandIsVisible, exportProjectCommandIsVisible, createWorkingSetCommandIsVisible, removeProjectReferenceCommandIsVisible,deleteWorkingSetCommandIsVisible"
+       					type="java.lang.Object"/>
+       					
+    </extension>
+
+
+  <extension point="org.eclipse.core.expressions.definitions">
+
+	<definition id="app.project.ui.workspace.createProjectCommandIsVisible">
+		<with variable="org.eclipse.ui.selection">
+            <test property="workspace.createProjectCommandIsVisible" value="true"/>
+        </with>
+	</definition>
+	
+	<definition id="app.project.ui.workspace.importProjectCommandIsVisible">
+		<with variable="org.eclipse.ui.selection">
+            <test property="workspace.importProjectCommandIsVisible" value="true"/>
+        </with>
+	</definition>
+	
+	<definition id="app.project.ui.workspace.openProjectCommandIsVisible">
+		<with variable="org.eclipse.ui.selection">
+            <test property="workspace.openProjectCommandIsVisible" value="true"/>
+        </with>
+	</definition>
+	
+	<definition id="app.project.ui.workspace.closeProjectCommandIsVisible">
+		<with variable="org.eclipse.ui.selection">
+            <test property="workspace.closeProjectCommandIsVisible" value="true"/>
+        </with>
+	</definition>
+	
+	<definition id="app.project.ui.workspace.renameProjectCommandIsVisible">
+		<with variable="org.eclipse.ui.selection">
+            <test property="workspace.renameProjectCommandIsVisible" value="true"/>
+        </with>
+	</definition>
+	
+	<definition id="app.project.ui.workspace.deleteProjectCommandIsVisible">
+		<with variable="org.eclipse.ui.selection">
+            <test property="workspace.deleteProjectCommandIsVisible" value="true"/>
+        </with>
+	</definition>
+	
+	<definition id="app.project.ui.workspace.exportProjectCommandIsVisible">
+		<with variable="org.eclipse.ui.selection">
+            <test property="workspace.exportProjectCommandIsVisible" value="true"/>
+        </with>
+	</definition>
+	
+	<definition id="app.project.ui.workspace.createWorkingSetCommandIsVisible">
+		<with variable="org.eclipse.ui.selection">
+            <test property="workspace.createWorkingSetCommandIsVisible" value="true"/>
+        </with>
+	</definition>
+	
+	<definition id="app.project.ui.workspace.removeProjectReferenceCommandIsVisible">
+		<with variable="org.eclipse.ui.selection">
+            <test property="workspace.removeProjectReferenceCommandIsVisible" value="true"/>
+        </with>
+	</definition>
+
+	<definition id="app.project.ui.workspace.deleteWorkingSetCommandIsVisible">
+		<with variable="org.eclipse.ui.selection">
+            <test property="workspace.deleteWorkingSetCommandIsVisible" value="true"/>
+        </with>
+	</definition>
+
+	<definition id="app.project.ui.workspace.isProject">
+        <with variable="org.eclipse.ui.selection">
+            <test property="workspace.selectionIsProject" value="true"/>
+         </with>
+    </definition>
+
+  	  
+    <definition id="app.project.ui.expression.isExmlFragment">
+      <with variable="org.eclipse.ui.selection">
+        <iterate ifEmpty="false" operator="and">
+          <or>
+            <instanceof value="org.modelio.gproject.fragment.exml.ExmlFragment"/>
+            <instanceof value="org.modelio.gproject.fragment.ramcfile.RamcFileFragment"/>
+            <instanceof value="org.modelio.gproject.fragment.ramcfile.MdaFragment"/>
+            <instanceof value="org.modelio.gproject.fragment.url.UrlFragment"/>
+          </or>
+        </iterate>
+      </with>
+    </definition>
+    <definition id="app.project.ui.expression.isModelFragment">
+      <with variable="org.eclipse.ui.selection">
+        <iterate ifEmpty="false" operator="and">
+          <or>
+            <instanceof value="org.modelio.gproject.fragment.exml.ExmlFragment"/>
+          </or>
+        </iterate>
+      </with>
+    </definition>
+    <definition id="app.project.ui.expression.isMObject">
+      <with variable="org.eclipse.ui.selection">
+        <iterate ifEmpty="false" operator="and">
+          <instanceof value="org.modelio.vcore.smkernel.mapi.MObject"/>
+        </iterate>
+      </with>
+    </definition>
+    <definition id="app.project.ui.expression.isProjectFragment">
+      <with variable="org.eclipse.ui.selection">
+        <iterate ifEmpty="false" operator="and">
+          <or>
+            <instanceof value="org.modelio.gproject.fragment.IProjectFragment"/>
+          </or>
+        </iterate>
+      </with>
+    </definition>
+    <definition id="app.project.ui.expression.showExmlAdmin">
+      <with variable="org.eclipse.ui.selection">
+        <iterate ifEmpty="false" operator="and">
+          <or>
+            <instanceof value="org.modelio.gproject.fragment.exml.ExmlFragment"/>
+            <instanceof value="org.modelio.gproject.fragment.ramcfile.RamcFileFragment"/>
+            <instanceof value="org.modelio.gproject.fragment.ramcfile.MdaFragment"/>
+          </or>
+        </iterate>
+      </with>
+    </definition>
+    <definition id="app.project.ui.expression.isDiagram">
+      <with variable="org.eclipse.ui.selection">
+        <iterate ifEmpty="false" operator="and">
+          <or>
+          	<instanceof value="org.modelio.metamodel.diagrams.AbstractDiagram"/>
+          </or>
+        </iterate>
+      </with>
+    </definition>
+  </extension>
+    
+</plugin>

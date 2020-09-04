@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by Process Modeler 6 SR1 for Microsoft Visio (http://www.itp-commerce.com)-->
+<definitions targetNamespace="http://www.trisotech.com/definitions/_1398204189821" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:itp="http://www.itp-commerce.com/BPMN2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL schemas/BPMN20.xsd" exporter="Process Modeler 6 for Microsoft Visio" exporterVersion="6.2769.13758 SR1" name="A.1.2" itp:creationDate="23.09.2014 11:17:01" itp:modificationDate="23.09.2014 11:21:47" itp:createdWithVersion="6.2769.13758 SR1" itp:conformanceSubClass="Full" id="definitionsA12" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC">
+  <import namespace="http://www.w3schools.com/webservices" location="http://www.w3schools.com/webservices/tempconvert.asmx?WSDL" importType="http://schemas.xmlsoap.org/wsdl/" />
+  <message id="inMessage" name="In Message">
+  </message>
+  <message id="outMessage" name="Out Message">
+  </message>
+  <process id="process1" processType="None" isExecutable="true" itp:isMainProcess="true">
+    <dataObject id="dataObject1" name="Data Object 1">
+    </dataObject>
+    <dataObject id="dataObject2" name="Data Object 2">
+    </dataObject>
+    <startEvent id="startEvent" name="Start Event">
+      <outgoing>_57dd58ed-7ab9-43e8-8d5c-e017940339a5</outgoing>
+      <dataOutput id="startEventDataOutput" name="Start Event Data Output">
+      </dataOutput>
+      <outputSet>
+        <dataOutputRefs>startEventDataOutput</dataOutputRefs>
+      </outputSet>
+      <messageEventDefinition messageRef="inMessage">
+      </messageEventDefinition>
+    </startEvent>
+    <userTask id="task1" name="Task 1">
+      <incoming>_57dd58ed-7ab9-43e8-8d5c-e017940339a5</incoming>
+      <outgoing>_1a66ccd9-a80c-44bc-a06f-a684b8370443</outgoing>
+      <ioSpecification>
+        <dataOutput id="dataOutputTask1" name="Data Output Task 1">
+        </dataOutput>
+        <inputSet />
+        <outputSet>
+          <dataOutputRefs>dataOutputTask1</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataOutputAssociation id="dataOutputAssociationTask1">
+        <sourceRef>dataOutputTask1</sourceRef>
+        <targetRef>dataObject1Ref2</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <serviceTask id="task2" name="Task 2" implementation="##WebService">
+      <incoming>_1a66ccd9-a80c-44bc-a06f-a684b8370443</incoming>
+      <outgoing>_725826e9-0e8b-4cb4-842b-e0279515d821</outgoing>
+      <ioSpecification>
+        <dataInput id="dataInputTask2" name="Data Input Task 2">
+        </dataInput>
+        <dataOutput id="dataOutputTask2" name="Data Output Task 2">
+        </dataOutput>
+        <inputSet>
+          <dataInputRefs>dataInputTask2</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>dataOutputTask2</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation id="dataInputAssociationTask2">
+        <sourceRef>dataObject1Ref2</sourceRef>
+        <targetRef>dataInputTask2</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="dataOutputAssociationTask2">
+        <sourceRef>dataOutputTask2</sourceRef>
+        <targetRef>dataObject2Ref1</targetRef>
+      </dataOutputAssociation>
+    </serviceTask>
+    <userTask id="task3" name="Task 3">
+      <incoming>_725826e9-0e8b-4cb4-842b-e0279515d821</incoming>
+      <outgoing>_737085c4-8771-41e9-b30e-fa2668d0a481</outgoing>
+      <ioSpecification>
+        <dataInput id="dataInputTask3" name="Data Input Task 3">
+        </dataInput>
+        <inputSet>
+          <dataInputRefs>dataInputTask3</dataInputRefs>
+        </inputSet>
+        <outputSet />
+      </ioSpecification>
+      <dataInputAssociation id="dataInputAssociationTask3">
+        <sourceRef>dataObject2Ref1</sourceRef>
+        <targetRef>dataInputTask3</targetRef>
+      </dataInputAssociation>
+    </userTask>
+    <endEvent id="endEvent" name="End Event">
+      <incoming>_737085c4-8771-41e9-b30e-fa2668d0a481</incoming>
+      <dataInput id="endEventDataInput" name="End Event Data Input">
+      </dataInput>
+      <inputSet>
+        <dataInputRefs>endEventDataInput</dataInputRefs>
+      </inputSet>
+      <messageEventDefinition messageRef="outMessage">
+      </messageEventDefinition>
+    </endEvent>
+    <dataObjectReference id="dataObject1Ref1" name="Data Object 1" dataObjectRef="dataObject1">
+      <dataState id="dataObject1Received" name="Received">
+      </dataState>
+    </dataObjectReference>
+    <dataObjectReference id="dataObject1Ref2" name="Data Object 1" dataObjectRef="dataObject1">
+      <dataState id="dataObject1Reviewed" name="Reviewed">
+      </dataState>
+    </dataObjectReference>
+    <dataObjectReference id="dataObject2Ref1" name="Data Object 2" dataObjectRef="dataObject2">
+      <dataState id="dataObject2Received" name="Received">
+      </dataState>
+    </dataObjectReference>
+    <dataObjectReference id="dataObject2Ref2" name="Data Object 2" dataObjectRef="dataObject2">
+      <dataState id="dataObject2Reviewed" name="Reviewed">
+      </dataState>
+    </dataObjectReference>
+    <sequenceFlow id="_57dd58ed-7ab9-43e8-8d5c-e017940339a5" sourceRef="startEvent" targetRef="task1">
+    </sequenceFlow>
+    <sequenceFlow id="_1a66ccd9-a80c-44bc-a06f-a684b8370443" sourceRef="task1" targetRef="task2">
+    </sequenceFlow>
+    <sequenceFlow id="_725826e9-0e8b-4cb4-842b-e0279515d821" sourceRef="task2" targetRef="task3">
+    </sequenceFlow>
+    <sequenceFlow id="_737085c4-8771-41e9-b30e-fa2668d0a481" sourceRef="task3" targetRef="endEvent">
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram name="A.1.2" resolution="72">
+    <bpmndi:BPMNPlane id="_1" bpmnElement="process1">
+      <bpmndi:BPMNShape id="_5CBD002C-1FE0-4264-BA22-F7878E4E0212" bpmnElement="startEvent" itp:label="Start Event" itp:elementType="startEvent">
+        <dc:Bounds x="150.74997165354333" y="252.00000000000006" width="22.5" height="22.5" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="141.12" y="278.835590551181" width="41.76" height="9.36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_08E9F672-0F9E-42AC-AE95-410C5A90C667" bpmnElement="task1" itp:label="Task 1" itp:elementType="userTask">
+        <dc:Bounds x="200.24998582677165" y="237.75000944881896" width="62.249981102362206" height="50.999981102362206" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="218.16" y="259.395590551181" width="25.92" height="7.92" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_0F59FBDA-0D31-4F73-9C8E-2F49FE8F870A" bpmnElement="dataOutputAssociationTask1" itp:label="(unnamed)" itp:elementType="dataOutputAssociation" sourceElement="_08E9F672-0F9E-42AC-AE95-410C5A90C667">
+        <di:waypoint x="230.9999811023622" y="237.74998110236226" />
+        <di:waypoint x="230.9999811023622" y="176.2499622047244" />
+        <di:waypoint x="258.75" y="176.2499622047244" />
+        <di:waypoint x="258.75" y="176.2499905511811" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="227.16" y="167.595590551181" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_1DEF0D79-5608-419E-85D2-0FE30D4AC950" bpmnElement="task2" itp:label="Task 2" itp:elementType="serviceTask">
+        <dc:Bounds x="289.49999527559055" y="237.75000944881896" width="62.249981102362206" height="50.999981102362206" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="307.44" y="259.395590551181" width="25.92" height="7.92" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_ECB70B7E-01C4-4BE4-B4B3-68CAE17E400E" bpmnElement="dataInputAssociationTask2" itp:label="(unnamed)" itp:elementType="dataInputAssociation" targetElement="_1DEF0D79-5608-419E-85D2-0FE30D4AC950">
+        <di:waypoint x="281.25" y="176.2499905511811" />
+        <di:waypoint x="310.49997165354335" y="176.2499905511811" />
+        <di:waypoint x="310.49997165354335" y="237.7500094488189" />
+        <di:waypoint x="310.49997165354335" y="237.74998110236226" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="306.36" y="167.595590551181" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_1F6827CA-22E8-4427-A652-7F2E135F51C6" bpmnElement="dataOutputAssociationTask2" itp:label="(unnamed)" itp:elementType="dataOutputAssociation" sourceElement="_1DEF0D79-5608-419E-85D2-0FE30D4AC950">
+        <di:waypoint x="330.74997165354335" y="237.74998110236226" />
+        <di:waypoint x="330.74997165354335" y="176.2499622047244" />
+        <di:waypoint x="369.00000000000006" y="176.2499622047244" />
+        <di:waypoint x="369.00000000000006" y="176.2499905511811" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="326.52" y="167.595590551181" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_10B8407C-D328-4309-9DC8-C82EF317A623" bpmnElement="task3" itp:label="Task 3" itp:elementType="userTask">
+        <dc:Bounds x="378.74997637795275" y="237.75000944881896" width="62.249981102362206" height="50.999981102362206" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="396.72" y="259.395590551181" width="25.92" height="7.92" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_CC127BC5-576D-4426-B665-6764A8AD58EC" bpmnElement="dataInputAssociationTask3" itp:label="(unnamed)" itp:elementType="dataInputAssociation" targetElement="_10B8407C-D328-4309-9DC8-C82EF317A623">
+        <di:waypoint x="391.50000000000006" y="176.2499905511811" />
+        <di:waypoint x="419.99995275590555" y="176.2499905511811" />
+        <di:waypoint x="419.99995275590555" y="237.7500094488189" />
+        <di:waypoint x="419.99995275590555" y="237.74998110236226" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="415.8" y="167.595590551181" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_C685F855-BAD1-493D-93A3-D52BCC2DE72A" bpmnElement="endEvent" itp:label="End Event" itp:elementType="endEvent">
+        <dc:Bounds x="468.74999055118116" y="251.25000944881896" width="23.999981102362202" height="23.999981102362202" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="461.52" y="279.555590551181" width="38.88" height="9.36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_FEE2E1C9-B6FE-4702-BD37-197888A90589" bpmnElement="dataObject1Ref1" itp:label="Data Object 1" itp:elementType="dataObjectReference">
+        <dc:Bounds x="149.99998110236223" y="162" width="0" height="28.499981102362206" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="127.08" y="188.115590551181" width="51.12" height="19.44" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_482F6BE7-4187-43B9-9A03-1EFCC2636611" bpmnElement="dataObject1Ref2" itp:label="Data Object 1" itp:elementType="dataObjectReference">
+        <dc:Bounds x="258.75" y="162" width="22.5" height="28.499981102362206" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="244.44" y="188.115590551181" width="51.12" height="19.44" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_7197F180-640B-4006-8039-58419E37D04C" bpmnElement="dataObject2Ref1" itp:label="Data Object 2" itp:elementType="dataObjectReference">
+        <dc:Bounds x="369.00000000000006" y="162" width="22.5" height="28.499981102362206" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="354.6" y="188.115590551181" width="51.12" height="19.44" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_39343634-7ED6-4B45-8A16-AC55EC723C82" bpmnElement="dataObject2Ref2" itp:label="Data Object 2" itp:elementType="dataObjectReference">
+        <dc:Bounds x="450" y="162" width="22.5" height="28.499981102362206" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="464.04" y="188.115590551181" width="51.12" height="19.44" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_67AD6F87-4610-4EDA-B3B4-EFB54C06E1F9" bpmnElement="_57dd58ed-7ab9-43e8-8d5c-e017940339a5" itp:label="(unnamed)" itp:elementType="sequenceFlow">
+        <di:waypoint x="173.24997165354333" y="263.25000000000006" />
+        <di:waypoint x="200.2499716535433" y="263.25000000000006" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="182.52" y="247.515590551181" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_3147D381-C884-47AA-BD46-AA9B78DE913A" bpmnElement="_1a66ccd9-a80c-44bc-a06f-a684b8370443" itp:label="(unnamed)" itp:elementType="sequenceFlow">
+        <di:waypoint x="262.4999811023622" y="263.25000000000006" />
+        <di:waypoint x="289.4999811023622" y="263.25000000000006" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="271.8" y="247.515590551181" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_558BF0E2-FBBA-4DAF-A5F1-481543D68501" bpmnElement="_725826e9-0e8b-4cb4-842b-e0279515d821" itp:label="(unnamed)" itp:elementType="sequenceFlow">
+        <di:waypoint x="351.7499905511811" y="263.25000000000006" />
+        <di:waypoint x="378.7499622047244" y="263.25000000000006" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="361.08" y="247.515590551181" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_707F543D-B7F5-4C0B-BEA8-BEF2D6EC0170" bpmnElement="_737085c4-8771-41e9-b30e-fa2668d0a481" itp:label="(unnamed)" itp:elementType="sequenceFlow">
+        <di:waypoint x="441.74999055118116" y="263.25000000000006" />
+        <di:waypoint x="468.7499622047244" y="263.25000000000006" />
+        <bpmndi:BPMNLabel labelStyle="_6318aa52-1fce-438e-aa13-65a480e19eff">
+          <dc:Bounds x="451.08" y="247.515590551181" width="7.92" height="17.28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="_6318aa52-1fce-438e-aa13-65a480e19eff">
+      <dc:Font name="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</definitions>

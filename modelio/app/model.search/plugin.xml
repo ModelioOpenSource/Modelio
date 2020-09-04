@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.modelio.model.search.searchtool" name="Search tool" schema="schema/org.modelio.model.search.searchtool.exsd"/>
+   
+   <extension point="org.eclipse.e4.workbench.model" id="modelContribution">
+      <fragment uri="e4model/modelsearch.e4xmi"></fragment> 
+   </extension>
+   
+   <extension point="org.modelio.model.search.searchtool">
+      <searchtool
+            label="%ModelSearchTab.label"
+            engine="org.modelio.model.search.engine.searchers.model.ModelSearchEngine"
+            panel="org.modelio.core.ui.panels.search.model.ModelSearchPanel">
+      </searchtool>
+      <searchtool
+            label="%NoteSearchTab.label"
+            engine="org.modelio.model.search.engine.searchers.note.NoteSearchEngine"
+            panel="org.modelio.core.ui.panels.search.note.NoteSearchPanel">
+      </searchtool>
+   </extension>
+</plugin>

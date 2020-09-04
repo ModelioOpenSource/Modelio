@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='file:/home/fferran/mtools/modelio3.x.x/tmp/jdbm/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1423237285853'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='1'>
+    <unit id='jdbm' version='2.4.0' singleton='false'>
+      <update id='jdbm' range='[0.0.0,2.4.0)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='Jdbm'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jdbm' version='2.4.0'/>
+        <provided namespace='osgi.bundle' name='jdbm' version='2.4.0'/>
+        <provided namespace='java.package' name='jdbm' version='0.0.0'/>
+        <provided namespace='java.package' name='jdbm.btree' version='0.0.0'/>
+        <provided namespace='java.package' name='jdbm.helper' version='0.0.0'/>
+        <provided namespace='java.package' name='jdbm.htree' version='0.0.0'/>
+        <provided namespace='java.package' name='jdbm.recman' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jdbm' version='2.4.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jdbm&#xA;Bundle-Version: 2.4.00&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

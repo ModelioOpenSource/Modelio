@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.uml2.examples"
+      label="%feature.label"
+      version="3.2.0.v201103291514"
+      provider-name="%feature.provider-name"
+      image="eclipse_update_120.jpg">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2003, 2011 IBM Corporation, Embarcadero Technologies, and others.
+All rights reserved.   This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%update.label" url="http://www.eclipse.org/modeling/updates/"/>
+      <discovery label="%update.label" url="http://www.eclipse.org/modeling/updates/"/>
+   </url>
+
+   <includes
+         id="org.eclipse.uml2.examples.source"
+         version="3.2.0.v201103291514"/>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime" version="3.5.0" match="compatible"/>
+      <import plugin="org.eclipse.core.resources" version="3.5.0" match="compatible"/>
+      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.ecore.editor" version="2.5.0" match="compatible"/>
+      <import plugin="org.eclipse.uml2.uml.editor" version="3.0.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.uml2.examples"
+         download-size="0"
+         install-size="0"
+         version="3.0.0.v201005031530"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.uml2.examples.uml.ui"
+         download-size="0"
+         install-size="0"
+         version="3.0.100.v201008191510"
+         unpack="false"/>
+
+</feature>

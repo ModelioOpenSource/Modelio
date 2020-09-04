@@ -1,0 +1,16 @@
+[warning 11:27:02]The ID of Pool Team-Assistant, sid-46891B57-A9D3-4A8B-AEBF-D4BA5F3961AD, is duplicated. Thus, a new ID, sid-c6eca5e8-8b8f-4e42-b8d8-6b7e858672df, is generated and assigned.
+Model: Team-Assistant
+Diagram: Business Process Diagram1 > Element: Team-Assistant
+
+[warning 11:27:02]The ID of Pool Process Engine - Invoice Receipt, Process_Engine_1, is duplicated. Thus, a new ID, sid-499dfba4-1449-4914-9e85-55b252800bad, is generated and assigned.
+Model: Process Engine - Invoice Receipt
+Diagram: Business Process Diagram1 > Element: Process Engine - Invoice Receipt
+
+[warning 11:27:02]The ID of Pool Team-Assistant, sid-5FBB6CB3-8A7C-42B5-9024-15BB2684EC57, is duplicated. Thus, a new ID, sid-c6eca5e8-8b8f-4e42-b8d8-6b7e858672df, is generated and assigned.
+Model: Team-Assistant
+Diagram: Business Process Diagram1 > Element: Team-Assistant
+
+[warning 11:27:02]The ID of Pool Process Engine - Invoice Receipt, bpmn-miwg-test-case-c.1.0, is duplicated. Thus, a new ID, sid-499dfba4-1449-4914-9e85-55b252800bad, is generated and assigned.
+Model: Process Engine - Invoice Receipt
+Diagram: Business Process Diagram1 > Element: Process Engine - Invoice Receipt
+

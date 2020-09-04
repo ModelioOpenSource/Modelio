@@ -1,0 +1,16 @@
+[warning 11:21:23]The ID of Pool Pool 1, sid-66751F1E-EEB9-4BA7-9FDA-7965A1CA9CD1, is duplicated. Thus, a new ID, sid-600cb997-ee14-4230-a60a-fe80e85800b5, is generated and assigned.
+Model: Pool 1
+Diagram: Business Process Diagram1 > Element: Pool 1
+
+[warning 11:21:23]The ID of Pool Pool 2, sid-7E61DCD0-0700-4828-8A28-CD65132273D7, is duplicated. Thus, a new ID, sid-4e31a46d-899c-4b59-86e2-4d54abea99cd, is generated and assigned.
+Model: Pool 2
+Diagram: Business Process Diagram1 > Element: Pool 2
+
+[warning 11:21:23]The ID of Pool Pool 1, sid-34746A54-1D7D-46CA-B219-0C4CEAE51170, is duplicated. Thus, a new ID, sid-600cb997-ee14-4230-a60a-fe80e85800b5, is generated and assigned.
+Model: Pool 1
+Diagram: Business Process Diagram1 > Element: Pool 1
+
+[warning 11:21:23]The ID of Pool Pool 2, sid-54D696FD-DEDC-45F3-99DB-1404DA433FC4, is duplicated. Thus, a new ID, sid-4e31a46d-899c-4b59-86e2-4d54abea99cd, is generated and assigned.
+Model: Pool 2
+Diagram: Business Process Diagram1 > Element: Pool 2
+

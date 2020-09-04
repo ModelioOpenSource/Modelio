@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2005, 2009 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<feature
+      id="org.eclipse.gef.sdk"
+      label="%featureName"
+      version="3.11.0.201705231123"
+      provider-name="%providerName"
+      plugin="org.eclipse.gef">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://download.eclipse.org/tools/gef/updates/legacy/releases/"/>
+      <discovery label="%updateSiteName" url="http://download.eclipse.org/tools/gef/updates/legacy/releases/"/>
+   </url>
+
+   <includes
+         id="org.eclipse.draw2d.sdk"
+         version="3.10.100.201705231123"/>
+
+   <includes
+         id="org.eclipse.gef"
+         version="3.11.0.201705231123"/>
+
+   <includes
+         id="org.eclipse.gef.source"
+         version="3.11.0.201705231123"/>
+
+   <plugin
+         id="org.eclipse.gef.examples.ui.pde"
+         download-size="18"
+         install-size="33"
+         version="3.11.0.201705231123"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gef.doc.isv"
+         download-size="2615"
+         install-size="14937"
+         version="3.11.0.201705231123"
+         unpack="false"/>
+
+</feature>

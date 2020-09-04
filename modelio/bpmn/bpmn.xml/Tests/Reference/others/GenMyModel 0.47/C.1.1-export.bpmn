@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="_9fNG8B_TEeW9keBtFZy97Q" exporter="GenMyModel" exporterVersion="0.1" name="C.1.1" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL">
+  <bpmn2:process id="_9fNG8R_TEeW9keBtFZy97Q" name="Invoice Handling (OMG BPMN MIWG Demo)">
+    <bpmn2:startEvent id="_9fNG8h_TEeW9keBtFZy97Q" name="">
+      <bpmn2:outgoing>_9fNG8x_TEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:task id="_9fNG9B_TEeW9keBtFZy97Q" name="Approve Invoice">
+      <bpmn2:incoming>_9fNG9R_TEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:incoming>_9fNG9h_TEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_9fNG9x_TEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_9fNG-B_TEeW9keBtFZy97Q">
+        <bpmn2:dataInput id="_9fNG-R_TEeW9keBtFZy97Q" name="dataInput"/>
+        <bpmn2:dataOutput id="_9fNG-x_TEeW9keBtFZy97Q" name="dataOutput"/>
+        <bpmn2:inputSet id="_9fNG-h_TEeW9keBtFZy97Q">
+          <bpmn2:dataInputRefs>_9fNG-R_TEeW9keBtFZy97Q</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_9fNG_B_TEeW9keBtFZy97Q">
+          <bpmn2:dataOutputRefs>_9fNG-x_TEeW9keBtFZy97Q</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataOutputAssociation id="_9fNG_R_TEeW9keBtFZy97Q">
+        <bpmn2:sourceRef>_9fNG-x_TEeW9keBtFZy97Q</bpmn2:sourceRef>
+        <bpmn2:targetRef>_9fNG_h_TEeW9keBtFZy97Q</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:task>
+    <bpmn2:task id="_9fNG_x_TEeW9keBtFZy97Q" name="Rechnung klären">
+      <bpmn2:incoming>_9fNHAB_TEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_9fNHAR_TEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_9fNHAh_TEeW9keBtFZy97Q">
+        <bpmn2:dataOutput id="_9fNHAx_TEeW9keBtFZy97Q" name="dataOutput"/>
+        <bpmn2:inputSet id="_9fNHBR_TEeW9keBtFZy97Q"/>
+        <bpmn2:outputSet id="_9fNHBB_TEeW9keBtFZy97Q">
+          <bpmn2:dataOutputRefs>_9fNHAx_TEeW9keBtFZy97Q</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataOutputAssociation id="_9fNHBh_TEeW9keBtFZy97Q">
+        <bpmn2:sourceRef>_9fNHAx_TEeW9keBtFZy97Q</bpmn2:sourceRef>
+        <bpmn2:targetRef>_9fNHBx_TEeW9keBtFZy97Q</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:task>
+    <bpmn2:task id="_9fNHCB_TEeW9keBtFZy97Q" name="Prepare&#xA;Bank&#xA;Transfer">
+      <bpmn2:incoming>_9fNHCR_TEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_9fNHCh_TEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="_9fNHCx_TEeW9keBtFZy97Q" name="Archive&#xA;Invoice">
+      <bpmn2:incoming>_9fNHCh_TEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_9fNHDB_TEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:endEvent id="_9fNHDR_TEeW9keBtFZy97Q" name="">
+      <bpmn2:incoming>_9fNHDB_TEeW9keBtFZy97Q</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:endEvent id="_9fNHDh_TEeW9keBtFZy97Q" name="">
+      <bpmn2:incoming>_9fNHDx_TEeW9keBtFZy97Q</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:exclusiveGateway id="_9fNHEB_TEeW9keBtFZy97Q" name="">
+      <bpmn2:incoming>_9fNHAR_TEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_9fNG9h_TEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:outgoing>_9fNHDx_TEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:exclusiveGateway id="_9fNuAB_TEeW9keBtFZy97Q" name="">
+      <bpmn2:incoming>_9fNG9x_TEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_9fNHAB_TEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:outgoing>_9fNHCR_TEeW9keBtFZy97Q</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:dataObjectReference id="_9fNuAR_TEeW9keBtFZy97Q" name="approver"/>
+    <bpmn2:dataObjectReference id="_9fNG_h_TEeW9keBtFZy97Q" name="approved"/>
+    <bpmn2:dataObjectReference id="_9fNHBx_TEeW9keBtFZy97Q" name="clarified"/>
+    <bpmn2:sequenceFlow id="_9fNG8x_TEeW9keBtFZy97Q" name="" sourceRef="_9fNG8h_TEeW9keBtFZy97Q" targetRef="_9fNuAh_TEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_9fNG9R_TEeW9keBtFZy97Q" name="" sourceRef="_9fNuAh_TEeW9keBtFZy97Q" targetRef="_9fNG9B_TEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_9fNG9x_TEeW9keBtFZy97Q" name="" sourceRef="_9fNG9B_TEeW9keBtFZy97Q" targetRef="_9fNuAB_TEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_9fNHAB_TEeW9keBtFZy97Q" name="" sourceRef="_9fNuAB_TEeW9keBtFZy97Q" targetRef="_9fNG_x_TEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_9fNHCR_TEeW9keBtFZy97Q" name="" sourceRef="_9fNuAB_TEeW9keBtFZy97Q" targetRef="_9fNHCB_TEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_9fNHCh_TEeW9keBtFZy97Q" name="" sourceRef="_9fNHCB_TEeW9keBtFZy97Q" targetRef="_9fNHCx_TEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_9fNHDB_TEeW9keBtFZy97Q" name="" sourceRef="_9fNHCx_TEeW9keBtFZy97Q" targetRef="_9fNHDR_TEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_9fNHAR_TEeW9keBtFZy97Q" name="" sourceRef="_9fNG_x_TEeW9keBtFZy97Q" targetRef="_9fNHEB_TEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_9fNG9h_TEeW9keBtFZy97Q" name="yes" sourceRef="_9fNHEB_TEeW9keBtFZy97Q" targetRef="_9fNG9B_TEeW9keBtFZy97Q"/>
+    <bpmn2:sequenceFlow id="_9fNHDx_TEeW9keBtFZy97Q" name="no" sourceRef="_9fNHEB_TEeW9keBtFZy97Q" targetRef="_9fNHDh_TEeW9keBtFZy97Q"/>
+    <bpmn2:userTask id="_9fNuAh_TEeW9keBtFZy97Q" name="Assign&#xA;Approver" implementation="##unspecified">
+      <bpmn2:incoming>_9fNG8x_TEeW9keBtFZy97Q</bpmn2:incoming>
+      <bpmn2:outgoing>_9fNG9R_TEeW9keBtFZy97Q</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_9fNuAx_TEeW9keBtFZy97Q">
+        <bpmn2:dataInput id="_9fNuBB_TEeW9keBtFZy97Q" name="dataInput"/>
+        <bpmn2:inputSet id="_9fNuBR_TEeW9keBtFZy97Q">
+          <bpmn2:dataInputRefs>_9fNuBB_TEeW9keBtFZy97Q</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_9fNuBh_TEeW9keBtFZy97Q"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_9fNuBx_TEeW9keBtFZy97Q">
+        <bpmn2:sourceRef>_9fNuAR_TEeW9keBtFZy97Q</bpmn2:sourceRef>
+        <bpmn2:targetRef>_9fNuBB_TEeW9keBtFZy97Q</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_9fNuCB_TEeW9keBtFZy97Q" name="Process-diag">
+    <bpmndi:BPMNPlane id="_9fNuCR_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNG8R_TEeW9keBtFZy97Q">
+      <bpmndi:BPMNShape id="_9fNuCh_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNG8h_TEeW9keBtFZy97Q">
+        <dc:Bounds height="35.0" width="35.0" x="100.0" y="70.0"/>
+        <bpmndi:BPMNLabel id="_9fNuCx_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="68.0" y="106.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuDR_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNuAh_TEeW9keBtFZy97Q">
+        <dc:Bounds height="80.0" width="100.0" x="180.0" y="50.0"/>
+        <bpmndi:BPMNLabel id="_9fNuDh_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuDx_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNG9B_TEeW9keBtFZy97Q">
+        <dc:Bounds height="80.0" width="100.0" x="350.0" y="220.0"/>
+        <bpmndi:BPMNLabel id="_9fNuEB_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuER_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNG_x_TEeW9keBtFZy97Q">
+        <dc:Bounds height="80.0" width="100.0" x="550.0" y="50.0"/>
+        <bpmndi:BPMNLabel id="_9fNuEh_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuEx_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHCB_TEeW9keBtFZy97Q">
+        <dc:Bounds height="80.0" width="100.0" x="640.0" y="350.0"/>
+        <bpmndi:BPMNLabel id="_9fNuFB_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuFR_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHCx_TEeW9keBtFZy97Q">
+        <dc:Bounds height="80.0" width="100.0" x="780.0" y="350.0"/>
+        <bpmndi:BPMNLabel id="_9fNuFh_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuFx_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHDR_TEeW9keBtFZy97Q">
+        <dc:Bounds height="35.0" width="35.0" x="930.0" y="370.0"/>
+        <bpmndi:BPMNLabel id="_9fNuGB_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="898.0" y="406.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuGR_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHDh_TEeW9keBtFZy97Q">
+        <dc:Bounds height="35.0" width="35.0" x="930.0" y="70.0"/>
+        <bpmndi:BPMNLabel id="_9fNuGh_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="898.0" y="106.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuGx_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHEB_TEeW9keBtFZy97Q">
+        <dc:Bounds height="40.0" width="40.0" x="690.0" y="70.0"/>
+        <bpmndi:BPMNLabel id="_9fNuHB_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="660.0" y="111.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuHR_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNuAB_TEeW9keBtFZy97Q">
+        <dc:Bounds height="40.0" width="40.0" x="490.0" y="240.0"/>
+        <bpmndi:BPMNLabel id="_9fNuHh_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="460.0" y="281.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuHx_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNuAR_TEeW9keBtFZy97Q">
+        <dc:Bounds height="40.0" width="30.0" x="210.0" y="170.0"/>
+        <bpmndi:BPMNLabel id="_9fNuIB_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="175.0" y="211.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuIR_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNG_h_TEeW9keBtFZy97Q">
+        <dc:Bounds height="40.0" width="30.0" x="390.0" y="350.0"/>
+        <bpmndi:BPMNLabel id="_9fNuIh_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="355.0" y="391.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_9fNuIx_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHBx_TEeW9keBtFZy97Q">
+        <dc:Bounds height="40.0" width="30.0" x="590.0" y="170.0"/>
+        <bpmndi:BPMNLabel id="_9fNuJB_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="100.0" x="555.0" y="211.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_9fNuJR_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNG8x_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="135.0" y="87.0"/>
+        <di:waypoint xsi:type="dc:Point" x="157.0" y="87.0"/>
+        <di:waypoint xsi:type="dc:Point" x="158.0" y="87.0"/>
+        <di:waypoint xsi:type="dc:Point" x="180.0" y="87.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuJh_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNG9R_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="90.0"/>
+        <di:waypoint xsi:type="dc:Point" x="315.0" y="90.0"/>
+        <di:waypoint xsi:type="dc:Point" x="315.0" y="260.0"/>
+        <di:waypoint xsi:type="dc:Point" x="350.0" y="260.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuJx_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNG9x_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="450.0" y="260.0"/>
+        <di:waypoint xsi:type="dc:Point" x="470.0" y="260.0"/>
+        <di:waypoint xsi:type="dc:Point" x="470.0" y="260.0"/>
+        <di:waypoint xsi:type="dc:Point" x="490.0" y="260.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuKB_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHAB_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="510.0" y="240.0"/>
+        <di:waypoint xsi:type="dc:Point" x="510.0" y="220.0"/>
+        <di:waypoint xsi:type="dc:Point" x="510.0" y="90.0"/>
+        <di:waypoint xsi:type="dc:Point" x="550.0" y="90.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuKR_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHCR_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="510.0" y="280.0"/>
+        <di:waypoint xsi:type="dc:Point" x="510.0" y="300.0"/>
+        <di:waypoint xsi:type="dc:Point" x="510.0" y="390.0"/>
+        <di:waypoint xsi:type="dc:Point" x="640.0" y="390.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuKh_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHCh_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="740.0" y="390.0"/>
+        <di:waypoint xsi:type="dc:Point" x="760.0" y="390.0"/>
+        <di:waypoint xsi:type="dc:Point" x="760.0" y="390.0"/>
+        <di:waypoint xsi:type="dc:Point" x="780.0" y="390.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuKx_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHDB_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="880.0" y="387.0"/>
+        <di:waypoint xsi:type="dc:Point" x="905.0" y="387.0"/>
+        <di:waypoint xsi:type="dc:Point" x="905.0" y="387.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="387.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuLB_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHAR_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="650.0" y="90.0"/>
+        <di:waypoint xsi:type="dc:Point" x="670.0" y="90.0"/>
+        <di:waypoint xsi:type="dc:Point" x="670.0" y="90.0"/>
+        <di:waypoint xsi:type="dc:Point" x="690.0" y="90.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuLR_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNG9h_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="710.0" y="70.0"/>
+        <di:waypoint xsi:type="dc:Point" x="710.0" y="32.0"/>
+        <di:waypoint xsi:type="dc:Point" x="400.0" y="32.0"/>
+        <di:waypoint xsi:type="dc:Point" x="400.0" y="220.0"/>
+        <bpmndi:BPMNLabel id="_9fNuLh_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="50.0" x="710.0" y="24.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuLx_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHDx_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="730.0" y="87.0"/>
+        <di:waypoint xsi:type="dc:Point" x="830.0" y="87.0"/>
+        <di:waypoint xsi:type="dc:Point" x="830.0" y="87.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="87.0"/>
+        <bpmndi:BPMNLabel id="_9fNuMB_TEeW9keBtFZy97Q" labelStyle="bpmn2:_9fNuDB_TEeW9keBtFZy97Q">
+          <dc:Bounds height="11.0" width="50.0" x="730.0" y="87.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuMR_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNuBx_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="226.0" y="170.0"/>
+        <di:waypoint xsi:type="dc:Point" x="228.0" y="130.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuMh_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNHBh_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="602.0" y="130.0"/>
+        <di:waypoint xsi:type="dc:Point" x="604.0" y="170.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_9fNuMx_TEeW9keBtFZy97Q" bpmnElement="bpmn2:_9fNG_R_TEeW9keBtFZy97Q">
+        <di:waypoint xsi:type="dc:Point" x="401.0" y="300.0"/>
+        <di:waypoint xsi:type="dc:Point" x="404.0" y="350.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="_9fNuDB_TEeW9keBtFZy97Q">
+      <dc:Font name=".Arial" size="12.0"/>
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

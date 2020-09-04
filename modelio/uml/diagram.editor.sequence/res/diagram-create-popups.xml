@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<create-popups>
+	<!-- Popup for Lifeline -->
+  <popup metaclass="Standard.Lifeline">
+    <command id="org.modelio.app.ui.command.create.element">
+      <parameter name="metaclass" value="Standard.ExecutionSpecification"/>
+    </command>
+  </popup>
+</create-popups>
+

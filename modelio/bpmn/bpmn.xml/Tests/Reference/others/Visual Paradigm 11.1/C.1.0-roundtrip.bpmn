@@ -1,0 +1,2741 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions exporter="Visual Paradigm" exporterVersion="1" id="Definition" targetNamespace="http://www.omg.org/bpmn20" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:vp="http://www.visual-paradigm.com/bpmn/vpspecificcontent" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+	<collaboration id="collaboration-sid-78cf0368-c97e-4dea-885f-0e535c20d6c7">
+		<participant id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df" name="Team-Assistant" processRef="process-sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="P2hoRlKAUACmJEwO"/>
+						<ModelType Value="BPPool"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822524"/>
+							<StringProperty Name="pmLastModified" Value="1418984822769"/>
+							<StringProperty Name="userID" Value="sid-c6eca5e8-8b8f-4e42-b8d8-6b7e858672df"/>
+							<ModelRefProperty Name="participant">
+								<ModelRef Id="sid-46891B57-A9D3-4A8B-AEBF-D4BA5F3961AD-participant" ModelType="BPParticipant" Name="Team-Assistant"/>
+							</ModelRefProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</participant>
+		<participant id="sid_499dfba4_1449_4914_9e85_55b252800bad" name="Process Engine - Invoice Receipt" processRef="process-sid_499dfba4_1449_4914_9e85_55b252800bad">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="QOhoRlKAUACmJEwR"/>
+						<ModelType Value="BPPool"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822530"/>
+							<StringProperty Name="pmLastModified" Value="1418984822726"/>
+							<StringProperty Name="userID" Value="sid-499dfba4-1449-4914-9e85-55b252800bad"/>
+							<ModelRefProperty Name="participant">
+								<ModelRef Id="Process_Engine_1-participant" ModelType="BPParticipant" Name="Process Engine - Invoice Receipt"/>
+							</ModelRefProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</participant>
+		<participant id="sid-46891B57-A9D3-4A8B-AEBF-D4BA5F3961AD-participant" name="Team-Assistant">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="AOhoRlKAUACmJEwP"/>
+						<ModelType Value="BPParticipant"/>
+						<ModelProperties>
+							<StringProperty Name="name" Value="Team-Assistant"/>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822528"/>
+							<StringProperty Name="pmLastModified" Value="1418984822685"/>
+							<ModelProperty Name="type">
+								<Model id="ID_03464350_2145_1200_2400_024611000070" name="Role">
+									<VpId Value="AOhoRlKAUACmJEwQ"/>
+									<ModelType Value="BPRoleParticipant"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822528"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</participant>
+		<participant id="Process_Engine_1-participant" name="Process Engine - Invoice Receipt">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="IOhoRlKAUACmJEwS"/>
+						<ModelType Value="BPParticipant"/>
+						<ModelProperties>
+							<StringProperty Name="name" Value="Process Engine - Invoice Receipt"/>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822532"/>
+							<StringProperty Name="pmLastModified" Value="1418984822706"/>
+							<ModelProperty Name="type">
+								<Model id="ID_27464350_2145_1200_2400_024611000073" name="Role">
+									<VpId Value="IOhoRlKAUACmJEwT"/>
+									<ModelType Value="BPRoleParticipant"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822532"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</participant>
+		<messageFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_915AC9A0_CD35_4DF2_93F7_4535397622F8" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_6FC20E19_AF3A_4A77_8588_2D671C98D93D" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewInvoice">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="EOhoRlKAUACmJEwU"/>
+						<ModelType Value="BPMessageFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822536"/>
+							<StringProperty Name="pmLastModified" Value="1418984822852"/>
+							<StringProperty Name="userID" Value="sid-915AC9A0-CD35-4DF2-93F7-4535397622F8"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</messageFlow>
+		<messageFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_AB6EB7C8_DF5E_42C2_88D0_FA166583AF15" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_64AFCE49_96A2_4A51_96CB_9DF689C37DAD" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_assignApprover">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="UOhoRlKAUACmJEwV"/>
+						<ModelType Value="BPMessageFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822538"/>
+							<StringProperty Name="pmLastModified" Value="1418984822854"/>
+							<StringProperty Name="userID" Value="sid-AB6EB7C8-DF5E-42C2-88D0-FA166583AF15"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</messageFlow>
+		<messageFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_7A070DED_8B83_48E1_88A1_5543C481E7BC" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_05039C4F_59F7_4CBD_8C84_D35E27C7B5EF" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_StartEvent_1">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="sOhoRlKAUACmJEwW"/>
+						<ModelType Value="BPMessageFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822541"/>
+							<StringProperty Name="pmLastModified" Value="1418984822852"/>
+							<StringProperty Name="userID" Value="sid-7A070DED-8B83-48E1-88A1-5543C481E7BC"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</messageFlow>
+		<messageFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sid_90902E27_C1CD_4F90_A8F2_486DA4F42117" name="" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_assignApprover" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_40EC6574_E644_425C_8CE7_EE384F0C3520">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="8OhoRlKAUACmJEwX"/>
+						<ModelType Value="BPMessageFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822543"/>
+							<StringProperty Name="pmLastModified" Value="1418984822853"/>
+							<StringProperty Name="userID" Value="sid-90902E27-C1CD-4F90-A8F2-486DA4F42117"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</messageFlow>
+		<messageFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sid_0518A412_1ED3_4CFD_A75C_69FF37EFFC16" name="" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewInvoice" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_B548B980_12E3_408E_9AC4_7031B85A8F2D">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="qOhoRlKAUACmJEwY"/>
+						<ModelType Value="BPMessageFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822549"/>
+							<StringProperty Name="pmLastModified" Value="1418984822855"/>
+							<StringProperty Name="userID" Value="sid-0518A412-1ED3-4CFD-A75C-69FF37EFFC16"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</messageFlow>
+	</collaboration>
+	<process id="sid-78cf0368-c97e-4dea-885f-0e535c20d6c7" isExecutable="false" name="Business Process Diagram1">
+		<extensionElements>
+			<vp:Extensions>
+				<DiagramExtension Idref="diagram-sid-78cf0368-c97e-4dea-885f-0e535c20d6c7">
+					<VpId Value="luhoRlKAUACmJExV"/>
+					<DiagramProperties>
+						<StringProperty Name="pmCreateDateTime" Value="1418984822633"/>
+						<StringProperty Name="pmLastModified" Value="1418984880000"/>
+						<IntegerProperty Name="connectorStyle" Value="5"/>
+						<IntegerProperty Name="connectionPointStyle" Value="1"/>
+						<BooleanProperty Name="maximized" Value="true"/>
+						<IntegerProperty Name="x" Value="0"/>
+						<IntegerProperty Name="y" Value="0"/>
+						<IntegerProperty Name="width" Value="2145"/>
+						<IntegerProperty Name="height" Value="1076"/>
+						<StringArrayProperty Name="customizedSortDiagramElementIds">
+							<Values>
+								<Value Value="sid-46891B57-A9D3-4A8B-AEBF-D4BA5F3961AD_gui"/>
+								<Value Value="Process_Engine_1_gui"/>
+							</Values>
+						</StringArrayProperty>
+					</DiagramProperties>
+				</DiagramExtension>
+				<DiagramElementExtension Idref="sid-915AC9A0-CD35-4DF2-93F7-4535397622F8_gui">
+					<VpId Value="juhoRlKAUACmJEyb"/>
+					<ShapeType Value="BPMessageFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="569"/>
+						<IntegerProperty Name="y" Value="163"/>
+						<IntegerProperty Name="width" Value="328"/>
+						<IntegerProperty Name="height" Value="209"/>
+						<ColorProperty Name="background" Value="-723724"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="730" Y="270"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-AB6EB7C8-DF5E-42C2-88D0-FA166583AF15_gui">
+					<VpId Value="juhoRlKAUACmJEyd"/>
+					<ShapeType Value="BPMessageFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="201"/>
+						<IntegerProperty Name="y" Value="122"/>
+						<IntegerProperty Name="width" Value="426"/>
+						<IntegerProperty Name="height" Value="250"/>
+						<ColorProperty Name="background" Value="-723724"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="440" Y="270"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-7A070DED-8B83-48E1-88A1-5543C481E7BC_gui">
+					<VpId Value="TuhoRlKAUACmJEyp"/>
+					<ShapeType Value="BPMessageFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="75"/>
+						<IntegerProperty Name="y" Value="122"/>
+						<IntegerProperty Name="width" Value="192"/>
+						<IntegerProperty Name="height" Value="276"/>
+						<ColorProperty Name="background" Value="-723724"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="170" Y="270"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-90902E27-C1CD-4F90-A8F2-486DA4F42117_gui">
+					<VpId Value="TuhoRlKAUACmJEyv"/>
+					<ShapeType Value="BPMessageFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="178"/>
+						<IntegerProperty Name="y" Value="97"/>
+						<IntegerProperty Name="width" Value="342"/>
+						<IntegerProperty Name="height" Value="275"/>
+						<ColorProperty Name="background" Value="-723724"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="360" Y="250"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-0518A412-1ED3-4CFD-A75C-69FF37EFFC16_gui">
+					<VpId Value="TuhoRlKAUACmJEyx"/>
+					<ShapeType Value="BPMessageFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="546"/>
+						<IntegerProperty Name="y" Value="138"/>
+						<IntegerProperty Name="width" Value="250"/>
+						<IntegerProperty Name="height" Value="234"/>
+						<ColorProperty Name="background" Value="-723724"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="660" Y="260"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-744AEFB3-C93D-46A3-8976-EFA91784A51F_gui">
+					<VpId Value="NuhoRlKAUACmJExb"/>
+					<ShapeType Value="BPLane"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="50"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<StringArrayProperty Name="customizedSortDiagramElementIds">
+							<Values>
+								<Value Value="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B_gui"/>
+								<Value Value="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF_gui"/>
+								<Value Value="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44_gui"/>
+								<Value Value="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D_gui"/>
+								<Value Value="sid-40EC6574-E644-425C-8CE7-EE384F0C3520_gui"/>
+								<Value Value="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD_gui"/>
+								<Value Value="sid-F0D29912-929D-491C-8D23-73BD80CF980A_gui"/>
+								<Value Value="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D_gui"/>
+								<Value Value="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D_gui"/>
+								<Value Value="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2_gui"/>
+								<Value Value="sid-282524E6-660F-431D-8F19-1C3E9E9DE817_gui"/>
+								<Value Value="sid-71EF9530-A32A-49BC-A783-9B98A5801362_gui"/>
+								<Value Value="sid-C0540F47-C3C0-4FA8-B000-6D87640A6178_gui"/>
+								<Value Value="sid-4AD2006C-9290-42B0-A904-DD8076B791C4_gui"/>
+								<Value Value="sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96_gui"/>
+								<Value Value="sid-4686AFBC-E33A-4657-95A0-B2E27E704152_gui"/>
+								<Value Value="sid-915AC9A0-CD35-4DF2-93F7-4535397622F8_gui"/>
+								<Value Value="sid-AB6EB7C8-DF5E-42C2-88D0-FA166583AF15_gui"/>
+								<Value Value="sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1_gui"/>
+								<Value Value="sid-7A070DED-8B83-48E1-88A1-5543C481E7BC_gui"/>
+								<Value Value="sid-D03CC374-8575-4F38-98B4-4DFF014C43CB_gui"/>
+								<Value Value="sid-3019478F-48D5-4B85-95B1-E192B9BE4183_gui"/>
+								<Value Value="sid-26030150-7369-4B7F-8264-B3ABC62BA735_gui"/>
+								<Value Value="sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF_gui"/>
+							</Values>
+						</StringArrayProperty>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="205" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="8" Visible="true" Width="1" X="0" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B_gui">
+					<VpId Value="NuhoRlKAUACmJExd"/>
+					<ShapeType Value="BPStartEvent"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="16"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="69" X="80" Y="150"/>
+					<FillColor Color1="-16728064" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF_gui">
+					<VpId Value="NuhoRlKAUACmJExf"/>
+					<ShapeType Value="BPTask"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="45"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="80" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="12" Visible="true" Width="100" X="0" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44_gui">
+					<VpId Value="NuhoRlKAUACmJExh"/>
+					<ShapeType Value="BPTask"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="48"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="80" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="12" Visible="true" Width="100" X="0" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D_gui">
+					<VpId Value="NuhoRlKAUACmJExj"/>
+					<ShapeType Value="BPEndEvent"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="0"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="3.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="940" Y="90"/>
+					<FillColor Color1="-4194304" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-40EC6574-E644-425C-8CE7-EE384F0C3520_gui">
+					<VpId Value="tuhoRlKAUACmJExl"/>
+					<ShapeType Value="BPIntermediateEvent"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="2"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="92" X="420" Y="150"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD_gui">
+					<VpId Value="tuhoRlKAUACmJExn"/>
+					<ShapeType Value="BPTask"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="4"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="80" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="12" Visible="true" Width="100" X="0" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-F0D29912-929D-491C-8D23-73BD80CF980A_gui">
+					<VpId Value="tuhoRlKAUACmJExp"/>
+					<ShapeType Value="BPGateway"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="6"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="660" Y="150"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D_gui">
+					<VpId Value="tuhoRlKAUACmJExr"/>
+					<ShapeType Value="BPIntermediateEvent"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="8"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="104" X="690" Y="190"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D_gui">
+					<VpId Value="tuhoRlKAUACmJExt"/>
+					<ShapeType Value="BPTask"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="10"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="80" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="12" Visible="true" Width="100" X="0" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2_gui">
+					<VpId Value="tuhoRlKAUACmJExv"/>
+					<ShapeType Value="BPIntermediateEvent"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="12"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="58" X="720" Y="100"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-282524E6-660F-431D-8F19-1C3E9E9DE817_gui">
+					<VpId Value="tuhoRlKAUACmJExx"/>
+					<ShapeType Value="BPEndEvent"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="14"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="3.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="940" Y="190"/>
+					<FillColor Color1="-4194304" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-71EF9530-A32A-49BC-A783-9B98A5801362_gui">
+					<VpId Value="DuhoRlKAUACmJEyN"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="622"/>
+						<IntegerProperty Name="y" Value="27"/>
+						<IntegerProperty Name="width" Value="160"/>
+						<IntegerProperty Name="height" Value="137"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="690" Y="100"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-C0540F47-C3C0-4FA8-B000-6D87640A6178_gui">
+					<VpId Value="DuhoRlKAUACmJEyR"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="364"/>
+						<IntegerProperty Name="y" Value="84"/>
+						<IntegerProperty Name="width" Value="142"/>
+						<IntegerProperty Name="height" Value="101"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="440" Y="150"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-4AD2006C-9290-42B0-A904-DD8076B791C4_gui">
+					<VpId Value="DuhoRlKAUACmJEyT"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="434"/>
+						<IntegerProperty Name="y" Value="84"/>
+						<IntegerProperty Name="width" Value="144"/>
+						<IntegerProperty Name="height" Value="100"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="520" Y="150"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96_gui">
+					<VpId Value="DuhoRlKAUACmJEyV"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="216"/>
+						<IntegerProperty Name="y" Value="84"/>
+						<IntegerProperty Name="width" Value="150"/>
+						<IntegerProperty Name="height" Value="101"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="300" Y="150"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-4686AFBC-E33A-4657-95A0-B2E27E704152_gui">
+					<VpId Value="DuhoRlKAUACmJEyX"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="622"/>
+						<IntegerProperty Name="y" Value="102"/>
+						<IntegerProperty Name="width" Value="160"/>
+						<IntegerProperty Name="height" Value="122"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="700" Y="190"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1_gui">
+					<VpId Value="juhoRlKAUACmJEyl"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="846"/>
+						<IntegerProperty Name="y" Value="124"/>
+						<IntegerProperty Name="width" Value="146"/>
+						<IntegerProperty Name="height" Value="102"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="930" Y="190"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-D03CC374-8575-4F38-98B4-4DFF014C43CB_gui">
+					<VpId Value="TuhoRlKAUACmJEyr"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="710"/>
+						<IntegerProperty Name="y" Value="125"/>
+						<IntegerProperty Name="width" Value="138"/>
+						<IntegerProperty Name="height" Value="100"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="790" Y="190"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-3019478F-48D5-4B85-95B1-E192B9BE4183_gui">
+					<VpId Value="zuhoRlKAUACmJEy5"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="710"/>
+						<IntegerProperty Name="y" Value="27"/>
+						<IntegerProperty Name="width" Value="282"/>
+						<IntegerProperty Name="height" Value="100"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="860" Y="100"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-26030150-7369-4B7F-8264-B3ABC62BA735_gui">
+					<VpId Value="zuhoRlKAUACmJEy7"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="576"/>
+						<IntegerProperty Name="y" Value="84"/>
+						<IntegerProperty Name="width" Value="128"/>
+						<IntegerProperty Name="height" Value="102"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="650" Y="150"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF_gui">
+					<VpId Value="zuhoRlKAUACmJEy9"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="78"/>
+						<IntegerProperty Name="y" Value="84"/>
+						<IntegerProperty Name="width" Value="140"/>
+						<IntegerProperty Name="height" Value="100"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="160" Y="150"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sid-46891B57-A9D3-4A8B-AEBF-D4BA5F3961AD_gui">
+					<VpId Value="1uhoRlKAUACmJExX"/>
+					<ShapeType Value="BPPool"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="54"/>
+						<ModelRefProperty Name="metaModelElement">
+							<ModelRef Id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df" ModelType="BPPool" Name="Team-Assistant"/>
+						</ModelRefProperty>
+						<IntegerProperty Name="x" Value="17"/>
+						<IntegerProperty Name="y" Value="15"/>
+						<IntegerProperty Name="width" Value="1007"/>
+						<IntegerProperty Name="height" Value="205"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<StringArrayProperty Name="customizedSortDiagramElementIds">
+							<Values>
+								<Value Value="sid-744AEFB3-C93D-46A3-8976-EFA91784A51F_gui"/>
+							</Values>
+						</StringArrayProperty>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="205" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="8" Visible="true" Width="16" X="0" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="Approver_gui">
+					<VpId Value="duhoRlKAUACmJExz"/>
+					<ShapeType Value="BPLane"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="31"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<StringArrayProperty Name="customizedSortDiagramElementIds">
+							<Values>
+								<Value Value="approveInvoice_gui"/>
+								<Value Value="invoice_approved_gui"/>
+								<Value Value="invoiceApproved_gui"/>
+								<Value Value="invoiceNotApproved_gui"/>
+								<Value Value="sequenceFlow_180_gui"/>
+							</Values>
+						</StringArrayProperty>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="161" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="8" Visible="true" Width="16" X="0" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="teamAssistant_gui">
+					<VpId Value="duhoRlKAUACmJEx1"/>
+					<ShapeType Value="BPLane"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="38"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<StringArrayProperty Name="customizedSortDiagramElementIds">
+							<Values>
+								<Value Value="assignApprover_gui"/>
+								<Value Value="reviewInvoice_gui"/>
+								<Value Value="reviewSuccessful_gw_gui"/>
+								<Value Value="invoiceNotProcessed_gui"/>
+								<Value Value="StartEvent_1_gui"/>
+								<Value Value="reviewSuccessful_gui"/>
+								<Value Value="reviewNotSuccessful_gui"/>
+								<Value Value="sequenceFlow_183_gui"/>
+								<Value Value="sequenceFlow_178_gui"/>
+								<Value Value="sid-90902E27-C1CD-4F90-A8F2-486DA4F42117_gui"/>
+								<Value Value="sid-0518A412-1ED3-4CFD-A75C-69FF37EFFC16_gui"/>
+								<Value Value="SequenceFlow_1_gui"/>
+							</Values>
+						</StringArrayProperty>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="183" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="8" Visible="true" Width="16" X="0" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="Accountant_gui">
+					<VpId Value="duhoRlKAUACmJEx3"/>
+					<ShapeType Value="BPLane"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="43"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<StringArrayProperty Name="customizedSortDiagramElementIds">
+							<Values>
+								<Value Value="prepareBankTransfer_gui"/>
+								<Value Value="invoiceProcessed_gui"/>
+								<Value Value="archiveInvoice_gui"/>
+								<Value Value="SequenceFlow_2_gui"/>
+								<Value Value="SequenceFlow_3_gui"/>
+							</Values>
+						</StringArrayProperty>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="144" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="8" Visible="true" Width="16" X="0" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="approveInvoice_gui">
+					<VpId Value="duhoRlKAUACmJEx5"/>
+					<ShapeType Value="BPTask"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="18"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="80" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="12" Visible="true" Width="80" X="20" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="invoice_approved_gui">
+					<VpId Value="duhoRlKAUACmJEx7"/>
+					<ShapeType Value="BPGateway"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="25"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="80" X="480" Y="550"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="assignApprover_gui">
+					<VpId Value="duhoRlKAUACmJEx9"/>
+					<ShapeType Value="BPTask"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="20"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="80" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="12" Visible="true" Width="80" X="20" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="reviewInvoice_gui">
+					<VpId Value="9uhoRlKAUACmJEx_"/>
+					<ShapeType Value="BPTask"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="27"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="80" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="12" Visible="true" Width="80" X="20" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="reviewSuccessful_gw_gui">
+					<VpId Value="9uhoRlKAUACmJEyB"/>
+					<ShapeType Value="BPGateway"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="29"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="84" X="690" Y="380"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="invoiceNotProcessed_gui">
+					<VpId Value="9uhoRlKAUACmJEyD"/>
+					<ShapeType Value="BPEndEvent"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="32"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="3.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="84" X="910" Y="380"/>
+					<FillColor Color1="-4194304" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="StartEvent_1_gui">
+					<VpId Value="9uhoRlKAUACmJEyF"/>
+					<ShapeType Value="BPStartEvent"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="34"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="69" X="90" Y="380"/>
+					<FillColor Color1="-16728064" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="prepareBankTransfer_gui">
+					<VpId Value="9uhoRlKAUACmJEyH"/>
+					<ShapeType Value="BPTask"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="22"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="80" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="12" Visible="true" Width="80" X="20" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="invoiceProcessed_gui">
+					<VpId Value="9uhoRlKAUACmJEyJ"/>
+					<ShapeType Value="BPEndEvent"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="37"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+						<IntegerProperty Name="0cpPlct" Value="10"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="3.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="78" X="920" Y="710"/>
+					<FillColor Color1="-4194304" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="archiveInvoice_gui">
+					<VpId Value="DuhoRlKAUACmJEyL"/>
+					<ShapeType Value="BPTask"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="40"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="80" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="12" Visible="true" Width="80" X="20" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="invoiceApproved_gui">
+					<VpId Value="DuhoRlKAUACmJEyP"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="492"/>
+						<IntegerProperty Name="y" Value="485"/>
+						<IntegerProperty Name="width" Value="211"/>
+						<IntegerProperty Name="height" Value="260"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="40" X="600" Y="620"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="invoiceNotApproved_gui">
+					<VpId Value="juhoRlKAUACmJEyZ"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="473"/>
+						<IntegerProperty Name="y" Value="312"/>
+						<IntegerProperty Name="width" Value="140"/>
+						<IntegerProperty Name="height" Value="254"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="34" X="530" Y="430"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="reviewSuccessful_gui">
+					<VpId Value="juhoRlKAUACmJEyf"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="368"/>
+						<IntegerProperty Name="y" Value="255"/>
+						<IntegerProperty Name="width" Value="410"/>
+						<IntegerProperty Name="height" Value="290"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="40" X="500" Y="320"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="reviewNotSuccessful_gui">
+					<VpId Value="juhoRlKAUACmJEyh"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="697"/>
+						<IntegerProperty Name="y" Value="312"/>
+						<IntegerProperty Name="width" Value="295"/>
+						<IntegerProperty Name="height" Value="100"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="34" X="850" Y="370"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sequenceFlow_180_gui">
+					<VpId Value="juhoRlKAUACmJEyj"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="417"/>
+						<IntegerProperty Name="y" Value="486"/>
+						<IntegerProperty Name="width" Value="137"/>
+						<IntegerProperty Name="height" Value="101"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="490" Y="560"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sequenceFlow_183_gui">
+					<VpId Value="juhoRlKAUACmJEyn"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="612"/>
+						<IntegerProperty Name="y" Value="312"/>
+						<IntegerProperty Name="width" Value="147"/>
+						<IntegerProperty Name="height" Value="101"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="690" Y="380"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="sequenceFlow_178_gui">
+					<VpId Value="TuhoRlKAUACmJEyt"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="244"/>
+						<IntegerProperty Name="y" Value="312"/>
+						<IntegerProperty Name="width" Value="174"/>
+						<IntegerProperty Name="height" Value="273"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="330" Y="470"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="SequenceFlow_2_gui">
+					<VpId Value="TuhoRlKAUACmJEyz"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="702"/>
+						<IntegerProperty Name="y" Value="647"/>
+						<IntegerProperty Name="width" Value="144"/>
+						<IntegerProperty Name="height" Value="101"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="780" Y="720"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="SequenceFlow_3_gui">
+					<VpId Value="TuhoRlKAUACmJEy1"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="844"/>
+						<IntegerProperty Name="y" Value="645"/>
+						<IntegerProperty Name="width" Value="148"/>
+						<IntegerProperty Name="height" Value="102"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="930" Y="720"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="SequenceFlow_1_gui">
+					<VpId Value="zuhoRlKAUACmJEy3"/>
+					<ShapeType Value="BPSequenceFlow"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="-1"/>
+						<IntegerProperty Name="x" Value="89"/>
+						<IntegerProperty Name="y" Value="312"/>
+						<IntegerProperty Name="width" Value="156"/>
+						<IntegerProperty Name="height" Value="100"/>
+						<ColorProperty Name="background" Value="-16777216"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<IntegerProperty Name="connectorStyle" Value="1"/>
+						<IntegerProperty Name="fromShapeXDiff" Value="0"/>
+						<IntegerProperty Name="fromShapeYDiff" Value="0"/>
+						<IntegerProperty Name="toShapeXDiff" Value="0"/>
+						<IntegerProperty Name="toShapeYDiff" Value="0"/>
+						<IntegerProperty Name="fromConnectType" Value="0"/>
+						<IntegerProperty Name="toConnectType" Value="0"/>
+						<BooleanProperty Name="useFromShapeCenter" Value="false"/>
+						<BooleanProperty Name="useToShapeCenter" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="0" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="1" Visible="true" Width="20" X="180" Y="380"/>
+					<ConnectorStyle Value="1"/>
+				</DiagramElementExtension>
+				<DiagramElementExtension Idref="Process_Engine_1_gui">
+					<VpId Value="NuhoRlKAUACmJExZ"/>
+					<ShapeType Value="BPPool"/>
+					<DiagramElementProperties>
+						<IntegerProperty Name="zOrder" Value="49"/>
+						<ModelRefProperty Name="metaModelElement">
+							<ModelRef Id="sid_499dfba4_1449_4914_9e85_55b252800bad" ModelType="BPPool" Name="Process Engine - Invoice Receipt"/>
+						</ModelRefProperty>
+						<IntegerProperty Name="x" Value="15"/>
+						<IntegerProperty Name="y" Value="270"/>
+						<IntegerProperty Name="width" Value="1009"/>
+						<IntegerProperty Name="height" Value="488"/>
+						<ColorProperty Name="background" Value="-8728587"/>
+						<ColorProperty Name="foreground" Value="-16777216"/>
+						<StringArrayProperty Name="customizedSortDiagramElementIds">
+							<Values>
+								<Value Value="Approver_gui"/>
+								<Value Value="teamAssistant_gui"/>
+								<Value Value="Accountant_gui"/>
+							</Values>
+						</StringArrayProperty>
+						<IntegerProperty Name="parentConnectorHeaderLength" Value="0"/>
+						<IntegerProperty Name="parentConnectorLineLength" Value="0"/>
+						<BooleanProperty Name="connectToPoint" Value="false"/>
+						<DoubleProperty Name="parentConnectorDTheta" Value="0.0"/>
+						<BooleanProperty Name="requestDefaultSize" Value="false"/>
+					</DiagramElementProperties>
+					<ElementFont Color="-16777216" Name="Verdana" Size="11" Style="0"/>
+					<Line Cap="0" Color="-16777216" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="488" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="8" Visible="true" Width="16" X="0" Y="0"/>
+					<FillColor Color1="-1" Style="1" Transparency="0" Type="1"/>
+				</DiagramElementExtension>
+			</vp:Extensions>
+		</extensionElements>
+	</process>
+	<process id="process-sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df" isExecutable="false" name="Team-Assistant">
+		<laneSet id="laneset-sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df">
+			<lane id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F" name="">
+				<extensionElements>
+					<vp:Extensions>
+						<ModelExtension>
+							<VpId Value="mOhoRlKAUACmJEwa"/>
+							<ModelType Value="BPLane"/>
+							<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df"/>
+							<ModelProperties>
+								<StringProperty Name="pmCreateDateTime" Value="1418984822553"/>
+								<StringProperty Name="pmLastModified" Value="1418984822851"/>
+								<StringProperty Name="userID" Value="sid-744AEFB3-C93D-46A3-8976-EFA91784A51F"/>
+								<StringProperty Name="userIDParent" Value="P2hoRlKAUACmJEwO"/>
+							</ModelProperties>
+						</ModelExtension>
+					</vp:Extensions>
+				</extensionElements>
+				<flowNodeRef>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_36EA43D1_0FE6_4197_AC57_7A43785B784B</flowNodeRef>
+				<flowNodeRef>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_05039C4F_59F7_4CBD_8C84_D35E27C7B5EF</flowNodeRef>
+				<flowNodeRef>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_CFAC8502_0E69_4F08_BE36_8499B8C0FA44</flowNodeRef>
+				<flowNodeRef>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_BC9AC0B6_1785_4E35_A974_7FEF1A586B9D</flowNodeRef>
+				<flowNodeRef>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_40EC6574_E644_425C_8CE7_EE384F0C3520</flowNodeRef>
+				<flowNodeRef>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_64AFCE49_96A2_4A51_96CB_9DF689C37DAD</flowNodeRef>
+				<flowNodeRef>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_F0D29912_929D_491C_8D23_73BD80CF980A</flowNodeRef>
+				<flowNodeRef>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_B548B980_12E3_408E_9AC4_7031B85A8F2D</flowNodeRef>
+				<flowNodeRef>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_6FC20E19_AF3A_4A77_8588_2D671C98D93D</flowNodeRef>
+				<flowNodeRef>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_0E349B8B_14A7_4565_988A_38F3A9B624D2</flowNodeRef>
+				<flowNodeRef>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_282524E6_660F_431D_8F19_1C3E9E9DE817</flowNodeRef>
+			</lane>
+		</laneSet>
+		<startEvent id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_36EA43D1_0FE6_4197_AC57_7A43785B784B" isInterrupting="true" name="Invoice&#10;received">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="2OhoRlKAUACmJEwb"/>
+						<ModelType Value="BPStartEvent"/>
+						<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822555"/>
+							<StringProperty Name="pmLastModified" Value="1418984822850"/>
+							<StringProperty Name="userID" Value="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+							<ModelProperty Name="trigger">
+								<Model id="sid-7f89416b-58ec-4e26-b9bc-390f9e8f2ae0" name="Message">
+									<VpId Value="OOhoRlKAUACmJEwc"/>
+									<ModelType Value="BPMessageTrigger"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822556"/>
+										<IntegerProperty Name="triggerType" Value="1"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<outgoing>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_7971C38C_2EF5_41F2_A24E_3FFCA069EDBF</outgoing>
+			<messageEventDefinition id="sid-7f89416b-58ec-4e26-b9bc-390f9e8f2ae0"/>
+		</startEvent>
+		<task completionQuantity="1" id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_05039C4F_59F7_4CBD_8C84_D35E27C7B5EF" isForCompensation="false" name="Scan&#10;camunda-invoice-en" startQuantity="1">
+			<extensionElements>
+				<vp:bounds height="80" width="100" x="167" y="93"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="uOhoRlKAUACmJEwd"/>
+						<ModelType Value="BPTask"/>
+						<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822557"/>
+							<StringProperty Name="pmLastModified" Value="1418984822852"/>
+							<StringProperty Name="userID" Value="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_7971C38C_2EF5_41F2_A24E_3FFCA069EDBF</incoming>
+			<outgoing>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_3E8B2FCF_E408_4A5D_9455_8FDE7BB3EF96</outgoing>
+		</task>
+		<task completionQuantity="1" id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_CFAC8502_0E69_4F08_BE36_8499B8C0FA44" isForCompensation="false" name="Archive&#10;original" startQuantity="1">
+			<extensionElements>
+				<vp:bounds height="80" width="100" x="315" y="93"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value=".OhoRlKAUACmJEwe"/>
+						<ModelType Value="BPTask"/>
+						<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822559"/>
+							<StringProperty Name="pmLastModified" Value="1418984822856"/>
+							<StringProperty Name="userID" Value="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_3E8B2FCF_E408_4A5D_9455_8FDE7BB3EF96</incoming>
+			<outgoing>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_C0540F47_C3C0_4FA8_B000_6D87640A6178</outgoing>
+		</task>
+		<endEvent id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_BC9AC0B6_1785_4E35_A974_7FEF1A586B9D" name="">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="hOhoRlKAUACmJEwf"/>
+						<ModelType Value="BPEndEvent"/>
+						<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822561"/>
+							<StringProperty Name="pmLastModified" Value="1418984822855"/>
+							<StringProperty Name="userID" Value="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_3019478F_48D5_4B85_95B1_E192B9BE4183</incoming>
+		</endEvent>
+		<intermediateCatchEvent id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_40EC6574_E644_425C_8CE7_EE384F0C3520" name="Approver to &#10;be assigned">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="ROhoRlKAUACmJEwg"/>
+						<ModelType Value="BPIntermediateEvent"/>
+						<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822562"/>
+							<StringProperty Name="pmLastModified" Value="1418984822850"/>
+							<StringProperty Name="userID" Value="sid-40EC6574-E644-425C-8CE7-EE384F0C3520"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+							<ModelProperty Name="trigger">
+								<Model id="sid-29fbb68c-e460-48c1-bba9-a1b16906afec" name="Message">
+									<VpId Value="xOhoRlKAUACmJEwh"/>
+									<ModelType Value="BPMessageTrigger"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822563"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_C0540F47_C3C0_4FA8_B000_6D87640A6178</incoming>
+			<outgoing>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_4AD2006C_9290_42B0_A904_DD8076B791C4</outgoing>
+			<messageEventDefinition id="sid-29fbb68c-e460-48c1-bba9-a1b16906afec"/>
+		</intermediateCatchEvent>
+		<task completionQuantity="1" id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_64AFCE49_96A2_4A51_96CB_9DF689C37DAD" isForCompensation="false" name="Assign approver" startQuantity="1">
+			<extensionElements>
+				<vp:bounds height="80" width="100" x="527" y="93"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="pOhoRlKAUACmJEwi"/>
+						<ModelType Value="BPTask"/>
+						<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822565"/>
+							<StringProperty Name="pmLastModified" Value="1418984822850"/>
+							<StringProperty Name="userID" Value="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_4AD2006C_9290_42B0_A904_DD8076B791C4</incoming>
+			<outgoing>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_26030150_7369_4B7F_8264_B3ABC62BA735</outgoing>
+		</task>
+		<eventBasedGateway gatewayDirection="Diverging" id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_F0D29912_929D_491C_8D23_73BD80CF980A" instantiate="false" name="">
+			<extensionElements>
+				<vp:bounds height="40" width="40" x="652" y="113"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="ZOhoRlKAUACmJEwj"/>
+						<ModelType Value="BPGateway"/>
+						<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822566"/>
+							<StringProperty Name="pmLastModified" Value="1418984822857"/>
+							<StringProperty Name="userID" Value="sid-F0D29912-929D-491C-8D23-73BD80CF980A"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+							<ModelProperty Name="gatewayType">
+								<Model id="ZOhoRlKAUACmJEwjgatewayType" name="XOR">
+									<VpId Value="FOhoRlKAUACmJEwl"/>
+									<ModelType Value="BPGatewayEventBasedXOR"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822568"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_26030150_7369_4B7F_8264_B3ABC62BA735</incoming>
+			<outgoing>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_71EF9530_A32A_49BC_A783_9B98A5801362</outgoing>
+			<outgoing>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_4686AFBC_E33A_4657_95A0_B2E27E704152</outgoing>
+		</eventBasedGateway>
+		<intermediateCatchEvent id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_B548B980_12E3_408E_9AC4_7031B85A8F2D" name="Invoice review&#10; needed">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="lOhoRlKAUACmJEwm"/>
+						<ModelType Value="BPIntermediateEvent"/>
+						<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822569"/>
+							<StringProperty Name="pmLastModified" Value="1418984822855"/>
+							<StringProperty Name="userID" Value="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+							<ModelProperty Name="trigger">
+								<Model id="sid-b9aae81c-0006-46ad-9445-89307e8eeed8" name="Message">
+									<VpId Value="1OhoRlKAUACmJEwn"/>
+									<ModelType Value="BPMessageTrigger"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822571"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_4686AFBC_E33A_4657_95A0_B2E27E704152</incoming>
+			<outgoing>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_D03CC374_8575_4F38_98B4_4DFF014C43CB</outgoing>
+			<messageEventDefinition id="sid-b9aae81c-0006-46ad-9445-89307e8eeed8"/>
+		</intermediateCatchEvent>
+		<task completionQuantity="1" id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_6FC20E19_AF3A_4A77_8588_2D671C98D93D" isForCompensation="false" name="Review and document result" startQuantity="1">
+			<extensionElements>
+				<vp:bounds height="80" width="100" x="797" y="134"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="NOhoRlKAUACmJEwo"/>
+						<ModelType Value="BPTask"/>
+						<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822572"/>
+							<StringProperty Name="pmLastModified" Value="1418984822849"/>
+							<StringProperty Name="userID" Value="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_D03CC374_8575_4F38_98B4_4DFF014C43CB</incoming>
+			<outgoing>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_6CB8539C_E02A_4496_94E7_17FAECB0D4B1</outgoing>
+		</task>
+		<intermediateCatchEvent id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_0E349B8B_14A7_4565_988A_38F3A9B624D2" name="7 days">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="dOhoRlKAUACmJEwp"/>
+						<ModelType Value="BPIntermediateEvent"/>
+						<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822574"/>
+							<StringProperty Name="pmLastModified" Value="1418984822848"/>
+							<StringProperty Name="userID" Value="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+							<ModelProperty Name="trigger">
+								<Model id="sid-6517379a-613c-497d-81cc-b710878d9ebb" name="Timer">
+									<VpId Value="9OhoRlKAUACmJEwq"/>
+									<ModelType Value="BPTimerTrigger"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822575"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_71EF9530_A32A_49BC_A783_9B98A5801362</incoming>
+			<outgoing>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_3019478F_48D5_4B85_95B1_E192B9BE4183</outgoing>
+			<timerEventDefinition id="sid-6517379a-613c-497d-81cc-b710878d9ebb"/>
+		</intermediateCatchEvent>
+		<endEvent id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_282524E6_660F_431D_8F19_1C3E9E9DE817" name="">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="DOhoRlKAUACmJEwr"/>
+						<ModelType Value="BPEndEvent"/>
+						<ParentRef Idref="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822576"/>
+							<StringProperty Name="pmLastModified" Value="1418984822853"/>
+							<StringProperty Name="userID" Value="sid-282524E6-660F-431D-8F19-1C3E9E9DE817"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_6CB8539C_E02A_4496_94E7_17FAECB0D4B1</incoming>
+		</endEvent>
+		<sequenceFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_71EF9530_A32A_49BC_A783_9B98A5801362" isImmediate="true" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_F0D29912_929D_491C_8D23_73BD80CF980A" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_0E349B8B_14A7_4565_988A_38F3A9B624D2">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="TOhoRlKAUACmJEws"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822578"/>
+							<StringProperty Name="pmLastModified" Value="1418984822857"/>
+							<StringProperty Name="userID" Value="sid-71EF9530-A32A-49BC-A783-9B98A5801362"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_C0540F47_C3C0_4FA8_B000_6D87640A6178" isImmediate="true" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_CFAC8502_0E69_4F08_BE36_8499B8C0FA44" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_40EC6574_E644_425C_8CE7_EE384F0C3520">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="zOhoRlKAUACmJEwt"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822579"/>
+							<StringProperty Name="pmLastModified" Value="1418984822856"/>
+							<StringProperty Name="userID" Value="sid-C0540F47-C3C0-4FA8-B000-6D87640A6178"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_4AD2006C_9290_42B0_A904_DD8076B791C4" isImmediate="true" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_40EC6574_E644_425C_8CE7_EE384F0C3520" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_64AFCE49_96A2_4A51_96CB_9DF689C37DAD">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="rOhoRlKAUACmJEwu"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822581"/>
+							<StringProperty Name="pmLastModified" Value="1418984822850"/>
+							<StringProperty Name="userID" Value="sid-4AD2006C-9290-42B0-A904-DD8076B791C4"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_3E8B2FCF_E408_4A5D_9455_8FDE7BB3EF96" isImmediate="true" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_05039C4F_59F7_4CBD_8C84_D35E27C7B5EF" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_CFAC8502_0E69_4F08_BE36_8499B8C0FA44">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="bOhoRlKAUACmJEwv"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822582"/>
+							<StringProperty Name="pmLastModified" Value="1418984822856"/>
+							<StringProperty Name="userID" Value="sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_4686AFBC_E33A_4657_95A0_B2E27E704152" isImmediate="true" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_F0D29912_929D_491C_8D23_73BD80CF980A" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_B548B980_12E3_408E_9AC4_7031B85A8F2D">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="HOhoRlKAUACmJEww"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822584"/>
+							<StringProperty Name="pmLastModified" Value="1418984822857"/>
+							<StringProperty Name="userID" Value="sid-4686AFBC-E33A-4657-95A0-B2E27E704152"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_6CB8539C_E02A_4496_94E7_17FAECB0D4B1" isImmediate="true" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_6FC20E19_AF3A_4A77_8588_2D671C98D93D" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_282524E6_660F_431D_8F19_1C3E9E9DE817">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="nOhoRlKAUACmJEwx"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822585"/>
+							<StringProperty Name="pmLastModified" Value="1418984822853"/>
+							<StringProperty Name="userID" Value="sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_D03CC374_8575_4F38_98B4_4DFF014C43CB" isImmediate="true" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_B548B980_12E3_408E_9AC4_7031B85A8F2D" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_6FC20E19_AF3A_4A77_8588_2D671C98D93D">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="3OhoRlKAUACmJEwy"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822587"/>
+							<StringProperty Name="pmLastModified" Value="1418984822856"/>
+							<StringProperty Name="userID" Value="sid-D03CC374-8575-4F38-98B4-4DFF014C43CB"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_3019478F_48D5_4B85_95B1_E192B9BE4183" isImmediate="true" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_0E349B8B_14A7_4565_988A_38F3A9B624D2" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_BC9AC0B6_1785_4E35_A974_7FEF1A586B9D">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="POhoRlKAUACmJEwz"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822588"/>
+							<StringProperty Name="pmLastModified" Value="1418984822855"/>
+							<StringProperty Name="userID" Value="sid-3019478F-48D5-4B85-95B1-E192B9BE4183"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_26030150_7369_4B7F_8264_B3ABC62BA735" isImmediate="true" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_64AFCE49_96A2_4A51_96CB_9DF689C37DAD" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_F0D29912_929D_491C_8D23_73BD80CF980A">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="fOhoRlKAUACmJEw0"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822590"/>
+							<StringProperty Name="pmLastModified" Value="1418984822857"/>
+							<StringProperty Name="userID" Value="sid-26030150-7369-4B7F-8264-B3ABC62BA735"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_7971C38C_2EF5_41F2_A24E_3FFCA069EDBF" isImmediate="true" name="" sourceRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_36EA43D1_0FE6_4197_AC57_7A43785B784B" targetRef="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_05039C4F_59F7_4CBD_8C84_D35E27C7B5EF">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="_OhoRlKAUACmJEw1"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822591"/>
+							<StringProperty Name="pmLastModified" Value="1418984822853"/>
+							<StringProperty Name="userID" Value="sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF"/>
+							<StringProperty Name="userIDParent" Value="mOhoRlKAUACmJEwa"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+	</process>
+	<process id="process-sid_499dfba4_1449_4914_9e85_55b252800bad" isExecutable="false" name="Process Engine - Invoice Receipt">
+		<laneSet id="laneset-sid_499dfba4_1449_4914_9e85_55b252800bad">
+			<lane id="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver" name="Approver">
+				<extensionElements>
+					<vp:Extensions>
+						<ModelExtension>
+							<VpId Value="guhoRlKAUACmJEw2"/>
+							<ModelType Value="BPLane"/>
+							<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad"/>
+							<ModelProperties>
+								<StringProperty Name="pmCreateDateTime" Value="1418984822593"/>
+								<StringProperty Name="pmLastModified" Value="1418984822840"/>
+								<StringProperty Name="userID" Value="Approver"/>
+								<StringProperty Name="userIDParent" Value="QOhoRlKAUACmJEwR"/>
+							</ModelProperties>
+						</ModelExtension>
+					</vp:Extensions>
+				</extensionElements>
+				<flowNodeRef>sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_approveInvoice</flowNodeRef>
+				<flowNodeRef>sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoice_approved</flowNodeRef>
+			</lane>
+			<lane id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant" name="Team Assistant">
+				<extensionElements>
+					<vp:Extensions>
+						<ModelExtension>
+							<VpId Value="wuhoRlKAUACmJEw3"/>
+							<ModelType Value="BPLane"/>
+							<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad"/>
+							<ModelProperties>
+								<StringProperty Name="pmCreateDateTime" Value="1418984822595"/>
+								<StringProperty Name="pmLastModified" Value="1418984822857"/>
+								<StringProperty Name="userID" Value="teamAssistant"/>
+								<StringProperty Name="userIDParent" Value="QOhoRlKAUACmJEwR"/>
+							</ModelProperties>
+						</ModelExtension>
+					</vp:Extensions>
+				</extensionElements>
+				<flowNodeRef>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_assignApprover</flowNodeRef>
+				<flowNodeRef>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewInvoice</flowNodeRef>
+				<flowNodeRef>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewSuccessful_gw</flowNodeRef>
+				<flowNodeRef>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_invoiceNotProcessed</flowNodeRef>
+				<flowNodeRef>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_StartEvent_1</flowNodeRef>
+			</lane>
+			<lane id="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant" name="Accountant">
+				<extensionElements>
+					<vp:Extensions>
+						<ModelExtension>
+							<VpId Value="IuhoRlKAUACmJEw4"/>
+							<ModelType Value="BPLane"/>
+							<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad"/>
+							<ModelProperties>
+								<StringProperty Name="pmCreateDateTime" Value="1418984822596"/>
+								<StringProperty Name="pmLastModified" Value="1418984822840"/>
+								<StringProperty Name="userID" Value="Accountant"/>
+								<StringProperty Name="userIDParent" Value="QOhoRlKAUACmJEwR"/>
+							</ModelProperties>
+						</ModelExtension>
+					</vp:Extensions>
+				</extensionElements>
+				<flowNodeRef>sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_prepareBankTransfer</flowNodeRef>
+				<flowNodeRef>sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_invoiceProcessed</flowNodeRef>
+				<flowNodeRef>sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_archiveInvoice</flowNodeRef>
+			</lane>
+		</laneSet>
+		<userTask completionQuantity="1" id="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_approveInvoice" implementation="##unspecified" isForCompensation="false" name="Approve Invoice" startQuantity="1">
+			<extensionElements>
+				<vp:bounds height="80" width="100" x="368" y="495"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="YuhoRlKAUACmJEw5"/>
+						<ModelType Value="BPTask"/>
+						<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822598"/>
+							<StringProperty Name="pmLastModified" Value="1418984822842"/>
+							<StringProperty Name="userID" Value="approveInvoice"/>
+							<StringProperty Name="userIDParent" Value="guhoRlKAUACmJEw2"/>
+							<ModelProperty Name="taskType">
+								<Model id="YuhoRlKAUACmJEw5taskType" name="User">
+									<VpId Value="4uhoRlKAUACmJEw6"/>
+									<ModelType Value="BPUserTask"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822599"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewSuccessful</incoming>
+			<incoming>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sequenceFlow_178</incoming>
+			<outgoing>sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_sequenceFlow_180</outgoing>
+		</userTask>
+		<exclusiveGateway gatewayDirection="Diverging" id="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoice_approved" name="Invoice&#10;approved?">
+			<extensionElements>
+				<vp:bounds height="40" width="40" x="503" y="515"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="kuhoRlKAUACmJEw7"/>
+						<ModelType Value="BPGateway"/>
+						<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822601"/>
+							<StringProperty Name="pmLastModified" Value="1418984822844"/>
+							<StringProperty Name="userID" Value="invoice_approved"/>
+							<StringProperty Name="userIDParent" Value="guhoRlKAUACmJEw2"/>
+							<ModelProperty Name="gatewayType">
+								<Model id="ID_23464350_2145_1200_2400_024611000071" name="XOR">
+									<VpId Value="kuhoRlKAUACmJEw8"/>
+									<ModelType Value="BPGatewayDataBasedXOR"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822601"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_sequenceFlow_180</incoming>
+			<outgoing>sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoiceApproved</outgoing>
+			<outgoing>sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoiceNotApproved</outgoing>
+		</exclusiveGateway>
+		<userTask completionQuantity="1" id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_assignApprover" implementation="##unspecified" isForCompensation="false" name="Assign&#10;Approver" startQuantity="1">
+			<extensionElements>
+				<vp:bounds height="80" width="100" x="195" y="322"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="UuhoRlKAUACmJEw9"/>
+						<ModelType Value="BPTask"/>
+						<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822602"/>
+							<StringProperty Name="pmLastModified" Value="1418984822843"/>
+							<StringProperty Name="userID" Value="assignApprover"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+							<ModelProperty Name="taskType">
+								<Model id="UuhoRlKAUACmJEw9taskType" name="User">
+									<VpId Value="0uhoRlKAUACmJEw."/>
+									<ModelType Value="BPUserTask"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822603"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_SequenceFlow_1</incoming>
+			<outgoing>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sequenceFlow_178</outgoing>
+		</userTask>
+		<userTask completionQuantity="1" id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewInvoice" implementation="##unspecified" isForCompensation="false" name="Rechnung kl\u00e4ren" startQuantity="1">
+			<extensionElements>
+				<vp:bounds height="80" width="100" x="563" y="322"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="suhoRlKAUACmJEw_"/>
+						<ModelType Value="BPTask"/>
+						<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822605"/>
+							<StringProperty Name="pmLastModified" Value="1418984822846"/>
+							<StringProperty Name="userID" Value="reviewInvoice"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+							<ModelProperty Name="taskType">
+								<Model id="suhoRlKAUACmJEw_taskType" name="User">
+									<VpId Value="cuhoRlKAUACmJExA"/>
+									<ModelType Value="BPUserTask"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822606"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoiceNotApproved</incoming>
+			<outgoing>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sequenceFlow_183</outgoing>
+		</userTask>
+		<exclusiveGateway gatewayDirection="Diverging" id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewSuccessful_gw" name="Review&#10;successful?">
+			<extensionElements>
+				<vp:bounds height="40" width="40" x="708" y="342"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="8uhoRlKAUACmJExB"/>
+						<ModelType Value="BPGateway"/>
+						<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822607"/>
+							<StringProperty Name="pmLastModified" Value="1418984822846"/>
+							<StringProperty Name="userID" Value="reviewSuccessful_gw"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+							<ModelProperty Name="gatewayType">
+								<Model id="ID_13464350_2145_1200_2400_024611000072" name="XOR">
+									<VpId Value="8uhoRlKAUACmJExC"/>
+									<ModelType Value="BPGatewayDataBasedXOR"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822607"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sequenceFlow_183</incoming>
+			<outgoing>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewSuccessful</outgoing>
+			<outgoing>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewNotSuccessful</outgoing>
+		</exclusiveGateway>
+		<endEvent id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_invoiceNotProcessed" name="Invoice not&#10;processed">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="iuhoRlKAUACmJExD"/>
+						<ModelType Value="BPEndEvent"/>
+						<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822609"/>
+							<StringProperty Name="pmLastModified" Value="1418984822843"/>
+							<StringProperty Name="userID" Value="invoiceNotProcessed"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewNotSuccessful</incoming>
+		</endEvent>
+		<startEvent id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_StartEvent_1" isInterrupting="true" name="Invoice&#10;received">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="SuhoRlKAUACmJExE"/>
+						<ModelType Value="BPStartEvent"/>
+						<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822610"/>
+							<StringProperty Name="pmLastModified" Value="1418984822841"/>
+							<StringProperty Name="userID" Value="StartEvent_1"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+							<ModelProperty Name="trigger">
+								<Model id="sid-14929637-5f1e-4d27-811c-ef5e4ddaa4c7" name="Message">
+									<VpId Value="yuhoRlKAUACmJExF"/>
+									<ModelType Value="BPMessageTrigger"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822611"/>
+										<ModelRefProperty Name="message">
+											<ModelRef Id="sid-328811a0-7f72-468f-92de-6ab19e353312" ModelType="BPMessage" Name="invoice-received-C.1.0"/>
+										</ModelRefProperty>
+										<IntegerProperty Name="triggerType" Value="1"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<outgoing>sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_SequenceFlow_1</outgoing>
+			<messageEventDefinition id="sid-14929637-5f1e-4d27-811c-ef5e4ddaa4c7" messageRef="sid-328811a0-7f72-468f-92de-6ab19e353312"/>
+		</startEvent>
+		<userTask completionQuantity="1" id="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_prepareBankTransfer" implementation="##unspecified" isForCompensation="false" name="Prepare&#13;&#10;Bank&#13;&#10;Transfer" startQuantity="1">
+			<extensionElements>
+				<vp:bounds height="80" width="100" x="653" y="655"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="quhoRlKAUACmJExG"/>
+						<ModelType Value="BPTask"/>
+						<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822613"/>
+							<StringProperty Name="pmLastModified" Value="1418984822845"/>
+							<StringProperty Name="userID" Value="prepareBankTransfer"/>
+							<StringProperty Name="userIDParent" Value="IuhoRlKAUACmJEw4"/>
+							<ModelProperty Name="taskType">
+								<Model id="quhoRlKAUACmJExGtaskType" name="User">
+									<VpId Value="auhoRlKAUACmJExH"/>
+									<ModelType Value="BPUserTask"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822614"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoiceApproved</incoming>
+			<outgoing>sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_SequenceFlow_2</outgoing>
+		</userTask>
+		<endEvent id="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_invoiceProcessed" name="Invoice&#10;processed">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="6uhoRlKAUACmJExI"/>
+						<ModelType Value="BPEndEvent"/>
+						<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822615"/>
+							<StringProperty Name="pmLastModified" Value="1418984822844"/>
+							<StringProperty Name="userID" Value="invoiceProcessed"/>
+							<StringProperty Name="userIDParent" Value="IuhoRlKAUACmJEw4"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_SequenceFlow_3</incoming>
+		</endEvent>
+		<serviceTask completionQuantity="1" id="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_archiveInvoice" implementation="##unspecified" isForCompensation="false" name="Archive&#10;Invoice" startQuantity="1">
+			<extensionElements>
+				<vp:bounds height="80" width="100" x="795" y="655"/>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="muhoRlKAUACmJExJ"/>
+						<ModelType Value="BPTask"/>
+						<ParentRef Idref="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant"/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822617"/>
+							<StringProperty Name="pmLastModified" Value="1418984822842"/>
+							<StringProperty Name="userID" Value="archiveInvoice"/>
+							<StringProperty Name="userIDParent" Value="IuhoRlKAUACmJEw4"/>
+							<ModelProperty Name="taskType">
+								<Model id="muhoRlKAUACmJExJtaskType" name="Service">
+									<VpId Value="WuhoRlKAUACmJExK"/>
+									<ModelType Value="BPServiceTask"/>
+									<ModelProperties>
+										<StringProperty Name="pmCreateDateTime" Value="1418984822618"/>
+									</ModelProperties>
+								</Model>
+							</ModelProperty>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<incoming>sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_SequenceFlow_2</incoming>
+			<outgoing>sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_SequenceFlow_3</outgoing>
+		</serviceTask>
+		<sequenceFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoiceApproved" isImmediate="true" name="yes" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoice_approved" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_prepareBankTransfer">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="OuhoRlKAUACmJExL"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822620"/>
+							<StringProperty Name="pmLastModified" Value="1418984822845"/>
+							<StringProperty Name="userID" Value="invoiceApproved"/>
+							<StringProperty Name="userIDParent" Value="guhoRlKAUACmJEw2"/>
+							<IntegerProperty Name="conditionType" Value="1"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<conditionExpression>${approved}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoiceNotApproved" isImmediate="true" name="no" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoice_approved" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewInvoice">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="uuhoRlKAUACmJExM"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822621"/>
+							<StringProperty Name="pmLastModified" Value="1418984822846"/>
+							<StringProperty Name="userID" Value="invoiceNotApproved"/>
+							<StringProperty Name="userIDParent" Value="guhoRlKAUACmJEw2"/>
+							<IntegerProperty Name="conditionType" Value="1"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<conditionExpression>${!approved}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewSuccessful" isImmediate="true" name="yes" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewSuccessful_gw" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_approveInvoice">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value=".uhoRlKAUACmJExN"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822623"/>
+							<StringProperty Name="pmLastModified" Value="1418984822846"/>
+							<StringProperty Name="userID" Value="reviewSuccessful"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+							<IntegerProperty Name="conditionType" Value="1"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<conditionExpression>${clarified == 'yes'}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewNotSuccessful" isImmediate="true" name="no" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewSuccessful_gw" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_invoiceNotProcessed">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="BuhoRlKAUACmJExO"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822624"/>
+							<StringProperty Name="pmLastModified" Value="1418984822847"/>
+							<StringProperty Name="userID" Value="reviewNotSuccessful"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+							<IntegerProperty Name="conditionType" Value="1"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+			<conditionExpression>${clarified == 'no'}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_sequenceFlow_180" isImmediate="true" name="" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_approveInvoice" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoice_approved">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="huhoRlKAUACmJExP"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822625"/>
+							<StringProperty Name="pmLastModified" Value="1418984822847"/>
+							<StringProperty Name="userID" Value="sequenceFlow_180"/>
+							<StringProperty Name="userIDParent" Value="guhoRlKAUACmJEw2"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sequenceFlow_183" isImmediate="true" name="" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewInvoice" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewSuccessful_gw">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="xuhoRlKAUACmJExQ"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822627"/>
+							<StringProperty Name="pmLastModified" Value="1418984822848"/>
+							<StringProperty Name="userID" Value="sequenceFlow_183"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sequenceFlow_178" isImmediate="true" name="" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_assignApprover" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_approveInvoice">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="JuhoRlKAUACmJExR"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822628"/>
+							<StringProperty Name="pmLastModified" Value="1418984822847"/>
+							<StringProperty Name="userID" Value="sequenceFlow_178"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_SequenceFlow_2" isImmediate="true" name="" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_prepareBankTransfer" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_archiveInvoice">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="ZuhoRlKAUACmJExS"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822630"/>
+							<StringProperty Name="pmLastModified" Value="1418984822845"/>
+							<StringProperty Name="userID" Value="SequenceFlow_2"/>
+							<StringProperty Name="userIDParent" Value="IuhoRlKAUACmJEw4"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_SequenceFlow_3" isImmediate="true" name="" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_archiveInvoice" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_invoiceProcessed">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="5uhoRlKAUACmJExT"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822631"/>
+							<StringProperty Name="pmLastModified" Value="1418984822844"/>
+							<StringProperty Name="userID" Value="SequenceFlow_3"/>
+							<StringProperty Name="userIDParent" Value="IuhoRlKAUACmJEw4"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_SequenceFlow_1" isImmediate="true" name="" sourceRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_StartEvent_1" targetRef="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_assignApprover">
+			<extensionElements>
+				<vp:Extensions>
+					<ModelExtension>
+						<VpId Value="luhoRlKAUACmJExU"/>
+						<ModelType Value="BPSequenceFlow"/>
+						<ParentRef/>
+						<ModelProperties>
+							<StringProperty Name="pmCreateDateTime" Value="1418984822633"/>
+							<StringProperty Name="pmLastModified" Value="1418984822843"/>
+							<StringProperty Name="userID" Value="SequenceFlow_1"/>
+							<StringProperty Name="userIDParent" Value="wuhoRlKAUACmJEw3"/>
+						</ModelProperties>
+					</ModelExtension>
+				</vp:Extensions>
+			</extensionElements>
+		</sequenceFlow>
+	</process>
+	<message id="sid-328811a0-7f72-468f-92de-6ab19e353312" name="invoice-received-C.1.0">
+		<extensionElements>
+			<vp:Extensions>
+				<ModelExtension>
+					<VpId Value="6OhoRlKAUACmJEwZ"/>
+					<ModelType Value="BPMessage"/>
+					<ModelProperties>
+						<StringProperty Name="name" Value="invoice-received-C.1.0"/>
+						<StringProperty Name="pmCreateDateTime" Value="1418984822551"/>
+						<StringProperty Name="pmLastModified" Value="1418984822715"/>
+						<StringProperty Name="userID" Value="sid-328811a0-7f72-468f-92de-6ab19e353312"/>
+					</ModelProperties>
+				</ModelExtension>
+			</vp:Extensions>
+		</extensionElements>
+	</message>
+	<bpmndi:BPMNDiagram id="diagram-sid-78cf0368-c97e-4dea-885f-0e535c20d6c7" name="Business Process Diagram1">
+		<bpmndi:BPMNPlane bpmnElement="sid-78cf0368-c97e-4dea-885f-0e535c20d6c7" id="plane-sid-78cf0368-c97e-4dea-885f-0e535c20d6c7">
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_915AC9A0_CD35_4DF2_93F7_4535397622F8" id="sid-915AC9A0-CD35-4DF2-93F7-4535397622F8_gui">
+				<omgdi:waypoint x="847" y="213"/>
+				<omgdi:waypoint x="846" y="254"/>
+				<omgdi:waypoint x="629" y="254"/>
+				<omgdi:waypoint x="619" y="322"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_AB6EB7C8_DF5E_42C2_88D0_FA166583AF15" id="sid-AB6EB7C8-DF5E-42C2-88D0-FA166583AF15_gui">
+				<omgdi:waypoint x="577" y="172"/>
+				<omgdi:waypoint x="576" y="254"/>
+				<omgdi:waypoint x="261" y="254"/>
+				<omgdi:waypoint x="251" y="322"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_7A070DED_8B83_48E1_88A1_5543C481E7BC" id="sid-7A070DED-8B83-48E1-88A1-5543C481E7BC_gui">
+				<omgdi:waypoint x="217" y="172"/>
+				<omgdi:waypoint x="216" y="253"/>
+				<omgdi:waypoint x="125" y="253"/>
+				<omgdi:waypoint x="125" y="348"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sid_90902E27_C1CD_4F90_A8F2_486DA4F42117" id="sid-90902E27-C1CD-4F90-A8F2-486DA4F42117_gui">
+				<omgdi:waypoint x="240" y="322"/>
+				<omgdi:waypoint x="228" y="235"/>
+				<omgdi:waypoint x="470" y="235"/>
+				<omgdi:waypoint x="470" y="147"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sid_0518A412_1ED3_4CFD_A75C_69FF37EFFC16" id="sid-0518A412-1ED3-4CFD-A75C-69FF37EFFC16_gui">
+				<omgdi:waypoint x="608" y="322"/>
+				<omgdi:waypoint x="596" y="237"/>
+				<omgdi:waypoint x="746" y="237"/>
+				<omgdi:waypoint x="746" y="188"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F" id="sid-744AEFB3-C93D-46A3-8976-EFA91784A51F_gui" isHorizontal="true">
+				<omgdc:Bounds height="205" width="977" x="47" y="15"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_36EA43D1_0FE6_4197_AC57_7A43785B784B" id="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B_gui">
+				<omgdc:Bounds height="30" width="30" x="99" y="118"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_05039C4F_59F7_4CBD_8C84_D35E27C7B5EF" id="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF_gui">
+				<omgdc:Bounds height="80" width="100" x="167" y="93"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_CFAC8502_0E69_4F08_BE36_8499B8C0FA44" id="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44_gui">
+				<omgdc:Bounds height="80" width="100" x="315" y="93"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_BC9AC0B6_1785_4E35_A974_7FEF1A586B9D" id="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D_gui">
+				<omgdc:Bounds height="28" width="28" x="941" y="63"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_40EC6574_E644_425C_8CE7_EE384F0C3520" id="sid-40EC6574-E644-425C-8CE7-EE384F0C3520_gui">
+				<omgdc:Bounds height="30" width="30" x="455" y="118"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_64AFCE49_96A2_4A51_96CB_9DF689C37DAD" id="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD_gui">
+				<omgdc:Bounds height="80" width="100" x="527" y="93"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_F0D29912_929D_491C_8D23_73BD80CF980A" id="sid-F0D29912-929D-491C-8D23-73BD80CF980A_gui">
+				<omgdc:Bounds height="40" width="40" x="652" y="113"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_B548B980_12E3_408E_9AC4_7031B85A8F2D" id="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D_gui">
+				<omgdc:Bounds height="30" width="30" x="731" y="159"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_6FC20E19_AF3A_4A77_8588_2D671C98D93D" id="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D_gui">
+				<omgdc:Bounds height="80" width="100" x="797" y="134"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_0E349B8B_14A7_4565_988A_38F3A9B624D2" id="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2_gui">
+				<omgdc:Bounds height="30" width="30" x="731" y="62"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_282524E6_660F_431D_8F19_1C3E9E9DE817" id="sid-282524E6-660F-431D-8F19-1C3E9E9DE817_gui">
+				<omgdc:Bounds height="28" width="28" x="941" y="160"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_71EF9530_A32A_49BC_A783_9B98A5801362" id="sid-71EF9530-A32A-49BC-A783-9B98A5801362_gui">
+				<omgdi:waypoint x="672" y="114"/>
+				<omgdi:waypoint x="672" y="77"/>
+				<omgdi:waypoint x="732" y="77"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_C0540F47_C3C0_4FA8_B000_6D87640A6178" id="sid-C0540F47-C3C0-4FA8-B000-6D87640A6178_gui">
+				<omgdi:waypoint x="414" y="135"/>
+				<omgdi:waypoint x="456" y="134"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_4AD2006C_9290_42B0_A904_DD8076B791C4" id="sid-4AD2006C-9290-42B0-A904-DD8076B791C4_gui">
+				<omgdi:waypoint x="484" y="134"/>
+				<omgdi:waypoint x="528" y="134"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_3E8B2FCF_E408_4A5D_9455_8FDE7BB3EF96" id="sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96_gui">
+				<omgdi:waypoint x="266" y="135"/>
+				<omgdi:waypoint x="316" y="134"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_4686AFBC_E33A_4657_95A0_B2E27E704152" id="sid-4686AFBC-E33A-4657-95A0-B2E27E704152_gui">
+				<omgdi:waypoint x="672" y="152"/>
+				<omgdi:waypoint x="672" y="174"/>
+				<omgdi:waypoint x="732" y="174"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_6CB8539C_E02A_4496_94E7_17FAECB0D4B1" id="sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1_gui">
+				<omgdi:waypoint x="896" y="176"/>
+				<omgdi:waypoint x="942" y="174"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_D03CC374_8575_4F38_98B4_4DFF014C43CB" id="sid-D03CC374-8575-4F38-98B4-4DFF014C43CB_gui">
+				<omgdi:waypoint x="760" y="175"/>
+				<omgdi:waypoint x="798" y="175"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_3019478F_48D5_4B85_95B1_E192B9BE4183" id="sid-3019478F-48D5-4B85-95B1-E192B9BE4183_gui">
+				<omgdi:waypoint x="760" y="77"/>
+				<omgdi:waypoint x="942" y="77"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_26030150_7369_4B7F_8264_B3ABC62BA735" id="sid-26030150-7369-4B7F-8264-B3ABC62BA735_gui">
+				<omgdi:waypoint x="626" y="136"/>
+				<omgdi:waypoint x="654" y="134"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df_sid_744AEFB3_C93D_46A3_8976_EFA91784A51F_sid_7971C38C_2EF5_41F2_A24E_3FFCA069EDBF" id="sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF_gui">
+				<omgdi:waypoint x="128" y="134"/>
+				<omgdi:waypoint x="168" y="134"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="sid_c6eca5e8_8b8f_4e42_b8d8_6b7e858672df" id="sid-46891B57-A9D3-4A8B-AEBF-D4BA5F3961AD_gui" isHorizontal="true">
+				<omgdc:Bounds height="205" width="1007" x="17" y="15"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver" id="Approver_gui" isHorizontal="true">
+				<omgdc:Bounds height="161" width="979" x="45" y="453"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant" id="teamAssistant_gui" isHorizontal="true">
+				<omgdc:Bounds height="183" width="979" x="45" y="270"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant" id="Accountant_gui" isHorizontal="true">
+				<omgdc:Bounds height="144" width="979" x="45" y="614"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_approveInvoice" id="approveInvoice_gui">
+				<omgdc:Bounds height="80" width="100" x="368" y="495"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoice_approved" id="invoice_approved_gui">
+				<omgdc:Bounds height="40" width="40" x="503" y="515"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_assignApprover" id="assignApprover_gui">
+				<omgdc:Bounds height="80" width="100" x="195" y="322"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewInvoice" id="reviewInvoice_gui">
+				<omgdc:Bounds height="80" width="100" x="563" y="322"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewSuccessful_gw" id="reviewSuccessful_gw_gui">
+				<omgdc:Bounds height="40" width="40" x="708" y="342"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_invoiceNotProcessed" id="invoiceNotProcessed_gui">
+				<omgdc:Bounds height="28" width="28" x="941" y="348"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_StartEvent_1" id="StartEvent_1_gui">
+				<omgdc:Bounds height="30" width="30" x="110" y="347"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_prepareBankTransfer" id="prepareBankTransfer_gui">
+				<omgdc:Bounds height="80" width="100" x="653" y="655"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_invoiceProcessed" id="invoiceProcessed_gui">
+				<omgdc:Bounds height="28" width="28" x="941" y="681"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_archiveInvoice" id="archiveInvoice_gui">
+				<omgdc:Bounds height="80" width="100" x="795" y="655"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoiceApproved" id="invoiceApproved_gui">
+				<omgdi:waypoint x="542" y="535"/>
+				<omgdi:waypoint x="602" y="535"/>
+				<omgdi:waypoint x="602" y="695"/>
+				<omgdi:waypoint x="653" y="695"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_invoiceNotApproved" id="invoiceNotApproved_gui">
+				<omgdi:waypoint x="523" y="516"/>
+				<omgdi:waypoint x="523" y="362"/>
+				<omgdi:waypoint x="563" y="362"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewSuccessful" id="reviewSuccessful_gui">
+				<omgdi:waypoint x="728" y="343"/>
+				<omgdi:waypoint x="728" y="305"/>
+				<omgdi:waypoint x="418" y="305"/>
+				<omgdi:waypoint x="418" y="495"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_reviewNotSuccessful" id="reviewNotSuccessful_gui">
+				<omgdi:waypoint x="747" y="362"/>
+				<omgdi:waypoint x="942" y="362"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Approver_sequenceFlow_180" id="sequenceFlow_180_gui">
+				<omgdi:waypoint x="467" y="537"/>
+				<omgdi:waypoint x="504" y="536"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sequenceFlow_183" id="sequenceFlow_183_gui">
+				<omgdi:waypoint x="662" y="363"/>
+				<omgdi:waypoint x="709" y="362"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_sequenceFlow_178" id="sequenceFlow_178_gui">
+				<omgdi:waypoint x="294" y="362"/>
+				<omgdi:waypoint x="325" y="362"/>
+				<omgdi:waypoint x="325" y="535"/>
+				<omgdi:waypoint x="368" y="535"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_SequenceFlow_2" id="SequenceFlow_2_gui">
+				<omgdi:waypoint x="752" y="698"/>
+				<omgdi:waypoint x="796" y="697"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_Accountant_SequenceFlow_3" id="SequenceFlow_3_gui">
+				<omgdi:waypoint x="894" y="697"/>
+				<omgdi:waypoint x="942" y="695"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad_teamAssistant_SequenceFlow_1" id="SequenceFlow_1_gui">
+				<omgdi:waypoint x="139" y="362"/>
+				<omgdi:waypoint x="195" y="362"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape bpmnElement="sid_499dfba4_1449_4914_9e85_55b252800bad" id="Process_Engine_1_gui" isHorizontal="true">
+				<omgdc:Bounds height="488" width="1009" x="15" y="270"/>
+			</bpmndi:BPMNShape>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</definitions>

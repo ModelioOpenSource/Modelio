@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<semantic:definitions xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.trisotech.com/definitions/_1373649889746" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:yaoqiang="http://bpmn.sourceforge.net" exporter="Yaoqiang BPMN Editor" exporterVersion="4.0" expressionLanguage="http://www.w3.org/1999/XPath" id="_1373649889746" name="A.2.0" targetNamespace="http://www.trisotech.com/definitions/_1373649889746" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://bpmn.sourceforge.net/schemas/BPMN20.xsd">
+  <semantic:process id="WFP-6-" isClosed="false" isExecutable="false" processType="None">
+    <semantic:extensionElements>
+      <yaoqiang:pageFormat height="842.4" imageableHeight="832.4" imageableWidth="587.6" imageableX="5.0" imageableY="5.0" orientation="0" width="597.6"/>
+      <yaoqiang:page background="#FFFFFF" horizontalCount="1" verticalCount="1"/>
+    </semantic:extensionElements>
+    <semantic:startEvent id="_6b5db6a9-037a-49ad-9201-09201e2aaa97" isInterrupting="true" name="Start Event" parallelMultiple="false">
+      <semantic:outgoing>_b50f530c-3450-4e1a-b81f-ea346dc6e1cb</semantic:outgoing>
+    </semantic:startEvent>
+    <semantic:task completionQuantity="1" id="_5a972b87-735d-454a-b31c-f52fb3afc5c7" isForCompensation="false" name="Task 1" startQuantity="1">
+      <semantic:incoming>_b50f530c-3450-4e1a-b81f-ea346dc6e1cb</semantic:incoming>
+      <semantic:outgoing>_fe74c141-8843-4b00-a704-5e5e13be53b0</semantic:outgoing>
+    </semantic:task>
+    <semantic:endEvent id="_258f51eb-b764-4a71-b681-3a01cca14143" name="End Event">
+      <semantic:incoming>_a3d40a56-9b7f-417e-911e-d39e7f18b90c</semantic:incoming>
+      <semantic:incoming>_d4ce87c6-1373-45d6-a3b4-fbb2a04ee2e5</semantic:incoming>
+    </semantic:endEvent>
+    <semantic:task completionQuantity="1" id="_4f7d62d7-f0e6-46bc-be00-69e02da38f65" isForCompensation="false" name="Task 2" startQuantity="1">
+      <semantic:incoming>_f1478fb7-98c4-4c01-8c15-68bd04c91535</semantic:incoming>
+      <semantic:outgoing>_a3d40a56-9b7f-417e-911e-d39e7f18b90c</semantic:outgoing>
+    </semantic:task>
+    <semantic:task completionQuantity="1" id="_e6eb725a-34bc-45c7-aed0-9f9596cd7bee" isForCompensation="false" name="Task 3" startQuantity="1">
+      <semantic:incoming>_a1570a53-28d2-41b1-a3a2-3e50c00d747e</semantic:incoming>
+      <semantic:outgoing>_e9ebc7c7-995d-46db-86ce-d823bc2b4687</semantic:outgoing>
+    </semantic:task>
+    <semantic:exclusiveGateway gatewayDirection="Unspecified" id="_35fe57a7-1302-44e2-bf58-032f11af7ecb" name="Gateway  (Split Flow)">
+      <semantic:incoming>_fe74c141-8843-4b00-a704-5e5e13be53b0</semantic:incoming>
+      <semantic:outgoing>_f1478fb7-98c4-4c01-8c15-68bd04c91535</semantic:outgoing>
+      <semantic:outgoing>_a1570a53-28d2-41b1-a3a2-3e50c00d747e</semantic:outgoing>
+      <semantic:outgoing>_20ebb3c1-5178-4c7c-a91d-23e58f2aa73b</semantic:outgoing>
+    </semantic:exclusiveGateway>
+    <semantic:task completionQuantity="1" id="_7d399717-1aba-47ac-8d7d-8aaa033255e0" isForCompensation="false" name="Task 4" startQuantity="1">
+      <semantic:incoming>_20ebb3c1-5178-4c7c-a91d-23e58f2aa73b</semantic:incoming>
+      <semantic:outgoing>_698b593f-18eb-42ea-b8cd-bcd51e1514cc</semantic:outgoing>
+    </semantic:task>
+    <semantic:exclusiveGateway gatewayDirection="Unspecified" id="_33c66216-391c-49c2-aa19-d8f0b7f5f91d" name="Gateway  (Merge Flows)">
+      <semantic:incoming>_e9ebc7c7-995d-46db-86ce-d823bc2b4687</semantic:incoming>
+      <semantic:incoming>_698b593f-18eb-42ea-b8cd-bcd51e1514cc</semantic:incoming>
+      <semantic:outgoing>_d4ce87c6-1373-45d6-a3b4-fbb2a04ee2e5</semantic:outgoing>
+    </semantic:exclusiveGateway>
+    <semantic:sequenceFlow id="_b50f530c-3450-4e1a-b81f-ea346dc6e1cb" sourceRef="_6b5db6a9-037a-49ad-9201-09201e2aaa97" targetRef="_5a972b87-735d-454a-b31c-f52fb3afc5c7"/>
+    <semantic:sequenceFlow id="_fe74c141-8843-4b00-a704-5e5e13be53b0" sourceRef="_5a972b87-735d-454a-b31c-f52fb3afc5c7" targetRef="_35fe57a7-1302-44e2-bf58-032f11af7ecb"/>
+    <semantic:sequenceFlow id="_f1478fb7-98c4-4c01-8c15-68bd04c91535" sourceRef="_35fe57a7-1302-44e2-bf58-032f11af7ecb" targetRef="_4f7d62d7-f0e6-46bc-be00-69e02da38f65"/>
+    <semantic:sequenceFlow id="_a3d40a56-9b7f-417e-911e-d39e7f18b90c" sourceRef="_4f7d62d7-f0e6-46bc-be00-69e02da38f65" targetRef="_258f51eb-b764-4a71-b681-3a01cca14143"/>
+    <semantic:sequenceFlow id="_e9ebc7c7-995d-46db-86ce-d823bc2b4687" sourceRef="_e6eb725a-34bc-45c7-aed0-9f9596cd7bee" targetRef="_33c66216-391c-49c2-aa19-d8f0b7f5f91d"/>
+    <semantic:sequenceFlow id="_698b593f-18eb-42ea-b8cd-bcd51e1514cc" sourceRef="_7d399717-1aba-47ac-8d7d-8aaa033255e0" targetRef="_33c66216-391c-49c2-aa19-d8f0b7f5f91d"/>
+    <semantic:sequenceFlow id="_d4ce87c6-1373-45d6-a3b4-fbb2a04ee2e5" sourceRef="_33c66216-391c-49c2-aa19-d8f0b7f5f91d" targetRef="_258f51eb-b764-4a71-b681-3a01cca14143"/>
+    <semantic:sequenceFlow id="_a1570a53-28d2-41b1-a3a2-3e50c00d747e" sourceRef="_35fe57a7-1302-44e2-bf58-032f11af7ecb" targetRef="_e6eb725a-34bc-45c7-aed0-9f9596cd7bee"/>
+    <semantic:sequenceFlow id="_20ebb3c1-5178-4c7c-a91d-23e58f2aa73b" sourceRef="_35fe57a7-1302-44e2-bf58-032f11af7ecb" targetRef="_7d399717-1aba-47ac-8d7d-8aaa033255e0"/>
+  </semantic:process>
+  <bpmndi:BPMNDiagram id="Yaoqiang_Diagram-_1" name="A.2.0" resolution="96.00000267028808">
+    <bpmndi:BPMNPlane bpmnElement="WFP-6-">
+      <bpmndi:BPMNShape bpmnElement="_6b5db6a9-037a-49ad-9201-09201e2aaa97" id="Yaoqiang-_6b5db6a9-037a-49ad-9201-09201e2aaa97">
+        <dc:Bounds height="30.0" width="30.0" x="186.0" y="276.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="61.0" x="170.6443342112394" y="308.1946614583333"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_5a972b87-735d-454a-b31c-f52fb3afc5c7" id="Yaoqiang-_5a972b87-735d-454a-b31c-f52fb3afc5c7">
+        <dc:Bounds height="68.0" width="85.0" x="252.0" y="257.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="37.0" x="276.0" y="283.361328125"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_258f51eb-b764-4a71-b681-3a01cca14143" id="Yaoqiang-_258f51eb-b764-4a71-b681-3a01cca14143">
+        <dc:Bounds height="32.0" width="32.0" x="736.0" y="244.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="55.0" x="676.5629921259842" y="257.4589525390626"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4f7d62d7-f0e6-46bc-be00-69e02da38f65" id="Yaoqiang-_4f7d62d7-f0e6-46bc-be00-69e02da38f65">
+        <dc:Bounds height="68.0" width="85.0" x="480.0" y="172.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="37.0" x="504.0" y="198.361328125"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_e6eb725a-34bc-45c7-aed0-9f9596cd7bee" id="Yaoqiang-_e6eb725a-34bc-45c7-aed0-9f9596cd7bee">
+        <dc:Bounds height="68.0" width="85.0" x="480.0" y="257.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="37.0" x="504.0" y="283.361328125"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_35fe57a7-1302-44e2-bf58-032f11af7ecb" id="Yaoqiang-_35fe57a7-1302-44e2-bf58-032f11af7ecb" isMarkerVisible="false">
+        <dc:Bounds height="42.0" width="42.0" x="399.0" y="270.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="108.0" x="330.2598425196851" y="311.26591304208245"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7d399717-1aba-47ac-8d7d-8aaa033255e0" id="Yaoqiang-_7d399717-1aba-47ac-8d7d-8aaa033255e0">
+        <dc:Bounds height="68.0" width="85.0" x="480.0" y="352.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="37.0" x="504.0" y="378.361328125"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_33c66216-391c-49c2-aa19-d8f0b7f5f91d" id="Yaoqiang-_33c66216-391c-49c2-aa19-d8f0b7f5f91d" isMarkerVisible="false">
+        <dc:Bounds height="42.0" width="42.0" x="621.0" y="315.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="123.0" x="640.2874015748032" y="347.41024725332187"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_a3d40a56-9b7f-417e-911e-d39e7f18b90c" id="Yaoqiang-_a3d40a56-9b7f-417e-911e-d39e7f18b90c">
+        <di:waypoint x="564.5769230769231" y="206.0"/>
+        <di:waypoint x="752.0" y="206.0"/>
+        <di:waypoint x="752.0" y="244.0055945431798"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="6.0" x="674.2912588100514" y="196.361328125"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_a1570a53-28d2-41b1-a3a2-3e50c00d747e" id="Yaoqiang-_a1570a53-28d2-41b1-a3a2-3e50c00d747e">
+        <di:waypoint x="440.5769230769231" y="291.0"/>
+        <di:waypoint x="458.0" y="291.0"/>
+        <di:waypoint x="479.5769230769231" y="291.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="6.0" x="457.0769230769231" y="281.361328125"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_fe74c141-8843-4b00-a704-5e5e13be53b0" id="Yaoqiang-_fe74c141-8843-4b00-a704-5e5e13be53b0">
+        <di:waypoint x="336.5769230769231" y="291.0"/>
+        <di:waypoint x="353.0" y="291.0"/>
+        <di:waypoint x="398.5769230769231" y="291.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="6.0" x="364.5769230769231" y="281.361328125"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_e9ebc7c7-995d-46db-86ce-d823bc2b4687" id="Yaoqiang-_e9ebc7c7-995d-46db-86ce-d823bc2b4687">
+        <di:waypoint x="564.5769230769231" y="291.0"/>
+        <di:waypoint x="642.0" y="291.0"/>
+        <di:waypoint x="642.0" y="315.4230769230769"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="6.0" x="612.5" y="281.361328125"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_698b593f-18eb-42ea-b8cd-bcd51e1514cc" id="Yaoqiang-_698b593f-18eb-42ea-b8cd-bcd51e1514cc">
+        <di:waypoint x="564.5769230769231" y="386.0"/>
+        <di:waypoint x="642.0" y="386.0"/>
+        <di:waypoint x="642.0" y="356.5769230769231"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="6.0" x="615.0" y="376.361328125"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_20ebb3c1-5178-4c7c-a91d-23e58f2aa73b" id="Yaoqiang-_20ebb3c1-5178-4c7c-a91d-23e58f2aa73b">
+        <di:waypoint x="420.0" y="311.5769230769231"/>
+        <di:waypoint x="420.0" y="386.0"/>
+        <di:waypoint x="479.5769230769231" y="386.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="6.0" x="417.0" y="368.9382512019231"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_d4ce87c6-1373-45d6-a3b4-fbb2a04ee2e5" id="Yaoqiang-_d4ce87c6-1373-45d6-a3b4-fbb2a04ee2e5">
+        <di:waypoint x="662.5769230769231" y="336.0"/>
+        <di:waypoint x="752.0" y="336.0"/>
+        <di:waypoint x="752.0" y="275.9944054568202"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="6.0" x="734.2912588100514" y="326.361328125"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_b50f530c-3450-4e1a-b81f-ea346dc6e1cb" id="Yaoqiang-_b50f530c-3450-4e1a-b81f-ea346dc6e1cb">
+        <di:waypoint x="215.5769230769231" y="291.0"/>
+        <di:waypoint x="234.0" y="291.0"/>
+        <di:waypoint x="251.5769230769231" y="291.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="6.0" x="230.5769230769231" y="281.361328125"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_f1478fb7-98c4-4c01-8c15-68bd04c91535" id="Yaoqiang-_f1478fb7-98c4-4c01-8c15-68bd04c91535">
+        <di:waypoint x="420.0" y="270.4230769230769"/>
+        <di:waypoint x="420.0" y="206.0"/>
+        <di:waypoint x="479.5769230769231" y="206.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="19.27734375" width="6.0" x="417.0" y="198.7844050480769"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</semantic:definitions>

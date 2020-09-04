@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Modelio 3" uid="org.modelio.product" id="org.modelio.app.ui.modelio" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="3.8.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-clearPersistedState
+      </programArgs>
+      <vmArgs>-Xms512m -Dpython.console.encoding=UTF-8
+      </vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <windowImages/>
+
+   <launcher name="modelio">
+      <linux icon="icons/modelio.xpm"/>
+      <macosx icon="icons/modelio.icns"/>
+      <solaris/>
+      <win useIco="true">
+         <ico path="icons/modelio.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</linux>
+      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
+      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</solaris>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.rcp"/>
+      <feature id="org.eclipse.emf.common"/>
+      <feature id="org.eclipse.emf.ecore"/>
+      <feature id="org.eclipse.help"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.feature"/>
+      <feature id="org.eclipse.ecf.core.feature"/>
+      <feature id="org.eclipse.e4.rcp"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"/>
+      <feature id="org.eclipse.ecf.core.ssl.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
+      <feature id="org.eclipse.draw2d"/>
+      <feature id="org.eclipse.gef"/>
+      <feature id="org.modelio.app.feature"/>
+      <feature id="org.modelio.astyle.feature"/>
+      <feature id="org.modelio.bundle.feature"/>
+      <feature id="org.modelio.documentation.modeler.feature"/>
+      <feature id="org.modelio.core.feature"/>
+      <feature id="org.modelio.diagrams.feature"/>
+      <feature id="org.modelio.linkeditor.feature"/>
+      <feature id="org.modelio.mda.feature"/>
+      <feature id="org.modelio.model.edition.feature"/>
+      <feature id="org.modelio.platform.feature"/>
+      <feature id="org.modelio.plugdule.feature"/>
+      <feature id="org.modelio.script.feature"/>
+      <feature id="org.modelio.xmi.feature"/>
+      <feature id="org.modelio.uml.feature"/>
+      <feature id="org.modelio.bpmn.feature"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.apache.commons.logging" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="3" />
+      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator"    autoStart="true" startLevel="1" />
+      <!-- <plugin id="org.eclipse.update.configurator"/> Comment in order to set the org.eclipse.update.reconcile value to true -->
+      <property name="osgi.locking"            value="none"  />
+      <property name="osgi.instance.area"      value="@user.home/.modelio/3.8/.eclipse/data.os"                                />
+      <property name="osgi.sharedConfiguration.area"           value="file\:configuration/"                                    />
+      <property name="osgi.sharedConfiguration.area.readlOnly" value="true"                                                    />
+      <property name="osgi.configuration.cascaded"             value="true"                                                    />
+      <property name="osgi.configuration.area" value="@user.home/.modelio/3.8/.eclipse/configuration.x86.os"     arch="x86"    />
+      <property name="osgi.configuration.area" value="@user.home/.modelio/3.8/.eclipse/configuration.x86_64.os"  arch="x86_64" />
+   </configurations>
+
+</product>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension id ="i1" point="org.eclipse.e4.workbench.model">
+      <fragment uri="e4model/microsoft.editor.e4xmi"/>
+   </extension>
+
+ <extension point="org.eclipse.ui.editors" >
+      <editor id="com.modeliosoft.modelio.edition.extern.microsoft.editor"
+           name="Microsoft Office Editor"
+ 		   extensions="doc, docx" 
+ 		   class="org.modelio.editors.richnote.microsoft.editor.MicrosoftEditor" 
+      />
+ </extension>
+ 
+ <extension point="org.modelio.documentformatprovider">
+ 	<!-- Office 2007-2010 -->
+    <provider class="org.modelio.editors.richnote.microsoft.plugin.Microsoft2007EditorProvider">
+       <format mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document" 
+                     label="Microsoft Word 2007-2010" 
+                     support="native"
+                     data="Word.Document.12"
+                     extensions="docx"/>
+       <format mime="application/vnd.openxmlformats-officedocument.wordprocessingml.template" 
+                     label="Microsoft Word 2007 Template" 
+                     support="alternate"
+                     extensions="dotx"/>
+       <format mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
+                     label="Microsoft Excel 2007-2010" 
+                     data="Excel.Sheet.12"
+                     support="native"
+                     extensions="xlsx"/>
+       <format mime="application/vnd.openxmlformats-officedocument.spreadsheetml.template" 
+                     label="Microsoft Excel 2007-2010 Template" 
+                     support="alternate"
+                     extensions="xltx"/>
+       <format mime="application/vnd.openxmlformats-officedocument.presentationml.presentation" 
+                     label="Microsoft PowerPoint 2007-2010 Presentation" 
+                     data="PowerPoint.Show.12"
+                     support="native"
+                     extensions="pptx"/>
+       <format mime="application/vnd.openxmlformats-officedocument.presentationml.template" 
+                     label="Microsoft PowerPoint 2007-2010 Template" 
+                     support="alternate"
+                     extensions="potx"/>
+       <format mime="application/vnd.openxmlformats-officedocument.presentationml.slideshow" 
+                     label="Microsoft PowerPoint 2007-2010 Slideshow" 
+                     data="PowerPoint.SlideShow.12"
+                     support="alternate"
+                     extensions="ppsx"/>
+       <format
+             data="Word.Document.8"
+             extensions="doc"
+             label="Microsoft Word 97-2003"
+             mime="application/msword"
+             support="alternate">
+       </format>
+       <format
+             data="Excel.Sheet.8"
+             extensions="xls xlt xla"
+             label="Microsoft Excel 97-2003"
+             mime="application/vnd.ms-excel"
+             support="alternate">
+       </format>
+       <format
+             data="PowerPoint.Show.8"
+             extensions="ppt pot pps ppa"
+             label="Microsoft PowerPoint 97-2003 Presentation"
+             mime="application/vnd.ms-powerpoint"
+             support="alternate">
+       </format>
+	</provider>
+ 
+ 	<!-- Office 97 - 2003  -->
+    <provider class="org.modelio.editors.richnote.microsoft.plugin.Microsoft2003EditorProvider">
+       <format mime="application/msword" 
+                     label="Microsoft Word 97-2003" 
+                     support="native"
+                     data="Word.Document.8"
+                     extensions="doc"/>
+       <format mime="application/vnd.ms-excel" 
+                     label="Microsoft Excel 97-2003" 
+                     data="Excel.Sheet.8"
+                     support="native"
+                     extensions="xls xlt xla"/>
+       <format mime="application/vnd.ms-powerpoint" 
+                     label="Microsoft PowerPoint 97-2003 Presentation" 
+                     support="native"
+                     data="PowerPoint.Show.8"
+                     extensions="ppt pot pps ppa"/>
+                     
+       <!-- Office 2007-2010 forward compatibility (need Ms Office compatibility pack)-->
+       <format mime="application/vnd.openxmlformats-officedocument.presentationml.presentation" 
+                     label="Microsoft PowerPoint 2007-2010 Presentation" 
+                     data="PowerPoint.Show.12"
+                     support="alternate"
+                     extensions="pptx"/>
+       <format mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
+                     label="Microsoft Excel 2007-2010" 
+                     data="Excel.Sheet.12"
+                     support="alternate"
+                     extensions="xlsx"/>
+       <format mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document" 
+                     label="Microsoft Word 2007-2010" 
+                     support="alternate"
+                     data="Word.Document.12"
+                     extensions="docx"/>
+                     
+       <!-- HTML -->
+       <!-- Microsoft Office -->
+       
+    </provider>
+    
+    <provider
+          class="org.modelio.editors.richnote.microsoft.plugin.MicrosoftEditorProvider">
+       <format
+             data="Word.Document.8"
+             extensions="doc"
+             label="Microsoft Word 97-2003"
+             mime="application/msword"
+             support="alternate">
+       </format>
+       <format
+             data="Word.Document.12"
+             extensions="docx"
+             label="Microsoft Word 2007-2010"
+             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+             support="alternate">
+       </format>
+       <format
+             data="Excel.Sheet.8"
+             extensions="xls xlt xla"
+             label="Microsoft Excel 97-2003"
+             mime="application/vnd.ms-excel"
+             support="alternate">
+       </format>
+       <format
+             data="Excel.Sheet.12"
+             extensions="xlsx"
+             label="Microsoft Excel 2007-2010"
+             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+             support="alternate">
+       </format>
+       <format
+             data="PowerPoint.Show.8"
+             extensions="ppt pot pps ppa"
+             label="Microsoft PowerPoint 97-2003 Presentation"
+             mime="application/vnd.ms-powerpoint"
+             support="alternate">
+       </format>
+       <format
+             data="PowerPoint.Show.12"
+             extensions="pptx"
+             label="Microsoft PowerPoint 2007-2010 Presentation"
+             mime="application/vnd.openxmlformats-officedocument.presentationml.presentation"
+             support="alternate">
+       </format>
+    </provider>
+    
+    <provider
+          class="org.modelio.editors.richnote.microsoft.plugin.MicrosoftRtfHtmlEditorProvider">
+       <format
+             extensions="html, html, xhtml"
+             label="HTML (Word)"
+             mime="text/html"
+             support="native">
+       </format>
+       <format
+             extensions="rtf"
+             label="RTF"
+             mime="text/rtf"
+             support="native">
+       </format>
+    </provider>
+    
+ </extension>
+ 
+ <extension
+       point="org.eclipse.ui.menus">
+       
+    <menuContribution locationURI="toolbar:com.modeliosoft.modelio.app.toolbarID?after=additions">
+    <!--menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions"-->
+       <command
+       
+             commandId="org.eclipse.ui.file.save"
+             tooltip="Save Rich Note"
+             style="push">
+             <visibleWhen checkEnabled="false">
+                    <with variable="activePartId">
+                    <or>
+                          <equals value="com.modeliosoft.modelio.edition.extern.microsoft.editor">
+                          </equals>
+                          <equals value="org.eclipse.ui.systemInPlaceEditor">
+                          </equals>
+                    </or>
+                    </with>
+             </visibleWhen>
+       </command>
+    </menuContribution>
+ </extension>
+
+ 	<extension point="org.eclipse.ui.contexts">
+		<context name="Microsoft Office editor context" 
+		         description="Microsoft Office editor context"
+		         parentId="org.eclipse.ui.contexts.window" 
+		         id="edition.extern.microsoft.context">
+		</context>
+	</extension>
+ 
+ <extension
+       point="org.eclipse.ui.bindings">
+    <key
+          commandId="org.eclipse.ui.file.save"
+          contextId="edition.extern.microsoft.context"
+          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+          sequence="CTRL+S">
+    </key>
+ </extension>
+ 
+ 
+</plugin>
+ 

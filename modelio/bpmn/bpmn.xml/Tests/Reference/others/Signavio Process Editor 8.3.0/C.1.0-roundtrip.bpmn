@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="8.2.1" expressionLanguage="http://www.w3.org/1999/XPath" id="sid-b7f09fe5-e6ec-40fb-81f4-416990c8b4ab" targetNamespace="http://www.signavio.com/bpmn20" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <message id="sid-328811a0-7f72-468f-92de-6ab19e353312" name="invoice-received-C.1.0"/>
+   <dataStore capacity="0" id="sid-fd7aa6b1-e696-40a9-99e3-d74b370f4d7b" isUnlimited="false" name="Financial Accounting System"/>
+   <collaboration id="sid-c4977834-f3c1-49c8-9e6a-a48d0a79d14f">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="4e47729f4c2f415d90743e2ae1c93633"/>
+      </extensionElements>
+      <participant id="sid-46891B57-A9D3-4A8B-AEBF-D4BA5F3961AD" name="Team-Assistant" processRef="sid-5FBB6CB3-8A7C-42B5-9024-15BB2684EC57">
+         <extensionElements/>
+      </participant>
+      <participant id="Process_Engine_1" name="Process Engine - Invoice Receipt" processRef="bpmn-miwg-test-case-c.1.0">
+         <extensionElements/>
+      </participant>
+      <messageFlow id="sid-915AC9A0-CD35-4DF2-93F7-4535397622F8" name="" sourceRef="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D" targetRef="reviewInvoice"/>
+      <messageFlow id="sid-AB6EB7C8-DF5E-42C2-88D0-FA166583AF15" name="" sourceRef="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD" targetRef="assignApprover"/>
+      <messageFlow id="sid-7A070DED-8B83-48E1-88A1-5543C481E7BC" name="" sourceRef="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF" targetRef="StartEvent_1"/>
+      <messageFlow id="sid-90902E27-C1CD-4F90-A8F2-486DA4F42117" name="" sourceRef="assignApprover" targetRef="sid-40EC6574-E644-425C-8CE7-EE384F0C3520"/>
+      <messageFlow id="sid-0518A412-1ED3-4CFD-A75C-69FF37EFFC16" name="" sourceRef="reviewInvoice" targetRef="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D"/>
+   </collaboration>
+   <process id="sid-5FBB6CB3-8A7C-42B5-9024-15BB2684EC57" isClosed="true" isExecutable="false" name="Team-Assistant" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-7f865f75-d6f1-4d3e-9e00-64f3127e48a3">
+         <lane id="sid-744AEFB3-C93D-46A3-8976-EFA91784A51F">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+            </extensionElements>
+            <flowNodeRef>sid-36EA43D1-0FE6-4197-AC57-7A43785B784B</flowNodeRef>
+            <flowNodeRef>sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF</flowNodeRef>
+            <flowNodeRef>sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44</flowNodeRef>
+            <flowNodeRef>sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D</flowNodeRef>
+            <flowNodeRef>sid-40EC6574-E644-425C-8CE7-EE384F0C3520</flowNodeRef>
+            <flowNodeRef>sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD</flowNodeRef>
+            <flowNodeRef>sid-F0D29912-929D-491C-8D23-73BD80CF980A</flowNodeRef>
+            <flowNodeRef>sid-B548B980-12E3-408E-9AC4-7031B85A8F2D</flowNodeRef>
+            <flowNodeRef>sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D</flowNodeRef>
+            <flowNodeRef>sid-0E349B8B-14A7-4565-988A-38F3A9B624D2</flowNodeRef>
+            <flowNodeRef>sid-282524E6-660F-431D-8F19-1C3E9E9DE817</flowNodeRef>
+         </lane>
+      </laneSet>
+      <startEvent id="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B" name="Invoice&#10;received">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <outgoing>sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF</outgoing>
+         <messageEventDefinition id="sid-efb19404-6269-4e50-8bff-b86748009df6"/>
+      </startEvent>
+      <task completionQuantity="1" id="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF" isForCompensation="false" name="Scan&#10;camunda-invoice-en" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+         </extensionElements>
+         <incoming>sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF</incoming>
+         <outgoing>sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96</outgoing>
+      </task>
+      <task completionQuantity="1" id="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44" isForCompensation="false" name="Archive&#10;original" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+         </extensionElements>
+         <incoming>sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96</incoming>
+         <outgoing>sid-C0540F47-C3C0-4FA8-B000-6D87640A6178</outgoing>
+      </task>
+      <endEvent id="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D" name="">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <incoming>sid-3019478F-48D5-4B85-95B1-E192B9BE4183</incoming>
+      </endEvent>
+      <intermediateCatchEvent id="sid-40EC6574-E644-425C-8CE7-EE384F0C3520" name="Approver to &#10;be assigned">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioLabel bold="" fill="" fontFamily="" fontSize="" italic="" ref="text_name" valign="bottom" x="16.0" y="-8.0"/>
+         </extensionElements>
+         <incoming>sid-C0540F47-C3C0-4FA8-B000-6D87640A6178</incoming>
+         <outgoing>sid-4AD2006C-9290-42B0-A904-DD8076B791C4</outgoing>
+         <messageEventDefinition id="sid-f1874bde-38bc-4b7f-b5af-32cfc2d752f8"/>
+      </intermediateCatchEvent>
+      <task completionQuantity="1" id="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD" isForCompensation="false" name="Assign approver" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+         </extensionElements>
+         <incoming>sid-4AD2006C-9290-42B0-A904-DD8076B791C4</incoming>
+         <outgoing>sid-26030150-7369-4B7F-8264-B3ABC62BA735</outgoing>
+      </task>
+      <eventBasedGateway eventGatewayType="Exclusive" gatewayDirection="Diverging" id="sid-F0D29912-929D-491C-8D23-73BD80CF980A" instantiate="false" name="">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <incoming>sid-26030150-7369-4B7F-8264-B3ABC62BA735</incoming>
+         <outgoing>sid-71EF9530-A32A-49BC-A783-9B98A5801362</outgoing>
+         <outgoing>sid-4686AFBC-E33A-4657-95A0-B2E27E704152</outgoing>
+      </eventBasedGateway>
+      <intermediateCatchEvent id="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D" name="Invoice review&#10; needed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioLabel bold="" fill="" fontFamily="" fontSize="" italic="" ref="text_name" valign="bottom" x="16.0" y="-8.0"/>
+         </extensionElements>
+         <incoming>sid-4686AFBC-E33A-4657-95A0-B2E27E704152</incoming>
+         <outgoing>sid-D03CC374-8575-4F38-98B4-4DFF014C43CB</outgoing>
+         <messageEventDefinition id="sid-e2aace41-1e18-4052-af1e-c47bf6388b50"/>
+      </intermediateCatchEvent>
+      <task completionQuantity="1" id="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D" isForCompensation="false" name="Review and document result" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+         </extensionElements>
+         <incoming>sid-D03CC374-8575-4F38-98B4-4DFF014C43CB</incoming>
+         <outgoing>sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1</outgoing>
+      </task>
+      <intermediateCatchEvent id="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2" name="7 days">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioLabel bold="" fill="" fontFamily="" fontSize="" italic="" ref="text_name" valign="bottom" x="16.0" y="-8.0"/>
+         </extensionElements>
+         <incoming>sid-71EF9530-A32A-49BC-A783-9B98A5801362</incoming>
+         <outgoing>sid-3019478F-48D5-4B85-95B1-E192B9BE4183</outgoing>
+         <timerEventDefinition id="sid-c5f347ca-7477-40ca-8504-4a5e7c85d23a"/>
+      </intermediateCatchEvent>
+      <endEvent id="sid-282524E6-660F-431D-8F19-1C3E9E9DE817" name="">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <incoming>sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1</incoming>
+      </endEvent>
+      <sequenceFlow id="sid-71EF9530-A32A-49BC-A783-9B98A5801362" isImmediate="true" name="" sourceRef="sid-F0D29912-929D-491C-8D23-73BD80CF980A" targetRef="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2"/>
+      <sequenceFlow id="sid-C0540F47-C3C0-4FA8-B000-6D87640A6178" isImmediate="true" name="" sourceRef="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44" targetRef="sid-40EC6574-E644-425C-8CE7-EE384F0C3520"/>
+      <sequenceFlow id="sid-4AD2006C-9290-42B0-A904-DD8076B791C4" isImmediate="true" name="" sourceRef="sid-40EC6574-E644-425C-8CE7-EE384F0C3520" targetRef="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD"/>
+      <sequenceFlow id="sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96" isImmediate="true" name="" sourceRef="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF" targetRef="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44"/>
+      <sequenceFlow id="sid-4686AFBC-E33A-4657-95A0-B2E27E704152" isImmediate="true" name="" sourceRef="sid-F0D29912-929D-491C-8D23-73BD80CF980A" targetRef="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D"/>
+      <sequenceFlow id="sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1" isImmediate="true" name="" sourceRef="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D" targetRef="sid-282524E6-660F-431D-8F19-1C3E9E9DE817"/>
+      <sequenceFlow id="sid-D03CC374-8575-4F38-98B4-4DFF014C43CB" isImmediate="true" name="" sourceRef="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D" targetRef="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D"/>
+      <sequenceFlow id="sid-3019478F-48D5-4B85-95B1-E192B9BE4183" isImmediate="true" name="" sourceRef="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2" targetRef="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D"/>
+      <sequenceFlow id="sid-26030150-7369-4B7F-8264-B3ABC62BA735" isImmediate="true" name="" sourceRef="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD" targetRef="sid-F0D29912-929D-491C-8D23-73BD80CF980A"/>
+      <sequenceFlow id="sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF" isImmediate="true" name="" sourceRef="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B" targetRef="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF"/>
+   </process>
+   <process id="bpmn-miwg-test-case-c.1.0" isClosed="true" isExecutable="true" name="Process Engine - Invoice Receipt" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-e9f46c89-1e6b-4d4a-b217-2095887a173b">
+         <lane id="Approver" name="Approver">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+            </extensionElements>
+            <flowNodeRef>approveInvoice</flowNodeRef>
+            <flowNodeRef>invoice_approved</flowNodeRef>
+         </lane>
+         <lane id="teamAssistant" name="Team Assistant">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+            </extensionElements>
+            <flowNodeRef>assignApprover</flowNodeRef>
+            <flowNodeRef>reviewInvoice</flowNodeRef>
+            <flowNodeRef>reviewSuccessful_gw</flowNodeRef>
+            <flowNodeRef>invoiceNotProcessed</flowNodeRef>
+            <flowNodeRef>StartEvent_1</flowNodeRef>
+         </lane>
+         <lane id="Accountant" name="Accountant">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+            </extensionElements>
+            <flowNodeRef>prepareBankTransfer</flowNodeRef>
+            <flowNodeRef>invoiceProcessed</flowNodeRef>
+            <flowNodeRef>archiveInvoice</flowNodeRef>
+         </lane>
+      </laneSet>
+      <userTask camunda:assignee="${approver}" camunda:formKey="app:approveInvoice.jsf" completionQuantity="1" id="approveInvoice" implementation="##unspecified" isForCompensation="false" name="Approve Invoice" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+         </extensionElements>
+         <incoming>reviewSuccessful</incoming>
+         <incoming>sequenceFlow_178</incoming>
+         <outgoing>sequenceFlow_180</outgoing>
+      </userTask>
+      <exclusiveGateway gatewayDirection="Diverging" id="invoice_approved" name="Invoice&#10;approved?">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <incoming>sequenceFlow_180</incoming>
+         <outgoing>invoiceApproved</outgoing>
+         <outgoing>invoiceNotApproved</outgoing>
+      </exclusiveGateway>
+      <userTask camunda:assignee="demo" camunda:formKey="app:assignApprover.jsf" completionQuantity="1" id="assignApprover" implementation="##unspecified" isForCompensation="false" name="Assign&#10;Approver" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+         </extensionElements>
+         <incoming>SequenceFlow_1</incoming>
+         <outgoing>sequenceFlow_178</outgoing>
+      </userTask>
+      <userTask camunda:assignee="demo" camunda:formKey="app:reviewInvoice.jsf" completionQuantity="1" id="reviewInvoice" implementation="##unspecified" isForCompensation="false" name="Rechnung klären" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+         </extensionElements>
+         <incoming>invoiceNotApproved</incoming>
+         <outgoing>sequenceFlow_183</outgoing>
+      </userTask>
+      <exclusiveGateway gatewayDirection="Diverging" id="reviewSuccessful_gw" name="Review&#10;successful?">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <incoming>sequenceFlow_183</incoming>
+         <outgoing>reviewSuccessful</outgoing>
+         <outgoing>reviewNotSuccessful</outgoing>
+      </exclusiveGateway>
+      <endEvent id="invoiceNotProcessed" name="Invoice not&#10;processed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <incoming>reviewNotSuccessful</incoming>
+      </endEvent>
+      <startEvent camunda:formKey="app:startProcess.jsf" id="StartEvent_1" name="Invoice&#10;received">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <outgoing>SequenceFlow_1</outgoing>
+         <messageEventDefinition id="sid-98ea05ee-d60e-4f17-88c2-5cec5d380245" messageRef="sid-328811a0-7f72-468f-92de-6ab19e353312"/>
+      </startEvent>
+      <userTask camunda:candidateGroups="accounting" camunda:formKey="app:prepareBankTransfer.jsf" completionQuantity="1" id="prepareBankTransfer" implementation="##unspecified" isForCompensation="false" name="Prepare&#13;&#10;Bank&#13;&#10;Transfer" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+         </extensionElements>
+         <incoming>invoiceApproved</incoming>
+         <outgoing>SequenceFlow_2</outgoing>
+         <dataOutputAssociation id="DataOutputAssociation_1">
+            <sourceRef>prepareBankTransfer</sourceRef>
+            <targetRef>DataStoreReference_1</targetRef>
+         </dataOutputAssociation>
+      </userTask>
+      <endEvent id="invoiceProcessed" name="Invoice&#10;processed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <incoming>SequenceFlow_3</incoming>
+      </endEvent>
+      <serviceTask camunda:delegateExpression="#{archiveService}" completionQuantity="1" id="archiveInvoice" implementation="##unspecified" isForCompensation="false" name="Archive&#10;Invoice" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <camunda:field name="text0" stringValue="Hello World"/>
+            <camunda:field name="text1">
+               <camunda:expression>${genderBean.getGenderString(gender)}</camunda:expression>
+        </camunda:field>
+            <camunda:field name="text2">
+               <camunda:expression>Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}</camunda:expression>
+        </camunda:field>
+            <camunda:field name="text3">
+               <camunda:string>
+	          Hello World
+	      </camunda:string>
+        </camunda:field>
+            <camunda:field name="text4">
+               <camunda:string>
+	          &lt;p&gt;Hello World&lt;/p&gt;&lt;br&gt;
+	      </camunda:string>
+        </camunda:field>
+         </extensionElements>
+         <incoming>SequenceFlow_2</incoming>
+         <outgoing>SequenceFlow_3</outgoing>
+      </serviceTask>
+      <sequenceFlow id="invoiceApproved" isImmediate="true" name="yes" sourceRef="invoice_approved" targetRef="prepareBankTransfer">
+         <conditionExpression id="sid-67ba3bce-2991-4c5b-b4fa-0f6b724fe301" xsi:type="tFormalExpression">${approved}</conditionExpression>
+      </sequenceFlow>
+      <sequenceFlow id="invoiceNotApproved" isImmediate="true" name="no" sourceRef="invoice_approved" targetRef="reviewInvoice">
+         <conditionExpression id="sid-46383160-fcaf-418f-b00f-7de023495967" xsi:type="tFormalExpression">${!approved}</conditionExpression>
+      </sequenceFlow>
+      <sequenceFlow id="reviewSuccessful" isImmediate="true" name="yes" sourceRef="reviewSuccessful_gw" targetRef="approveInvoice">
+         <conditionExpression id="sid-da76e90c-83c8-4da9-a84f-5be7b2db0da6" xsi:type="tFormalExpression">${clarified == 'yes'}</conditionExpression>
+      </sequenceFlow>
+      <sequenceFlow id="reviewNotSuccessful" isImmediate="true" name="no" sourceRef="reviewSuccessful_gw" targetRef="invoiceNotProcessed">
+         <conditionExpression id="sid-c7776ecd-947b-4f33-9757-5ecc70aeb37c" xsi:type="tFormalExpression">${clarified == 'no'}</conditionExpression>
+      </sequenceFlow>
+      <sequenceFlow id="sequenceFlow_180" isImmediate="true" name="" sourceRef="approveInvoice" targetRef="invoice_approved"/>
+      <sequenceFlow id="sequenceFlow_183" isImmediate="true" name="" sourceRef="reviewInvoice" targetRef="reviewSuccessful_gw"/>
+      <sequenceFlow id="sequenceFlow_178" isImmediate="true" name="" sourceRef="assignApprover" targetRef="approveInvoice"/>
+      <sequenceFlow id="SequenceFlow_2" isImmediate="true" name="" sourceRef="prepareBankTransfer" targetRef="archiveInvoice"/>
+      <sequenceFlow id="SequenceFlow_3" isImmediate="true" name="" sourceRef="archiveInvoice" targetRef="invoiceProcessed"/>
+      <sequenceFlow id="SequenceFlow_1" isImmediate="true" name="" sourceRef="StartEvent_1" targetRef="assignApprover"/>
+      <dataStoreReference dataStoreRef="sid-fd7aa6b1-e696-40a9-99e3-d74b370f4d7b" id="DataStoreReference_1" name="Financial Accounting System">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+      </dataStoreReference>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-1201ec7d-47ec-4d70-8121-a15937b91c48">
+      <bpmndi:BPMNPlane bpmnElement="sid-c4977834-f3c1-49c8-9e6a-a48d0a79d14f" id="sid-c0709063-4b66-4543-ac94-7cdba4b08b35">
+         <bpmndi:BPMNShape bpmnElement="sid-46891B57-A9D3-4A8B-AEBF-D4BA5F3961AD" id="sid-46891B57-A9D3-4A8B-AEBF-D4BA5F3961AD_gui" isHorizontal="true">
+            <omgdc:Bounds height="205.0" width="1007.0" x="17.0" y="15.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="95.14286041259766" width="12.000000000000014" x="21.999999999999993" y="69.92856979370117"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="Process_Engine_1" id="Process_Engine_1_gui" isHorizontal="true">
+            <omgdc:Bounds height="488.0" width="1009.0" x="15.0" y="270.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="195.42857360839844" width="12.000000000000032" x="19.999999999999982" y="416.2857131958008"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-744AEFB3-C93D-46A3-8976-EFA91784A51F" id="sid-744AEFB3-C93D-46A3-8976-EFA91784A51F_gui" isHorizontal="true">
+            <omgdc:Bounds height="205.0" width="977.0" x="47.0" y="15.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B" id="sid-36EA43D1-0FE6-4197-AC57-7A43785B784B_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="99.0" y="118.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-f716afae-4dba-4e75-8ada-58a09dc78501">
+               <omgdc:Bounds height="22.0" width="44.78571319580078" x="91.60714340209961" y="150.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF" id="sid-05039C4F-59F7-4CBD-8C84-D35E27C7B5EF_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="167.0" y="93.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="36.0" width="60.857147216796875" x="186.57142639160156" y="113.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44" id="sid-CFAC8502-0E69-4F08-BE36-8499B8C0FA44_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="315.0" y="93.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="24.0" width="43.71428680419922" x="343.1428565979004" y="119.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D" id="sid-BC9AC0B6-1785-4E35-A974-7FEF1A586B9D_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="940.0" y="62.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-40EC6574-E644-425C-8CE7-EE384F0C3520" id="sid-40EC6574-E644-425C-8CE7-EE384F0C3520_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="455.75" y="118.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-fabaea2d-d43b-41d3-b0c3-8df2c3b2b079">
+               <omgdc:Bounds height="22.0" width="66.78571319580078" x="438.3571434020996" y="88.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD" id="sid-64AFCE49-96A2-4A51-96CB-9DF689C37DAD_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="527.5" y="93.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="24.0" width="54.0" x="550.5" y="119.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-F0D29912-929D-491C-8D23-73BD80CF980A" id="sid-F0D29912-929D-491C-8D23-73BD80CF980A_gui">
+            <omgdc:Bounds height="40.0" width="40.0" x="652.5" y="113.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D" id="sid-B548B980-12E3-408E-9AC4-7031B85A8F2D_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="731.75" y="159.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-fabaea2d-d43b-41d3-b0c3-8df2c3b2b079">
+               <omgdc:Bounds height="22.0" width="77.0" x="709.25" y="129.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D" id="sid-6FC20E19-AF3A-4A77-8588-2D671C98D93D_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="797.5" y="134.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="36.0" width="67.71428680419922" x="813.6428565979004" y="154.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2" id="sid-0E349B8B-14A7-4565-988A-38F3A9B624D2_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="731.75" y="62.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-fabaea2d-d43b-41d3-b0c3-8df2c3b2b079">
+               <omgdc:Bounds height="11.0" width="36.92856979370117" x="729.2857151031494" y="43.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-282524E6-660F-431D-8F19-1C3E9E9DE817" id="sid-282524E6-660F-431D-8F19-1C3E9E9DE817_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="940.0" y="159.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="Approver" id="Approver_gui" isHorizontal="true">
+            <omgdc:Bounds height="161.0" width="979.0" x="45.0" y="453.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="55.71428680419922" width="12.000000000000014" x="49.99999999999999" y="505.6428565979004"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="teamAssistant" id="teamAssistant_gui" isHorizontal="true">
+            <omgdc:Bounds height="183.0" width="979.0" x="45.0" y="270.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="93.42857360839844" width="12.000000000000014" x="49.99999999999999" y="314.7857131958008"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="Accountant" id="Accountant_gui" isHorizontal="true">
+            <omgdc:Bounds height="144.0" width="979.0" x="45.0" y="614.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="68.57142639160156" width="12.000000000000014" x="49.99999999999999" y="651.7142868041992"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="approveInvoice" id="approveInvoice_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="368.0" y="495.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="24.0" width="50.57142639160156" x="392.7142868041992" y="521.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="invoice_approved" id="invoice_approved_gui" isMarkerVisible="true">
+            <omgdc:Bounds height="40.0" width="40.0" x="503.0" y="515.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-f716afae-4dba-4e75-8ada-58a09dc78501">
+               <omgdc:Bounds height="24.0" width="63.42857360839844" x="533.5" y="545.5"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="assignApprover" id="assignApprover_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="195.0" y="322.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="24.0" width="55.71428680419922" x="217.1428565979004" y="348.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="reviewInvoice" id="reviewInvoice_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="563.0" y="322.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="24.0" width="60.0" x="583.0" y="348.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="reviewSuccessful_gw" id="reviewSuccessful_gw_gui" isMarkerVisible="true">
+            <omgdc:Bounds height="40.0" width="40.0" x="708.0" y="342.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-f716afae-4dba-4e75-8ada-58a09dc78501">
+               <omgdc:Bounds height="24.0" width="68.57142639160156" x="738.5" y="372.5"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="invoiceNotProcessed" id="invoiceNotProcessed_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="940.0" y="347.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-f716afae-4dba-4e75-8ada-58a09dc78501">
+               <omgdc:Bounds height="22.0" width="61.28571319580078" x="923.3571434020996" y="377.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="StartEvent_1" id="StartEvent_1_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="110.0" y="347.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-f716afae-4dba-4e75-8ada-58a09dc78501">
+               <omgdc:Bounds height="22.0" width="44.78571319580078" x="102.60714340209961" y="379.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="prepareBankTransfer" id="prepareBankTransfer_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="653.0" y="655.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="36.0" width="50.57142639160156" x="677.7142868041992" y="675.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="invoiceProcessed" id="invoiceProcessed_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="940.0" y="680.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-f716afae-4dba-4e75-8ada-58a09dc78501">
+               <omgdc:Bounds height="22.0" width="56.57142639160156" x="925.7142868041992" y="710.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="archiveInvoice" id="archiveInvoice_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="795.0" y="655.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="24.0" width="43.71428680419922" x="823.1428565979004" y="681.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="DataStoreReference_1" id="DataStoreReference_1_gui">
+            <omgdc:Bounds height="61.173" width="63.000999999999976" x="587.4995" y="784.4135"/>
+            <bpmndi:BPMNLabel labelStyle="sid-91eb01df-6088-4e13-a531-d312505c7590">
+               <omgdc:Bounds height="12.0" width="170.5714225769043" x="532.2887894744873" y="849.7514974365234"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-71EF9530-A32A-49BC-A783-9B98A5801362" id="sid-71EF9530-A32A-49BC-A783-9B98A5801362_gui">
+            <omgdi:waypoint x="672.5" y="113.0"/>
+            <omgdi:waypoint x="672.5" y="77.0"/>
+            <omgdi:waypoint x="731.75" y="77.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="invoiceApproved" id="invoiceApproved_gui">
+            <omgdi:waypoint x="543.0" y="535.0"/>
+            <omgdi:waypoint x="602.0" y="535.0"/>
+            <omgdi:waypoint x="602.0" y="695.0"/>
+            <omgdi:waypoint x="653.0" y="695.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-f716afae-4dba-4e75-8ada-58a09dc78501">
+               <omgdc:Bounds height="12.0" width="20.5714111328125" x="550.5239868164062" y="515.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-C0540F47-C3C0-4FA8-B000-6D87640A6178" id="sid-C0540F47-C3C0-4FA8-B000-6D87640A6178_gui">
+            <omgdi:waypoint x="415.0" y="133.0"/>
+            <omgdi:waypoint x="455.75" y="133.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-4AD2006C-9290-42B0-A904-DD8076B791C4" id="sid-4AD2006C-9290-42B0-A904-DD8076B791C4_gui">
+            <omgdi:waypoint x="485.75" y="133.0"/>
+            <omgdi:waypoint x="527.5" y="133.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96" id="sid-3E8B2FCF-E408-4A5D-9455-8FDE7BB3EF96_gui">
+            <omgdi:waypoint x="267.0" y="133.0"/>
+            <omgdi:waypoint x="315.0" y="133.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-4686AFBC-E33A-4657-95A0-B2E27E704152" id="sid-4686AFBC-E33A-4657-95A0-B2E27E704152_gui">
+            <omgdi:waypoint x="672.5" y="153.0"/>
+            <omgdi:waypoint x="672.5" y="174.0"/>
+            <omgdi:waypoint x="731.75" y="174.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="invoiceNotApproved" id="invoiceNotApproved_gui">
+            <omgdi:waypoint x="523.0" y="515.0"/>
+            <omgdi:waypoint x="523.0" y="362.0"/>
+            <omgdi:waypoint x="563.0" y="362.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-f716afae-4dba-4e75-8ada-58a09dc78501">
+               <omgdc:Bounds height="15.4285888671875" width="12.0" x="503.0" y="492.0714111328125"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="DataOutputAssociation_1" id="DataOutputAssociation_1_gui">
+            <omgdi:waypoint x="674.0" y="735.0"/>
+            <omgdi:waypoint x="640.02821875" y="784.4135"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-915AC9A0-CD35-4DF2-93F7-4535397622F8" id="sid-915AC9A0-CD35-4DF2-93F7-4535397622F8_gui">
+            <omgdi:waypoint x="846.75" y="214.0"/>
+            <omgdi:waypoint x="846.75" y="254.0"/>
+            <omgdi:waypoint x="629.6667" y="254.0"/>
+            <omgdi:waypoint x="629.6667" y="322.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-AB6EB7C8-DF5E-42C2-88D0-FA166583AF15" id="sid-AB6EB7C8-DF5E-42C2-88D0-FA166583AF15_gui">
+            <omgdi:waypoint x="576.75" y="173.0"/>
+            <omgdi:waypoint x="576.75" y="254.0"/>
+            <omgdi:waypoint x="261.66666" y="254.0"/>
+            <omgdi:waypoint x="261.66666" y="322.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="reviewSuccessful" id="reviewSuccessful_gui">
+            <omgdi:waypoint x="728.0" y="342.0"/>
+            <omgdi:waypoint x="728.0" y="305.0"/>
+            <omgdi:waypoint x="418.0" y="305.0"/>
+            <omgdi:waypoint x="418.0" y="495.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-f716afae-4dba-4e75-8ada-58a09dc78501">
+               <omgdc:Bounds height="20.5714111328125" width="12.0" x="708.0" y="313.9285888671875"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="reviewNotSuccessful" id="reviewNotSuccessful_gui">
+            <omgdi:waypoint x="748.0" y="362.0"/>
+            <omgdi:waypoint x="940.0" y="362.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-f716afae-4dba-4e75-8ada-58a09dc78501">
+               <omgdc:Bounds height="12.0" width="15.4285888671875" x="755.5239868164062" y="342.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sequenceFlow_180" id="sequenceFlow_180_gui">
+            <omgdi:waypoint x="468.0" y="535.0"/>
+            <omgdi:waypoint x="503.0" y="535.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1" id="sid-6CB8539C-E02A-4496-94E7-17FAECB0D4B1_gui">
+            <omgdi:waypoint x="897.5" y="174.0"/>
+            <omgdi:waypoint x="940.0" y="174.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sequenceFlow_183" id="sequenceFlow_183_gui">
+            <omgdi:waypoint x="663.0" y="362.0"/>
+            <omgdi:waypoint x="708.0" y="362.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-7A070DED-8B83-48E1-88A1-5543C481E7BC" id="sid-7A070DED-8B83-48E1-88A1-5543C481E7BC_gui">
+            <omgdi:waypoint x="216.75" y="173.0"/>
+            <omgdi:waypoint x="216.75" y="253.0"/>
+            <omgdi:waypoint x="125.0" y="253.0"/>
+            <omgdi:waypoint x="125.0" y="347.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-D03CC374-8575-4F38-98B4-4DFF014C43CB" id="sid-D03CC374-8575-4F38-98B4-4DFF014C43CB_gui">
+            <omgdi:waypoint x="761.75" y="174.0"/>
+            <omgdi:waypoint x="797.5" y="174.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sequenceFlow_178" id="sequenceFlow_178_gui">
+            <omgdi:waypoint x="295.0" y="362.0"/>
+            <omgdi:waypoint x="325.0" y="362.0"/>
+            <omgdi:waypoint x="325.0" y="535.0"/>
+            <omgdi:waypoint x="368.0" y="535.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-90902E27-C1CD-4F90-A8F2-486DA4F42117" id="sid-90902E27-C1CD-4F90-A8F2-486DA4F42117_gui">
+            <omgdi:waypoint x="228.33333" y="322.0"/>
+            <omgdi:waypoint x="228.33333" y="235.21042"/>
+            <omgdi:waypoint x="470.75" y="235.21042"/>
+            <omgdi:waypoint x="470.75" y="148.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-0518A412-1ED3-4CFD-A75C-69FF37EFFC16" id="sid-0518A412-1ED3-4CFD-A75C-69FF37EFFC16_gui">
+            <omgdi:waypoint x="596.3333" y="322.0"/>
+            <omgdi:waypoint x="596.3333" y="237.0"/>
+            <omgdi:waypoint x="746.75" y="237.0"/>
+            <omgdi:waypoint x="746.75" y="189.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_2" id="SequenceFlow_2_gui">
+            <omgdi:waypoint x="753.0" y="695.0"/>
+            <omgdi:waypoint x="795.0" y="695.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_3" id="SequenceFlow_3_gui">
+            <omgdi:waypoint x="895.0" y="695.0"/>
+            <omgdi:waypoint x="940.0" y="695.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_1" id="SequenceFlow_1_gui">
+            <omgdi:waypoint x="140.0" y="362.0"/>
+            <omgdi:waypoint x="195.0" y="362.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-3019478F-48D5-4B85-95B1-E192B9BE4183" id="sid-3019478F-48D5-4B85-95B1-E192B9BE4183_gui">
+            <omgdi:waypoint x="761.75" y="77.0"/>
+            <omgdi:waypoint x="940.0" y="77.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-26030150-7369-4B7F-8264-B3ABC62BA735" id="sid-26030150-7369-4B7F-8264-B3ABC62BA735_gui">
+            <omgdi:waypoint x="627.5" y="133.0"/>
+            <omgdi:waypoint x="652.5" y="133.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF" id="sid-7971C38C-2EF5-41F2-A24E-3FFCA069EDBF_gui">
+            <omgdi:waypoint x="129.0" y="133.0"/>
+            <omgdi:waypoint x="167.0" y="133.0"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-f716afae-4dba-4e75-8ada-58a09dc78501">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-fabaea2d-d43b-41d3-b0c3-8df2c3b2b079">
+         <omgdc:Font isBold="false" isItalic="false"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-91eb01df-6088-4e13-a531-d312505c7590">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

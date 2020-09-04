@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<catalog>
+  <script name="Make a singleton" path="MakeSingleton.py" icon-path="icons/makesingleton.png" show-menu="true" show-toolbar="false">
+    <description>This macro makes a singleton from an existing class. It can also create a new class if applied on a Package. It actually creates a static getInstance() method, an self-association 'instance' and a private default constructor for the class.</description>
+    <metaclass name="Standard.Class"></metaclass>
+    <metaclass name="Standard.Package"></metaclass>
+  </script>
+  <script name="Sort" path="Sort.py" icon-path="icons/sort.png" show-menu="true" show-toolbar="true">
+    <description>This macro sorts the model elements under a Classifier or a Package.</description>
+    <metaclass name="Standard.Classifier"></metaclass>
+    <metaclass name="Standard.Package"></metaclass>
+  </script>
+</catalog>

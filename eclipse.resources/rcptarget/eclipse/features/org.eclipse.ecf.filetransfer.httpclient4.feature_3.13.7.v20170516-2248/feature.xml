@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.ecf.filetransfer.httpclient4.feature"
+      label="ECF Httpclient4 Filetransfer Provider"
+      version="3.13.7.v20170516-2248"
+      provider-name="Eclipse.org - ECF">
+
+   <description url="http://www.eclipse.org/ecf">
+      This feature provides the Apache HttpComponents/HttpClient4-based FileTransfer provider used by the Eclipse platform to support P2 filetransfer.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      Copyright (c) 2011 Composent, Inc. and others. All rights reserved.
+This program and the accompanying materials are made available
+under the terms of the Eclipse Public License v1.0 which accompanies
+this distribution, and is available at 
+http://www.eclipse.org/legal/epl-v10.html
+ 
+Contributors: Composent, Inc. - initial API and implementation
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.ecf.filetransfer.feature" version="3.9.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.ecf.provider.filetransfer.httpclient4"
+         download-size="73"
+         install-size="158"
+         version="1.1.200.v20170314-0133"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.codec"
+         download-size="284"
+         install-size="545"
+         version="1.9.0.v20170208-1614"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.logging"
+         download-size="71"
+         install-size="148"
+         version="1.1.1.v201101211721"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.httpcomponents.httpclient"
+         download-size="982"
+         install-size="2103"
+         version="4.5.2.v20170210-0925"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.httpcomponents.httpcore"
+         download-size="346"
+         install-size="684"
+         version="4.4.6.v20170210-0925"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+      <extension
+         id="id2"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="e4model/editors.e4xmi">
+      </fragment>
+      <processor
+            beforefragment="false"
+            class="org.modelio.editors.service.EditionManagerInitializer">
+      </processor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_gATz8PhMEeatery3jQJK-w">
+  <imports xsi:type="menu:Menu" xmi:id="_sXUmkATGEeeZeu4aDolUFg" elementId="org.modelio.model.browser.view.viewmenu"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_pqvrkATGEeeZeu4aDolUFg" featurename="children" parentElementId="org.modelio.model.browser.view.viewmenu" positionInList="">
+    <elements xsi:type="menu:DirectMenuItem" xmi:id="_pqvrkQTGEeeZeu4aDolUFg" elementId="org.modelio.model.browser.directmenuitem.featurevisibility" label="%ShowFeatureVisibility.label" tooltip="%ShowFeatureVisibility.tooltip" type="Check" contributionURI="bundleclass://org.modelio.uml.ui.ext/org.modelio.uml.ui.ext.handlers.ShowFeatureVisibilityHandler"/>
+    <elements xsi:type="menu:DirectMenuItem" xmi:id="_pqvrkgTGEeeZeu4aDolUFg" elementId="org.modelio.model.browser.directmenuitem.namespacevisibility" label="%ShowNameSpaceVisibility.label" tooltip="%ShowNameSpaceVisibility.tooltip" type="Check" contributionURI="bundleclass://org.modelio.uml.ui.ext/org.modelio.uml.ui.ext.handlers.ShowNameSpaceVisibilityHandler"/>
+  </fragments>
+</fragment:ModelFragments>

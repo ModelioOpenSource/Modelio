@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.modelio.app.project.conf.page">
+		<confpage
+			label="%WorkModelTab.label"
+			name="WORK_MODEL"
+			page="org.modelio.app.project.conf.dialog.workmodel.WorkModelPage" >
+		</confpage>
+		<confpage
+			label="%ModuleTab.label"
+			name="MODULES"
+			page="org.modelio.app.project.conf.dialog.modules.ModulesPage" >
+		</confpage>
+	</extension>
+</plugin>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<semantic:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:style="http://www.w4.eu/spec/DataComposer/20120927/Diagram/Style" xmlns:w4="http://www.w4.eu/spec/BPMN/20110701/MODEL" xmlns:w4graph="http://www.w4.eu/spec/BPMN/20110930/GRAPH" id="_1373649849716" w4:version="1.0" expressionLanguage="http://www.w3.org/1999/XPath" name="A.1.0" targetNamespace="http://www.trisotech.com/definitions/_1373649849716" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <semantic:process id="WFP-6-" isExecutable="false" processType="None">
+    <semantic:extensionElements>
+      <w4graph:graphStyle>
+        <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        <w4graph:root gridVisible="true" snapToGrid="true" rulerVisible="true" snapToGuide="true" rulerUnit="Pixels">
+          <Grid spacing="15" color="230,230,230"/>
+          <VerticalRuler/>
+          <HorizontalRuler/>
+        </w4graph:root>
+      </w4graph:graphStyle>
+    </semantic:extensionElements>
+    <semantic:startEvent id="_93c466ab-b271-4376-a427-f4c353d55ce8" name="Start Event" isInterrupting="true">
+      <semantic:extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="109,183,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </semantic:extensionElements>
+      <semantic:outgoing>_e16564d7-0c4c-413e-95f6-f668a3f851fb</semantic:outgoing>
+    </semantic:startEvent>
+    <semantic:task id="_ec59e164-68b4-4f94-98de-ffb1c58a84af" name="Task 1" completionQuantity="1" isForCompensation="false" startQuantity="1">
+      <semantic:extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </semantic:extensionElements>
+      <semantic:incoming>_e16564d7-0c4c-413e-95f6-f668a3f851fb</semantic:incoming>
+      <semantic:outgoing>_d77dd5ec-e4e7-420e-bbe7-8ac9cd1df599</semantic:outgoing>
+    </semantic:task>
+    <semantic:task id="_820c21c0-45f3-473b-813f-06381cc637cd" name="Task 2" completionQuantity="1" isForCompensation="false" startQuantity="1">
+      <semantic:extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </semantic:extensionElements>
+      <semantic:incoming>_d77dd5ec-e4e7-420e-bbe7-8ac9cd1df599</semantic:incoming>
+      <semantic:outgoing>_2aa47410-1b0e-4f8b-ad54-d6f798080cb4</semantic:outgoing>
+    </semantic:task>
+    <semantic:task id="_e70a6fcb-913c-4a7b-a65d-e83adc73d69c" name="Task 3" completionQuantity="1" isForCompensation="false" startQuantity="1">
+      <semantic:extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="194,215,235" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </semantic:extensionElements>
+      <semantic:incoming>_2aa47410-1b0e-4f8b-ad54-d6f798080cb4</semantic:incoming>
+      <semantic:outgoing>_8e8fe679-eb3b-4c43-a4d6-891e7087ff80</semantic:outgoing>
+    </semantic:task>
+    <semantic:endEvent id="_a47df184-085b-49f7-bb82-031c84625821" name="End Event">
+      <semantic:extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="190,0,0" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+        </w4graph:graphStyle>
+      </semantic:extensionElements>
+      <semantic:incoming>_8e8fe679-eb3b-4c43-a4d6-891e7087ff80</semantic:incoming>
+    </semantic:endEvent>
+    <semantic:sequenceFlow id="_e16564d7-0c4c-413e-95f6-f668a3f851fb" name="" sourceRef="_93c466ab-b271-4376-a427-f4c353d55ce8" targetRef="_ec59e164-68b4-4f94-98de-ffb1c58a84af">
+      <semantic:extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </semantic:extensionElements>
+    </semantic:sequenceFlow>
+    <semantic:sequenceFlow id="_d77dd5ec-e4e7-420e-bbe7-8ac9cd1df599" name="" sourceRef="_ec59e164-68b4-4f94-98de-ffb1c58a84af" targetRef="_820c21c0-45f3-473b-813f-06381cc637cd">
+      <semantic:extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </semantic:extensionElements>
+    </semantic:sequenceFlow>
+    <semantic:sequenceFlow id="_2aa47410-1b0e-4f8b-ad54-d6f798080cb4" name="" sourceRef="_820c21c0-45f3-473b-813f-06381cc637cd" targetRef="_e70a6fcb-913c-4a7b-a65d-e83adc73d69c">
+      <semantic:extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </semantic:extensionElements>
+    </semantic:sequenceFlow>
+    <semantic:sequenceFlow id="_8e8fe679-eb3b-4c43-a4d6-891e7087ff80" name="" sourceRef="_e70a6fcb-913c-4a7b-a65d-e83adc73d69c" targetRef="_a47df184-085b-49f7-bb82-031c84625821">
+      <semantic:extensionElements>
+        <w4graph:graphStyle>
+          <w4graph:basic background="255,255,255" foreground="0,0,0" autoResize="false" borderColor="100,100,100" collapsed="false"/>
+          <w4graph:line routerType="Rectilinear" automaticRoute="true" closestRoute="false" avoidObstacleRoute="false"/>
+        </w4graph:graphStyle>
+      </semantic:extensionElements>
+    </semantic:sequenceFlow>
+  </semantic:process>
+  <bpmndi:BPMNDiagram documentation="" id="Trisotech_Visio-_6" name="A.1.0" resolution="96.0">
+    <bpmndi:BPMNPlane id="Bpmndi_BPMNPlane_vP5wYEI8EeS1R9QwYRSJJw" bpmnElement="WFP-6-">
+      <bpmndi:BPMNShape id="S1373649849857__93c466ab-b271-4376-a427-f4c353d55ce8" bpmnElement="_93c466ab-b271-4376-a427-f4c353d55ce8">
+        <dc:Bounds height="30.0" width="30.0" x="186.0" y="336.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_vP5wYUI8EeS1R9QwYRSJJw" labelStyle="LS1373649849858">
+          <dc:Bounds height="17.0" width="63.0" x="170.0" y="366.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S1373649849859__ec59e164-68b4-4f94-98de-ffb1c58a84af" bpmnElement="_ec59e164-68b4-4f94-98de-ffb1c58a84af">
+        <dc:Bounds height="68.0" width="83.0" x="258.0" y="317.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_vP5wYkI8EeS1R9QwYRSJJw" labelStyle="LS1373649849858">
+          <dc:Bounds height="17.0" width="44.0" x="277.0" y="343.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S1373649849860__820c21c0-45f3-473b-813f-06381cc637cd" bpmnElement="_820c21c0-45f3-473b-813f-06381cc637cd">
+        <dc:Bounds height="68.0" width="83.0" x="390.0" y="317.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_vP5wY0I8EeS1R9QwYRSJJw" labelStyle="LS1373649849858">
+          <dc:Bounds height="17.0" width="44.0" x="409.0" y="343.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S1373649849861__e70a6fcb-913c-4a7b-a65d-e83adc73d69c" bpmnElement="_e70a6fcb-913c-4a7b-a65d-e83adc73d69c">
+        <dc:Bounds height="68.0" width="83.0" x="522.0" y="317.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_vP6XcEI8EeS1R9QwYRSJJw" labelStyle="LS1373649849858">
+          <dc:Bounds height="17.0" width="44.0" x="541.0" y="343.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S1373649849862__a47df184-085b-49f7-bb82-031c84625821" bpmnElement="_a47df184-085b-49f7-bb82-031c84625821">
+        <dc:Bounds height="32.0" width="32.0" x="648.0" y="335.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_vP6XcUI8EeS1R9QwYRSJJw" labelStyle="LS1373649849858">
+          <dc:Bounds height="17.0" width="56.0" x="636.0" y="367.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="E1373649849864__d77dd5ec-e4e7-420e-bbe7-8ac9cd1df599" bpmnElement="_d77dd5ec-e4e7-420e-bbe7-8ac9cd1df599">
+        <di:waypoint xsi:type="dc:Point" x="341.0" y="351.0"/>
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="351.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_vP6XckI8EeS1R9QwYRSJJw" labelStyle="Bpmndi_BPMNLabelStyle_d1OGMF9cEeSPo_iP-_8UXg"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E1373649849865__e16564d7-0c4c-413e-95f6-f668a3f851fb" bpmnElement="_e16564d7-0c4c-413e-95f6-f668a3f851fb">
+        <di:waypoint xsi:type="dc:Point" x="216.0" y="351.0"/>
+        <di:waypoint xsi:type="dc:Point" x="258.0" y="351.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_vP6Xc0I8EeS1R9QwYRSJJw" labelStyle="Bpmndi_BPMNLabelStyle_d06kMF9cEeSPo_iP-_8UXg"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E1373649849866__2aa47410-1b0e-4f8b-ad54-d6f798080cb4" bpmnElement="_2aa47410-1b0e-4f8b-ad54-d6f798080cb4">
+        <di:waypoint xsi:type="dc:Point" x="473.0" y="351.0"/>
+        <di:waypoint xsi:type="dc:Point" x="522.0" y="351.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_vP6XdEI8EeS1R9QwYRSJJw" labelStyle="Bpmndi_BPMNLabelStyle_d0npQl9cEeSPo_iP-_8UXg"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E1373649849867__8e8fe679-eb3b-4c43-a4d6-891e7087ff80" bpmnElement="_8e8fe679-eb3b-4c43-a4d6-891e7087ff80">
+        <di:waypoint xsi:type="dc:Point" x="605.0" y="351.0"/>
+        <di:waypoint xsi:type="dc:Point" x="648.0" y="351.0"/>
+        <bpmndi:BPMNLabel id="Bpmndi_BPMNLabel_vP6XdUI8EeS1R9QwYRSJJw" labelStyle="Bpmndi_BPMNLabelStyle_d0npQV9cEeSPo_iP-_8UXg"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="LS1373649849858">
+      <dc:Font name="Arial" size="8.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_d0npQF9cEeSPo_iP-_8UXg">
+      <dc:Font name="Segoe UI" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_d0npQV9cEeSPo_iP-_8UXg">
+      <dc:Font name="Segoe UI" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_d0npQl9cEeSPo_iP-_8UXg">
+      <dc:Font name="Segoe UI" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_d06kMF9cEeSPo_iP-_8UXg">
+      <dc:Font name="Segoe UI" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="Bpmndi_BPMNLabelStyle_d1OGMF9cEeSPo_iP-_8UXg">
+      <dc:Font name="Segoe UI" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</semantic:definitions>

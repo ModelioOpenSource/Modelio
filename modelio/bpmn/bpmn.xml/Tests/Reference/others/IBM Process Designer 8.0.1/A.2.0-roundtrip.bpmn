@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsd="http://www.w3.org/2001/XMLSchema" exporter="http://www.ibm.com/BPM" exporterVersion="8.0.1" id="bpmnid-68bc02bf-c645-4e33-9d03-968c92cec4ca" targetNamespace="http://A.2.0/Initial Import/Process">
+  <bpmn:process id="bpmnid-c1e49340-1a9c-4147-9bec-2c619cfc089b" name="Process" isClosed="false" processType="None">
+    <bpmn:serviceTask id="bpmnid-3141d889-a252-4b43-9827-7114d301fd8f" name="Task 1"/>
+    <bpmn:serviceTask id="bpmnid-3647a630-09f4-47b8-bafa-cbec05233ceb" name="Task 2"/>
+    <bpmn:serviceTask id="bpmnid-923d5818-63fa-41f0-813d-b0a21a586fc9" name="Task 3"/>
+    <bpmn:serviceTask id="bpmnid-78b78240-9932-446a-8fc9-a9488275086e" name="Task 4"/>
+    <bpmn:startEvent id="bpmnid-1e1e49e6-aaac-489b-a6bb-b947f53101cb" name="Start Event"/>
+    <bpmn:endEvent id="bpmnid-8c187883-b6a2-4c81-a20f-cb88e24f4696" name="End Event"/>
+    <bpmn:exclusiveGateway id="bpmnid-4c2019cc-a526-428f-8bad-af2e2674ce81" name="Gateway  (Split Flow)" gatewayDirection="Diverging" default="bpmnid-5cd9955b-08a6-4c0f-b445-2060f947c343"/>
+    <bpmn:exclusiveGateway id="bpmnid-64afbdef-9cb1-4df8-abec-b7614d622c67" name="Gateway  (Merge Flows)" gatewayDirection="Diverging"/>
+    <bpmn:sequenceFlow id="bpmnid-def2ae71-7c41-4753-bec8-fc5a9c4df831" name="Sequence Flow1" sourceRef="bpmnid-4c2019cc-a526-428f-8bad-af2e2674ce81" targetRef="bpmnid-3647a630-09f4-47b8-bafa-cbec05233ceb">
+      <bpmn:conditionExpression/>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="bpmnid-84480b0a-0b2c-4712-a7f0-4e33f407dadd" name="Sequence Flow3" sourceRef="bpmnid-923d5818-63fa-41f0-813d-b0a21a586fc9" targetRef="bpmnid-64afbdef-9cb1-4df8-abec-b7614d622c67"/>
+    <bpmn:sequenceFlow id="bpmnid-5cf0de73-31b2-4fcf-a6ae-e61eaa4d5a7d" name="Sequence Flow6" sourceRef="bpmnid-4c2019cc-a526-428f-8bad-af2e2674ce81" targetRef="bpmnid-923d5818-63fa-41f0-813d-b0a21a586fc9">
+      <bpmn:conditionExpression/>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="bpmnid-cce86c9f-beed-416d-9ba4-c8015a9e8f0c" name="Sequence Flow0" sourceRef="bpmnid-3141d889-a252-4b43-9827-7114d301fd8f" targetRef="bpmnid-4c2019cc-a526-428f-8bad-af2e2674ce81"/>
+    <bpmn:sequenceFlow id="bpmnid-aa751938-7e92-44a7-9b22-a92c6341348c" name="Sequence Flow2" sourceRef="bpmnid-3647a630-09f4-47b8-bafa-cbec05233ceb" targetRef="bpmnid-8c187883-b6a2-4c81-a20f-cb88e24f4696"/>
+    <bpmn:sequenceFlow id="bpmnid-0be68873-1ef8-41b4-8765-093c4114f721" name="Sequence Flow5" sourceRef="bpmnid-64afbdef-9cb1-4df8-abec-b7614d622c67" targetRef="bpmnid-8c187883-b6a2-4c81-a20f-cb88e24f4696"/>
+    <bpmn:sequenceFlow id="bpmnid-af0ff8ad-fa07-460a-aee1-77d7391213a0" name="Sequence Flow" sourceRef="bpmnid-1e1e49e6-aaac-489b-a6bb-b947f53101cb" targetRef="bpmnid-3141d889-a252-4b43-9827-7114d301fd8f"/>
+    <bpmn:sequenceFlow id="bpmnid-5cd9955b-08a6-4c0f-b445-2060f947c343" name="Sequence Flow7" sourceRef="bpmnid-4c2019cc-a526-428f-8bad-af2e2674ce81" targetRef="bpmnid-78b78240-9932-446a-8fc9-a9488275086e"/>
+    <bpmn:sequenceFlow id="bpmnid-f9e1c8ea-59ee-4bc8-8cf6-70ae68bb18e3" name="Sequence Flow4" sourceRef="bpmnid-78b78240-9932-446a-8fc9-a9488275086e" targetRef="bpmnid-64afbdef-9cb1-4df8-abec-b7614d622c67"/>
+  </bpmn:process>
+</bpmn:definitions>

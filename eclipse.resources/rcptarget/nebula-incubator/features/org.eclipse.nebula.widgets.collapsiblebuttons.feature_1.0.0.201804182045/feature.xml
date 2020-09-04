@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.collapsiblebuttons.feature"
+      label="Nebula Collapsible Buttons Widget"
+      version="1.0.0.201804182045"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://www.eclipse.org/nebula/widgets/collapsible/collapsible.php">
+      Nebula Collapsible Buttons Widget
+   </description>
+
+   <copyright url="">
+      Copyright (c) 2008-2009 Emil Crumhorn.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.collapsiblebuttons"
+         download-size="99"
+         install-size="239"
+         version="1.0.0.201804182045"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.collapsiblebuttons.source"
+         download-size="42"
+         install-size="124"
+         version="1.0.0.201804182045"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="modelContribution"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="e4model/diagrambrowser.e4xmi">
+      </fragment>
+   </extension>
+   
+	<extension point="org.eclipse.core.expressions.definitions">
+		<definition id="diagram.browser.test.createfolder.id">
+			<test property="diagram.browser.test.createfolder"/>
+		</definition>
+		<definition id="diagram.browser.test.selectinexplore.id">
+        	<test property="diagram.browser.test.selectinexplore"/>
+		</definition>
+		<definition id="diagram.browser.test.rename.id">
+        	<test property="diagram.browser.test.rename"/>
+		</definition>
+		<definition id="diagram.browser.test.delete.id">
+        	<test property="diagram.browser.test.delete"/>
+		</definition>
+		<definition id="diagram.browser.test.cut.id">
+			<test property="diagram.browser.test.cut"/>
+		</definition>
+		<definition id="diagram.browser.test.copy.id">
+        	<test property="diagram.browser.test.copy"/>
+		</definition>
+		<definition id="diagram.browser.test.paste.id">
+        	<test property="diagram.browser.test.paste"/>
+		</definition>
+	</extension>
+  
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+		<propertyTester
+			class="org.modelio.diagram.browser.handlers.properties.CommandVisiblePropertyTester"
+			id="diagram.browser.propertyTester.updatevisible"
+			namespace="diagram.browser.test"
+			properties="createfolder, selectinexplore, rename, delete, cut, copy, paste"
+			type="org.eclipse.jface.viewers.ISelection">
+		</propertyTester>
+	</extension>
+  
+</plugin>

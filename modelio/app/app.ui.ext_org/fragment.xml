@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<fragment>
+  <extension id="modelio"  point="org.eclipse.core.runtime.products">
+       <product application="org.eclipse.e4.ui.workbench.swt.E4Application" name="Modelio">
+  			<property name="lifeCycleURI"   value="bundleclass://org.modelio.app.ui/org.modelio.app.ui.lifecycle.LifeCycleManager"/>
+  			<property name="applicationXMI" value="org.modelio.app.ui/e4model/modelio.e4xmi"/>
+  			<property name="applicationCSSResources" value="platform:/plugin/org.modelio.app.ui/css"/>
+  			<property name="cssTheme"                value="org.modelio.app.theme.default"/>
+  	   </product>
+  </extension>
+  
+   <extension id="app.ui.ext_org" point="org.eclipse.e4.workbench.model">
+      <fragment uri="e4model/app.ui.ext_org.e4xmi">  </fragment>
+   </extension>
+   
+</fragment>

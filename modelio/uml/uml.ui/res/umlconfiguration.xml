@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration id="UML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="auditconfiguration.xsd">
+	<Category id="Activity">
+		<Rule id="R1010" class="org.modelio.uml.ui.audit.R1010" status="enabled" severity="error" />
+		<Rule id="R1020" class="org.modelio.uml.ui.audit.R1020" status="enabled" severity="error" />
+		<Rule id="R1030" class="org.modelio.uml.ui.audit.R1030" status="enabled" severity="error" />
+		<Rule id="R1040" class="org.modelio.uml.ui.audit.R1040" status="enabled" severity="error" />
+		<Rule id="R1050" class="org.modelio.uml.ui.audit.R1050" status="enabled" severity="error" />
+		<Rule id="R1060" class="org.modelio.uml.ui.audit.R1060" status="enabled" severity="error" />
+		<Rule id="R1070" class="org.modelio.uml.ui.audit.R1070" status="enabled" severity="error" />
+		<Rule id="R1080" class="org.modelio.uml.ui.audit.R1080" status="enabled" severity="error" />
+		<Rule id="R1090" class="org.modelio.uml.ui.audit.R1090" status="enabled" severity="error" />
+		<Rule id="R1100" class="org.modelio.uml.ui.audit.R1100" status="enabled" severity="error" />
+		<Rule id="R1110" class="org.modelio.uml.ui.audit.R1110" status="enabled" severity="error" />
+		<Rule id="R1130" class="org.modelio.uml.ui.audit.R1130" status="enabled" severity="error" />
+		<Rule id="R1140" class="org.modelio.uml.ui.audit.R1140" status="enabled" severity="error" />
+		<Rule id="R1150" class="org.modelio.uml.ui.audit.R1150" status="enabled" severity="error" />
+		<Rule id="R1160" class="org.modelio.uml.ui.audit.R1160" status="enabled" severity="error" />
+		<Rule id="R1170" class="org.modelio.uml.ui.audit.R1170" status="enabled" severity="error" />
+		<Rule id="R1180" class="org.modelio.uml.ui.audit.R1180" status="enabled" severity="error" />
+		<Rule id="R1190" class="org.modelio.uml.ui.audit.R1190" status="enabled" severity="error" />
+		<Rule id="R1200" class="org.modelio.uml.ui.audit.R1200" status="enabled" severity="error" />
+		<Rule id="R1230" class="org.modelio.uml.ui.audit.R1230" status="enabled" severity="error" />
+		<Rule id="R1250" class="org.modelio.uml.ui.audit.R1250" status="enabled" severity="error" />
+		<Rule id="R1280" class="org.modelio.uml.ui.audit.R1280" status="enabled" severity="error" />
+		<Rule id="R1290" class="org.modelio.uml.ui.audit.R1290" status="enabled" severity="warning" />
+		<Rule id="R1300" class="org.modelio.uml.ui.audit.R1300" status="enabled" severity="warning" />
+		<Rule id="R1310" class="org.modelio.uml.ui.audit.R1310" status="enabled" severity="warning" />
+		<Rule id="R1320" class="org.modelio.uml.ui.audit.R1320" status="enabled" severity="error" />
+		<Rule id="R1350" class="org.modelio.uml.ui.audit.R1350" status="enabled" severity="error" />
+		<Rule id="R1360" class="org.modelio.uml.ui.audit.R1360" status="enabled" severity="error" />
+		<Rule id="R1370" class="org.modelio.uml.ui.audit.R1370" status="enabled" severity="error" />
+		<Rule id="R1380" class="org.modelio.uml.ui.audit.R1380" status="enabled" severity="error" />
+		<Rule id="R1390" class="org.modelio.uml.ui.audit.R1390" status="enabled" severity="error" />
+		<Rule id="R1400" class="org.modelio.uml.ui.audit.R1400" status="enabled" severity="error" />
+	</Category>
+	<Category id="Others">
+		<Rule id="R1530" class="org.modelio.uml.ui.audit.R1530" status="disabled" severity="warning" />
+		<Rule id="R1680" class="org.modelio.uml.ui.audit.R1680" status="enabled" severity="error" />
+		<Rule id="R1690" class="org.modelio.uml.ui.audit.R1690" status="enabled" severity="error" />
+		<Rule id="R1700" class="org.modelio.uml.ui.audit.R1700" status="enabled" severity="error" />
+		<Rule id="R1710" class="org.modelio.uml.ui.audit.R1710" status="enabled" severity="error" />
+		<Rule id="R1740" class="org.modelio.uml.ui.audit.R1740" status="enabled" severity="tip" />
+		<Rule id="R2170" class="org.modelio.uml.ui.audit.R2170" status="enabled" severity="error" />
+		<Rule id="R2050" class="org.modelio.uml.ui.audit.R2050" status="enabled" severity="error" />
+	</Category>
+	<Category id="Sequence">
+		<Rule id="R1800" class="org.modelio.uml.ui.audit.R1800" status="enabled" severity="error" />
+		<Rule id="R1810" class="org.modelio.uml.ui.audit.R1810" status="enabled" severity="warning" />
+		<Rule id="R1820" class="org.modelio.uml.ui.audit.R1820" status="enabled" severity="warning" />
+		<Rule id="R1830" class="org.modelio.uml.ui.audit.R1830" status="enabled" severity="error" />
+		<Rule id="R1950" class="org.modelio.uml.ui.audit.R1950" status="enabled" severity="error" />
+		<Rule id="R1960" class="org.modelio.uml.ui.audit.R1960" status="enabled" severity="tip" />
+		<Rule id="R2930" class="org.modelio.uml.ui.audit.R2930" status="enabled" severity="error" />
+	</Category>
+	<Category id="State">
+		<Rule id="R2580" class="org.modelio.uml.ui.audit.R2580" status="enabled" severity="error" />
+		<Rule id="R2590" class="org.modelio.uml.ui.audit.R2590" status="enabled" severity="error" />
+		<Rule id="R2600" class="org.modelio.uml.ui.audit.R2600" status="enabled" severity="error" />
+		<Rule id="R2610" class="org.modelio.uml.ui.audit.R2610" status="enabled" severity="error" />
+		<Rule id="R2620" class="org.modelio.uml.ui.audit.R2620" status="enabled" severity="error" />
+		<Rule id="R2630" class="org.modelio.uml.ui.audit.R2630" status="enabled" severity="error" />
+		<Rule id="R2640" class="org.modelio.uml.ui.audit.R2640" status="enabled" severity="error" />
+		<Rule id="R2650" class="org.modelio.uml.ui.audit.R2650" status="enabled" severity="error" />
+		<Rule id="R2660" class="org.modelio.uml.ui.audit.R2660" status="enabled" severity="error" />
+		<Rule id="R2670" class="org.modelio.uml.ui.audit.R2670" status="enabled" severity="error" />
+		<Rule id="R2750" class="org.modelio.uml.ui.audit.R2750" status="enabled" severity="warning" />
+		<Rule id="R2760" class="org.modelio.uml.ui.audit.R2760" status="enabled" severity="error" />
+		<Rule id="R2770" class="org.modelio.uml.ui.audit.R2770" status="enabled" severity="error" />
+		<Rule id="R2780" class="org.modelio.uml.ui.audit.R2780" status="enabled" severity="warning" />
+		<Rule id="R2790" class="org.modelio.uml.ui.audit.R2790" status="enabled" severity="error" />
+		<Rule id="R2800" class="org.modelio.uml.ui.audit.R2800" status="enabled" severity="error" />
+		<Rule id="R2810" class="org.modelio.uml.ui.audit.R2810" status="enabled" severity="error" />
+		<Rule id="R2820" class="org.modelio.uml.ui.audit.R2820" status="enabled" severity="error" />
+		<Rule id="R2830" class="org.modelio.uml.ui.audit.R2830" status="enabled" severity="error" />
+		<Rule id="R2840" class="org.modelio.uml.ui.audit.R2840" status="enabled" severity="warning" />
+		<Rule id="R2940" class="org.modelio.uml.ui.audit.R2940" status="enabled" severity="warning" />
+		<Rule id="R2950" class="org.modelio.uml.ui.audit.R2950" status="enabled" severity="warning" />
+	</Category>
+	<Category id="Static">
+		<Rule id="R1000" class="org.modelio.uml.ui.audit.R1000" status="enabled" severity="error" />
+		<Rule id="R1410" class="org.modelio.uml.ui.audit.R1410" status="enabled" severity="error" />
+		<Rule id="R1420" class="org.modelio.uml.ui.audit.R1420" status="enabled" severity="error" />
+		<Rule id="R1430" class="org.modelio.uml.ui.audit.R1430" status="enabled" severity="error" />
+		<Rule id="R1450" class="org.modelio.uml.ui.audit.R1450" status="enabled" severity="error" />
+		<Rule id="R1460" class="org.modelio.uml.ui.audit.R1460" status="enabled" severity="error" />
+		<Rule id="R1470" class="org.modelio.uml.ui.audit.R1470" status="enabled" severity="error" />
+		<Rule id="R1480" class="org.modelio.uml.ui.audit.R1480" status="enabled" severity="warning" />
+		<Rule id="R1490" class="org.modelio.uml.ui.audit.R1490" status="enabled" severity="warning" />
+		<Rule id="R1500" class="org.modelio.uml.ui.audit.R1500" status="enabled" severity="tip" />
+		<Rule id="R1520" class="org.modelio.uml.ui.audit.R1520" status="enabled" severity="tip" />
+		<Rule id="R1540" class="org.modelio.uml.ui.audit.R1540" status="enabled" severity="error" />
+		<Rule id="R1550" class="org.modelio.uml.ui.audit.R1550" status="enabled" severity="error" />
+		<Rule id="R1560" class="org.modelio.uml.ui.audit.R1560" status="enabled" severity="warning" />
+		<Rule id="R1580" class="org.modelio.uml.ui.audit.R1580" status="enabled" severity="error" />
+		<Rule id="R1590" class="org.modelio.uml.ui.audit.R1590" status="enabled" severity="warning" />
+		<Rule id="R1600" class="org.modelio.uml.ui.audit.R1600" status="enabled" severity="warning" />
+		<Rule id="R1610" class="org.modelio.uml.ui.audit.R1610" status="enabled" severity="error" />
+		<Rule id="R1620" class="org.modelio.uml.ui.audit.R1620" status="enabled" severity="error" />
+		<Rule id="R1640" class="org.modelio.uml.ui.audit.R1640" status="enabled" severity="warning" />
+		<Rule id="R1650" class="org.modelio.uml.ui.audit.R1650" status="enabled" severity="warning" />
+		<Rule id="R1660" class="org.modelio.uml.ui.audit.R1660" status="enabled" severity="warning" />
+		<Rule id="R1670" class="org.modelio.uml.ui.audit.R1670" status="enabled" severity="error" />
+		<Rule id="R1720" class="org.modelio.uml.ui.audit.R1720" status="enabled" severity="warning" />
+		<Rule id="R1730" class="org.modelio.uml.ui.audit.R1730" status="enabled" severity="error" />
+		<Rule id="R1750" class="org.modelio.uml.ui.audit.R1750" status="enabled" severity="error" />
+		<Rule id="R1760" class="org.modelio.uml.ui.audit.R1760" status="enabled" severity="error" />
+		<Rule id="R1780" class="org.modelio.uml.ui.audit.R1780" status="enabled" severity="error" />
+		<Rule id="R1790" class="org.modelio.uml.ui.audit.R1790" status="enabled" severity="error" />
+		<Rule id="R1860" class="org.modelio.uml.ui.audit.R1860" status="enabled" severity="error" />
+		<Rule id="R1870" class="org.modelio.uml.ui.audit.R1870" status="enabled" severity="error" />
+		<Rule id="R1910" class="org.modelio.uml.ui.audit.R1910" status="enabled" severity="tip" />
+		<Rule id="R1970" class="org.modelio.uml.ui.audit.R1970" status="enabled" severity="error" />
+		<Rule id="R1980" class="org.modelio.uml.ui.audit.R1980" status="enabled" severity="error" />
+		<Rule id="R1990" class="org.modelio.uml.ui.audit.R1990" status="enabled" severity="warning" />
+		<Rule id="R2060" class="org.modelio.uml.ui.audit.R2060" status="enabled" severity="error" />
+		<Rule id="R2180" class="org.modelio.uml.ui.audit.R2180" status="enabled" severity="error" />
+		<Rule id="R2190" class="org.modelio.uml.ui.audit.R2190" status="enabled" severity="error" />
+		<Rule id="R2200" class="org.modelio.uml.ui.audit.R2200" status="enabled" severity="error" />
+		<Rule id="R2210" class="org.modelio.uml.ui.audit.R2210" status="enabled" severity="error" />
+		<Rule id="R2220" class="org.modelio.uml.ui.audit.R2220" status="enabled" severity="error" />
+		<Rule id="R2230" class="org.modelio.uml.ui.audit.R2230" status="enabled" severity="warning" />
+		<Rule id="R2250" class="org.modelio.uml.ui.audit.R2250" status="enabled" severity="warning" />
+		<Rule id="R2260" class="org.modelio.uml.ui.audit.R2260" status="enabled" severity="error" />
+		<Rule id="R2270" class="org.modelio.uml.ui.audit.R2270" status="enabled" severity="warning" />
+		<Rule id="R2330" class="org.modelio.uml.ui.audit.R2330" status="enabled" severity="error" />
+		<Rule id="R2340" class="org.modelio.uml.ui.audit.R2340" status="enabled" severity="error" />
+		<Rule id="R2350" class="org.modelio.uml.ui.audit.R2350" status="enabled" severity="error" />
+		<Rule id="R2360" class="org.modelio.uml.ui.audit.R2360" status="enabled" severity="error" />
+		<Rule id="R2370" class="org.modelio.uml.ui.audit.R2370" status="enabled" severity="error" />
+		<Rule id="R2380" class="org.modelio.uml.ui.audit.R2380" status="enabled" severity="error" />
+		<Rule id="R2390" class="org.modelio.uml.ui.audit.R2390" status="enabled" severity="error" />
+		<Rule id="R2400" class="org.modelio.uml.ui.audit.R2400" status="enabled" severity="error" />
+		<Rule id="R2410" class="org.modelio.uml.ui.audit.R2410" status="enabled" severity="error" />
+		<Rule id="R2420" class="org.modelio.uml.ui.audit.R2420" status="enabled" severity="warning" />
+		<Rule id="R2430" class="org.modelio.uml.ui.audit.R2430" status="enabled" severity="error" />
+		<Rule id="R2440" class="org.modelio.uml.ui.audit.R2440" status="enabled" severity="warning" />
+		<Rule id="R2450" class="org.modelio.uml.ui.audit.R2450" status="enabled" severity="error" />
+		<Rule id="R2470" class="org.modelio.uml.ui.audit.R2470" status="enabled" severity="warning" />
+		<Rule id="R2500" class="org.modelio.uml.ui.audit.R2500" status="enabled" severity="error" />
+		<Rule id="R2510" class="org.modelio.uml.ui.audit.R2510" status="enabled" severity="warning" />
+		<Rule id="R2520" class="org.modelio.uml.ui.audit.R2520" status="enabled" severity="warning" />
+		<Rule id="R2530" class="org.modelio.uml.ui.audit.R2530" status="enabled" severity="warning" />
+		<Rule id="R2540" class="org.modelio.uml.ui.audit.R2540" status="enabled" severity="error" />
+		<Rule id="R2550" class="org.modelio.uml.ui.audit.R2550" status="enabled" severity="error" />
+		<Rule id="R2560" class="org.modelio.uml.ui.audit.R2560" status="enabled" severity="warning" />
+		<Rule id="R2570" class="org.modelio.uml.ui.audit.R2570" status="enabled" severity="error" />
+		<Rule id="R2690" class="org.modelio.uml.ui.audit.R2690" status="enabled" severity="error" />
+		<Rule id="R2700" class="org.modelio.uml.ui.audit.R2700" status="enabled" severity="error" />
+		<Rule id="R2720" class="org.modelio.uml.ui.audit.R2720" status="enabled" severity="error" />
+		<Rule id="R2730" class="org.modelio.uml.ui.audit.R2730" status="enabled" severity="error" />
+		<Rule id="R2740" class="org.modelio.uml.ui.audit.R2740" status="enabled" severity="error" />
+	</Category>
+	<Category id="UseCase">
+		<Rule id="R2860" class="org.modelio.uml.ui.audit.R2860" status="enabled" severity="warning" />
+		<Rule id="R2870" class="org.modelio.uml.ui.audit.R2870" status="enabled" severity="error" />
+		<Rule id="R2880" class="org.modelio.uml.ui.audit.R2880" status="enabled" severity="error" />
+		<Rule id="R2890" class="org.modelio.uml.ui.audit.R2890" status="enabled" severity="error" />
+		<Rule id="R2900" class="org.modelio.uml.ui.audit.R2900" status="enabled" severity="tip" />
+		<Rule id="R2910" class="org.modelio.uml.ui.audit.R2910" status="enabled" severity="error" />
+		<Rule id="R2920" class="org.modelio.uml.ui.audit.R2920" status="enabled" severity="error" />
+	</Category>
+</Configuration>

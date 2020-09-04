@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+  <extension point="org.eclipse.e4.workbench.model" id="modelContribution">
+      <fragment uri="e4model/appramcs.e4xmi"></fragment>
+   </extension>
+   
+  <extension point="org.eclipse.core.expressions.definitions">
+     <definition id="app.ramcs.test.create.id">
+        <test property="app.ramcs.test.create"/>
+     </definition>
+     <definition id="app.ramcs.test.package.id">
+        <test property="app.ramcs.test.package"/>
+     </definition>
+     <definition id="app.ramcs.test.configure.id">
+        <test property="app.ramcs.test.configure"/>
+     </definition>
+     
+  </extension>
+  
+  <extension point="org.eclipse.core.expressions.propertyTesters">
+     <propertyTester
+           class="org.modelio.app.ramcs.handlers.properties.CommandVisiblePropertyTester"
+           id="app.ramcs.propertyTester.updatevisible"
+           namespace="app.ramcs.test"
+           properties="create, package, configure"
+           type="org.eclipse.jface.viewers.ISelection">
+     </propertyTester>
+  </extension>
+  <extension
+        id="init-processor"
+        point="org.eclipse.e4.workbench.model">
+     <processor
+           beforefragment="true"
+           class="org.modelio.app.ramcs.plugin.InitProcessor">
+     </processor>
+  </extension>
+
+</plugin>

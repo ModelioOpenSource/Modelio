@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.modelio.diagram.editor.configurer.registry">
+   <implementation class="org.modelio.diagram.editor.plugin.ConfigurerRegistry"/>
+   <service>
+      <provide interface="org.modelio.diagram.editor.plugin.IDiagramConfigurerRegistry"/>
+   </service>
+</scr:component>
