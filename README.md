@@ -44,7 +44,7 @@ Dedicated to developers, analysts and software and systems architects, Modelio i
 
 
 # Build form Source
-To understand how to compile the Modelio Modeling tool form source, please refer to the [Building Modelio from Source Guide](https://github.com/ModelioOpenSource/Modelio/wiki/Build-Modelio-Index).This guide explains how build the Modelio application form provided sources.
+To understand how to compile the Modelio Modeling tool form source, please refer to the [Building Modelio from Source Guide](https://github.com/ModelioOpenSource/Modelio/wiki/Build-Modelio-Index).
 
 # Contribution
 
