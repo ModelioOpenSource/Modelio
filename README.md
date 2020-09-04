@@ -1,4 +1,4 @@
-![Modelio Modeler](README/logo-modelio-v4.png)(https://www.modelio.org)
+[![Modelio Modeler](README/logo-modelio-v4.png)](https://www.modelio.org)
 
 Modelio is a modeling solution offering a wide range of functionalities based on the main standards of enterprise architecture, software development and systems engineering.
 
