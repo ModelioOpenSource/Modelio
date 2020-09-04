@@ -51,7 +51,7 @@ Creating a project
 First you have to start Modelio by double-clicking on the Modelio shortcut.
 Once Modelio is started, go to 'File / Create a project...' or click on the [![New Project](README/new-project-button.png)] button. This will open a Project Creation dialog box:
 
-[![Project Creation](README/create-a-project.jpg)] 
+![Project Creation](README/create-a-project.jpg)
 
 Steps:
 
@@ -64,7 +64,7 @@ Steps:
 General User Interface
 ----------------------
 
-[![Interface](README/general-user-interface.jpg)] 
+![Interface](README/general-user-interface.jpg)
 
 Key:
 
@@ -76,7 +76,7 @@ Key:
 6. Symbol view
 
 
-[![Toolbar](README/gui-main-toolbar.jpg)] 
+![Toolbar](README/gui-main-toolbar.jpg)
 
 Key:
 
@@ -94,7 +94,7 @@ Creating elements
 
 **From the diagram view**
 
-[![Element Creation](README/create-element-diagram.jpg)] 
+![Element Creation](README/create-element-diagram.jpg)
 
 Key:
 
@@ -106,7 +106,7 @@ Key:
 
 To create your first element, right-click on the root package and then on 'Create element'. Choose the kind of UML/BPMN element you want to create:
 
-[![Element Creation](README/create-element-uml-explorer.jpg)] 
+![Element Creation](README/create-element-uml-explorer.jpg) 
 
 
 **Sibling creation**
@@ -124,7 +124,7 @@ Creating diagrams
 ** Diagram creation**
 Click on the Diagram and matrix creation wizard icon in the main toolbar:
 
-[![Diagrams](README/diagram-creation-wizard.jpg)] 
+![Diagrams](README/diagram-creation-wizard.jpg)
 
 Steps:
 
@@ -141,21 +141,21 @@ Note: By default, the wizard shows the applicable diagrams for the selected mode
 **Create elements in the diagram**
 
 To create elements in your diagram, you can either use the left hand side palette, or drag&drop existing elements from the UML explorer.
-[![Diagrams](README/diagram-drag-drop.jpg)] 
+![Diagrams](README/diagram-drag-drop.jpg)
 
 
 **Modify the graphic options**
 
 You can change the objects' graphic properties or the diagram's properties itself. The symbol view offers several options to change the graphic properties: color, font, line background, ...
 
-[![Diagrams](README/diagram-symbol.jpg)] 
+![Diagrams](README/diagram-symbol.jpg)
 
 Key:
 
 1. Change the options in the Symbol view
 
 **Change objects' graphic properties**
-[![Diagrams](README/diagram-object-properties.jpg)] 
+![Diagrams](README/diagram-object-properties.jpg)
 
 Key:
 
