@@ -47,3 +47,120 @@ Dedicated to developers, analysts and software and systems architects, Modelio i
 
 Creating a project 
 ------------------
+
+First you have to start Modelio by double-clicking on the Modelio shortcut.
+Once Modelio is started, go to 'File / Create a project...' or click on the [![New Project](README/new-project-button.png)] button. This will open a Project Creation dialog box:
+
+[![Project Creation](README/create-a-project.jpg)] 
+
+Steps:
+
+1. Enter a project name
+2. Enter a description
+3. You can choose to deploy the Java Designer module in your project by checking or not checking the Java project tickbox.
+4. Click on "Create"
+
+
+General User Interface
+----------------------
+
+[![Interface](README/general-user-interface.jpg)] 
+
+Key:
+
+1. Model explorer (UML, BPMN, MDA, Requirements, ...)
+2. Diagram view
+3. Diagrams explorer
+4. Module view
+5. Properties view
+6. Symbol view
+
+
+[![Toolbar](README/gui-main-toolbar.jpg)] 
+
+Key:
+
+1. Save
+2. Undo/Redo
+3. Project Configurator: Project information, Work models, Libraries, Modules, Audit, URLs
+4. Quick diagram creation
+5. Diagram creation wizard
+6. Advanced search tool
+7. Perspectives: Change the layout of the views
+8. Sort model elements
+
+Creating elements
+-----------------
+
+**From the diagram view**
+
+[![Element Creation](README/create-element-diagram.jpg)] 
+
+Key:
+
+1. Choose the type of element you want to create from the diagram palette
+
+2. Click in the diagram to position the new element. Click again on the element to rename it (or click on the F2 keyboard button)
+
+**From the UML model explorer**
+
+To create your first element, right-click on the root package and then on 'Create element'. Choose the kind of UML/BPMN element you want to create:
+
+[![Element Creation](README/create-element-uml-explorer.jpg)] 
+
+
+**Sibling creation**
+
+To create a series of elements, simply select the original element in the model explorer, then click on sibling button as many times as necessary. Each new element will be created empty and named with an incremental number. Sibling elements are created within the same container.
+
+ 
+**Clone creation**
+
+To clone an element, simply select it in the UML/BPMN explorer, then click on clone button as many times as necessary. Each new element will be created with the same sub-elements as the original one, and will be named the same.
+
+Creating diagrams
+-----------------
+
+** Diagram creation**
+Click on the Diagram and matrix creation wizard icon in the main toolbar:
+
+[![Diagrams](README/diagram-creation-wizard.jpg)] 
+
+Steps:
+
+1. Select the kind of diagram you want to create
+
+3. Enter a name
+
+4. Select an owner for the diagram
+
+5. Click on "OK" to create the diagram
+
+Note: By default, the wizard shows the applicable diagrams for the selected model element. Click on the "Show only applicable diagrams and matrices" to show all existing diagrams.
+
+**Create elements in the diagram**
+
+To create elements in your diagram, you can either use the left hand side palette, or drag&drop existing elements from the UML explorer.
+[![Diagrams](README/diagram-drag-drop.jpg)] 
+
+
+**Modify the graphic options**
+
+You can change the objects' graphic properties or the diagram's properties itself. The symbol view offers several options to change the graphic properties: color, font, line background, ...
+
+[![Diagrams](README/diagram-symbol.jpg)] 
+
+Key:
+
+1. Change the options in the Symbol view
+
+**Change objects' graphic properties**
+[![Diagrams](README/diagram-object-properties.jpg)] 
+
+Key:
+
+1. Select a graphic element
+
+2. Change the options in the Symbol view
+
+
