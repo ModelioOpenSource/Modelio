@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Core Utils
 Bundle-SymbolicName: org.modelio.core.utils;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.1.qualifier
 Export-Package: org.modelio.vbasic.auth,
  org.modelio.vbasic.collections,
  org.modelio.vbasic.debug,

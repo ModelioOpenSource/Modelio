@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ import org.eclipse.e4.ui.model.application.ui.menu.MMenuFactory;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.gef.EditPart;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.modelio.core.ui.swt.SelectionHelper;
 import org.modelio.core.ui.swt.images.MetamodelImageService;
 import org.modelio.diagram.editor.bpmn.plugin.DiagramEditorBpmn;
@@ -121,7 +122,8 @@ public class BpmnTransmutationPopupProvider {
     @objid ("463a1bb6-255a-45d9-85d5-eda9e7dce039")
     protected ISelection getApplicationSelection() {
         // Get the active selection from the application, to avoid context-related issues when opening the same diagram several times...
-        return (ISelection) this.application.getContext().get(IServiceConstants.ACTIVE_SELECTION);
+        ISelection selection = (ISelection) this.application.getContext().get(IServiceConstants.ACTIVE_SELECTION);
+        return selection != null ? selection : new StructuredSelection();
     }
 
     /**

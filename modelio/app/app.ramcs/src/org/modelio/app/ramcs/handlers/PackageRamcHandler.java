@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -116,7 +116,7 @@ public class PackageRamcHandler {
     @objid ("b56ca33d-98d1-4c99-b7cd-5d55495d62bb")
     @CanExecute
     public boolean canExecute(@Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
-        if (selection.size() == 1 && selection.getFirstElement() instanceof Artifact) {
+        if (selection != null && selection.size() == 1 && selection.getFirstElement() instanceof Artifact) {
             return ((Artifact) selection.getFirstElement()).isStereotyped(ModelComponentArchive.MdaTypes.STEREOTYPE_ELT);
         } else {
             return false;

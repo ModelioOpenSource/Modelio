@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -26,14 +26,11 @@ import java.io.OutputStream;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.net.URI;
-import java.nio.file.AccessDeniedException;
 import java.nio.file.FileSystemException;
-import java.nio.file.NoSuchFileException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.apache.http.Header;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.config.RequestConfig.Builder;
@@ -61,20 +58,20 @@ public class ApacheUriConnection extends UriConnection {
     @objid ("d7bd2f5b-6589-4747-8ec6-9cc506dcaca6")
     private int timeout;
 
-    @objid ("6f583fea-55a5-4edd-902d-e43c9aef349f")
-    private final Builder configBuilder;
-
-    @objid ("49680186-feda-42ea-b9b9-8327b6a63f8e")
-    private HttpClientContext context;
-
-    @objid ("496ff6f7-6030-4369-afc7-c21547ff2f2a")
-    private HttpRequestBase req;
-
     @objid ("dd1f5d11-eb65-4998-8263-9e56adc8ef00")
     private IAuthData auth;
 
     @objid ("a1511e70-2685-47e5-88d5-2d8064d43fc3")
     private final URI uri;
+
+    @objid ("7c3b75f0-a1e2-42f6-8088-7df7efa9c1e7")
+    private final Builder configBuilder;
+
+    @objid ("199f0eb1-38a2-4696-8b0f-81056a0d5d05")
+    private HttpClientContext context;
+
+    @objid ("1ade9350-f80f-4b7b-9368-541de20f69cf")
+    private HttpRequestBase req;
 
     /**
      * @param uri the URI to open
@@ -109,8 +106,6 @@ public class ApacheUriConnection extends UriConnection {
      * <p>
      * This implementation creates a {@link PipedOutputStream} to the Apache entity input stream.
      * It is strongly advised to <b>write to the returned stream in another thread</b>.
-     * @see PipedOutputStream
-     * @see PipedInputStream
      * 
      * @return an output stream that writes to this connection.
      * @throws java.io.IOException if an I/O error occurs while creating the output stream.
@@ -234,23 +229,9 @@ public class ApacheUriConnection extends UriConnection {
             base = e;
         }
         
-        FileSystemException error;
-        
         int statusCode = statusLine.getStatusCode();
-        if (statusCode == HttpStatus.SC_FORBIDDEN) {
-            error = new AccessDeniedException(this.uri.toString(), null, reason);
-        } else if (statusCode == HttpStatus.SC_UNAUTHORIZED || statusCode == HttpStatus.SC_PROXY_AUTHENTICATION_REQUIRED) {
-            error = new UriAuthenticationException(this.uri.toString(), reason);
-        } else if (statusCode == HttpStatus.SC_NOT_FOUND) {
-            error = new NoSuchFileException(this.uri.toString(),  null, reason);
-        } else {
-            error = new FileSystemException(this.uri.toString(),  null, reason);
-        }
         
-        if (base != null) {
-            error.initCause(base);
-        }
-        
+        FileSystemException error = HttpErrorMapper.create(statusCode, this.uri.toString(), reason, base);
         throw error;
     }
 
@@ -259,12 +240,12 @@ public class ApacheUriConnection extends UriConnection {
         this.context = ApacheHttpClients.createHttpContext(this.uri, this.auth, this.configBuilder);
         
         HttpRequestBase request = getRequest();
-        request.setConfig(this.configBuilder.build()); 
+        request.setConfig(this.configBuilder.build());
         
         this.res = ApacheHttpClients.getDefaultClient().execute(request, this.context);
         int statusCode = this.res.getStatusLine().getStatusCode();
         
-        if (statusCode >=200 && statusCode < 300) { 
+        if (statusCode >=200 && statusCode < 300) {
             // Try to get content now to get an exception on failure immediately
             this.res.getEntity().getContent();
         } else {

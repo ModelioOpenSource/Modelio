@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.documentation.modeler"
          label="Documentation Modeler"
-         version="4.0.0.qualifier"
+         version="4.0.1.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -36,41 +36,43 @@ GPL
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.documentation.copyright"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.documentation.metamodel.uml"
         download-size="0"
         install-size="0"
         version="0.0.0"
-        unpack="false"/>
-<plugin id="org.modelio.documentation.modeliomodeler"
-        download-size="0"
-        install-size="0"
-        version="0.0.0"
-        unpack="false"/>
-<plugin id="org.modelio.documentation.modeliomodeler.toc"
-        download-size="0"
-        install-size="0"
-        version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.documentation.modelioapi"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
+        unpack="false"/>
+<plugin id="org.modelio.documentation.modeliomodeler.toc"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        fragment="true"
         unpack="false"/>
 <plugin id="org.modelio.documentation.vaudit"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.documentation.welcome"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 
 </feature>

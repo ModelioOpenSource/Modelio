@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde version="3.8"?><target includeMode="feature" name="rcp" sequenceNumber="30">
 	<locations>
 		<!-- "test-resources/files" must be placed to first in order Modelio test can found bundle files, modules and templates -->
-		<location path="${project_loc:/test-resources}/files"                              type="Directory"/>
+		<location path="${project_loc:/test-resources}/files"                         type="Directory"/>
 		<!-- Eclipse RCP platform -->
 		<location path="${project_loc:/rcp-target}/rcp-eclipse/eclipse"               type="Directory"/>
 		<!-- Third-party Libraries re-packaged by Modeliosoft or Modeliosoft libraries -->
 		<location path="${project_loc:/rcp-target}/modelio-integ/org.astyle/astyle"   type="Directory"/>
-		<location path="${project_loc:/rcp-target}/modelio-integ/apache/tika"         type="Directory"/>
 		<location path="${project_loc:/rcp-target}/modelio-integ/sf-practicalxml/praticalxml" type="Directory"/>
 		<location path="${project_loc:/rcp-target}/modelio-integ/org.jdbm/jdbm"       type="Directory"/>
 		<!-- Modelio documentations -->
 		<location path="${project_loc:/rcp-target}/modelio-docs/documentation-en"     type="Directory"/>
-		<!-- language-pack-fr -->
 		<!-- Third-party libraries  -->
 		<location path="${project_loc:/rcp-target}/apache/log4j"                      type="Directory"/>
 		<location path="${project_loc:/rcp-target}/apache/commons-compress"           type="Directory"/>
@@ -21,6 +19,6 @@
 		<location path="${project_loc:/rcp-target}/org.eclipse/nebula"                type="Directory"/>
 		<location path="${project_loc:/rcp-target}/org.eclipse/gef-draw2d"            type="Directory"/>
 		<location path="${project_loc:/rcp-target}/org.eclipse/uml2"                  type="Directory"/>
-		<!-- JRE  -->
+		<location path="${project_loc:/rcp-target}/org.eclipse/emf"                   type="Directory"/>
 	</locations>
 </target>

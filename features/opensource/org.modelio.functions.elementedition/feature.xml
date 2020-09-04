@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.functions.elementedition"
          label="Editions"
-         version="4.0.0.qualifier"
+         version="4.0.1.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -36,26 +36,31 @@ GPL
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.edition.dialogs"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.edition.notes"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.model.property"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.propertyview"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 
 </feature>

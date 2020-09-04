@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -381,7 +381,7 @@ public abstract class AbstractPopupProvider {
         // Get the active selection from the application, to avoid context-related issues when opening the same diagram several
         // times...
         final IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(IServiceConstants.ACTIVE_SELECTION);
-        if (selection.size() != 1) {
+        if (selection == null || selection.size() != 1) {
             return null;
         }
         

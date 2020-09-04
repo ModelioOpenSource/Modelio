@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Ui Plug-in
 Bundle-SymbolicName: org.modelio.ui;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.1.qualifier
 Require-Bundle: org.eclipse.ui,
  org.modelio.utils,
  org.eclipse.core.runtime,

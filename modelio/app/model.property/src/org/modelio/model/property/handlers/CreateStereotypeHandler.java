@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,7 +57,7 @@ public class CreateStereotypeHandler implements IModelioService {
     @objid ("425771fe-03eb-46d4-950e-6d1d5aef6cdb")
     @CanExecute
     public final boolean canExecute(@Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
-        if ((this.projectService.getSession() == null) || selection.isEmpty())
+        if ((this.projectService.getSession() == null) || selection == null || selection.isEmpty())
             return false;
         if (this.projectService.getOpenedProject() == null)
             return false;

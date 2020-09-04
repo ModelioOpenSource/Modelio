@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -83,7 +83,7 @@ public class CreateRamcHandler {
     @objid ("86b64d81-b2d1-413f-bcfe-fadd767c5d6c")
     @CanExecute
     public boolean canExecute(@Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
-        if (selection.size() == 1 && selection.getFirstElement() instanceof Package) {
+        if (selection != null && selection.size() == 1 && selection.getFirstElement() instanceof Package) {
             return ((Package) selection.getFirstElement()).isModifiable();
         } else {
             return false;

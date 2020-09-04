@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.richtext.feature"
+      label="Nebula Rich Text Feature"
+      version="1.2.0.201804011600"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://eclipse.org/nebula">
+      Nebula Rich Text Feature
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.richtext"
+         download-size="1457"
+         install-size="3728"
+         version="1.2.0.201804011600"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.richtext.source"
+         download-size="1400"
+         install-size="3686"
+         version="1.2.0.201804011600"
+         unpack="false"/>
+
+</feature>

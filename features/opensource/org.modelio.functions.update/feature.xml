@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.functions.update"
          label="Function update"
-         version="4.0.0.qualifier"
+         version="4.0.1.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -33,20 +33,23 @@ GPL
 <requires>
 </requires>
 
-<plugin id="org.modelio.app.update"
-        download-size="0"
-        install-size="0"
-        version="0.0.0"
-        unpack="false"/>
 <plugin id="org.modelio.app.update.ext"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.app.update.repo"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
+        unpack="false"/>
+<plugin id="org.modelio.app.update"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        fragment="false"
         unpack="false"/>
 
 </feature>

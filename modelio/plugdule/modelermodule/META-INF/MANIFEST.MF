@@ -63,7 +63,6 @@ Export-Package: org.modelio.module.modelermodule.api,org.modelio.modul
  .xmi.standard.structuredactivitynode,org.modelio.module.modelermodule
  .api.xmi.standard.templateparameter
 Bundle-Name: ModelerModule
-Bundle-Version: 9.1.0
+Bundle-Version: 9.1.00
 Bundle-Localization: plugin
 Bundle-ClassPath: res/,.
-

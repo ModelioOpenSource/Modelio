@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.functions.modules"
          label="Function Modules"
-         version="4.0.0.qualifier"
+         version="4.0.1.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -37,36 +37,43 @@ GPL
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.app.modules"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.app.ramcs"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.mda.infra"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.module.browser.commands"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.module.commands"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.module.propertytab"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 
 </feature>

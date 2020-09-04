@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: XMI
 Bundle-SymbolicName: org.modelio.xmi;singleton:=true
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.1.qualifier
 Bundle-Activator: org.modelio.xmi.plugin.Xmi
 Bundle-Localization: plugin
 Bundle-Vendor: modelio.org
@@ -25,7 +25,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.uml2.uml;bundle-version="[3.2.0,4.0.0)",
  org.eclipse.uml2.common;bundle-version="[1.6.0,1.7.0)",
  org.eclipse.uml2.uml.resources;bundle-version="[3.1.100,4.0.0)",
- org.eclipse.emf.mapping.ecore2xml;bundle-version="[2.5.0,2.6.0)",
+ org.eclipse.emf.mapping.ecore2xml,
  org.eclipse.core.expressions,
  org.modelio.ui,
  org.modelio.app.preferences,

@@ -9,7 +9,7 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 	<parent>
 		<groupId>org.modelio</groupId>
 		<artifactId>modelio-parent</artifactId>
-		<version>4.0.0-SNAPSHOT</version>
+		<version>4.0.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>modelio-aggregator</artifactId>

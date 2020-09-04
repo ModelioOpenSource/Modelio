@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -211,11 +211,15 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
     @objid ("ba94eafa-834c-4030-957c-89a419af8a58")
     @Override
     protected List createSelectionHandles() {
-        CreateHandle handle = new CreateHandle(this.connSource, this.handleLocator);
+        if (this.connSource.isActive()) {
+            CreateHandle handle = new CreateHandle(this.connSource, this.handleLocator);
         
-        // Without this the handle disappear when the mouse hovers it.
-        getHost().getViewer().getVisualPartMap().put(handle, getHost());
-        return Collections.singletonList(handle);
+            // Without this the handle disappear when the mouse hovers it.
+            getHost().getViewer().getVisualPartMap().put(handle, getHost());
+            return Collections.singletonList(handle);
+        } else {
+            return Collections.emptyList();
+        }
     }
 
     @objid ("c97bf344-ca13-4efd-a1e4-e7f1ed220320")

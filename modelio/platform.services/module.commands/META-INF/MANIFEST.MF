@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Module Browser Commands
 Bundle-SymbolicName: org.modelio.module.commands;singleton:=true
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.1.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.modelio.utils,
  org.eclipse.e4.core.di,

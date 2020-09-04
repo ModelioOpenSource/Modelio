@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.functions.admintool"
          label="Functions Admin Tool"
-         version="4.0.0.qualifier"
+         version="4.0.1.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -37,11 +37,13 @@ GPL
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.admtool.ext"
         download-size="0"
         install-size="0"
         version="0.0.0"
+        fragment="false"
         unpack="false"/>
 
 </feature>

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Modelio Version
 Bundle-SymbolicName: org.modelio.version;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.1.qualifier
 Bundle-Vendor: modelio.org
 Require-Bundle: org.modelio.core.utils
 Export-Package: org.modelio.version

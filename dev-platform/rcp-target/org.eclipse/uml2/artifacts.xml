@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
-<repository name='uml2_3.2/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+<repository name='uml2/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
   <properties size='2'>
-    <property name='p2.timestamp' value='1552061217194'/>
+    <property name='p2.timestamp' value='1579796671248'/>
     <property name='p2.compressed' value='false'/>
   </properties>
   <mappings size='3'>
@@ -10,7 +10,7 @@
     <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='34'>
+  <artifacts size='33'>
     <artifact classifier='osgi.bundle' id='org.eclipse.uml2.codegen.ecore' version='1.7.1.v201109082252'>
       <properties size='5'>
         <property name='artifact.size' value='344490'/>
@@ -91,15 +91,6 @@
         <property name='download.md5' value='fb44f9640768c270c93463c988c5dc3a'/>
         <property name='download.checksum.md5' value='fb44f9640768c270c93463c988c5dc3a'/>
         <property name='download.checksum.sha-256' value='b3d38ca06d233a19d9495976a97abe4a3b7a44dc6f22a54fb931b1bd464bbe24'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='org.eclipse.emf.mapping.ecore2xml' version='2.5.0.v20100521-1847'>
-      <properties size='5'>
-        <property name='artifact.size' value='56899'/>
-        <property name='download.size' value='56899'/>
-        <property name='download.md5' value='b4baa8512dfe09a489f5a78cd4663bd0'/>
-        <property name='download.checksum.md5' value='b4baa8512dfe09a489f5a78cd4663bd0'/>
-        <property name='download.checksum.sha-256' value='880e1b1887bdb9e3564d23d6e24712d1bf3ed4c853a5bcb0a29da47a5b8884ad'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='org.eclipse.uml2.codegen.ecore.source' version='1.7.1.v201109082252'>

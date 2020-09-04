@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Script
 Bundle-SymbolicName: org.modelio.script;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.1.qualifier
 Bundle-Vendor: modelio.org
 Bundle-Activator: org.modelio.script.plugin.Script
 Bundle-Localization: plugin

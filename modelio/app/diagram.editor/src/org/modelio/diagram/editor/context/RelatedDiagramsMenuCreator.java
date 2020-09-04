@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -195,7 +195,7 @@ public class RelatedDiagramsMenuCreator {
     @objid ("164d12f7-40a7-48e5-ba83-218466c41c59")
     private AbstractDiagram getCurrentDiagram() {
         final IStructuredSelection sel = getSelection();
-        final Object obj = sel.getFirstElement();
+        final Object obj = sel != null ? sel.getFirstElement() : null;
         
         if (obj instanceof EditPart) {
             final EditPart ep = (EditPart) obj;
@@ -209,9 +209,9 @@ public class RelatedDiagramsMenuCreator {
     }
 
     @objid ("7c28b54e-c5c7-471d-b3ba-6cc9c298c337")
-    private MMenuSeparator createSeparator(final String CONTRIBUTOR_ID) {
+    private MMenuSeparator createSeparator(final String contributorId) {
         final MMenuSeparator sep = MMenuFactory.INSTANCE.createMenuSeparator();
-        sep.setContributorURI(CONTRIBUTOR_ID);
+        sep.setContributorURI(contributorId);
         sep.setToBeRendered(true);
         sep.setVisible(true);
         return sep;

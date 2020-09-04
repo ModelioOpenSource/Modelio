@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -173,8 +173,8 @@ public class RelatedDiagramsMenuCreator {
     @objid ("e072fa9b-1a39-4c29-b51c-8d6744396018")
     private ModelElement getSelectedElement() {
         // Get the active selection from the application, to avoid context-related issues when opening the same diagram several times...
-        final IStructuredSelection selection = getSelection();
-        if (selection.size() != 1) {
+        final IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(IServiceConstants.ACTIVE_SELECTION);
+        if (selection == null || selection.size() != 1) {
             return null;
         }
         
@@ -193,12 +193,6 @@ public class RelatedDiagramsMenuCreator {
             }
         }
         return null;
-    }
-
-    @objid ("e08d20d7-edc4-4dc8-8749-7da83a3c000c")
-    private IStructuredSelection getSelection() {
-        final IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(IServiceConstants.ACTIVE_SELECTION);
-        return selection;
     }
 
 }

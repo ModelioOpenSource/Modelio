@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Modelio 4" uid="org.modelio.product" id="org.modelio.app.ui.modelio" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="4.0.0.last" useFeatures="true" includeLaunchers="true">
+<product name="Modelio 4" uid="org.modelio.product" id="org.modelio.app.ui.modelio" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="4.0.1.last" useFeatures="true" includeLaunchers="true">
 
 	<configIni use="default">
 	</configIni>
@@ -15,7 +15,7 @@
 		</vmArgsMac>
 	</launcherArgs>
 
-	<windowImages/>
+   <windowImages/>
 
 	<launcher name="modelio">
 		<linux icon="icons/modelio.xpm"/>

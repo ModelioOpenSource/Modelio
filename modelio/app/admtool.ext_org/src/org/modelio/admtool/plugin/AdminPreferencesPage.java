@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft - www.modeliosoft.com 
+ * Copyright 2013-2020 Modeliosoft - www.modeliosoft.com 
  * 
  * All information contained herein is, and remains the property of Modeliosoft.
  * The intellectual and technical concepts contained herein are proprietary 

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import org.modelio.vbasic.auth.IAuthData;
  * <li> that authentication data was not valid (wrong user/password).
  * </ul>
  * @author cmarin
+ * @see HttpUriAuthenticationException since 4.0.1 for HTTP authentication errors
  */
 @objid ("bdf9bbbe-c701-403c-9ad6-17a9cd1978ef")
 public class UriAuthenticationException extends AccessDeniedException {
@@ -51,6 +52,33 @@ public class UriAuthenticationException extends AccessDeniedException {
     @objid ("3702750a-5059-4cd5-b4cf-aa9ec22f0cbf")
     public UriAuthenticationException(String file) {
         super(file);
+    }
+
+    /**
+     * @param cause the cause (which is saved for later retrieval by the
+     * {@link #getCause()} method).  (A {@code null} value is permitted,
+     * and indicates that the cause is nonexistent or unknown.)
+     * @param file the URI that needs authentication
+     * @param reason a message
+     * @since Wyrm 4.0.1
+     */
+    @objid ("ece5b1f5-ac99-4681-a179-15dc7b28d7a2")
+    public UriAuthenticationException(Throwable cause, String file, String reason) {
+        super(file, null, reason);
+        initCause(cause);
+    }
+
+    /**
+     * @param cause the cause (which is saved for later retrieval by the
+     * {@link #getCause()} method).  (A {@code null} value is permitted,
+     * and indicates that the cause is nonexistent or unknown.)
+     * @param file the file that needs authentication
+     * @since Wyrm 4.0.1
+     */
+    @objid ("337d88db-c900-4a35-98f4-c68f98721a7a")
+    public UriAuthenticationException(Throwable cause, String file) {
+        super(file);
+        initCause(cause);
     }
 
 }

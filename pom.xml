@@ -8,7 +8,7 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 
 	<groupId>org.modelio</groupId>
 	<artifactId>modelio-parent</artifactId>
-	<version>4.0.0-SNAPSHOT</version>
+	<version>4.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -16,7 +16,7 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
 
 		<modelio.rootFolder>Modelio 4.0</modelio.rootFolder>
-		<modelio.version>4.0.0-SNAPSHOT</modelio.version>
+		<modelio.version>4.0.1-SNAPSHOT</modelio.version>
 		<modelio.ws.path>${project.basedir}/${project.parent.relativePath}</modelio.ws.path>
 	</properties>
 
@@ -35,11 +35,6 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 			<id>astyle</id>
 			<layout>p2</layout>
 			<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/org.astyle/astyle</url>
-		</repository>
-		<repository>
-			<id>tika</id>
-			<layout>p2</layout>
-			<url>file://${modelio.ws.path}/dev-platform/rcp-target/modelio-integ/apache/tika</url>
 		</repository>
 		<repository>
 			<id>praticalxml</id>
@@ -96,6 +91,11 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 			<layout>p2</layout>
 			<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/uml2</url>
 		</repository>
+		<repository>
+			<id>emf</id>
+			<layout>p2</layout>
+			<url>file://${modelio.ws.path}/dev-platform/rcp-target/org.eclipse/emf</url>
+		</repository>
 	</repositories>
 
 	<build>
@@ -117,6 +117,7 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 				<version>${tycho-version}</version>
 				<configuration>
 					<strictBinIncludes>false</strictBinIncludes>
+					<strictVersions>false</strictVersions>
 				</configuration>
 			</plugin>
 
@@ -172,4 +173,3 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 	</build>
 
 </project>
-

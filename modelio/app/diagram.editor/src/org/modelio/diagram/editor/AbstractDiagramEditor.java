@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -691,7 +691,8 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         for (final IConfigurationElement configurationElement : new ExtensionPointContributionManager(AbstractDiagramEditor.DIAGRAM_EDITOR_FLYOUT_EXENSION_ID).getExtensions("panel")) {
             try {
                 final IPanelProvider panelProv = (IPanelProvider) configurationElement.createExecutableExtension("class");
-                this.sashContainer.addFlyout(panelProv, "Symbol", null);
+        
+                this.sashContainer.addFlyout(panelProv, DiagramEditor.I18N.getString("SymbolPanel.label"), null);
                 this.flyoutPanels.add(panelProv);
                 this.selectionService.addPostSelectionListener((p, selection) -> panelProv.setInput(selection));
             } catch (CoreException | ClassCastException e) {

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.modelio.documentation.archimate.feature"
+      label="%featureName"
+      version="4.0.1.202001292130"
+      provider-name="modelio.org">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <plugin
+         id="org.modelio.documentation.archimate"
+         download-size="242"
+         install-size="272"
+         version="4.0.1.202001292130"/>
+
+   <plugin
+         id="org.modelio.documentation.metamodel.archimate"
+         download-size="3871"
+         install-size="5365"
+         version="4.0.1.202001292130"/>
+
+</feature>

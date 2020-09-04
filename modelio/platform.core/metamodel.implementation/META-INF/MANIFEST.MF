@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Implementation
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-SymbolicName: org.modelio.metamodel.implementation;singleton:=true
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.1.qualifier
 Require-Bundle: org.modelio.core.kernel,
  org.eclipse.emf.ecore,
  org.modelio.metamodel.emfapi,

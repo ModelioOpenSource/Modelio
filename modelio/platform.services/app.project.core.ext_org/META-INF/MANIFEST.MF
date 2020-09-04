@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Core
 Bundle-SymbolicName: org.modelio.app.project.core.ext;singleton:=true
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.1.qualifier
 Bundle-Activator: org.modelio.app.project.core.ext.plugin.AppProjectCoreOrg
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.modelio.app.core,

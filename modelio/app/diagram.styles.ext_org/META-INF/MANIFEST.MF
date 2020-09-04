@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Diagram Styles
 Bundle-SymbolicName: org.modelio.diagram.styles.ext;singleton:=true
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.1.qualifier
 Fragment-Host: org.modelio.diagram.styles
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: res/,

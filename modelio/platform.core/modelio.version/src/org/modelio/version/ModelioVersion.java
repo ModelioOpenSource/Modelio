@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2019 Modeliosoft
+ * Copyright 2013-2020 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,7 +32,7 @@ public final class ModelioVersion {
      * Modelio version as a string.
      */
     @objid ("53a2d18d-300b-4607-9904-301d9723dcb4")
-    public static final String STR_VERSION = "4.0.0";
+    public static final String STR_VERSION = "4.0.1";
 
     /**
      * Modelio build ID

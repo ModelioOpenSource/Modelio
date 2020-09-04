@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Libreoffice
 Bundle-SymbolicName: org.modelio.editors.richnote.libreoffice;singleton:=true
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.1.qualifier
 Bundle-ClassPath: res/,
  .
 Bundle-Activator: org.modelio.editors.richnote.libreoffice.plugin.LibreOfficeEditors
