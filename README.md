@@ -43,7 +43,17 @@ Dedicated to developers, analysts and software and systems architects, Modelio i
 </table>
 
 
-# Quick Start Guide 
+# Build form Source
+To understand how to compile the Modelio Modeling tool form source, please refer to the [Building Modelio from Source Guide](https://github.com/ModelioOpenSource/Modelio/wiki/Build-Modelio-Index).This guide explains how build the Modelio application form provided sources.
+
+# Contribution
+
+There are many ways to get involved in the Modelio community, on whatever level you choose. For each type of contribution, we recommend a certain level of knowledge as a user (someone who has some knowledge of the Modelio tool, as well as modeling or standards such as UML, SOA, BPM, ...) or a developer (someone with some knowledge of programming)
+
+For more information, visit our community web page : ![https://www.modelio.org/community/get-involved.html](https://www.modelio.org/community/get-involved.html)
+
+
+# Quick Start Guide
 
 Creating a project 
 ------------------
