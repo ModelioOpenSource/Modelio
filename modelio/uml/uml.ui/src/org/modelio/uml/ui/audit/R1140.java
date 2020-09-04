@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -152,6 +152,7 @@ public class R1140 extends AbstractUmlRule {
         /**
          * Checks if all the pins of a CallOperationAction are matched to all the BehaviorParameters of the called Operation.
          * @param callBehaviorAction The CallOperationAction to check.
+         * 
          * @return An audit entry.
          */
         @objid ("b6a350bf-c2c8-42b7-bf92-1d05fc228b72")
@@ -253,6 +254,7 @@ public class R1140 extends AbstractUmlRule {
 
         /**
          * A Pin was either created, moved or updated, we need to check if this Pin belong to a CallOperationAction and check it if it does.
+         * 
          * @param pin The Pin to check.
          * @return An audit entry.
          */
@@ -267,6 +269,7 @@ public class R1140 extends AbstractUmlRule {
         /**
          * An Operation was updated, we need to check if it has registered callers and check the rule on these CallOperationAction.
          * @param behavior The Operation to check.
+         * 
          * @return A list of audit entries.
          */
         @objid ("aedc07fb-c475-4cd3-a912-e250f1924fd4")

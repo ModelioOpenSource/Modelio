@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.diagrams;
 
@@ -32,22 +32,25 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("00678cde-c4bf-1fd8-97fe-001ec947cd2a")
 public abstract class AbstractDiagramData extends ModelElementData {
-    @objid ("47a73f69-7fc1-4580-928e-4b6cadf7db42")
+    @objid ("41e8749c-0b36-4c81-a86c-76b9c43bc12e")
      Object mUiDataVersion = 0;
 
-    @objid ("44e2921e-a712-4225-8986-20fa3337c84d")
+    @objid ("efdb6f9e-a69e-4920-ae01-b9950bd929a6")
      Object mUiData = "";
 
-    @objid ("9fc17f8e-4d37-4dc5-b0fb-bf4640b8557e")
+    @objid ("7641e38b-48aa-44a4-a0db-cf958529da67")
+     Object mPreviewData = "";
+
+    @objid ("0a8793ee-ae8e-4693-b24c-ddc59ac51770")
      List<SmObjectImpl> mRepresented = null;
 
-    @objid ("02f8430f-5174-4028-8516-3169cd8ce7ab")
+    @objid ("dfed637b-db42-4458-acfb-c148d7c36dba")
      List<SmObjectImpl> mReferencingSet = null;
 
-    @objid ("efc221c5-6be2-4eed-9e15-89ee20473ebd")
+    @objid ("e86d19ce-989e-4da0-a918-7066f59a2fc0")
      SmObjectImpl mOrigin;
 
-    @objid ("f5dbe082-f0fd-40a6-a013-0b835d63c722")
+    @objid ("ed9a91d6-0fea-4d71-9166-9050274ec500")
     public AbstractDiagramData(AbstractDiagramSmClass smClass) {
         super(smClass);
     }

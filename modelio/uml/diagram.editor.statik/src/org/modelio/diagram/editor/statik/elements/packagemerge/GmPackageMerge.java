@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public final class GmPackageMerge extends GmLink {
 
     /**
      * Creates a GmElementImport.
+     * 
      * @param diagram The diagram containing the link.
      * @param role The represented element.
      * @param ref The represented element reference. May not be null.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -97,6 +97,7 @@ public class SelectionHandlesBuilder {
      * the handles' GraphicalEditPart
      * @param handles
      * the List to add the four corner handles to
+     * 
      * @param tracker the handles' DragTracker
      * @param cursor the handles' Cursor
      */
@@ -111,6 +112,7 @@ public class SelectionHandlesBuilder {
 
     /**
      * Add handles for a non resizeable edit part.
+     * 
      * @return this instance
      */
     @objid ("446b0295-8a08-44b6-a84f-3db8b83e9976")
@@ -124,6 +126,7 @@ public class SelectionHandlesBuilder {
 
     /**
      * Add a resize handle for one direction.
+     * 
      * @param dir a direction in {@link PositionConstants} constants.
      * @return this instance
      * @since 3.7.1
@@ -136,6 +139,7 @@ public class SelectionHandlesBuilder {
 
     /**
      * Add the handles for a resizeable edit part.
+     * 
      * @return this instance.
      */
     @objid ("fdd04b8a-4f6b-45fe-a4c4-eefe21bb47e8")
@@ -166,6 +170,7 @@ public class SelectionHandlesBuilder {
 
     /**
      * Disable the given handles if the edit part represents a non user editable graphic model.
+     * 
      * @param host an edit part
      * @param handles the handle to process
      * @return the same handle list for convenience.
@@ -198,6 +203,7 @@ public class SelectionHandlesBuilder {
 
     /**
      * Set whether dragging is allowed.
+     * 
      * @param allowed whether dragging is allowed
      * @return this instance
      */
@@ -220,6 +226,7 @@ public class SelectionHandlesBuilder {
     /**
      * Set resize directions.
      * @see PositionConstants PositionConstants for possible values
+     * 
      * @param dir the directions
      * @return this instance
      */
@@ -233,6 +240,7 @@ public class SelectionHandlesBuilder {
      * Set a custom resize drag tracker provider.
      * <p>
      * The function will be provided resize direction.
+     * 
      * @param provider a resize drag tracker provider.
      * @return this instance
      */
@@ -244,6 +252,7 @@ public class SelectionHandlesBuilder {
 
     /**
      * Add a resize handle if the figure is resizeable for the given direction, a move handle in the other case.
+     * 
      * @param dir relative direction from the center of the owner figure
      * @param moveTracker the move drag tracker to use for non resizeable handle
      * @param moveCursor the move cursor to use for non resizeable handle
@@ -259,6 +268,7 @@ public class SelectionHandlesBuilder {
 
     /**
      * Create a handle for the given direction with the givven drag rtacker and cursor.
+     * 
      * @param direction relative direction from the center of the owner figure
      * @param tracker the drag tracker to use
      * @param cursor the mouse cursor
@@ -306,6 +316,7 @@ public class SelectionHandlesBuilder {
 
     /**
      * Computes whether the user can edit the graphic model.
+     * 
      * @param host an edit part
      * @return whether the user can edit the model.
      */

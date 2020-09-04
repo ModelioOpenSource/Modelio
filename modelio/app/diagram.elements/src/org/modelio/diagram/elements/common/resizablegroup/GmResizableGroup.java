@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -116,6 +116,7 @@ public abstract class GmResizableGroup extends GmNoStyleCompositeNode {
 
     /**
      * Returns whether this container is horizontal.
+     * 
      * @return true if this container is horizontal, false otherwise.
      */
     @objid ("7f09cb65-1dec-11e2-8cad-001ec947c8cc")
@@ -125,6 +126,7 @@ public abstract class GmResizableGroup extends GmNoStyleCompositeNode {
 
     /**
      * Sets the orientation of this container.
+     * 
      * @param value true if this container must be vertical, false otherwise.
      */
     @objid ("7f09cb6a-1dec-11e2-8cad-001ec947c8cc")
@@ -159,6 +161,7 @@ public abstract class GmResizableGroup extends GmNoStyleCompositeNode {
      * this group.
      * 
      * Default implementation returns <code>true</code>.
+     * 
      * @return <code>true</code> if movements are allowed.
      */
     @objid ("7f09cb7d-1dec-11e2-8cad-001ec947c8cc")
@@ -170,6 +173,7 @@ public abstract class GmResizableGroup extends GmNoStyleCompositeNode {
      * Returns whether this group allows resizing of its children.
      * 
      * Default implementation returns <code>true</code>.
+     * 
      * @return <code>true</code> if resize of children is allowed.
      */
     @objid ("7f09cb82-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ import org.modelio.diagram.elements.core.link.IAnchorModelProvider;
 public class AnchorModelHelper {
     /**
      * Get a source anchor model for the given request.
+     * 
      * @param sourceEditPart The source node edit part.
      * @param req a create connection request.
      * @return the anchor model.
@@ -54,6 +55,7 @@ public class AnchorModelHelper {
 
     /**
      * Get a target anchor model for the given request.
+     * 
      * @param req a create connection request.
      * @return the anchor model.
      */
@@ -66,6 +68,7 @@ public class AnchorModelHelper {
 
     /**
      * Get the anchor model for the given anchor.
+     * 
      * @param editpart a node edit part.
      * @param anchor a draw2d anchor
      * @return the anchor model, may be <code>null</code>
@@ -81,6 +84,7 @@ public class AnchorModelHelper {
 
     /**
      * Get a target anchor model for the given reconnection request.
+     * 
      * @param req a create connection request.
      * @return the anchor model.
      */
@@ -93,6 +97,7 @@ public class AnchorModelHelper {
 
     /**
      * Get a target anchor model for the given reconnection request.
+     * 
      * @param req a create connection request.
      * @return the anchor model.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -81,6 +81,7 @@ public class VTabFolderEvent extends TypedEvent {
 
     /**
      * Constructs a new instance of this class.
+     * 
      * @param w the widget that fired the event
      */
     @objid ("d162b4c0-8bfa-42ab-83ce-ce16ffde5f61")
@@ -91,6 +92,7 @@ public class VTabFolderEvent extends TypedEvent {
     /**
      * Returns a string containing a concise, human-readable
      * description of the receiver.
+     * 
      * @return a string representation of the event
      */
     @objid ("add093f8-05a9-4f5d-9805-5f1038bbc199")

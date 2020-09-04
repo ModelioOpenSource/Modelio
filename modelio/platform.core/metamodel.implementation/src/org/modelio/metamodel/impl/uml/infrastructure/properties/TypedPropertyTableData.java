@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
@@ -30,10 +30,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("006b9a7c-ec87-1098-b22e-001ec947cd2a")
 public class TypedPropertyTableData extends PropertyTableData {
-    @objid ("8766dab7-9cfe-4e13-96e5-4aeca9b6db02")
+    @objid ("40df06ca-f618-4c35-a28b-7623d6b9afb9")
      SmObjectImpl mType;
 
-    @objid ("eee9b353-8187-4871-a3d1-851fc981eac3")
+    @objid ("6ad587d1-000a-4a6c-b22f-1515780d8635")
     public TypedPropertyTableData(TypedPropertyTableSmClass smClass) {
         super(smClass);
     }

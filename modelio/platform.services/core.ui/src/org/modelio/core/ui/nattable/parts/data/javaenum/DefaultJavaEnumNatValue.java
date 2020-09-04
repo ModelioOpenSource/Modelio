@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public class DefaultJavaEnumNatValue extends DefaultNatValue implements IJavaEnu
 
     /**
      * Creates a new instance.
+     * 
      * @param value the wrapped value.
      * @param theEnumeration enumeration to choose values from.
      */
@@ -46,6 +47,7 @@ public class DefaultJavaEnumNatValue extends DefaultNatValue implements IJavaEnu
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("383ebc17-e396-41c5-b820-bb6a9f9c2518")

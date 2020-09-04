@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -125,6 +125,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
 
     /**
      * Called by the framework to create the view and initialize it.
+     * 
      * @param aProjectService the project service.
      * @param modelServices the model service.
      * @param modelioActivationService the activation service
@@ -151,6 +152,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
 
     /**
      * Updates the view for the given selection.
+     * 
      * @param selection an Eclipse selection
      */
     @objid ("8fb871d4-c068-11e1-8c0a-002564c97630")

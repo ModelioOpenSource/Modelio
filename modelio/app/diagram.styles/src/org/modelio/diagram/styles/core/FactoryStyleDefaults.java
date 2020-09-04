@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -84,6 +84,7 @@ public class FactoryStyleDefaults {
     /**
      * Provide a default value for 'sKey'. The default value resolution is based on Metakey matching if sKey has a MetaKey,otherwise
      * it is based on sKey required type for the value. Note that in this latter case, only a few 'types' support default values
+     * 
      * @param sKey @return
      */
     @objid ("8551244f-1926-11e2-92d2-001ec947c8cc")

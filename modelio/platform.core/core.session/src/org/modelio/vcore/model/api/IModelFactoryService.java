@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ public interface IModelFactoryService extends IModelFactory {
      * Get the model factory metamodel extension point.
      * <p>
      * To be used by metamodel extensions to register themselves to this service.
+     * 
      * @return this service metamodel extension point.
      */
     @objid ("050b9b7f-9049-4492-9174-cdf568f9fd1e")
@@ -49,6 +50,7 @@ public interface IModelFactoryService extends IModelFactory {
     /**
      * Get a specific model factory.
      * <p>
+     * 
      * @param factoryCls the model factory interface class.
      * @return the matching model factory
      * @throws java.lang.IllegalArgumentException if there is no model factory implementing the class or interface.
@@ -58,6 +60,7 @@ public interface IModelFactoryService extends IModelFactory {
 
     /**
      * Get the model factory for the given metamodel
+     * 
      * @param mmf a metamodel fragment.
      * @return the matching model factory.
      */
@@ -66,6 +69,7 @@ public interface IModelFactoryService extends IModelFactory {
 
     /**
      * Get the model factory for the given metaclass metamodel.
+     * 
      * @param mc a metaclass.
      * @return the matching model factory.
      */

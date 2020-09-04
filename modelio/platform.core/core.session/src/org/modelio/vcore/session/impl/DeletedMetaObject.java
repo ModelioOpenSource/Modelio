@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -130,6 +130,7 @@ public class DeletedMetaObject implements IMetaOf {
 
     /**
      * Set the initial meta object of deleted objects.
+     * 
      * @param initialMetaObject the initial meta object
      */
     @objid ("002c7b62-eb1c-1f22-8c06-001ec947cd2a")
@@ -146,6 +147,7 @@ public class DeletedMetaObject implements IMetaOf {
 
     /**
      * Builds an AccessDeniedException for the given model object.
+     * 
      * @param smObject a model object
      * @return AccessDeniedException a ready to throw exception
      */

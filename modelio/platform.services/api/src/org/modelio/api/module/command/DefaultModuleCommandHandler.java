@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,22 +41,24 @@ public abstract class DefaultModuleCommandHandler implements IModuleCommandHandl
     private List<ElementScope> scopes;
 
     /**
-     * The handler accepts elements matching the scopes
+     * The handler accepts elements matching at least one scope
      */
     @objid ("00d012e4-0000-5905-0000-000000000000")
     @Override
     public boolean accept(List<MObject> selectedElements, IModule module) {
-        boolean match = false;
-        
         for (MObject mObj : selectedElements) {
+            boolean match = false; 
             for (ElementScope scope : getScopes()) {
                 if (scope.isMatching(mObj)) {
                     match = true;
                     break;
                 }
             }
+            if (!match) {
+                return false;
+            }
         }
-        return match;
+        return !selectedElements.isEmpty();
     }
 
     /**
@@ -78,6 +80,7 @@ public abstract class DefaultModuleCommandHandler implements IModuleCommandHandl
 
     /**
      * get a parameter value.
+     * 
      * @param key a parameter key
      * @return the parameter value
      */
@@ -97,6 +100,7 @@ public abstract class DefaultModuleCommandHandler implements IModuleCommandHandl
      * <li><i>module regex<b>#</b>stereotype regex</i>
      * </ul>
      * Returns <i>null</i> if the specification is <i>null</i> or the stereotype is not found.
+     * 
      * @param module the module
      * @param metaclass the metaclass to look from
      * @param stereotypeSpec the stereotype specification

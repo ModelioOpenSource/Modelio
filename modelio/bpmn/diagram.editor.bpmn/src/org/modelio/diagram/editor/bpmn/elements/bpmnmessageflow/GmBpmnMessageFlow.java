@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class GmBpmnMessageFlow extends GmLink {
 
     /**
      * Initialize a control flow graphic model.
+     * 
      * @param diagram The owning diagram
      * @param element The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
@@ -210,6 +211,7 @@ public class GmBpmnMessageFlow extends GmLink {
 
     /**
      * Find a {@link BpmnParticipant} of {@link BpmnProcess} in the diagram owner that contains <i>element</i>.
+     * 
      * @param bpmnElt a BPMN element
      * @return the best {@link BpmnParticipant} referencing the {@link BpmnProcess} that owns <i>element</i>, or the {@link BpmnProcess} itself.
      */

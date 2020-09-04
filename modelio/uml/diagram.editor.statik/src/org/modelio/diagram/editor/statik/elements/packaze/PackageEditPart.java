@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -126,6 +126,7 @@ public class PackageEditPart extends AbstractNodeEditPart {
      * Refresh the figure from the given style.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
+     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -148,6 +149,7 @@ public class PackageEditPart extends AbstractNodeEditPart {
 
     /**
      * Get the casted package figure.
+     * 
      * @return the package figure.
      */
     @objid ("362823ee-55b7-11e2-877f-002564c97630")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -70,6 +70,7 @@ public class DuplicateObjectException extends Exception {
 
     /**
      * Initialize the exception.
+     * 
      * @param oid the common UUID
      * @param origObj the original object
      * @param dupObj the duplicate object
@@ -133,6 +134,7 @@ public class DuplicateObjectException extends Exception {
 
     /**
      * Get the stack trace of all threads at the time where the exception was created.
+     * 
      * @return all threads stack trace.
      */
     @objid ("eba19efc-e22a-44d6-a83a-f103ddffd956")

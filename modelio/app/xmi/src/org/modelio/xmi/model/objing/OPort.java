@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -161,18 +161,26 @@ public class OPort extends OElement implements IOElement {
     @objid ("1bfc6796-66ec-44a2-9505-947670f0e6a9")
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
+        Boolean roundTrip = GenerationProperties.getInstance().isRoundtripEnabled();
+        Port objElt = getObjingElement();
+        
         if (ecoreElt instanceof org.eclipse.uml2.uml.Port){
-            ((org.eclipse.uml2.uml.Port) ecoreElt).setIsBehavior(getObjingElement().isIsBehavior());
-            ((org.eclipse.uml2.uml.Port) ecoreElt).setIsService(getObjingElement().isIsService());
+            ((org.eclipse.uml2.uml.Port) ecoreElt).setIsBehavior(objElt.isIsBehavior());
+            ((org.eclipse.uml2.uml.Port) ecoreElt).setIsService(objElt.isIsService());
         }else if (ecoreElt instanceof org.eclipse.uml2.uml.Slot){
             setDefiningFeature((org.eclipse.uml2.uml.Slot) ecoreElt);
-            ObjingEAnnotation.setIsBehavior(ecoreElt, getObjingElement().isIsBehavior());
-            ObjingEAnnotation.setIsService(ecoreElt, getObjingElement().isIsService());
+        
+            if (roundTrip) {
+                ObjingEAnnotation.setIsBehavior(ecoreElt, objElt.isIsBehavior());
+                ObjingEAnnotation.setIsService(ecoreElt, objElt.isIsService());
+            }
         }
         
-        ObjingEAnnotation.setIsPort(ecoreElt);
-        setOwnerEAnnotation(ecoreElt,getObjingElement().getCompositionOwner());
-        ObjingEAnnotation.setPortDirection(ecoreElt, getObjingElement().getDirection().getLiteral());
+        if (roundTrip) {
+            ObjingEAnnotation.setIsPort(ecoreElt);
+            ObjingEAnnotation.setOwner(ecoreElt, String.valueOf(objElt.getCompositionOwner().getUuid().toString()));
+            ObjingEAnnotation.setPortDirection(ecoreElt, objElt.getDirection().getLiteral());
+        }
     }
 
     @objid ("d42e4b1d-66d8-4182-9035-3988627a22a0")
@@ -185,11 +193,6 @@ public class OPort extends OElement implements IOElement {
                 slot.setDefiningFeature((org.eclipse.uml2.uml.StructuralFeature) temp);
             }
         }
-    }
-
-    @objid ("c2e60dcc-3157-432d-9057-fee6b79e09b7")
-    private void setOwnerEAnnotation(org.eclipse.uml2.uml.Element element, MObject owner) {
-        ObjingEAnnotation.setOwner(element, String.valueOf(owner.getUuid().toString()));
     }
 
     @objid ("78a33388-78df-4e3a-b14f-000c137a9e20")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -169,9 +169,7 @@ public final class ModuleContext implements IModuleContext {
     @objid ("74853afd-df91-4d66-87f8-3c1538e799c0")
     @Override
     public IProjectStructure getProjectStructure() {
-        IProjectService s = this.eclipseContext.get(IProjectService.class);
-        GProject p = (s != null) ? s.getOpenedProject() : null;
-        return new ProjectStructure(p);
+        return new ProjectStructure(GProject.getProject(this.moduleComponent));
     }
 
     @objid ("1141bccd-8f7b-4adb-8b98-c5009980a966")
@@ -182,6 +180,7 @@ public final class ModuleContext implements IModuleContext {
 
     /**
      * Get the {@link ResourceBundle} corresponding to the localized module.properties file in the module resources.
+     * 
      * @return the resource bundle
      * @throws java.util.MissingResourceException if the file is not found
      */

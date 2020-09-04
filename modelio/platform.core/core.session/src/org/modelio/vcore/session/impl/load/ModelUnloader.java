@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public class ModelUnloader {
 
     /**
      * Initialize the unloader.
+     * 
      * @param cacheManager the session cache manager
      */
     @objid ("58853ff2-8723-43ec-a7b9-b1cb1c94bb71")
@@ -48,6 +49,7 @@ public class ModelUnloader {
 
     /**
      * Delete the given model object
+     * 
      * @param objToUnload the object to delete.
      */
     @objid ("6d085ec5-f2a7-4a26-8916-338742e9529b")

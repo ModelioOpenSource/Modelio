@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateCommunicationMessageEditPolicy extends DeferringCreateNodePolicy {
     /**
      * Redefined to return the {@link GmGroup} for the nearest association role from the mouse.
+     * 
      * @param gmLink The association model
      * @param location The mouse location
      * @return The nearest {@link GmGroup} from the mouse.
@@ -170,6 +171,7 @@ public class CreateCommunicationMessageEditPolicy extends DeferringCreateNodePol
 
         /**
          * Create a deferred command.
+         * 
          * @param req The creation request.
          * @param sender The edit part sending the request
          */

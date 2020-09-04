@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class SaveProjectHandler {
      * Displays the progress in a progress dialog.
      * Reports failure to the user using the given status reporter.
      * Returns <code>false</code> on failure.
+     * 
      * @param title the progress monitor dialog title
      * @param projectService the project service. Get one on the Eclipse context.
      * @param progressSvc the service to use to report progress. Get one on the Eclipse context.

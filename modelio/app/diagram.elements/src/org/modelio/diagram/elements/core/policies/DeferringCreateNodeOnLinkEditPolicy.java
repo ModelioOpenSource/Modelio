@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -98,6 +98,7 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
      * Looks for and return the first {@link GmCompositeNode} extension on the link.
      * <p>
      * Subclasses may override this method.
+     * 
      * @param gmLink The model link
      * @param location The mouse location
      * @return The composite node where the label must be added.
@@ -210,6 +211,7 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
 
         /**
          * Create a deferred command.
+         * 
          * @param req The creation request.
          * @param sender The edit part sending the request
          */
@@ -299,6 +301,7 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
 
         /**
          * Create a deferred command.
+         * 
          * @param req The creation request.
          * @param sender The edit part sending the request
          */
@@ -333,6 +336,7 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
         /**
          * Get the node model where all the request must be handled or <tt>null</tt> if the request cannot be executed in a single
          * node (the selection is not homogeneous).
+         * 
          * @return the node model where the request must be handled.
          */
         @objid ("80cc67b7-1dec-11e2-8cad-001ec947c8cc")

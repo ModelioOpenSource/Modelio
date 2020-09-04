@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class GmInterfaceRealization extends GmLink {
 
     /**
      * Create a interface realization link model.
+     * 
      * @param diagram The diagram
      * @param generalization The represented link, may be null
      * @param ref The represented link reference, may not be null

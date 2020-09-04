@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,11 +20,16 @@
 
 package org.modelio.diagram.editor.sequence.handlers;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.modelio.diagram.editor.handlers.SelectInExplorerHandler;
-import org.modelio.metamodel.diagrams.AbstractDiagram;
+import org.modelio.diagram.editor.sequence.elements.lifeline.GmLifeline;
+import org.modelio.diagram.editor.sequence.elements.lifeline.LifelineEditPart;
+import org.modelio.diagram.editor.sequence.elements.sequencediagram.GmSequenceDiagram;
+import org.modelio.diagram.editor.sequence.elements.sequencediagram.SequenceDiagramEditPart;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("d99f2ccf-55b6-11e2-877f-002564c97630")
@@ -33,12 +38,33 @@ public class SequenceSelectInExplorerHandler extends SelectInExplorerHandler {
     @Override
     public boolean canExecute(ISelection selection) {
         List<MObject> listSelection = getSelection(selection);
-        for (MObject selectedElement : listSelection) {
-            if (selectedElement instanceof AbstractDiagram) {
-                return false;
+        return listSelection.size() > 0;
+    }
+
+    @objid ("fa97c3db-a374-4174-becc-4f5ce11fc5fa")
+    @Override
+    public List<MObject> getSelection(ISelection iSelection) {
+        List<MObject> selectedElements = new ArrayList<>();
+        if (iSelection instanceof IStructuredSelection) {
+            List<?> selectionAsList = ((IStructuredSelection) iSelection).toList();
+            for (Object selectedObject : selectionAsList) {
+                if (selectedObject instanceof LifelineEditPart) {                    
+                    GmLifeline lifelineModel = (GmLifeline) ((LifelineEditPart)selectedObject).getModel();                    
+                    
+                    if (lifelineModel.getRepresentedElement() != null && lifelineModel.getRepresentedElement().getRepresented() != null) {
+                        selectedElements.add(lifelineModel.getRepresentedElement().getRepresented());
+                    }                  
+                }
+                else if (selectedObject instanceof SequenceDiagramEditPart) {
+                    SequenceDiagramEditPart sdep = (SequenceDiagramEditPart) selectedObject;
+                    GmSequenceDiagram sequenceDiagramModel = (GmSequenceDiagram)sdep.getModel();
+                    if (sequenceDiagramModel.getRepresentedElement() != null) {
+                        selectedElements.add(sequenceDiagramModel.getRepresentedElement());
+                    }
+                }
             }
         }
-        return listSelection.size() > 0;
+        return selectedElements;
     }
 
 }

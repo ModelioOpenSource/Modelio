@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -83,6 +83,7 @@ public class CachedUriFile {
      * If the timeout expires before the connection can be established,
      * a java.net.SocketTimeoutException is raised.
      * A timeout of zero is interpreted as an infinite timeout.
+     * 
      * @param timeout the time out
      */
     @objid ("4f6a159f-591d-4239-8532-8adb704a0197")
@@ -94,6 +95,7 @@ public class CachedUriFile {
      * Get a path to the up to date file.
      * <p>
      * Download the file from the remote location if needed.
+     * 
      * @return the cached file path.
      * @throws java.nio.file.FileSystemException in case of file system exception.
      * Use {@link FileUtils#getLocalizedMessage(FileSystemException)} to get an error message.
@@ -126,6 +128,7 @@ public class CachedUriFile {
      * Read the local stamp.
      * <p>
      * Returns <code>null</code> if the file has never been downloaded.
+     * 
      * @return the local stamp.
      * @throws java.nio.file.FileSystemException in case of file system exception.
      * Use {@link FileUtils#getLocalizedMessage(FileSystemException)} to get an error message.
@@ -145,6 +148,7 @@ public class CachedUriFile {
 
     /**
      * Tells whether last call to {@link #getFile()} changed the cached file.
+     * 
      * @return <code>true</code> if the cached file has been modified, else <code>false</code>.
      */
     @objid ("d0a8f416-2424-4b42-88ab-0cc518f61205")
@@ -157,6 +161,7 @@ public class CachedUriFile {
      * <p>
      * This method does not access the network and the file may
      * not exist.
+     * 
      * @return the path where the cached file is downloaded.
      */
     @objid ("97419864-df5f-4757-8380-5dfdd76df02c")

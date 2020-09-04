@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class MultilineTextFigure extends GradientFigure {
 
     /**
      * Default constructor.
+     * 
      * @param text The initial text content.
      */
     @objid ("7f2d8e8a-1dec-11e2-8cad-001ec947c8cc")
@@ -90,6 +91,7 @@ public class MultilineTextFigure extends GradientFigure {
      * <LI>{@link PositionConstants#ALWAYS_LEFT} - Left, irrespective of orientation</LI>
      * <LI>{@link PositionConstants#ALWAYS_RIGHT} - Right, irrespective of orientation</LI>
      * </UL>
+     * 
      * @param value the alignment
      */
     @objid ("7f2d8e98-1dec-11e2-8cad-001ec947c8cc")
@@ -111,6 +113,7 @@ public class MultilineTextFigure extends GradientFigure {
 
     /**
      * Set the displayed text.
+     * 
      * @param text The text to display.
      */
     @objid ("7f2d8ea4-1dec-11e2-8cad-001ec947c8cc")
@@ -170,6 +173,7 @@ public class MultilineTextFigure extends GradientFigure {
 
         /**
          * Calculate the minimum size a note should be.
+         * 
          * @param container the note figure
          * @param wHint the width hint (the desired width of the container)
          * @param hHint the height hint (the desired height of the container)
@@ -187,6 +191,7 @@ public class MultilineTextFigure extends GradientFigure {
 
         /**
          * Compute the ideal size of the note.
+         * 
          * @param container the note figure
          * @param wHint the width hint (the desired width of the container)
          * @param hHint the height hint (the desired height of the container)

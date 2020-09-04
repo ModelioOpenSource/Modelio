@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public class TAssociation extends TArtifact {
 
     /**
      * Sets the value of the sourceRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -101,6 +102,7 @@ public class TAssociation extends TArtifact {
 
     /**
      * Sets the value of the targetRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -126,6 +128,7 @@ public class TAssociation extends TArtifact {
 
     /**
      * Sets the value of the associationDirection property.
+     * 
      * @param value allowed object is
      * {@link TAssociationDirection }
      */

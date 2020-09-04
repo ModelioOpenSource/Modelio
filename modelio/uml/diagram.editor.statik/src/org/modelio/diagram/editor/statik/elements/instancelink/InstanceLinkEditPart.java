@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -112,6 +112,7 @@ public class InstanceLinkEditPart extends LinkEditPart {
 
     /**
      * Recreate the source and target decoration arrows and/or diamonds.
+     * 
      * @param connection The connection figure
      * @param model The GmAssociation
      */
@@ -130,6 +131,7 @@ public class InstanceLinkEditPart extends LinkEditPart {
 
     /**
      * Create the connection decoration from the given parameters.
+     * 
      * @param toAggregation The aggregation mode
      * @param withArrow Whether a navigability arrow must be displayed.
      * @return
@@ -167,6 +169,7 @@ public class InstanceLinkEditPart extends LinkEditPart {
 
     /**
      * Refresh decorations from the style.
+     * 
      * @param connection The connection figure.
      * @param style The style to use.
      */

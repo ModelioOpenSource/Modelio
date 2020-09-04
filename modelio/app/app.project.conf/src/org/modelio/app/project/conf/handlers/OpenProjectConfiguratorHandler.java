@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,7 +37,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.project.conf.dialog.ProjectConfigurationDialog;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
 import org.modelio.app.project.core.services.IProjectService;
-import org.modelio.audit.service.IAuditService;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.ui.progress.IModelioProgressService;
 import org.modelio.vbasic.files.FileUtils;
@@ -45,24 +44,18 @@ import org.modelio.vbasic.files.FileUtils;
 /**
  * Handler that opens the project configuration dialog.
  * <p>
- * This handler has a "folder" parameter to specify the {@link ProjectConfigurationDialog dialog tab} to show:
- * <ul>
- * <li>{@link ProjectConfigurationDialog#AUDIT}
- * <li>{@link ProjectConfigurationDialog#LIBRARIES}
- * <li>{@link ProjectConfigurationDialog#MODULES}
- * <li>{@link ProjectConfigurationDialog#PROJECT_INFOS}
- * <li>{@link ProjectConfigurationDialog#REFERENCED_URLS}
+ * This handler has a "folder" parameter to specify the {@link ProjectConfigurationDialog dialog tab} to show.
  * </ul>
  */
 @objid ("008a0b06-5a8d-10a6-888d-001ec947cd2a")
 public class OpenProjectConfiguratorHandler {
     @objid ("0023c4cc-5a8e-10a6-888d-001ec947cd2a")
     @Execute
-    void execute(final MApplication application, final IProjectService projectService, final IAuditService auditService, @Named (IServiceConstants.ACTIVE_SHELL) final Shell shell, @Optional @Named ("folder") final String folder, IModelioProgressService progressService, StatusReporter statusReporter) {
+    void execute(final MApplication application, final IProjectService projectService, @Named (IServiceConstants.ACTIVE_SHELL) final Shell shell, @Optional @Named ("folder") final String folder, IModelioProgressService progressService, StatusReporter statusReporter) {
         AppProjectConf.LOG.info("Opening project configurator");
         
         GProject openedProject = projectService.getOpenedProject();
-        ProjectConfigurationDialog dialog = new ProjectConfigurationDialog(application, openedProject, shell, auditService);
+        ProjectConfigurationDialog dialog = new ProjectConfigurationDialog(application, openedProject, shell);
         if (folder != null) {
             try {
                 dialog.setSelectedPage(folder);
@@ -89,7 +82,7 @@ public class OpenProjectConfiguratorHandler {
     @objid ("0024384e-5a8e-10a6-888d-001ec947cd2a")
     @CanExecute
     boolean canExecute(final IProjectService projectService) {
-        return (projectService.getOpenedProject() != null);
+        return projectService.getOpenedProject() != null;
     }
 
     @objid ("be8412e8-51a9-4f98-b6ee-6ce3df733435")

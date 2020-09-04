@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class RamcFilterBuilder {
 
     /**
      * Initialize the builder.
+     * 
      * @param smMetamodel the modelio metamodel.
      * @param artifact the model component artifact.
      */
@@ -75,6 +76,7 @@ public class RamcFilterBuilder {
 
     /**
      * Tells to accept {@link Dependency UML Dependencies} with the given stereotype.
+     * 
      * @param type a stereotype on {@link Dependency} metaclass.
      */
     @objid ("6179078e-c746-11e1-96e9-001ec947ccaf")
@@ -84,6 +86,7 @@ public class RamcFilterBuilder {
 
     /**
      * Add a type of notes to accept.
+     * 
      * @param type a note type
      */
     @objid ("617907d6-c746-11e1-96e9-001ec947ccaf")
@@ -93,6 +96,7 @@ public class RamcFilterBuilder {
 
     /**
      * Add a type of tags to accept.
+     * 
      * @param type a tag type.
      */
     @objid ("6179090a-c746-11e1-96e9-001ec947ccaf")
@@ -102,6 +106,7 @@ public class RamcFilterBuilder {
 
     /**
      * Build the RAMC packaging model filter.
+     * 
      * @return the RAMC model filter.
      */
     @objid ("f166aaa3-c9a1-11e1-96e9-001ec947ccaf")

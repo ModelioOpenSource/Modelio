@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.vcore.smkernel.meta.SmClass;
 public interface ISmObjectFactory {
     /**
      * Create the data object
+     * 
      * @return a data object
      */
     @objid ("0048e95a-fd1a-1f27-a7da-001ec947cd2a")
@@ -38,6 +39,7 @@ public interface ISmObjectFactory {
 
     /**
      * Create the implementation object.
+     * 
      * @return the implementation object.
      */
     @objid ("0048f2ce-fd1a-1f27-a7da-001ec947cd2a")

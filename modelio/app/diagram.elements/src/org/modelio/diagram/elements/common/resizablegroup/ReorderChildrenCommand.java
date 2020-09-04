@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class ReorderChildrenCommand extends Command {
 
     /**
      * C'tor.
+     * 
      * @param container the container in which children will be moved.
      * @param childToMove the child to move.
      * @param reference the reference: moved child will be moved just before this reference. If it is null, child will be

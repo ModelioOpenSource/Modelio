@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class DefaultCreateElementCommand extends Command implements ILinkAndNode
 
     /**
      * Creates a node creation command.
+     * 
      * @param parentNode The parent node
      * @param context Details on the MObject and/or the node to create
      * @param constraint The initial constraint of the created node.
@@ -77,6 +78,7 @@ public class DefaultCreateElementCommand extends Command implements ILinkAndNode
 
     /**
      * Creates a node creation command.
+     * 
      * @param parentElement The parent MObject of the MObject to create
      * @param parentNode The parent node
      * @param context Details on the MObject and/or the node to create
@@ -112,6 +114,7 @@ public class DefaultCreateElementCommand extends Command implements ILinkAndNode
 
     /**
      * Get the creation context (parent element, parent dependency, stereotype).
+     * 
      * @return the creation context.
      */
     @objid ("7f3717e7-1dec-11e2-8cad-001ec947c8cc")
@@ -121,6 +124,7 @@ public class DefaultCreateElementCommand extends Command implements ILinkAndNode
 
     /**
      * Get the initial layout constraint.
+     * 
      * @return the initial layout constraint.
      */
     @objid ("7f3717ec-1dec-11e2-8cad-001ec947c8cc")
@@ -130,6 +134,7 @@ public class DefaultCreateElementCommand extends Command implements ILinkAndNode
 
     /**
      * Get the parent model element.
+     * 
      * @return the parent model element.
      */
     @objid ("7f3717f1-1dec-11e2-8cad-001ec947c8cc")
@@ -139,6 +144,7 @@ public class DefaultCreateElementCommand extends Command implements ILinkAndNode
 
     /**
      * Get the parent graphic node.
+     * 
      * @return the parent graphic node.
      */
     @objid ("7f3717f6-1dec-11e2-8cad-001ec947c8cc")
@@ -175,6 +181,7 @@ public class DefaultCreateElementCommand extends Command implements ILinkAndNode
 
     /**
      * Redefine this method to add code before unmasking the new element.
+     * 
      * @param newElement the element being unmasked.
      */
     @objid ("15be47f8-eeaf-4993-a3e2-cb48eab9cf44")
@@ -184,6 +191,7 @@ public class DefaultCreateElementCommand extends Command implements ILinkAndNode
 
     /**
      * Redefine this method to add code after unmasking the new element.
+     * 
      * @param newElement the element being unmasked.
      * @param gm The unmasked node, or <code>null</code> if the newElement can't be unmasked.
      */

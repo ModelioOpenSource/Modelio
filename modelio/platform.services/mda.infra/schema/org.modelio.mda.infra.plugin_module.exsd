@@ -10,7 +10,6 @@
 
 If the module is &apos;mandatory&apos;:
 - The module is then automatically started when a project is open.
-
       </documentation>
    </annotation>
 
@@ -27,21 +26,21 @@ If the module is &apos;mandatory&apos;:
          <attribute name="point" type="string" use="required">
             <annotation>
                <documentation>
-                  
+
                </documentation>
             </annotation>
          </attribute>
          <attribute name="id" type="string">
             <annotation>
                <documentation>
-                  
+
                </documentation>
             </annotation>
          </attribute>
          <attribute name="name" type="string">
             <annotation>
                <documentation>
-                  
+
                </documentation>
                <appinfo>
                   <meta.attribute translatable="true"/>
@@ -56,22 +55,32 @@ If the module is &apos;mandatory&apos;:
          <attribute name="name" type="string" use="required">
             <annotation>
                <documentation>
-                  
+
                </documentation>
             </annotation>
          </attribute>
          <attribute name="version" type="string" use="required">
             <annotation>
                <documentation>
-                  
+
                </documentation>
             </annotation>
          </attribute>
          <attribute name="mandatory" type="boolean" use="default" value="false">
             <annotation>
                <documentation>
-                  
+
                </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="validator" type="string">
+            <annotation>
+               <documentation>
+
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.core.rcp.extensionpoint.IExtensionPointContribution"/>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>

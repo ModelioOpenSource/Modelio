@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ interface ISymbolPanelModel {
 
     /**
      * Contains the current selection and computations about the selection.
+     * 
      * @return the symbol panel selection.
      */
     @objid ("8970a5e0-bc1d-4a23-ae04-2630d96a5ad3")
@@ -62,6 +63,7 @@ interface ISymbolPanelModel {
 
     /**
      * Tells from the selected graphic model and the edited style whether style extraction should create a theme or a style.
+     * 
      * @return true if a theme should be created, false if a style should be created.
      */
     @objid ("c3f83512-a9d9-41d7-b2ab-4c4aa7efcc10")
@@ -81,6 +83,7 @@ interface ISymbolPanelModel {
 
     /**
      * Walk the parent style hierarchy until a NamedStyle is found.
+     * 
      * @param s a style.
      * @return the named style the given style is based on.
      */

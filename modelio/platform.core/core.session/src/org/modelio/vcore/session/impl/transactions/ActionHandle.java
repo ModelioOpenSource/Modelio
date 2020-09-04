@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -101,6 +101,7 @@ public class ActionHandle {
 
     /**
      * Set whether action recording is enabled.
+     * 
      * @param val whether action recording is enabled.
      */
     @objid ("006f02fc-0d1e-1f20-85a5-001ec947cd2a")

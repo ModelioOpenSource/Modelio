@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -125,6 +125,7 @@ public class Pattern {
 
     /**
      * Gets the value of the name property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("ca26507e-142f-4da0-b1ba-0d15e50197a8")
@@ -134,6 +135,7 @@ public class Pattern {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("d358f474-ca0b-4ad7-a11d-8b31d8e3c0e8")
@@ -143,6 +145,7 @@ public class Pattern {
 
     /**
      * Gets the value of the version property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("da728065-cb7f-46ef-9c83-61497530489d")
@@ -152,6 +155,7 @@ public class Pattern {
 
     /**
      * Sets the value of the version property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("87dd3883-cd3f-4f42-a873-019afbbcb6be")
@@ -161,6 +165,7 @@ public class Pattern {
 
     /**
      * Gets the value of the description property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("d843d3e0-56bd-40db-b2c2-a064f9833ad3")
@@ -170,6 +175,7 @@ public class Pattern {
 
     /**
      * Sets the value of the description property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("f5582fe3-fea2-44aa-9010-b95eb86a3a46")
@@ -179,6 +185,7 @@ public class Pattern {
 
     /**
      * Gets the value of the image property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("4fd294ff-0978-4c71-8114-f1d1118f9917")
@@ -188,6 +195,7 @@ public class Pattern {
 
     /**
      * Sets the value of the image property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("66786b1e-7df1-4c36-a3a5-e2579befe5bb")
@@ -197,6 +205,7 @@ public class Pattern {
 
     /**
      * Gets the value of the icone property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("136eae01-c9d8-4c5a-be45-a0727af8bf52")
@@ -206,6 +215,7 @@ public class Pattern {
 
     /**
      * Sets the value of the icone property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("a1c005ef-00e4-496d-9688-1994f3c878fc")

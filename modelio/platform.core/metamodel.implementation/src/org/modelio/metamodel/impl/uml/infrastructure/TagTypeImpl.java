@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -61,73 +61,73 @@ public class TagTypeImpl extends ModelElementImpl implements TagType {
             return null;
     }
 
-    @objid ("859546cc-d94e-4796-b456-4dfaaf550d48")
+    @objid ("d048387a-e164-48a7-8921-31ddd6c6f124")
     @Override
     public String getParamNumber() {
         return (String) getAttVal(((TagTypeSmClass)getClassOf()).getParamNumberAtt());
     }
 
-    @objid ("a2881093-51db-4dd9-a25f-2be86188c54e")
+    @objid ("56fbe647-bee9-4434-8adb-72405e361d4f")
     @Override
     public void setParamNumber(String value) {
         setAttVal(((TagTypeSmClass)getClassOf()).getParamNumberAtt(), value);
     }
 
-    @objid ("b3d2c0c9-e854-4811-abd6-f28d9a8da40b")
+    @objid ("d8c25fcf-d848-4a00-aee1-d05e06ae016e")
     @Override
     public boolean isIsQualified() {
         return (Boolean) getAttVal(((TagTypeSmClass)getClassOf()).getIsQualifiedAtt());
     }
 
-    @objid ("dc7431d8-36bb-4e67-a0b6-0d205bb4ad39")
+    @objid ("9fb6d97c-1fa7-4325-88aa-e4e4bdd859e7")
     @Override
     public void setIsQualified(boolean value) {
         setAttVal(((TagTypeSmClass)getClassOf()).getIsQualifiedAtt(), value);
     }
 
-    @objid ("3f945519-5fda-4c0b-8966-242bed99ad9c")
+    @objid ("2529b8e3-44a0-43e0-878a-827e64542865")
     @Override
     public boolean isBelongToPrototype() {
         return (Boolean) getAttVal(((TagTypeSmClass)getClassOf()).getBelongToPrototypeAtt());
     }
 
-    @objid ("7b5e7dcc-f413-4878-be36-34d1e6a464c2")
+    @objid ("f4e1aa0c-abdd-4c4d-a2e7-42a15cc2dc76")
     @Override
     public void setBelongToPrototype(boolean value) {
         setAttVal(((TagTypeSmClass)getClassOf()).getBelongToPrototypeAtt(), value);
     }
 
-    @objid ("edd86b1a-c948-4006-acee-eecc3b32bc19")
+    @objid ("64b9d011-4454-4331-8cb9-40b25b6fe976")
     @Override
     public boolean isIsHidden() {
         return (Boolean) getAttVal(((TagTypeSmClass)getClassOf()).getIsHiddenAtt());
     }
 
-    @objid ("3dfdc836-ffe3-43bc-ad01-dd0b5856f4f7")
+    @objid ("3520ab75-9b28-4b5e-84da-275b60a09a12")
     @Override
     public void setIsHidden(boolean value) {
         setAttVal(((TagTypeSmClass)getClassOf()).getIsHiddenAtt(), value);
     }
 
-    @objid ("94fbadae-511b-4304-8012-da782d24d5ea")
+    @objid ("4ce34e05-d6ca-4bb2-814f-c78c89660b2e")
     @Override
     public String getLabelKey() {
         return (String) getAttVal(((TagTypeSmClass)getClassOf()).getLabelKeyAtt());
     }
 
-    @objid ("eadae9fd-7e16-4874-b2b4-1c083c738f45")
+    @objid ("aaa441f8-12d4-4e46-b345-7ec972ed4d0c")
     @Override
     public void setLabelKey(String value) {
         setAttVal(((TagTypeSmClass)getClassOf()).getLabelKeyAtt(), value);
     }
 
-    @objid ("80cb1423-d2a3-49c3-8d19-9a4330e469ba")
+    @objid ("ad2891d0-21d1-48cb-a171-dfc8363fd432")
     @Override
     public EList<TaggedValue> getTagOccurence() {
         return new SmList<>(this, ((TagTypeSmClass)getClassOf()).getTagOccurenceDep());
     }
 
-    @objid ("417f4ef3-3efa-4586-81b0-80908ea59e92")
+    @objid ("f0962b59-0325-48ad-add8-7459d387e4c2")
     @Override
     public <T extends TaggedValue> List<T> getTagOccurence(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -142,33 +142,33 @@ public class TagTypeImpl extends ModelElementImpl implements TagType {
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("d6342c7a-c597-4f05-b172-957413d72001")
+    @objid ("e4edba70-cfb0-48bc-8595-c638e0952504")
     @Override
     public Stereotype getOwnerStereotype() {
         Object obj = getDepVal(((TagTypeSmClass)getClassOf()).getOwnerStereotypeDep());
         return (obj instanceof Stereotype)? (Stereotype)obj : null;
     }
 
-    @objid ("b42b8d86-aee6-48ec-97e9-71f3d75cd6bf")
+    @objid ("f84b91cb-7214-4ca0-a8d1-37d02599d615")
     @Override
     public void setOwnerStereotype(Stereotype value) {
         appendDepVal(((TagTypeSmClass)getClassOf()).getOwnerStereotypeDep(), (SmObjectImpl)value);
     }
 
-    @objid ("5337bfec-1a9c-41ed-93dd-56d63bd79607")
+    @objid ("1cde5f7b-6cc1-4784-b5e3-ef08a1303a3d")
     @Override
     public MetaclassReference getOwnerReference() {
         Object obj = getDepVal(((TagTypeSmClass)getClassOf()).getOwnerReferenceDep());
         return (obj instanceof MetaclassReference)? (MetaclassReference)obj : null;
     }
 
-    @objid ("ab22dd49-d0d2-47af-8721-9c41cfa603cc")
+    @objid ("db974804-8fed-45e7-9c34-93db45f9679e")
     @Override
     public void setOwnerReference(MetaclassReference value) {
         appendDepVal(((TagTypeSmClass)getClassOf()).getOwnerReferenceDep(), (SmObjectImpl)value);
     }
 
-    @objid ("9486ae79-c6b7-4a83-84ef-56578f11b18c")
+    @objid ("15f4c8cf-1cc5-498d-b16f-7958710f4943")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -184,7 +184,7 @@ public class TagTypeImpl extends ModelElementImpl implements TagType {
         return super.getCompositionOwner();
     }
 
-    @objid ("8d3399bd-95ca-4a7a-95e9-c35018a7a67b")
+    @objid ("ff764c7c-cb19-43da-9256-8d9aecf51c04")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -204,7 +204,7 @@ public class TagTypeImpl extends ModelElementImpl implements TagType {
         return super.getCompositionRelation();
     }
 
-    @objid ("0ad706c3-b0bc-465a-92b1-a5eaaaae2a1a")
+    @objid ("a5ecc4e1-9428-4a66-89cb-b6ef7a183f52")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitTagType(this);

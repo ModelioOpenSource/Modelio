@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,11 @@
 package org.modelio.api.ui.form.fields;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.layout.GridDataFactory;
@@ -51,6 +53,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.modelio.navigation.INavigationService;
 import org.modelio.api.module.context.IModuleContext;
 import org.modelio.api.plugin.Api;
@@ -81,11 +84,18 @@ public class MultipleElementField extends AbstractField {
     @objid ("c4721011-0767-4d7b-b63f-9a1bec1ecc2b")
     private List<ModelElement> values = Collections.emptyList();
 
+    @objid ("a37337b3-9ec1-4bed-a9a5-3b44c9d923c2")
+    private IModelingSession session;
+
+    @objid ("6b3809d6-a1dd-43be-8255-2936267bf5dc")
+    private List<Class<? extends MObject>> allowedMetaclasses = new ArrayList<>();
+
     @objid ("8c057806-e91e-4b1d-a227-2ba7d3dcdd8e")
     public MultipleElementField(IModuleContext moduleContext, FormToolkit toolkit, Composite parent, IFormFieldData model) {
         super(toolkit, parent, model);
         this.editable = true;
         this.navigationService = moduleContext.getModelioServices().getNavigationService();
+        this.session = moduleContext.getModelingSession();
     }
 
     @objid ("6cf0a95b-ea2c-4f32-9064-724f6266d184")
@@ -143,9 +153,12 @@ public class MultipleElementField extends AbstractField {
 
     @objid ("15e552a7-e4be-429c-9be3-7fc4d3b89b2b")
     protected void enterEdition() {
-        Object[] candidates = getModel().getType().getEnumeratedValues();
+        Set<MObject> candidates = new HashSet<>();
+        for (Class<? extends MObject> metaclass : this.allowedMetaclasses) {
+            candidates.addAll(this.session.findByClass(metaclass));
+        }
         
-        SelectElementsPanel panel = new SelectElementsPanel(Arrays.asList(candidates), this.labelProvider, this.navigationService);
+        SelectElementsPanel panel = new SelectElementsPanel(candidates, this.labelProvider, this.navigationService);
         panel.setInput(this.values);
         
         ThinDialog td = new ThinDialog(getControl(), panel) {
@@ -159,7 +172,7 @@ public class MultipleElementField extends AbstractField {
         
                 // Close the dialog
                 super.onOk();
-                
+        
                 MultipleElementField.this.text.setText(computeStringRepresentation());
             }
         
@@ -175,17 +188,23 @@ public class MultipleElementField extends AbstractField {
         return this.values.stream().map(e -> this.labelProvider.getText(e)).collect(Collectors.joining(", "));
     }
 
+    @objid ("6d82905e-69ef-4074-beb1-10f725702343")
+    public MultipleElementField(IModuleContext moduleContext, FormToolkit toolkit, Composite parent, IFormFieldData model, List<Class<? extends MObject>> allowedMetaclasses) {
+        this(moduleContext, toolkit, parent, model);
+        this.allowedMetaclasses.addAll(allowedMetaclasses);
+    }
+
     /**
      * <p>
-     * The SelectElementsPanel is an implementation of IPanelProvider that can be used to select several Object from a list of
+     * The SelectElementsPanel is an implementation of IPanelProvider that can be used to select several MObjects from a list of
      * <em>candidates</em> into a <em>results</em> list.
      * </p>
      * <p>
-     * The <em>candidates</em> list is passed as a list of Object.
+     * The <em>candidates</em> list is passed as a list of MObject.
      * </p>
      * <p>
      * The initial list of <em>results</em> has to be passed using the <em>setInput()</em> method. It must be a non-null, possibly
-     * non-empty, modifiable List&lt;Object&gt;.
+     * non-empty, modifiable List&lt;MObject&gt;.
      * </p>
      * <p>
      * &nbsp;
@@ -201,12 +220,13 @@ public class MultipleElementField extends AbstractField {
 
         /**
          * C'tor
+         * 
          * @param candidates the candidates
          * @param labelProvider the label provider for candidates
          * @param navigationService the Modelio navigation service.
          */
         @objid ("62be9c23-2e0a-41e8-be57-3e4120d8bc41")
-        public SelectElementsPanel(List<Object> candidates, ILabelProvider labelProvider, INavigationService navigationService) {
+        public SelectElementsPanel(Collection<MObject> candidates, ILabelProvider labelProvider, INavigationService navigationService) {
             this.controler = new Controller(navigationService, candidates);
             this.labelProvider = labelProvider != null ? labelProvider : new LabelProvider();
         }
@@ -215,7 +235,7 @@ public class MultipleElementField extends AbstractField {
          * C'tor
          */
         @objid ("4c4ba4b2-9656-4883-837d-67bba0c9ee8e")
-        public SelectElementsPanel(List<Object> candidates, INavigationService navigationService) {
+        public SelectElementsPanel(Collection<MObject> candidates, INavigationService navigationService) {
             this(candidates, null, navigationService);
         }
 
@@ -227,7 +247,7 @@ public class MultipleElementField extends AbstractField {
 
         @objid ("c9656dd7-9205-4610-89ec-9ea4c1135414")
         @Override
-        public Object createPanel(Composite parent) {
+        public Composite createPanel(Composite parent) {
             View view = new View(parent, this.labelProvider, this.controler);
             this.controler.setView(view);
             return view.getContainer();
@@ -235,7 +255,7 @@ public class MultipleElementField extends AbstractField {
 
         @objid ("d0a0ed34-251f-48df-a767-1f1ae194db6f")
         @Override
-        public Object getPanel() {
+        public Composite getPanel() {
             return this.controler.view.getContainer();
         }
 
@@ -255,7 +275,7 @@ public class MultipleElementField extends AbstractField {
         @Override
         @SuppressWarnings("unchecked")
         public void setInput(Object input) {
-            this.controler.setInitialResults((List<Object>) input);
+            this.controler.setInitialResults((List<MObject>) input);
         }
 
         @objid ("78ec084d-88bc-46b9-b2ad-34b3f7693e6c")
@@ -508,7 +528,7 @@ public class MultipleElementField extends AbstractField {
              * Ensure that setting the candidates is run in the display thread
              */
             @objid ("7b0748c3-e083-4f6e-b8cc-e95d622b7263")
-            public void setCandidates(final List<Object> candidates, final List<Object> selection) {
+            public void setCandidates(final Collection<MObject> candidates, final List<MObject> selection) {
                 this.container.getDisplay().asyncExec(
                         () -> doSetCandidates(candidates, selection));
             }
@@ -517,12 +537,12 @@ public class MultipleElementField extends AbstractField {
              * Guaranteed to run in the display thread
              */
             @objid ("cbd6aae0-b2b6-4f63-9379-0635f044c0a9")
-            private void doSetCandidates(List<Object> candidateList, List<Object> selection) {
-                if (candidateList == null) {
+            private void doSetCandidates(Collection<MObject> candidates, List<MObject> selection) {
+                if (candidates == null) {
                     this.candidates.setLabelProvider(this.labelProvider);
                     this.candidates.getTable().setEnabled(false);
                 } else {
-                    this.candidates.setInput(candidateList);
+                    this.candidates.setInput(candidates);
                     this.candidates.setLabelProvider(this.labelProvider);
                     this.candidates.getTable().setEnabled(true);
                     if (selection != null) {
@@ -535,7 +555,7 @@ public class MultipleElementField extends AbstractField {
              * Set the results in the display thread
              */
             @objid ("6a0fc155-332b-436a-9d62-da29de2e467e")
-            public void setResults(List<Object> selected, List<Object> selection) {
+            public void setResults(List<MObject> selected, List<MObject> selection) {
                 this.container.getDisplay().asyncExec( () -> {
                     this.results.setInput(selected);
                     if (selection != null) {
@@ -557,25 +577,25 @@ public class MultipleElementField extends AbstractField {
             }
 
             @objid ("37fd941c-4834-46f2-82c1-979f167e9bf2")
-            public List<Object> getCandidatesSelection() {
+            public List<MObject> getCandidatesSelection() {
                 return toObjectsList(this.candidates.getSelection());
             }
 
             @objid ("11a1bcfc-ddcb-4938-b5b9-b1b74a9aa1d3")
-            public List<Object> getResultsSelection() {
+            public List<MObject> getResultsSelection() {
                 return toObjectsList(this.results.getSelection());
             }
 
             @objid ("924386ca-108d-48d8-bf2b-c43ae6d287b0")
-            private List<Object> toObjectsList(ISelection selection) {
-                return SelectionHelper.toList(selection, Object.class);
+            private List<MObject> toObjectsList(ISelection selection) {
+                return SelectionHelper.toList(selection, MObject.class);
             }
 
             /**
-             * Return the top level container of the view.
+             * @return the top level container of the view.
              */
             @objid ("7173cb61-2262-403c-884e-5cff650805ac")
-            public Object getContainer() {
+            public Composite getContainer() {
                 return this.container;
             }
 
@@ -599,10 +619,10 @@ public class MultipleElementField extends AbstractField {
         @objid ("bc87e73e-0cfa-4838-8371-46e24bb0b17a")
         static class Controller {
             @objid ("88c7e8c3-e16c-4db4-9e90-14c937b84fad")
-            private List<Object> selected;
+            private List<MObject> selected;
 
             @objid ("b38b6858-3a8c-4ce9-affe-a850d4277787")
-            private final List<Object> candidates;
+            private final Collection<MObject> candidates;
 
             @objid ("456995f1-f38e-44ab-ace5-e942b4fb2eeb")
             private View view;
@@ -611,13 +631,13 @@ public class MultipleElementField extends AbstractField {
             private final INavigationService navigationService;
 
             @objid ("94fe19e3-f4d0-416a-9721-74bd85d4b2e9")
-            public Controller(INavigationService navigationService, List<Object> candidates) {
+            public Controller(INavigationService navigationService, Collection<MObject> candidates) {
                 this.navigationService = navigationService;
                 this.candidates = candidates;
             }
 
             @objid ("503753e7-5f72-4772-bab0-9cebf61a1de3")
-            private void initCandidates(List<Object> candidateList) {
+            private void initCandidates(Collection<MObject> candidateList) {
                 this.view.setCandidates(candidateList, Collections.emptyList());
             }
 
@@ -633,8 +653,7 @@ public class MultipleElementField extends AbstractField {
              * Called by the dialog when selection changes in the candidates list
              */
             @objid ("36f5deb6-029d-4ea2-9642-8c0bb2d8a0ea")
-            public void onSelectCandidate(List<Object> selectedCandidates) {
-                // TODO could improve by checking that at least one of the selected candidates is not already in the results
+            public void onSelectCandidate(Collection<MObject> selectedCandidates) {
                 this.view.enableAddCommand(!selectedCandidates.isEmpty());
             }
 
@@ -642,13 +661,13 @@ public class MultipleElementField extends AbstractField {
              * Called by the dialog when selection changes in the results list
              */
             @objid ("0d0c7da3-1a18-4831-b75d-f6689d750c6b")
-            public void onSelectResult(List<Object> selectedResults) {
+            public void onSelectResult(Collection<MObject> selectedResults) {
                 this.view.enableRemoveCommand(!selectedResults.isEmpty());
             }
 
             @objid ("ce280552-daea-4ac7-9af7-106aa756db40")
-            private void onAdd(List<Object> selectedCandidates) {
-                for (Object obj : selectedCandidates) {
+            private void onAdd(List<MObject> selectedCandidates) {
+                for (MObject obj : selectedCandidates) {
                     if (!this.selected.contains(obj)) {
                         this.selected.add(obj);
                     }
@@ -662,8 +681,8 @@ public class MultipleElementField extends AbstractField {
             }
 
             @objid ("cad84621-ebbf-4d4e-a7bd-4827c4bde869")
-            private void onRemove(List<Object> selectedResults) {
-                for (Object obj : selectedResults) {
+            private void onRemove(Collection<MObject> selectedResults) {
+                for (MObject obj : selectedResults) {
                     this.selected.remove(obj);
                 }
                 this.view.setResults(this.selected, null);
@@ -699,7 +718,7 @@ public class MultipleElementField extends AbstractField {
             }
 
             @objid ("71feb306-8deb-4f40-af96-90c6103622c8")
-            public void setInitialResults(List<Object> elements) {
+            public void setInitialResults(Collection<MObject> elements) {
                 this.selected = new ArrayList<>(elements);
                 if (this.view != null) {
                     this.view.setResults(this.selected, Collections.emptyList());
@@ -707,7 +726,7 @@ public class MultipleElementField extends AbstractField {
             }
 
             @objid ("54599fd2-6616-4f9c-b4b3-4751e3ece2a0")
-            public List<Object> getResults() {
+            public List<MObject> getResults() {
                 return this.selected;
             }
 
@@ -717,8 +736,8 @@ public class MultipleElementField extends AbstractField {
             }
 
             @objid ("8ad3a0b2-0fb3-46dd-8c60-8f6aad21b5a4")
-            private void onDown(List<Object> selectedResults) {
-                for (Object o : selectedResults) {
+            private void onDown(List<MObject> selectedResults) {
+                for (MObject o : selectedResults) {
                 
                     int i = this.selected.indexOf(o);
                     if (i < 0 || i >= this.selected.size() - 1) {
@@ -736,8 +755,8 @@ public class MultipleElementField extends AbstractField {
             }
 
             @objid ("a7cdab37-80b5-4304-83ab-9b17ff71c957")
-            private void onUp(List<Object> selectedResults) {
-                for (Object o : selectedResults) {
+            private void onUp(List<MObject> selectedResults) {
+                for (MObject o : selectedResults) {
                     int i = this.selected.indexOf(o);
                     if (i < 1 || i > this.selected.size()) {
                         // cannot move
@@ -811,13 +830,13 @@ public class MultipleElementField extends AbstractField {
             Button ok = new Button(this.slaveShell, SWT.NONE);
             ok.setImage(UIImages.ACCEPT);
             ok.setToolTipText(Api.I18N.getString("ThinDialog.okButton.tooltip"));
-            ok.addListener(SWT.Selection, 
+            ok.addListener(SWT.Selection,
                     e -> onOk());
             
             Button cancel = new Button(this.slaveShell, SWT.NONE);
             cancel.setImage(UIImages.CANCEL);
             cancel.setToolTipText(Api.I18N.getString("ThinDialog.cancelButton.tooltip"));
-            cancel.addListener(SWT.Selection, 
+            cancel.addListener(SWT.Selection,
                     e -> onCancel());
             
             // Form attachments
@@ -860,14 +879,14 @@ public class MultipleElementField extends AbstractField {
                         masterShell.removeControlListener(this);
                     }
                 }
-                
+            
                 @Override
                 public void controlResized(ControlEvent e) {
                     if (! syncSlaveBoundsToMaster()) {
                         masterShell.removeControlListener(this);
                     }
                 }
-                
+            
             });
             return true;
         }
@@ -877,7 +896,7 @@ public class MultipleElementField extends AbstractField {
             if (this.slaveShell.isDisposed()) {
                 return false;
             }
-                
+            
             Rectangle r = this.masterControl.getBounds();
             Point p = this.masterControl.getParent().toDisplay(r.x, r.y + r.height);
             this.slaveShell.setBounds(p.x, p.y, r.width, 300);

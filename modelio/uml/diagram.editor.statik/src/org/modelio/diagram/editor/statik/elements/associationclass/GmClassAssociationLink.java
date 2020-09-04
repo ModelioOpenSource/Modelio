@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class GmClassAssociationLink extends GmLink {
 
     /**
      * Create a generalization link model.
+     * 
      * @param diagram The diagram
      * @param generalization The represented ClassAssociation, may be null
      * @param ref The represented generalization reference, may not be null

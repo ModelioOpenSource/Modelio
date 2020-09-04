@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public interface IModelComponent {
 
     /**
      * Get the model Artifact where the model component informations are stored.
+     * 
      * @return the model artifact.
      */
     @objid ("27e9925a-c45e-45fe-ac0b-bbb5a03abf2c")
@@ -81,6 +82,7 @@ public interface IModelComponent {
      * <p>
      * These modules are required when deploying this model component.
      * Returns a map with the module name as key and its version as value.
+     * 
      * @return contributing modules map with the name as key and version as value.
      */
     @objid ("e79aff4f-6140-43a4-9f6a-7461e557f30b")

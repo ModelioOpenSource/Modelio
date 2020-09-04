@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,7 +31,6 @@ import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.InvalidRegistryObjectException;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -47,6 +46,7 @@ import org.modelio.api.module.propertiesPage.IModulePropertyPanel;
 import org.modelio.app.core.ModelioEnv;
 import org.modelio.app.core.events.ModelioEventTopics;
 import org.modelio.app.project.core.services.IProjectService;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.edition.dialogs.dialog.EditElementDialog;
 import org.modelio.edition.dialogs.plugin.EditionDialogs;
 import org.modelio.gproject.gproject.GProject;
@@ -77,8 +77,8 @@ public class EditionDialogService {
     @objid ("1affc396-635a-4cbd-8177-a6ece84ffa0a")
     @Optional
     @Inject
-    void onEditElement(@UIEventTopic(ModelioEventTopics.EDIT_ELEMENT) final MObject mObject, IEclipseContext eclipseContext, @Named(IServiceConstants.ACTIVE_SHELL) final Shell shell) {
-        IProjectService ps = eclipseContext.get(IProjectService.class);
+    void onEditElement(@UIEventTopic(ModelioEventTopics.EDIT_ELEMENT) final MObject mObject, final IEclipseContext eclipseContext, @Named(IServiceConstants.ACTIVE_SHELL) final Shell shell) {
+        final IProjectService ps = eclipseContext.get(IProjectService.class);
         
         // For some metaclasses, we want no properties edition dialog on 'edit'
         // event because we have a dedicated editor
@@ -93,8 +93,8 @@ public class EditionDialogService {
     @objid ("d31c607f-307e-4bec-94a6-43dc02922607")
     @Optional
     @Inject
-    void onEditProperties(@UIEventTopic(ModelioEventTopics.EDIT_PROPERTIES) final MObject mObject, IEclipseContext eclipseContext, @Named(IServiceConstants.ACTIVE_SHELL) final Shell shell) {
-        IProjectService ps = eclipseContext.get(IProjectService.class);
+    void onEditProperties(@UIEventTopic(ModelioEventTopics.EDIT_PROPERTIES) final MObject mObject, final IEclipseContext eclipseContext, @Named(IServiceConstants.ACTIVE_SHELL) final Shell shell) {
+        final IProjectService ps = eclipseContext.get(IProjectService.class);
         
         final EditElementDialog dlg = new EditElementDialog(shell, getRelevantPanels(mObject), ps.getSession());
         dlg.setEditedElement((Element) mObject);
@@ -102,7 +102,7 @@ public class EditionDialogService {
     }
 
     @objid ("d147a8c3-5930-4558-a926-c97f33d70dc6")
-    private List<PanelDescriptor> getRelevantPanels(MObject mObject) {
+    private List<PanelDescriptor> getRelevantPanels(final MObject mObject) {
         // Collect and add panels
         return this.panelContributions.getPanels(mObject);
     }
@@ -117,7 +117,7 @@ public class EditionDialogService {
     @SuppressWarnings("unused")
     @Optional
     @Inject
-    void onOpenProject(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject project, IEclipseContext eclipseContext) {
+    void onOpenProject(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject project, final IEclipseContext eclipseContext) {
         this.panelContributions.initializeExtensions(eclipseContext);
     }
 
@@ -147,9 +147,9 @@ public class EditionDialogService {
         private static final String MAIL = "mail";
 
         @objid ("e1a6aaf6-e852-4036-9b2d-2ada3ec4c1b6")
-        public static boolean isSupported(MObject obj) {
+        public static boolean isSupported(final MObject obj) {
             if (obj != null) {
-                String qName = obj.getMClass().getQualifiedName();
+                final String qName = obj.getMClass().getQualifiedName();
                 if (obj instanceof AbstractDiagram) {
                     return false;
                 } else if (obj instanceof MatrixDefinition) {
@@ -162,7 +162,7 @@ public class EditionDialogService {
                 } else if (obj instanceof AbstractResource) {
                     return false;
                 } else if (obj instanceof Artifact) {
-                    Artifact artifact = (Artifact) obj;
+                    final Artifact artifact = (Artifact) obj;
                     if (artifact.isStereotyped(EditionDialogSupport.MODULE_NAME, EditionDialogSupport.FILE) || artifact.isStereotyped(EditionDialogSupport.MODULE_NAME, EditionDialogSupport.DIRECTORY)) {
                         if (artifact.getFileName().length() > 0) {
                             return false;
@@ -208,15 +208,16 @@ public class EditionDialogService {
 
         /**
          * Get the edition panels for a model object
+         * 
          * @param obj the element to edit
          * @return the panels to display
          */
         @objid ("fff4eb4b-86c1-4b56-ad8d-0f042487b8f3")
-        public List<PanelDescriptor> getPanels(MObject obj) {
+        public List<PanelDescriptor> getPanels(final MObject obj) {
             final List<PanelDescriptor> results = new ArrayList<>();
             
             // Primary extension panels
-            Object input = new StructuredSelection(obj);
+            final Object input = new StructuredSelection(obj);
             for (final PanelDescriptor ext : this.extensionStaticPanels) {
                 if (ext.getPanel().isRelevantFor(input)) {
                     results.add(ext);
@@ -249,7 +250,7 @@ public class EditionDialogService {
                     if (modulePanel instanceof IPanelProvider) {
                         // IPanelProvider contribution
                         if (((IPanelProvider) modulePanel).isRelevantFor(input)) {
-                            IPanelProvider pp = createPanelProviderClone(modulePanel);
+                            final IPanelProvider pp = createPanelProviderClone(modulePanel);
                             if (pp != null) {
                                 results.add(new PanelDescriptor(modulePanel.getRelevance(), modulePanel.getName(), modulePanel.getLabel(), pp));
                             }
@@ -274,17 +275,14 @@ public class EditionDialogService {
         }
 
         @objid ("b4de7b39-9ff1-454e-8976-1950511cfe28")
-        public void initializeExtensions(IEclipseContext context) {
+        public void initializeExtensions(final IEclipseContext context) {
             this.eclipseContext = context;
             this.extensionStaticPanels = new ArrayList<>();
-            final IExtensionRegistry registry = this.eclipseContext.get(IExtensionRegistry.class);
-            for (final IConfigurationElement entry : registry
-                    .getConfigurationElementsFor("org.modelio.edition.dialogs.panels")) {
+            for (final IConfigurationElement entry : new ExtensionPointContributionManager("org.modelio.edition.dialogs.panels").getExtensions("panel")) {
                 try {
                     final IPanelProvider panel = (IPanelProvider) entry.createExecutableExtension("class");
                     ContextInjectionFactory.inject(panel, this.eclipseContext);
-                    this.extensionStaticPanels.add(new PanelDescriptor(entry.getAttribute("relevance"),
-                            entry.getAttribute("id"), entry.getAttribute("label"), panel));
+                    this.extensionStaticPanels.add(new PanelDescriptor(entry.getAttribute("relevance"), entry.getAttribute("id"), entry.getAttribute("label"), panel));
                 } catch (ClassCastException | InvalidRegistryObjectException | CoreException e) {
                     EditionDialogs.LOG.error(e);
                 }
@@ -292,11 +290,11 @@ public class EditionDialogService {
         }
 
         @objid ("bbf2c04b-fc52-44d7-98fa-c7b5e431358f")
-        private IPanelProvider createPanelProviderClone(IModulePropertyPanel modulePanel) {
+        private IPanelProvider createPanelProviderClone(final IModulePropertyPanel modulePanel) {
             try {
-                Constructor<?> ctor = modulePanel.getClass().getConstructor(IModule.class, String.class, String.class,
+                final Constructor<?> ctor = modulePanel.getClass().getConstructor(IModule.class, String.class, String.class,
                         String.class);
-                IPanelProvider ppp = (IPanelProvider) ctor.newInstance(modulePanel.getModule(), modulePanel.getName(),
+                final IPanelProvider ppp = (IPanelProvider) ctor.newInstance(modulePanel.getModule(), modulePanel.getName(),
                         modulePanel.getLabel(), null);
             
                 ContextInjectionFactory.inject(ppp, this.eclipseContext);
@@ -322,21 +320,21 @@ public class EditionDialogService {
     @objid ("c2709d1e-4d7e-498a-b9a8-644dceb20b63")
     private static class PanelSorter implements Comparator<PanelDescriptor> {
         @objid ("9674c446-d024-4417-828a-4d239dcf9436")
-        private MObject referencedObject;
+        private final MObject referencedObject;
 
         @objid ("710185c4-c6c9-48b0-9bc3-73449847adf3")
-        public PanelSorter(MObject input) {
+        public PanelSorter(final MObject input) {
             this.referencedObject = input;
         }
 
         @objid ("8e48800b-e7c3-49ad-97b4-5c3ccbed24d8")
         @Override
-        public int compare(PanelDescriptor d1, PanelDescriptor d2) {
+        public int compare(final PanelDescriptor d1, final PanelDescriptor d2) {
             return Integer.compare(getRelevanceNote(d2), getRelevanceNote(d1));
         }
 
         @objid ("6e409e61-afbc-4ec8-9718-78eb3b0d3574")
-        private int getRelevanceNote(PanelDescriptor p) {
+        private int getRelevanceNote(final PanelDescriptor p) {
             // Panel has no origin information => zero point
             if (p.getRelevance() != null) {
             
@@ -357,7 +355,7 @@ public class EditionDialogService {
             
                 // Module matching => four points
                 if (this.referencedObject instanceof ModelElement) {
-                    for (Stereotype s : ((ModelElement) this.referencedObject).getExtension()) {
+                    for (final Stereotype s : ((ModelElement) this.referencedObject).getExtension()) {
                         if (s.getModule() != null) {
                             if (s.getModule().getName().equals(p.getRelevance())) {
                                 return 4;

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -135,6 +135,7 @@ class LinkEditorPanelUi {
     /**
      * Creates the GraphicalViewer on the specified <code>Composite</code>.
      * @param ctx
+     * 
      * @param parent the parent composite
      */
     @objid ("e62beecb-bd97-45fa-b0fd-fb15849ba901")
@@ -220,6 +221,7 @@ class LinkEditorPanelUi {
      * Hooks the GraphicalViewer to the rest of the Editor.
      * <p>
      * By default, the viewer is added to the SelectionSynchronizer, which can be used to keep 2 or more EditPartViewers in sync.
+     * 
      * @param viewer the GraphicalViewer
      */
     @objid ("5a77fee9-006e-4ca7-86f1-c94c1f4b0d24")
@@ -234,6 +236,7 @@ class LinkEditorPanelUi {
     /**
      * Set the contents of the GraphicalViewer after it has been created.
      * @see #createGraphicalViewer(Composite)
+     * 
      * @param viewer the GraphicalViewer
      */
     @objid ("6bbe997a-9b71-4528-8a30-02e2b4565c9e")

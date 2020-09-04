@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -41,42 +41,42 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("955a8b5f-9725-4702-8ec9-55a39db52af4")
 public class ResourceSmClass extends AbstractResourceSmClass {
-    @objid ("6f5c0586-cab2-4c50-9307-e7acfe231673")
+    @objid ("3156eb38-e993-43ef-b575-733e8240a276")
     public ResourceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("644c47ba-a12f-410f-ad2a-91e85482b98b")
+    @objid ("6b944ce1-c024-4a6d-8008-59699c479125")
     @Override
     public String getName() {
         return "Resource";
     }
 
-    @objid ("434c07d3-c4ba-4d4c-b29e-556e3d802180")
+    @objid ("e80390cc-a7ee-443c-8733-029068302b79")
     @Override
     public Version getVersion() {
         return new Version("2.1.00");
     }
 
-    @objid ("38b276cf-7d5e-462f-a01a-66106770a3b0")
+    @objid ("0e8e4de9-c89b-4c91-b5e4-7723c4e05d93")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Resource.class;
     }
 
-    @objid ("3b22a2d3-055b-40bc-9818-cdd3b100eee9")
+    @objid ("3e768d20-572f-4ff5-9f12-6eeb2e852e15")
     @Override
     public boolean isCmsNode() {
         return true;
     }
 
-    @objid ("29cccfe2-a392-4387-9c1c-535f270f9077")
+    @objid ("91dfed00-5dc5-483d-82ae-8509d442db35")
     @Override
     public boolean isAbstract() {
         return false;
     }
 
-    @objid ("2b607944-6fe9-48e8-9b20-b9cd27f6a2ee")
+    @objid ("d39cfaab-fbd2-46d6-8c29-9d384eaf059a")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(AbstractResource.MQNAME);
@@ -90,21 +90,21 @@ public class ResourceSmClass extends AbstractResourceSmClass {
 
     @objid ("4da3cc9f-58df-4d50-b4d7-50884103a404")
     private static class ResourceObjectFactory implements ISmObjectFactory {
-        @objid ("f3274823-27b4-4052-8908-05621935ed02")
+        @objid ("5865f4e7-b406-44e2-b2d8-93160d474c2e")
         private ResourceSmClass smClass;
 
-        @objid ("7db4d896-a402-486d-aa82-4f86c474854a")
+        @objid ("5c208899-9a62-4629-b563-487ce93ba314")
         public ResourceObjectFactory(ResourceSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("871a1cb4-ceaa-41e0-9c21-01b4a8a50348")
+        @objid ("0eeeec49-fd79-4472-a9e8-c036426ab705")
         @Override
         public ISmObjectData createData() {
             return new ResourceData(this.smClass);
         }
 
-        @objid ("308958b1-2bc2-4302-9943-f0c8c9070a94")
+        @objid ("d0c3fc0e-c56c-4db0-9ba1-f3dfb5e16b1e")
         @Override
         public SmObjectImpl createImpl() {
             return new ResourceImpl();

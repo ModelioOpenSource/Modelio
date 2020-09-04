@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -152,6 +152,7 @@ public class R2950 extends AbstractUmlRule {
 
         /**
          * This rules check that all targeted state of a ForkPseudoState are all contained in the same State and are in different regions.
+         * 
          * @param fork The ForkPseudoState to check.
          * @return The audit entry.
          */
@@ -218,6 +219,7 @@ public class R2950 extends AbstractUmlRule {
 
         /**
          * Fetches all the target states of a ForkPseudoState
+         * 
          * @param fork The ForkPseudoState.
          * @return The list of target State.
          */
@@ -237,6 +239,7 @@ public class R2950 extends AbstractUmlRule {
         /**
          * Fetches all the ancestors for each state.
          * @param sourceStates The states from which to get the ancestors.
+         * 
          * @return A map containing all the ancestors of each state.
          */
         @objid ("57687cdb-dd09-441b-bd48-68a895f3081a")
@@ -262,6 +265,7 @@ public class R2950 extends AbstractUmlRule {
 
         /**
          * Tries to fetch the common ancestors to all the states. If none exists, it returns an empty list.
+         * 
          * @param ancestorsMap The map of the state and their ancestors.
          * @return The list of common ancestors.
          */

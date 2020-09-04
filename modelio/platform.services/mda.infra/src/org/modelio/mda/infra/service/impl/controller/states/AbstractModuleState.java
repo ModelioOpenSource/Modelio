@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class AbstractModuleState {
 
     /**
      * Add features that must be active in this state
+     * 
      * @param pfeatures the features to be active
      */
     @objid ("b8eb8ed2-ed2b-4cde-b19f-5a8fa1e7bc92")
@@ -72,6 +73,7 @@ public class AbstractModuleState {
 
     /**
      * Called when entering state, just before current state is set.
+     * 
      * @param oldState the old state.
      * @throws org.modelio.api.module.lifecycle.ModuleException if state change is refused and the previous state must be restored.
      */
@@ -82,6 +84,7 @@ public class AbstractModuleState {
 
     /**
      * Called before exiting state.
+     * 
      * @param newState the new state
      */
     @objid ("b6683ac5-c762-40a3-9a46-241cf28bc352")
@@ -105,6 +108,7 @@ public class AbstractModuleState {
 
     /**
      * Register a transition
+     * 
      * @param t a transition
      */
     @objid ("182185a1-41c8-49e6-b6db-bd01779f05db")

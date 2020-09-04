@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public class ObjectProcessor {
 
     /**
      * Check the object and its composition children.
+     * 
      * @param obj the object to check.
      */
     @objid ("00281ea8-0000-130b-0000-000000000000")

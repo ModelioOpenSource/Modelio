@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,16 +29,16 @@ import org.modelio.core.ui.plugin.CoreUi;
 class MultiStringLabelProvider extends LabelProvider {
     @objid ("8dd22d8f-c068-11e1-8c0a-002564c97630")
     @Override
-    public Image getImage(Object element) {
+    public Image getImage(final Object element) {
         return null;
     }
 
     @objid ("8dd22d95-c068-11e1-8c0a-002564c97630")
     @Override
-    public String getText(Object element) {
+    public String getText(final Object element) {
         String value = (String)element;
         if (value == null || value.isEmpty()) {
-            value = CoreUi.I18N.getString("KTable.EnterParameterHere");
+            value = CoreUi.I18N.getString("MultiStringEditionDialog.EnterParameterHere");
         }
         return value;
     }

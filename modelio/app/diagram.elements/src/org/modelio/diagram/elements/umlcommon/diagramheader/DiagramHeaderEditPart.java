@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -97,6 +97,7 @@ public class DiagramHeaderEditPart extends ModelElementLabelEditPart {
 
         /**
          * Computes the fold size for a rectangle.
+         * 
          * @param rect a rectangle
          * @return the fold size for this rectangle.
          */

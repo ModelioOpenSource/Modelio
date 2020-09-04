@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class CreateGateCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param parentElement The parent Interaction of the Gate to create
      * @param parentNode The parent node
      * @param context Details on the MObject and/or the node to create
@@ -126,6 +127,7 @@ public class CreateGateCommand extends Command {
 
     /**
      * Get the initial layout constraint.
+     * 
      * @return the initial layout constraint.
      */
     @objid ("d8f2c039-55b6-11e2-877f-002564c97630")
@@ -135,6 +137,7 @@ public class CreateGateCommand extends Command {
 
     /**
      * Get the creation context (parent element, parent dependency, stereotype).
+     * 
      * @return the creation context.
      */
     @objid ("d8f2c03e-55b6-11e2-877f-002564c97630")
@@ -144,6 +147,7 @@ public class CreateGateCommand extends Command {
 
     /**
      * Get the parent model element.
+     * 
      * @return the parent model element.
      */
     @objid ("d8f2c045-55b6-11e2-877f-002564c97630")
@@ -153,6 +157,7 @@ public class CreateGateCommand extends Command {
 
     /**
      * Get the parent graphic node.
+     * 
      * @return the parent graphic node.
      */
     @objid ("d8f446bf-55b6-11e2-877f-002564c97630")

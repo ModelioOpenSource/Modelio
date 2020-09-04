@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -30,19 +30,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("008a4260-c4be-1fd8-97fe-001ec947cd2a")
 public class NoteData extends ModelElementData {
-    @objid ("387d4ba8-0a12-4740-8b4b-cbeb6c99274d")
+    @objid ("591d4e95-f722-47c7-9d88-a7145d061f96")
      Object mContent = "";
 
-    @objid ("9885e5ed-ab24-4f7e-bdf1-a0f9113abf32")
+    @objid ("02ebf877-cb59-4e06-94ef-dd68c6ca6c35")
      Object mMimeType = "";
 
-    @objid ("22dddc08-e83d-48f9-9746-fed53c955ffe")
+    @objid ("b57061e2-485d-4a97-afd7-9f1fd91ecb93")
      SmObjectImpl mModel;
 
-    @objid ("288f903c-af97-4b60-a2d7-ae5af3845612")
+    @objid ("f00c9fff-95dd-40c3-a19f-e99c1b5d7cab")
      SmObjectImpl mSubject;
 
-    @objid ("f9561f5a-c89b-4e0b-b7a8-e5c907488148")
+    @objid ("577d69b9-0eec-464d-832d-fed2041b49d6")
     public NoteData(NoteSmClass smClass) {
         super(smClass);
     }

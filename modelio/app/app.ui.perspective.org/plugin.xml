@@ -3,7 +3,7 @@
 <plugin>
 
    <extension id="appui.ext_com" point="org.eclipse.e4.workbench.model">
-      <fragment uri="e4model/appui.perspective_org.e4xmi" />
+      <fragment uri="e4model/appui.perspective_org.e4xmi"/>
    </extension>
 
 </plugin>

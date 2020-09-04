@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ class InsertThrowCatchFeedback {
 
     /**
      * Shows the creation feedback.
+     * 
      * @param flowFigure the sequence flow to insert the node in.
      * @param mouseLocation the current mouse location.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.eclipse.draw2d.PrinterGraphics;
 public class ZoomDrawer {
     /**
      * Set the graphics line width depending on the zoom level and the graphics type.
+     * 
      * @param g the graphics
      * @param width line width
      */

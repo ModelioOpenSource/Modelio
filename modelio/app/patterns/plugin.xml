@@ -3,10 +3,7 @@
 <plugin>
 	<extension id="patterns" point="org.eclipse.e4.workbench.model">
       <fragment uri="e4model/patterns.e4xmi"/>
-      <processor
-            beforefragment="false"
-            class="org.modelio.patterns.engine.PatternServiceInitializer">
-      </processor>
+      <processor beforefragment="false" class="org.modelio.patterns.engine.PatternServiceInitializer"/>
    </extension>
 
    <extension point="org.modelio.script.engine.classloaders">

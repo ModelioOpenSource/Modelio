@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -159,6 +159,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
 
     /**
      * Set the content figure that will be placed in the content area.
+     * 
      * @param figure the content figure.
      */
     @objid ("81970fb1-1dec-11e2-8cad-001ec947c8cc")
@@ -183,6 +184,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
      * Set the header figure.
      * <p>
      * The header figure will be placed in the header area.
+     * 
      * @param figure the new header figure.
      */
     @objid ("81970fbb-1dec-11e2-8cad-001ec947c8cc")

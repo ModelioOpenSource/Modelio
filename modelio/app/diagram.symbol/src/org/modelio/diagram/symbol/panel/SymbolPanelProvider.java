@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -172,6 +172,7 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
      * <li>setting the cascaded style of the gmObject to the style of the owning diagram (unless the gmObject is the diagram itself)
      * <li>cleaning all local properties
      * </ul>
+     * 
      * @param style the style to apply.
      */
     @objid ("ac5129ba-55b7-11e2-877f-002564c97630")

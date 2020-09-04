@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -95,6 +95,7 @@ public class NoteChooserDriver implements IElementChooserDriver {
     /**
      * Get the note created after the user has selected the note type. This method will return null until the user has validated the
      * dialog box.
+     * 
      * @return the created note if any.
      */
     @objid ("26e12454-186f-11e2-bc4e-002564c97630")

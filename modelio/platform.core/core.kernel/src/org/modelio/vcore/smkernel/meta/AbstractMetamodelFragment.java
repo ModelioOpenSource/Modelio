@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -134,6 +134,7 @@ public abstract class AbstractMetamodelFragment implements ISmMetamodelFragment 
      * Tells whether this metamodel fragment is an extension or a standard Modelio metamodel fragment.
      * <p>
      * Standard Modelio metamodel fragments are guaranteed to have no metaclass name collisions.
+     * 
      * @return <i>true</i> if the fragment is an extension, <i>false</i> if it is a Modelio standard fragment.
      */
     @objid ("b0d2add3-0f63-42e2-9891-fd5b3699c800")

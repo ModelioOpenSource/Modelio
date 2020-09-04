@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.cdatetime.feature"
+      label="Nebula CDateTime Widget"
+      version="1.3.0.201812241324"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://www.eclipse.org/nebula/widgets/cdatetime">
+      A Date and Time selection widgt that can be used in a textual, graphical, or combo mode.
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.nebula.cwt.feature" version="0.9.0.qualifier"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.cdatetime"
+         download-size="101"
+         install-size="202"
+         version="1.3.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.cdatetime.source"
+         download-size="63"
+         install-size="206"
+         version="1.3.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.jface.cdatetime.source"
+         download-size="10"
+         install-size="18"
+         version="1.3.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.jface.cdatetime"
+         download-size="17"
+         install-size="28"
+         version="1.3.0.201812241324"
+         unpack="false"/>
+
+</feature>

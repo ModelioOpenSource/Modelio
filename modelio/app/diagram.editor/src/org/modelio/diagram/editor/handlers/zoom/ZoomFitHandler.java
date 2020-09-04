@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -117,6 +117,7 @@ public class ZoomFitHandler {
 
     /**
      * Recurse through layers in order to find the DiagramFigure
+     * 
      * @param layer @return
      */
     @objid ("66628635-33f7-11e2-95fe-001ec947c8cc")

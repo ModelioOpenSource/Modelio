@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -122,6 +122,7 @@ class LocalSaver implements AutoCloseable, ExmlTags {
 
     /**
      * Open the file and write the document begin if not already done.
+     * 
      * @throws javax.xml.stream.XMLStreamException on I/O failure
      */
     @objid ("9385803c-310f-46ce-802c-c6f5a2457a5b")

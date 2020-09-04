@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,7 +65,7 @@ public class DefaultLabelEditor implements ICellModifier {
         }
         
         if (object instanceof DiagramRef) {
-            return ((DiagramRef) object).referencedDiagram.getName();
+            return ((DiagramRef) object).getReferencedDiagram().getName();
         }
         
         if (object instanceof AbstractDiagram) {
@@ -95,7 +95,7 @@ public class DefaultLabelEditor implements ICellModifier {
                     }
         
                     if (data instanceof DiagramRef) {
-                        ((DiagramRef) data).referencedDiagram.setName((String) value);
+                        ((DiagramRef) data).getReferencedDiagram().setName((String) value);
                     }
                     if (data instanceof AbstractDiagram) {
                         ((AbstractDiagram) data).setName((String) value);
@@ -110,7 +110,7 @@ public class DefaultLabelEditor implements ICellModifier {
     /**
      * Check if the object can theoretically be edited based on its nature. The diagram browser tree shows only three types of node:
      * DiagramSet, DiagramRef, VirtualFolder. Only the name of DiagramSet and DiagramRef can be edited.
-     * @param object
+     * 
      * @return true if the object nature allows its edition, false otherwise.
      */
     @objid ("0036fd6c-0d4f-10c6-842f-001ec947cd2a")

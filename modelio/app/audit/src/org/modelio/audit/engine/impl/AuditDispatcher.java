@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -182,6 +182,7 @@ public class AuditDispatcher implements IModelChangeListener, IStatusChangeListe
      * element has at least one stereotype, it returns all the rules concerned
      * by each stereotype. Else it returns all the rules concerned by the
      * element's metaclass.
+     * 
      * @param element The element
      * @param trigger The type of event that happened to the element.
      * @return The list of rules to check.

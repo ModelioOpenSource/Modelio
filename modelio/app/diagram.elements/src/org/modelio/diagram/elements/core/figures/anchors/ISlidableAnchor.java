@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.eclipse.draw2d.geometry.Point;
 public interface ISlidableAnchor extends ConnectionAnchor {
     /**
      * Changes the reference point so that next call to {@link #getLocation(Point)} returns the given point.
+     * 
      * @param newlocation The new anchor location in absolute coordinates.
      */
     @objid ("7f5151f8-1dec-11e2-8cad-001ec947c8cc")

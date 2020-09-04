@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,7 +75,7 @@ public class OInterface extends ONameSpace {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
             // In case of a org.eclipse.uml2.uml.TemplateParameter, we don't handle export of
-            // org.eclipse.uml2.uml.Interfaces: the Ijing
+            // org.eclipse.uml2.uml.Interfaces: the Modelio
             // metamodel supports it but it is not possible for an user to
             // create one through the
             // MMI (man-machine interface).
@@ -86,8 +86,12 @@ public class OInterface extends ONameSpace {
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
-        setPrimitiveEAnnotation((org.eclipse.uml2.uml.Interface) ecoreElt);
+        
         setLeaf((org.eclipse.uml2.uml.Interface) ecoreElt);
+        
+        if (GenerationProperties.getInstance().isRoundtripEnabled()) {
+            setPrimitiveEAnnotation((org.eclipse.uml2.uml.Interface) ecoreElt);
+        }
     }
 
     @objid ("06417056-54e7-4afc-aea2-16ed12ac07f3")

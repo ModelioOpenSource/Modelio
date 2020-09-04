@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class ModelImportDataModel implements AutoCloseable {
 
     /**
      * Get the actual list of all elements to import.
+     * 
      * @return all elements to import.
      */
     @objid ("c1c50a4f-91f2-46a8-aa75-0905b4176ecc")
@@ -56,6 +57,7 @@ public class ModelImportDataModel implements AutoCloseable {
 
     /**
      * Get the current imported project.
+     * 
      * @return the imported project. Might be <code>null</code> if {@link #setImportedProject(Path)} has not been called.
      */
     @objid ("329e3d58-6ebc-4bdb-9060-2ee164eeba87")

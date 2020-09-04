@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ public class ParticipantSymbolProvider {
      * <li>simply its name.</li>
      * <li>an empty string for a <code>null</code> participant.</li>
      * </ul>
+     * 
      * @param participant the participant
      * @return the computed label.
      */

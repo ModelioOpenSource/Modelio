@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class ObliqueConnectionHelper implements IConnectionHelper {
 
     /**
      * Get the path routing mode.
+     * 
      * @return the path routing mode.
      */
     @objid ("8049468e-1dec-11e2-8cad-001ec947c8cc")
@@ -76,6 +77,7 @@ public class ObliqueConnectionHelper implements IConnectionHelper {
 
     /**
      * constructor from a list of points (in coordinates relative to the connection).
+     * 
      * @param points the list of point.
      * @param connection the connection for which this helper is created.
      */

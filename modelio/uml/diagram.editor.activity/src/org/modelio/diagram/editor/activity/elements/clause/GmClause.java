@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class GmClause extends GmCompositeNode {
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theClause the represented clause, may be null.
      * @param ref a reference to the represented clause.
@@ -123,6 +124,7 @@ public class GmClause extends GmCompositeNode {
 
     /**
      * Get the inner zone where the clause content is displayed.
+     * 
      * @return The inner zone.
      */
     @objid ("2a05de05-55b6-11e2-877f-002564c97630")
@@ -235,6 +237,7 @@ public class GmClause extends GmCompositeNode {
 
         /**
          * Initialize the test label.
+         * 
          * @param diagram The diagram
          * @param ref a reference to the represented element.
          */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class SaxLocalExmlLoader implements IDependencyContentHook {
 
     /**
      * Initialize the SAX loader.
+     * 
      * @param loadHelper a load helper
      */
     @objid ("b5c58ec8-3fbb-11e2-87cb-001ec947ccaf")
@@ -87,6 +88,7 @@ public class SaxLocalExmlLoader implements IDependencyContentHook {
 
     /**
      * Load an EXML resource from an XML {@link InputSource}.
+     * 
      * @param is the EXML source.
      * @param loader the API to use to load the content.
      * @return the loaded CMS node.

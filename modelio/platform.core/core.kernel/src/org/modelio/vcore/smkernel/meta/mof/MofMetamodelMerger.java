@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -187,6 +187,7 @@ public class MofMetamodelMerger extends AbstractMetamodelMerger {
      * Set whether created meta elements are temporary.
      * <p>
      * Temporary meta elements are not serialized in {@link MofMetamodel#serialize()}.
+     * 
      * @param temporary whether created meta elements are temporary.
      * @return this instance.
      */

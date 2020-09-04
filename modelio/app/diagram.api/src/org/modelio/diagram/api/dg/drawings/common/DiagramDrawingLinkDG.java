@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,12 +24,20 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.gef.ConnectionEditPart;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.Request;
+import org.eclipse.gef.RequestConstants;
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.requests.ReconnectRequest;
 import org.modelio.api.modelio.diagram.IDiagramDrawingLink;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramLink;
 import org.modelio.api.modelio.diagram.dg.IDiagramLayer;
 import org.modelio.diagram.api.dg.DGFactory;
 import org.modelio.diagram.api.services.DiagramAbstractLink;
+import org.modelio.diagram.api.services.DiagramGraphic;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.elements.core.model.IGmNode;
 import org.modelio.diagram.elements.core.model.IGmObject;
@@ -111,6 +119,7 @@ public class DiagramDrawingLinkDG extends DiagramAbstractLink implements IDiagra
 
     /**
      * Creates a drawing link.
+     * 
      * @param diagramHandle the diagram handle
      * @param gmLink the drawing link model
      */
@@ -136,6 +145,59 @@ public class DiagramDrawingLinkDG extends DiagramAbstractLink implements IDiagra
     @Override
     protected Collection<IGmNode> getGmNodes(ExtensionRole role) {
         return Collections.emptyList();
+    }
+
+    @objid ("5ee83c27-98d4-4a24-ac9c-0ab1c0ce6b61")
+    @Override
+    public void setFrom(IDiagramGraphic source) {
+        IGmObject newNode = ((DiagramGraphic) source).getModel();
+        String type = RequestConstants.REQ_RECONNECT_SOURCE;
+        reconnect(newNode, type);
+    }
+
+    @objid ("a4cb47e8-0506-4c96-b2ca-1ff2cdc48e12")
+    @Override
+    public void setTo(IDiagramGraphic target) {
+        IGmObject newNode = ((DiagramGraphic) target).getModel();
+        String type = RequestConstants.REQ_RECONNECT_TARGET;
+        reconnect(newNode, type);
+    }
+
+    @objid ("e0beae80-01c0-4ba3-9cae-c6ce8adf3a58")
+    private void reconnect(IGmObject newNode, String type) {
+        if (newNode instanceof IGmDrawingLinkable) {
+            // Reconnect connectionEditPart from srcNode to newNode
+            ReconnectRequest recoReq = new ReconnectRequest(type);
+            recoReq.setConnectionEditPart((ConnectionEditPart) this.diagramHandle.getEditPart(this.gmLink));
+            recoReq.setLocation(new Point(0, 0));
+        
+            EditPart newMainNode = DiagramDrawingLinkDG.findChildEditPartFor(this.diagramHandle.getEditPart(newNode), recoReq);
+            recoReq.setTargetEditPart(newMainNode);
+        
+            Command recoCommand = newMainNode.getCommand(recoReq);
+            if (recoCommand == null || !recoCommand.canExecute()) {
+                throw new IllegalArgumentException("Reconnection is not supported");
+            } else {
+                recoCommand.execute();
+            }
+        }
+    }
+
+    @objid ("dbe143a1-129a-4636-a8f8-63fc255aa937")
+    private static EditPart findChildEditPartFor(EditPart from, Request req) {
+        EditPart targetEditPart = from.getTargetEditPart(req);
+        if (targetEditPart != null) {
+            return targetEditPart;
+        }
+        
+        for (EditPart e : (List<EditPart>) from.getChildren()) {
+            targetEditPart = e.getTargetEditPart(req);
+            if (targetEditPart != null) {
+                return targetEditPart;
+            }
+        }
+        
+        throw new IllegalArgumentException("Reconnection is not supported");
     }
 
 }

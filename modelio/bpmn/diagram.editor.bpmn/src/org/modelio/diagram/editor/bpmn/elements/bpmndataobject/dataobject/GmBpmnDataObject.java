@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public class GmBpmnDataObject extends GmPortContainer {
 
     /**
      * Creates a GmNote.
+     * 
      * @param diagram The diagram owning the node
      * @param theElement The represented note element
      * @param ref The represented note reference
@@ -207,6 +208,7 @@ public class GmBpmnDataObject extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -218,6 +220,7 @@ public class GmBpmnDataObject extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

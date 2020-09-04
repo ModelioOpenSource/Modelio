@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,6 +72,7 @@ public class LockInfo implements ILockInfo {
 
     /**
      * Constructor from a {@link Properties}.
+     * 
      * @param p java properties
      * @param thisVmIdentifier this Java virtual machine identifier
      */
@@ -128,6 +129,7 @@ public class LockInfo implements ILockInfo {
 
     /**
      * Serializes the lock information in a java {@link Properties}.
+     * 
      * @return the saved lock infos.
      */
     @objid ("e7d17c86-ac26-406e-b1f1-ef86dd715028")

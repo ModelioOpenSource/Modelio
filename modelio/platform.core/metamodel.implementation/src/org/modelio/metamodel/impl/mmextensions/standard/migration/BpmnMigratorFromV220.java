@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -198,6 +198,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Modify the metamodel so that it can read the source repository.
+     * 
      * @param metamodel the metamodel at the final state
      * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
      */
@@ -465,6 +466,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'UmlState' metamodel dep with a <<State>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -480,6 +482,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'RepresentedParameter' metamodel dep with a <<Represents>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -495,6 +498,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'RepresentedParameter' metamodel dep with a <<Represents>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -510,6 +514,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'CalledOperation' and 'CalledBehavior' metamodel deps with a <<Called>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -544,6 +549,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'ImplementationRef' metamodel dep with a <<Reference>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -559,6 +565,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'Type', 'RepresentedAssociationEnd', 'RepresentedAttribute' and 'RepresentedInstance' metamodel deps with a <<Represents>> {@link MethodologicalLink}. Replace 'InState' metamodel dep with a <<State>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -579,6 +586,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'StructureRef' metamodel dep with a <<Reference>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -594,6 +602,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'PartitionElement' metamodel dep with a <<PartitionElement>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -610,6 +619,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
     /**
      * Replace 'Type' metamodel dep with a <<Represents>> {@link MethodologicalLink}. <br/>
      * Replace 'InState' metamodel dep with a <<State>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -627,6 +637,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'ImplementationRef' metamodel dep with a <<Reference>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -643,6 +654,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
     /**
      * Replace 'Type' metamodel dep with a <<Represents>> {@link MethodologicalLink}. <br/>
      * Replace 'PackageRef' metamodel dep with a <<Reference>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -660,6 +672,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'CalledOperation' metamodel dep with a <<Called>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -675,6 +688,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'CalledOperation' metamodel dep with a <<Called>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
@@ -690,6 +704,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'CalledOperation' metamodel dep with a <<Called>> {@link MethodologicalLink}.
+     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur

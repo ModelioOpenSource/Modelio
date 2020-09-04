@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 public class ModuleRemover {
     /**
      * Delete all annotations using annotations types provided by the module .
+     * 
      * @param module the module to delete.
      * @throws org.modelio.api.module.lifecycle.ModuleException on failure
      */

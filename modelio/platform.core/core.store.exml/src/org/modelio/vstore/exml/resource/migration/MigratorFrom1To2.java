@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -111,6 +111,7 @@ public class MigratorFrom1To2 {
 
     /**
      * Run the migration.
+     * 
      * @param monitor a progress monitor
      * @throws java.io.IOException on failure.
      */
@@ -140,6 +141,7 @@ public class MigratorFrom1To2 {
      * Called at the end.
      * <p>
      * Does nothing by default.
+     * 
      * @param monitor a progress monitor.
      * @throws java.io.IOException on failure.
      */
@@ -152,6 +154,7 @@ public class MigratorFrom1To2 {
      * Called at the beginning.
      * <p>
      * Does nothing by default.
+     * 
      * @param monitor a progress monitor.
      * @throws java.io.IOException on failure.
      */
@@ -203,7 +206,7 @@ public class MigratorFrom1To2 {
         int i = 0;
         int count = oldDirs.size();
         for (Path oldDir : oldDirs) {
-            monitor.subTask(VStoreExml.getMessage("MigratorFrom1To2.deletingDirectories.progress", i, count));
+            monitor.subTask(VStoreExml.I18N.getMessage("MigratorFrom1To2.deletingDirectories.progress", i, count));
         
             if (!newDirs.contains(oldDir.toFile()) && !this.createdDirectories.contains(oldDir)) {
                 deleteDirectory(oldDir);
@@ -236,6 +239,7 @@ public class MigratorFrom1To2 {
 
     /**
      * Create a new directory
+     * 
      * @param newDir the directory path relative to the repository root.
      * @throws java.io.IOException on failure
      */
@@ -247,7 +251,7 @@ public class MigratorFrom1To2 {
 
     @objid ("78dca872-b003-4af3-a169-fffd870b5881")
     private void moveAllResources(IModelioProgress aMonitor) throws IOException {
-        SubProgress monitor = SubProgress.convert(aMonitor, VStoreExml.getMessage("MigratorFrom1To2.moveAllResources.task"), 10);
+        SubProgress monitor = SubProgress.convert(aMonitor, VStoreExml.I18N.getMessage("MigratorFrom1To2.moveAllResources.task"), 10);
         
         forEachExmlFile(this.from, new IFileOp() {
             private int count = 0;
@@ -274,7 +278,7 @@ public class MigratorFrom1To2 {
         
                 monitor.worked(1);
                 monitor.setWorkRemaining(10);
-                monitor.subTask(VStoreExml.getMessage("MigratorFrom1To2.moveAllResources.progress", this.count, this.movedCount));
+                monitor.subTask(VStoreExml.I18N.getMessage("MigratorFrom1To2.moveAllResources.progress", this.count, this.movedCount));
         
             }
         });
@@ -347,6 +351,7 @@ public class MigratorFrom1To2 {
 
     /**
      * Report a file as modified.
+     * 
      * @param modifiedFile the modified file
      * @throws java.io.IOException on hook failure.
      */
@@ -427,7 +432,7 @@ public class MigratorFrom1To2 {
                 monitor.worked(1);
                 monitor.setWorkRemaining(5);
             
-                monitor.subTask(VStoreExml.getMessage("FilesRegenerator.progress", ++this.count));
+                monitor.subTask(VStoreExml.I18N.getMessage("FilesRegenerator.progress", ++this.count));
             });
         }
 

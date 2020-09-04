@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ import org.modelio.vcore.smkernel.mapi.MMetamodel;
 public interface IXMIService {
     /**
      * This service exports the given Package in the File xmiFile
+     * 
      * @param configuration : the configuration of export process.
      * @throws java.lang.Exception : the first Exception occurring during the export
      */
@@ -43,6 +44,7 @@ public interface IXMIService {
     /**
      * This service imports the Model saved in the given XMI file.
      * The import result will be owned by the given Package.
+     * 
      * @param configuration : the configuration of import process.
      * @throws java.lang.Exception : the first Exception occurring during the export
      */
@@ -52,6 +54,7 @@ public interface IXMIService {
     /**
      * This service imports the Profile saved in the given XMI file.
      * The import result will be owned by the given IModule.
+     * 
      * @param configuration : the configuration of import process.
      * @throws java.lang.Exception : the first Exception occurring during the export
      */
@@ -61,6 +64,7 @@ public interface IXMIService {
     /**
      * This service export the Profile saved in the given XMI file.
      * The export result will be owned by the given IModule.
+     * 
      * @param configuration : the configuration of import process.
      * @throws java.lang.Exception : the first Exception occurring during the export
      */

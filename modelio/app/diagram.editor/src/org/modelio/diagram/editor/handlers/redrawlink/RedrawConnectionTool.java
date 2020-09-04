@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -79,6 +79,7 @@ public class RedrawConnectionTool extends AbstractConnectionCreationTool {
 
     /**
      * Constructs a new RedrawConnectionTool to redraw the given {@link LinkEditPart}
+     * 
      * @param linkEditPart the edit part of the link to redraw.
      */
     @objid ("65c0663d-33f7-11e2-95fe-001ec947c8cc")
@@ -198,6 +199,7 @@ public class RedrawConnectionTool extends AbstractConnectionCreationTool {
      * Get the current routing mode.
      * <p>
      * The routing mode is lazily initialized here.
+     * 
      * @return the the current routing mode.
      */
     @objid ("65c06666-33f7-11e2-95fe-001ec947c8cc")
@@ -222,6 +224,7 @@ public class RedrawConnectionTool extends AbstractConnectionCreationTool {
 
     /**
      * If the connections is already started, the second button down will call {@link AbstractConnectionCreationTool#handleCreateConnection()}. Otherwise, it attempts to start the connection.
+     * 
      * @param button the button that was pressed
      * @return <code>true</code> if the button down was processed
      */
@@ -262,6 +265,7 @@ public class RedrawConnectionTool extends AbstractConnectionCreationTool {
 
     /**
      * Cleans up feedback and resets the tool when focus is lost.
+     * 
      * @return <code>true</code> if this focus lost event was processed
      */
     @objid ("65c06677-33f7-11e2-95fe-001ec947c8cc")
@@ -278,6 +282,7 @@ public class RedrawConnectionTool extends AbstractConnectionCreationTool {
 
     /**
      * Processes the arrow keys (to move the cursor to nearby anchor locations) and the enter key (to start or complete a connections).
+     * 
      * @param event the key event
      * @return <code>true</code> if this key down event was processed
      */
@@ -418,6 +423,7 @@ public class RedrawConnectionTool extends AbstractConnectionCreationTool {
 
     /**
      * Get the alternate connection routing mode that is activated when pressing &lt;shift>.
+     * 
      * @return the alternate connection routing mode.
      */
     @objid ("65c2c8aa-33f7-11e2-95fe-001ec947c8cc")
@@ -436,6 +442,7 @@ public class RedrawConnectionTool extends AbstractConnectionCreationTool {
      * Get the primary routing mode.
      * <p>
      * The primary routing mode is lazily initialized from the routing mode style key.
+     * 
      * @return the primary routing mode.
      */
     @objid ("65c2c8ae-33f7-11e2-95fe-001ec947c8cc")
@@ -457,6 +464,7 @@ public class RedrawConnectionTool extends AbstractConnectionCreationTool {
 
     /**
      * Find the target editpart and returns it. The target is searched by using the target conditional and the target request.
+     * 
      * @return the edit part that can handle the request under the mouse.
      */
     @objid ("65c2c8b3-33f7-11e2-95fe-001ec947c8cc")
@@ -472,6 +480,7 @@ public class RedrawConnectionTool extends AbstractConnectionCreationTool {
 
     /**
      * Method that is called when the gesture to create an intermediate point has been received. Returns <code>true</code> to indicate that the point creation succeeded.
+     * 
      * @return <code>true</code> if the connection point was performed
      */
     @objid ("65c2c8b8-33f7-11e2-95fe-001ec947c8cc")
@@ -506,6 +515,7 @@ public class RedrawConnectionTool extends AbstractConnectionCreationTool {
 
     /**
      * Same as {@link org.eclipse.gef.tools.TargetingTool#setTargetEditPart(EditPart) setTargetEditPart(EditPart)} but returns whether a change was done or not.
+     * 
      * @param editPart The new edit part, may be null
      * @return true if the edit part was changed, false if it is still the same.
      */
@@ -581,7 +591,7 @@ public class RedrawConnectionTool extends AbstractConnectionCreationTool {
         }
         super.deactivate();
         if (mustReload) {
-            this.originalDiagram.getPersister().load();
+            this.originalDiagram.load();
         }
     }
 

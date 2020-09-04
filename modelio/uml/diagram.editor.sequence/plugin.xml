@@ -11,65 +11,67 @@
   </extension>
 
   <extension point="org.modelio.diagram.editor.toolregistry">
-    <creationtool id="CREATE_LIFELINE" interactor="point" label="%Lifeline.label" tooltip="%Lifeline.tooltip">
-      <context metaclass="Standard.Lifeline"/>
-    </creationtool>
-    <creationtool id="CREATE_PARTDECOMPOSITION" interactor="point" label="%Partdecomposition.label" tooltip="%Partdecomposition.tooltip">
-      <context metaclass="Standard.PartDecomposition"/>
-    </creationtool>
-    <creationtool id="CREATE_EXECUTIONSPECIFICATION" interactor="node" label="%ExecutionSpecification.label" tooltip="%ExecutionSpecification.tooltip">
-      <context metaclass="Standard.ExecutionSpecification"/>
-    </creationtool>
-    <creationtool icon="icons/messagecreate.png" id="CREATE_CREATIONMESSAGE" interactor="link" label="%CreationMessage.label" tooltip="%CreationMessage.tooltip">
-      <context metaclass="Standard.Message">
-        <property name="messageType" value="Creation"/>
-      </context>
-    </creationtool>
-    <creationtool icon="icons/messagedestroy.png" id="CREATE_DESTRUCTIONMESSAGE" interactor="link" label="%DestructionMessage.label" tooltip="%DestructionMessage.tooltip">
-      <context metaclass="Standard.Message">
-        <property name="messageType" value="Destruction"/>
-      </context>
-    </creationtool>
-    <creationtool icon="icons/messageasynchronous.png" id="CREATE_ASYNCHRONOUSMESSAGE" interactor="link" label="%AsynchronousMessage.label" tooltip="%AsynchronousMessage.tooltip">
-      <context metaclass="Standard.Message">
-        <property name="messageType" value="SimpleAsynchronous"/>
-      </context>
-    </creationtool>
-    <creationtool icon="icons/messagesynchronous.png" id="CREATE_SYNCHRONOUSMESSAGE" interactor="link" label="%SynchronousMessage.label" tooltip="%SynchronousMessage.tooltip">
-      <context metaclass="Standard.Message">
-        <property name="messageType" value="SimpleSynchronous"/>
-      </context>
-    </creationtool>
-    <creationtool icon="icons/messageasynchronous.png" id="CREATE_ASYNCHRONOUSMESSAGE_INNEREXECUTION" interactor="link" label="%AsynchronousMessageWithInner.label" tooltip="%AsynchronousMessageWithInner.tooltip">
-      <context metaclass="Standard.Message">
-        <property name="messageType" value="InnerExecutionAsynchronous"/>
-      </context>
-    </creationtool>
-    <creationtool icon="icons/messagesynchronous.png" id="CREATE_SYNCHRONOUSMESSAGE_INNEREXECUTION" interactor="link" label="%SynchronousMessageWithInner.label" tooltip="%SynchronousMessageWithInner.tooltip">
-      <context metaclass="Standard.Message">
-          <property name="messageType" value="InnerExecutionSynchronous"/>
-      </context>
-    </creationtool>
-    <creationtool icon="icons/messagereply.png" id="CREATE_REPLY" interactor="link" label="%Reply.label" tooltip="%Reply.tooltip">
-      <context metaclass="Standard.Message">
-        <property name="messageType" value="Reply"/>
-      </context>
-    </creationtool>
-    <creationtool id="CREATE_INTERACTIONUSE" interactor="node" label="%InteractionUse.label" tooltip="%InteractionUse.tooltip">
-      <context metaclass="Standard.InteractionUse"/>
-    </creationtool>
-    <creationtool id="CREATE_GATE" interactor="node" label="%Gate.label" tooltip="%Gate.tooltip">
-      <context metaclass="Standard.Gate"/>
-    </creationtool>
-    <creationtool id="CREATE_COMBINEDFRAGMENT" interactor="node" label="%CombinedFragment.label" tooltip="%CombinedFragment.tooltip">
-      <context metaclass="Standard.CombinedFragment"/>
-    </creationtool>
-    <creationtool id="CREATE_INTERACTIONOPERAND" interactor="point" label="%InteractionOperand.label" tooltip="%InteractionOperand.tooltip">
-      <context metaclass="Standard.InteractionOperand"/>
-    </creationtool>
-    <creationtool id="CREATE_STATEINVARIANT" interactor="node" label="%StateInvariant.label" tooltip="%StateInvariant.tooltip">
-      <context metaclass="Standard.StateInvariant"/>
-    </creationtool>
+  	<tools>
+	    <creationtool id="CREATE_LIFELINE" interactor="point" label="%Lifeline.label" tooltip="%Lifeline.tooltip">
+	      <context metaclass="Standard.Lifeline"/>
+	    </creationtool>
+	    <creationtool id="CREATE_PARTDECOMPOSITION" interactor="point" label="%Partdecomposition.label" tooltip="%Partdecomposition.tooltip">
+	      <context metaclass="Standard.PartDecomposition"/>
+	    </creationtool>
+	    <creationtool id="CREATE_EXECUTIONSPECIFICATION" interactor="node" label="%ExecutionSpecification.label" tooltip="%ExecutionSpecification.tooltip">
+	      <context metaclass="Standard.ExecutionSpecification"/>
+	    </creationtool>
+	    <creationtool icon="icons/messagecreate.png" id="CREATE_CREATIONMESSAGE" interactor="link" label="%CreationMessage.label" tooltip="%CreationMessage.tooltip">
+	      <context metaclass="Standard.Message">
+	        <property name="messageType" value="Creation"/>
+	      </context>
+	    </creationtool>
+	    <creationtool icon="icons/messagedestroy.png" id="CREATE_DESTRUCTIONMESSAGE" interactor="link" label="%DestructionMessage.label" tooltip="%DestructionMessage.tooltip">
+	      <context metaclass="Standard.Message">
+	        <property name="messageType" value="Destruction"/>
+	      </context>
+	    </creationtool>
+	    <creationtool icon="icons/messageasynchronous.png" id="CREATE_ASYNCHRONOUSMESSAGE" interactor="link" label="%AsynchronousMessage.label" tooltip="%AsynchronousMessage.tooltip">
+	      <context metaclass="Standard.Message">
+	        <property name="messageType" value="SimpleAsynchronous"/>
+	      </context>
+	    </creationtool>
+	    <creationtool icon="icons/messagesynchronous.png" id="CREATE_SYNCHRONOUSMESSAGE" interactor="link" label="%SynchronousMessage.label" tooltip="%SynchronousMessage.tooltip">
+	      <context metaclass="Standard.Message">
+	        <property name="messageType" value="SimpleSynchronous"/>
+	      </context>
+	    </creationtool>
+	    <creationtool icon="icons/messageasynchronous.png" id="CREATE_ASYNCHRONOUSMESSAGE_INNEREXECUTION" interactor="link" label="%AsynchronousMessageWithInner.label" tooltip="%AsynchronousMessageWithInner.tooltip">
+	      <context metaclass="Standard.Message">
+	        <property name="messageType" value="InnerExecutionAsynchronous"/>
+	      </context>
+	    </creationtool>
+	    <creationtool icon="icons/messagesynchronous.png" id="CREATE_SYNCHRONOUSMESSAGE_INNEREXECUTION" interactor="link" label="%SynchronousMessageWithInner.label" tooltip="%SynchronousMessageWithInner.tooltip">
+	      <context metaclass="Standard.Message">
+	          <property name="messageType" value="InnerExecutionSynchronous"/>
+	      </context>
+	    </creationtool>
+	    <creationtool icon="icons/messagereply.png" id="CREATE_REPLY" interactor="link" label="%Reply.label" tooltip="%Reply.tooltip">
+	      <context metaclass="Standard.Message">
+	        <property name="messageType" value="Reply"/>
+	      </context>
+	    </creationtool>
+	    <creationtool id="CREATE_INTERACTIONUSE" interactor="node" label="%InteractionUse.label" tooltip="%InteractionUse.tooltip">
+	      <context metaclass="Standard.InteractionUse"/>
+	    </creationtool>
+	    <creationtool id="CREATE_GATE" interactor="node" label="%Gate.label" tooltip="%Gate.tooltip">
+	      <context metaclass="Standard.Gate"/>
+	    </creationtool>
+	    <creationtool id="CREATE_COMBINEDFRAGMENT" interactor="node" label="%CombinedFragment.label" tooltip="%CombinedFragment.tooltip">
+	      <context metaclass="Standard.CombinedFragment"/>
+	    </creationtool>
+	    <creationtool id="CREATE_INTERACTIONOPERAND" interactor="point" label="%InteractionOperand.label" tooltip="%InteractionOperand.tooltip">
+	      <context metaclass="Standard.InteractionOperand"/>
+	    </creationtool>
+	    <creationtool id="CREATE_STATEINVARIANT" interactor="node" label="%StateInvariant.label" tooltip="%StateInvariant.tooltip">
+	      <context metaclass="Standard.StateInvariant"/>
+	    </creationtool>
+    </tools>
   </extension>
 
   <extension point="org.modelio.creation.wizard.contributor">

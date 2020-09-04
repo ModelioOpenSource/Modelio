@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,6 +50,7 @@ public class DefaultModelComponentContributor extends AbstractModelComponentCont
 
     /**
      * Default constructor, initializing all fields.
+     * 
      * @param module the module contibuting to the model component.
      */
     @objid ("7ba9d230-ee0f-11dd-bb8c-0014222a9f79")
@@ -66,6 +67,7 @@ public class DefaultModelComponentContributor extends AbstractModelComponentCont
      * Return the set of dependency stereotypes that must be added to a model component.
      * <p>
      * Only dependencies that own one of the stereotype of the set will be exported in the model component.
+     * 
      * @param stereotype the stereotype to add
      */
     @objid ("a3e817c6-0ecc-11e2-96c4-002564c97630")
@@ -78,6 +80,7 @@ public class DefaultModelComponentContributor extends AbstractModelComponentCont
      * <p>
      * The provided paths must be relative to the project path. If the provided path does not match a file in the
      * project, it will be ignored.
+     * 
      * @param exportedFile the file to package in the model component.
      * @param exportRelativePath the path to deploy the file into.
      */
@@ -88,6 +91,7 @@ public class DefaultModelComponentContributor extends AbstractModelComponentCont
 
     /**
      * Adds a note type to the set of note types that must be added to a model component.
+     * 
      * @param noteType the note type to add
      */
     @objid ("a3e88cf9-0ecc-11e2-96c4-002564c97630")
@@ -97,6 +101,7 @@ public class DefaultModelComponentContributor extends AbstractModelComponentCont
 
     /**
      * Adds a tagged value to the set of tagged value types that must be added to a model component.
+     * 
      * @param tagType the type to add
      */
     @objid ("a3e8db1f-0ecc-11e2-96c4-002564c97630")
@@ -109,6 +114,7 @@ public class DefaultModelComponentContributor extends AbstractModelComponentCont
      * <p>
      * The Strings returned by the method are the names of the stereotypes that extends the Dependency link. Only
      * dependencies that own one of the stereotype of the set will be exported in the model component.
+     * 
      * @return a set of String representing the stereotype names.
      */
     @objid ("ed9ec4f2-ebcd-11dd-aa31-0014222a9f79")
@@ -119,6 +125,7 @@ public class DefaultModelComponentContributor extends AbstractModelComponentCont
 
     /**
      * Return the set of Elements that must be added to a model component.
+     * 
      * @return a set of elements
      */
     @objid ("eda1274d-ebcd-11dd-aa31-0014222a9f79")
@@ -132,6 +139,7 @@ public class DefaultModelComponentContributor extends AbstractModelComponentCont
      * <p>
      * The provided paths must be relative to the project path. If the provided path does not match a file in the
      * project, it will be ignored.
+     * 
      * @return a set of relative paths
      */
     @objid ("ed9ec4fa-ebcd-11dd-aa31-0014222a9f79")
@@ -142,6 +150,7 @@ public class DefaultModelComponentContributor extends AbstractModelComponentCont
 
     /**
      * Return the set of note types that must be added to a model component.
+     * 
      * @return a set of String representing the note type names.
      */
     @objid ("eda12751-ebcd-11dd-aa31-0014222a9f79")
@@ -152,6 +161,7 @@ public class DefaultModelComponentContributor extends AbstractModelComponentCont
 
     /**
      * Return the set of tagged value types that must be added to a model component.
+     * 
      * @return a set of String representing the tagged value type names.
      */
     @objid ("eda389ad-ebcd-11dd-aa31-0014222a9f79")
@@ -162,6 +172,7 @@ public class DefaultModelComponentContributor extends AbstractModelComponentCont
 
     /**
      * Adds a model element that must be added to a model component.
+     * 
      * @param element the model element to add.
      * @since 3.6
      */

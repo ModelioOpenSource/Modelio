@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -92,6 +92,7 @@ public class DocumentEditor extends AbstractCellEditor {
 
     /**
      * Build a new instance of this editor.
+     * 
      * @param context the table project context
      */
     @objid ("c6016fef-e782-45fd-87eb-c61eeb7e09a9")
@@ -138,6 +139,7 @@ public class DocumentEditor extends AbstractCellEditor {
     /**
      * Get the selected mime type from the project's preferences.
      * @see ProjectPreferencesKeys#RICHNOTE_DEFAULT_TYPE_PREFKEY
+     * 
      * @return a mime type value.
      */
     @objid ("69d6c9d1-e420-4aad-9f14-c072780ebfba")
@@ -193,6 +195,7 @@ public class DocumentEditor extends AbstractCellEditor {
 
     /**
      * Create an {@link Document} on the element, with a default type.
+     * 
      * @param element the element to create the {@link Document} on.
      * @param mimeType indicates the type of physical document to create.
      * @return the created rich note.
@@ -286,6 +289,7 @@ public class DocumentEditor extends AbstractCellEditor {
 
     /**
      * Get the name of the default {@link ResourceType} according to the element's metaclass.
+     * 
      * @param element the element to create the extern document on.
      * @return the name of an {@link ResourceType} belonging to ModelerModule.
      */
@@ -316,6 +320,7 @@ public class DocumentEditor extends AbstractCellEditor {
     /**
      * Build a new instance of this editor.
      * @param projectService project services
+     * 
      * @param activationService activation service
      */
     @objid ("9c60cd60-f466-4552-8907-bdbe1b422cc3")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -86,6 +86,7 @@ public final class SmLiveId {
 
     /**
      * Build a live identifier.
+     * 
      * @param kid a kernel id.
      * @param rid a repository id.
      * @param classid a metaclass id.
@@ -98,6 +99,7 @@ public final class SmLiveId {
 
     /**
      * Dumps a live identifier.
+     * 
      * @param liveId a live id.
      * @return its dump.
      */

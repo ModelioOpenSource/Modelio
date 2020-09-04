@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -48,13 +48,13 @@ public interface Dependency extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("1a712206-9038-4056-8f1b-397f68d67a11")
+    @objid ("4a2134bc-ec46-4e3a-8382-3d019f650be5")
     public static final String MNAME = "Dependency";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("1619193c-253d-48ee-9df7-5de72f398e7a")
+    @objid ("d88cc9ab-cc01-4e2b-96d0-04beeaec8c43")
     public static final String MQNAME = "Infrastructure.Dependency";
 
     /**
@@ -63,7 +63,7 @@ public interface Dependency extends ModelElement {
      * Metamodel description:
      * <i>Client</i>
      */
-    @objid ("66bc6d9f-7e2a-443e-95f6-30cb60ac9a3f")
+    @objid ("c7ca69e1-54af-478c-93e8-8aff08a5ee9c")
     ModelElement getImpacted();
 
     /**
@@ -72,7 +72,7 @@ public interface Dependency extends ModelElement {
      * Metamodel description:
      * <i>Client</i>
      */
-    @objid ("b8019e87-3218-457d-bb7a-68a4741f3270")
+    @objid ("d033cf37-1949-4609-bb99-6b27ecfaf1e2")
     void setImpacted(ModelElement value);
 
     /**
@@ -81,7 +81,7 @@ public interface Dependency extends ModelElement {
      * Metamodel description:
      * <i>The element independent of the client element, in the same respect and the same dependency relationship.</i>
      */
-    @objid ("4f0ff90d-0746-4a54-8e73-d8417f5e4148")
+    @objid ("ed4e56b8-4744-4856-b679-ba18a7726af4")
     ModelElement getDependsOn();
 
     /**
@@ -90,7 +90,7 @@ public interface Dependency extends ModelElement {
      * Metamodel description:
      * <i>The element independent of the client element, in the same respect and the same dependency relationship.</i>
      */
-    @objid ("fcd648bc-c61a-431a-843d-e88b3af84ff7")
+    @objid ("962a2663-1dec-4159-b092-d026990556a4")
     void setDependsOn(ModelElement value);
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -165,6 +165,7 @@ public abstract class TCatchEvent extends TEvent {
 
     /**
      * Sets the value of the outputSet property.
+     * 
      * @param value allowed object is
      * {@link TOutputSet }
      */
@@ -256,6 +257,7 @@ public abstract class TCatchEvent extends TEvent {
 
     /**
      * Sets the value of the parallelMultiple property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */

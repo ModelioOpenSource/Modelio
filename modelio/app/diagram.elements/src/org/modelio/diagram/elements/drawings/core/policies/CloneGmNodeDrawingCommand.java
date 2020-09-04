@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class CloneGmNodeDrawingCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param layer The parent layer
      * @param newNodeType the node to create
      * @param constraint The initial constraint of the created node.
@@ -70,6 +71,7 @@ public class CloneGmNodeDrawingCommand extends Command {
 
     /**
      * Get the initial layout constraint.
+     * 
      * @return the initial layout constraint.
      */
     @objid ("db7f3c97-1871-4855-958d-3659b2211f8a")

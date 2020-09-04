@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class ForkJoinNodePropertyModel extends AbstractPropertyModel<ForkJoinNod
 
     /**
      * Create a new <i>ForkJoinNode</i> data model from an <i>ForkJoinNode</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("9fc703ad-b9ff-4f93-aba8-83c6a88c8a56")
@@ -61,6 +62,7 @@ public class ForkJoinNodePropertyModel extends AbstractPropertyModel<ForkJoinNod
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("da1d9b39-f582-491e-9d87-46f069064a58")
@@ -71,6 +73,7 @@ public class ForkJoinNodePropertyModel extends AbstractPropertyModel<ForkJoinNod
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("0f30deb9-88ed-4c85-b770-48c099f32d5f")
@@ -83,6 +86,7 @@ public class ForkJoinNodePropertyModel extends AbstractPropertyModel<ForkJoinNod
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -117,6 +121,7 @@ public class ForkJoinNodePropertyModel extends AbstractPropertyModel<ForkJoinNod
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -149,6 +154,7 @@ public class ForkJoinNodePropertyModel extends AbstractPropertyModel<ForkJoinNod
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

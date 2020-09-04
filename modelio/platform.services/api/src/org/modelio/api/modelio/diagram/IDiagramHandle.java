@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,7 @@ public interface IDiagramHandle extends AutoCloseable {
      * Get the diagram graphics creation factory.
      * <p>
      * To be used to unmask elements and create new diagram drawings.
+     * 
      * @return the diagrams graphics creation factory.
      * @since 3.1
      */
@@ -48,6 +49,7 @@ public interface IDiagramHandle extends AutoCloseable {
 
     /**
      * Get the element this {@link IDiagramHandle} is related to.
+     * 
      * @return the represented element.
      */
     @objid ("a42151ad-0ecc-11e2-96c4-002564c97630")
@@ -56,6 +58,7 @@ public interface IDiagramHandle extends AutoCloseable {
     /**
      * Returns the list of diagram graphic representing (ie: for which the getElement() method does return the element
      * of) the given reference in this diagram or an empty list if none is found.
+     * 
      * @param element a model element for which we are searching graphics.
      * @return the list of all diagram graphics representing the passed reference, or an empty list if none is found.
      */
@@ -64,6 +67,7 @@ public interface IDiagramHandle extends AutoCloseable {
 
     /**
      * Get the diagram graphic for the diagram itself.
+     * 
      * @return a diagram node.
      */
     @objid ("55f72c30-6b43-11e0-b0b9-002564c97630")
@@ -73,6 +77,7 @@ public interface IDiagramHandle extends AutoCloseable {
      * Return the drawing graphics matching the given identifier.
      * <p>
      * Returns <i>null</i> if no drawing graphic matches the identifier.
+     * 
      * @param identifier a drawing graphic identifier
      * @return the matching drawing graphic
      * @since 3.1
@@ -87,6 +92,7 @@ public interface IDiagramHandle extends AutoCloseable {
      * <p>
      * The layout assistant may be enabled by calling
      * {@link #setLayoutAssistantEnabled(Boolean)} with <i>true</i> as parameter.
+     * 
      * @return whether the layout assistant is disabled in the viewer properties.
      * @since 3.4.1
      */
@@ -95,6 +101,7 @@ public interface IDiagramHandle extends AutoCloseable {
 
     /**
      * Mask a graphical element in the diagram.
+     * 
      * @param graphic The graphical element to remove from the diagram.
      */
     @objid ("45696d47-77bf-11e0-bfdb-002564c97630")
@@ -116,6 +123,7 @@ public interface IDiagramHandle extends AutoCloseable {
      * <li>"GIF"</li>
      * </ul>
      * The margin parameter allows to define the size of margins to use around the actual content.
+     * 
      * @param format the format to write the images in.
      * @param targetFile the name of the file to write the image to.
      * @param margin the margins to add around the content of the diagram.
@@ -136,6 +144,7 @@ public interface IDiagramHandle extends AutoCloseable {
      * Note: <em>Batch edition mode is automatically turned off when {@link #close()} is called but it is
      * considered good practice to turn it off explicitly (particularly since {@link #close()} may be called silently by
      * a {@code try} -with-resources statement managing this diagram handle).</em>
+     * 
      * @param batchMode true if batch mode should be engaged.
      * @since 2.2.1
      */
@@ -149,6 +158,7 @@ public interface IDiagramHandle extends AutoCloseable {
      * <p>
      * The layout assistant may be disabled until the diagram is {@link #close() closed} by
      * calling this method with <i>false</i>.
+     * 
      * @param enabled whether the layout assistant is enabled.
      * @since 3.4.1
      */
@@ -159,6 +169,7 @@ public interface IDiagramHandle extends AutoCloseable {
      * Unmask a model element in a diagram.
      * <p>
      * The model element is unmasked at the given position.
+     * 
      * @param element the model element to unmask.
      * @param x the x coordinates of the unmasking position.
      * @param y the y coordinates of the unmasking position.

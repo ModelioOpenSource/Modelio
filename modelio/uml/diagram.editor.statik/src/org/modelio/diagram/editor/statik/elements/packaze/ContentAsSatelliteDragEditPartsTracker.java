@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 public class ContentAsSatelliteDragEditPartsTracker extends GmNodeDragTracker {
     /**
      * Default constructor.
+     * 
      * @param sourceEditPart the edit part this DragTracker applies to.
      */
     @objid ("3615d43d-55b7-11e2-877f-002564c97630")

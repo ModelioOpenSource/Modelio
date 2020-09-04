@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class CoreSessionBuilder {
 
     /**
      * Set the metamodel to use.
+     * 
      * @param metamodel_ a metamodel
      * @return this instance.
      */
@@ -72,6 +73,7 @@ public class CoreSessionBuilder {
      * </ul>
      * If the metamodel is already set it is copied as a MOF metamodel
      * to be freely modifiable.
+     * 
      * @return this instance.
      */
     @objid ("db6f1318-37c6-40d0-8cb5-f31ef0e34d6e")
@@ -93,6 +95,7 @@ public class CoreSessionBuilder {
      * Create and empties the swap directory.
      * @throws java.io.IOError
      * in case of failure
+     * 
      * @return the swap directory path
      */
     @objid ("064f3c11-5685-46ae-914a-23d66f195833")
@@ -111,6 +114,7 @@ public class CoreSessionBuilder {
 
     /**
      * Create the modeling session.
+     * 
      * @return the created session
      * @throws java.io.IOException on I/O failure.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class MoveToLayerCommand extends Command {
 
     /**
      * Add elements to move
+     * 
      * @param els elements to move
      */
     @objid ("d76228d6-51fd-49d2-a8af-2f0fe349244d")
@@ -54,6 +55,7 @@ public class MoveToLayerCommand extends Command {
 
     /**
      * Set the target layer.
+     * 
      * @param targetLayer the target layer.
      */
     @objid ("a8bd11f6-9468-461a-b08b-9b5a5f65532c")

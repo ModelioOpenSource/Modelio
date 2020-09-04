@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class CreateConnectedConnectionCommand extends Command {
 
     /**
      * Initialize the command.
+     * 
      * @param request the creation request.
      * @param targetPart The target required interface link edit part
      * @param location The join location

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -107,6 +107,7 @@ public interface IModelComponentContributor {
          * Set the export path.
          * <p>
          * The export path must be relative to the project path.
+         * 
          * @param exportPath the path to deploy the file into. This path must a relative path.
          */
         @objid ("54f5401f-9e9e-4734-a1bb-8c66d78f87d2")
@@ -160,6 +161,7 @@ public interface IModelComponentContributor {
          * The export path must be relative to the project path.
          * If the provided path does not match a file in the project, it will be ignored.
          * </p>
+         * 
          * @param fileToExport the file to package in the model component.
          * @param exportPath the path to deploy the file into. This path must a relative path.
          * @since 3.6
@@ -181,6 +183,7 @@ public interface IModelComponentContributor {
 
         /**
          * Set the file to export.
+         * 
          * @param fileToExport the file to export.
          */
         @objid ("e30d3d15-41aa-4a9c-9623-25b4da1ddd37")

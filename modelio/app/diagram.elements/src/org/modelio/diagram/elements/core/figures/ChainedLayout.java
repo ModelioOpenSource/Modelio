@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -128,6 +128,7 @@ public abstract class ChainedLayout implements LayoutManager {
      * <p>
      * Works even if the layout manager is not a <code>ChainedLayout</code>
      * or no layout manager is set (returns <i>null</i>).
+     * 
      * @param fig a figure
      * @return the root layout manager.
      */
@@ -138,6 +139,7 @@ public abstract class ChainedLayout implements LayoutManager {
 
     /**
      * Changes the chained layout.
+     * 
      * @param chained the new layout.
      */
     @objid ("0d857713-4d64-4c34-9788-cdc2e6c00de9")
@@ -155,6 +157,7 @@ public abstract class ChainedLayout implements LayoutManager {
      * <p>
      * Works even if the layout manager is not a <code>ChainedLayout</code>
      * or layout manager is null (returns <i>null</i>).
+     * 
      * @param alayout a layout manager.
      * @return the root layout manager.
      */
@@ -180,6 +183,7 @@ public abstract class ChainedLayout implements LayoutManager {
 
     /**
      * Find a layout of the given class in the layout chain of the figure
+     * 
      * @param f a  figure
      * @param cls the layout class to find
      * @return the found layouter or null.
@@ -197,6 +201,7 @@ public abstract class ChainedLayout implements LayoutManager {
 
     /**
      * Remove the given layout from the chain.
+     * 
      * @param f a figure
      * @param cls the layout class to remove.
      */

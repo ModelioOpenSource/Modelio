@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -234,7 +234,7 @@ public class ODecisionMergeNode extends OModelElement {
         if (ecoreOwner instanceof org.eclipse.uml2.uml.Clause) {
             org.eclipse.uml2.uml.Clause owner =  (org.eclipse.uml2.uml.Clause) ecoreOwner;
         
-            // A DecisionMergeNode can't have any org.eclipse.uml2.uml.Pin in Ijing => use of the
+            // A DecisionMergeNode can't have any org.eclipse.uml2.uml.Pin in Modelio => use of the
             // "body" role:
             if (ecoreElt instanceof org.eclipse.uml2.uml.ExecutableNode)
                 owner.getBodies().add( (org.eclipse.uml2.uml.ExecutableNode)ecoreElt);

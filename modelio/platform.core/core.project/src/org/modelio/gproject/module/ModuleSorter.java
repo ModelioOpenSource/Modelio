@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public final class ModuleSorter {
 
     /**
      * Sort handles by dependencies, the first ones having no dependencies.
+     * 
      * @param modules module handles to sort. This collection is not modified.
      * @return the sorted list.
      * @throws org.modelio.vbasic.collections.TopologicalSorter.CyclicDependencyException in case of cyclic dependency.
@@ -55,6 +56,7 @@ public final class ModuleSorter {
 
     /**
      * Sort handles by dependencies, the first ones having no dependencies.
+     * 
      * @param modules module to sort. This collection is not modified.
      * @return the sorted list.
      * @throws org.modelio.vbasic.collections.TopologicalSorter.CyclicDependencyException in case of cyclic dependency.

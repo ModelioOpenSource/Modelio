@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.data.project.GProperties.Entry;
 import org.modelio.gproject.data.project.ProjectDescriptor;
 import org.modelio.gproject.data.project.ProjectDescriptorWriter;
+import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.gproject.plugin.CoreProject;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.log.Log;
@@ -55,6 +56,7 @@ import org.modelio.vbasic.progress.SubProgress;
 
 /**
  * Migrate a GProject directory from format 3 to 4.
+ * 
  * @author cma
  * @since 3.7
  */
@@ -82,32 +84,31 @@ public class GProjectSpaceFormatMigrator1 {
     public ProjectDescriptor run(SubProgress monitor) throws IOException {
         ProjectDescriptor newDesc = new ProjectDescriptor(this.srcDescriptor);
         
-        Path projectPath = newDesc.getPath();
+        ProjectFileStructure pfs = newDesc.getProjectFileStructure();
         
         String sdate = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.ROOT).format(new Date());
-        Path runtimeDir = projectPath.resolve(".runtime");
-        Path logFile = runtimeDir.resolve("migration-"+sdate+".log");
+        Path runtimeDir = pfs.getProjectRuntimePath();
+        Path logFile = runtimeDir.resolve("migration-" + sdate + ".log");
         
         Files.createDirectories(runtimeDir);
         
-        try (PrintWriter logger = new PrintWriter(Files.newBufferedWriter(logFile))){
+        try (PrintWriter logger = new PrintWriter(Files.newBufferedWriter(logFile))) {
         
-            logger.format("Log of '%s' project space migration from format %d to %d.\n\n", projectPath, newDesc.getFormatVersion(), ProjectDescriptor.serialVersionUID);
+            logger.format("Log of '%s' project space migration from format %d to %d.\n\n", pfs.getProjectPath(), newDesc.getFormatVersion(), ProjectDescriptor.serialVersionUID);
         
             try {
-                moveDirectories(monitor, logger, projectPath);
-                
+                moveDirectories(monitor, logger, pfs.getProjectPath());
+        
                 removeObsoleteEntries(newDesc, logger);
         
                 newDesc.setProjectSpaceVersion(ProjectDescriptor.currentProjectSpaceVersion);
-                new ProjectDescriptorWriter().write(newDesc, projectPath.resolve("project.conf"));
-                
+                new ProjectDescriptorWriter().write(newDesc);
             } catch (IOException e) {
                 logger.format("ERROR: %s", FileUtils.getLocalizedMessage(e));
                 e.printStackTrace(logger);
                 throw e;
             } catch (RuntimeException e) {
-                logger.write("ERROR: "); 
+                logger.write("ERROR: ");
                 e.printStackTrace(logger);
                 throw e;
             }
@@ -122,7 +123,7 @@ public class GProjectSpaceFormatMigrator1 {
         
         ArrayList<String[]> lmoves = new ArrayList<>();
         
-        try(BufferedReader rr = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(movesFile), StandardCharsets.UTF_8))) {
+        try (BufferedReader rr = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(GProjectSpaceFormatMigrator1.movesFile), StandardCharsets.UTF_8))) {
             String l;
             int lnum = 0;
             while ((l = rr.readLine()) != null) {
@@ -130,12 +131,12 @@ public class GProjectSpaceFormatMigrator1 {
                 l = l.trim();
                 if (!l.isEmpty() && !commentLinePattern.matcher(l).matches()) {
                     Matcher m = linePattern.matcher(l);
-                    if (! m.matches()) {
-                        throw new FileSystemException(getClass().getResource(movesFile).toString(), null, String.format("Line %d does not match '%s' : '%s'", lnum, linePattern, l));
+                    if (!m.matches()) {
+                        throw new FileSystemException(getClass().getResource(GProjectSpaceFormatMigrator1.movesFile).toString(), null, String.format("Line %d does not match '%s' : '%s'", lnum, linePattern, l));
                     }
                     String src = m.group(1);
                     String dest = m.group(2);
-                    lmoves.add(new String[]{src, dest});
+                    lmoves.add(new String[] { src, dest });
                 }
         
             }
@@ -150,9 +151,9 @@ public class GProjectSpaceFormatMigrator1 {
         for (String[] move : this.moves) {
             String src = move[0];
             String dest = move[1];
-              
+        
             movePath(monitor, logger, projectPath, src, dest);
-              
+        
         }
     }
 
@@ -161,14 +162,13 @@ public class GProjectSpaceFormatMigrator1 {
         Path srcPath = projectPath.resolve(src);
         Path destPath = projectPath.resolve(dest);
         
-        if(! Files.exists(srcPath)) {
+        if (!Files.exists(srcPath)) {
             // Next move ...
             monitor.worked(1);
             return;
         }
         
-        
-        monitor.subTask(CoreProject.getMessage("GProjectFormatMigrator4.moving", src, dest));
+        monitor.subTask(CoreProject.I18N.getMessage("GProjectFormatMigrator4.moving", src, dest));
         
         Files.walkFileTree(srcPath, new SimpleFileVisitor<Path>() {
             @Override
@@ -184,7 +184,7 @@ public class GProjectSpaceFormatMigrator1 {
         
                 return FileVisitResult.CONTINUE;
             }
-            
+        
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                 Path targetPath = destPath.resolve(srcPath.relativize(file));
@@ -192,26 +192,26 @@ public class GProjectSpaceFormatMigrator1 {
                 try {
                     Files.move(file, targetPath);
                     logger.format("info: moved '%s' to '%s'.\n", file, targetPath);
-                } catch (@SuppressWarnings("unused") FileAlreadyExistsException e) {
+                } catch (@SuppressWarnings ("unused") FileAlreadyExistsException e) {
                     Path fileName = targetPath.getFileName();
                     String[] fn = fileName.toString().split("\\.", 2);
-                    Path target2 = Files.createTempFile(targetPath.getParent(), fn[0], (fn.length>1) ? fn[1] : "");
-                    
+                    Path target2 = Files.createTempFile(targetPath.getParent(), fn[0], fn.length > 1 ? fn[1] : "");
+        
                     Files.move(file, target2, StandardCopyOption.REPLACE_EXISTING);
                     Log.warning("warn: '%s' file moved to '%s' to avoid overwriting '%s'", file, target2, targetPath);
                     logger.format("warn: '%s' file moved to '%s' to avoid overwriting '%s'.\n", file, target2, targetPath);
-                    
+        
                 }
         
                 return FileVisitResult.CONTINUE;
             }
-            
+        
             @Override
             public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
                 if (exc != null) {
                     throw exc;
                 }
-                
+        
                 try {
                     Files.deleteIfExists(dir);
                 } catch (DirectoryNotEmptyException e) {
@@ -223,7 +223,6 @@ public class GProjectSpaceFormatMigrator1 {
                 return FileVisitResult.CONTINUE;
             }
         });
-        
         
         monitor.worked(1);
     }

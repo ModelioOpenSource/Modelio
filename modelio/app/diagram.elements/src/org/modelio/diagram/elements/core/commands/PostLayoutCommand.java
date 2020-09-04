@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public class PostLayoutCommand extends CompoundCommand {
 
     /**
      * Add the given command only if the edit part has not already be recorded.
+     * 
      * @param part the involved edit part
      * @param c the command for the edit part.
      */

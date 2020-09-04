@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class DefaultResizeTracker extends ResizeTracker {
     /**
      * Constructs a resize tracker that resizes in the specified direction. The
      * direction is specified using {@link PositionConstants#NORTH}, {@link PositionConstants#NORTH_EAST}, etc.
+     * 
      * @param owner of the resize handle which returned this tracker
      * @param direction the direction
      */
@@ -94,6 +95,7 @@ public class DefaultResizeTracker extends ResizeTracker {
      * is cached.
      * <P>
      * Edit parts that are not "user editable" are always filtered.
+     * 
      * @return a list of editparts being operated on
      */
     @objid ("88094cde-a0a3-466f-b022-b4c215f587b0")

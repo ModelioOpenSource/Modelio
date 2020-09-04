@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -82,6 +82,7 @@ public class TAdHocSubProcess extends TSubProcess {
 
     /**
      * Sets the value of the completionCondition property.
+     * 
      * @param value allowed object is
      * {@link TExpression }
      */
@@ -107,6 +108,7 @@ public class TAdHocSubProcess extends TSubProcess {
 
     /**
      * Sets the value of the cancelRemainingInstances property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -128,6 +130,7 @@ public class TAdHocSubProcess extends TSubProcess {
 
     /**
      * Sets the value of the ordering property.
+     * 
      * @param value allowed object is
      * {@link TAdHocOrdering }
      */

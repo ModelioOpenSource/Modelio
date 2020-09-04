@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,5 +36,11 @@ public interface IProjectConfPage {
 
     @objid ("1e600340-972f-40bc-95ef-d75623d7a338")
     void setInput(ProjectModel model);
+
+    /**
+     * @return the help topic identifier for the page. Returning <i>null</i< is allowed.
+     */
+    @objid ("6c0ab407-4913-41bf-897f-f1c4baf29fe4")
+    String getHelpTopic();
 
 }

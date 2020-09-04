@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,10 +30,11 @@ import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.Attribute;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
+import org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadStructuralFeatureAction;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("c6ddac9b-4a0c-464e-ba53-867bbdc45656")
 public class EReadStructuralFeatureAction extends EActivityNode {
@@ -43,16 +44,7 @@ public class EReadStructuralFeatureAction extends EActivityNode {
     @objid ("bdd08c53-b632-4a94-a168-7d8a62f2e05b")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
-        OpaqueAction element = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createOpaqueAction();
-        
-        try {
-            element.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READSTRUCTURALFEATUREACTION);
-        } catch (ExtensionNotFoundException e) {
-            Xmi.LOG.warning(e);
-        }
-        return element;
+        return UML2ReadStructuralFeatureAction.create().getElement();
     }
 
     @objid ("314e3281-a7b8-452e-bbf5-15ae30e79642")
@@ -77,9 +69,9 @@ public class EReadStructuralFeatureAction extends EActivityNode {
             if (behavior instanceof ModelElement){
                   attachFeature(objingElt, (ModelElement) behavior);
             }else if (behavior instanceof List){
-                for (ModelElement element :  ((List<ModelElement>) behavior)){
+                for (Object element :  ((List<?>) behavior)){
                     if (element instanceof Attribute){
-                        attachFeature(objingElt, element);
+                        attachFeature(objingElt, (Attribute) element);
                     }
                 }
             }
@@ -92,7 +84,7 @@ public class EReadStructuralFeatureAction extends EActivityNode {
         Dependency dependency = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createDependency();
               
         try {
-            dependency.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2STRUCTURALFEATUREREFERENCE);
+            dependency.addStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2STRUCTURALFEATUREREFERENCE);
         } catch (ExtensionNotFoundException e) {
             Xmi.LOG.warning(e);
         }

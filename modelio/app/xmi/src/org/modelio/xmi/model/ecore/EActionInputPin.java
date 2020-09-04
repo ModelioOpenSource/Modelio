@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,30 +21,15 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
-import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.xmi.plugin.Xmi;
-import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
+import org.modelio.module.modelermodule.api.xmi.standard.inputpin.UML2ActionInputPin;
 
 @objid ("d7d9e743-f6ec-441a-a288-f3cb80f4e356")
 public class EActionInputPin extends EInputPin {
     @objid ("80ee03aa-efc3-411f-93e9-52506c52dd8b")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmServices  = ReverseProperties.getInstance().getMModelServices();
-        InputPin result = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createInputPin();
-              
-        try {
-            result.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ACTIONINPUTPIN);
-        } catch (ExtensionNotFoundException e) {
-           Xmi.LOG.warning(e);
-        }
-        return  result;
+        return UML2ActionInputPin.create().getElement();
     }
 
     @objid ("4bc54fdc-e73f-49f0-b5a2-595df4252480")

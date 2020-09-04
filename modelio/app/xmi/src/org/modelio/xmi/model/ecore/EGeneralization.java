@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class EGeneralization extends EElement {
 
     /**
      * The EGeneralization constructor with the imported Ecore org.eclipse.uml2.uml.Generalization as parameter
+     * 
      * @param element : the imported Ecore org.eclipse.uml2.uml.Generalization
      */
     @objid ("89655b78-47b1-43d3-9517-ec4da208023b")
@@ -162,14 +163,22 @@ public class EGeneralization extends EElement {
         
             if (objingSpecific instanceof Stereotype) {
                 objingSpecifics.add((Stereotype) objingSpecific);
-            } else {
-                objingSpecifics = (ArrayList<Stereotype>) objingSpecific;
+            } else if (objingSpecific instanceof ArrayList<?>) {
+                for (Object temp : (ArrayList<?>) objingSpecific ) {
+                    if (temp instanceof Stereotype) {
+                        objingSpecifics.add((Stereotype) temp);
+                    }
+                }
             }
         
             if (objingGeneral instanceof Stereotype) {
                 objingGenerals.add((Stereotype) objingGeneral);
-            } else {
-                objingGenerals = (ArrayList<Stereotype>) objingGeneral;
+            } else if (objingGeneral instanceof ArrayList<?>) {
+                for (Object temp : (ArrayList<?>) objingGeneral ) {
+                    if (temp instanceof Stereotype) {
+                        objingGenerals.add((Stereotype) temp);
+                    }
+                }
             }
         
             for (Stereotype currentSpecific : objingSpecifics) {
@@ -180,8 +189,8 @@ public class EGeneralization extends EElement {
                         break;
                     }
                 }
-        
             }
+            
         }
         return null;
     }

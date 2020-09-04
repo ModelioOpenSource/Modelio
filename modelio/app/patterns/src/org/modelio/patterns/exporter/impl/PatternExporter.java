@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -95,6 +95,7 @@ public class PatternExporter implements IPatternModelAnalyser, IPatternModelComp
     /**
      * Exporting metadatas from a {@link RuntimePattern}.
      * @see org.modelio.patterns.model.information.Pattern
+     * 
      * @throws javax.xml.bind.JAXBException when the pattern metadatas are invalid.
      * @throws java.io.IOException when the pattern can't be read.
      * 

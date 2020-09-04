@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IModelLinkFactory {
     /**
      * Create a link model element from the given source to the destination.
+     * 
      * @param metaclass The metaclass of the link to create.
      * @param source The source element
      * @param target The destination element

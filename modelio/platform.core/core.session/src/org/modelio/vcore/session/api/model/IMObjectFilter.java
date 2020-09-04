@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IMObjectFilter {
     /**
      * This method checks if an element is accepted.
+     * 
      * @param element the element to check.
      * @return <code>true</code> if the element is accepted.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class NoElementPropertyModel extends AbstractPropertyModel<MObject> {
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("1156ff45-d99f-41f7-aa33-59caa807452d")
@@ -43,6 +44,7 @@ public class NoElementPropertyModel extends AbstractPropertyModel<MObject> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("0c2cbd7e-ab98-40a4-9658-ffc8c815a3d8")
@@ -55,6 +57,7 @@ public class NoElementPropertyModel extends AbstractPropertyModel<MObject> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -88,6 +91,7 @@ public class NoElementPropertyModel extends AbstractPropertyModel<MObject> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -120,6 +124,7 @@ public class NoElementPropertyModel extends AbstractPropertyModel<MObject> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

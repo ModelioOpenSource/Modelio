@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -99,6 +99,7 @@ public class JxbDiagramCommandBox {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -120,6 +121,7 @@ public class JxbDiagramCommandBox {
 
     /**
      * Sets the value of the label property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -141,6 +143,7 @@ public class JxbDiagramCommandBox {
 
     /**
      * Sets the value of the tooltip property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -162,6 +165,7 @@ public class JxbDiagramCommandBox {
 
     /**
      * Sets the value of the image property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -183,6 +187,7 @@ public class JxbDiagramCommandBox {
 
     /**
      * Sets the value of the group property.
+     * 
      * @param value allowed object is
      * {@link String }
      */

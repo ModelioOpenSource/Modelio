@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class GmLifelineHeader extends GmDefaultModelElementHeader {
 
     /**
      * Default c'tor.
+     * 
      * @param diagram the diagram in which this Gm is created.
      * @param ref a reference to the related element.
      */
@@ -119,6 +120,7 @@ public class GmLifelineHeader extends GmDefaultModelElementHeader {
      * The secondary label of a Lifeline is the represented PartDecomposition if any.
      * <p>
      * This method may be redefined by subclasses.
+     * 
      * @return The secondary label of the header.
      */
     @objid ("d94218c5-55b6-11e2-877f-002564c97630")

@@ -82,7 +82,7 @@ Providing a TRANSLATED label is STRONGLY encouraged.
                </appinfo>
             </annotation>
          </attribute>
-         <attribute name="relevance" type="string" use="default" value="">
+         <attribute name="relevance" type="string" use="default">
             <annotation>
                <documentation>
                   Determine the display order of the edition panels relative to standard UML panels.
@@ -96,6 +96,16 @@ The relevance may give:
 - a module name : 4 points if the selected element has stereotypes from the module
 - zero point in other cases
                </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="validator" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.core.rcp.extensionpoint.IExtensionPointContribution"/>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>

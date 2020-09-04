@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -144,6 +144,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Initialize a new GmLink.
+     * 
      * @param diagram The diagram containing the link.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
@@ -176,6 +177,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Add a link extension.
+     * 
      * @param extension The link extension.
      * @param role the role of the extension
      * @param constraint The extension layout constraint.
@@ -190,6 +192,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Add a link extension.
+     * 
      * @param locationKey extension key
      * @param role the role of the extension
      * @param extension the extension to add.
@@ -277,6 +280,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Called by the anchor when its location changes.
+     * 
      * @param gmLinkAnchor The moved anchor.
      */
     @objid ("8019974a-1dec-11e2-8cad-001ec947c8cc")
@@ -292,6 +296,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
      * <p>
      * To be called when the result of {@link GmNodeModel#isVisible()} on the
      * given link extension changes.
+     * 
      * @param child The link extension node whose visibility changed.
      */
     @objid ("8014d297-1dec-11e2-8cad-001ec947c8cc")
@@ -320,6 +325,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
      * <p>
      * Link extensions are roundly all labels related to the link, eg:
      * association role name and cardinality.
+     * 
      * @return all link extensions.
      */
     @objid ("8014d2a7-1dec-11e2-8cad-001ec947c8cc")
@@ -371,6 +377,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
      * <em>This method must <strong>NOT</strong> return
      * "<code>this.getFrom().getElement();</code>" but instead must read the
      * actual source of the link returned by {@link #getRelatedElement()}.</em>
+     * 
      * @return the element being the source of the represented link (in the Ob
      * model).
      */
@@ -380,6 +387,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Get the locator model used to layout the given extension.
+     * 
      * @param extension A link extension.
      * @return The locator model.
      */
@@ -421,6 +429,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Get the source anchor model.
+     * 
      * @return the source anchor.
      */
     @objid ("8014d2ce-1dec-11e2-8cad-001ec947c8cc")
@@ -430,6 +439,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Get the links starting from this node.
+     * 
      * @return the links starting from this node.
      */
     @objid ("8014d2d3-1dec-11e2-8cad-001ec947c8cc")
@@ -444,6 +454,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Get the target anchor model.
+     * 
      * @return the target anchor.
      */
     @objid ("8014d2db-1dec-11e2-8cad-001ec947c8cc")
@@ -470,6 +481,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
      * <p>
      * May return <code>null</code> if {@link #getRelatedElement()} returns
      * <code>null</code>.
+     * 
      * @return the element being the target of the represented link (in the Ob
      * model).
      */
@@ -493,6 +505,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
      * fires a {@link IGmObject#PROPERTY_CHILDREN} property change event in
      * order for the EditParts to be informed of the change.<br>
      * </p>
+     * 
      * @return The visible link extension nodes.
      */
     @objid ("801734f0-1dec-11e2-8cad-001ec947c8cc")
@@ -580,6 +593,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Remove a link extension.
+     * 
      * @param gmNodeModel the link extension to remove.
      * @throws java.lang.IllegalArgumentException if the link does not own this node.
      */
@@ -607,6 +621,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
      * This method is intended to be called only by
      * {@link IGmLinkable#addEndingLink(IGmLink)}.
      * It does fire {@link #PROP_SOURCE_GM} change event.
+     * 
      * @param from The new link origin
      */
     @objid ("80173514-1dec-11e2-8cad-001ec947c8cc")
@@ -623,6 +638,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Change the given extension location.
+     * 
      * @param extension The link extension.
      * @param layoutData The extension layout constraint.
      */
@@ -699,6 +715,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
      * This method is intended to be called only by
      * {@link IGmLinkable#addEndingLink(IGmLink)}.
      * It does fire {@link #PROP_TARGET_GM} change event.
+     * 
      * @param to The new destination
      */
     @objid ("8017352f-1dec-11e2-8cad-001ec947c8cc")
@@ -740,6 +757,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
     /**
      * Get the connection router id stored in the given style. If no StyleKey is
      * found, the default value for the router is DIRECT.
+     * 
      * @param style a style
      * @return the connection router.
      */
@@ -755,6 +773,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Helper method to find an extension from its java class.
+     * 
      * @param cls the java class of the extension to find
      * @return the found node or null.
      */
@@ -776,6 +795,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
      * {@link #read(IDiagramReader)}.
      * <p>
      * The default implementation does nothing.
+     * 
      * @param in a reader to build the graphic model from.
      */
     @objid ("8019975d-1dec-11e2-8cad-001ec947c8cc")
@@ -1171,6 +1191,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
         /**
          * Compares the point list gotten from {@link OrthogonalRouter} and {@link OldOrthogonalRouter}.
+         * 
          * @param connection the connection being routed.
          * @return a list of points when a layout fix is needed, <code>null</code> otherwise.
          */
@@ -1213,6 +1234,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
         /**
          * Update the layout data of the {@link #gmLink}.
+         * 
          * @param newPathData a list of points.
          */
         @objid ("1a5abd92-eaaa-4782-8c7e-47bf3a2efce4")
@@ -1249,6 +1271,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
             /**
              * Compute a list of points to use when routing the connection.
+             * 
              * @param connection an orthogonal connection.
              * @param orthogonalRouter the actual orthogonal router holding the connection's constraint.
              * @return a List of Points
@@ -1294,6 +1317,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
             /**
              * convenience method to get the constraint as a list of bend points.
+             * 
              * @param connection a connection figure
              * @return The list of bend points.
              */
@@ -1306,6 +1330,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
             /**
              * Get the anchor owner (handle)bounds in absolute coordinates. If the anchor is not attached to a figure, returns a
              * 1x1 sized rectangle located at the anchor reference point.
+             * 
              * @param anchor The anchor.
              * @return The anchor owner bounds.
              */
@@ -1629,6 +1654,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
         /**
          * Update the layout data of the {@link #gmLink}.
+         * 
          * @param newPathData a list of points.
          */
         @objid ("445b27f2-6384-479c-9045-d12762e8f5c9")

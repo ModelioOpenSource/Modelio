@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,12 +36,16 @@ import org.eclipse.osgi.service.datalocation.Location;
 import org.modelio.api.modelio.Modelio;
 import org.modelio.app.project.core.creation.IProjectCreationData;
 import org.modelio.app.project.core.creation.ProjectCreationDataModel;
+import org.modelio.app.project.core.creation.ProjectNameValidator;
 import org.modelio.app.project.core.plugin.AppProjectCore;
+import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.gproject.GProjectAuthenticationException;
 import org.modelio.script.engine.core.engine.IScriptRunner;
 import org.modelio.script.engine.core.engine.ScriptRunnerFactory;
 import org.modelio.ui.progress.IModelioProgressService;
+import org.modelio.vbasic.auth.IAuthData;
+import org.modelio.vbasic.auth.UserPasswordAuthData;
 import org.modelio.vbasic.files.FileUtils;
 
 /**
@@ -73,28 +77,37 @@ class BatchRunner implements Runnable {
     public void run() {
         AppProjectCore.LOG.debug("Running batch data : %s", this.batchData);
         try {
+        
             // Change the workspace if required
             initWorkspace();
         
-            // Handle -create option and -template if defined
-            final String projectName = this.batchData.getProjectName();
-            if (this.batchData.isCreate() && projectName != null) {
-                createProjectFromBatchData(projectName);
+            // Get an opened project either by opening, creating or joining
+            GProject openedProject = null;
+            if (this.batchData.isOpen()) {
+                openedProject = runOpen();
+            } else if (this.batchData.isCreate()) {
+                openedProject = runCreate();
+            } else if (this.batchData.isJoin()) {
+                openedProject = runJoin();
+            } else {
+                // Just launching Modelio
+                return;
             }
         
-            // Check option parameters
-            // The project must exist in the current workspace
-            GProject openedProject = openProject(projectName);
+            if (openedProject == null) {
+                AppProjectCore.LOG.error("Aborting: open/create/join project failed.");
+                System.exit(-1);
+            }
         
             // If a project was opened and if there is a script to launch
             // run in batch mode
             if (openedProject != null && this.batchData.getScript() != null) {
                 int retcode = runScript(openedProject);
-        
                 System.exit(retcode);
+            } else {
+                ; // No script, return and the caller will run with GUI.
             }
-            
-            // No script, return and the caller will run with GUI.
+        
             return;
         } catch (RuntimeException | Error t) {
             AppProjectCore.LOG.error("Unexpected %s:", t);
@@ -102,16 +115,17 @@ class BatchRunner implements Runnable {
             throw t;
         } finally {
             if (this.batchData.isBatch()) {
-                // Ensure Modelio always exit in batch mode
+                // Ensure Modelio always exits in batch mode
                 System.exit(-1);
             }
         }
     }
 
     /**
-     * Creates a new project in the current workspace. The nature and the properties of the project to create are passed in the <code>dataModel</code> argument.
-     * @param delegateProjectCreator
-     * the delegated project creator, can be null. If null a standard default project creator will be used
+     * Creates a new project in the current workspace.
+     * <p>
+     * The nature and the properties of the project to create are passed in the <code>data</code> argument.
+     * 
      * @param data the nature, characteristics and properties of the project to create.
      */
     @objid ("f36e1685-dff9-4ea3-8349-308ec607c070")
@@ -165,12 +179,11 @@ class BatchRunner implements Runnable {
         try {
             String tpl = ".template";
             URI resolvedURI = new URI(location.getURL().getProtocol(), location.getURL().getPath(), null);
-            if (templateArg.endsWith(tpl)) {                
+            if (templateArg.endsWith(tpl)) {
                 templatePath = Paths.get(resolvedURI).resolve("templates").resolve(templateArg);
-            }
-            else {
+            } else {
                 templatePath = Paths.get(resolvedURI).resolve("templates").resolve(templateArg + tpl);
-            }            
+            }
         
             if (Files.exists(templatePath) && Files.isRegularFile(templatePath) && Files.isReadable(templatePath)) {
                 return templatePath;
@@ -184,30 +197,6 @@ class BatchRunner implements Runnable {
         return null;
     }
 
-    @objid ("dfad7c41-809b-4e15-87b0-e640b53b675b")
-    private void createProjectFromBatchData(final String projectName) {
-        // Check option parameters
-        // The project must not exist in the current workspace
-        if (Files.exists(this.projectService.getWorkspace().resolve(projectName))) {
-            AppProjectCore.LOG.error("Aborting: The '%s' project already exists in the workspace.", projectName);
-            System.exit(-1);
-        }
-        
-        String templateArg = this.batchData.getTemplate();
-        Path templatePath = getTemplate(templateArg);
-        
-        if (templateArg != null && templatePath == null) {
-            AppProjectCore.LOG.error("Aborting: The '%s' template file does not exist or is not accessible.", templateArg);
-            System.exit(-1);
-        }
-        
-        ProjectCreationDataModel pm = new ProjectCreationDataModel(this.projectService.getWorkspace());
-        pm.setProjectName(projectName);
-        pm.setTemplate(templatePath);
-        
-        createProject(pm);
-    }
-
     /**
      * Change workspace if specified in batch data.
      */
@@ -217,7 +206,6 @@ class BatchRunner implements Runnable {
             Path wkdir = Paths.get(this.batchData.getWorkspace());
             try {
                 wkdir = wkdir.toRealPath();
-        
                 Files.createDirectories(wkdir);
             } catch (final IOException e) {
                 AppProjectCore.LOG.error("Invalid workspace directory '%s' : %s", this.batchData.getWorkspace(), FileUtils.getLocalizedMessage(e));
@@ -239,28 +227,31 @@ class BatchRunner implements Runnable {
     }
 
     @objid ("27271532-33cf-4a61-94c1-318ef3a2c210")
-    private GProject openProject(final String projectName) {
+    private GProject openProject(final URI projectURI) {
         GProject openedProject = this.projectService.getOpenedProject();
         
-        if (projectName != null) {
-            assert (openedProject == null);
+        if (projectURI != null) {
+            assert openedProject == null;
+        
             try {
-                this.projectService.openProject(projectName, null, null);
+                this.projectService.openProject(projectURI, getAuthData(), null);
             } catch (GProjectAuthenticationException e) {
-                AppProjectCore.LOG.error(e);
+                AppProjectCore.LOG.error(e.getLocalizedMessage());
+                AppProjectCore.LOG.debug(e);
+                System.exit(-1);
             } catch (IOException e) {
-                AppProjectCore.LOG.error("The '%s' project could not be opened in the workspace: %s", projectName, FileUtils.getLocalizedMessage(e));
-                AppProjectCore.LOG.error(e);
+                AppProjectCore.LOG.error("The '%s' project could not be opened in the workspace: %s", projectURI, FileUtils.getLocalizedMessage(e));
+                AppProjectCore.LOG.debug(e);
                 System.exit(-1);
             } catch (InterruptedException e) {
-                AppProjectCore.LOG.error("The '%s' project opening has been cancelled.", projectName);
-                AppProjectCore.LOG.error(e);
+                AppProjectCore.LOG.error("The '%s' project opening has been cancelled.", projectURI);
+                AppProjectCore.LOG.debug(e);
                 System.exit(-1);
             }
         
             openedProject = this.projectService.getOpenedProject();
             if (openedProject == null) {
-                AppProjectCore.LOG.error("The '%s' project could not be opened in the workspace.", projectName);
+                AppProjectCore.LOG.error("The '%s' project could not be opened in the workspace.", projectURI);
                 System.exit(-1);
             }
         }
@@ -269,12 +260,13 @@ class BatchRunner implements Runnable {
 
     /**
      * Run the specified script.
+     * 
      * @param openedProject the project
      * @return the return code.
      */
     @objid ("1f274c5b-8457-410a-a016-2f24529b7ef6")
     private int runScript(GProject openedProject) {
-        assert (this.batchData.getScript() != null); 
+        assert this.batchData.getScript() != null;
         
         // The script file must be accessible
         File scriptFile = new File(this.batchData.getScript());
@@ -282,7 +274,6 @@ class BatchRunner implements Runnable {
             AppProjectCore.LOG.error("The Script file: '%s' was not found or not accessible.", scriptFile.getAbsolutePath());
             System.exit(-1);
         }
-        
         
         AppProjectCore.LOG.info("Running script: %s", scriptFile);
         int retcode = 0;
@@ -293,11 +284,11 @@ class BatchRunner implements Runnable {
                 scriptRunner.bind("coreSession", openedProject.getSession());
                 scriptRunner.bind("modelingSession", Modelio.getInstance().getModelingSession());
                 scriptRunner.bind("parameters", this.batchData.getBatchParameters());
-              
+        
                 for (Entry<String, String> p : this.batchData.getBatchParameters().entrySet()) {
                     scriptRunner.bind(p.getKey(), p.getValue());
                 }
-              
+        
                 scriptRunner.runFile(scriptFile.toPath(), null, null);
             } else if (scriptFile.getName().endsWith(".jar")) {
                 // Run .jar main class as a E4 processor
@@ -313,6 +304,115 @@ class BatchRunner implements Runnable {
             this.projectService.closeProject(openedProject);
         }
         return retcode;
+    }
+
+    @objid ("d562524f-cd71-4c51-b427-f5af046a85b8")
+    private GProject runOpen() {
+        Path workspacePath = this.projectService.getWorkspace();
+        final String projectName = this.batchData.getProjectName();
+        
+        // Check option parameters
+        // The project must exist in the current workspace
+        Path p = new ProjectFileStructure(workspacePath.resolve(projectName)).getProjectConfFile();
+        if (Files.notExists(p)) {
+            AppProjectCore.LOG.error("No such project: %s", p);
+            return null;
+        }
+        return openProject(p.toUri());
+    }
+
+    @objid ("3ccc84c5-c127-468e-83c7-4d52e7ff4cab")
+    private GProject runCreate() {
+        final String projectName = this.batchData.getProjectName();
+        if (!isvalidProjectName(projectName)) {
+            AppProjectCore.LOG.error("Aborting project creation: Illegal project name '%s'", projectName);
+            return null;
+        }
+        
+        // Check option parameters
+        // The project must not exist in the current workspace
+        if (Files.exists(this.projectService.getWorkspace().resolve(projectName))) {
+            AppProjectCore.LOG.error("Aborting project creation: The '%s' project already exists in the workspace.", projectName);
+            System.exit(-1);
+        }
+        
+        String templateArg = this.batchData.getTemplate();
+        Path templatePath = getTemplate(templateArg);
+        
+        if (templateArg != null && templatePath == null) {
+            AppProjectCore.LOG.error("Aborting project creation: The '%s' template file does not exist or is not accessible.", templateArg);
+            System.exit(-1);
+        }
+        
+        ProjectCreationDataModel pm = new ProjectCreationDataModel(this.projectService.getWorkspace());
+        pm.setProjectName(projectName);
+        pm.setTemplate(templatePath);
+        
+        createProject(pm);
+        
+        // Open the created project
+        // The project is supposed to exist in the current workspace after creation
+        Path workspacePath = this.projectService.getWorkspace();
+        Path p = new ProjectFileStructure(workspacePath.resolve(projectName)).getProjectConfFile();
+        if (Files.notExists(p)) {
+            AppProjectCore.LOG.error("No such project: %s", p);
+            return null;
+        }
+        return openProject(p.toUri());
+    }
+
+    @objid ("b75e85d6-f24e-4bd7-af95-6cab05304f63")
+    private GProject runJoin() {
+        String projectQualifier = this.batchData.getProjectName();
+        
+        try {
+            URI projectURI = new URI(projectQualifier);
+        
+            // System.out.printf(" scheme = %s \n", projectURI.getScheme());
+            // System.out.printf(" host = %s \n", projectURI.getHost());
+            // System.out.printf(" port = %s \n", projectURI.getPort());
+            // System.out.printf(" authority = %s \n", projectURI.getAuthority());
+            // System.out.printf(" path = %s \n", projectURI.getPath());
+            // System.out.printf(" userinfo = %s \n", projectURI.getUserInfo());
+        
+            this.projectService.openProject(projectURI, getAuthData(), null);
+        
+        } catch (URISyntaxException e) {
+            AppProjectCore.LOG.error("Invalid '%s' project URI: %s", projectQualifier, e.getMessage());
+            AppProjectCore.LOG.debug(e);
+            System.exit(-1);
+        } catch (GProjectAuthenticationException e) {
+            AppProjectCore.LOG.error("The '%s' project authentication failed: %s", projectQualifier, e.getLocalizedMessage());
+            AppProjectCore.LOG.debug(e);
+            System.exit(-1);
+        } catch (IOException e) {
+            AppProjectCore.LOG.error("The '%s' project could not be opened in the workspace: %s", projectQualifier, FileUtils.getLocalizedMessage(e));
+            AppProjectCore.LOG.debug(e);
+            System.exit(-1);
+        } catch (InterruptedException e) {
+            AppProjectCore.LOG.error("The '%s' project opening cancelled.", projectQualifier);
+            AppProjectCore.LOG.debug(e);
+            System.exit(-1);
+        }
+        return this.projectService.getOpenedProject();
+    }
+
+    /**
+     * Checks that 'projectName' is a valid name for a project creation.
+     * 
+     * @param projectName a project name candidate
+     * @return true only if the name is a valid project name.
+     */
+    @objid ("9ee06c0b-b019-41f0-86ca-3f39585feb75")
+    private boolean isvalidProjectName(String projectName) {
+        return projectName != null && ProjectNameValidator.PROJECT_NAME_PATTERN.matcher(projectName).matches();
+    }
+
+    @objid ("8edbf6f9-be65-44aa-b8cd-2b48639bf63b")
+    private IAuthData getAuthData() {
+        if (this.batchData.getUser() == null)
+            return null;
+        return new UserPasswordAuthData(this.batchData.getUser(), this.batchData.getPassword(), false);
     }
 
 }

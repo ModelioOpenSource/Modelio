@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -274,7 +274,7 @@ import org.eclipse.uml2.uml.WriteStructuralFeatureAction;
 import org.eclipse.uml2.uml.WriteVariableAction;
 import org.eclipse.uml2.uml.util.UMLSwitch;
 import org.modelio.xmi.plugin.Xmi;
-import org.modelio.xmi.util.ObjingEAnnotation;
+import org.modelio.xmi.util.ModelUtils;
 
 @objid ("7ce8b001-ab1e-4c42-bcf6-91c226038bbe")
 public class OwnedCompositionUml2Visitor extends UMLSwitch<Object> {
@@ -1010,29 +1010,15 @@ public class OwnedCompositionUml2Visitor extends UMLSwitch<Object> {
                         .getSimpleName()))) {
             this.visitorMap.put(inputCombinedFragment, inputCombinedFragment);
             this.behavior.visitCombinedFragment(inputCombinedFragment);
-        
-            ReverseProperties revProp = ReverseProperties.getInstance();
-        
+                
             for (org.eclipse.uml2.uml.InteractionOperand operand : inputCombinedFragment.getOperands()) {
-        
-                Object temp = revProp.getMappedElement(operand);
-                if (temp instanceof org.modelio.metamodel.uml.behavior.interactionModel.InteractionOperand){
-                    ((org.modelio.metamodel.uml.behavior.interactionModel.InteractionOperand) temp).setLineNumber(revProp.getCurrentLineNumber());                                     
-                } 
-        
+                ModelUtils.setLineNumber(operand); 
                 this.doSwitch(operand); 
-                if (temp instanceof org.modelio.metamodel.uml.behavior.interactionModel.InteractionOperand){
-                    ((org.modelio.metamodel.uml.behavior.interactionModel.InteractionOperand) temp).setEndLineNumber(revProp.getCurrentLineNumber());                                     
-                }
-        
-                for (Gate cfragmentGate : inputCombinedFragment
-                        .getCfragmentGates()) {
-                    this.doSwitch(cfragmentGate);
-        
-                    Object gate = revProp.getMappedElement(cfragmentGate);
-                    if (gate instanceof org.modelio.metamodel.uml.behavior.interactionModel.Gate){
-                        ((org.modelio.metamodel.uml.behavior.interactionModel.Gate) temp).setLineNumber(revProp.getCurrentLineNumber());                                     
-                    } 
+                ModelUtils.setEndLineNumber(operand); 
+                
+                for (Gate cfragmentGate : inputCombinedFragment.getCfragmentGates()) {
+                    this.doSwitch(cfragmentGate);   
+                    ModelUtils.setLineNumber(cfragmentGate); 
                 }
             }
         }
@@ -2177,61 +2163,19 @@ public class OwnedCompositionUml2Visitor extends UMLSwitch<Object> {
             this.behavior.visitInteraction(inputInteraction);
             for (EObject lifeline : inputInteraction.getLifelines()) {
                 this.doSwitch(lifeline);
-            }
-        
-            ReverseProperties revProp = ReverseProperties.getInstance();
-            revProp.resetLineNumber();
-            int lineNumber = 0;
-            boolean annotation = revProp.isRoundtripEnabled();
-        
+            }        
+                 
             //Gates
             for (Gate formalGate : inputInteraction.getFormalGates()) {
-        
-                Object temp = revProp.getMappedElement(formalGate);
-        
-                if (temp instanceof org.modelio.metamodel.uml.behavior.interactionModel.Gate){
-                    //Get Line Number
-                    if (annotation) {
-                        lineNumber = ObjingEAnnotation.getLineNumber(formalGate);
-                    }else {
-                        lineNumber = revProp.getCurrentLineNumber();
-                    }
-                    //Set line number
-                    ((org.modelio.metamodel.uml.behavior.interactionModel.Gate) temp).setLineNumber(lineNumber);
-                }
-                this.doSwitch(formalGate);
-        
+                ModelUtils.setLineNumber(formalGate);
+                this.doSwitch(formalGate);   
             }
         
             //Interaction fragment
-            for (InteractionFragment fragment : inputInteraction.getFragments()) {
-        
-                Object temp = ReverseProperties.getInstance().getMappedElement(fragment);
-                if (temp instanceof org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment){
-                    //Get line Number
-                    if (annotation) {
-                        lineNumber = ObjingEAnnotation.getLineNumber(fragment);
-                    }else {
-                        lineNumber = revProp.getCurrentLineNumber();
-                    }
-                    //Set Line Number
-                    ((org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment) temp).setLineNumber(lineNumber);
-                }
-        
-                this.doSwitch(fragment);
-        
-              //Get End line Number
-                if (annotation) {
-                    lineNumber = ObjingEAnnotation.getEndLineNumber(fragment);
-                }else {
-                    lineNumber = revProp.getCurrentLineNumber();
-                }
-                
-                if (temp instanceof org.modelio.metamodel.uml.behavior.interactionModel.InteractionUse){
-                    ((org.modelio.metamodel.uml.behavior.interactionModel.InteractionUse) temp).setEndLineNumber(lineNumber);
-                }else if (temp instanceof org.modelio.metamodel.uml.behavior.interactionModel.StateInvariant){
-                    ((org.modelio.metamodel.uml.behavior.interactionModel.StateInvariant) temp).setEndLineNumber(lineNumber);
-                }
+            for (InteractionFragment fragment : inputInteraction.getFragments()) {               
+                ModelUtils.setLineNumber(fragment);     
+                this.doSwitch(fragment);      
+                ModelUtils.setEndLineNumber(fragment);
             }
         
             //Messages
@@ -2289,24 +2233,12 @@ public class OwnedCompositionUml2Visitor extends UMLSwitch<Object> {
         
             this.visitorMap.put(inputInteractionOperand, inputInteractionOperand);
             this.behavior.visitInteractionOperand(inputInteractionOperand);
-            this.doSwitch(inputInteractionOperand.getGuard());    
-        
-            ReverseProperties revProp = ReverseProperties.getInstance();
+            this.doSwitch(inputInteractionOperand.getGuard());   
         
             for (InteractionFragment fragment : inputInteractionOperand.getFragments()) {
-        
-                Object temp = revProp.getMappedElement(fragment);
-                if (temp instanceof org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment){
-                    ((org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment) temp).setLineNumber(revProp.getCurrentLineNumber());
-                }
-        
+                ModelUtils.setLineNumber(fragment);             
                 this.doSwitch(fragment);
-        
-                if (temp instanceof org.modelio.metamodel.uml.behavior.interactionModel.InteractionUse){
-                    ((org.modelio.metamodel.uml.behavior.interactionModel.InteractionUse) temp).setEndLineNumber(revProp.getCurrentLineNumber());
-                }else if (temp instanceof org.modelio.metamodel.uml.behavior.interactionModel.StateInvariant){
-                    ((org.modelio.metamodel.uml.behavior.interactionModel.StateInvariant) temp).setEndLineNumber(revProp.getCurrentLineNumber());
-                }
+                ModelUtils.setEndLineNumber(fragment);     
             }
         }
         return null;
@@ -2326,14 +2258,7 @@ public class OwnedCompositionUml2Visitor extends UMLSwitch<Object> {
             this.behavior.visitInteractionUse(inputInteractionUse);
         
             for (Gate actualGate : inputInteractionUse.getActualGates()) {
-        
-                ReverseProperties revProp = ReverseProperties.getInstance();
-                Object temp = revProp.getMappedElement(actualGate);
-        
-                if (temp instanceof org.modelio.metamodel.uml.behavior.interactionModel.Gate){
-                    ((org.modelio.metamodel.uml.behavior.interactionModel.Gate) temp).setLineNumber(revProp.getCurrentLineNumber());
-                }
-        
+                ModelUtils.setLineNumber(actualGate);     
                 this.doSwitch(actualGate);
             }
         

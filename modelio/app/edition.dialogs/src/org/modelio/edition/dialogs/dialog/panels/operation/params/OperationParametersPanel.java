@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,8 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
@@ -59,7 +61,7 @@ import org.modelio.vcore.session.impl.CoreSession;
 import org.modelio.vcore.smkernel.mapi.MClass;
 
 /**
- * Reusable panel to edit operation's paramters in a table.
+ * Reusable panel to edit operation's parameters in a table.
  * <p>
  * Needs an {@link IOperationPropertyModel} as input.
  * </p>
@@ -72,128 +74,126 @@ public class OperationParametersPanel implements IPanelProvider {
     @objid ("e1697af3-bef1-4d54-93db-99c023c97089")
     private IOperationPropertyModel opModel;
 
-    @objid ("b89d81ff-a02b-4ab8-a0b1-e83183626498")
+    @objid ("eb2d77ee-14d9-4e9f-a6b5-d02627b604e3")
     private TableViewer parametersTable;
 
-    @objid ("5163db8d-c8f3-4e83-8b91-75ae1e550da5")
+    @objid ("7e88b33a-8be6-42d0-86ee-eb6f40032313")
     private Composite container;
 
-    @objid ("2069d56c-cb42-45e7-af15-004690518025")
+    @objid ("efd07d51-de19-41ca-bb78-50e0bb9e680a")
     private Button addParameterButton;
 
-    @objid ("f436ba90-1a96-43cc-acaf-a16d9bea2b36")
+    @objid ("7f3598c4-b73c-40ec-824d-97b6c2773912")
     private Button addReturnParameterButton;
 
-    @objid ("70a9bc40-e75c-4dac-9d7c-332f850f0236")
+    @objid ("303411be-6ab4-4619-b479-ad5e57bd2fd7")
     private Button removeButton;
 
-    @objid ("322859f3-e980-4fe9-bc6c-9e36cfc3bc51")
+    @objid ("9bd7881c-0b07-49f3-af5b-9f193182ef96")
     private Button moveUpButton;
 
-    @objid ("396eda72-6fd6-4c6a-a656-cf3f8bc4bc5e")
+    @objid ("43e6abc5-835e-421a-ab82-ff0d01326b3e")
     private Button moveDownButton;
 
-    @objid ("df4837a7-10f1-4f4c-b426-2e3202bf4062")
+    @objid ("4fdfd999-5f32-4c76-bf60-af79d8cede27")
     private static final Image CREATEPARAMETER_ICON = EditionDialogs.getImageDescriptor("icons/createparameter.png").createImage();
 
-    @objid ("f8250e1b-e34c-413e-a965-8ff871c80ef7")
+    @objid ("1442becc-30bc-42cb-bea1-de6f900d2a56")
     private static final Image CREATERETURNPARAMETER_ICON = EditionDialogs.getImageDescriptor("icons/createreturnparameter.png").createImage();
 
     @objid ("f54a3ef9-d532-4722-bf89-18bf08b5a725")
     @Override
-    public Object createPanel(Composite parent) {
+    public Object createPanel(final Composite parent) {
         this.container = new Composite(parent, SWT.BORDER);
         final GridLayout gl_parametersArea = new GridLayout(1, false);
-        gl_parametersArea.marginHeight = 0;
-        gl_parametersArea.marginWidth = 0;
-        gl_parametersArea.marginRight = 3;
+        gl_parametersArea.verticalSpacing = 2;
+        gl_parametersArea.marginWidth = 2;
+        gl_parametersArea.marginHeight = 2;
         this.container.setLayout(gl_parametersArea);
         
-        final Composite labelArea = new Composite(this.container, SWT.BORDER);
+        final Composite toolbarArea = new Composite(this.container, SWT.NONE);
         final GridLayout gl_labelArea = new GridLayout(6, false);
-        gl_labelArea.marginHeight = 0;
-        gl_labelArea.marginWidth = 5;
-        labelArea.setLayout(gl_labelArea);
-        labelArea.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        gl_labelArea.marginHeight = 2;
+        gl_labelArea.marginWidth = 2;
+        gl_labelArea.horizontalSpacing = 2;
+        toolbarArea.setLayout(gl_labelArea);
+        toolbarArea.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
         
-        final Label parametersPropertiesLabel = new Label(labelArea, SWT.NO_REDRAW_RESIZE);
+        final Label parametersPropertiesLabel = new Label(toolbarArea, SWT.NO_REDRAW_RESIZE);
         parametersPropertiesLabel.setText(EditionDialogs.I18N.getString("OperationEditPanel.opParameters"));
-        final GridData gdParametersPropertiesLabel = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        final GridData gdParametersPropertiesLabel = new GridData(SWT.FILL, SWT.CENTER, true, true);
         parametersPropertiesLabel.setLayoutData(gdParametersPropertiesLabel);
         
         // The Add parameter button
-        this.addParameterButton = new Button(labelArea, SWT.FLAT);
+        this.addParameterButton = new Button(toolbarArea, SWT.FLAT);
         this.addParameterButton.setImage(OperationParametersPanel.CREATEPARAMETER_ICON);
         this.addParameterButton.setEnabled(true);
         this.addParameterButton.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
         this.addParameterButton.setToolTipText(EditionDialogs.I18N.getString("OperationEditPanel.addParameterButton.tooltip"));
         this.addParameterButton.addSelectionListener(new SelectionAdapter() {
             @Override
-            public void widgetSelected(SelectionEvent e) {
+            public void widgetSelected(final SelectionEvent e) {
                 addParameter();
             }
         });
         
         // The Add return parameter button
-        this.addReturnParameterButton = new Button(labelArea, SWT.FLAT);
+        this.addReturnParameterButton = new Button(toolbarArea, SWT.FLAT);
         this.addReturnParameterButton.setImage(OperationParametersPanel.CREATERETURNPARAMETER_ICON);
         this.addReturnParameterButton.setEnabled(true);
         this.addReturnParameterButton.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
         this.addReturnParameterButton.setToolTipText(EditionDialogs.I18N.getString("OperationEditPanel.addReturnParameterButton.tooltip"));
         this.addReturnParameterButton.addSelectionListener(new SelectionAdapter() {
             @Override
-            public void widgetSelected(SelectionEvent e) {
+            public void widgetSelected(final SelectionEvent e) {
                 addReturnParameter();
             }
         });
         
         // The Remove parameter button
-        this.removeButton = new Button(labelArea, SWT.FLAT);
+        this.removeButton = new Button(toolbarArea, SWT.FLAT);
         this.removeButton.setImage(UIImages.DELETE);
         this.removeButton.setEnabled(false);
         this.removeButton.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
         this.removeButton.setToolTipText(EditionDialogs.I18N.getString("OperationEditPanel.removeParameterButton.tooltip"));
         this.removeButton.addSelectionListener(new SelectionAdapter() {
             @Override
-            public void widgetSelected(SelectionEvent e) {
+            public void widgetSelected(final SelectionEvent e) {
                 removeSelectedParameters();
             }
         
         });
         
         // The move parameter up button
-        this.moveUpButton = new Button(labelArea, SWT.FLAT);
+        this.moveUpButton = new Button(toolbarArea, SWT.FLAT);
         this.moveUpButton.setImage(UIImages.UPARROW);
         this.moveUpButton.setEnabled(false);
         this.moveUpButton.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
         this.moveUpButton.setToolTipText(EditionDialogs.I18N.getString("OperationEditPanel.moveParameterUpButton.tooltip"));
         this.moveUpButton.addSelectionListener(new SelectionAdapter() {
             @Override
-            public void widgetSelected(SelectionEvent e) {
+            public void widgetSelected(final SelectionEvent e) {
                 moveUpSelectedParameters();
             }
         
         });
         
         // The move parameter down button
-        this.moveDownButton = new Button(labelArea, SWT.FLAT);
+        this.moveDownButton = new Button(toolbarArea, SWT.FLAT);
         this.moveDownButton.setImage(UIImages.DOWNARROW);
         this.moveDownButton.setEnabled(false);
         this.moveDownButton.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
         this.moveDownButton.setToolTipText(EditionDialogs.I18N.getString("OperationEditPanel.moveParameterDownButton.tooltip"));
         this.moveDownButton.addSelectionListener(new SelectionAdapter() {
             @Override
-            public void widgetSelected(SelectionEvent e) {
+            public void widgetSelected(final SelectionEvent e) {
                 moveDownSelectedParameters();
             }
         });
         
         // The parameters table itself
-        this.parametersTable = new TableViewer(this.container,
-                SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
+        this.parametersTable = new TableViewer(this.container, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
         final Table table = this.parametersTable.getTable();
-        table.setHeaderVisible(true);
-        table.setLinesVisible(true);
         
         // Initialize columns
         createColumns(this.parametersTable);
@@ -201,6 +201,31 @@ public class OperationParametersPanel implements IPanelProvider {
         // Set the content provider
         this.parametersTable.setContentProvider(ArrayContentProvider.getInstance());
         this.parametersTable.getTable().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        
+        this.parametersTable.getTable().addKeyListener(new KeyListener() {
+        
+            @Override
+            public void keyReleased(KeyEvent e) {
+            }
+        
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.keyCode == SWT.DEL) {
+                    removeSelectedParameters();
+                } else if (e.keyCode == 'u' && (e.stateMask & SWT.CTRL) == SWT.CTRL) {
+                    moveUpSelectedParameters();
+                } else if (e.keyCode == 'd' && (e.stateMask & SWT.CTRL) == SWT.CTRL) {
+                    moveDownSelectedParameters();
+                }
+        
+            }
+        });
+        
+        // GTK3 workaround: table headers wrecks down cell editors on first table row !!!
+        if (System.getProperty("os.name").toLowerCase().startsWith("win")) {
+            table.setHeaderVisible(true);
+        }
+        table.setLinesVisible(true);
         return this.container;
     }
 
@@ -212,7 +237,7 @@ public class OperationParametersPanel implements IPanelProvider {
 
     @objid ("f23dec76-17f7-455e-b13b-0600c192ca39")
     @Override
-    public void setInput(Object input) {
+    public void setInput(final Object input) {
         if (input instanceof IOperationPropertyModel) {
             this.opModel = (IOperationPropertyModel) input;
             this.parametersTable.setInput(this.opModel.getParameters());
@@ -221,7 +246,7 @@ public class OperationParametersPanel implements IPanelProvider {
             this.parametersTable.setInput(null);
         }
         
-        setReadOnly((this.opModel != null) && !this.opModel.isModifiable());
+        setReadOnly(this.opModel != null && !this.opModel.isModifiable());
     }
 
     @objid ("b52eca23-74c6-4f49-afbc-bdc86f9bc2f8")
@@ -241,9 +266,9 @@ public class OperationParametersPanel implements IPanelProvider {
      */
     @objid ("05c8302a-c030-473f-a2e1-bbc5618ff99b")
     private List<Parameter> getSelectedParameters() {
-        List<Parameter> selectedParameters = new ArrayList<>();
-        IStructuredSelection selection = this.parametersTable.getStructuredSelection();
-        for (ParameterPropertyModel pm : SelectionHelper.toList(selection, ParameterPropertyModel.class)) {
+        final List<Parameter> selectedParameters = new ArrayList<>();
+        final IStructuredSelection selection = this.parametersTable.getStructuredSelection();
+        for (final ParameterPropertyModel pm : SelectionHelper.toList(selection, ParameterPropertyModel.class)) {
             selectedParameters.add(pm.getParameter());
         }
         return selectedParameters;
@@ -255,10 +280,10 @@ public class OperationParametersPanel implements IPanelProvider {
     }
 
     @objid ("36d65254-afef-4ba7-af10-76337e13cd1c")
-    private void selectParameters(List<Parameter> selectedParameters) {
-        List<ParameterPropertyModel> currentInput = (List<ParameterPropertyModel>) this.parametersTable.getInput();
-        List<ParameterPropertyModel> selection = new ArrayList<>();
-        for (ParameterPropertyModel pm : currentInput) {
+    private void selectParameters(final List<Parameter> selectedParameters) {
+        final List<ParameterPropertyModel> currentInput = (List<ParameterPropertyModel>) this.parametersTable.getInput();
+        final List<ParameterPropertyModel> selection = new ArrayList<>();
+        for (final ParameterPropertyModel pm : currentInput) {
             if (selectedParameters.contains(pm.getParameter())) {
                 selection.add(pm);
             }
@@ -272,7 +297,7 @@ public class OperationParametersPanel implements IPanelProvider {
     }
 
     @objid ("ce854905-daf7-481e-aaa5-4f9b04b7061e")
-    private void setReadOnly(boolean ro) {
+    private void setReadOnly(final boolean ro) {
         this.addParameterButton.setEnabled(!ro);
         
         this.removeButton.setEnabled(!ro);
@@ -280,7 +305,7 @@ public class OperationParametersPanel implements IPanelProvider {
         this.moveUpButton.setEnabled(!ro);
         this.parametersTable.getTable().setEnabled(!ro);
         
-        boolean returnParameterExists = !getCurrentParameters().isEmpty()
+        final boolean returnParameterExists = !getCurrentParameters().isEmpty()
                 && getCurrentParameters().get(0).isReturn();
         this.addReturnParameterButton.setEnabled(!ro && !returnParameterExists);
     }
@@ -289,7 +314,7 @@ public class OperationParametersPanel implements IPanelProvider {
     private void addParameter() {
         getOperationModel().addParameter();
         
-        List<ParameterPropertyModel> parameters = getOperationModel().getParameters();
+        final List<ParameterPropertyModel> parameters = getOperationModel().getParameters();
         this.parametersTable.setInput(parameters);
         this.parametersTable.setSelection(new StructuredSelection(parameters.get(parameters.size() - 1)));
     }
@@ -311,14 +336,16 @@ public class OperationParametersPanel implements IPanelProvider {
     @objid ("12b29b49-f601-4c11-916a-95fe550e27c8")
     private void removeSelectedParameters() {
         this.opModel.removeParameter(getSelectedParameters());
-        
-        List<ParameterPropertyModel> parameters = getOperationModel().getParameters();
+        final List<ParameterPropertyModel> parameters = getOperationModel().getParameters();
         this.parametersTable.setInput(parameters);
+        if (!parameters.isEmpty()) {
+            this.parametersTable.setSelection(new StructuredSelection(parameters.get(0)));
+        }
     }
 
     @objid ("1e020e94-21d2-4ffb-adf7-a70211984176")
     @Override
-    public boolean isRelevantFor(Object obj) {
+    public boolean isRelevantFor(final Object obj) {
         return obj instanceof IOperationPropertyModel;
     }
 
@@ -335,7 +362,7 @@ public class OperationParametersPanel implements IPanelProvider {
     }
 
     @objid ("7898be5d-fd9d-48d4-ace5-cd0e90ddd7e1")
-    private void createColumns(TableViewer viewer) {
+    private void createColumns(final TableViewer viewer) {
         createIconColumn(viewer);
         createNameColumn(viewer);
         createTypeColumn(viewer);
@@ -345,16 +372,16 @@ public class OperationParametersPanel implements IPanelProvider {
     }
 
     @objid ("5fd3477b-f5e9-4ad5-ac6a-8b1c0ae02555")
-    private void createDefaultValueColumn(TableViewer viewer) {
+    private void createDefaultValueColumn(final TableViewer viewer) {
         // create a column for the parameter Value
-        TableViewerColumn valueColumn = new TableViewerColumn(viewer, SWT.NONE);
+        final TableViewerColumn valueColumn = new TableViewerColumn(viewer, SWT.NONE);
         
         valueColumn.getColumn().setWidth(200);
         valueColumn.getColumn().setText(EditionDialogs.I18N.getString("OperationEditPanel.pValue"));
         valueColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            public String getText(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 return m.getDefaultValue();
             }
         });
@@ -362,25 +389,25 @@ public class OperationParametersPanel implements IPanelProvider {
             private final CellEditor editor = new TextCellEditor(OperationParametersPanel.this.parametersTable.getTable());
         
             @Override
-            protected CellEditor getCellEditor(Object element) {
+            protected CellEditor getCellEditor(final Object element) {
                 return this.editor;
             }
         
             @Override
-            protected boolean canEdit(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
-                return (m.isReturn() == false);
+            protected boolean canEdit(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
+                return m.isReturn() == false;
             }
         
             @Override
-            protected Object getValue(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            protected Object getValue(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 return m.getDefaultValue();
             }
         
             @Override
-            protected void setValue(Object element, Object value) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            protected void setValue(final Object element, final Object value) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 m.setDefaultValue((String) value);
             }
         
@@ -388,17 +415,17 @@ public class OperationParametersPanel implements IPanelProvider {
     }
 
     @objid ("e1794fe9-a10e-4de8-b641-c4b5faaeb0c1")
-    private void createPassingModeColumn(TableViewer viewer) {
+    private void createPassingModeColumn(final TableViewer viewer) {
         // create a column for the parameter Passing mode
-        TableViewerColumn passingColumn = new TableViewerColumn(viewer, SWT.NONE);
+        final TableViewerColumn passingColumn = new TableViewerColumn(viewer, SWT.NONE);
         
         passingColumn.getColumn().setWidth(100);
         passingColumn.getColumn().setText(EditionDialogs.I18N.getString("OperationEditPanel.pPassing"));
         passingColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
-                PassingMode mode = m.getPassing();
+            public String getText(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
+                final PassingMode mode = m.getPassing();
                 if (mode != null) {
                     return MetamodelLabels.getString(mode.toString());
                 } else {
@@ -411,25 +438,25 @@ public class OperationParametersPanel implements IPanelProvider {
             private final EnumComboBoxCellEditor editor = new EnumComboBoxCellEditor(OperationParametersPanel.this.parametersTable.getTable(), PassingMode.class, SWT.SINGLE);
         
             @Override
-            protected CellEditor getCellEditor(Object element) {
+            protected CellEditor getCellEditor(final Object element) {
                 return this.editor;
             }
         
             @Override
-            protected boolean canEdit(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            protected boolean canEdit(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 return !m.isReturn();
             }
         
             @Override
-            protected Object getValue(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            protected Object getValue(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 return m.getPassing();
             }
         
             @Override
-            protected void setValue(Object element, Object value) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            protected void setValue(final Object element, final Object value) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 m.setPassingMode((PassingMode) value);
             }
         
@@ -437,16 +464,16 @@ public class OperationParametersPanel implements IPanelProvider {
     }
 
     @objid ("4d6a2b9a-5601-41b4-a83e-c2aa4fa70944")
-    private void createCardColumn(TableViewer viewer) {
+    private void createCardColumn(final TableViewer viewer) {
         // create a column for the parameter Card
-        TableViewerColumn cardColumn = new TableViewerColumn(viewer, SWT.NONE);
+        final TableViewerColumn cardColumn = new TableViewerColumn(viewer, SWT.NONE);
         
         cardColumn.getColumn().setWidth(80);
         cardColumn.getColumn().setText(EditionDialogs.I18N.getString("OperationEditPanel.pCard"));
         cardColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            public String getText(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 return m.getCard();
             }
         });
@@ -455,9 +482,9 @@ public class OperationParametersPanel implements IPanelProvider {
             private final LabelsComboBoxCellEditor editor = new LabelsComboBoxCellEditor(OperationParametersPanel.this.parametersTable.getTable(), OperationParametersPanel.CARD_VALUES, true, SWT.DROP_DOWN | SWT.SINGLE | SWT.V_SCROLL | SWT.H_SCROLL);
         
             @Override
-            protected CellEditor getCellEditor(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
-                List<String> items = new ArrayList<>(Arrays.asList(OperationParametersPanel.CARD_VALUES));
+            protected CellEditor getCellEditor(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
+                final List<String> items = new ArrayList<>(Arrays.asList(OperationParametersPanel.CARD_VALUES));
                 if (!items.contains(m.getCard())) {
                     items.add(m.getCard());
                 }
@@ -466,19 +493,19 @@ public class OperationParametersPanel implements IPanelProvider {
             }
         
             @Override
-            protected boolean canEdit(Object element) {
+            protected boolean canEdit(final Object element) {
                 return true;
             }
         
             @Override
-            protected Object getValue(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            protected Object getValue(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 return m.getCard();
             }
         
             @Override
-            protected void setValue(Object element, Object value) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            protected void setValue(final Object element, final Object value) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 m.setCard((String) value);
             }
         
@@ -486,16 +513,16 @@ public class OperationParametersPanel implements IPanelProvider {
     }
 
     @objid ("4a4a1e25-32a0-475e-8013-8db8b1734241")
-    private void createTypeColumn(TableViewer viewer) {
+    private void createTypeColumn(final TableViewer viewer) {
         // create a column for the parameter Type
-        TableViewerColumn typeColumn = new TableViewerColumn(viewer, SWT.NONE);
+        final TableViewerColumn typeColumn = new TableViewerColumn(viewer, SWT.NONE);
         
         typeColumn.getColumn().setWidth(180);
         typeColumn.getColumn().setText(EditionDialogs.I18N.getString("OperationEditPanel.pType"));
         typeColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            public String getText(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 return m.getType() != null ? m.getType().getName() : "null";
             }
         });
@@ -504,12 +531,12 @@ public class OperationParametersPanel implements IPanelProvider {
             private final SingleElementCellEditor editor = new SingleElementCellEditor(OperationParametersPanel.this.parametersTable.getTable());
         
             @Override
-            protected CellEditor getCellEditor(Object element) {
+            protected CellEditor getCellEditor(final Object element) {
         
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
-                Parameter p = m.getParameter();
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
+                final Parameter p = m.getParameter();
         
-                MClass metaclass = p.getMClass().getMetamodel().getMClass(GeneralClass.class);
+                final MClass metaclass = p.getMClass().getMetamodel().getMClass(GeneralClass.class);
                 this.editor.getTextElement().getAcceptedMetaclasses().clear();
                 this.editor.getTextElement().getAcceptedMetaclasses().add(metaclass);
         
@@ -521,19 +548,19 @@ public class OperationParametersPanel implements IPanelProvider {
             }
         
             @Override
-            protected boolean canEdit(Object element) {
+            protected boolean canEdit(final Object element) {
                 return true;
             }
         
             @Override
-            protected Object getValue(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            protected Object getValue(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 return m.getType();
             }
         
             @Override
-            protected void setValue(Object element, Object value) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            protected void setValue(final Object element, final Object value) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 m.setType(value);
             }
         
@@ -541,16 +568,16 @@ public class OperationParametersPanel implements IPanelProvider {
     }
 
     @objid ("0d770127-0e04-43ad-be6a-c100c18d7f70")
-    private void createNameColumn(TableViewer viewer) {
+    private void createNameColumn(final TableViewer viewer) {
         // create a column for the parameter Name
-        TableViewerColumn nameColumn = new TableViewerColumn(viewer, SWT.NONE);
+        final TableViewerColumn nameColumn = new TableViewerColumn(viewer, SWT.NONE);
         
         nameColumn.getColumn().setWidth(180);
         nameColumn.getColumn().setText(EditionDialogs.I18N.getString("OperationEditPanel.pName"));
         nameColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            public String getText(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 return m.getName();
             }
         });
@@ -559,25 +586,25 @@ public class OperationParametersPanel implements IPanelProvider {
             private final CellEditor editor = new TextCellEditor(OperationParametersPanel.this.parametersTable.getTable());
         
             @Override
-            protected CellEditor getCellEditor(Object element) {
+            protected CellEditor getCellEditor(final Object element) {
                 return this.editor;
             }
         
             @Override
-            protected boolean canEdit(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
-                return (m.isReturn() == false);
+            protected boolean canEdit(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
+                return m.isReturn() == false;
             }
         
             @Override
-            protected Object getValue(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            protected Object getValue(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 return m.getName();
             }
         
             @Override
-            protected void setValue(Object element, Object value) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            protected void setValue(final Object element, final Object value) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 m.setName((String) value);
             }
         
@@ -585,20 +612,20 @@ public class OperationParametersPanel implements IPanelProvider {
     }
 
     @objid ("b772e2ab-03ad-414d-8997-d48b938dccaa")
-    private void createIconColumn(TableViewer viewer) {
+    private void createIconColumn(final TableViewer viewer) {
         // create a column for the parameter icon
-        TableViewerColumn iconColumn = new TableViewerColumn(viewer, SWT.NONE);
+        final TableViewerColumn iconColumn = new TableViewerColumn(viewer, SWT.NONE);
         iconColumn.getColumn().setWidth(UIImages.PLACEHOLDER.getImageData().width + 6);
         iconColumn.getColumn().setText("");
         iconColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public Image getImage(Object element) {
-                ParameterPropertyModel m = (ParameterPropertyModel) element;
+            public Image getImage(final Object element) {
+                final ParameterPropertyModel m = (ParameterPropertyModel) element;
                 return m.getIcon();
             }
         
             @Override
-            public String getText(Object element) {
+            public String getText(final Object element) {
                 return "";
             }
         });
@@ -618,66 +645,9 @@ public class OperationParametersPanel implements IPanelProvider {
     private void addReturnParameter() {
         getOperationModel().addReturnParameter();
         
-        List<ParameterPropertyModel> parameters = getOperationModel().getParameters();
+        final List<ParameterPropertyModel> parameters = getOperationModel().getParameters();
         this.parametersTable.setInput(parameters);
         this.parametersTable.setSelection(new StructuredSelection(parameters.get(0)));
     }
 
-
-// @objid("aa64d8ab-b688-4dc7-a46a-00f83c6f4867")
-// public class ParameterTableListener extends KeyAdapter implements
-// KTableCellSelectionListener {
-// @objid("c0651960-5b8a-43c3-bb95-908adcbd4888")
-// private OperationParametersPanel panel = null;
-//
-// @objid("302974f1-92e9-4c0a-b5ed-16bfe9cad39c")
-// public ParameterTableListener(OperationParametersPanel panel) {
-// this.panel = panel;
-// }
-//
-// @objid("aa981f6f-52d1-408c-b918-a19daf26dfa9")
-// @Override
-// public void cellSelected(int col, int row, int statemask) {
-// if (col == 0) {
-// this.panel.selectParameterRow(row);
-// }
-//
-// if (this.panel.getSelectedParameters().size() > 0) {
-// this.panel.removeButton.setEnabled(this.panel.getOperationModel().isModifiable());
-// } else {
-// this.panel.removeButton.setEnabled(false);
-// }
-//
-// if ((this.panel.getSelectedParameters().size() > 0) &&
-// (this.panel.getOperationModel().getIOParameterSize() > 1)) {
-// this.panel.moveUpButton.setEnabled(this.panel.getOperationModel().isModifiable());
-// this.panel.moveDownButton.setEnabled(this.panel.getOperationModel().isModifiable());
-// } else {
-// this.panel.moveUpButton.setEnabled(false);
-// this.panel.moveDownButton.setEnabled(false);
-// }
-// }
-//
-// @objid("16e67c0b-cf82-4b4c-9a19-5df900c9882f")
-// @Override
-// public void fixedCellSelected(int col, int row, int statemask) {
-// }
-//
-// @objid("9c7d45ea-c17f-4084-aba1-18cbf161480d")
-// @Override
-// public void keyReleased(KeyEvent event) {
-// if (event.keyCode == SWT.DEL) {
-// removeSelectedParameters();
-// } else if (((event.keyCode == 'u') && ((event.stateMask & SWT.CTRL) !=
-// 0)) || ((event.keyCode == 'U')
-// && ((event.stateMask & SWT.CTRL) != 0))) {
-// moveUpSelectedParameters();
-// } else if (((event.keyCode == 'd') && ((event.stateMask & SWT.CTRL) !=
-// 0)) || ((event.keyCode == 'D')
-// && ((event.stateMask & SWT.CTRL) != 0))) {
-// moveDownSelectedParameters();
-// }
-// }
-//
-// }
 }

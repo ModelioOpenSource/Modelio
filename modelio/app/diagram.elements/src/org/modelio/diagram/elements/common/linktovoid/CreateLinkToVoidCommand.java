@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class CreateLinkToVoidCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param context Details on the MObject and/or the node to create
      */
     @objid ("7ec96be8-1dec-11e2-8cad-001ec947c8cc")
@@ -113,6 +114,7 @@ public class CreateLinkToVoidCommand extends Command {
 
     /**
      * Set the node inside which the node will be created.
+     * 
      * @param destNode The node in which the node will be created.
      */
     @objid ("7ec96bef-1dec-11e2-8cad-001ec947c8cc")
@@ -122,6 +124,7 @@ public class CreateLinkToVoidCommand extends Command {
 
     /**
      * Set the parent element independently from the parent node.
+     * 
      * @param parentElement the parent element.
      */
     @objid ("7ec96bf3-1dec-11e2-8cad-001ec947c8cc")
@@ -133,6 +136,7 @@ public class CreateLinkToVoidCommand extends Command {
      * Set the node on which the created node will be linked.
      * <p>
      * Set the parent element to be the represented element of the source node.
+     * 
      * @param sourceNode the source node.
      */
     @objid ("7ecbce0b-1dec-11e2-8cad-001ec947c8cc")
@@ -143,6 +147,7 @@ public class CreateLinkToVoidCommand extends Command {
 
     /**
      * Create and initialize the model element.
+     * 
      * @param modelFactory the model factory.
      * @return the created model element.
      */
@@ -180,6 +185,7 @@ public class CreateLinkToVoidCommand extends Command {
 
     /**
      * Set the destination location.
+     * 
      * @param dimension destination location in absolute coordiantes.
      */
     @objid ("7ecbce16-1dec-11e2-8cad-001ec947c8cc")
@@ -225,6 +231,7 @@ public class CreateLinkToVoidCommand extends Command {
 
     /**
      * Get the parent element of the element to create.
+     * 
      * @return the parent element.
      */
     @objid ("7ecbce33-1dec-11e2-8cad-001ec947c8cc")
@@ -236,6 +243,7 @@ public class CreateLinkToVoidCommand extends Command {
      * Get the created model element.
      * <p>
      * Returns <code>null</code> until {@link #execute()} has been called.
+     * 
      * @return the created element.
      */
     @objid ("7ecbce38-1dec-11e2-8cad-001ec947c8cc")
@@ -245,6 +253,7 @@ public class CreateLinkToVoidCommand extends Command {
 
     /**
      * Set the source anchor model.
+     * 
      * @param srcAnchorModel the source anchor model.
      */
     @objid ("7ecbce3d-1dec-11e2-8cad-001ec947c8cc")

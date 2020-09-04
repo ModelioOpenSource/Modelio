@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,7 +49,7 @@ public class NoneAuthData extends AuthData {
 
     @objid ("0a94ec2f-ee20-43cf-81e6-bbd4605aaa8f")
     @Override
-    public Map<String, String> serialize() {
+    public Map<String, String> serialize(boolean forceCredentials) {
         return Collections.emptyMap();
     }
 

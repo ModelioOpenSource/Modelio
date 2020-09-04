@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class GmBpmnParticipantHeader extends GmDefaultModelElementHeader {
 
     /**
      * C'tor.
+     * 
      * @param diagram the owning diagram.
      * @param relatedRef the element reference.
      */

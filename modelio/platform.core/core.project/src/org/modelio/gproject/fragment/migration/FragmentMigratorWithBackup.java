@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -98,7 +98,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
         FileUtils.delete(getFailDirectory());
         
         if (Files.isDirectory(backupDirectory)) {
-            String msg = CoreProject.getMessage("FragmentMigratorWithBackup.mon.restoreBackup", this.fragToMigrate.getId(), backupDirectory);
+            String msg = CoreProject.I18N.getMessage("FragmentMigratorWithBackup.mon.restoreBackup", this.fragToMigrate.getId(), backupDirectory);
             SubProgress mon = SubProgress.convert(monitor, msg, 1);
             mon.subTask(msg);
             getMigrationReporter().getLogger().println(msg);
@@ -109,7 +109,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
             //FileUtils.delete(dataDirectory);
             FragmentMigratorWithBackup.moveDirectory(backupDirectory, dataDirectory);
         
-            msg = CoreProject.getMessage("FragmentMigratorWithBackup.mon.restoreBackup.done", this.fragToMigrate.getId(), backupDirectory);
+            msg = CoreProject.I18N.getMessage("FragmentMigratorWithBackup.mon.restoreBackup.done", this.fragToMigrate.getId(), backupDirectory);
             getMigrationReporter().getLogger().println(msg);
             getMigrationReporter().getResultReporter().println(msg);
         }
@@ -145,7 +145,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
         Path backArchiveDir = getMigrationBackupArchiveDirectory();
         
         if (Files.isDirectory(backArchiveDir)) {
-            String taskName = CoreProject.getMessage("FragmentMigratorWithBackup.mon.deleteBackupArchive", this.fragToMigrate.getId(), backArchiveDir);
+            String taskName = CoreProject.I18N.getMessage("FragmentMigratorWithBackup.mon.deleteBackupArchive", this.fragToMigrate.getId(), backArchiveDir);
             mon.subTask(taskName);
             this.migrationReporter.getLogger().println(taskName);
         
@@ -158,7 +158,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
         Path backDir = getBackupDirectory();
         Path archiveDir = getMigrationBackupArchiveDirectory();
         
-        String taskName = CoreProject.getMessage("FragmentMigratorWithBackup.mon.archiveBackup",
+        String taskName = CoreProject.I18N.getMessage("FragmentMigratorWithBackup.mon.archiveBackup",
                 this.fragToMigrate.getId(),
                 archiveDir,
                 backDir);
@@ -178,7 +178,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
     @Override
     public IMigrationProcess start(IModelioProgress monitor, IMigrationReporter reporter) throws FragmentAuthenticationException, MigrationFailedException {
         setMigrationReporter(reporter);
-        String taskName = CoreProject.getMessage("FragmentMigratorWithBackup.mon.migration", this.fragToMigrate.getId());
+        String taskName = CoreProject.I18N.getMessage("FragmentMigratorWithBackup.mon.migration", this.fragToMigrate.getId());
         SubProgress mon = SubProgress.convert(monitor, taskName, 14);
         
         
@@ -273,7 +273,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
                 try {
                     restoreBackup(monitor);
                 } catch (IOException e) {
-                    String msg = CoreProject.getMessage("FragmentMigratorWithBackup.restoreBackupFailed",
+                    String msg = CoreProject.I18N.getMessage("FragmentMigratorWithBackup.restoreBackupFailed",
                             FragmentMigratorWithBackup.this.fragToMigrate.getId(),
                             FileUtils.getLocalizedMessage(e),
                             getBackupDirectory(),

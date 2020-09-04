@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -81,6 +81,7 @@ public interface LinkEnd extends UmlModelElement {
      * <li>BOTHSIDES: current source must be equals to opposite target as well as current target and opposite source.</li>
      * <li>NONE: both sources must be filled, but no target</li>
      * </ul>
+     * 
      * @param value whether or not to synchronize the other end and both source/target values. This end will be made navigable whatever the current navigability is.
      */
     @objid ("50d3075c-1fcb-4a03-a648-16729171986f")

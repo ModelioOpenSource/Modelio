@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -103,6 +103,7 @@ public class ModelLinkFactory implements IModelLinkFactory {
 
     /**
      * Create the link element factory.
+     * 
      * @param modelServices A model factory this factory will use.
      */
     @objid ("80a8a477-1dec-11e2-8cad-001ec947c8cc")
@@ -112,6 +113,7 @@ public class ModelLinkFactory implements IModelLinkFactory {
 
     /**
      * Create a link model element from the given source to the destination.
+     * 
      * @param metaclass The metaclass of the link to create.
      * @param source The source element
      * @param target The destination element
@@ -135,6 +137,7 @@ public class ModelLinkFactory implements IModelLinkFactory {
      * Create a link model element owned by the given owner, from the given source to the destination.
      * <p>
      * This method is intended to be used to create links which have a source, a destination and an owner.
+     * 
      * @param metaclass The metaclass of the link to create.
      * @param source The source element
      * @param target The destination element
@@ -483,6 +486,7 @@ public class ModelLinkFactory implements IModelLinkFactory {
 
         /**
          * Get the name space owning both model elements
+         * 
          * @param aSource a model element
          * @param aTarget another model element
          * @return the common namespace
@@ -568,6 +572,7 @@ public class ModelLinkFactory implements IModelLinkFactory {
          * <li>Binding Link from CollaborationUse to the represented feature
          * <li>Binding link from the represented feature to the role
          * </ul>
+         * 
          * @param theBinding The binding to initialize
          * @param source The binding source
          * @param target The binding target
@@ -606,6 +611,7 @@ public class ModelLinkFactory implements IModelLinkFactory {
 
         /**
          * Guess the collaboration use from the represented feature and the role.
+         * 
          * @param feature the represented feature
          * @param role the role
          * @return the found collaboration use
@@ -627,6 +633,7 @@ public class ModelLinkFactory implements IModelLinkFactory {
 
         /**
          * Get the collaboration uses accessible from the given represented feature.
+         * 
          * @param feature a represented feature
          * @return accessible collaboration uses
          * @throws java.lang.IllegalArgumentException if no collaboration uses were found
@@ -648,6 +655,7 @@ public class ModelLinkFactory implements IModelLinkFactory {
 
         /**
          * Get the collaboration that owns directly or indirectly the given role.
+         * 
          * @param role a collaboration role
          * @return The collaboration owning the role.
          * @throws java.lang.IllegalArgumentException If the given role is not owned by a collaboration.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ import org.modelio.core.ui.nattable.parts.theme.ModelioTableTheme;
 public class GridLayerConfiguration extends DefaultGridLayerConfiguration {
     /**
      * Create a new ColumnHeaderConfiguration.
+     * 
      * @param gridLayer the layer associated with this configuration.
      */
     @objid ("bf771737-0e34-40ae-81b4-1848bfeab83a")

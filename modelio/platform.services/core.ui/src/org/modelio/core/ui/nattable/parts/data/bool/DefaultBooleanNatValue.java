@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.core.ui.nattable.parts.data.DefaultNatValue;
 public class DefaultBooleanNatValue extends DefaultNatValue implements IBooleanNatValue {
     /**
      * Creates a new instance.
+     * 
      * @param value the wrapped value.
      */
     @objid ("cd621802-969c-476a-806f-b815ed642d6b")
@@ -40,6 +41,7 @@ public class DefaultBooleanNatValue extends DefaultNatValue implements IBooleanN
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("de31b96a-d98d-4589-b883-2bc5c4db6147")

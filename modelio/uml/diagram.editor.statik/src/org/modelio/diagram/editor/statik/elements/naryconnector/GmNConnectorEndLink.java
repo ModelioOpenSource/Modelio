@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class GmNConnectorEndLink extends GmNLinkEndLink {
 
     /**
      * Creates a GmConnectorEndLink.
+     * 
      * @param diagram The diagram
      * @param role The represented Connector role, may be <code>null</code>
      * @param roleRef The represented Connector role reference, must not be <code>null</code>

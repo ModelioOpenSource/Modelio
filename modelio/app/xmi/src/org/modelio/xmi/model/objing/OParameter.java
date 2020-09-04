@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,15 +31,15 @@ import org.modelio.metamodel.uml.statik.GeneralClass;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.ModelioPrimitiveTypeMapper;
 import org.modelio.xmi.util.ObjingEAnnotation;
 import org.modelio.xmi.util.StringConverter;
-import org.modelio.xmi.util.XMIProperties;
 
 /**
  * This class manages the export of Parameter elements
@@ -51,9 +51,9 @@ public class OParameter extends OModelElement {
     @objid ("ea27ece0-af77-48a0-9c67-4e141a4001bd")
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
-        if (getObjingElement().isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLASSIFIERTEMPLATEPARAMETER)) {
+        if (getObjingElement().isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLASSIFIERTEMPLATEPARAMETER)) {
             return UMLFactory.eINSTANCE.createClassifierTemplateParameter();
-        } else if (getObjingElement().isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OPERATIONTEMPLATEPARAMETER)) {
+        } else if (getObjingElement().isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OPERATIONTEMPLATEPARAMETER)) {
             return UMLFactory.eINSTANCE.createOperationTemplateParameter();
         } else {
             return UMLFactory.eINSTANCE.createParameter();
@@ -62,6 +62,7 @@ public class OParameter extends OModelElement {
 
     /**
      * Constructor
+     * 
      * @param element : the exported Modelio Parameter
      */
     @objid ("86d59a04-e0e4-464e-9db7-3c7df19e831a")
@@ -100,11 +101,14 @@ public class OParameter extends OModelElement {
         setParameterPassingMode((org.eclipse.uml2.uml.Parameter) ecoreElt);
         setMin((org.eclipse.uml2.uml.Parameter) ecoreElt);
         setMax((org.eclipse.uml2.uml.Parameter) ecoreElt);
-        setTypeConstraintEAnnotation((org.eclipse.uml2.uml.Parameter) ecoreElt);
         setDefaultValue((org.eclipse.uml2.uml.Parameter) ecoreElt);
         setClass((org.eclipse.uml2.uml.Parameter) ecoreElt);
         setOrdered((org.eclipse.uml2.uml.Parameter) ecoreElt);
         setUnique((org.eclipse.uml2.uml.Parameter) ecoreElt);
+        
+        if (GenerationProperties.getInstance().isRoundtripEnabled()){
+            setTypeConstraintEAnnotation((org.eclipse.uml2.uml.Parameter) ecoreElt);
+        }
     }
 
     @objid ("efe75c3a-2dde-4c2c-af3b-18af3a175b23")
@@ -235,7 +239,7 @@ public class OParameter extends OModelElement {
                             if (objingIntValue != null) {
                                 if (objingIntValue >= 0) {
                                     ecoreParam
-                                            .setUnlimitedNaturalDefaultValue(objingIntValue);
+                                    .setUnlimitedNaturalDefaultValue(objingIntValue);
                                 } else {
                                     ecoreParam.setIntegerDefaultValue(objingIntValue);
                                 }

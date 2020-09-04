@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class GmConnectorLink extends GmInstanceLink {
 
     /**
      * Creates a GmConnectorLink.
+     * 
      * @param diagram The diagram containing the connector.
      * @param role The represented connector role, may be <code>null</code>.
      * @param roleRef The represented connector role reference. Must not be <code>null</code>.

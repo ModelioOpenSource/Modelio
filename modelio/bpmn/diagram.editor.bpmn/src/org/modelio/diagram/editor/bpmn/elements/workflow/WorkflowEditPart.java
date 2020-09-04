@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -201,6 +201,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
 
     /**
      * Create a XY anchor with the layer coordinates
+     * 
      * @param absPoint an absolute point.
      * @return a XY anchor for the layer figure
      */

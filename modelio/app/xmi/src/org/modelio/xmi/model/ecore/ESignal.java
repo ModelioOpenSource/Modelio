@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,15 +21,12 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.uml2.uml.Property;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.infrastructure.Profile;
 import org.modelio.metamodel.uml.statik.GeneralClass;
-import org.modelio.metamodel.uml.statik.Operation;
-import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.xmi.reverse.ReverseProperties;
 import org.modelio.xmi.util.ObjingEAnnotation;
 
@@ -62,7 +59,7 @@ public class ESignal extends ENamedElement {
         if ((objingOwner != null) 
                 && (objingOwner instanceof ModelTree) 
                 && !((objingOwner instanceof Profile))) {
-            
+        
             ((Signal) objingElt).setOwner((ModelTree)objingOwner);
         
         }else{
@@ -75,62 +72,20 @@ public class ESignal extends ENamedElement {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         
-        if (ReverseProperties.getInstance().isRoundtripEnabled()) {
-            setBaseEAnnotation((Signal) objingElt);
-            setOBaseEAnnotation((Signal) objingElt);
-            setPBaseEAnnotation((Signal) objingElt);
+        setBase((Signal) objingElt);
+        
+        if (ReverseProperties.getInstance().isRoundtripEnabled()) {          
             setIsEventEAnnotation((Signal) objingElt);
             setIsExceptionEAnnotation((Signal) objingElt);
-        
         }
     }
 
     @objid ("b3f9979a-48e9-4744-8725-5b37060efaa1")
-    private void setBaseEAnnotation(Signal objingElt) {
-        for (Object attribut : this.ecoreElement.getOwnedAttributes()){
-            if (attribut instanceof Property){
-                Property property = (Property) attribut;
-                
-                if ((property.getName().equals(ObjingEAnnotation.IS_BASE))&&(ObjingEAnnotation.isBase(property))){
-                    
-                    ReverseProperties revProp = ReverseProperties.getInstance();
-        
-                    org.eclipse.uml2.uml.Type ecoreType = property.getType();
-                    if (ecoreType != null) {
-                        // If the Attribute is typed by another element, we get this
-                        Element objingType = (Element) revProp.getMappedElement(ecoreType);
-                        objingElt.setBase((GeneralClass) objingType);
-        
-                    }
-                }
-            }
-        }
-    }
-
-    @objid ("1f1b78b9-9558-4358-83df-7e690318a4f8")
-    private void setOBaseEAnnotation(Signal objingElt) {
-        for (Object attribut : this.ecoreElement.getOwnedAttributes()){
-            if (attribut instanceof Property){
-                Property property = (Property) attribut;
-                if ((property.getName().equals(ObjingEAnnotation.IS_OBASE))&&(ObjingEAnnotation.isOBase(property))){
-                    objingElt.setOBase((Operation) ReverseProperties.getInstance().getMappedElement(property.getType()));
-        
-                }
-            }
-        }
-    }
-
-    @objid ("f4530831-2ab4-467b-b568-00f2702c25b1")
-    private void setPBaseEAnnotation(Signal objingElt) {
-        for (Object attribut : this.ecoreElement.getOwnedAttributes()){
-            if (attribut instanceof Property){
-                Property property = (Property) attribut;
-                if ((property.getName().equals(ObjingEAnnotation.IS_PBASE))&&(ObjingEAnnotation.isPBase(property))){
-                    objingElt.setPBase((Parameter) ReverseProperties.getInstance().getMappedElement(property.getType()));
-        
-        
-                }
-            }
+    private void setBase(Signal objingElt) {
+        if (this.ecoreElement.getRedefinedClassifiers().size() > 0) { 
+            Object objingType = ReverseProperties.getInstance().getMappedElement(this.ecoreElement.getRedefinedClassifiers().get(0));
+            if ((objingType != null) && (objingType instanceof GeneralClass))
+                objingElt.setBase((GeneralClass) objingType);      
         }
     }
 

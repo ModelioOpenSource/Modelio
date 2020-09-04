@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class GmNLinkPrimaryNode extends GmNoStyleSimpleNode implements IImageabl
 
     /**
      * C'tor.
+     * 
      * @param diagram the diagram in which this gm is created.
      * @param assoc the represented n-ary association. May be null.
      * @param relatedRef a reference to the represented n-ary association. Must Not be null.

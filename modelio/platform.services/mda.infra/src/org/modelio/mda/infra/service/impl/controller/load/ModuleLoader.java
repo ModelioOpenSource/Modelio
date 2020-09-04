@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -95,7 +95,7 @@ public class ModuleLoader {
      * @throws org.modelio.api.module.lifecycle.ModuleException on failure, if sanity checks fail
      */
     @objid ("8a81c9ac-f34b-11e1-9458-001ec947c8cc")
-    @SuppressWarnings("resource")
+    @SuppressWarnings ("resource")
     public IModule loadModule() throws ModuleException {
         // Sanity checks
         checkModule();
@@ -134,6 +134,7 @@ public class ModuleLoader {
      * the GModule
      * @param rtModuleHandle
      * the IModuleHandle
+     * 
      * @throws org.modelio.api.module.lifecycle.ModuleException if the module cannot be loaded.
      */
     @objid ("9aa1c953-f84d-40b5-97e0-0a3a110c5815")
@@ -166,6 +167,7 @@ public class ModuleLoader {
 
     /**
      * Load all metamodel fragments and register them in the modeling session.
+     * 
      * @param classLoader the class loader to use
      * @return the loaded metamodel fragments
      * @throws org.modelio.api.module.lifecycle.ModuleException in case of error loading a fragment
@@ -238,6 +240,7 @@ public class ModuleLoader {
 
     /**
      * Fetch by reflexion the main class of this module and instantiate it.
+     * 
      * @param classLoader the module class loader
      * @param mainClassName the module main class name
      * @param moduleUserConfiguration module user configuration
@@ -247,8 +250,8 @@ public class ModuleLoader {
      */
     @objid ("7f175707-0263-11e2-9fca-001ec947c8cc")
     public IModule instantiateModuleMainClass(ClassLoader classLoader, String mainClassName, IModuleUserConfiguration moduleUserConfiguration, IModuleAPIConfiguration moduleApiConfiguration) throws ModuleException {
-        assert (moduleUserConfiguration != null);
-        assert (moduleApiConfiguration != null);
+        assert moduleUserConfiguration != null;
+        assert moduleApiConfiguration != null;
         
         // Clear the ResourceBundles cache for the module class loader,
         // otherwise the module resources bundle are not
@@ -292,6 +295,7 @@ public class ModuleLoader {
 
     /**
      * Check the module version is compatible with the current Modelio
+     * 
      * @param rtModuleHandle the module to check.
      * @return <code>true</code> if this module is not compatible with the
      * current Modelio.
@@ -299,13 +303,14 @@ public class ModuleLoader {
     @objid ("6fd59629-2f29-11e2-9ab7-002564c97630")
     private static boolean isCompatibleWithModelio(IModuleHandle rtModuleHandle) {
         return CompatibilityHelper.isCompatible(CompatibilityHelper
-                        .getCompatibilityLevel(ModelioVersion.VERSION,
-                                rtModuleHandle.getBinaryVersion()));
+                .getCompatibilityLevel(ModelioVersion.VERSION,
+                        rtModuleHandle.getBinaryVersion()));
     }
 
     /**
      * Convert any exception to a {@link ModuleException} by wrapping it if
      * needed.
+     * 
      * @param cause an exception
      * @return a ModuleException.
      */
@@ -328,6 +333,7 @@ public class ModuleLoader {
 
     /**
      * Instantiate a fake module.
+     * 
      * @return a fake module
      */
     @objid ("0b61c1c7-8587-4149-8407-0d81b2a10937")
@@ -337,6 +343,7 @@ public class ModuleLoader {
 
     /**
      * Instantiate a fake module.
+     * 
      * @return a fake module
      */
     @objid ("2c872102-3024-45d6-b0c4-2d87928c45b6")
@@ -347,6 +354,7 @@ public class ModuleLoader {
     /**
      * Call the static install(String projectPath, String moduleResourcesPath)
      * method on the module main class using a temporary class loader.
+     * 
      * @throws org.modelio.api.module.lifecycle.ModuleException on failure
      */
     @objid ("1abed92c-5371-41c4-9d85-9f38627e4d9b")
@@ -367,6 +375,7 @@ public class ModuleLoader {
      * @param moduleUserConfiguration
      * @param moduleApiConfiguration
      * @throws ModuleException
+     * 
      * @param mainClass @return
      */
     @objid ("cc67ab5e-5029-4893-9fc4-b8b9bb37f07e")
@@ -473,6 +482,7 @@ public class ModuleLoader {
      * @param moduleApiConfiguration
      * @throws ModuleException
      * @throws NoSuchMethodException
+     * 
      * @param mainClass @return
      */
     @objid ("d6d9254f-efa7-4906-b679-03a408796b61")
@@ -589,8 +599,7 @@ public class ModuleLoader {
         try {
             // Declare the parameters of the install method.
             Class<?>[] classParamArray = { String.class, String.class };
-            Object[] initParamArray = { this.gProject.getProjectPath(),
-                    this.moduleHandle.getResourcePath() };
+            Object[] initParamArray = { this.gProject.getProjectFileStructure().getProjectPath(), this.moduleHandle.getResourcePath() };
         
             Method installMethod = mainClass.getMethod("install", classParamArray);
         
@@ -610,10 +619,10 @@ public class ModuleLoader {
         } catch (NoClassDefFoundError e) {
             MdaInfra.LOG.error(e);
         
-            ModuleException e2 = new ModuleException( String.format(
-                            "The '%1$s' module class couldn't find the '%2$s' class .",
-                            this.moduleHandle.getMainClassName(),
-                            e.getMessage()));
+            ModuleException e2 = new ModuleException(String.format(
+                    "The '%1$s' module class couldn't find the '%2$s' class .",
+                    this.moduleHandle.getMainClassName(),
+                    e.getMessage()));
             e2.initCause(e);
             throw e2;
         } catch (NoSuchMethodException e) {
@@ -681,11 +690,9 @@ public class ModuleLoader {
         
                 // Declare the parameters of the install method.
                 Class<?>[] classParamArray = { String.class, String.class };
-                Object[] initParamArray = { this.gProject.getProjectPath(),
-                        this.moduleHandle.getResourcePath() };
+                Object[] initParamArray = { this.gProject.getProjectFileStructure().getProjectPath(), this.moduleHandle.getResourcePath() };
         
-                Method installMethod = mainClass.getMethod("install",
-                        classParamArray);
+                Method installMethod = mainClass.getMethod("install", classParamArray);
         
                 // Invoke install(...) method .
                 installMethod.invoke(null, initParamArray);

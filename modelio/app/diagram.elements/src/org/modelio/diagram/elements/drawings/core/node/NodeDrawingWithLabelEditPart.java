@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -98,6 +98,7 @@ public abstract class NodeDrawingWithLabelEditPart extends NodeDrawingEditPart {
 
     /**
      * Creates and ad the label figure to the edit part figure
+     * 
      * @param mainFigure the edit part figure.
      */
     @objid ("ed72b732-79ed-4dda-a6d3-794a82a82fbd")
@@ -120,6 +121,7 @@ public abstract class NodeDrawingWithLabelEditPart extends NodeDrawingEditPart {
 
     /**
      * Get the label figure horizontal alignment style key.
+     * 
      * @return the horizontal alignment style key.
      */
     @objid ("f1a435f3-4e2e-4dab-aa8b-fff29f6ca2e9")
@@ -129,6 +131,7 @@ public abstract class NodeDrawingWithLabelEditPart extends NodeDrawingEditPart {
      * Get the label figure.
      * <p>
      * Creates and add the label figure if it does not exist yet.
+     * 
      * @param mainFigure the main figure
      * @return the label figure.
      */
@@ -142,6 +145,7 @@ public abstract class NodeDrawingWithLabelEditPart extends NodeDrawingEditPart {
 
     /**
      * Get the style key used to set the text alignment inside the label figure.
+     * 
      * @return the text horizontal alignment style key.
      */
     @objid ("314a9911-9ec8-49e7-8e66-a56c450d2299")
@@ -149,6 +153,7 @@ public abstract class NodeDrawingWithLabelEditPart extends NodeDrawingEditPart {
 
     /**
      * Get the label figure vertical alignment style key.
+     * 
      * @return the vertical alignment style key.
      */
     @objid ("65955dde-19b2-4c70-b6d7-427baf8f48b2")
@@ -167,6 +172,7 @@ public abstract class NodeDrawingWithLabelEditPart extends NodeDrawingEditPart {
 
     /**
      * Refresh the label figure from the model style.
+     * 
      * @param mainFigure the main figure
      * @param style the model style
      */

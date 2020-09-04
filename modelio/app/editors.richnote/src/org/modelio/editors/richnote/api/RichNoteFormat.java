@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -121,6 +121,7 @@ public class RichNoteFormat {
      * Get the the document icon.
      * <p>
      * The icon must not be disposed, it is owned by this format.
+     * 
      * @return the document icon.
      */
     @objid ("7ef8082b-d373-4c80-975e-d0a62677b82c")
@@ -165,6 +166,7 @@ public class RichNoteFormat {
 
     /**
      * Tells whether this rich note format can be edited in Modelio.
+     * 
      * @return <code>true</code> if the rich note can be edited in Modelio, else <code>false</code>.
      */
     @objid ("10b58a01-824f-498e-b2ae-662d8afbdf89")
@@ -174,6 +176,7 @@ public class RichNoteFormat {
 
     /**
      * Set implementation dependent data.
+     * 
      * @param data implementation dependent data.
      */
     @objid ("bffea9f4-a254-4945-862a-eeebbe364157")
@@ -193,6 +196,7 @@ public class RichNoteFormat {
      * Set the document icon.
      * <p>
      * Ownership of the icon is taken and the icon will be disposed on finalization.
+     * 
      * @param icon the document icon.
      */
     @objid ("0d99202c-b1be-429a-aa3d-1502d7ed43e9")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -140,6 +140,7 @@ public class TProcess extends TCallableElement {
 
     /**
      * Sets the value of the auditing property.
+     * 
      * @param value allowed object is
      * {@link TAuditing }
      */
@@ -161,6 +162,7 @@ public class TProcess extends TCallableElement {
 
     /**
      * Sets the value of the monitoring property.
+     * 
      * @param value allowed object is
      * {@link TMonitoring }
      */
@@ -419,6 +421,7 @@ public class TProcess extends TCallableElement {
 
     /**
      * Sets the value of the processType property.
+     * 
      * @param value allowed object is
      * {@link TProcessType }
      */
@@ -444,6 +447,7 @@ public class TProcess extends TCallableElement {
 
     /**
      * Sets the value of the isClosed property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -465,6 +469,7 @@ public class TProcess extends TCallableElement {
 
     /**
      * Sets the value of the isExecutable property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -486,6 +491,7 @@ public class TProcess extends TCallableElement {
 
     /**
      * Sets the value of the definitionalCollaborationRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public class ShellObjectException extends IllegalStateException {
 
     /**
      * Initialize the exception.
+     * 
      * @param obj the shell object.
      */
     @objid ("8f7cadaf-3d36-11e2-ab11-001ec947ccaf")
@@ -45,6 +46,7 @@ public class ShellObjectException extends IllegalStateException {
 
     /**
      * Get the unresolved object.
+     * 
      * @return the unresolved reference.
      */
     @objid ("8f7cadb3-3d36-11e2-ab11-001ec947ccaf")

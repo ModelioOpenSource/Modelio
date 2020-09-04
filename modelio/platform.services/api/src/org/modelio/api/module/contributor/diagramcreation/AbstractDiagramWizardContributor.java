@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,6 +58,7 @@ public abstract class AbstractDiagramWizardContributor extends AbstractWizardCon
 
     /**
      * Called by {@link #accept(MObject)} to check whether the given object has sufficient rights to create the wizard new element.
+     * 
      * @param owner the new element owner.
      * @return true if the operation is allowed else false.
      */

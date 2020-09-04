@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -41,13 +41,13 @@ public interface ResourceType extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("6ba0fb34-b400-4b7d-b483-423ac87b15d8")
+    @objid ("cabaf104-a7c9-411f-823b-11c357899043")
     public static final String MNAME = "ResourceType";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("78ab52aa-460b-4e8c-9000-845f7fc613f9")
+    @objid ("046efd94-bc54-4b4e-9ad2-21aff066a5bb")
     public static final String MQNAME = "Infrastructure.ResourceType";
 
     @objid ("1cb032b7-9ac9-46f1-b30f-f2f395b83488")
@@ -57,18 +57,20 @@ public interface ResourceType extends ModelElement {
      * Getter for attribute 'ResourceType.IsHidden'
      * 
      * Metamodel description:
-     * <i>null</i>
+     * <i><p>Indicates whether or not this resource will be visible for manual addition/suppression by the user.</p>
+     * </i>
      */
-    @objid ("71f1e88c-84ae-4b91-badf-440f5c9cbf63")
+    @objid ("5f58d834-8063-41a1-b7ea-7d647a40caeb")
     boolean isIsHidden();
 
     /**
      * Setter for attribute 'ResourceType.IsHidden'
      * 
      * Metamodel description:
-     * <i>null</i>
+     * <i><p>Indicates whether or not this resource will be visible for manual addition/suppression by the user.</p>
+     * </i>
      */
-    @objid ("a1fa85ac-7069-4729-b9ba-87b5b119b764")
+    @objid ("40d86791-368c-4761-a700-4e52769f4ed0")
     void setIsHidden(boolean value);
 
     /**
@@ -77,7 +79,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>The label key used to look into module resources for the translated label.</i>
      */
-    @objid ("c98c0e10-e140-488b-9944-067246ef0b4f")
+    @objid ("cb7718a2-4901-47ae-b850-5e79288bd4ee")
     String getLabelKey();
 
     /**
@@ -86,7 +88,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>The label key used to look into module resources for the translated label.</i>
      */
-    @objid ("dc63b6b5-fdcd-4c17-b616-c6b25ba47916")
+    @objid ("afa3130a-3a9a-4009-8378-7fbf960a5547")
     void setLabelKey(String value);
 
     /**
@@ -95,7 +97,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>Optional icon for the browser and diagram</i>
      */
-    @objid ("ad63aa93-cb25-42a7-ae54-ffdb6507246d")
+    @objid ("63846800-312d-400d-b97b-4e68f785f98f")
     String getIcon();
 
     /**
@@ -104,7 +106,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>Optional icon for the browser and diagram</i>
      */
-    @objid ("7fd7569e-3626-4e7d-bf97-2acd71281aa7")
+    @objid ("7e5791a1-edaa-4093-acd9-881a18dd8832")
     void setIcon(String value);
 
     /**
@@ -113,7 +115,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>Big image for the diagram in image mode.</i>
      */
-    @objid ("9093a97f-a09a-4dca-b9d6-710c2ecbe5b9")
+    @objid ("21638f2c-9421-4716-8244-95030f14bccb")
     String getImage();
 
     /**
@@ -122,7 +124,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>Big image for the diagram in image mode.</i>
      */
-    @objid ("e341c7f2-c32f-4b48-9a0b-099e9504152e")
+    @objid ("801c01fb-329a-405e-9174-cc21f1cf82b7")
     void setImage(String value);
 
     /**
@@ -131,7 +133,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("1bb0770e-ccbb-41c3-a7b9-656d6020c69f")
+    @objid ("26d5a564-a425-4047-b9bb-95e951ec0466")
     Stereotype getOwnerStereotype();
 
     /**
@@ -140,7 +142,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("ca511679-eab3-4842-94bf-a210a5939c54")
+    @objid ("a9d8c1bf-8599-441c-8ef0-b031b3ef97ec")
     void setOwnerStereotype(Stereotype value);
 
     /**
@@ -149,7 +151,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("cc0ccc1c-801c-4bf9-a576-55d46c49267a")
+    @objid ("f7771cbc-7f0f-43fd-9b30-553bad6d1988")
     MetaclassReference getOwnerReference();
 
     /**
@@ -158,7 +160,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("766e411f-bdd0-44f1-873a-cdf771929f42")
+    @objid ("e7f38817-a7d3-4118-8a1f-e81b8f07936f")
     void setOwnerReference(MetaclassReference value);
 
     /**
@@ -167,7 +169,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("b9cad2a0-2395-4477-8bed-b9e9929b8a56")
+    @objid ("56cac07d-9fd1-44a9-b203-876a4fdde921")
     EList<AbstractResource> getTypedResource();
 
     /**
@@ -176,7 +178,7 @@ public interface ResourceType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("a0d59a9d-814f-405e-ba69-939dab7b433e")
+    @objid ("655b90bc-6c42-42fa-ac0e-30305c3b53d6")
     <T extends AbstractResource> List<T> getTypedResource(java.lang.Class<T> filterClass);
 
 }

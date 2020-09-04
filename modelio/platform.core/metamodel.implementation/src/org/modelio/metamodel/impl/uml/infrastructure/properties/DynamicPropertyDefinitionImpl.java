@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
@@ -76,7 +76,7 @@ public class DynamicPropertyDefinitionImpl extends PropertyDefinitionImpl implem
         return getMClass().getOrigin().getDynamicBehavior(resolverKey, IDynamicPropertyResolver.class);
     }
 
-    @objid ("017ca835-4a72-4ec9-b920-97338440fba8")
+    @objid ("31b1cb48-3844-4ba2-902d-c1d48c60ed5c")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -84,7 +84,7 @@ public class DynamicPropertyDefinitionImpl extends PropertyDefinitionImpl implem
         return super.getCompositionOwner();
     }
 
-    @objid ("9eb47f7b-925a-4bda-b1f5-eae06312fbb0")
+    @objid ("0678557c-f88d-4043-9bea-c470d154d5b8")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -94,7 +94,7 @@ public class DynamicPropertyDefinitionImpl extends PropertyDefinitionImpl implem
         return super.getCompositionRelation();
     }
 
-    @objid ("4f3c863d-f7d6-407d-8e11-85a1a26dab70")
+    @objid ("5b711afe-1715-4da8-8b6f-9012484bf3e9")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitDynamicPropertyDefinition(this);

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,11 +38,12 @@ import org.modelio.core.ui.treetable.combo.LabelsComboBoxCellEditor;
  */
 @objid ("529d8baf-a69f-41bb-a73c-86af45cae807")
 public class AuditSeverityEditingSupport extends EditingSupport {
-    @objid ("de6c0213-adea-494d-b000-0d0054bfed7b")
+    @objid ("8a039150-0f36-425c-b628-9f8708f392b4")
     private TreeViewer viewer;
 
     /**
      * Initialize the StylePropertyEditingSupport.
+     * 
      * @param viewer The style viewer.
      */
     @objid ("5bb5b195-09f2-4cc5-82cf-c422b4771c05")

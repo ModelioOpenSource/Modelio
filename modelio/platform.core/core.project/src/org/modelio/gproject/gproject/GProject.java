@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ import org.modelio.gproject.data.project.GProperties;
 import org.modelio.gproject.data.project.ModuleDescriptor;
 import org.modelio.gproject.data.project.ProjectDescriptor;
 import org.modelio.gproject.data.project.ProjectDescriptorWriter;
+import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.gproject.data.project.ProjectType;
 import org.modelio.gproject.data.project.ResourceDescriptor;
 import org.modelio.gproject.data.project.todo.TodoDescriptor;
@@ -93,11 +94,7 @@ import org.modelio.vstore.jdbm.JdbmRepository;
 
 /**
  * Represents a Modelio project.
- * <p>
- * The project physical structure is documented on <a
- * href="https://forge-modelio.softeam.com/projects/modelio-phoenix/wiki/Project_space_structure"
- * >https://forge-modelio.softeam.com/projects/modelio-phoenix/wiki/Project_space_structure</a>.
- * <p>
+ * 
  * <h3>About Modelio version:</h3>
  * The Modelio version is checked in {@link #validateModelioVersion()}
  * called on {@link #open(IModelioProgress)} and on {@link #reconfigureExpectedVersion(Version)}.
@@ -106,42 +103,8 @@ import org.modelio.vstore.jdbm.JdbmRepository;
  */
 @objid ("b29f8656-8ed4-11e1-be7e-001ec947ccaf")
 public class GProject {
-    /**
-     * Sub directory name relative to the 'data' directory where project configuration data are stored.
-     * 
-     * Files in this directory are good candidates for synchronization with a shared resources repository (Constellation).
-     */
-    @objid ("6549c8af-e752-420f-86f6-6123b78bc199")
-    public static final String CONFIG_SUBDIR = ".config";
-
-    /**
-     * Project sub directory name where persistent data are stored.
-     */
-    @objid ("8b9259ee-1fc0-48b3-a321-523f7f688fcd")
-    public static final String DATA_SUBDIR = "data";
-
-    /**
-     * {@value #DATA_SUBDIR} sub directory where module data are stored.
-     */
-    @objid ("853710c5-7ff9-458d-a93f-02b41196a0ec")
-    public static final String MODULES_SUBDIR = "modules";
-
-    /**
-     * Runtime directory name.
-     */
-    @objid ("e03f536b-6621-4b5a-9a76-807028993ade")
-     static final String RUNTIME_SUBDIR = ".runtime";
-
     @objid ("a327a8f5-abf1-11e1-8392-001ec947ccaf")
     private String name;
-
-    /**
-     * Project directory.
-     * <p>
-     * it is the project.conf location.
-     */
-    @objid ("56304291-4b9c-4a4f-840e-684713b62375")
-    private Path projectPath;
 
     @objid ("f846db24-583a-4a26-9221-44e02acf74ec")
     private static final boolean staticInitialized = GProject.staticInitialize();
@@ -204,6 +167,12 @@ public class GProject {
     private final List<ResourceDescriptor> sharedResources = new ArrayList<>();
 
     /**
+     * The file structure of the project space of the project.
+     */
+    @objid ("2a522c87-8323-41e0-aa85-71f628fd5abe")
+    private ProjectFileStructure pfs;
+
+    /**
      * Close the project and release the resources.
      */
     @objid ("c1811645-95da-11e1-ac83-001ec947ccaf")
@@ -261,6 +230,7 @@ public class GProject {
 
     /**
      * Get the environment with which this project was instantiated.
+     * 
      * @return the project environment
      * @since 3.6
      */
@@ -273,6 +243,7 @@ public class GProject {
      * Get the fragment owning the given model object.
      * <p>
      * Returns <code>null</code> if the model object is not managed by a fragment.
+     * 
      * @param obj a model object.
      * @return its fragment or <code>null</code>.
      */
@@ -298,6 +269,7 @@ public class GProject {
      * <li>reflect changes when a fragment registered or removed.
      * <li>thread safe because based on {@link CopyOnWriteArrayList}.
      * </ul>
+     * 
      * @return all model fragments.
      */
     @objid ("c1811647-95da-11e1-ac83-001ec947ccaf")
@@ -307,6 +279,7 @@ public class GProject {
 
     /**
      * Get the metamodel extensions loaded in the project.
+     * 
      * @return the metamodel extensions.
      * @since 3.6
      */
@@ -333,6 +306,7 @@ public class GProject {
      * <li>reflect changes when a fragment registered or removed.
      * <li>thread safe because based on {@link CopyOnWriteArrayList}.
      * </ul>
+     * 
      * @return a GModule list.
      */
     @objid ("aa7d67e4-ec75-11e1-912e-001ec947ccaf")
@@ -344,6 +318,7 @@ public class GProject {
      * Get project monitoring support.
      * <p>
      * Allows to add, remove and fires GProject monitors.
+     * 
      * @return the monitor support.
      */
     @objid ("617f8be3-08b6-11e2-b193-001ec947ccaf")
@@ -353,6 +328,7 @@ public class GProject {
 
     /**
      * Get the project's name.
+     * 
      * @return the project's name.
      */
     @objid ("13aa21f2-9a85-11e1-ac83-001ec947ccaf")
@@ -371,6 +347,7 @@ public class GProject {
      * <li>reflect changes when a fragment registered or removed.
      * <li>thread safe because based on {@link CopyOnWriteArrayList}.
      * </ul>
+     * 
      * @return registered project fragments.
      */
     @objid ("da6bd643-0e3b-11e2-8e4b-001ec947ccaf")
@@ -382,6 +359,7 @@ public class GProject {
      * Get the GProject owning the given model object.
      * <p>
      * Returns <code>null</code> if the model object is not managed by a GProject.
+     * 
      * @param obj a model object.
      * @return its GProject or <code>null</code>.
      */
@@ -395,6 +373,7 @@ public class GProject {
      * Get the GProject owning the given core session.
      * <p>
      * Returns <code>null</code> if the core session is not managed by a GProject.
+     * 
      * @param session a core session.
      * @return its GProject or <code>null</code>.
      */
@@ -409,37 +388,8 @@ public class GProject {
     }
 
     /**
-     * Get the directory where the project data are managed by Modelio (model, fragments modules and so on). The internal structure
-     * of this directory is left to its users (fragments, modules, CMS tools ...) User generated data like source code,
-     * documentation are never stored there.
-     * @return the path where the 'data' directory resides.
-     */
-    @objid ("dda545c0-68b9-4753-89a4-66b831195593")
-    public Path getProjectDataPath() {
-        return this.projectPath;
-    }
-
-    /**
-     * Get the project directory i.e. the project.conf location.
-     * @return the directory containing the project.conf.
-     */
-    @objid ("49c351d0-ab3f-11e1-8392-001ec947ccaf")
-    public Path getProjectPath() {
-        return this.projectPath;
-    }
-
-    /**
-     * The .runtime directory of the project, used to store copies of the resource files that might require an update while the
-     * application is running. Typical example: module jar files that would be locked otherwise.
-     * @return The .runtime directory
-     */
-    @objid ("5030f6b8-1890-408b-9a55-fae6d6b3176e")
-    public Path getProjectRuntimePath() {
-        return getProjectPath().resolve(GProject.RUNTIME_SUBDIR);
-    }
-
-    /**
      * Get the properties stored in the project.
+     * 
      * @return the current set of properties.
      */
     @objid ("f480100d-aa5a-11e1-8392-001ec947ccaf")
@@ -451,16 +401,18 @@ public class GProject {
      * Get the project remote location.
      * <p>
      * Returns <code>null</code> for local projects.
+     * 
      * @return the project remote location.
      */
     @objid ("3824d956-0c6e-11e2-bed6-001ec947ccaf")
-    @SuppressWarnings("static-method")
+    @SuppressWarnings ("static-method")
     public String getRemoteLocation() {
         return null;
     }
 
     /**
      * Get the core session corresponding to this project.
+     * 
      * @return a CoreSession. Might be <code>null</code> if the project is closed.
      */
     @objid ("00377288-e2c5-1fd5-b969-001ec947cd2a")
@@ -480,10 +432,11 @@ public class GProject {
      * Get the project type.
      * <p>
      * This method should be redefined by subclasses.
+     * 
      * @return the project type.
      */
     @objid ("82724f7b-0be2-11e2-bed6-001ec947ccaf")
-    @SuppressWarnings("static-method")
+    @SuppressWarnings ("static-method")
     public ProjectType getType() {
         return ProjectType.LOCAL;
     }
@@ -492,6 +445,7 @@ public class GProject {
      * Add a new module in the project.
      * <p>
      * If the project is currently opened, the MDA fragment of the module is mounted in the project.
+     * 
      * @param moduleHandle the handle of the module to deploy
      * @param originalArchiveUri the original URI of .jmdac archive to deploy
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
@@ -502,8 +456,8 @@ public class GProject {
      */
     @objid ("ad60fb90-af3f-4ba1-aa7c-f33baf8fe2b0")
     public GModule installModule(IModuleHandle moduleHandle, URI originalArchiveUri, IModelioProgress monitor) throws IOException {
-        Path localArchiveDir = getModuleBackupDir(moduleHandle.getName());
-        Path localArchivePath = getModuleBackupArchivePath(moduleHandle.getName(), moduleHandle.getVersion());
+        Path localArchiveDir = this.pfs.getModuleBackupDir(moduleHandle.getName());
+        Path localArchivePath = this.pfs.getModuleBackupArchivePath(moduleHandle.getName(), moduleHandle.getVersion());
         
         // Clean the module data directory
         FileUtils.delete(localArchiveDir);
@@ -538,6 +492,7 @@ public class GProject {
 
     /**
      * Indicates whether or not the project is opened.
+     * 
      * @return <code>true</code> if there is a core session.
      */
     @objid ("6fe769dc-edc9-11e1-912e-001ec947ccaf")
@@ -549,6 +504,7 @@ public class GProject {
      * Open the project.
      * <p>
      * {@link #load(ProjectDescriptor, IAuthData, IGProjectEnv, IModelioProgress)} must have been called before.
+     * 
      * @param aProgress a progress monitor
      * @throws java.io.IOException in case of I/O error preventing the project from being open.
      * @throws java.nio.file.FileSystemException in case of file system I/O error preventing the project from being open.
@@ -586,6 +542,7 @@ public class GProject {
      * <p>
      * The default implementation replaces the project properties.<br/>
      * This method may be redefined to have another behavior.
+     * 
      * @param newDesc the new project description
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
      * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
@@ -600,6 +557,7 @@ public class GProject {
      * Register a fragment in the project.
      * <p>
      * The method mounts the fragment but it does not create any data for the fragment.
+     * 
      * @param fragment the project fragment to register.
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
      * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
@@ -626,6 +584,7 @@ public class GProject {
     /**
      * Remove module from project. If the project is currently opened, the MDA fragment of the module is dismounted from the
      * project.
+     * 
      * @param module the module to remove from the project.
      */
     @objid ("003a5f66-60dd-1060-84ef-001ec947cd2a")
@@ -652,7 +611,7 @@ public class GProject {
         
         // Remove local archive and module work path
         try {
-            Path localArchiveDir = getModuleBackupDir(module.getName());
+            Path localArchiveDir = this.pfs.getModuleBackupDir(module.getName());
             if (localArchiveDir != null) {
                 FileUtils.delete(localArchiveDir);
             }
@@ -663,6 +622,7 @@ public class GProject {
 
     /**
      * Save the model and the project description.
+     * 
      * @param progress a Modelio progress monitor
      * @throws java.io.IOException if a repository failed to save.
      */
@@ -679,6 +639,7 @@ public class GProject {
      * Unregisters a fragment in the project.
      * <p>
      * The method unmount the fragment but it does not <i>'delete'</i> the fragment physical data.
+     * 
      * @param fragment the project fragment to register.
      */
     @objid ("00544b74-a58b-1044-a30e-001ec947cd2a")
@@ -694,6 +655,7 @@ public class GProject {
 
     /**
      * Get a module handle from a descriptor.
+     * 
      * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
      * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
      * reported and that the operation cannot be cancelled.
@@ -704,13 +666,13 @@ public class GProject {
      */
     @objid ("538790be-d9c8-4eeb-b2ba-c9c36f4adbaf")
     IModuleHandle getModuleHandle(IModelioProgress mon, final ModuleDescriptor md) throws FileSystemException, IOException {
-        final Path backupPath = getModuleBackupArchivePath(md.getName(), md.getVersion());
+        final Path backupPath = this.pfs.getModuleBackupArchivePath(md.getName(), md.getVersion());
         
         // First look in module cache
         IModuleHandle moduleHandle = this.moduleCache.findModule(md.getName(), md.getVersion().toString("V.R.C"), mon);
         
         if (moduleHandle == null) {
-            // try to install from the local backup 
+            // try to install from the local backup
             moduleHandle = this.moduleCache.installModuleArchive(backupPath, mon);
         }
         
@@ -743,6 +705,7 @@ public class GProject {
      * Set the project authentication configuration.
      * <p>
      * Does nothing more. The project should be closed then open again after calling this.
+     * 
      * @param newAuth the new project authentication configuration.
      */
     @objid ("e2de2d72-a859-4bcd-b899-126529a77684")
@@ -767,6 +730,7 @@ public class GProject {
 
     /**
      * Check the project is not already opened.
+     * 
      * @throws java.lang.IllegalStateException if the project is already opened.
      */
     @objid ("5cd9af91-86da-43a9-baab-b538979631dc")
@@ -782,6 +746,7 @@ public class GProject {
      * <li>If the URI represents a file directory, uses the represented Path.
      * <li>If the URI represents a relative path, resolve it against the project path.
      * <li>In the other case try to open an URL connection to copy the file to the given file path.
+     * 
      * @param anUri the URI to copy.
      * @param copyTo the path to copy the URI content to.
      * @throws java.io.IOException if the URI couldn't be resolved.
@@ -811,7 +776,7 @@ public class GProject {
         // Maybe the URI is a relative path
         if (anUri.getScheme() == null || anUri.getScheme().equals("file")) {
             try {
-                fsPath = getProjectDataPath().resolve(anUri.getPath());
+                fsPath = this.pfs.getProjectDataPath().resolve(anUri.getPath());
             } catch (FileSystemNotFoundException | IllegalArgumentException e) {
                 // continue
             }
@@ -844,6 +809,7 @@ public class GProject {
 
     /**
      * Get the Modelio version required to use this project
+     * 
      * @return the required Modelio version.
      */
     @objid ("dbb474f3-d531-49f6-be12-e1b62fbfa559")
@@ -857,6 +823,7 @@ public class GProject {
      * To be called by the project factory only.
      * <p>
      * This method may be redefined in sub classes. In this case <i>super.load(...)</i> must be called.
+     * 
      * @param projectDescriptor a project descriptor.
      * @param authData optional authentication data. If non <code>null</code> it overrides the authentication descriptor.
      * @param configuration the modules catalog.
@@ -872,7 +839,11 @@ public class GProject {
         
         // Initialize fields
         this.name = descToLoad.getName();
-        this.projectPath = descToLoad.getPath();
+        
+        // this.projectPath = descToLoad.getPath();
+        
+        this.pfs = new ProjectFileStructure(descToLoad.getProjectFileStructure().getProjectPath());
+        
         this.properties = descToLoad.getProperties();
         this.todo = descToLoad.getTodo();
         this.expectedModelioVersion = descToLoad.getModelioVersion();
@@ -894,7 +865,7 @@ public class GProject {
         lockProject();
         
         // Resolve relative URIs against project path
-        DescriptorServices.resolveUris(descToLoad, getProjectDataPath().toUri());
+        DescriptorServices.resolveUris(descToLoad, this.pfs.getProjectPath().toUri());
         
         // Instantiate fragments and GModules from the descriptor.
         loadDescriptor(descToLoad, mon);
@@ -904,6 +875,7 @@ public class GProject {
      * Tells whether the project configuration is different than the current configuration.
      * <p>
      * May be redefined if simply comparing descriptors is not enough or descriptors are not directly comparable.
+     * 
      * @param serverDesc a server project configuration
      * @return <i>true</i> if the project configuration is different.
      */
@@ -918,6 +890,7 @@ public class GProject {
      * Reconfigure the expected Modelio version.
      * <p>
      * To be called by project configurer only.
+     * 
      * @param expected the new expected version.
      * @throws java.io.IOException if the new version is not supported.
      */
@@ -939,13 +912,13 @@ public class GProject {
 
     /**
      * Save the project description in its "project.conf" file.
+     * 
      * @throws java.io.IOException in case of failure.
      */
     @objid ("cb0de6e2-4d1c-420f-a746-21b4cf2bc5a4")
     protected void saveProjectDescription() throws IOException {
-        Path confFilePath = this.projectPath.resolve("project.conf");
         ProjectDescriptor desc = new ProjectWriter(this).writeProject();
-        new ProjectDescriptorWriter().write(desc, confFilePath);
+        new ProjectDescriptorWriter().write(desc);
     }
 
     /**
@@ -955,6 +928,7 @@ public class GProject {
      * <li>To be called only by {@link GProjectConfigurer}.
      * <li>To be redefined by remote project implementations.
      * </ul>
+     * 
      * @param remoteLocation the new project remote location.
      * @throws java.net.URISyntaxException if the given location is invalid
      */
@@ -970,13 +944,14 @@ public class GProject {
      * If Modelio is newer its version will be written in the project descriptor at next save.
      * <p>
      * This method may be (and is) redefined to add other constraints on remote projects.
+     * 
      * @throws java.io.IOException if the Modelio version does not match.
      */
     @objid ("94059fba-c002-4dd2-9df8-e5da3d13242f")
     protected void validateModelioVersion() throws IOException {
         if (this.expectedModelioVersion != null) {
             if (this.expectedModelioVersion.isNewerThan(ModelioVersion.VERSION)) {
-                throw new IOException(CoreProject.getMessage("GProject.modelioTooOld",
+                throw new IOException(CoreProject.I18N.getMessage("GProject.modelioTooOld",
                         getName(), this.expectedModelioVersion, ModelioVersion.VERSION));
             }
         }
@@ -994,28 +969,11 @@ public class GProject {
         }
     }
 
-    @objid ("92c047e5-f4d1-4cea-b976-bf3e579b5756")
-    private Path getModuleBackupDir(String moduleName) {
-        return this.projectPath.resolve(DATA_SUBDIR).resolve("backups").resolve(MODULES_SUBDIR).resolve(moduleName);
-    }
-
-    /**
-     * Get the path where .jmdac file is stored locally in the project.
-     * @param version
-     * @param moduleName the module name.
-     * @return the module .jmdac file path
-     * @throws java.io.IOException the the file couldn't be retrieved.
-     */
-    @objid ("22c7affc-1b68-41c1-921d-87e98f09c710")
-    private Path getModuleBackupArchivePath(String moduleName, Version version) throws IOException {
-        Path archivePath = getModuleBackupDir(moduleName).resolve(moduleName + "_" + version.toString() + ".jmdac");
-        return archivePath;
-    }
-
     /**
      * Setup the project from the descriptor.
      * <p>
      * Add the described fragments and the modules without mounting them.
+     * 
      * @param projectDescriptor a project descriptor
      * @param aProgress a progress monitor.
      */
@@ -1028,7 +986,7 @@ public class GProject {
         for (FragmentDescriptor fd : projectDescriptor.getFragments()) {
             if (fd.getType() != null) {
                 IProjectFragment fragment = Fragments.getFactory(fd).instantiate(fd);
-                assert (fragment != null);
+                assert fragment != null;
         
                 fragment.setProject(this);
         
@@ -1056,6 +1014,7 @@ public class GProject {
     /**
      * Load the module defined by the given descriptor.
      * <p>
+     * 
      * @param mon a progress monitor
      * @param md the module descriptor
      * @return the installed module.
@@ -1074,22 +1033,23 @@ public class GProject {
 
     @objid ("f05cb080-d19b-4758-8039-82bebf73b885")
     private void lockProject() throws IOException {
-        Files.createDirectories(getProjectRuntimePath());
+        Files.createDirectories(this.pfs.getProjectRuntimePath());
         
-        this.projectLock = ProjectLock.get(getProjectRuntimePath(), this.name);
+        this.projectLock = ProjectLock.get(this.pfs.getProjectRuntimePath(), this.name);
         this.projectLock.lock();
     }
 
     /**
      * Open the default repository. Create it if missing or not readable.
+     * 
      * @param monitor a progress monitor
      * @throws java.io.IOException in case of fatal I/O failure.
      */
     @objid ("707deddd-440c-4a01-92d1-1fbeb87a7dd2")
     private void mountDefaultRepositories(SubProgress monitor) throws IOException {
-        monitor.subTask(CoreProject.getMessage("GProject.mountingDefaultRepositories"));
+        monitor.subTask(CoreProject.I18N.getMessage("GProject.mountingDefaultRepositories"));
         
-        Path nsUseRepoPath = getProjectDataPath().resolve(GProject.DATA_SUBDIR).resolve("localmodel");
+        Path nsUseRepoPath = this.pfs.getNsUseRepositoryPath();
         JdbmRepository nsUseRepo = null;
         
         IRepositorySupport repositorySupport = this.session.getRepositorySupport();
@@ -1106,7 +1066,7 @@ public class GProject {
                 // don't delete the model in case of locking problems
                 throw e;
             }
-            
+        
             // Try to recover by deleting the local repository and create a new empty one.
             try {
                 // Close and delete the repository
@@ -1120,7 +1080,7 @@ public class GProject {
         
                 // Report the problem
                 getMonitorSupport().fireMonitors(GProjectEvent.buildWarning(new IOException(
-                                CoreProject.getMessage("GProject.localRepositoryRecreated", FileUtils.getLocalizedMessage(e)), e)));
+                        CoreProject.I18N.getMessage("GProject.localRepositoryRecreated", FileUtils.getLocalizedMessage(e)), e)));
             } catch (IOException | RuntimeException e2) {
                 // Recover failed: Add the new exception as suppressed and rethrow the initial one.
                 e.addSuppressed(e2);
@@ -1151,7 +1111,7 @@ public class GProject {
         SmMetamodel mm = coreSession.getMetamodel();
         Collection<IGMetamodelExtension> metamodelExtensions = this.projectEnvironment.getDefaultMetamodelExtensions();
         
-        monitor.subTask(CoreProject.getMessage("GProject.mountingDefaultMetamodel", metamodelExtensions.size()));
+        monitor.subTask(CoreProject.I18N.getMessage("GProject.mountingDefaultMetamodel", metamodelExtensions.size()));
         monitor.setWorkRemaining(1 + metamodelExtensions.size() + 1);
         
         // Sort metamodel extensions according to their fragment's dependencies
@@ -1167,7 +1127,7 @@ public class GProject {
         // Mount each metamodel extension
         for (IGMetamodelExtension mmExt : sortedmm) {
             ISmMetamodelFragment mmF = mmExt.getMmFragment();
-            monitor.subTask(CoreProject.getMessage("GProject.mountingMetamodelFragment", mmF.getName()));
+            monitor.subTask(CoreProject.I18N.getMessage("GProject.mountingMetamodelFragment", mmF.getName()));
         
             // Add metamodel fragments to the metamodel
             mm.addMetamodelFragment(mmF);
@@ -1182,7 +1142,7 @@ public class GProject {
 
     @objid ("3d98b924-f370-11e1-9173-001ec947ccaf")
     private void mountModules(IModelioProgress progress) {
-        progress.subTask(CoreProject.getMessage("GProject.mountingModules"));
+        progress.subTask(CoreProject.I18N.getMessage("GProject.mountingModules"));
         SubProgress m = SubProgress.convert(progress, this.modules.size() * 10);
         for (GModule module : this.modules) {
             IProjectFragment modelFragment = module.getModelFragment();
@@ -1199,6 +1159,7 @@ public class GProject {
 
     /**
      * Static initializer to initialize {@link MTools}.
+     * 
      * @return true
      */
     @objid ("8a0f8b12-aec6-4d95-8441-f9962c0aa0b7")
@@ -1215,6 +1176,7 @@ public class GProject {
 
     /**
      * Migrate the project space and the project descriptor if needed.
+     * 
      * @param projectDescriptor the initial project descriptor.
      * @param configuration the project configuration
      * @param newChildSupplier a progress monitor supplier that will be used only if a migration is needed.
@@ -1223,12 +1185,17 @@ public class GProject {
      */
     @objid ("10380823-a56f-40c1-a507-1a4ed104a976")
     private ProjectDescriptor migrateProjectSpace(ProjectDescriptor projectDescriptor, IGProjectEnv configuration, Supplier<SubProgress> newChildSupplier) throws IOException {
-        if (projectDescriptor.getProjectSpaceVersion() < 1 ) {
+        if (projectDescriptor.getProjectSpaceVersion() < 1) {
             GProjectSpaceFormatMigrator1 mig = new GProjectSpaceFormatMigrator1(projectDescriptor);
             return mig.run(newChildSupplier.get());
-            
+        
         }
         return projectDescriptor;
+    }
+
+    @objid ("d3de3aad-ac0e-4c9e-b8da-caeb87da6855")
+    public ProjectFileStructure getProjectFileStructure() {
+        return this.pfs;
     }
 
     @objid ("3d6ebb94-a7a8-454a-ad1a-cf1f922e16c8")

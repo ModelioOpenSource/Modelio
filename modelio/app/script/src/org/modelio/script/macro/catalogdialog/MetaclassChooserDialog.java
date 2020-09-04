@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -116,6 +116,7 @@ class MetaclassChooserDialog extends ModelioDialog {
 
     /**
      * Get the selected metaclasses.
+     * 
      * @return the selected metaclasses.
      */
     @objid ("006aacc0-c497-106a-bf4f-001ec947cd2a")

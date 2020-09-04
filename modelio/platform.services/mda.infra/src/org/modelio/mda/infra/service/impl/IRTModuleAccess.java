@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public interface IRTModuleAccess extends IRTModule {
 
     /**
      * Register a module action for the contextual popupmenu(s) of the application.
+     * 
      * @param location The action insertion point in the popupmenu (see {@link ActionLocation})
      * @param action Action to store
      */
@@ -54,6 +55,7 @@ public interface IRTModuleAccess extends IRTModule {
     /**
      * Register a new palette Tool.<br>
      * @see IDiagramTool
+     * 
      * @param id the tool id
      * @param diagramCommand The tool behavior.
      * @since 3.3.0
@@ -63,6 +65,7 @@ public interface IRTModuleAccess extends IRTModule {
 
     /**
      * Register a customizer for a stereotyped diagram.
+     * 
      * @param stereotype the diagram stereotype which the customizer is intended for
      * @param baseDiagramClass the base diagram editor to customize
      * @param customizer the customizer implementation
@@ -77,6 +80,7 @@ public interface IRTModuleAccess extends IRTModule {
     /**
      * Internal use only: set the IModule implementation.
      * @internal
+     * 
      * @param imodule the module implementation
      */
     @objid ("a4d820d8-888c-429e-af50-aa37c501e6c7")
@@ -85,6 +89,7 @@ public interface IRTModuleAccess extends IRTModule {
     /**
      * Internal use only: set the GModule.
      * @internal
+     * 
      * @param gModule the GModule.
      */
     @objid ("76301f15-b04d-4c40-a05c-fe110df8d03c")
@@ -93,6 +98,7 @@ public interface IRTModuleAccess extends IRTModule {
     /**
      * internal use only: set the module class loader.
      * @internal
+     * 
      * @param aClassLoader the module class loader.
      */
     @objid ("55e18f4d-41ff-47c1-bb2c-03bf0f33584c")

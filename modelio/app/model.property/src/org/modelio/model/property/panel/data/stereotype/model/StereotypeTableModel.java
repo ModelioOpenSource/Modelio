@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,7 +20,6 @@
 
 package org.modelio.model.property.panel.data.stereotype.model;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -72,6 +71,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
 
     /**
      * Create a new property model for a Stereotype.
+     * 
      * @param editedElement the element currently edited in the Element's view.
      * @param stereotype the stereotype to load the {@link TagType} & {@link PropertyDefinition} list from.
      * @param modelService the model service needed to find TagTypes.
@@ -82,6 +82,21 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
         super(editedElement);
         this.tagModel = new TagDataHelper(editedElement, stereotype, modelService, showHiddenAnnotations);
         this.tableModel = new PropertyTableHelper(editedElement, stereotype.getModule(), stereotype, CoreSession.getSession(editedElement));
+    }
+
+    /**
+     * Create a new property model for a ModuleComponent.
+     * 
+     * @param editedElement the element currently edited in the Element's view.
+     * @param module the module to load the {@link TagType} & {@link PropertyDefinition} list from.
+     * @param modelService the model service needed to find TagTypes.
+     * @param showHiddenAnnotations whether or not to show 'hidden' TagTypes.
+     */
+    @objid ("c90dbb6b-5a0e-4011-9b48-88518d0adc1f")
+    public StereotypeTableModel(ModelElement editedElement, ModuleComponent module, IMModelServices modelService, boolean showHiddenAnnotations) {
+        super(editedElement);
+        this.tagModel = new TagDataHelper(editedElement, module, modelService, showHiddenAnnotations);
+        this.tableModel = new PropertyTableHelper(editedElement, module, null, CoreSession.getSession(editedElement));
     }
 
     @objid ("873ab9ad-02d3-4703-8064-c9d124542bec")
@@ -125,7 +140,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
         
                 return label;
             } else {
-                throw new InvalidParameterException("Invalid row number");
+                throw new IllegalArgumentException("Invalid row number");
             }
         } else {
             if (row == 0) {
@@ -139,17 +154,28 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
         
                 // Get property table
                 try {
-                    String storedValue = this.theEditedElement.getProperty(pdef.getOwner().getCompositionOwner().getUuid(), pdef.getName());
+                    PropertyTableDefinition propTableDef = pdef.getOwner();
+        
+                    String storedValue;
+                    if (propTableDef.getOwnerStereotype() != null) {
+                        storedValue = this.theEditedElement.getProperty(propTableDef.getOwnerStereotype(), pdef.getName());
+                    } else if (propTableDef.getOwnerReference() != null) {
+                        storedValue = this.theEditedElement.getProperty(propTableDef.getOwnerReference(), pdef.getName());
+                    } else {
+                        storedValue = null;
+                    }
+        
                     if (storedValue == null) {
                         storedValue = pdef.getDefaultValue();
                     }
+        
                     return pdef.convertToObject(storedValue, this.theEditedElement);
-                } catch (@SuppressWarnings ("unused") ExtensionNotFoundException e) {
-                    throw new InvalidParameterException("Invalid PropertyDefinition");
+                } catch (ExtensionNotFoundException e) {
+                    throw new IllegalArgumentException(String.format("Invalid %s PropertyDefinition", pdef), e);
                 }
         
             } else {
-                throw new InvalidParameterException("Invalid row number");
+                throw new IllegalArgumentException("Invalid row number");
             }
         }
     }
@@ -159,22 +185,29 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
     public void setValueAt(int row, int col, Object value) {
         if (col == 0) {
             // RowHeader
-            throw new InvalidParameterException("Unable to edit header");
+            throw new IllegalArgumentException("Header is not editable");
         } else {
             if (row == 0) {
                 // Col Header
-                throw new InvalidParameterException("Unable to edit header");
+                throw new IllegalArgumentException("Header is not editable");
             } else if (isTaggedValue(row)) {
                 this.tagModel.setPropertyValue(row - 1, value);
             } else if (isProperty(row)) {
                 // Value
                 final PropertyDefinition pdef = this.tableModel.getProperties().get(row - this.tagModel.getTagTypes().size() - 1);
                 final String svalue = pdef.convertToString(value, this.theEditedElement);
+                final PropertyTableDefinition propTableDef = pdef.getOwner();
         
                 try {
-                    this.theEditedElement.setProperty(pdef.getOwner().getCompositionOwner().getUuid(), pdef.getName(), svalue);
-                } catch (@SuppressWarnings ("unused") ExtensionNotFoundException e) {
-                    throw new InvalidParameterException("Invalid PropertyDefinition");
+                    if (propTableDef.getOwnerStereotype() != null) {
+                        this.theEditedElement.setProperty(propTableDef.getOwnerStereotype(), pdef.getName(), svalue);
+                    } else if (propTableDef.getOwnerReference() != null) {
+                        this.theEditedElement.setProperty(propTableDef.getOwnerReference(), pdef.getName(), svalue);
+                    } else {
+                        throw new IllegalArgumentException("Invalid PropertyTableDefinition, it should belong to a Stereotype or a MetaclassReference");
+                    }
+                } catch (ExtensionNotFoundException e) {
+                    throw new IllegalArgumentException(String.format("Invalid %s PropertyDefinition", pdef), e);
                 }
             }
         }
@@ -220,23 +253,9 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
                 final PropertyDefinition pdef = this.tableModel.getProperties().get(row - this.tagModel.getTagTypes().size() - 1);
                 return PropertyAdapter.getNatValue(pdef, getValue(row, col));
             } else {
-                throw new InvalidParameterException("Invalid row number");
+                throw new IllegalArgumentException("Invalid row number");
             }
         }
-    }
-
-    /**
-     * Create a new property model for a ModuleComponent.
-     * @param editedElement the element currently edited in the Element's view.
-     * @param module the module to load the {@link TagType} & {@link PropertyDefinition} list from.
-     * @param modelService the model service needed to find TagTypes.
-     * @param showHiddenAnnotations whether or not to show 'hidden' TagTypes.
-     */
-    @objid ("c90dbb6b-5a0e-4011-9b48-88518d0adc1f")
-    public StereotypeTableModel(ModelElement editedElement, ModuleComponent module, IMModelServices modelService, boolean showHiddenAnnotations) {
-        super(editedElement);
-        this.tagModel = new TagDataHelper(editedElement, module, modelService, showHiddenAnnotations);
-        this.tableModel = new PropertyTableHelper(editedElement, module, null, CoreSession.getSession(editedElement));
     }
 
     /**
@@ -267,7 +286,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
         private ICoreSession session;
 
         @objid ("5e306554-40db-4ab3-a51f-abd90df212dd")
-        public PropertyTableHelper(ModelElement typedElement, ModuleComponent module, Stereotype stereotype, ICoreSession session) {
+        private PropertyTableHelper(ModelElement typedElement, ModuleComponent module, Stereotype stereotype, ICoreSession session) {
             this.module = module;
             this.session = session;
             
@@ -276,46 +295,6 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             } else {
                 this.properties.addAll(getModulePropertyTablesForMetaclass(typedElement.getMClass()));
             }
-        }
-
-        @objid ("fa48fa98-e0b7-473c-84c9-e196eefbd06a")
-        public List<PropertyDefinition> getProperties() {
-            return this.properties;
-        }
-
-        @objid ("f57b9f87-f06b-4c87-b18e-c073703cf76a")
-        private List<Stereotype> getSuperStereotype(Stereotype s) {
-            List<Stereotype> result = new ArrayList<>();
-            
-            Stereotype current = s;
-            while (current.getParent() != null) {
-                current = current.getParent();
-                result.add(current);
-            }
-            return result;
-        }
-
-        @objid ("94680c1e-5cf7-4d68-bbe8-95cc3cda6236")
-        public ModuleComponent getModule() {
-            return this.module;
-        }
-
-        @objid ("6587021a-46e2-408a-b571-fcf921b8df43")
-        protected List<PropertyDefinition> getModulePropertyTablesForStereotype(Stereotype stereotype) {
-            List<PropertyDefinition> result = new ArrayList<>();
-            
-            PropertyTableDefinition propertyTable = stereotype.getDefinedTable();
-            if (propertyTable != null) {
-                result.addAll(propertyTable.getOwned());
-            }
-            
-            for (Stereotype supperSter : getSuperStereotype(stereotype)) {
-                PropertyTableDefinition superTable = supperSter.getDefinedTable();
-                if (superTable != null) {
-                    result.addAll(superTable.getOwned());
-                }
-            }
-            return result;
         }
 
         @objid ("ecbff81c-1528-4e18-9302-2a6d07174ed4")
@@ -343,6 +322,24 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             return ret;
         }
 
+        @objid ("6587021a-46e2-408a-b571-fcf921b8df43")
+        private List<PropertyDefinition> getModulePropertyTablesForStereotype(Stereotype stereotype) {
+            List<PropertyDefinition> result = new ArrayList<>();
+            
+            PropertyTableDefinition propertyTable = stereotype.getDefinedTable();
+            if (propertyTable != null) {
+                result.addAll(propertyTable.getOwned());
+            }
+            
+            for (Stereotype supperSter : getSuperStereotype(stereotype)) {
+                PropertyTableDefinition superTable = supperSter.getDefinedTable();
+                if (superTable != null) {
+                    result.addAll(superTable.getOwned());
+                }
+            }
+            return result;
+        }
+
         @objid ("2f7cf840-6d4d-46ce-9dbc-45de4837fda7")
         private MClass getBaseClass(String baseName) throws MetaclassNotFoundException {
             MClass smBase = this.session.getMetamodel().getMClass(baseName);
@@ -353,6 +350,28 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             return smBase;
         }
 
+        @objid ("94680c1e-5cf7-4d68-bbe8-95cc3cda6236")
+        private ModuleComponent getModule() {
+            return this.module;
+        }
+
+        @objid ("fa48fa98-e0b7-473c-84c9-e196eefbd06a")
+        private List<PropertyDefinition> getProperties() {
+            return this.properties;
+        }
+
+        @objid ("f57b9f87-f06b-4c87-b18e-c073703cf76a")
+        private List<Stereotype> getSuperStereotype(Stereotype s) {
+            List<Stereotype> result = new ArrayList<>();
+            
+            Stereotype current = s;
+            while (current.getParent() != null) {
+                current = current.getParent();
+                result.add(current);
+            }
+            return result;
+        }
+
     }
 
     @objid ("b2761d0f-5d6e-4954-9dc3-68f5682d728a")
@@ -360,17 +379,17 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
         @objid ("85d56cf7-0a76-4741-b6ee-cea147b7ae42")
         private boolean showHiddenAnnotations;
 
-        @objid ("9f7bc83a-5d74-4ae5-9524-9562800063a7")
-        private List<TagType> tagTypes = null;
-
         @objid ("075229fb-f08a-4423-aef5-c2e9fe1c360e")
         private IMModelServices modelService;
+
+        @objid ("9f7bc83a-5d74-4ae5-9524-9562800063a7")
+        private List<TagType> tagTypes = null;
 
         @objid ("e24b3c85-37f4-4cda-aa74-71e8f53a8c10")
         private ModelElement typedElement;
 
         @objid ("a3b4a960-2700-4e28-82e7-a72666a089bb")
-        public TagDataHelper(ModelElement typedElement, ModuleComponent typingElement, IMModelServices modelService, boolean showHiddenAnnotations) {
+        private TagDataHelper(ModelElement typedElement, ModuleComponent typingElement, IMModelServices modelService, boolean showHiddenAnnotations) {
             this(typedElement, modelService, showHiddenAnnotations);
             
             // Compute the tag type list
@@ -381,82 +400,40 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             }
         }
 
-        @objid ("3f2a968b-20b2-44cd-9cf9-0bd86d12b25a")
-        public List<TagType> getTagTypes() {
-            return this.tagTypes;
+        @objid ("840e45c6-381d-46b4-b7b0-72ae7d725d8d")
+        private TagDataHelper(ModelElement typedElement, IMModelServices modelService, boolean showHiddenAnnotations) {
+            this.typedElement = typedElement;
+            this.modelService = modelService;
+            this.showHiddenAnnotations = showHiddenAnnotations;
         }
 
-        @objid ("e7c014b9-ecd8-4978-8906-7793ddcd2992")
-        public Object getPropertyValue(final int index) {
-            TagType tagType = this.tagTypes.get(index);
-            int paramNumber = getParamNumber(tagType);
+        @objid ("21621774-5128-44fe-aeda-2135d76eb87c")
+        private TagDataHelper(ModelElement typedElement, Stereotype typingElement, IMModelServices modelService, boolean showHiddenAnnotations) {
+            this(typedElement, modelService, showHiddenAnnotations);
             
-            TaggedValue taggedValue = null;
-            for (TaggedValue v : this.typedElement.getTag()) {
-                if (v.getDefinition().equals(tagType)) {
-                    taggedValue = v;
-                    break;
-                }
-            }
-            
-            switch (paramNumber) {
-            case 0:
-                return (taggedValue != null);
-            case 1:
-                if (taggedValue != null) {
-                    List<TagParameter> parameters = taggedValue.getActual();
-                    if (parameters.isEmpty()) {
-                        return "";
-                    } else {
-                        return parameters.get(0).getValue();
-                    }
-                } else {
-                    return "";
-                }
-            
-            default:
-                if (taggedValue != null) {
-                    List<TagParameter> parameters = taggedValue.getActual();
-                    List<String> values = new ArrayList<>();
-                    for (TagParameter parameter : parameters) {
-                        values.add(parameter.getValue());
-                    }
-                    return values;
-                } else {
-                    return new ArrayList<>();
-                }
-            }
-        }
-
-        @objid ("5322c6c9-d3f9-45ae-899a-a2bed4cac7ed")
-        @SuppressWarnings ("unchecked")
-        public void setPropertyValue(final int index, final Object value) {
-            TagType tagType = this.tagTypes.get(index);
-            
-            int paramNumber = getParamNumber(tagType);
-            
-            if (paramNumber == 0) { // Boolean type
-                updateBooleanTaggedValue(this.typedElement, tagType, (Boolean) value);
-            } else if (paramNumber == 1) {
-                updateStringTaggedValue(this.typedElement, tagType, (String) value);
+            // Compute the tag type list
+            if (typingElement == null) {
+                this.tagTypes = Collections.emptyList();
             } else {
-                // paramNumber > 1 and paramNumber == -1 (param number no limit)
-                updateStringListTaggedValue(this.typedElement, tagType, (List<String>) value);
+                Stereotype s = typingElement;
+                this.tagTypes = new ArrayList<>();
+                while (s != null) {
+                    List<TagType> currentLevelTypes = new ArrayList<>();
+                    for (TagType tagType : s.getDefinedTagType()) {
+                        if (displayTagType(tagType)) {
+                            currentLevelTypes.add(tagType);
+                        }
+                    }
+                    // Put tag types from parent stereotypes first...
+                    this.tagTypes.addAll(0, currentLevelTypes);
+                    s = s.getParent();
+                }
             }
         }
 
-        @objid ("0cdbb9cc-e20f-4f6f-a1af-19794e427254")
-        @SuppressWarnings ("unchecked")
-        public INatValue getPropertyType(final int index) {
-            TagType tagType = this.tagTypes.get(index);
-            int paramNumber = getParamNumber(tagType);
-            if (paramNumber == 0) {
-                return new DefaultBooleanNatValue((Boolean) getPropertyValue(index));
-            } else if (paramNumber == 1) {
-                return new DefaultStringNatValue((String) getPropertyValue(index), false);
-            } else {
-                return new DefaultMultiStringNatValue((List<String>) getPropertyValue(index), false);
-            }
+        @objid ("74b2ebbc-761d-4967-bf66-4a733d29617b")
+        private boolean displayTagType(TagType tagType) {
+            return isShowHiddenAnnotations() || !tagType.isIsHidden();
         }
 
         @objid ("94517602-0221-40b8-912f-48cccaf23646")
@@ -486,40 +463,65 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             return paramNumber;
         }
 
-        @objid ("f2806e1a-f85d-48e6-a8b5-ae7e0c03cc49")
-        private void updateBooleanTaggedValue(final ModelElement element, final TagType tagType, final Boolean value) {
-            if (value) {
-                for (TaggedValue tag : element.getTag()) {
-                    if (tag.getDefinition() == tagType) {
-                        return;
-                    }
-                }
-                MTools.get(element).getModelFactory(IInfrastructureModelFactory.class).createTaggedValue(tagType, element);
+        @objid ("0cdbb9cc-e20f-4f6f-a1af-19794e427254")
+        @SuppressWarnings ("unchecked")
+        private INatValue getPropertyType(final int index) {
+            TagType tagType = this.tagTypes.get(index);
+            int paramNumber = getParamNumber(tagType);
+            if (paramNumber == 0) {
+                return new DefaultBooleanNatValue((Boolean) getPropertyValue(index));
+            } else if (paramNumber == 1) {
+                return new DefaultStringNatValue((String) getPropertyValue(index), false);
             } else {
-                removeTag(element, tagType);
+                return new DefaultMultiStringNatValue((List<String>) getPropertyValue(index), false);
             }
         }
 
-        @objid ("de0f7775-450e-4b69-b9d5-39c005fd8e30")
-        private void updateStringTaggedValue(final ModelElement element, final TagType tagType, final String value) {
-            try {
-                putTagValue(element, tagType, "".equals(value) ? null : value);
-            } catch (Exception e) {
-                ModelProperty.LOG.error(e);
+        @objid ("e7c014b9-ecd8-4978-8906-7793ddcd2992")
+        private Object getPropertyValue(final int index) {
+            TagType tagType = this.tagTypes.get(index);
+            int paramNumber = getParamNumber(tagType);
+            
+            TaggedValue taggedValue = null;
+            for (TaggedValue v : this.typedElement.getTag()) {
+                if (v.getDefinition().equals(tagType)) {
+                    taggedValue = v;
+                    break;
+                }
             }
-        }
-
-        @objid ("932207af-6ce5-42b1-b5bc-927579e2319a")
-        private void updateStringListTaggedValue(final ModelElement element, final TagType tagType, final List<String> values) {
-            try {
-                putTagValues(element, tagType, values.isEmpty() ? null : values);
-            } catch (Exception e) {
-                ModelProperty.LOG.error(e);
+            
+            switch (paramNumber) {
+            case 0:
+                return Boolean.valueOf(taggedValue != null);
+            case 1:
+                if (taggedValue != null) {
+                    List<TagParameter> parameters = taggedValue.getActual();
+                    if (parameters.isEmpty()) {
+                        return "";
+                    } else {
+                        return parameters.get(0).getValue();
+                    }
+                } else {
+                    return "";
+                }
+            
+            default:
+                if (taggedValue != null) {
+                    List<TagParameter> parameters = taggedValue.getActual();
+                    List<String> values = new ArrayList<>();
+                    for (TagParameter parameter : parameters) {
+                        values.add(parameter.getValue());
+                    }
+                    return values;
+                } else {
+                    return new ArrayList<>();
+                }
             }
         }
 
         /**
          * This operation returns the tagged value with the corresponding type.
+         * 
          * @param element IModelElement on which the tagged value is search for.
          * @param type The tagged value type name
          * @return The tag or null if it can't be found
@@ -535,23 +537,21 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             return null;
         }
 
-        /**
-         * This operation deletes the tagged value having this type from the given element.
-         * @param element IModelElement on which the tagged value is removed.
-         * @param type The tagged value type name
-         */
-        @objid ("bd2b5831-8437-4b02-af2e-614e42124cc2")
-        private void removeTag(ModelElement element, TagType type) {
-            TaggedValue tag = getTag(element, type);
-            if (tag != null) {
-                tag.delete();
-            }
+        @objid ("3f2a968b-20b2-44cd-9cf9-0bd86d12b25a")
+        private List<TagType> getTagTypes() {
+            return this.tagTypes;
+        }
+
+        @objid ("01d26cf0-0ce0-4a12-90a2-d93ed931f6a7")
+        private boolean isShowHiddenAnnotations() {
+            return this.showHiddenAnnotations;
         }
 
         /**
          * This operation sets the parameters of the tagged value with the given type on the &lt;element&gt; IModelElement.<br/>
          * The tagged value and the parameter are created if they don't exist.<br/>
          * If values is <tt>null</tt> or empty the existing tag is deleted.
+         * 
          * @param element IModelElement on which the tagged value is created or updated.
          * @param tagType The tagged value type name.
          * @param value The values to store on the first tag parameter. If values is <tt>null</tt> the tag is deleted.
@@ -600,6 +600,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
          * This operation sets the parameters of the tagged value with the given type on the &lt;element&gt; IModelElement.<br/>
          * The tagged value and the parameter are created if they don't exist.<br/>
          * If values is <tt>null</tt> or empty the existing tag is deleted.
+         * 
          * @param element IModelElement on which the tagged value is created or updated.
          * @param type The tagged value type name.
          * @param values The values to store on the tag parameters. If values is <tt>null</tt> or empty the tag is deleted.
@@ -645,44 +646,66 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             }
         }
 
-        @objid ("74b2ebbc-761d-4967-bf66-4a733d29617b")
-        protected boolean displayTagType(TagType tagType) {
-            return isShowHiddenAnnotations() || !tagType.isIsHidden();
+        /**
+         * This operation deletes the tagged value having this type from the given element.
+         * 
+         * @param element IModelElement on which the tagged value is removed.
+         * @param type The tagged value type name
+         */
+        @objid ("bd2b5831-8437-4b02-af2e-614e42124cc2")
+        private void removeTag(ModelElement element, TagType type) {
+            TaggedValue tag = getTag(element, type);
+            if (tag != null) {
+                tag.delete();
+            }
         }
 
-        @objid ("01d26cf0-0ce0-4a12-90a2-d93ed931f6a7")
-        private boolean isShowHiddenAnnotations() {
-            return this.showHiddenAnnotations;
-        }
-
-        @objid ("840e45c6-381d-46b4-b7b0-72ae7d725d8d")
-        private TagDataHelper(ModelElement typedElement, IMModelServices modelService, boolean showHiddenAnnotations) {
-            this.typedElement = typedElement;
-            this.modelService = modelService;
-            this.showHiddenAnnotations = showHiddenAnnotations;
-        }
-
-        @objid ("21621774-5128-44fe-aeda-2135d76eb87c")
-        public TagDataHelper(ModelElement typedElement, Stereotype typingElement, IMModelServices modelService, boolean showHiddenAnnotations) {
-            this(typedElement, modelService, showHiddenAnnotations);
+        @objid ("5322c6c9-d3f9-45ae-899a-a2bed4cac7ed")
+        @SuppressWarnings ("unchecked")
+        private void setPropertyValue(final int index, final Object value) {
+            TagType tagType = this.tagTypes.get(index);
             
-            // Compute the tag type list
-            if (typingElement == null) {
-                this.tagTypes = Collections.emptyList();
+            int paramNumber = getParamNumber(tagType);
+            
+            if (paramNumber == 0) { // Boolean type
+                updateBooleanTaggedValue(this.typedElement, tagType, (Boolean) value);
+            } else if (paramNumber == 1) {
+                updateStringTaggedValue(this.typedElement, tagType, (String) value);
             } else {
-                Stereotype s = typingElement;
-                this.tagTypes = new ArrayList<>();
-                while (s != null) {
-                    List<TagType> currentLevelTypes = new ArrayList<>();
-                    for (TagType tagType : s.getDefinedTagType()) {
-                        if (displayTagType(tagType)) {
-                            currentLevelTypes.add(tagType);
-                        }
+                // paramNumber > 1 and paramNumber == -1 (param number no limit)
+                updateStringListTaggedValue(this.typedElement, tagType, (List<String>) value);
+            }
+        }
+
+        @objid ("f2806e1a-f85d-48e6-a8b5-ae7e0c03cc49")
+        private void updateBooleanTaggedValue(final ModelElement element, final TagType tagType, final Boolean value) {
+            if (Boolean.TRUE.equals(value)) {
+                for (TaggedValue tag : element.getTag()) {
+                    if (tag.getDefinition() == tagType) {
+                        return;
                     }
-                    // Put tag types from parent stereotypes first...
-                    this.tagTypes.addAll(0, currentLevelTypes);
-                    s = s.getParent();
                 }
+                MTools.get(element).getModelFactory(IInfrastructureModelFactory.class).createTaggedValue(tagType, element);
+            } else {
+                removeTag(element, tagType);
+            }
+        }
+
+        @objid ("932207af-6ce5-42b1-b5bc-927579e2319a")
+        private void updateStringListTaggedValue(final ModelElement element, final TagType tagType, final List<String> values) {
+            try {
+                putTagValues(element, tagType, values.isEmpty() ? null : values);
+            } catch (Exception e) {
+                ModelProperty.LOG.error(e);
+            }
+        }
+
+        @objid ("de0f7775-450e-4b69-b9d5-39c005fd8e30")
+        private void updateStringTaggedValue(final ModelElement element, final TagType tagType, final String value) {
+            try {
+                putTagValue(element, tagType, "".equals(value) ? null : value);
+            } catch (Exception e) {
+                ModelProperty.LOG.error(e);
             }
         }
 

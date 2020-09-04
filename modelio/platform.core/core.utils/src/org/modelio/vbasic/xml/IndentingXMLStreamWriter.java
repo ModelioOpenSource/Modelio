@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -97,6 +97,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
 
     /**
      * Construct an indenting XML writer.
+     * 
      * @param writer the underlying XML writer.
      */
     @objid ("7856cd1c-3010-11e2-8359-001ec947ccaf")
@@ -106,6 +107,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
 
     /**
      * Set the indentation.
+     * 
      * @param s the indentation. Please use only spaces or tabs.
      */
     @objid ("7856cd20-3010-11e2-8359-001ec947ccaf")

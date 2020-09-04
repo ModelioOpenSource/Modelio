@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -106,6 +106,7 @@ public class RamcPackager {
 
     /**
      * Run the packaging.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility
      * to call done() on the given monitor. Accepts <i>null</i>, indicating that no progress should be
      * reported and that the operation cannot be cancelled.
@@ -188,7 +189,7 @@ public class RamcPackager {
     @objid ("d3a623c0-cb72-11e1-87f1-001ec947ccaf")
     private void exportFiles(Path exportPath, Metadatas metadatas, SubProgress subMonitor) throws IOException {
         subMonitor.subTask(CoreProject.I18N.getString("RamcPackager.ExportFiles"));
-        FilesExporter exporter = new FilesExporter(exportPath, this.gproject.getProjectPath());
+        FilesExporter exporter = new FilesExporter(exportPath, this.gproject.getProjectFileStructure().getProjectPath());
         exporter.run(getFilesToExport(), metadatas, subMonitor);
     }
 

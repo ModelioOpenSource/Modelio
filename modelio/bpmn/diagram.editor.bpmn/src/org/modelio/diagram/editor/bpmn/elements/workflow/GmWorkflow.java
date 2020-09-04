@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -159,7 +159,7 @@ public class GmWorkflow extends GmBodyFreeZone {
                 return false;
             }
         }
-        return (BpmnBaseElement.class.isAssignableFrom(type));
+        return BpmnBaseElement.class.isAssignableFrom(type);
     }
 
     @objid ("b19d8674-63f2-4509-97a7-ca7a7cf43575")
@@ -215,7 +215,7 @@ public class GmWorkflow extends GmBodyFreeZone {
             read_0(in);
             break;
         default:
-            assert (false) : "version number not covered!";
+            assert false : "version number not covered!";
             // reading as last handled version: 0
             read_0(in);
             break;
@@ -288,7 +288,7 @@ public class GmWorkflow extends GmBodyFreeZone {
      * @return <code>true</code> if the element belongs to the current workflow.
      */
     @objid ("31edb795-e14f-402e-b7be-24d961a66781")
-    private boolean isInWorkflow(final MObject elt) {
+    public boolean isInWorkflow(final MObject elt) {
         if (elt == null) {
             return false;
         } else if (Objects.equals(getDiagram().getRelatedElement().getOrigin(), elt)) {
@@ -305,6 +305,7 @@ public class GmWorkflow extends GmBodyFreeZone {
 
     /**
      * Tells whether this workflow is embedded and contains Lanes.
+     * 
      * @return true if this workflow is embedded and contains Lanes.
      */
     @objid ("c213ebd5-42e5-4f4e-b4f9-33915c603b39")
@@ -383,6 +384,7 @@ public class GmWorkflow extends GmBodyFreeZone {
     /**
      * Add a filter that removes graphic nodes from the visible children.
      * @see #REMOVE_ANNOTATIONS
+     * 
      * @param filter a predicates that returns true to hide a child node. null to disable filtering.
      */
     @objid ("a1ef7fbb-6255-4d3f-b00f-1195eddef17f")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -247,6 +247,7 @@ public class DefaultLinkExpert implements ILinkExpert {
 
         /**
          * Tells whether a link of the given metaclass can have another metaclass as source.
+         * 
          * @param linkMetaclass The link metaclass
          * @param fromMetaclass The source metaclass
          * @return true if the creation is possible, false otherwise.
@@ -266,6 +267,7 @@ public class DefaultLinkExpert implements ILinkExpert {
 
         /**
          * Tells whether a link of the given metaclass can be created between the 2 other metaclasses.
+         * 
          * @param linkMetaclass The link metaclass
          * @param fromMetaclass The Source metaclass
          * @param toMetaclass The destination metaclass
@@ -3129,6 +3131,7 @@ public class DefaultLinkExpert implements ILinkExpert {
          * Returns whether this metaclass is known or not.
          * @param metaclass
          * the sought metaclass.
+         * 
          * @param linkMetaclass The link metaclass
          * @param toMetaclass The target metaclass
          * @return true if the creation is possible, false otherwise.

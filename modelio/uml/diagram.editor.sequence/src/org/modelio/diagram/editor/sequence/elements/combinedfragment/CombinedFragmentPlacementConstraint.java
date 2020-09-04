@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class CombinedFragmentPlacementConstraint extends PlacementConstraint {
 
     /**
      * C'tor.
+     * 
      * @param x x coordinate.
      * @param y y coordinate.
      * @param width width.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public class RectangularFigure extends GradientFigure {
 
     /**
      * Changes whether the top side should be drawn or not.
+     * 
      * @param drawTop true if the top side should be drawn.
      */
     @objid ("7fa988ff-1dec-11e2-8cad-001ec947c8cc")
@@ -89,6 +90,7 @@ public class RectangularFigure extends GradientFigure {
 
     /**
      * Changes whether the left side should be drawn or not.
+     * 
      * @param drawLeft true if the left side should be drawn.
      */
     @objid ("7fa98904-1dec-11e2-8cad-001ec947c8cc")
@@ -98,6 +100,7 @@ public class RectangularFigure extends GradientFigure {
 
     /**
      * Changes whether the bottom side should be drawn or not.
+     * 
      * @param drawBottom true if the bottom side should be drawn.
      */
     @objid ("7fa98909-1dec-11e2-8cad-001ec947c8cc")
@@ -107,6 +110,7 @@ public class RectangularFigure extends GradientFigure {
 
     /**
      * Changes whether the right side should be drawn or not.
+     * 
      * @param drawRight true if the right side should be drawn.
      */
     @objid ("7fa9890e-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,6 +27,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IElementNameEditor {
     /**
      * Selects and edits the given element if possible.
+     * 
      * @param elementToEdit the element to select and edit.
      */
     @objid ("e3308685-c4a0-4e43-a71f-891ec2cd926b")

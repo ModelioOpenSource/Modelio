@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -94,6 +94,7 @@ public class ProjectLock {
      * Initialize the lock.
      * <p>
      * Call {@link #lock()} to acquire the lock.
+     * 
      * @param directory the lock directory.
      * @param projectName the project name.
      */
@@ -106,6 +107,7 @@ public class ProjectLock {
 
     /**
      * Release the lock.
+     * 
      * @throws java.io.IOException If an I/O error occurs
      */
     @objid ("a6f9da52-06de-496f-bdc4-c27c0291c903")
@@ -158,13 +160,14 @@ public class ProjectLock {
 
     /**
      * Acquires the lock.
+     * 
      * @throws org.modelio.gproject.gproject.GProjectLockedException if the project is already open somewhere else or this lock instance is already acquired.
      * @throws java.io.IOException in case of I/O failure
      */
     @objid ("709d2133-0d55-4318-a2c8-c06f58ceccd0")
     public synchronized void lock() throws GProjectLockedException, IOException {
         if (this.lock != null || this.channel != null) {
-            String msg = CoreProject.getMessage("ProjectLock.sameVm", this.projectName);
+            String msg = CoreProject.I18N.getMessage("ProjectLock.sameVm", this.projectName);
             throw new GProjectLockedException(msg, new IllegalStateException(msg));
         }
         
@@ -198,14 +201,15 @@ public class ProjectLock {
             // prevent GProjectLockedException to be caught as IOException
             throw e;
         } catch (OverlappingFileLockException e) {
-            throw new GProjectLockedException(CoreProject.getMessage("ProjectLock.sameVm", this.projectName), e);
+            throw new GProjectLockedException(CoreProject.I18N.getMessage("ProjectLock.sameVm", this.projectName), e);
         } catch (IOException e) {
-            throw new IOException(CoreProject.getMessage("ProjectLock.failure", this.projectName, FileUtils.getLocalizedMessage(e)), e);
+            throw new IOException(CoreProject.I18N.getMessage("ProjectLock.failure", this.projectName, FileUtils.getLocalizedMessage(e)), e);
         }
     }
 
     /**
      * Test whether the project is locked
+     * 
      * @return a lock information if the project is locked else <i>null</i>.
      * @throws java.io.IOException in case of I/O error.
      */
@@ -279,9 +283,9 @@ public class ProjectLock {
             
             String msg;
             if (info.isSelf()) {
-                msg = CoreProject.getMessage("ProjectLock.sameVm", this.projectName);
+                msg = CoreProject.I18N.getMessage("ProjectLock.sameVm", this.projectName);
             } else {
-                msg = CoreProject.getMessage("ProjectLock.otherVm", this.projectName, 
+                msg = CoreProject.I18N.getMessage("ProjectLock.otherVm", this.projectName, 
                         info.getJvmIdentifier(),
                         info.getHostName(), 
                         info.getOwner(), 
@@ -298,6 +302,7 @@ public class ProjectLock {
      * Get a project lock for a project directory.
      * <p>
      * Call {@link #lock()} then to acquire the lock.
+     * 
      * @param directory the lock directory.
      * @param projectName the project name.
      * @return the matching project lock

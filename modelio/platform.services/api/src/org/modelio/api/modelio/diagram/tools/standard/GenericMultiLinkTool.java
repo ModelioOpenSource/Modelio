@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -198,6 +198,7 @@ public class GenericMultiLinkTool extends DefaultMultiLinkTool {
      * Hook called once the element is created, configured, unmasked and before the transaction is committed.
      * <p>
      * Does nothing by default. Sub classes may redefine this method to make additional modifications.
+     * 
      * @param diagramHandle the diagram handle
      * @param lastNode the last graphic node
      * @param otherNodes the other graphic nodes

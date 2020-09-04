@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class GmJoinPrimaryNode extends GmNoStyleSimpleNode implements IImageable
 
     /**
      * Constructor.
+     * 
      * @param diagram the diagram in which the element is unmasked.
      */
     @objid ("f55634f1-55b6-11e2-877f-002564c97630")

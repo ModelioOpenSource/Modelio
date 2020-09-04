@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ import org.modelio.patterns.model.RuntimePattern;
 public interface IPatternService {
     /**
      * Export a pattern.
+     * 
      * @param pattern the pattern to export.
      * @throws javax.xml.bind.JAXBException when the pattern metadatas are invalid.
      * @throws java.io.IOException when the pattern can't be read.
@@ -41,6 +42,7 @@ public interface IPatternService {
 
     /**
      * Get the project's pattern catalog.
+     * 
      * @return the pattern catalog. Should be <code>null</code> when no project is opened.
      */
     @objid ("b21e3d18-54cf-4992-8c9e-f81720eea83e")

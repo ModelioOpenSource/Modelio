@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,11 +25,11 @@ import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.plugin.Xmi;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.ObjingEAnnotation;
-import org.modelio.xmi.util.XMIProperties;
 
 /**
  * This class manages the export of TemplateParameter
@@ -43,9 +43,9 @@ public class OTemplateParameter extends ONameSpace {
     @objid ("83a82ce4-7047-4117-b93b-9057cb0c4708")
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
-        if (((ModelElement) getObjingElement()).isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CONNECTABLEELEMENTTEMPLATEPARAMETER)){
+        if (((ModelElement) getObjingElement()).isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CONNECTABLEELEMENTTEMPLATEPARAMETER)){
             return UMLFactory.eINSTANCE.createConnectableElementTemplateParameter();
-        }else  if (((ModelElement) getObjingElement()).isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLASSIFIERTEMPLATEPARAMETER)){
+        }else  if (((ModelElement) getObjingElement()).isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLASSIFIERTEMPLATEPARAMETER)){
             return UMLFactory.eINSTANCE.createClassifierTemplateParameter();
         }else{
             Element objOwner =  ((TemplateParameter)getObjingElement()).getParameterized();
@@ -62,6 +62,7 @@ public class OTemplateParameter extends ONameSpace {
                     try{
                         this.signature = ((org.eclipse.uml2.uml.TemplateableElement) ecoreOwner).createOwnedTemplateSignature();
                     }catch(IllegalArgumentException e){
+                        Xmi.LOG.error(e);
                         return null;
                     }
                     ObjingEAnnotation.setIsDeleted(this.signature);
@@ -75,6 +76,7 @@ public class OTemplateParameter extends ONameSpace {
 
     /**
      * Constructor
+     * 
      * @param element : the exported Modelio TemplateParameter
      */
     @objid ("9b6ba6d8-d07b-4e84-a8fe-f85c19ea4de4")
@@ -103,13 +105,14 @@ public class OTemplateParameter extends ONameSpace {
         
             templSignature.getOwnedElements();
             templSignature.getOwnedParameters().add((org.eclipse.uml2.uml.TemplateParameter) ecoreElt);
-            
+        
             try{
                 ((org.eclipse.uml2.uml.TemplateableElement) ecoreOwner).setOwnedTemplateSignature(templSignature);
         
             }catch(IllegalArgumentException e){     
                 ecoreElt.destroy();
                 templSignature.destroy();
+                Xmi.LOG.error(e);
             }
         
         }else if ((ecoreOwner instanceof org.eclipse.uml2.uml.RedefinableTemplateSignature) && (ecoreElt instanceof org.eclipse.uml2.uml.TemplateParameter)){
@@ -123,9 +126,12 @@ public class OTemplateParameter extends ONameSpace {
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
+        
         setTemplateType((org.eclipse.uml2.uml.TemplateParameter) ecoreElt);
-        setIsValueParameter((org.eclipse.uml2.uml.TemplateParameter) ecoreElt);
         setDefaultType((org.eclipse.uml2.uml.TemplateParameter) ecoreElt);
+        
+        if (GenerationProperties.getInstance().isRoundtripEnabled())
+            setIsValueParameter((org.eclipse.uml2.uml.TemplateParameter) ecoreElt);
     }
 
     @objid ("0c0fd4da-33c1-43d2-a628-fffbc939c2e7")
@@ -158,6 +164,7 @@ public class OTemplateParameter extends ONameSpace {
                 String message = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType",
                         "parameteredElement", getObjingElement().getName(), " ParameterableElement",  "TemplateableElement");
                 GenerationProperties.getInstance().addWarning(message, getObjingElement());
+                Xmi.LOG.error(e);
             }
         }
     }

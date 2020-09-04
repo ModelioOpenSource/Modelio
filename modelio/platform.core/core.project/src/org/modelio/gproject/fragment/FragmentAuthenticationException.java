@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ public class FragmentAuthenticationException extends Exception {
 
     /**
      * Constructs a new exception.
+     * 
      * @param message a message
      * @param cause a cause
      */
@@ -39,6 +40,7 @@ public class FragmentAuthenticationException extends Exception {
 
     /**
      * Constructs a new exception.
+     * 
      * @param message a message
      */
     @objid ("5bd69df1-b7cd-4a0b-81d9-05dd9d3d42aa")
@@ -48,6 +50,7 @@ public class FragmentAuthenticationException extends Exception {
 
     /**
      * Constructs a new exception.
+     * 
      * @param cause a cause
      */
     @objid ("af327b35-7aa2-4892-8f05-a8bc093525b8")

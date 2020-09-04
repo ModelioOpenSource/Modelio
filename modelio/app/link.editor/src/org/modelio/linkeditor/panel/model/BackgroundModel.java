@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class BackgroundModel extends CompoundDirectedGraph {
 
     /**
      * Adds the given node to the graph. Does not add its incoming and outgoing edges.
+     * 
      * @param node the node to add to the graph.
      */
     @objid ("1b8ee021-5e33-11e2-b81d-002564c97630")
@@ -87,6 +88,7 @@ public class BackgroundModel extends CompoundDirectedGraph {
 
     /**
      * Adds the given edge to the graph. Does not add its source and target nodes NOR its virtual nodes (if any).
+     * 
      * @param edge the edge to add to the graph.
      */
     @objid ("1b8ee031-5e33-11e2-b81d-002564c97630")

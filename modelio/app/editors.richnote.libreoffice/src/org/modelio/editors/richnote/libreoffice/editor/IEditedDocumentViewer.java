@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ import org.modelio.metamodel.uml.infrastructure.Document;
 public interface IEditedDocumentViewer {
     /**
      * Open in the viewer the given document.
+     * 
      * @param stream the stream containing the document
      * @param modifiable true to open in read/write, false for read only.
      * @throws java.io.IOException in case of failure.
@@ -48,6 +49,7 @@ public interface IEditedDocumentViewer {
 
     /**
      * Save the content to the given stream.
+     * 
      * @param stream where the document will be saved.
      * @throws java.io.IOException in case of error saving the document.
      */
@@ -56,6 +58,7 @@ public interface IEditedDocumentViewer {
 
     /**
      * Convert the document to simple text format.
+     * 
      * @return the document as text.
      * @throws java.io.IOException in case of failure.
      */
@@ -64,6 +67,7 @@ public interface IEditedDocumentViewer {
 
     /**
      * get the document as HTML format.
+     * 
      * @return the document as HTML.
      * @throws java.io.IOException in case of failure.
      */
@@ -83,6 +87,7 @@ public interface IEditedDocumentViewer {
      * the workbench's <code>ISelectionService</code> (optional). </li>
      * </ol>
      * </p>
+     * 
      * @param parent the parent control
      */
     @objid ("31603a13-b202-4e8e-b758-862130f3d3fc")
@@ -102,6 +107,7 @@ public interface IEditedDocumentViewer {
 
     /**
      * Open in the viewer the given document.
+     * 
      * @param file the document
      * @param modifiable true to open in read/write, false for read only.
      * @throws java.io.IOException in case of failure.
@@ -111,6 +117,7 @@ public interface IEditedDocumentViewer {
 
     /**
      * Create an empty file for the given document.
+     * 
      * @param doc the document to initialize.
      * @param format the format of the new file
      * @throws java.io.IOException in case of failure.
@@ -120,6 +127,7 @@ public interface IEditedDocumentViewer {
 
     /**
      * Save the currently edited file.
+     * 
      * @throws java.io.IOException in case of failure.
      */
     @objid ("d641b5ad-5d3f-4e9f-baac-7144df0b663d")
@@ -133,6 +141,7 @@ public interface IEditedDocumentViewer {
 
     /**
      * Close the current document and be ready to open another.
+     * 
      * @throws java.io.IOException in case of failure.
      */
     @objid ("05fdc8c3-2342-4ba4-985f-bd7e2567bf1a")
@@ -140,6 +149,7 @@ public interface IEditedDocumentViewer {
 
     /**
      * Tells whether the viewer is disposed or usable.
+     * 
      * @return <code>true</code> if the viewer is disposed, <code>false</code> if it is usable.
      * @throws java.lang.IllegalStateException if the viewer is not yet initialized.
      * {@linkplain #createPartControl(Composite)} must be called first.
@@ -149,6 +159,7 @@ public interface IEditedDocumentViewer {
 
     /**
      * Initialize the file manager to use to load and save rich note files.
+     * 
      * @param aFileManager the file manager to use
      */
     @objid ("40e44ca5-eb7b-48e2-b15c-fde22cc3743c")

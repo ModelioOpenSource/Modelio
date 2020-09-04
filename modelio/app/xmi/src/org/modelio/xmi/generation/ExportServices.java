@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -106,6 +106,7 @@ public class ExportServices {
     /**
      * Save the Modelio model in the Ecore resource
      * @param resource The Ecore resource
+     * 
      * @param progressBar The progress bar of the XMI dialog
      * @return
      * false if an error occurs during the export
@@ -207,6 +208,7 @@ public class ExportServices {
 
     /**
      * Export the Modelio model into Ecore model
+     * 
      * @param selectedPkg The root of the Modelio model
      * @param progressBar The progress bar of the XMI dialog
      * @return The Ecore model
@@ -261,6 +263,7 @@ public class ExportServices {
 
     /**
      * Export a org.eclipse.uml2.uml.Profile in EMF format
+     * 
      * @param progressBar The progress bar of the XMI dialog
      * @return
      * resource The EMF resource which will be the profile

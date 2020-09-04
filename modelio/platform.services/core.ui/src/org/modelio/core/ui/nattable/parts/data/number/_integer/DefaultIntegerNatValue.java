@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.core.ui.nattable.parts.data.DefaultNatValue;
 public class DefaultIntegerNatValue extends DefaultNatValue implements IIntegerNatValue {
     /**
      * Creates a new instance.
+     * 
      * @param value the wrapped value.
      */
     @objid ("1b7c0c25-c209-4922-b546-943666495661")
@@ -40,6 +41,7 @@ public class DefaultIntegerNatValue extends DefaultNatValue implements IIntegerN
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("d40ebc1d-1ed7-4951-9d6a-2cf5910a8a12")

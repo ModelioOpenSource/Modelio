@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class DeleteElementHandler {
 
     /**
      * Available only when the selected elements are modifiable.
+     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -82,6 +83,7 @@ public class DeleteElementHandler {
 
     /**
      * Delete the currently selected elements.
+     * 
      * @param selection the current modelio selection.
      */
     @objid ("c3ddb311-e92d-4aac-9751-72bfb30e3ef4")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -90,6 +90,7 @@ public class _GmObjectNode extends GmCompositeNode implements IImageableNode {
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theObjectNode the represented object node, may be null.
      * @param ref a reference to the represented object node.

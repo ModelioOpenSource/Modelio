@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,7 +46,7 @@ import org.modelio.ui.panel.IPanelProvider;
 @objid ("4168f6a3-002b-449a-8682-daa1c05eb5fc")
 @Creatable
 public class OperationEditPanel implements IPanelProvider {
-    @objid ("7c6c1b8a-9563-47f8-a313-fef2f202bb6b")
+    @objid ("4ddaa799-6bf1-4d7d-9650-8b2607adc697")
     private Composite area;
 
     @objid ("520a2552-0339-46ea-b39c-b728f7809d09")
@@ -78,10 +78,11 @@ public class OperationEditPanel implements IPanelProvider {
         
         final GridLayout layout = new GridLayout(1, true);
         layout.horizontalSpacing = 0;
-        layout.marginLeft = 4;
-        layout.marginRight = 4;
-        layout.marginHeight = 4;
-        layout.marginBottom = 4;
+        layout.verticalSpacing = 2;
+        layout.marginLeft = 2;
+        layout.marginRight = 2;
+        layout.marginHeight = 2;
+        layout.marginBottom = 2;
         this.area.setLayout(layout);
         
         this.propertiesPanel = new OperationPropertiesPanel();
@@ -91,18 +92,19 @@ public class OperationEditPanel implements IPanelProvider {
         
         this.parametersPanel = new OperationParametersPanel();
         final Composite parametersArea = (Composite) this.parametersPanel.createPanel(this.area);
-        gd = new GridData(SWT.FILL, SWT.FILL, true, true);
+        gd = new GridData(SWT.FILL, SWT.FILL, true, false);
+        gd.heightHint = 240;
         parametersArea.setLayoutData(gd);
-        
-        this.descriptionPanel = new ElementDescriptionPanel();
-        final Composite descriptionArea = (Composite) this.descriptionPanel.createPanel(this.area);
-        gd = new GridData(SWT.FILL, SWT.FILL, true, true);
-        descriptionArea.setLayoutData(gd);
         
         this.signaturePanel = new OperationSignaturePanel();
         final Composite previewArea = (Composite) this.signaturePanel.createPanel(this.area);
         gd = new GridData(SWT.FILL, SWT.FILL, true, false);
         previewArea.setLayoutData(gd);
+        
+        this.descriptionPanel = new ElementDescriptionPanel();
+        final Composite descriptionArea = (Composite) this.descriptionPanel.createPanel(this.area);
+        gd = new GridData(SWT.FILL, SWT.FILL, true, true);
+        descriptionArea.setLayoutData(gd);
         return this.area;
     }
 

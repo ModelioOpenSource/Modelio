@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public class IntegerCellEditor extends TextCellEditor {
     /**
      * Creates a new integer string cell editor parented under the given control. The cell editor value is the string
      * itself, which is initially the empty string. Initially, the cell editor has no cell validator.
+     * 
      * @param parent the parent control
      */
     @objid ("85ae1ff0-1926-11e2-92d2-001ec947c8cc")

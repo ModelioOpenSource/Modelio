@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class CreateConstraintCommand extends Command {
 
     /**
      * Creates a constraint creation command.
+     * 
      * @param sourceModels The models that are to be linked to the created constraint.
      * @param parentNode The parent node unmasking the "body" of the constraint.
      * @param context Details on the MObject and/or the node to create

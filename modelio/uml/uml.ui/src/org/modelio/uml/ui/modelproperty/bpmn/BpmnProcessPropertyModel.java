@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class BpmnProcessPropertyModel extends AbstractPropertyModel<BpmnProcess>
 
     /**
      * Create a new <i>BpmnProcess</i> data model from an <i>BpmnProcess</i>.
+     * 
      * @param theEditedElement the model to edit.
      * @param mdaExpert the MDA expert to handle Methodological links.
      */
@@ -76,6 +77,7 @@ public class BpmnProcessPropertyModel extends AbstractPropertyModel<BpmnProcess>
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("e2017c97-f09f-4686-b057-a5e7be2a3c8f")
@@ -86,6 +88,7 @@ public class BpmnProcessPropertyModel extends AbstractPropertyModel<BpmnProcess>
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("772cf3ee-151d-40b2-810e-e8b85e06c8db")
@@ -98,6 +101,7 @@ public class BpmnProcessPropertyModel extends AbstractPropertyModel<BpmnProcess>
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -135,6 +139,7 @@ public class BpmnProcessPropertyModel extends AbstractPropertyModel<BpmnProcess>
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -183,6 +188,7 @@ public class BpmnProcessPropertyModel extends AbstractPropertyModel<BpmnProcess>
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

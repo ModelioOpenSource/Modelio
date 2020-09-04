@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,7 +27,7 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
@@ -79,12 +79,13 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is used.
      * @param viewedDiagram the unmasked diagram (can be <code>null</code>)
      * @param relatedRef a reference to the unmasked diagram (cannot be <code>null</code>).
      */
     @objid ("5f87d5fb-4271-4d34-86ed-b5bfb1431aeb")
-    public GmEmbeddedDiagram(IGmDiagram diagram, AbstractDiagram viewedDiagram, MRef relatedRef) {
+    public GmEmbeddedDiagram(final IGmDiagram diagram, final AbstractDiagram viewedDiagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.viewedDiagram = viewedDiagram;
     }
@@ -99,13 +100,13 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
 
     @objid ("7088b5a8-664d-483b-9950-01000330907d")
     @Override
-    public boolean canCreate(Class<? extends MObject> type) {
+    public boolean canCreate(final Class<? extends MObject> type) {
         return false;
     }
 
     @objid ("fc676e42-f7c6-4d11-aa25-ead223810213")
     @Override
-    public boolean canUnmask(MObject el) {
+    public boolean canUnmask(final MObject el) {
         return false;
     }
 
@@ -119,7 +120,7 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
 
     @objid ("5469766c-c380-482a-b129-8fe668f14691")
     @Override
-    public GmCompositeNode getCompositeFor(Class<? extends MObject> metaclass) {
+    public GmCompositeNode getCompositeFor(final Class<? extends MObject> metaclass) {
         if (canCreate(metaclass)) {
             return this;
         }
@@ -143,11 +144,12 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
      * <p>
      * Loads the diagram if not already done and loadIfNeeded is true.
      * </p>
+     * 
      * @param loadIfNeeded Loads the diagram if not already done if true. If false and the diagram model is not loaded, return null.
      * @return the viewed diagram model. Might be <code>null</code>.
      */
     @objid ("6c264694-8b3d-4567-b2d5-d162178266a4")
-    public GmAbstractDiagram getViewedDiagramModel(boolean loadIfNeeded) {
+    public GmAbstractDiagram getViewedDiagramModel(final boolean loadIfNeeded) {
         if (loadIfNeeded) {
             if (this.viewedDiagram != null
                     && this.viewedDiagram.isValid()
@@ -157,7 +159,7 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
                 // Load the diagram
                 final GmAbstractDiagram newDiagramModel = createGmDiagram(getDiagram().getModelManager(), this.viewedDiagram);
                 newDiagramModel.setVisible(isVisible());
-                newDiagramModel.getPersister().load();
+                newDiagramModel.load();
         
                 // We do not want the diagram's content to be persisted, do not add it to the children
                 newDiagramModel.setParentNode(this);
@@ -175,8 +177,8 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
     @objid ("8c271621-31be-441e-836d-f19e3dd0eaf3")
     @Override
     public List<GmNodeModel> getVisibleChildren() {
-        List<GmNodeModel> ret = new ArrayList<>();
-        GmAbstractDiagram viewedModel = getViewedDiagramModel(true);
+        final List<GmNodeModel> ret = new ArrayList<>();
+        final GmAbstractDiagram viewedModel = getViewedDiagramModel(true);
         if (viewedModel != null) {
             ret.addAll(viewedModel.getVisibleChildren());
         }
@@ -207,41 +209,42 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
      * Tells whether the viewed diagram should be centered.
      * <p>
      * If not the diagram will be aligned on top left.
+     * 
      * @return whether the viewed diagram should be centered
      */
     @objid ("db4ac006-626e-467c-bc47-abc367f84762")
     public boolean isViewToCenter() {
-        IGmDiagram m = getViewedDiagramModel(true);
+        final IGmDiagram m = getViewedDiagramModel(true);
         return m == null || !m.isUserEditable();
     }
 
     @objid ("b3c704ea-452a-4459-97f9-a4712ab5867f")
     @Override
-    public void read(IDiagramReader in) {
+    public void read(final IDiagramReader in) {
         // Read version, defaults to 0 if not found
-        int readVersion = GmAbstractObject.readMinorVersion(in, GmEmbeddedDiagram.MINOR_PREFIX);
+        final int readVersion = GmAbstractObject.readMinorVersion(in, GmEmbeddedDiagram.MINOR_PREFIX);
         switch (readVersion) {
         case 0:
             read_0(in);
             break;
         default:
-            assert (false) : "version number not covered!";
-            // reading as last handled version: 0
-            read_0(in);
-            break;
+            assert false : "version number not covered!";
+        // reading as last handled version: 0
+        read_0(in);
+        break;
         }
     }
 
     @objid ("f6f975f2-93d3-4223-90af-598fca08be71")
     @Override
-    public void removeChild(GmNodeModel child) {
+    public void removeChild(final GmNodeModel child) {
         // Viewed diagram is not really a child, ignore it
-        assert (child instanceof GmAbstractDiagram) : child;
+        assert child instanceof GmAbstractDiagram : child;
     }
 
     @objid ("be680020-0fdf-443f-b37a-13f330f5038c")
     @Override
-    public void write(IDiagramWriter out) {
+    public void write(final IDiagramWriter out) {
         super.write(out);
         
         // Write version of this Gm if different of 0
@@ -250,7 +253,7 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
 
     @objid ("1f45d5b4-0cda-41c7-906a-649eb1baeb6c")
     @Override
-    protected void doSetVisible(boolean visible) {
+    protected void doSetVisible(final boolean visible) {
         super.doSetVisible(visible);
         if (this.viewedDiagramModel != null) {
             this.viewedDiagramModel.setVisible(visible);
@@ -266,10 +269,11 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
 
     /**
      * Hook for sub classes called when the embedded diagram model is loaded.
+     * 
      * @param newDiagramModel the loaded diagram.
      */
     @objid ("c77f80ba-8ffd-42e2-86eb-2d9665cb16f5")
-    protected void onViewedDiagramModelLoaded(IGmDiagram newDiagramModel) {
+    protected void onViewedDiagramModelLoaded(final IGmDiagram newDiagramModel) {
         // nothing by default
     }
 
@@ -286,7 +290,7 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
     }
 
     @objid ("2ead4e75-cc1d-47da-b03b-41654afd243b")
-    private void read_0(IDiagramReader in) {
+    private void read_0(final IDiagramReader in) {
         super.read(in);
         
         this.viewedDiagram = (AbstractDiagram) resolveRef(getRepresentedRef());
@@ -297,7 +301,7 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
         final IGmDiagram oldViewedModel = this.viewedDiagramModel;
         final IGmDiagram ownGmDiagram = getDiagram();
         
-        assert (!(newViewedModel != null && ownGmDiagram == null)) : String.format("setViewedDiagramModel(%s) on disposed %s.", newViewedModel, this);
+        assert !(newViewedModel != null && ownGmDiagram == null) : String.format("setViewedDiagramModel(%s) on disposed %s.", newViewedModel, this);
         
         if (oldViewedModel != null && ownGmDiagram != null) {
             ownGmDiagram.removeEmbeddedDiagram(oldViewedModel);
@@ -313,24 +317,23 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
     }
 
     @objid ("8c47f9e3-bfd7-4e6c-b814-42d2f0f984fd")
-    private GmAbstractDiagram createGmDiagram(IModelManager modelManager, AbstractDiagram obDiagram) {
-        IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor("org.modelio.diagram.editor.inputprovider");
+    private GmAbstractDiagram createGmDiagram(final IModelManager modelManager, final AbstractDiagram obDiagram) {
         Object lastProvider = null;
-        for (IConfigurationElement e : config) {
+        for (final IConfigurationElement e : new ExtensionPointContributionManager("org.modelio.diagram.editor.inputprovider").getExtensions("inputprovider")) {
             try {
-                Object inputProvider = e.createExecutableExtension("class");
+                final Object inputProvider = e.createExecutableExtension("class");
                 if (inputProvider != null) {
                     if (inputProvider.getClass().getName().contains("StaticDiagramEditorInputProvider")) {
                         // TODO 'static' editor should always be handled last, but checking the class name is kind of ugly
                         lastProvider = inputProvider;
                     } else {
-                        GmAbstractDiagram ret = invokeCreator(inputProvider, modelManager, obDiagram);
+                        final GmAbstractDiagram ret = invokeCreator(inputProvider, modelManager, obDiagram);
                         if (ret != null) {
                             return ret;
                         }
                     }
                 }
-            } catch (CoreException e1) {
+            } catch (final CoreException e1) {
                 DiagramElements.LOG.error(e1);
             }
         }
@@ -338,14 +341,14 @@ public class GmEmbeddedDiagram extends GmNoStyleCompositeNode {
     }
 
     @objid ("97b27978-eeef-4a28-a85b-41a9c63cccfd")
-    protected GmAbstractDiagram invokeCreator(Object inputProvider, IModelManager modelManager, AbstractDiagram obDiagram) {
+    protected GmAbstractDiagram invokeCreator(final Object inputProvider, final IModelManager modelManager, final AbstractDiagram obDiagram) {
         Method getCreatorMethod;
         try {
             getCreatorMethod = inputProvider.getClass().getMethod("getDiagramCreator");
-            Object creator = getCreatorMethod.invoke(inputProvider);
+            final Object creator = getCreatorMethod.invoke(inputProvider);
             if (creator != null) {
-                Method createDiagramMethod = creator.getClass().getMethod("createDiagram", IModelManager.class, AbstractDiagram.class);
-                Object result = createDiagramMethod.invoke(creator, modelManager, obDiagram);
+                final Method createDiagramMethod = creator.getClass().getMethod("createDiagram", IModelManager.class, AbstractDiagram.class);
+                final Object result = createDiagramMethod.invoke(creator, modelManager, obDiagram);
                 if (result instanceof GmAbstractDiagram) {
                     return (GmAbstractDiagram) result;
                 }

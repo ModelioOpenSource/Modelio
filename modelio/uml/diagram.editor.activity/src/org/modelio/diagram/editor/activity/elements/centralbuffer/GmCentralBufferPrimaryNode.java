@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param ref a reference to the represented central buffer.
      */
@@ -112,6 +113,7 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
 
     /**
      * Get the stereotype image to display.
+     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("29e8e008-55b6-11e2-877f-002564c97630")
@@ -198,6 +200,7 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
 
     /**
      * Migration constructor.
+     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("29ea6699-55b6-11e2-877f-002564c97630")

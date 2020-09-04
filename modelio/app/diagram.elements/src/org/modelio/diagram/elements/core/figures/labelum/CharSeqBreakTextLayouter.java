@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class CharSeqBreakTextLayouter extends AbstractBreakTextLayouter {
     /**
      * Find a return the line break range.
      * The returned range will be replaced by a line return.
+     * 
      * @param text the text to search
      * @param beforeIndex the offset to start back from
      * @return the text range to replace by a line break
@@ -74,6 +75,7 @@ public class CharSeqBreakTextLayouter extends AbstractBreakTextLayouter {
 
     /**
      * Initialize the layouter to break after any of the given character sequences.
+     * 
      * @param breakAfter the breaking character sequences.
      */
     @objid ("fbf6177f-7b2c-4e55-a453-bc3d055a1a2f")
@@ -89,6 +91,7 @@ public class CharSeqBreakTextLayouter extends AbstractBreakTextLayouter {
 
     /**
      * Configure the layouter to break after any of the given character sequences.
+     * 
      * @param breakAfter the breaking character sequences.
      */
     @objid ("153e2e73-b926-4eda-a310-14a3b1c3f2a8")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class AboutDialog extends TrayDialog {
     /**
      * Creates the dialog.
      * @param modelioEnv
+     * 
      * @param parentShell the parent window shell.
      */
     @objid ("0047078e-cc35-1ff2-a7f4-001ec947cd2a")

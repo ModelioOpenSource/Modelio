@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -207,6 +207,7 @@ public class FlyoutPaletteComposite2 extends Composite {
 
     /**
      * Constructor
+     * 
      * @param parent The parent Composite
      * @param style The style of the widget to construct; only SWT.BORDER is allowed
      * @param pvProvider The provider that is to be used to create the flyout palette
@@ -459,6 +460,7 @@ public class FlyoutPaletteComposite2 extends Composite {
     /**
      * If an external palette viewer is provided, palette state (that is captured in {@link PaletteViewer#saveState(IMemento)} -- active tool, drawer expansion state, drawer pin state, etc.) will be maintained when switching between the two viewers.
      * Providing an external viewer, although recommended, is optional.
+     * 
      * @param viewer The palette viewer used in the PaletteView
      */
     @objid ("659ca342-33f7-11e2-95fe-001ec947c8cc")
@@ -501,6 +503,7 @@ public class FlyoutPaletteComposite2 extends Composite {
 
     /**
      * Sets the control along the side of which the palette is to be displayed. The given Control should be a child of this Composite. This method should only be invoked once.
+     * 
      * @param graphicalViewer the control of the graphical viewer; cannot be <code>null</code>
      */
     @objid ("659ca34c-33f7-11e2-95fe-001ec947c8cc")
@@ -653,6 +656,7 @@ public class FlyoutPaletteComposite2 extends Composite {
     public interface FlyoutPreferences {
         /**
          * Should return {@link PositionConstants#EAST} or {@link PositionConstants#WEST}. Any other int will be ignored and the default dock location (EAST) will be used instead.
+         * 
          * @return the saved dock location of the Palette
          */
         @objid ("659f055d-33f7-11e2-95fe-001ec947c8cc")
@@ -661,6 +665,7 @@ public class FlyoutPaletteComposite2 extends Composite {
         /**
          * When there is no saved state, this method can return any non-positive int (which will result in the palette using the default state -- collapsed), or {@link FlyoutPaletteComposite#STATE_COLLAPSED}, or
          * {@link FlyoutPaletteComposite#STATE_PINNED_OPEN}
+         * 
          * @return the saved state of the palette
          */
         @objid ("659f0560-33f7-11e2-95fe-001ec947c8cc")
@@ -669,6 +674,7 @@ public class FlyoutPaletteComposite2 extends Composite {
         /**
          * When there is no saved width, this method can return any int (preferrably a non-positive int). Returning a non-positive int will cause the palette to be sized to the default size, whereas returning a postive int will find the closest match in
          * the valid range (>= minimum and <= maximum)
+         * 
          * @return the saved width of the flyout palette
          */
         @objid ("659f0563-33f7-11e2-95fe-001ec947c8cc")
@@ -676,6 +682,7 @@ public class FlyoutPaletteComposite2 extends Composite {
 
         /**
          * This method is invoked when the flyout palette's dock location is changed. The provided dock location should be persisted and returned in {@link #getDockLocation()}.
+         * 
          * @param location {@link PositionConstants#EAST} or {@link PositionConstants#WEST}
          */
         @objid ("659f0566-33f7-11e2-95fe-001ec947c8cc")
@@ -683,6 +690,7 @@ public class FlyoutPaletteComposite2 extends Composite {
 
         /**
          * This method is invoked when the flyout palette's state is changed (the new state becomes the default). The provided state should be persisted and returned in {@link #getPaletteState()}.
+         * 
          * @param state {@link FlyoutPaletteComposite#STATE_COLLAPSED} or {@link FlyoutPaletteComposite#STATE_PINNED_OPEN}
          */
         @objid ("659f0569-33f7-11e2-95fe-001ec947c8cc")
@@ -690,6 +698,7 @@ public class FlyoutPaletteComposite2 extends Composite {
 
         /**
          * This method is invoked when the flyout palette is resized. The provided width should be persisted and returned in {@link #getPaletteWidth()}.
+         * 
          * @param width the new size of the flyout palette
          */
         @objid ("659f056c-33f7-11e2-95fe-001ec947c8cc")
@@ -1324,6 +1333,7 @@ public class FlyoutPaletteComposite2 extends Composite {
 
             /**
              * Creates a new instance
+             * 
              * @param direction the direction the arrow should face (PositionConstants.RIGHT or PositionConstants.LEFT)
              */
             @objid ("65a62c5c-33f7-11e2-95fe-001ec947c8cc")
@@ -1502,6 +1512,7 @@ public class FlyoutPaletteComposite2 extends Composite {
 
         /**
          * Constructor
+         * 
          * @param text this action's text
          * @param position the dock side that this action represents: PositionConstants.EAST or PositionConstants.WEST
          */

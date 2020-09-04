@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
@@ -41,42 +41,42 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("9212b99c-be1d-494e-af24-84c580bd7cc8")
 public class DynamicPropertyDefinitionSmClass extends PropertyDefinitionSmClass {
-    @objid ("532f8de7-1c87-4460-87c3-b436a3b162e1")
+    @objid ("b485795d-5caa-4522-a588-92462b4dc470")
     public DynamicPropertyDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("9e6c51c3-69e5-4018-b48c-25552edcd0ad")
+    @objid ("52009d64-811e-40ae-bd9a-b547fc062bce")
     @Override
     public String getName() {
         return "DynamicPropertyDefinition";
     }
 
-    @objid ("6cc541c3-e693-4659-bb60-55704d69da5a")
+    @objid ("12a04c16-3f95-478e-b159-e9abdd8243c2")
     @Override
     public Version getVersion() {
         return new Version("1.1.1");
     }
 
-    @objid ("d56f0261-ffdc-4616-9f42-1dce9a00e881")
+    @objid ("7abaafe0-5590-4d4a-9458-41b4c8e87999")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return DynamicPropertyDefinition.class;
     }
 
-    @objid ("961239a5-20eb-4b98-bb7e-78bd750ea9d9")
+    @objid ("d4603599-d34e-4b29-9add-5398765b09d2")
     @Override
     public boolean isCmsNode() {
         return false;
     }
 
-    @objid ("30b419cd-bd10-4eeb-882c-7a1dc55f1a78")
+    @objid ("a658408b-082d-44fc-bbab-873cd4e044ae")
     @Override
     public boolean isAbstract() {
         return false;
     }
 
-    @objid ("f8a5cf51-2d48-4224-9c06-3be69f48bcb1")
+    @objid ("5f573cf2-fcc1-4114-9cab-b1f45a8b68df")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(PropertyDefinition.MQNAME);
@@ -90,21 +90,21 @@ public class DynamicPropertyDefinitionSmClass extends PropertyDefinitionSmClass 
 
     @objid ("b7859054-bfa5-49ee-85ed-a4ebf2e0fecd")
     private static class DynamicPropertyDefinitionObjectFactory implements ISmObjectFactory {
-        @objid ("2106c24f-7fd4-4a43-815b-681de8ad22d0")
+        @objid ("d53dc821-7220-4193-8f33-15b8157a76df")
         private DynamicPropertyDefinitionSmClass smClass;
 
-        @objid ("7e0d4a63-0b8e-428d-a08b-a99ae259ff7f")
+        @objid ("b21b822c-2101-41eb-9b8f-c5b8df561a53")
         public DynamicPropertyDefinitionObjectFactory(DynamicPropertyDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("2798bdf0-d063-4005-97b8-fccdd11de823")
+        @objid ("849371af-e82c-4294-abf5-2f167984f3e3")
         @Override
         public ISmObjectData createData() {
             return new DynamicPropertyDefinitionData(this.smClass);
         }
 
-        @objid ("190a3d58-1af5-4235-ab2a-66ea8c666e6a")
+        @objid ("abb08a99-f5f5-42b1-a916-e776c7d4c0cd")
         @Override
         public SmObjectImpl createImpl() {
             return new DynamicPropertyDefinitionImpl();

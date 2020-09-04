@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,7 +33,6 @@ import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.policies.DefaultElementDropEditPolicy;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.metamodel.bpmn.flows.BpmnMessage;
-import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
 import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -65,19 +64,17 @@ public class BpmnMessageElementDropEditPolicy extends DefaultElementDropEditPoli
     @Override
     protected EditPart getDropTargetEditPart(final ModelElementDropRequest request) {
         if (request.isSmart() && request.getDroppedElements().length == 1) {
-            IGmDiagram gmDiagram = ((GmModel) getHost().getModel()).getDiagram();
+            GmModel model = (GmModel) getHost().getModel();
+            IGmDiagram gmDiagram = model.getDiagram();
+            BpmnMessage message = (BpmnMessage) model.getRelatedElement();
         
             MObject droppedElement = request.getDroppedElements()[0];
-            if (isSmartType(droppedElement, gmDiagram)) {
-                // Allow smart type drop on the BpmnMessage
+            if (isSmartType(droppedElement, message, gmDiagram)) {
+                // Allow smart Type drop on the BpmnMessage
                 return getHost();
-            } else if (isSmartState(droppedElement, gmDiagram)) {
-                // Only allow States belonging to a Classifier
-                Classifier stateMachineOwner = BpmnMessageElementDropEditPolicy.getStateMachineOwnerClassifier(droppedElement);
-                if (stateMachineOwner != null) {
-                    // Allow smart State drop on the BpmnMessage
-                    return getHost();
-                }
+            } else if (isSmartState(droppedElement, message, gmDiagram)) {
+                // Allow smart State drop on the BpmnMessage
+                return getHost();
             }
         }
         return super.getDropTargetEditPart(request);
@@ -94,10 +91,11 @@ public class BpmnMessageElementDropEditPolicy extends DefaultElementDropEditPoli
         IGmDiagram gmDiagram = model.getDiagram();
         BpmnMessage message = (BpmnMessage) model.getRelatedElement();
         if (request.getDroppedElements().length == 1) {
-            if (isSmartType(request.getDroppedElements()[0], gmDiagram)) {
-                return new SmartTypeBpmnMessageCommand(message, (Classifier) request.getDroppedElements()[0]);
-            } else if (isSmartState(request.getDroppedElements()[0], gmDiagram)) {
-                return new SmartTypeBpmnMessageCommand(message, BpmnMessageElementDropEditPolicy.getStateMachineOwnerClassifier(request.getDroppedElements()[0]), (ModelElement) request.getDroppedElements()[0]);
+            MObject droppedElement = request.getDroppedElements()[0];
+            if (isSmartType(droppedElement, message, gmDiagram)) {
+                return new SmartTypeBpmnMessageCommand(message, (ModelElement) droppedElement, null);
+            } else if (isSmartState(droppedElement, message, gmDiagram)) {
+                return new SmartTypeBpmnMessageCommand(message, BpmnMessageElementDropEditPolicy.getStateMachineOwnerClassifier(droppedElement), (ModelElement) droppedElement);
             }
         }
         return super.getSmartDropCommand(request);
@@ -119,20 +117,20 @@ public class BpmnMessageElementDropEditPolicy extends DefaultElementDropEditPoli
     }
 
     @objid ("bb3ecbfb-69f1-427c-8ce1-a18d2fe90d9b")
-    protected boolean isSmartType(MObject droppedElement, IGmDiagram gmDiagram) {
+    protected boolean isSmartType(MObject droppedElement, BpmnMessage targetElement, IGmDiagram gmDiagram) {
         IModelManager modelManager = gmDiagram.getModelManager();
         MMetamodel metamodel = modelManager.getMetamodel();
-        MClass sourceMetaclass = metamodel.getMClass(BpmnItemAwareElement.MQNAME);
+        MClass sourceMetaclass = targetElement.getMClass();
         MClass linkMetaclass = metamodel.getMClass(MethodologicalLink.MQNAME);
         IMdaExpert mdaExpert = modelManager.getMdaExpert();
         return mdaExpert.canLink(Represents.MdaTypes.STEREOTYPE_ELT, linkMetaclass, sourceMetaclass, droppedElement.getMClass());
     }
 
     @objid ("9836259e-2c10-4139-b603-bd9da5ea8278")
-    protected boolean isSmartState(MObject droppedElement, IGmDiagram gmDiagram) {
+    protected boolean isSmartState(MObject droppedElement, BpmnMessage targetElement, IGmDiagram gmDiagram) {
         IModelManager modelManager = gmDiagram.getModelManager();
         MMetamodel metamodel = modelManager.getMetamodel();
-        MClass sourceMetaclass = metamodel.getMClass(BpmnMessage.MQNAME);
+        MClass sourceMetaclass = targetElement.getMClass();
         MClass linkMetaclass = metamodel.getMClass(MethodologicalLink.MQNAME);
         IMdaExpert mdaExpert = modelManager.getMdaExpert();
         return mdaExpert.canLink(State.MdaTypes.STEREOTYPE_ELT, linkMetaclass, sourceMetaclass, droppedElement.getMClass());
@@ -154,6 +152,7 @@ public class BpmnMessageElementDropEditPolicy extends DefaultElementDropEditPoli
 
         /**
          * Constructor to type the message with {@link Classifier} or {@link State}.
+         * 
          * @param messageToType the message to type.
          * @param type the general class to use. Might be <code>null</code>.
          * @param state the state to use. Might be <code>null</code>.
@@ -167,6 +166,7 @@ public class BpmnMessageElementDropEditPolicy extends DefaultElementDropEditPoli
 
         /**
          * Constructor to type the message with {@link Classifier} or {@link State}.
+         * 
          * @param messageToType the message to type.
          * @param type the general class to use. Might be <code>null</code>.
          */
@@ -227,12 +227,12 @@ public class BpmnMessageElementDropEditPolicy extends DefaultElementDropEditPoli
             // Warning message before replacing existing values
             StringBuilder warning = new StringBuilder();
             ModelElement oldInState = State.getTarget(this.messageToType);
-            if (oldInState != null && !oldInState.equals(this.state)) {
+            if (oldInState != null && this.state != null && !oldInState.equals(this.state)) {
                 warning.append(DiagramEditorBpmn.I18N.getMessage("BpmnMessageElementDropEditPolicy.confirmdialog.instate", oldInState.getName(), this.state != null ? this.state.getName() : "null"));
             }
             
             ModelElement oldType = Represents.getTarget(this.messageToType);
-            if (oldType != null && !oldType.equals(this.type)) {
+            if (oldType != null && this.type != null && !oldType.equals(this.type)) {
                 warning.append(DiagramEditorBpmn.I18N.getMessage("BpmnMessageElementDropEditPolicy.confirmdialog.type", oldType.getName(), this.type.getName()));
             }
             

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class FakeMetamodelFragment implements ISmMetamodelFragment {
 
     /**
      * Create the metaclasses.
+     * 
      * @return the metaclasses.
      */
     @objid ("e8419915-d6c9-49e8-977c-623f0b6fa852")
@@ -124,6 +125,7 @@ public class FakeMetamodelFragment implements ISmMetamodelFragment {
      * or a standard Modelio metamodel fragment.
      * <p>
      * Standard Modelio metamodel fragments are guaranteed to have no metaclass name collisions.
+     * 
      * @return <i>true</i> if the fragment is an extension, <i>false</i> if it is a Modelio standard fragment.
      */
     @objid ("8f321bad-bd83-41a8-bd27-893e42d5a8f9")

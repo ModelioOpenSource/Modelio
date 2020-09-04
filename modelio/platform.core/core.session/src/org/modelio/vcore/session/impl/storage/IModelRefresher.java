@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public interface IModelRefresher extends IModelLoader {
     /**
      * Delete a model object.
      * <p>
+     * 
      * @param obj the model object to delete.
      */
     @objid ("a7f493ed-4bf1-4af2-855b-8dda4fa42fb9")

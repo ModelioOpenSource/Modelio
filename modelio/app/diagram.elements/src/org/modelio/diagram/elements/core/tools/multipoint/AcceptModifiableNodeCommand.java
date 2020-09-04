@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public class AcceptModifiableNodeCommand extends Command {
 
     /**
      * Constructor
+     * 
      * @param m the accepted node model.
      */
     @objid ("80e6a185-1dec-11e2-8cad-001ec947c8cc")
@@ -47,6 +48,7 @@ public class AcceptModifiableNodeCommand extends Command {
 
     /**
      * Convenience constructor with an edit part.
+     * 
      * @param editPart the accepted edit part. The edit part must have a {@link GmModel} as model.
      */
     @objid ("80e6a18a-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -159,6 +159,7 @@ public class R2660 extends AbstractUmlRule {
 
         /**
          * This methods recursively fetches the StateMachine containing the state.
+         * 
          * @param state The state.
          * @return The StateMachine.
          */

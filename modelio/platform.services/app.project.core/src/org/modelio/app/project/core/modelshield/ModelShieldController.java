@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ import org.modelio.vcore.smkernel.mapi.modelshield.api.IErrorReport;
 public class ModelShieldController {
     /**
      * This method is called during a project opening.
+     * 
      * @param openedProject the opened project
      */
     @objid ("82488fee-1dd5-11e2-82de-002564c97630")
@@ -62,6 +63,7 @@ public class ModelShieldController {
     /**
      * Called when a project is closed.
      * On session close un-reference the modeling session.
+     * 
      * @param closedProject the closed project
      */
     @objid ("82488ff4-1dd5-11e2-82de-002564c97630")

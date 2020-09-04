@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class CopyMachine extends DefaultImporter {
      * E.g : when copying a reflexive association to another class, it will stay reflexive in the target.
      * When copying from C1 an operation doxxx(C1 c) to C2, the operation will become doxxx(C2 c).
      * This may be useful for copying clone() methods or static creation methods.
+     * 
      * @param replace true to replace source composition owners by the target.
      */
     @objid ("681ceb56-6b98-426c-bffb-ee1e0ad8ae01")

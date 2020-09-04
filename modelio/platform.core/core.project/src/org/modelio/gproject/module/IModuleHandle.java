@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -112,6 +112,7 @@ public interface IModuleHandle {
 
     /**
      * Get the provided metamodel fragments.
+     * 
      * @return the metamodel fragment descriptors.
      */
     @objid ("263eb14e-5138-4e21-946a-9f854c8b0913")
@@ -119,6 +120,7 @@ public interface IModuleHandle {
 
     /**
      * Plugin modules provide their own class loader. This method return it.
+     * 
      * @return a class loader for plugin modules, null for others.
      * @since 3.8
      */
@@ -129,6 +131,7 @@ public interface IModuleHandle {
 
     /**
      * Tells whether this module must be present in all projects.
+     * 
      * @return true if this module must be present in all projects.
      * @since 3.8
      */

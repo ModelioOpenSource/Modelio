@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class StatePropertyModel extends AbstractPropertyModel<State> {
 
     /**
      * Create a new <i>State</i> data model from an <i>State</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("db227385-f4a2-41cc-bd88-c48e0f3f2fca")

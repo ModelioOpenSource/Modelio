@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IDocumentPartitioner;
+import org.eclipse.jface.text.TextViewer;
 import org.eclipse.jface.text.rules.FastPartitioner;
 import org.eclipse.jface.text.source.SourceViewer;
 import org.eclipse.jface.text.source.VerticalRuler;
@@ -134,6 +135,12 @@ public class RTEditor implements IDocumentEditor {
             this.viewer.getControl().setBackground(UIColor.TEXT_WRITABLE_BG);
             this.editor.setIconURI("platform:/plugin/org.modelio.editors.texteditors/icons/texteditor_rw.png");
         }
+    }
+
+    @objid ("e5260c7b-c27a-4ca5-9989-fe81377f2351")
+    @Override
+    public TextViewer getViewer() {
+        return this.viewer;
     }
 
 }

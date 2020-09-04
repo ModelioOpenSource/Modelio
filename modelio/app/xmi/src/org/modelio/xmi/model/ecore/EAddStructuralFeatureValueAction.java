@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -28,25 +28,18 @@ import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
+import org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2AddStructuralFeatureValueAction;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("d28ca172-410a-4e8e-bd62-85100e1fa4bb")
 public class EAddStructuralFeatureValueAction extends EActivityNode {
     @objid ("bc5e6943-99e8-4539-b1f4-f6c7ad093289")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmService = ReverseProperties.getInstance().getMModelServices();
-        OpaqueAction element = mmService.getModelFactory().getFactory(IStandardModelFactory.class).createOpaqueAction();
-        
-        try {
-            element.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ADDSTRUCTURALFEATUREVALUEACTION);
-        } catch (ExtensionNotFoundException e) {
-           Xmi.LOG.warning(e);
-        }
-        return element;
+        return UML2AddStructuralFeatureValueAction.create().getElement();
     }
 
     @objid ("5d523051-d4b5-4ec8-bba2-888cc8d68a6f")
@@ -63,27 +56,27 @@ public class EAddStructuralFeatureValueAction extends EActivityNode {
 
     @objid ("beeb8435-5d1a-4e6b-9016-71dfb150ae2d")
     private void setFeature(OpaqueAction objingElt) {
-        IMModelServices mmServices  = ReverseProperties.getInstance().getMModelServices();
-        
-        Dependency dependency = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createDependency();
-        try {
-            dependency.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2STRUCTURALFEATUREREFERENCE);
-        } catch (ExtensionNotFoundException e) {
-           Xmi.LOG.warning(e);
-        }
-        
         org.eclipse.uml2.uml.StructuralFeature feature = ((org.eclipse.uml2.uml.AddStructuralFeatureValueAction) getEcoreElement()).getStructuralFeature();
-        Object behavior = ReverseProperties.getInstance().getMappedElement(feature);
         
-        ModelElement obBehavior = null;
+        if (feature != null) {
+            
+            ReverseProperties revProp = ReverseProperties.getInstance();
+            Object behavior = revProp.getMappedElement(feature);
         
-        if (behavior instanceof ModelElement){
-            obBehavior = (ModelElement) behavior;
-               
-            dependency.setDependsOn(obBehavior);
-            dependency.setImpacted(objingElt);
-        }else{
-            dependency.delete();
+            if ((behavior != null) && (behavior instanceof ModelElement)){   
+        
+                IMModelServices mmServices  = revProp.getMModelServices();
+        
+                Dependency dependency = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createDependency();
+                try {
+                    dependency.addStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2STRUCTURALFEATUREREFERENCE);
+                } catch (ExtensionNotFoundException e) {
+                    Xmi.LOG.warning(e);
+                }
+        
+                dependency.setDependsOn((ModelElement) behavior);
+                dependency.setImpacted(objingElt);
+            }
         }
     }
 

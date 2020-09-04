@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class GProjectLockedException extends IOException {
      * <p> Note that the detail message associated with {@code cause} is
      * <i>not</i> automatically incorporated into this exception's detail
      * message.
+     * 
      * @param message The detail message (which is saved for later retrieval
      * by the {@link #getMessage()} method)
      * @param cause The cause (which is saved for later retrieval by the
@@ -56,6 +57,7 @@ public class GProjectLockedException extends IOException {
     /**
      * Constructs an {@code GProjectLockedException} with the specified detail message
      * and loack informations.
+     * 
      * @param message The detail message (which is saved for later retrieval
      * by the {@link #getMessage()} method)
      * @param info lock informations
@@ -68,6 +70,7 @@ public class GProjectLockedException extends IOException {
 
     /**
      * Get informations on the project lock, if available.
+     * 
      * @return the lock informations or <i>null</i>.
      */
     @objid ("6088adc5-6137-420e-b769-b3c50b1c848a")

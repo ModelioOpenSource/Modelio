@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -148,6 +148,7 @@ public abstract class AbstractLinkedNodeCreationEditPolicy extends GraphicalEdit
 
     /**
      * Returns a connection to be used as feedback during creates.
+     * 
      * @param req the operation being performed
      * @return a connection to use as feedback
      */
@@ -158,6 +159,7 @@ public abstract class AbstractLinkedNodeCreationEditPolicy extends GraphicalEdit
 
     /**
      * Erases connection feedback if necessary. Frees unused fields.
+     * 
      * @param request the CreateLinkedNodeRequest
      */
     @objid ("7eb19456-1dec-11e2-8cad-001ec947c8cc")
@@ -171,6 +173,7 @@ public abstract class AbstractLinkedNodeCreationEditPolicy extends GraphicalEdit
 
     /**
      * Override to erase target feedback. Does nothing by default.
+     * 
      * @param request the DropRequest
      */
     @objid ("7eb1945c-1dec-11e2-8cad-001ec947c8cc")
@@ -182,6 +185,7 @@ public abstract class AbstractLinkedNodeCreationEditPolicy extends GraphicalEdit
      * Returns the Command that will create the connection. This is second part of creation.
      * {@link CreateConnectionRequest#getStartCommand()} is used here to obtain the contribution from the EditPart from
      * which the User started the <i>creation</i>.
+     * 
      * @param request the CreateLinkedNodeRequest
      * @return the complete command to create a connection
      */
@@ -193,6 +197,7 @@ public abstract class AbstractLinkedNodeCreationEditPolicy extends GraphicalEdit
      * target node EditPart. The target node may do anything necessary to create a Command that represents the entire
      * creation.
      * @see #getConnectionCompleteCommand(CreateConnectionRequest)
+     * 
      * @param request the CreateLinkedNodeRequest
      * @return a Command representing half of a connection creation
      */
@@ -201,6 +206,7 @@ public abstract class AbstractLinkedNodeCreationEditPolicy extends GraphicalEdit
 
     /**
      * Returns the ConnectionRouter for the creation feedback's connection.
+     * 
      * @param request the create request
      * @return a connection router
      * @since 3.2
@@ -213,6 +219,7 @@ public abstract class AbstractLinkedNodeCreationEditPolicy extends GraphicalEdit
     /**
      * Returns the FeedbackHelper that is ready to use. The feedback helper must be configured with the connection that
      * will be used to display feedback, and that connection must be added to the appropriate layer in the diagram.
+     * 
      * @param request the CreateLinkedNodeRequest
      * @return a FeedbackHelper
      */
@@ -233,6 +240,7 @@ public abstract class AbstractLinkedNodeCreationEditPolicy extends GraphicalEdit
 
     /**
      * Called during the display of creation feedback to snap the feedback to the nearest source ConnectionAnchor.
+     * 
      * @param request CreateLinkedNodeRequest
      * @return <code>null</code> or the nearest source ConnectionAnchor
      */
@@ -245,6 +253,7 @@ public abstract class AbstractLinkedNodeCreationEditPolicy extends GraphicalEdit
 
     /**
      * Called during the display of creation feedback to snap the feedback to the nearest target ConnectionAnchor.
+     * 
      * @param request CreateLinkedNodeRequest
      * @return <code>null</code> or the nearest target ConnectionAnchor
      */
@@ -257,6 +266,7 @@ public abstract class AbstractLinkedNodeCreationEditPolicy extends GraphicalEdit
 
     /**
      * Shows feedback during a creation.
+     * 
      * @param request CreateLinkedNodeRequest
      */
     @objid ("7eb3f6a9-1dec-11e2-8cad-001ec947c8cc")
@@ -268,6 +278,7 @@ public abstract class AbstractLinkedNodeCreationEditPolicy extends GraphicalEdit
 
     /**
      * Override to show target connection feedback. Does nothing by default.
+     * 
      * @param request the DropRequest
      */
     @objid ("7eb3f6af-1dec-11e2-8cad-001ec947c8cc")

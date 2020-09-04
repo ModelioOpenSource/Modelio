@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public abstract class RelatedDiagramHelper {
      * <p>
      * <i>Please note that <b>diagrams the element is displayed into are not included</b>, you must call {@link ModelElement#getDiagramElement()} to get them.</i>
      * </p>
+     * 
      * @param elt a model element.
      * @return a diagram list.
      */

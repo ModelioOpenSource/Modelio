@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Rich notes edition
 Bundle-SymbolicName: org.modelio.editors.richnote;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Vendor: modelio.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Localization: plugin
@@ -31,7 +31,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.ui.di,
  org.eclipse.nebula.widgets.nattable.core,
  org.modelio.core.rcp,
- org.modelio.app.preferences
+ org.modelio.app.preferences,
+ org.modelio.core.project.data
 Import-Package: javax.annotation;version="1.1.0",
  javax.inject;version="1.0.0"
 Export-Package: org.modelio.editors.richnote.api,

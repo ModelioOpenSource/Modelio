@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.modelio.vcore.smkernel.meta.mof.MofSmObjectImpl;
 class LaneSetCleaner {
     /**
      * Clean up empty LaneSets.
+     * 
      * @param process a BPMN Process
      * @param logger the logger
      */

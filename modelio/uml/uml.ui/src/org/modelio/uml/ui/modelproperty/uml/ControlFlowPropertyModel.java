@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
 
     /**
      * Create a new <i>ControlFlow</i> data model from an <i>ControlFlow</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("b276cfb4-bd30-447a-8b7f-17abf0ec8396")
@@ -64,6 +65,7 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("6d5a4835-0543-481e-a9d0-6db591c42e75")
@@ -74,6 +76,7 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("a7b4bf9a-fd6e-4de3-9d5d-477ced0f5481")
@@ -86,6 +89,7 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -122,6 +126,7 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -157,6 +162,7 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

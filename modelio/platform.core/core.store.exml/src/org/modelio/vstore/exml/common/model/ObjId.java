@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public final class ObjId implements Comparable<ObjId> {
     /**
      * Constructor from a {@link SmObjectImpl}.
      * <p>
+     * 
      * @param object a model object.
      */
     @objid ("fd24575e-5986-11e1-991a-001ec947ccaf")
@@ -57,6 +58,7 @@ public final class ObjId implements Comparable<ObjId> {
 
     /**
      * Constructor.
+     * 
      * @param classof the metaclass
      * @param id the object identifier.
      */
@@ -68,6 +70,7 @@ public final class ObjId implements Comparable<ObjId> {
 
     /**
      * Indicates whether some other ObjId is "equal to" this one.
+     * 
      * @param other another ObjId
      * @return <code>true</code> if they are equal else <code>false</code>
      */
@@ -136,6 +139,7 @@ public final class ObjId implements Comparable<ObjId> {
      * Convert to MRef.
      * <p>
      * The MRef will have null pointer as name.
+     * 
      * @return a MRef.
      */
     @objid ("86d71357-8714-4194-859d-f3b32df5d31f")

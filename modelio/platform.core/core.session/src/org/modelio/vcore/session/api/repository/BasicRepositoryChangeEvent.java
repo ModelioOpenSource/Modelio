@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class BasicRepositoryChangeEvent implements IRepositoryChangeEvent {
 
     /**
      * Get the created elements.
+     * 
      * @return the created element references.
      */
     @objid ("05cb524d-bb1d-44dc-8c91-54fbb5c4dc72")
@@ -69,6 +70,7 @@ public class BasicRepositoryChangeEvent implements IRepositoryChangeEvent {
 
     /**
      * Get the elements deleted.
+     * 
      * @return the deleted element references.
      */
     @objid ("f46e65e2-25ed-4bc5-9930-5e63d601735e")
@@ -79,6 +81,7 @@ public class BasicRepositoryChangeEvent implements IRepositoryChangeEvent {
 
     /**
      * Get the Modified elements.
+     * 
      * @return the updated element references.
      */
     @objid ("49b95944-2dab-4e57-a349-d68f25c4d292")
@@ -89,6 +92,7 @@ public class BasicRepositoryChangeEvent implements IRepositoryChangeEvent {
 
     /**
      * Get the created blobs identifiers.
+     * 
      * @return the created blobs identifiers.
      */
     @objid ("593bfa22-64b7-4000-8803-12516317908a")
@@ -99,6 +103,7 @@ public class BasicRepositoryChangeEvent implements IRepositoryChangeEvent {
 
     /**
      * Get the deleted blobs identifiers.
+     * 
      * @return the deleted blobs identifiers.
      */
     @objid ("8b30f6f3-aa0d-40f3-a560-3f0c8e443638")
@@ -109,6 +114,7 @@ public class BasicRepositoryChangeEvent implements IRepositoryChangeEvent {
 
     /**
      * Get the updated blobs identifiers.
+     * 
      * @return the updated blobs identifiers.
      */
     @objid ("e413dd22-4696-4f8b-bf2b-f38a71f3e11f")
@@ -128,6 +134,7 @@ public class BasicRepositoryChangeEvent implements IRepositoryChangeEvent {
 
     /**
      * Get the precision of the repository change event.
+     * 
      * @return the change event precision.
      */
     @objid ("645845b0-1710-4581-93ea-5922bb66c2e1")
@@ -138,6 +145,7 @@ public class BasicRepositoryChangeEvent implements IRepositoryChangeEvent {
 
     /**
      * Initialize the event.
+     * 
      * @param repo the repository firing the event.
      * @param precision the precision of the event.
      */

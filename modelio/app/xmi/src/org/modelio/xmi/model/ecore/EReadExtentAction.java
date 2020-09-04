@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,17 +21,13 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.xmi.plugin.Xmi;
+import org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2ClassifierReference;
+import org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadExtentAction;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("bbeaca2d-aa3b-45bc-b1ec-d5b4ef4b1f07")
 public class EReadExtentAction extends EActivityNode {
@@ -41,16 +37,7 @@ public class EReadExtentAction extends EActivityNode {
     @objid ("07cbcc71-b4ec-4e4c-8559-98f30192b8c8")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
-        OpaqueAction element = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createOpaqueAction();
-        
-        try {
-            element.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READEXTENTACTION);
-        } catch (ExtensionNotFoundException e) {
-            Xmi.LOG.warning(e);
-        }
-        return element;
+        return UML2ReadExtentAction.create().getElement();
     }
 
     @objid ("6106fd33-b159-4dd7-b8f1-51bbb0833002")
@@ -70,19 +57,13 @@ public class EReadExtentAction extends EActivityNode {
     private void setClassifier(OpaqueAction objingElt) {
         org.eclipse.uml2.uml.Classifier classifier = this.ecoreElement.getClassifier();
         if (classifier != null){
-            ModelElement obBehavior = (ModelElement)ReverseProperties.getInstance().getMappedElement(classifier);
+            Object obBehavior = ReverseProperties.getInstance().getMappedElement(classifier);
         
-            IMModelServices mmServices  = ReverseProperties.getInstance().getMModelServices();
-            Dependency dependency = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createDependency();
-            
-            try {
-                dependency.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLASSIFIERREFERENCE);
-            } catch (ExtensionNotFoundException e) {
-                Xmi.LOG.warning(e);
+            if (obBehavior instanceof ModelElement) {
+                Dependency dependency = UML2ClassifierReference.create().getElement();
+                dependency.setDependsOn((ModelElement)obBehavior);
+                dependency.setImpacted(objingElt);
             }
-        
-            dependency.setDependsOn(obBehavior);
-            dependency.setImpacted(objingElt);
         }
     }
 

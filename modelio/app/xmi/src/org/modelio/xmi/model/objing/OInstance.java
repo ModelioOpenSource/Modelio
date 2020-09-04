@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -110,8 +110,9 @@ public class OInstance extends OModelElement {
             setMax((Property) ecoreElt);
             setExpressionOfValue((Property) ecoreElt);
         } else if (ecoreElt instanceof org.eclipse.uml2.uml.Slot) {
-            setEAnnotationName((org.eclipse.uml2.uml.Slot) ecoreElt);
             setValue((org.eclipse.uml2.uml.Slot) ecoreElt);
+            if (GenerationProperties.getInstance().isRoundtripEnabled())
+                setEAnnotationName((org.eclipse.uml2.uml.Slot) ecoreElt);
         }
     }
 
@@ -196,7 +197,7 @@ public class OInstance extends OModelElement {
                     result = spec.createSpecification(null, type, literalInteger.eClass());
                     try {
                         ((org.eclipse.uml2.uml.LiteralInteger) result).setValue(Integer.valueOf(value.toString()));
-                    } catch (@SuppressWarnings ("unused") NumberFormatException e) {
+                    } catch (NumberFormatException e) {
                         literalInteger.destroy();
                         org.eclipse.uml2.uml.Expression expr = UMLFactory.eINSTANCE.createExpression();
                         result = spec.createSpecification(null, type, expr.eClass());
@@ -205,7 +206,7 @@ public class OInstance extends OModelElement {
                         String contextualMsg = Xmi.I18N.getMessage("logFile.exception.stringConverter.defaultValue", getObjingElement().getName(), "AttributeLink");
                         String message = Xmi.I18N.getMessage("logFile.exception.stringConverter.defaultMsg", "String", "\"" + value + "\"", "Integer", contextualMsg);
                         GenerationProperties.getInstance().addInfo(contextualMsg, getObjingElement(), message);
-        
+                        Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
                     }
         
                 }
@@ -215,11 +216,12 @@ public class OInstance extends OModelElement {
                     result = spec.createSpecification(null, type, literalUnlimitedNatural.eClass());
                     try {
                         ((org.eclipse.uml2.uml.LiteralUnlimitedNatural) result).setValue(Integer.valueOf(value.toString()));
-                    } catch (@SuppressWarnings ("unused") NumberFormatException e) {
+                    } catch (NumberFormatException e) {
                         literalUnlimitedNatural.destroy();
                         org.eclipse.uml2.uml.Expression expr = UMLFactory.eINSTANCE.createExpression();
                         result = spec.createSpecification(null, type, expr.eClass());
                         ((org.eclipse.uml2.uml.Expression) result).setSymbol(value.toString());
+                        Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
                     }
                 }
         
@@ -228,10 +230,11 @@ public class OInstance extends OModelElement {
                     result = spec.createSpecification(null, type, literalBoolean.eClass());
                     try {
                         ((org.eclipse.uml2.uml.LiteralBoolean) result).setValue(Boolean.valueOf(value.toString()));
-                    } catch (@SuppressWarnings ("unused") Exception e) {
+                    } catch (Exception e) {
                         String contextualMsg = Xmi.I18N.getMessage("logFile.exception.stringConverter.defaultValue", getObjingElement().getName(), "AttributeLink");
                         String message = Xmi.I18N.getMessage("logFile.exception.stringConverter.defaultMsg", "String", "\"" + value + "\"", "Boolean", contextualMsg);
                         GenerationProperties.getInstance().addInfo(contextualMsg, getObjingElement(), message);
+                        Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
                     }
                 }
         
@@ -279,7 +282,7 @@ public class OInstance extends OModelElement {
     }
 
     @objid ("7e18cdff-4671-4dd2-ac7d-8bd7e6af6891")
-    public void setOwnerEAnnotation(org.eclipse.uml2.uml.Element element, MObject owner) {
+    protected void setOwnerEAnnotation(org.eclipse.uml2.uml.Element element, MObject owner) {
         ObjingEAnnotation.setOwner(element, String.valueOf(owner.getUuid().toString()));
     }
 
@@ -342,18 +345,17 @@ public class OInstance extends OModelElement {
 
     @objid ("cb91c900-adfd-4818-858a-22539da80d0d")
     private void setInstanceSpecificationProperties(InstanceSpecification ecoreElt) {
-        GenerationProperties genProp = GenerationProperties.getInstance();
-        
+        //UML properties
         setClassifier(ecoreElt);
         setName(ecoreElt);
+        setValue(ecoreElt);
         
-        if (genProp.isRoundtripEnabled()) {
+        //Modelio properties
+        if (GenerationProperties.getInstance().isRoundtripEnabled()) {
             setIsConstant(ecoreElt);
             setMultiMax(ecoreElt);
             setMultiMin(ecoreElt);
         }
-        
-        setValue(ecoreElt);
     }
 
     @objid ("46f5f19d-aed5-446a-8a90-2825d83a70d0")
@@ -366,11 +368,11 @@ public class OInstance extends OModelElement {
     @objid ("c1ea47c7-a515-401a-880a-1824d2aa4e50")
     protected void setBase(Property ecoreElt) {
         Element base = getObjingElement().getBase();
-              
+        
         if (base != null) {
             org.eclipse.uml2.uml.Element type = GenerationProperties.getInstance().getMappedElement(base);
             GenerationProperties genProp = GenerationProperties.getInstance();
-            
+        
             if (type == null) {
                 //Type is null due to an error or not part of the scope
                 String message = Xmi.I18N.getMessage("logFile.warning.nullTypeExport.message");
@@ -388,7 +390,7 @@ public class OInstance extends OModelElement {
                     genProp.addWarning(message, getObjingElement(), description);
                 }
             }
-          
+        
         }
     }
 
@@ -503,7 +505,7 @@ public class OInstance extends OModelElement {
                             if (objingIntValue != null) {
                                 if (objingIntValue >= 0) {
                                     ecoreProp
-                                            .setUnlimitedNaturalDefaultValue(objingIntValue);
+                                    .setUnlimitedNaturalDefaultValue(objingIntValue);
                                 } else {
                                     ecoreProp.setIntegerDefaultValue(objingIntValue);
                                 }
@@ -605,7 +607,7 @@ public class OInstance extends OModelElement {
                 result = slot.createValue(null, type, literalInteger.eClass());
                 try {
                     ((org.eclipse.uml2.uml.LiteralInteger) result).setValue(Integer.valueOf(value.toString()));
-                } catch (@SuppressWarnings ("unused") NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     literalInteger.destroy();
                     org.eclipse.uml2.uml.Expression expr = UMLFactory.eINSTANCE.createExpression();
                     result = slot.createValue(null, type, expr.eClass());
@@ -614,7 +616,7 @@ public class OInstance extends OModelElement {
                     String contextualMsg = Xmi.I18N.getMessage("logFile.exception.stringConverter.defaultValue", getObjingElement().getName(), "AttributeLink");
                     String message = Xmi.I18N.getMessage("logFile.exception.stringConverter.defaultMsg", "String", "\"" + value + "\"", "Integer", contextualMsg);
                     GenerationProperties.getInstance().addInfo(contextualMsg, getObjingElement(), message);
-        
+                    Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
                 }
         
             }else if (objType.getName().equals("UnlimitedNatural")) {
@@ -622,11 +624,12 @@ public class OInstance extends OModelElement {
                 result = slot.createValue(null, type, literalUnlimitedNatural.eClass());
                 try {
                     ((org.eclipse.uml2.uml.LiteralUnlimitedNatural) result).setValue(Integer.valueOf(value.toString()));
-                } catch (@SuppressWarnings ("unused") NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     literalUnlimitedNatural.destroy();
                     org.eclipse.uml2.uml.Expression expr = UMLFactory.eINSTANCE.createExpression();
                     result = slot.createValue(null, type, expr.eClass());
                     ((org.eclipse.uml2.uml.Expression) result).setSymbol(value.toString());
+                    Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
                 }
             }
         
@@ -635,10 +638,11 @@ public class OInstance extends OModelElement {
                 result = slot.createValue(null, type, literalBoolean.eClass());
                 try {
                     ((org.eclipse.uml2.uml.LiteralBoolean) result).setValue(Boolean.valueOf(value.toString()));
-                } catch (@SuppressWarnings ("unused") Exception e) {
+                } catch (Exception e) {
                     String contextualMsg = Xmi.I18N.getMessage("logFile.exception.stringConverter.defaultValue", getObjingElement().getName(), "AttributeLink");
                     String message = Xmi.I18N.getMessage("logFile.exception.stringConverter.defaultMsg", "String", "\"" + value + "\"", "Boolean", contextualMsg);
                     GenerationProperties.getInstance().addInfo(contextualMsg, getObjingElement(), message);
+                    Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
                 }
             }
         

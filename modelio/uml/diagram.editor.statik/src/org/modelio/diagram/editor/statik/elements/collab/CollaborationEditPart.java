@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -118,6 +118,7 @@ public class CollaborationEditPart extends AbstractNodeEditPart {
 
     /**
      * Update the separation lines between zones.
+     * 
      * @param aFigure the composite figure to update.
      */
     @objid ("344d975b-55b7-11e2-877f-002564c97630")

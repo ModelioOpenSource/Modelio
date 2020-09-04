@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -70,6 +70,7 @@ public class BpmnDiagramUnmaskHelper {
 
     /**
      * C'tor.
+     * 
      * @param gmDiagram the diagram to unmask contents into.
      * @param viewer the diagram viewer.
      */
@@ -254,6 +255,7 @@ public class BpmnDiagramUnmaskHelper {
     /**
      * Returns the diagram graphic models for the passed element.
      * @param gmObject a model element
+     * 
      * @return a list of {@link GmModel}. Empty when the element is not unmasked in the diagram.
      */
     @objid ("84f64981-6ec8-4d5c-a19f-f02f8236ba7e")
@@ -271,6 +273,7 @@ public class BpmnDiagramUnmaskHelper {
 
     /**
      * Returns the edit part for the passed object.
+     * 
      * @param gmObject the graphic object model
      * @return the edit part
      */
@@ -281,6 +284,7 @@ public class BpmnDiagramUnmaskHelper {
 
     /**
      * Unmask {@link BpmnDataAssociation} linked to this element.
+     * 
      * @param elt the element to check for {@link BpmnDataAssociation} links.
      * @param unmaskCoordinates where to unmask the link.
      */

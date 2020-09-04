@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,17 +43,19 @@ public class LocatorFactory {
 
     /**
      * Get the singleton.
+     * 
      * @return The singleton.
      */
     @objid ("8008e6d3-1dec-11e2-8cad-001ec947c8cc")
     public static LocatorFactory getInstance() {
-        return instance;
+        return LocatorFactory.instance;
     }
 
     /**
      * Create a {@link SidedConnectionEndpointLocator} from the given parameters.
      * <p>
      * Compute a new uDistance and vDistance depending on the move delta and the edge object figure.
+     * 
      * @param conn The connection figure
      * @param extension The extension figure to move
      * @param moveDelta the current move delta
@@ -67,12 +69,13 @@ public class LocatorFactory {
 
     /**
      * Create a figure Locator from the given locator model.
+     * 
      * @param connection A connection figure.
      * @param layoutContraint a locator model.
      * @return a Locator.
      */
     @objid ("8008e6e9-1dec-11e2-8cad-001ec947c8cc")
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings ("deprecation")
     public Locator getLocator(Connection connection, IGmLocator layoutContraint) {
         if (layoutContraint == null) {
             return null;
@@ -89,16 +92,22 @@ public class LocatorFactory {
 
     /**
      * Create a ConnectionLocator from a GmFractionalConnectionLocator.
+     * 
      * @param conn The Connection the locator must be relative to.
      * @param gmLoc The locator model.
      * @return The created Locator
      */
     @objid ("8008e6f3-1dec-11e2-8cad-001ec947c8cc")
     private Locator getLocator(final Connection conn, final GmFractionalConnectionLocator gmLoc) {
-        final FractionalConnectionLocator ret = new FractionalConnectionLocator(conn, gmLoc.getFraction());
+        final FractionalConnectionLocator ret;
+        if (!gmLoc.isUseObsoleteLocator()) {
+            ret = new FractionalConnectionLocator(conn, gmLoc.getFraction(), gmLoc.isTowardTarget());
+        } else {
+            // Special migration case: use an obsolete locator for GMs created before Modelio 3.8.1
+            ret = new ObsoleteFractionalConnectionLocator(conn, gmLoc.getFraction(), gmLoc.isTowardTarget());
+        }
         ret.setUDistance(gmLoc.getUDistance());
         ret.setVDistance(gmLoc.getVDistance());
-        ret.setTowardTarget(gmLoc.isTowardTarget());
         ret.setWidthConstraint(gmLoc.getWidthConstraint());
         ret.setHeightConstraint(gmLoc.getHeightConstraint());
         return ret;
@@ -106,6 +115,7 @@ public class LocatorFactory {
 
     /**
      * Create a ConnectionEndpointLocator from a GmConnectionEndpoinLocator.
+     * 
      * @param conn The Connection the locator must be relative to.
      * @param gmLoc The locator model.
      * @return The created ConnectionEndpointLocator
@@ -122,6 +132,7 @@ public class LocatorFactory {
 
     /**
      * Create a ConnectionLocator from a GmConnectionLocator.
+     * 
      * @param conn The Connection the locator must be relative to.
      * @param gmLoc The locator model.
      * @return The created ConnectionLocator

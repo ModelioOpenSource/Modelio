@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,9 +23,7 @@ package org.modelio.xmi.model.ecore;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Transition;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
@@ -33,10 +31,8 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.RaisedException;
-import org.modelio.xmi.plugin.Xmi;
+import org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2MethodReference;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("51edacaf-5331-4648-9bdd-964adb89f2d2")
 public class EBehavioralFeature extends EFeature {
@@ -70,7 +66,7 @@ public class EBehavioralFeature extends EFeature {
         ReverseProperties revProp = ReverseProperties.getInstance();
         
         // Test if the number of raised exceptions in the Ecore model is the
-        // same in the Ijing model:
+        // same in the Modelio model:
         EList<?> ecoreRaisedExceptions = ((org.eclipse.uml2.uml.BehavioralFeature)getEcoreElement()).getRaisedExceptions();
         List<RaisedException> objingRaisedExceptions = objingElt
                 .getThrown();
@@ -127,7 +123,7 @@ public class EBehavioralFeature extends EFeature {
 
     @objid ("6844329a-a489-4100-8cf0-5e48a06119ad")
     private void setConcurrency(Operation objingElt) {
-        // Since concurrency is represented as a boolean in Ijing, the mapping
+        // Since concurrency is represented as a boolean in Modelio, the mapping
         // is true for the
         // CONCURRENT value, and false else (SEQUENTIAL by default):
         org.eclipse.uml2.uml. BehavioralFeature ecoreElement = (org.eclipse.uml2.uml.BehavioralFeature) getEcoreElement();
@@ -143,25 +139,23 @@ public class EBehavioralFeature extends EFeature {
     @objid ("3292b3f6-f0e1-45c7-b450-b93f12b40c01")
     private void setMethod(Operation objingElt) {
         org.eclipse.uml2.uml. BehavioralFeature ecoreElement = (org.eclipse.uml2.uml.BehavioralFeature) getEcoreElement();
+        
         for (org.eclipse.uml2.uml.Behavior behavior : ecoreElement.getMethods()){
+            
+            ReverseProperties revProp = ReverseProperties.getInstance();
+            
             if (behavior.getOwner() instanceof  org.eclipse.uml2.uml.Transition){
-                Object temp = ReverseProperties.getInstance().getMappedElement(behavior.getOwner());
+                
+                Object temp = revProp.getMappedElement(behavior.getOwner());
                 if (temp instanceof Transition){
                     ((Transition) temp).setProcessed(objingElt);
                 }
             }else{
-                ModelElement obBehavior = (ModelElement)ReverseProperties.getInstance().getMappedElement(behavior);
-                if (obBehavior != null) {
-                    IMModelServices mmServices  = ReverseProperties.getInstance().getMModelServices();
-                    Dependency dependency = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createDependency();
-            
-                    try {
-                        dependency.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2METHODREFERENCE);
-                    } catch (ExtensionNotFoundException e) {
-                        Xmi.LOG.warning(e);
-                    }
-                    
-                    dependency.setDependsOn(obBehavior);
+                
+                Object obBehavior =  revProp.getMappedElement(behavior);                
+                if ((obBehavior != null) && (obBehavior instanceof ModelElement)) {                    
+                    Dependency dependency = UML2MethodReference.create().getElement();                    
+                    dependency.setDependsOn((ModelElement)obBehavior);
                     dependency.setImpacted(objingElt);
                 }
             }

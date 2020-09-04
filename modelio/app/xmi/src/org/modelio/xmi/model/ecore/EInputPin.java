@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,10 +30,10 @@ import org.modelio.metamodel.uml.behavior.activityModel.ObjectNodeOrderingKind;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.statik.GeneralClass;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("8112630e-54e1-4398-8cf5-07fa085f036f")
 public class EInputPin extends EPin {
@@ -152,39 +152,193 @@ public class EInputPin extends EPin {
     @objid ("afd80eba-172d-4228-931a-9e2bad87f783")
     private void setStereotype(InputPin objingElt) {
         IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
         org.eclipse.uml2.uml.Element owner = this.ecoreElement.getOwner();
         
         try {
-            if (owner instanceof org.eclipse.uml2.uml.TestIdentityAction){
-                if (((org.eclipse.uml2.uml.TestIdentityAction) owner).getFirst().equals(this.ecoreElement)){
-        
-                    objingElt.getExtension().add(mmServices
-                            .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2FIRST, objingElt.getMClass()));
-        
-                }else  if (((org.eclipse.uml2.uml.TestIdentityAction) owner).getSecond().equals(this.ecoreElement)){
-        
-                    objingElt.getExtension().add(mmServices
-                            .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2SECOND, objingElt.getMClass()));
-        
-                }
-            }else if (owner instanceof  org.eclipse.uml2.uml.CallOperationAction){
-                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.CallOperationAction) owner).getTarget();
+            //AddStructuralFeatureValueAction case
+            if (owner instanceof  org.eclipse.uml2.uml.AddStructuralFeatureValueAction){   
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.AddStructuralFeatureValueAction) owner).getInsertAt();
                 if ((input != null) && (input.equals(this.ecoreElement))){
-        
                     objingElt.getExtension().add(mmServices
-                            .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2TARGET, objingElt.getMClass()));
-        
-                }
-            }else if (owner instanceof org.eclipse.uml2.uml.WriteStructuralFeatureAction){
-                org.eclipse.uml2.uml.InputPin input = ((org.eclipse.uml2.uml.WriteStructuralFeatureAction) this.ecoreElement.getOwner()).getValue();
-                if ((input != null) && (input.equals(this.ecoreElement))){
-        
-                    objingElt.getExtension().add(mmServices
-                            .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2VALUE, objingElt.getMClass()));
-        
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSERTAT, objingElt.getMClass()));
                 }
             }
+            
+            //AddVariableValueAction case
+            if (owner instanceof  org.eclipse.uml2.uml.AddVariableValueAction){           
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.AddVariableValueAction) owner).getInsertAt();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSERTAT, objingElt.getMClass()));
+                }
+            }
+            
+            //CallOperationAction case
+            if (owner instanceof  org.eclipse.uml2.uml.CallOperationAction){             
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.CallOperationAction) owner).getTarget();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TARGET, objingElt.getMClass()));
+                }              
+            }
+            
+            //LoopNode case
+            if (owner instanceof  org.eclipse.uml2.uml.LoopNode){                
+                if (((org.eclipse.uml2.uml.LoopNode) owner).getLoopVariableInputs().contains(this.ecoreElement)){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2LOOPVARIABLEINPUT, objingElt.getMClass()));
+                }
+            }
+            
+            //ReadIsClassifiedObjectAction case
+            if (owner instanceof  org.eclipse.uml2.uml.ReadIsClassifiedObjectAction){             
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.ReadIsClassifiedObjectAction) owner).getObject();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT, objingElt.getMClass()));
+                }                
+            }
+            
+            //ReadLinkObjectEndAction case
+            if (owner instanceof  org.eclipse.uml2.uml.ReadLinkObjectEndAction){       
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.ReadLinkObjectEndAction) owner).getObject();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT, objingElt.getMClass()));
+                }                
+            }
+                       
+            //ReadLinkObjectEndQualifierAction case
+            if (owner instanceof  org.eclipse.uml2.uml.ReadLinkObjectEndQualifierAction){                
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.ReadLinkObjectEndQualifierAction) owner).getObject();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT, objingElt.getMClass()));
+                }         
+            }
+                     
+            //ReclassifyObjectAction case
+            if (owner instanceof  org.eclipse.uml2.uml.ReclassifyObjectAction){                
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.ReclassifyObjectAction) owner).getObject();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT, objingElt.getMClass()));
+                }
+            }
+            
+            //ReduceAction case
+            if (owner instanceof  org.eclipse.uml2.uml.ReduceAction){              
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.ReduceAction) owner).getCollection();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2COLLECTION, objingElt.getMClass()));
+                }               
+            }
+                        
+            //RemoveStructuralFeatureValueAction case
+            if (owner instanceof  org.eclipse.uml2.uml.RemoveStructuralFeatureValueAction){             
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.RemoveStructuralFeatureValueAction) owner).getRemoveAt();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REMOVEAT, objingElt.getMClass()));
+                }                
+            }
+                        
+            //RemoveVariableValueAction case
+            if (owner instanceof  org.eclipse.uml2.uml.RemoveVariableValueAction){             
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.RemoveVariableValueAction) owner).getRemoveAt();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REMOVEAT, objingElt.getMClass()));
+                }            
+            }
+            
+            //ReplyAction case
+            if (owner instanceof  org.eclipse.uml2.uml.ReplyAction){
+                
+                if (((org.eclipse.uml2.uml.ReplyAction) owner).getReplyValues().contains(this.ecoreElement)){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REPLYVALUE, objingElt.getMClass()));
+                }
+                
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.ReplyAction) owner).getReturnInformation();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2RETURNINFORMATION, objingElt.getMClass()));
+                }              
+            }
+            
+            //SendObjectAction case
+            if (owner instanceof  org.eclipse.uml2.uml.SendObjectAction){              
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.SendObjectAction) owner).getRequest();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REQUEST, objingElt.getMClass()));
+                }
+                
+                input = ( (org.eclipse.uml2.uml.SendObjectAction) owner).getTarget();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TARGET, objingElt.getMClass()));
+                }  
+            }
+            
+            //SendSignalAction case
+            if (owner instanceof  org.eclipse.uml2.uml.SendSignalAction){
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.SendSignalAction) owner).getTarget();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TARGET, objingElt.getMClass()));
+                }                
+            }
+            
+            //StartClassifierBehaviorAction case
+            if (owner instanceof  org.eclipse.uml2.uml.StartClassifierBehaviorAction){
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.StartClassifierBehaviorAction) owner).getObject();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT, objingElt.getMClass()));
+                }              
+            }
+            
+            //StructuralFeatureAction case
+            if (owner instanceof  org.eclipse.uml2.uml.StructuralFeatureAction){
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.StructuralFeatureAction) owner).getObject();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT, objingElt.getMClass()));
+                }             
+            }
+                       
+            //StartObjectBehaviorAction case
+            if (owner instanceof  org.eclipse.uml2.uml.StartObjectBehaviorAction){
+                org.eclipse.uml2.uml.InputPin input = ( (org.eclipse.uml2.uml.StartObjectBehaviorAction) owner).getObject();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT, objingElt.getMClass()));
+                }
+            }
+            
+            //TestIdentityAction case
+            if (owner instanceof org.eclipse.uml2.uml.TestIdentityAction){             
+                if (((org.eclipse.uml2.uml.TestIdentityAction) owner).getFirst().equals(this.ecoreElement)){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2FIRST, objingElt.getMClass()));
+                }else  if (((org.eclipse.uml2.uml.TestIdentityAction) owner).getSecond().equals(this.ecoreElement)){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2SECOND, objingElt.getMClass()));
+                }               
+            }
+            
+            //WriteStructuralFeatureAction case
+            if (owner instanceof org.eclipse.uml2.uml.WriteStructuralFeatureAction){                
+                org.eclipse.uml2.uml.InputPin input = ((org.eclipse.uml2.uml.WriteStructuralFeatureAction) this.ecoreElement.getOwner()).getValue();
+                if ((input != null) && (input.equals(this.ecoreElement))){
+                    objingElt.getExtension().add(mmServices
+                            .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2VALUE, objingElt.getMClass()));
+                }
+            }
+            
         } catch (ElementNotUniqueException e) {
             Xmi.LOG.warning(e);
         }

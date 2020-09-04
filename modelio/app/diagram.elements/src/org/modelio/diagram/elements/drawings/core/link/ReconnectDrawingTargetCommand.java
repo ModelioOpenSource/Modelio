@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class ReconnectDrawingTargetCommand extends Command {
 
     /**
      * Create the command.
+     * 
      * @param gmLink The link to move.
      * @param newTarget The new target node.
      */
@@ -74,6 +75,7 @@ public class ReconnectDrawingTargetCommand extends Command {
 
     /**
      * Set the model of the target anchor of the link.
+     * 
      * @param anchorModel the model of the target anchor of the link
      */
     @objid ("0acf1b13-0348-410c-aa22-44f670ba1857")

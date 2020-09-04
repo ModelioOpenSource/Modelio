@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class UserPasswordAuthData extends AuthData {
 
     /**
      * Initialize the authentication data.
+     * 
      * @param user login name
      * @param pass password
      * @param store <code>true</code> to serialize the password, <code>false</code> to skip it from serialization.
@@ -104,15 +105,17 @@ public class UserPasswordAuthData extends AuthData {
 
     @objid ("c0cfa59d-8c6b-483b-b524-d691ec0f8ae0")
     @Override
-    public Map<String, String> serialize() {
+    public Map<String, String> serialize(boolean forceCredentials) {
         Map<String, String> s =  new HashMap<>(getData());
-        if (!isStored())
+        if (!forceCredentials && !isStored()) {
             s.remove(PASS);
+        }
         return s;
     }
 
     /**
      * Set the password.
+     * 
      * @param pass the password.
      */
     @objid ("ddcd95a8-4dde-4910-90c0-7726c1523d96")
@@ -122,6 +125,7 @@ public class UserPasswordAuthData extends AuthData {
 
     /**
      * Set whether the password will be serialized.
+     * 
      * @param store <code>true</code> to store the password.
      */
     @objid ("f1eae90e-0a4e-471d-b892-01bc9b2212dc")
@@ -131,6 +135,7 @@ public class UserPasswordAuthData extends AuthData {
 
     /**
      * Set the login name.
+     * 
      * @param name the login
      */
     @objid ("cb0c7254-56d9-428a-8b44-e67fad629ac2")

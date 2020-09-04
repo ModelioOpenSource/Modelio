@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -173,6 +173,7 @@ public abstract class AbstractCreateElementHandler {
      * May return <code>null</code> in which case the command is not available.
      * <p>
      * Default implementation returns the selected element. May be redefined by sub classes.
+     * 
      * @param selection the E4 selection. By default only {@link MObject} and {@link IStructuredSelection} are supported.
      * @param metaclass the metaclass of the element to create
      * @return the element that must be the owner of the created element

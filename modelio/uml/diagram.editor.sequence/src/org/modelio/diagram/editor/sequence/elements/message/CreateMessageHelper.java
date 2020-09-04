@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -93,6 +93,7 @@ public class CreateMessageHelper {
 
     /**
      * Main method. Handles the model creation and the unmaskings.
+     * 
      * @param sourceModel the model that is the source of the link creation interaction
      * @param sourceTime the "time" of the source event
      * @param targetModel the model that is the target of the link creation interaction
@@ -413,6 +414,7 @@ public class CreateMessageHelper {
      * Set the request that will be completed by this helper.
      * <p>
      * This helper will call {@link CreateBendedConnectionRequest#getCreatedObjectsToSelect()} to add objects to the list.
+     * 
      * @param request the request to complete.
      */
     @objid ("d952e1b5-55b6-11e2-877f-002564c97630")

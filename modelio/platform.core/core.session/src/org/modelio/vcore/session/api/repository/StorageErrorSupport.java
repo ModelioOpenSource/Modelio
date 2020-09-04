@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ public class StorageErrorSupport {
 
     /**
      * Creates a storage monitor support.
+     * 
      * @param repository the handled repository.
      */
     @objid ("0d297b11-d66d-11e1-adbb-001ec947ccaf")
@@ -50,6 +51,7 @@ public class StorageErrorSupport {
 
     /**
      * Add a listener that is fired when an I/O error occur on the repository.
+     * 
      * @param listener the error listener.
      */
     @objid ("0d297b17-d66d-11e1-adbb-001ec947ccaf")
@@ -59,6 +61,7 @@ public class StorageErrorSupport {
 
     /**
      * Remove an error listener.
+     * 
      * @param listener the error listener to remove.
      */
     @objid ("0d297b1b-d66d-11e1-adbb-001ec947ccaf")
@@ -69,6 +72,7 @@ public class StorageErrorSupport {
     /**
      * Fire a warning to repository listeners.
      * @param <T> the exception type
+     * 
      * @param e the warning
      * @return the warning for convenience.
      */
@@ -87,6 +91,7 @@ public class StorageErrorSupport {
     /**
      * Fire an error to repository listeners.
      * @param <T> the exception type
+     * 
      * @param e the error
      * @return the error to conveniently allow the caller to throw it directly.
      */

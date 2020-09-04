@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ public class MessageEndAnchor extends AbstractConnectionAnchor {
 
     /**
      * C'tor.
+     * 
      * @param owner the owner figure on which bounds this anchor will be placed.
      * @param yCoordinate the y coordinate used for this anchor.
      */

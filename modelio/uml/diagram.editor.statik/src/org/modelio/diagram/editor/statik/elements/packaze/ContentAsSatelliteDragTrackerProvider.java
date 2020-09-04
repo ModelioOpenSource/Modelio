@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class ContentAsSatelliteDragTrackerProvider implements IDragTrackerProvid
 
     /**
      * Constructor.
+     * 
      * @param editPart the EditPart for which DragTracker are to be returned.
      */
     @objid ("36175ade-55b7-11e2-877f-002564c97630")
@@ -51,6 +52,7 @@ public class ContentAsSatelliteDragTrackerProvider implements IDragTrackerProvid
 
     /**
      * Returns a Drag Tracker.
+     * 
      * @param request current request for which a Drag Tracker is needed.
      * @return a DragTracker.
      */

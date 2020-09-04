@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -277,6 +277,7 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
 
         /**
          * Rotate the rectangle by 90° around its center
+         * 
          * @param rotated the rectangle to rotate.
          */
         @objid ("2df8df0d-634f-4aea-9799-4cea95a2b445")

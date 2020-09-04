@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class AssociationEnd2PropertyModel extends AbstractPropertyModel<Associat
 
     /**
      * Create a new <i>AssociationEnd</i> data model from an <i>AssociationEnd</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("3e51f67b-e5b3-4d14-a73c-daeef56b4963")

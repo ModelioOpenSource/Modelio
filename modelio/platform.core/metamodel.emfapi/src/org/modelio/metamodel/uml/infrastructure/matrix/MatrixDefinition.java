@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure.matrix;
 
@@ -45,13 +45,13 @@ public interface MatrixDefinition extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("1d522886-e7e6-4b32-99fb-58373aa71b8a")
+    @objid ("6eca811e-58f7-4373-a815-6aee1bb67a1b")
     public static final String MNAME = "MatrixDefinition";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("e08615c7-bd1c-4860-b45c-0b51aa617b6d")
+    @objid ("181b5ea4-d694-4bb9-add6-f9eef21bc8b2")
     public static final String MQNAME = "Infrastructure.MatrixDefinition";
 
     /**
@@ -60,7 +60,7 @@ public interface MatrixDefinition extends ModelElement {
      * Metamodel description:
      * <i>Lines definition.</i>
      */
-    @objid ("501b871a-6265-4b8d-89ee-a40305e21a64")
+    @objid ("3b653581-d361-42d4-be84-4f8aa19209b1")
     QueryDefinition getLinesDefinition();
 
     /**
@@ -69,7 +69,7 @@ public interface MatrixDefinition extends ModelElement {
      * Metamodel description:
      * <i>Lines definition.</i>
      */
-    @objid ("e5262ee3-a68e-4e8e-9331-032683cb3d85")
+    @objid ("87c51eb8-6234-4764-a993-4351e7435ddd")
     void setLinesDefinition(QueryDefinition value);
 
     /**
@@ -78,7 +78,7 @@ public interface MatrixDefinition extends ModelElement {
      * Metamodel description:
      * <i>Columns definition. If not specified, the line definition is used.</i>
      */
-    @objid ("ef584a85-601d-4de6-9b1c-cd1af1cbcb2d")
+    @objid ("eb5febca-d6cb-4d46-970b-131524205935")
     QueryDefinition getColumnsDefinition();
 
     /**
@@ -87,7 +87,7 @@ public interface MatrixDefinition extends ModelElement {
      * Metamodel description:
      * <i>Columns definition. If not specified, the line definition is used.</i>
      */
-    @objid ("d4dd84bb-dfb6-4cc3-865d-068f08ca0d17")
+    @objid ("7946dfcf-7269-4433-82da-992a5c4eb9b2")
     void setColumnsDefinition(QueryDefinition value);
 
     /**
@@ -96,7 +96,7 @@ public interface MatrixDefinition extends ModelElement {
      * Metamodel description:
      * <i>Matrix values definition.</i>
      */
-    @objid ("4247ed89-8511-41e5-b1cb-02577c177cbb")
+    @objid ("445ff945-6092-4ac5-85ed-4cf392152791")
     MatrixValueDefinition getValuesDefinition();
 
     /**
@@ -105,7 +105,7 @@ public interface MatrixDefinition extends ModelElement {
      * Metamodel description:
      * <i>Matrix values definition.</i>
      */
-    @objid ("7afe65d1-b305-49f6-92aa-5c3cb6c71453")
+    @objid ("e83d0483-b7b6-4a3c-aa1e-209440fa8642")
     void setValuesDefinition(MatrixValueDefinition value);
 
     /**
@@ -114,7 +114,7 @@ public interface MatrixDefinition extends ModelElement {
      * Metamodel description:
      * <i>Depth definition. May be left undefined.</i>
      */
-    @objid ("d163693b-21cb-483e-b82d-5abae1771d2e")
+    @objid ("a31ef6e6-6539-44a7-aa44-3a3d6b1f5603")
     QueryDefinition getDepthDefinition();
 
     /**
@@ -123,7 +123,7 @@ public interface MatrixDefinition extends ModelElement {
      * Metamodel description:
      * <i>Depth definition. May be left undefined.</i>
      */
-    @objid ("8598babc-858a-4171-8932-e18ae0c71fd8")
+    @objid ("2c204a5a-97e3-47df-bc9e-9df333172be6")
     void setDepthDefinition(QueryDefinition value);
 
     /**
@@ -132,7 +132,7 @@ public interface MatrixDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("7be08d85-0a86-448f-92cf-32188664d71a")
+    @objid ("b367827f-e35f-43a1-87d6-744a4c7ffb42")
     ModelElement getOwner();
 
     /**
@@ -141,7 +141,7 @@ public interface MatrixDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("8d838504-8850-4f23-beb0-3549d65ecc24")
+    @objid ("b5b3d212-22d3-45f4-b5a9-b4f7bbdd76c6")
     void setOwner(ModelElement value);
 
 }

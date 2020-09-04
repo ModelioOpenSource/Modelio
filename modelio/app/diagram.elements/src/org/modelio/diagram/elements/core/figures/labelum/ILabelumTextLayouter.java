@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ public interface ILabelumTextLayouter {
      * <p>
      * As side effect, the implementation may use and modify
      * {@link LabelumFigure#getTextDrawer()}.
+     * 
      * @param labelumFigure the LabelumFigure to format
      * @param origText the text to format/wrap
      * @param maxSize the maximum allowed text size. -1 means there is no maximum.

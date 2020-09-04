@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -81,6 +81,7 @@ public class ColorCellEditor3 extends CellEditor {
 
     /**
      * Creates a new color cell editor parented under the given control. The cell editor value is black ( <code>RGB(0,0,0)</code>) initially, and has no validator.
+     * 
      * @param parent the parent control
      */
     @objid ("71673ab3-1aec-4cec-97e3-5d8894845c93")
@@ -90,6 +91,7 @@ public class ColorCellEditor3 extends CellEditor {
 
     /**
      * Creates a new color cell editor parented under the given control. The cell editor value is black ( <code>RGB(0,0,0)</code>) initially, and has no validator.
+     * 
      * @param parent the parent control
      * @param style the style bits
      * @since 2.1

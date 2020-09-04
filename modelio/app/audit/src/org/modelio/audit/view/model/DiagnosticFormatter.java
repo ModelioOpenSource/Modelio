@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -195,7 +195,7 @@ public class DiagnosticFormatter {
 
     @objid ("beafcc3f-2b7b-47f5-8daa-5ebc431de277")
     private static class CopyStyler extends Styler {
-        @objid ("fce83f19-1125-4970-a2f9-c07283f0f4af")
+        @objid ("d1e06a20-72bb-441f-98b3-d6e5d48b182c")
         protected StyleRange range;
 
         @objid ("0585eaaa-7953-4736-aeb0-1d5ceed2116b")

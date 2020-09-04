@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class MatrixDefinitionPropertyModel extends AbstractPropertyModel<MatrixD
     /**
      * Create a new <i>MatrixDefinition</i> data model from an
      * <i>MatrixDefinition</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("42cd25ff-a283-4f85-a0ef-79029e9e4205")
@@ -60,6 +61,7 @@ public class MatrixDefinitionPropertyModel extends AbstractPropertyModel<MatrixD
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("ec32e5bd-0f1a-4b0c-ab72-79bbd883f182")
@@ -70,6 +72,7 @@ public class MatrixDefinitionPropertyModel extends AbstractPropertyModel<MatrixD
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("95299313-e1ab-46c6-9143-c62083ecab5c")
@@ -82,6 +85,7 @@ public class MatrixDefinitionPropertyModel extends AbstractPropertyModel<MatrixD
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -112,6 +116,7 @@ public class MatrixDefinitionPropertyModel extends AbstractPropertyModel<MatrixD
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -140,6 +145,7 @@ public class MatrixDefinitionPropertyModel extends AbstractPropertyModel<MatrixD
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

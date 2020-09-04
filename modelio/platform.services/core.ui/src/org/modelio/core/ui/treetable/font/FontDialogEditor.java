@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -28,10 +28,6 @@ import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
@@ -41,11 +37,13 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.FontDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Layout;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.ui.CoreFontRegistry;
+import org.modelio.ui.LocalFontRegistry;
 
 @objid ("6b36fd01-1eba-11e2-9382-bc305ba4815c")
 public class FontDialogEditor extends CellEditor {
@@ -86,9 +84,13 @@ public class FontDialogEditor extends CellEditor {
     @objid ("6b374b22-1eba-11e2-9382-bc305ba4815c")
     private FocusListener buttonFocusListener;
 
+    @objid ("15fb1e3a-8e0a-4de1-9358-eebaa3a04368")
+    private LocalFontRegistry fontReg;
+
     /**
      * Creates a new dialog cell editor with no control
      * @param color
+     * 
      * @param parent the parent control
      */
     @objid ("6b374b24-1eba-11e2-9382-bc305ba4815c")
@@ -99,6 +101,7 @@ public class FontDialogEditor extends CellEditor {
     /**
      * Creates a new dialog cell editor parented under the given control. The cell editor value is <code>null</code>
      * initially, and has no validator.
+     * 
      * @param parent the parent control
      * @param style the style bits
      * @since 2.1
@@ -114,6 +117,7 @@ public class FontDialogEditor extends CellEditor {
      * The default implementation of this framework method creates the button display on the right hand side of the
      * dialog cell editor. Subclasses may extend or reimplement.
      * </p>
+     * 
      * @param parent the parent control
      * @return the new button control
      */
@@ -134,6 +138,7 @@ public class FontDialogEditor extends CellEditor {
      * Subclasses may reimplement. If you reimplement this method, you should also reimplement
      * <code>updateContents</code>.
      * </p>
+     * 
      * @param cell the control for this cell editor
      * @return the underlying control
      */
@@ -151,10 +156,15 @@ public class FontDialogEditor extends CellEditor {
         Font font = parent.getFont();
         Color bg = parent.getBackground();
         
+        
         this.editor = new Composite(parent, this.getStyle());
         this.editor.setFont(font);
         this.editor.setBackground(bg);
         this.editor.setLayout(new DialogCellLayout());
+        
+        // Can't use a local font registry because the font must be kept by the calling Viewer.
+        // A LocalResourceManager should be passed by the viewer.
+        this.fontReg = CoreFontRegistry.getGlobal();
         
         this.contents = this.createContents(this.editor);
         this.updateContents(this.value);
@@ -163,9 +173,6 @@ public class FontDialogEditor extends CellEditor {
         this.button.setFont(font);
         
         this.button.addKeyListener(new KeyAdapter() {
-            /* (non-Javadoc)
-             * @see org.eclipse.swt.events.KeyListener#keyReleased(org.eclipse.swt.events.KeyEvent)
-             */
             @Override
             public void keyReleased(KeyEvent e) {
                 if (e.character == '\u001b') { // Escape
@@ -174,54 +181,49 @@ public class FontDialogEditor extends CellEditor {
             }
         });
         
-        this.button.addFocusListener(this.getButtonFocusListener());
+        this.button.addFocusListener(getButtonFocusListener());
         
-        this.button.addSelectionListener(new SelectionAdapter() {
-            /* (non-Javadoc)
-             * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-             */
-            @Override
-            public void widgetSelected(SelectionEvent event) {
-                // Remove the button's focus listener since it's guaranteed
-                // to lose focus when the dialog opens
-                FontDialogEditor.this.button.removeFocusListener(FontDialogEditor.this.getButtonFocusListener());
-                Object newValue = FontDialogEditor.this.openDialogBox(FontDialogEditor.this.editor);
-                // Re-add the listener once the dialog closes
-                FontDialogEditor.this.button.addFocusListener(FontDialogEditor.this.getButtonFocusListener());
-                if (newValue != null) {
-                    boolean newValidState = FontDialogEditor.this.isCorrect(newValue);
-                    if (newValidState) {
-                        FontDialogEditor.this.markDirty();
-                        FontDialogEditor.this.doSetValue(CoreFontRegistry.getFont((FontData) newValue));
-                    } else {
-                        // try to insert the current value into the error message.
-                        FontDialogEditor.this.setErrorMessage(MessageFormat.format(FontDialogEditor.this.getErrorMessage(),
-                                                                                   new Object[] { newValue.toString() }));
-                    }
-                    FontDialogEditor.this.fireApplyEditorValue();
+        this.button.addListener(SWT.Selection, (Event ev) -> {
+            // Remove the button's focus listener since it's guaranteed
+            // to lose focus when the dialog opens
+            this.button.removeFocusListener(getButtonFocusListener());
+            
+            FontData newValue = openDialogBox(this.editor);
+            
+            // Re-add the listener once the dialog closes
+            this.button.addFocusListener(getButtonFocusListener());
+            
+            if (newValue != null) {
+                boolean newValidState = isCorrect(newValue);
+                if (newValidState) {
+                    markDirty();
+                    doSetValue(this.fontReg.getFont(newValue));
+                } else {
+                    // try to insert the current value into the error message.
+                    setErrorMessage(MessageFormat.format(
+                            getErrorMessage(),
+                            new Object[] { newValue.toString() }));
                 }
+                fireApplyEditorValue();
             }
         });
         
         this.setValueValid(true);
         
-        this.defaultLabel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseDoubleClick(MouseEvent e) {
-                // TODO Auto-generated method stub
-                Object newValue = FontDialogEditor.this.openDialogBox(FontDialogEditor.this.editor);
-                if (newValue != null) {
-                    boolean newValidState = FontDialogEditor.this.isCorrect(newValue);
-                    if (newValidState) {
-                        FontDialogEditor.this.markDirty();
-                        FontDialogEditor.this.doSetValue(newValue);
-                    } else {
-                        // try to insert the current value into the error message.
-                        FontDialogEditor.this.setErrorMessage(MessageFormat.format(FontDialogEditor.this.getErrorMessage(),
-                                                                                   new Object[] { newValue.toString() }));
-                    }
-                    FontDialogEditor.this.fireApplyEditorValue();
+        this.defaultLabel.addListener(SWT.MouseDoubleClick, ev -> {
+            FontData newValue = openDialogBox(this.editor);
+            if (newValue != null) {
+                boolean newValidState = isCorrect(newValue);
+                if (newValidState) {
+                    markDirty();
+                    doSetValue(this.fontReg.getFont(newValue));
+                } else {
+                    // try to insert the current value into the error message.
+                    setErrorMessage(MessageFormat.format(
+                            getErrorMessage(),
+                            new Object[] { newValue.toString() }));
                 }
+                fireApplyEditorValue();
             }
         });
         return this.editor;
@@ -253,24 +255,18 @@ public class FontDialogEditor extends CellEditor {
 
     /**
      * Return a listener for button focus.
+     * 
      * @return FocusListener
      */
     @objid ("6b385c93-1eba-11e2-9382-bc305ba4815c")
     private FocusListener getButtonFocusListener() {
         if (this.buttonFocusListener == null) {
             this.buttonFocusListener = new FocusListener() {
-        
-                /* (non-Javadoc)
-                 * @see org.eclipse.swt.events.FocusListener#focusGained(org.eclipse.swt.events.FocusEvent)
-                 */
                 @Override
                 public void focusGained(FocusEvent e) {
                     // Do nothing
                 }
         
-                /* (non-Javadoc)
-                 * @see org.eclipse.swt.events.FocusListener#focusLost(org.eclipse.swt.events.FocusEvent)
-                 */
                 @Override
                 public void focusLost(FocusEvent e) {
                     FontDialogEditor.this.focusLost();
@@ -289,6 +285,7 @@ public class FontDialogEditor extends CellEditor {
 
     /**
      * Returns the default label widget created by <code>createContents</code>.
+     * 
      * @return the default label widget
      */
     @objid ("6b38aab0-1eba-11e2-9382-bc305ba4815c")
@@ -303,12 +300,13 @@ public class FontDialogEditor extends CellEditor {
      * This framework method must be implemented by concrete subclasses. It is called when the user has pressed the
      * button and the dialog box must pop up.
      * </p>
+     * 
      * @param cellEditorWindow the parent control cell editor's window so that a subclass can adjust the dialog box accordingly
      * @return the selected value, or <code>null</code> if the dialog was canceled or no selection was made in the
      * dialog
      */
     @objid ("6b38d1c0-1eba-11e2-9382-bc305ba4815c")
-    protected Object openDialogBox(Control cellEditorWindow) {
+    protected FontData openDialogBox(Control cellEditorWindow) {
         final Display display = cellEditorWindow.getDisplay();
         final Shell centerShell = new Shell(cellEditorWindow.getShell(), SWT.NO_TRIM);
         centerShell.setLocation(display.getCursorLocation());
@@ -335,6 +333,7 @@ public class FontDialogEditor extends CellEditor {
      * Subclasses may reimplement. If you reimplement this method, you should also reimplement
      * <code>createContents</code>.
      * </p>
+     * 
      * @param value the new value of this cell editor
      */
     @objid ("6b38f8d1-1eba-11e2-9382-bc305ba4815c")

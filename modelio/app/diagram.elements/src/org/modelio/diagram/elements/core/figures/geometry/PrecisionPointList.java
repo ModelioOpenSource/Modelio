@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class PrecisionPointList extends PointList {
 
     /**
      * Constructs a PointList with the given points.
+     * 
      * @param points double array where two consecutive double form the coordinates of a point
      */
     @objid ("7f9d9d09-1dec-11e2-8cad-001ec947c8cc")
@@ -65,6 +66,7 @@ public class PrecisionPointList extends PointList {
 
     /**
      * Constructs a PrecisionPointList with initial capacity <i>size</i>, but no points.
+     * 
      * @param size Number of points to hold.
      */
     @objid ("7f9d9d0f-1dec-11e2-8cad-001ec947c8cc")
@@ -74,6 +76,7 @@ public class PrecisionPointList extends PointList {
 
     /**
      * Creates a precision point list.
+     * 
      * @param pointList a point list.
      */
     @objid ("7f9d9d13-1dec-11e2-8cad-001ec947c8cc")
@@ -84,6 +87,7 @@ public class PrecisionPointList extends PointList {
 
     /**
      * Appends all of the given points to this PrecisionPointList.
+     * 
      * @param source the source PrecisionPointlist
      */
     @objid ("7f9d9d19-1dec-11e2-8cad-001ec947c8cc")
@@ -113,6 +117,7 @@ public class PrecisionPointList extends PointList {
 
     /**
      * Adds the input point values to this PointList.
+     * 
      * @param x X value of a point to add
      * @param y Y value of a point to add
      */
@@ -333,6 +338,7 @@ public class PrecisionPointList extends PointList {
 
     /**
      * Returns the contents of this PrecisionPointList as a double array. The returned array is by reference. Any changes made to the array will also be changing the original PrecisionPointList.
+     * 
      * @return the integer array of points by reference
      */
     @objid ("7f9fff90-1dec-11e2-8cad-001ec947c8cc")

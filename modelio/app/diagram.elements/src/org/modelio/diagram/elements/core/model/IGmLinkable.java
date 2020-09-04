@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IGmLinkable extends IGmModelRelated {
     /**
      * Get the links going to this node.
+     * 
      * @return the ongoing links.
      */
     @objid ("80801c8e-1dec-11e2-8cad-001ec947c8cc")
@@ -37,6 +38,7 @@ public interface IGmLinkable extends IGmModelRelated {
 
     /**
      * Get the links going to this node.
+     * 
      * @return the ongoing links.
      */
     @objid ("80801c93-1dec-11e2-8cad-001ec947c8cc")
@@ -44,6 +46,7 @@ public interface IGmLinkable extends IGmModelRelated {
 
     /**
      * Add a link starting from this node.
+     * 
      * @param link The starting link.
      */
     @objid ("80801c98-1dec-11e2-8cad-001ec947c8cc")
@@ -51,6 +54,7 @@ public interface IGmLinkable extends IGmModelRelated {
 
     /**
      * Add a link going to this element.
+     * 
      * @param link the ongoing link.
      */
     @objid ("80801c9b-1dec-11e2-8cad-001ec947c8cc")
@@ -58,6 +62,7 @@ public interface IGmLinkable extends IGmModelRelated {
 
     /**
      * Remove a link starting from this node.
+     * 
      * @param gmLink the link to remove.
      */
     @objid ("80801c9e-1dec-11e2-8cad-001ec947c8cc")
@@ -65,6 +70,7 @@ public interface IGmLinkable extends IGmModelRelated {
 
     /**
      * Remove a link going to this node.
+     * 
      * @param gmLink the link to remove.
      */
     @objid ("80801ca1-1dec-11e2-8cad-001ec947c8cc")

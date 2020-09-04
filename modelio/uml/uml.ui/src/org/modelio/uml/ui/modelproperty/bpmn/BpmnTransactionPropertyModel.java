@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class BpmnTransactionPropertyModel extends AbstractPropertyModel<BpmnTran
     /**
      * Create a new <i>BpmnTransaction</i> data model from an
      * <i>BpmnTransaction</i>.
+     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      */
@@ -69,6 +70,7 @@ public class BpmnTransactionPropertyModel extends AbstractPropertyModel<BpmnTran
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("32d20ac6-dfb0-4876-9180-e26fced0c276")
@@ -79,6 +81,7 @@ public class BpmnTransactionPropertyModel extends AbstractPropertyModel<BpmnTran
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("876308dd-860e-4d45-b239-7aa99ec3d713")
@@ -93,6 +96,7 @@ public class BpmnTransactionPropertyModel extends AbstractPropertyModel<BpmnTran
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -159,6 +163,7 @@ public class BpmnTransactionPropertyModel extends AbstractPropertyModel<BpmnTran
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -245,6 +250,7 @@ public class BpmnTransactionPropertyModel extends AbstractPropertyModel<BpmnTran
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

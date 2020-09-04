@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,6 +72,7 @@ public class FragmentStyledLabelProvider {
          * <li>Incomplete model elements font color is light red #FF8080.</li>
          * <li>Ramc model elements font color is modified yellow #A0A000.</li>
          * </ul>
+         * 
          * @return a Color.
          */
         @objid ("8d26a3b5-12e7-4d5b-92a5-0ab3dd8dbcd4")
@@ -101,6 +102,7 @@ public class FragmentStyledLabelProvider {
 
         /**
          * Get the background color for the given element
+         * 
          * @param aFragment a Fragment
          * @return its background color
          */

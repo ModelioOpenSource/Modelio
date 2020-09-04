@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public final class ExmlUtils {
      * Get the CMS node that stores the given object.
      * <p>
      * Returns the object itself if it is a CMS node.
+     * 
      * @param initialObj an object
      * @return its CMS node.
      */
@@ -62,6 +63,7 @@ public final class ExmlUtils {
      * <li> 'partof' dependencies that are not opposites of strong or shared composition.
      * </ul>
      * The returned list may be freely modified.
+     * 
      * @param object a model object
      * @return all SmDependency to serialize.
      */
@@ -87,6 +89,7 @@ public final class ExmlUtils {
      * <p>
      * The given CMS node and Child CMS nodes are excluded.
      * The returned list may be freely modified.
+     * 
      * @param cmsNode a CMS node object
      * @return all contained objects.
      */
@@ -100,6 +103,7 @@ public final class ExmlUtils {
 
     /**
      * Get the parent CMS node of this object.
+     * 
      * @param object an object
      * @return the parent CMS node.
      */
@@ -120,6 +124,7 @@ public final class ExmlUtils {
      * If the dependency is a composition, always return true (it's a shortcut).
      * If the dependency is a shared composition, test whether the target composition owner
      * is the source object.
+     * 
      * @param src a model object
      * @param dep a model dependency
      * @param dest a model object
@@ -138,6 +143,7 @@ public final class ExmlUtils {
 
     /**
      * Tells whether the dependency is a composition or a shared composition.
+     * 
      * @param dep a dependency
      * @return <code>true</code> if the dependency is a composition or a shared composition else <code>false</code>.
      */
@@ -148,6 +154,7 @@ public final class ExmlUtils {
 
     /**
      * Tells whether the 2 objects are in the same repository.
+     * 
      * @param o1 an object
      * @param o2 an object
      * @return <code>true</code> if both objects are in the same repository, else <code>false</code>
@@ -159,6 +166,7 @@ public final class ExmlUtils {
 
     /**
      * Tells whether the 2 objects are in the same repository.
+     * 
      * @param o1 an object
      * @param o2 an object
      * @return <code>true</code> if both objects are in the same repository, else <code>false</code>
@@ -178,6 +186,7 @@ public final class ExmlUtils {
 
     /**
      * Get all objects contained in the given CMS node using generic navigation.
+     * 
      * @param root the model object to iterate.
      * @param children a set where all composition children will be added.
      */
@@ -222,6 +231,7 @@ public final class ExmlUtils {
      * Get composition children already in memory using generic way.
      * <p>
      * The returned list may be freely modified.
+     * 
      * @param obj a model object
      * @return its loaded composition children
      */

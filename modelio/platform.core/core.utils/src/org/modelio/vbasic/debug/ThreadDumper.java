@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class ThreadDumper {
 
     /**
      * Dump all thread stack trace with java lock informations if asked for.
+     * 
      * @param withLocks dump monitor and Lock informations
      * @return the found thread informations.
      */
@@ -76,6 +77,7 @@ public class ThreadDumper {
      * Look for dead locked threads and dump their stack trace with java lock informations.
      * <p>
      * If no dead locked thread is found dump all threads .
+     * 
      * @return the found thread informations.
      */
     @objid ("0b09375d-3ceb-41e4-afab-cd6a3fcb3edc")
@@ -104,6 +106,7 @@ public class ThreadDumper {
      * <p>
      * The result contains no lock information and no thread state.
      * See {@link Thread#getAllStackTraces()} for more informations.
+     * 
      * @return all threads stack trace.
      */
     @objid ("dd54edb8-f452-4f94-8b51-7426b99bb29e")
@@ -152,6 +155,7 @@ public class ThreadDumper {
 
         /**
          * Dump line by line.
+         * 
          * @param lineConsumer a consumer that will receive all text lines
          */
         @objid ("952a0cda-cd19-4cc6-959f-4cbf13499637")
@@ -169,6 +173,7 @@ public class ThreadDumper {
 
         /**
          * Add a suppressed exception for each thread
+         * 
          * @param target the throwable to add suppressed exceptions to.
          * @return target for convenience
          */
@@ -186,6 +191,7 @@ public class ThreadDumper {
 
         /**
          * Get the stack trace of all threads.
+         * 
          * @return all threads stack trace.
          */
         @objid ("248b78bf-057e-48f0-a1f4-df06ea46e03c")

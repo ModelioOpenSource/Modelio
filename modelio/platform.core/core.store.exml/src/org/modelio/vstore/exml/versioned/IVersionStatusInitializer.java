@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ public interface IVersionStatusInitializer {
      * Load/initialize the CMS status flags for a given element being loaded.
      * <p>
      * These flags must be set using the given {@link IModelLoader}.
+     * 
      * @param obj a model object being loaded.
      * @param modelLoader the model loading API to use to initialize flags.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -70,6 +70,7 @@ public class ExmlFileAccess {
 
     /**
      * Create a copy of this geometry with the given directory as repository root.
+     * 
      * @param newRoot the repository root path
      * @return a copy of this geometry.
      */
@@ -80,6 +81,7 @@ public class ExmlFileAccess {
 
     /**
      * Get the file where the given blob should be stored.
+     * 
      * @param blobKey a Blob key
      * @return the file where the blob is stored.
      */
@@ -90,6 +92,7 @@ public class ExmlFileAccess {
 
     /**
      * Get the blob key stored in the given file.
+     * 
      * @param file a blob file
      * @return the blob key.
      */
@@ -100,6 +103,7 @@ public class ExmlFileAccess {
 
     /**
      * Get the root directory where blobs are stored.
+     * 
      * @return the blobs directory.
      */
     @objid ("b94567dd-c6cf-4fcf-8cac-07f13e242455")
@@ -110,6 +114,7 @@ public class ExmlFileAccess {
     /**
      * This method returns the externalized file for the element. Can be null for CMS tools which are not able to
      * produce such a file.
+     * 
      * @param element an element.
      * @return the element file.
      */
@@ -120,6 +125,7 @@ public class ExmlFileAccess {
 
     /**
      * This method returns the externalized file for the element.
+     * 
      * @param ref the element reference.
      * @return the element file.
      */
@@ -138,6 +144,7 @@ public class ExmlFileAccess {
 
     /**
      * Get the directories that should exist on an empty repository.
+     * 
      * @param metamodel the metamodel
      * @return the list of directories.
      */
@@ -151,6 +158,7 @@ public class ExmlFileAccess {
 
     /**
      * This method returns the externalized file for the local part of an element.
+     * 
      * @param ref the element reference.
      * @return the element local part file.
      */
@@ -169,6 +177,7 @@ public class ExmlFileAccess {
 
     /**
      * Get the 'model' directory containing a sub directory per metaclass.
+     * 
      * @return the model directory.
      */
     @objid ("c31bcf87-f23a-44de-acad-a5ff0d09d86b")
@@ -178,6 +187,7 @@ public class ExmlFileAccess {
 
     /**
      * Get the element reference representing the given file.
+     * 
      * @param exmlFile an EXML file
      * @return the represented element reference.
      */
@@ -206,6 +216,7 @@ public class ExmlFileAccess {
      * <p>
      * The answer is based on the file extension.
      * Returns <i>false</i> if it is a {@link IExmlRepositoryGeometry#EXT_LOCAL_EXML ".local.exml"} file.
+     * 
      * @param file a file
      * @return <i>true</i> if it is an EXML file, else <i>false</i>.
      */
@@ -217,6 +228,7 @@ public class ExmlFileAccess {
 
     /**
      * Read the element reference from the file.
+     * 
      * @param exmlFile the file path
      * @return the element reference
      * @throws java.io.IOException on failure

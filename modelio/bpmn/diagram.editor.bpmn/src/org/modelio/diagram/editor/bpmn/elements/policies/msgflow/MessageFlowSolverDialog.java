@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -314,6 +314,7 @@ public class MessageFlowSolverDialog extends ModelioDialog {
 
         /**
          * Called by Ui when the user changes the target selection
+         * 
          * @param selection the new target selection
          */
         @objid ("9e0b6d06-af4f-4607-9852-cc227ee5d420")
@@ -323,6 +324,7 @@ public class MessageFlowSolverDialog extends ModelioDialog {
 
         /**
          * Called by Ui when the user changes the source selection
+         * 
          * @param selection the new source selection
          */
         @objid ("91ed068c-68a2-4290-9f69-d86d8e711a37")

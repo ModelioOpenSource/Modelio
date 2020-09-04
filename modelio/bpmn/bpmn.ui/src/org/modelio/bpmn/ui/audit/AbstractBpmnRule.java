@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public abstract class AbstractBpmnRule extends AbstractRule {
     /**
      * Return the BPMN process from a BPMN node.
      * @param lane a BPMN node.
+     * 
      * @return The owner BPMN Process.
      */
     @objid ("2b168152-4f2f-46cf-8e43-5c2511316dcc")

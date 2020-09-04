@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,9 +33,9 @@ import java.util.NoSuchElementException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
 import org.modelio.api.module.IModule;
 import org.modelio.api.module.lifecycle.ModuleException;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.gproject.module.GModule;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.mda.infra.plugin.MdaInfra;
@@ -66,24 +66,25 @@ public class ModuleClassLoaderFactory {
 
     /**
      * Creates a ClassLoader for the given module and local class path.
+     * 
      * @param rtModule a module
      * @return a class loader
      * @throws org.modelio.api.module.lifecycle.ModuleException in case of error
      */
     @objid ("fe34fc41-9d66-445e-92d6-f0d40c8aac36")
-    public static ClassLoader setupClassLoader(IRTModule rtModule) throws ModuleException {
+    public static ClassLoader setupClassLoader(final IRTModule rtModule) throws ModuleException {
         // Plugin modules already have their class loader
         final ClassLoader providedClassLoader = rtModule.getGModule().getModuleHandle().getProvidedClassLoader();
         if (providedClassLoader != null) {
             return providedClassLoader;
         }
-            
+        
         
         // We need to "preload" the module so that we can actually access its
         // main class to call the static method on.
         // Resolve all loaded dependencies
         
-        List<IRTModule> loadedDependencies = new ArrayList<>();
+        final List<IRTModule> loadedDependencies = new ArrayList<>();
         loadedDependencies.addAll(rtModule.getRequiredDependencies());
         loadedDependencies.addAll(rtModule.getOptionalDependencies());
         
@@ -93,6 +94,7 @@ public class ModuleClassLoaderFactory {
 
     /**
      * Creates a ClassLoader for the given module and local class path.
+     * 
      * @param gModule The module
      * @param loadedDependencies the list of all loaded IModules the current module depends on
      * (either strongly or weakly)
@@ -100,7 +102,7 @@ public class ModuleClassLoaderFactory {
      * @throws org.modelio.api.module.lifecycle.ModuleException in case of error
      */
     @objid ("60e506f2-e046-4264-95f9-800ac4a8fae7")
-    private static URLClassLoader setupClassLoader(GModule gModule, List<IRTModule> loadedDependencies) throws ModuleException {
+    private static URLClassLoader setupClassLoader(final GModule gModule, final List<IRTModule> loadedDependencies) throws ModuleException {
         // - collect the module resources directory and add it in a list with
         // all files in the 'classpath' administrative infos
         // - collect all required and available weak dependency modules class
@@ -109,15 +111,15 @@ public class ModuleClassLoaderFactory {
         // - build a class loader from both the list of path and the list of
         // class loaders.
         
-        List<URL> completeClassPath = new ArrayList<>();
-        Collection<ClassLoader> parentLoaders = new ArrayList<>();
+        final List<URL> completeClassPath = new ArrayList<>();
+        final Collection<ClassLoader> parentLoaders = new ArrayList<>();
         
         // The local class path for the module. Each path may be relative to the
         // module resources path.
-        IModuleHandle rtModuleHandle = gModule.getModuleHandle();
-        List<Path> declaredClasspath = rtModuleHandle.getJarPaths();
+        final IModuleHandle rtModuleHandle = gModule.getModuleHandle();
+        final List<Path> declaredClasspath = rtModuleHandle.getJarPaths();
         
-        Path fClassPath = rtModuleHandle.getResourcePath();
+        final Path fClassPath = rtModuleHandle.getResourcePath();
         if (fClassPath == null) {
             return new ModuleClassLoader(
                     rtModuleHandle.getName(),
@@ -130,24 +132,24 @@ public class ModuleClassLoaderFactory {
             completeClassPath.add(fClassPath.toUri().toURL());
         
             // Add the module declared libraries to the classpath
-            if ((declaredClasspath == null) || declaredClasspath.isEmpty()) {
-                String msg = String.format(
+            if (declaredClasspath == null || declaredClasspath.isEmpty()) {
+                final String msg = String.format(
                         "The '%1$s' module classpath is empty!",
                         rtModuleHandle.getName());
-                ModuleException e2 = new ModuleException(msg);
+                final ModuleException e2 = new ModuleException(msg);
                 throw e2;
             } else {
-                for (Path path : declaredClasspath) {
+                for (final Path path : declaredClasspath) {
                     try {
                         completeClassPath.add(fClassPath.resolve(path).toUri()
                                 .toURL());
-                    } catch (MalformedURLException e) {
-                        String msg = String
+                    } catch (final MalformedURLException e) {
+                        final String msg = String
                                 .format("The '%1$s' module '%2$s' classpath entry is invalid:\n %3$s",
                                         rtModuleHandle.getName(),
                                         path.toString(),
                                         e.getLocalizedMessage());
-                        ModuleException e2 = new ModuleException(msg);
+                        final ModuleException e2 = new ModuleException(msg);
                         e2.initCause(e);
                         throw e2;
                     }
@@ -159,9 +161,9 @@ public class ModuleClassLoaderFactory {
             parentLoaders.add(Version.class.getClassLoader());
         
             // Collect metamodels class loaders
-            for (IGMetamodelExtension mmExt : gModule.getProject().getMetamodelExtensions()) {
-                ISmMetamodelFragment mmf = mmExt.getMmFragment();
-                ClassLoader loader = mmf.getClass().getClassLoader();
+            for (final IGMetamodelExtension mmExt : gModule.getProject().getMetamodelExtensions()) {
+                final ISmMetamodelFragment mmf = mmExt.getMmFragment();
+                final ClassLoader loader = mmf.getClass().getClassLoader();
                 if (!parentLoaders.contains(loader)) {
                     parentLoaders.add(loader);
                 }
@@ -171,8 +173,8 @@ public class ModuleClassLoaderFactory {
             ModuleClassLoaderFactory.addPluginsClassLoaders(parentLoaders);
         
             // Get required modules class loaders
-            for (IRTModule im : loadedDependencies) {
-                ClassLoader classLoader = im.getClassLoader();
+            for (final IRTModule im : loadedDependencies) {
+                final ClassLoader classLoader = im.getClassLoader();
                 if (classLoader != null) {
                     parentLoaders.add(classLoader);
                 }
@@ -184,12 +186,12 @@ public class ModuleClassLoaderFactory {
                     completeClassPath.toArray(new URL[completeClassPath.size()]),
                     parentLoaders);
         
-        } catch (MalformedURLException e) {
-            String msg = String.format(
+        } catch (final MalformedURLException e) {
+            final String msg = String.format(
                     "The '%1$s' module '%2$s' classpath is invalid:\n %3$s",
                     rtModuleHandle.getName(), fClassPath.toString(),
                     e.getLocalizedMessage());
-            ModuleException e2 = new ModuleException(msg);
+            final ModuleException e2 = new ModuleException(msg);
             e2.initCause(e);
             throw e2;
         }
@@ -199,22 +201,18 @@ public class ModuleClassLoaderFactory {
      * Loop on contributing plugins and add provider class loaders
      */
     @objid ("8a81c9b3-f34b-11e1-9458-001ec947c8cc")
-    private static void addPluginsClassLoaders(Collection<ClassLoader> parentLoaders) {
-        IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor(ModuleClassLoaderFactory.CLASSLOADERS_EXTENSION_ID);
-        for (IConfigurationElement elt : config) {
-            if (elt.getName().equals(ModuleClassLoaderFactory.MODULE_API_PROVIDER)) {
-                try {
-                    Object provider = elt.createExecutableExtension(ModuleClassLoaderFactory.CLASSLOADERPROVIDER);
-                    if (provider instanceof IModuleClassLoaderProvider) {
-                        ClassLoader loader = ((IModuleClassLoaderProvider) provider).getClassLoader();
-                        if (!parentLoaders.contains(loader)) {
-                            parentLoaders.add(loader);
-                        }
+    private static void addPluginsClassLoaders(final Collection<ClassLoader> parentLoaders) {
+        for (final IConfigurationElement elt : new ExtensionPointContributionManager(ModuleClassLoaderFactory.CLASSLOADERS_EXTENSION_ID).getExtensions(ModuleClassLoaderFactory.MODULE_API_PROVIDER)) {
+            try {
+                final Object provider = elt.createExecutableExtension(ModuleClassLoaderFactory.CLASSLOADERPROVIDER);
+                if (provider instanceof IModuleClassLoaderProvider) {
+                    final ClassLoader loader = ((IModuleClassLoaderProvider) provider).getClassLoader();
+                    if (!parentLoaders.contains(loader)) {
+                        parentLoaders.add(loader);
                     }
-        
-                } catch (CoreException e) {
-                    MdaInfra.LOG.error(e);
                 }
+            } catch (final CoreException e) {
+                MdaInfra.LOG.error(e);
             }
         }
     }
@@ -239,7 +237,7 @@ public class ModuleClassLoaderFactory {
         private final Collection<ClassLoader> parents;
 
         @objid ("8a842ca6-f34b-11e1-9458-001ec947c8cc")
-        public ModuleClassLoader(String name, URL[] classpath, Collection<ClassLoader> pParents) {
+        public ModuleClassLoader(final String name, final URL[] classpath, final Collection<ClassLoader> pParents) {
             super(classpath);
             this.moduleName = name;
             this.parents = pParents;
@@ -247,9 +245,9 @@ public class ModuleClassLoaderFactory {
 
         @objid ("8a842c56-f34b-11e1-9458-001ec947c8cc")
         @Override
-        public URL findResource(String name) {
-            for (ClassLoader parent : this.parents) {
-                URL ret = parent.getResource(name);
+        public URL findResource(final String name) {
+            for (final ClassLoader parent : this.parents) {
+                final URL ret = parent.getResource(name);
                 if (ret != null) {
                     return ret;
                 }
@@ -260,10 +258,10 @@ public class ModuleClassLoaderFactory {
         @objid ("8a842c58-f34b-11e1-9458-001ec947c8cc")
         @Override
         @SuppressWarnings("unchecked")
-        public Enumeration<URL> findResources(String name) throws IOException {
-            Enumeration<URL>[] tmp = new Enumeration[this.parents.size() + 1];
+        public Enumeration<URL> findResources(final String name) throws IOException {
+            final Enumeration<URL>[] tmp = new Enumeration[this.parents.size() + 1];
             int i = 0;
-            for (ClassLoader parent : this.parents) {
+            for (final ClassLoader parent : this.parents) {
                 tmp[i] = parent.getResources(name);
                 i++;
             }
@@ -281,20 +279,21 @@ public class ModuleClassLoaderFactory {
          * <li>the original list of URLs specified to the constructor,
          * <li>along with any URLs subsequently appended by the addURL() method.
          * </ul>
+         * 
          * @return the search path of URLs for loading classes and resources.
          */
         @objid ("8a842c6e-f34b-11e1-9458-001ec947c8cc")
         @Override
         public URL[] getURLs() {
-            List<URL> urls = new ArrayList<>();
-            for (ClassLoader l : this.parents) {
+            final List<URL> urls = new ArrayList<>();
+            for (final ClassLoader l : this.parents) {
                 if (l instanceof URLClassLoader) {
-                    for (URL u : ((URLClassLoader) l).getURLs()) {
+                    for (final URL u : ((URLClassLoader) l).getURLs()) {
                         urls.add(u);
                     }
                 }
             }
-            for (URL u : super.getURLs()) {
+            for (final URL u : super.getURLs()) {
                 urls.add(u);
             }
             return urls.toArray(new URL[urls.size()]);
@@ -305,21 +304,21 @@ public class ModuleClassLoaderFactory {
          */
         @objid ("8a842c65-f34b-11e1-9458-001ec947c8cc")
         @Override
-        protected Class<? extends Object> findClass(String name) throws ClassNotFoundException {
+        protected Class<? extends Object> findClass(final String name) throws ClassNotFoundException {
             try {
-                for (ClassLoader parent : this.parents) {
+                for (final ClassLoader parent : this.parents) {
                     try {
                         return parent.loadClass(name);
-                    } catch (@SuppressWarnings("unused") ClassNotFoundException e) {
+                    } catch (@SuppressWarnings("unused") final ClassNotFoundException e) {
                         // nothing: search next
                     }
                 }
                 return super.findClass(name);
-            } catch (Error e) {
+            } catch (final Error e) {
                 MdaInfra.LOG.error(
                         "%s: %s while looking for a class. classpath=",
                         this.moduleName, e.getClass().getSimpleName());
-                for (URL url : getURLs()) {
+                for (final URL url : getURLs()) {
                     MdaInfra.LOG.error("%s:  - %s", this.moduleName,
                             url.toString());
                 }
@@ -340,10 +339,10 @@ public class ModuleClassLoaderFactory {
             private int index = 0;
 
             @objid ("8a842c4c-f34b-11e1-9458-001ec947c8cc")
-            private Enumeration<E>[] enums;
+            private final Enumeration<E>[] enums;
 
             @objid ("8a842ca7-f34b-11e1-9458-001ec947c8cc")
-            public CompoundEnumeration(Enumeration<E>[] enums) {
+            public CompoundEnumeration(final Enumeration<E>[] enums) {
                 this.enums = enums;
             }
 
@@ -365,7 +364,7 @@ public class ModuleClassLoaderFactory {
             @objid ("8a842c52-f34b-11e1-9458-001ec947c8cc")
             private boolean next() {
                 while (this.index < this.enums.length) {
-                    if ((this.enums[this.index] != null)
+                    if (this.enums[this.index] != null
                             && this.enums[this.index].hasMoreElements()) {
                         return true;
                     }

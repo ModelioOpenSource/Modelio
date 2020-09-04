@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class GmRoleCardinalityLabel extends GmElementLabel {
 
     /**
      * Creates a role cardinality label.
+     * 
      * @param diagram The diagram
      * @param role The represented role, may be null
      * @param roleRef The represented role reference, may not be null

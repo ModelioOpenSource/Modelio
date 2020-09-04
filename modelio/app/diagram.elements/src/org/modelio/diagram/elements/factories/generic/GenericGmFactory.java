@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 public class GenericGmFactory implements IGmNodeFactory, IGmLinkFactory {
     /**
      * @see MClass#isLinkMetaclass()
+     * 
      * @return a {@link GmGenericNode} for any {@link ModelElement} which metaclass is tagged as a node.
      */
     @objid ("dacefe91-521d-4a92-a593-3a58869381b1")
@@ -58,6 +59,7 @@ public class GenericGmFactory implements IGmNodeFactory, IGmLinkFactory {
 
     /**
      * @see MClass#isLinkMetaclass()
+     * 
      * @return a {@link GmGenericLink} for any {@link ModelElement} which metaclass is tagged as a node.
      */
     @objid ("e78da893-6d3b-46b0-8878-d1e0529c13e7")

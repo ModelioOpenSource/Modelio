@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class InterruptibleActivityRegionPropertyModel extends AbstractPropertyMo
     /**
      * Create a new <i>InterruptibleActivityRegion</i> data model from an
      * <i>InterruptibleActivityRegion</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("460f67fa-b15b-460c-9c0c-3ccd88f28fd8")

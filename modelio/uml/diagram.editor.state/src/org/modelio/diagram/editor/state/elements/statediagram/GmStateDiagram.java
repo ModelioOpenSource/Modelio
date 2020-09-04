@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class GmStateDiagram extends GmAbstractDiagram {
 
     /**
      * Initialize the diagram.
+     * 
      * @param manager The model manager
      * @param theStateDiagram the displayed diagram.
      * @param diagramRef the reference of the displayed diagram. Must reference a {@link StateMachineDiagram}.

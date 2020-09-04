@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public class Helper {
 
     /**
      * Tells whether the given model dependency is stored in the repository.
+     * 
      * @param dep a model dependency.
      * @return <code>true</code> if stored else <code>false</code>.
      */

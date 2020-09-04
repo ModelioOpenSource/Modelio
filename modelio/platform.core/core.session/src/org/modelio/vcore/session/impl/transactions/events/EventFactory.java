@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,6 +72,7 @@ public class EventFactory {
 
     /**
      * Create ready to use commit events.
+     * 
      * @param tr a transaction
      * @return a factory with events ready to use.
      */
@@ -93,6 +94,7 @@ public class EventFactory {
 
     /**
      * Create a change event factory for an undone transaction.
+     * 
      * @param tr the undone transaction
      * @return the change event factory.
      */
@@ -113,6 +115,7 @@ public class EventFactory {
 
     /**
      * Create a change event factory for an redone transaction.
+     * 
      * @param tr the redone transaction
      * @return the change event factory.
      */
@@ -217,6 +220,7 @@ public class EventFactory {
      * <p>
      * Call {@link #process(IAction)} to fill the events and
      * {@link #postProcess()} when finished.
+     * 
      * @param cause The cause of the model change event. {@link ChangeCause#UNDO} is not allowed.
      * @return a ready factory.
      */
@@ -234,6 +238,7 @@ public class EventFactory {
 
     /**
      * Process an action.
+     * 
      * @param a an action.
      */
     @objid ("7d7353a1-1c43-11e2-8eb9-001ec947ccaf")
@@ -259,6 +264,7 @@ public class EventFactory {
 
     /**
      * Test whether the change and status event are both empty.
+     * 
      * @return <code>true</code> if no model nor status change occurred.
      */
     @objid ("ec573269-4fe7-4ca5-b3c2-56287dec8823")
@@ -275,6 +281,7 @@ public class EventFactory {
      * Update the commit event.
      * <p>
      * To be called when the transaction had new actions after having called {@link #createCommitEvent(Transaction)}.
+     * 
      * @param tr the updated transaction
      */
     @objid ("15b75b37-5057-47fa-92e9-54187c60471f")

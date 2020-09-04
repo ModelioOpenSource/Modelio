@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -44,57 +44,57 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("008a098a-c4be-1fd8-97fe-001ec947cd2a")
 public class NoteImpl extends ModelElementImpl implements Note {
-    @objid ("d14ac972-23cd-4905-9097-2403a03b24a1")
+    @objid ("c2ff01ae-cf1c-466b-8be9-0dc8727aa56a")
     @Override
     public String getContent() {
         return (String) getAttVal(((NoteSmClass)getClassOf()).getContentAtt());
     }
 
-    @objid ("f57f0f41-c2c7-44f5-8fb3-ae5163ce9401")
+    @objid ("3a309ed3-172e-43b5-aa5d-5f94f14df0da")
     @Override
     public void setContent(String value) {
         setAttVal(((NoteSmClass)getClassOf()).getContentAtt(), value);
     }
 
-    @objid ("a8117b65-ee99-4480-aa2f-c6301013772a")
+    @objid ("f75a4807-57f3-4b64-ab80-ae76b8dbada6")
     @Override
     public String getMimeType() {
         return (String) getAttVal(((NoteSmClass)getClassOf()).getMimeTypeAtt());
     }
 
-    @objid ("63743a6e-b8bd-403f-ad42-cdf970ffdd92")
+    @objid ("88a0ac46-dca8-45b7-9d5b-4157c5a592f7")
     @Override
     public void setMimeType(String value) {
         setAttVal(((NoteSmClass)getClassOf()).getMimeTypeAtt(), value);
     }
 
-    @objid ("fc52621b-8bfc-4c25-99e5-792693c62b67")
+    @objid ("2df2af99-6507-44aa-b601-7d5c50a77784")
     @Override
     public NoteType getModel() {
         Object obj = getDepVal(((NoteSmClass)getClassOf()).getModelDep());
         return (obj instanceof NoteType)? (NoteType)obj : null;
     }
 
-    @objid ("c7afcda1-1519-4fd9-81e1-21e831557f2c")
+    @objid ("23762478-7f30-45c4-9305-2610e057555a")
     @Override
     public void setModel(NoteType value) {
         appendDepVal(((NoteSmClass)getClassOf()).getModelDep(), (SmObjectImpl)value);
     }
 
-    @objid ("7f049995-1f53-437a-8039-19f2c5286ed0")
+    @objid ("4e277064-34ee-448f-ae8c-69e4aa6dcf0b")
     @Override
     public ModelElement getSubject() {
         Object obj = getDepVal(((NoteSmClass)getClassOf()).getSubjectDep());
         return (obj instanceof ModelElement)? (ModelElement)obj : null;
     }
 
-    @objid ("1e40f425-a086-4f36-a781-e0da90204b1e")
+    @objid ("cd07ed47-1c4b-4b19-9b35-bc24f51eaf26")
     @Override
     public void setSubject(ModelElement value) {
         appendDepVal(((NoteSmClass)getClassOf()).getSubjectDep(), (SmObjectImpl)value);
     }
 
-    @objid ("5853e1d5-8431-444f-bbaa-ab0daae12602")
+    @objid ("9d5b4445-0702-41f0-ac70-037e197f2088")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -106,7 +106,7 @@ public class NoteImpl extends ModelElementImpl implements Note {
         return super.getCompositionOwner();
     }
 
-    @objid ("bc6c1828-a6e4-4089-90c0-bed0ca3e9545")
+    @objid ("2eaaffd1-c134-4375-882d-5f6a58d73746")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -121,7 +121,7 @@ public class NoteImpl extends ModelElementImpl implements Note {
         return super.getCompositionRelation();
     }
 
-    @objid ("b3e5006d-01ac-47fd-bc93-5d04dbb71e14")
+    @objid ("9f92da81-16c5-4f90-b7d7-843b8eb5f7d0")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitNote(this);

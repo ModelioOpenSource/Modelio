@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,6 +25,7 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
+import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Artifact;
 import org.modelio.metamodel.uml.statik.Manifestation;
@@ -39,7 +40,7 @@ public class EManifestation extends ENamedElement {
     @objid ("58c3b71a-4740-4595-9019-d80bb488e63a")
     @Override
     public List<Manifestation> createObjingElt() {
-        return new ArrayList<>();
+        return createManifestation();
     }
 
     @objid ("78ad4974-a577-45e7-9659-048c5245fcbe")
@@ -49,8 +50,8 @@ public class EManifestation extends ENamedElement {
     }
 
     @objid ("04862d70-e9b8-4c2b-a0fd-f3e02420826e")
-    @Override
-    public void attach(List<Object> objingElts) {
+    private List<Manifestation> createManifestation() {
+        List<Manifestation> objingElts = new ArrayList<>();
         EList<?> clientList = this.ecoreElement.getClients();
         EList<?> supplierList = this.ecoreElement.getSuppliers();
         
@@ -83,6 +84,7 @@ public class EManifestation extends ENamedElement {
                 }
             }
         }
+        return objingElts;
     }
 
     @objid ("6b992a7f-5df0-432e-aa22-149ea71fa9d2")
@@ -92,12 +94,16 @@ public class EManifestation extends ENamedElement {
         String name = this.ecoreElement.getName();
         if (EcoreModelNavigation.isNotNull(name))
             manif.setName(name);
-        else 
-            manif.setName("");
         
         manif.setOwner(objingClient);
         manif.setUtilizedElement(objingSupplier);
         return manif;
+    }
+
+    @objid ("1c7b84a6-907c-4b93-a72c-a430106b076f")
+    @Override
+    public void attach(Element objingElts) {
+        //Done during creation
     }
 
 }

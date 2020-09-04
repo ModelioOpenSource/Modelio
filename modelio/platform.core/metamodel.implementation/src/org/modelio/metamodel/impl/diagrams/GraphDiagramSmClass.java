@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.diagrams;
 
@@ -41,42 +41,42 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("b7bd8c6f-a843-4efb-bf69-5e27dc50bf10")
 public class GraphDiagramSmClass extends AbstractDiagramSmClass {
-    @objid ("d2badb22-709a-48fd-a226-3c2c65598286")
+    @objid ("1606d446-dff4-439d-9b08-f24ed3814a9b")
     public GraphDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("e5494ee7-0b46-40bb-8d31-27b3dc4d8058")
+    @objid ("12fd9a9f-d684-4902-bee2-27fca4bbba71")
     @Override
     public String getName() {
         return "GraphDiagram";
     }
 
-    @objid ("ec604a70-dcf7-4695-a8ca-5700f527f1e8")
+    @objid ("f86fba42-abc1-4858-930b-dfeb61bb2fbf")
     @Override
     public Version getVersion() {
         return new Version("2.1.02");
     }
 
-    @objid ("1f919729-55a3-44a7-8790-2dd05cc8a883")
+    @objid ("fe696b7e-a2d7-43a8-b39c-648bb5c24386")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return GraphDiagram.class;
     }
 
-    @objid ("0b7e5279-07b9-4c3b-9a33-c773649c72f8")
+    @objid ("802fe5ea-cc8f-40e6-ba2d-73273f2d4c49")
     @Override
     public boolean isCmsNode() {
         return true;
     }
 
-    @objid ("baace7ad-f1c8-4e37-943d-60c635fae780")
+    @objid ("dfbf9a58-b667-4ee0-ae0c-fb49bace59dc")
     @Override
     public boolean isAbstract() {
         return false;
     }
 
-    @objid ("0de4618a-2070-4159-ba7d-51ae5e44c7ec")
+    @objid ("441cd25b-8590-4449-b95d-190bf0452354")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(AbstractDiagram.MQNAME);
@@ -90,21 +90,21 @@ public class GraphDiagramSmClass extends AbstractDiagramSmClass {
 
     @objid ("e54bdc5a-5209-49c7-b3cb-11287d6dde79")
     private static class GraphDiagramObjectFactory implements ISmObjectFactory {
-        @objid ("c9adad16-cd77-416e-857c-33a5fb598197")
+        @objid ("502c4c3b-ded8-4152-ad98-152e36a672de")
         private GraphDiagramSmClass smClass;
 
-        @objid ("5dd9e8e4-c116-4052-8491-31e1dd735c44")
+        @objid ("56fe2488-132e-4bbc-9bf8-0f3632baa8c1")
         public GraphDiagramObjectFactory(GraphDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("1f59699b-2f04-48a7-a643-ed7419b1323b")
+        @objid ("e6b029a8-6b51-4e5a-830f-3aaef88b8bdc")
         @Override
         public ISmObjectData createData() {
             return new GraphDiagramData(this.smClass);
         }
 
-        @objid ("bfa15013-75fa-4441-a85f-8714b0f7dd84")
+        @objid ("cb1741c4-4ee7-4885-9e2f-ac0bca368c71")
         @Override
         public SmObjectImpl createImpl() {
             return new GraphDiagramImpl();

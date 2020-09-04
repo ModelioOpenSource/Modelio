@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.policies.DefaultElementDropEditPolicy;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
+import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Attribute;
 import org.modelio.metamodel.uml.statik.Classifier;
@@ -47,11 +48,11 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class ClassifierElementDropEditPolicy extends DefaultElementDropEditPolicy {
     @objid ("34322034-55b7-11e2-877f-002564c97630")
     @Override
-    protected EditPart getDropTargetEditPart(ModelElementDropRequest request) {
-        final GmCompositeNode gmModel = (GmCompositeNode) this.getHost().getModel();
+    protected EditPart getDropTargetEditPart(final ModelElementDropRequest request) {
+        final GmCompositeNode gmModel = (GmCompositeNode) getHost().getModel();
         
         // If either of the dropped elements cannot be unmasked, return null.
-        for (MObject droppedElement : request.getDroppedElements()) {
+        for (final MObject droppedElement : request.getDroppedElements()) {
             if (!gmModel.canUnmask(droppedElement)) {
                 // Gm doesn't know how to handle this element directly, look if
                 // it is an element for which we can do something "smarter".
@@ -67,17 +68,17 @@ public class ClassifierElementDropEditPolicy extends DefaultElementDropEditPolic
         }
         
         // All dropped elements understood: return host!
-        return this.getHost();
+        return getHost();
     }
 
     @objid ("3432203d-55b7-11e2-877f-002564c97630")
     @Override
-    protected Command getSmartDropCommand(ModelElementDropRequest request) {
-        CompoundCommand command = new CompoundCommand();
+    protected Command getSmartDropCommand(final ModelElementDropRequest request) {
+        final CompoundCommand command = new CompoundCommand();
         
         Point dropLocation = request.getDropLocation();
         
-        for (MObject toUnmask : request.getDroppedElements()) {
+        for (final MObject toUnmask : request.getDroppedElements()) {
             if (isSmartPartNodeTarget(toUnmask, request)) {
                 command.add(getSmartObjectNodeDropCommand(dropLocation, toUnmask));
             } else if (isSmartCollabUseNodeTarget(toUnmask, request)) {
@@ -102,19 +103,24 @@ public class ClassifierElementDropEditPolicy extends DefaultElementDropEditPolic
 
     @objid ("34322050-55b7-11e2-877f-002564c97630")
     private boolean isSmartPartNodeTarget(final MObject element, final ModelElementDropRequest request) {
-        if (!request.isSmart())
+        if (!request.isSmart()) {
             return false;
+        }
         
         // Exception for ports
-        if (element instanceof Port)
+        if (element instanceof Port) {
             return false;
+        }
         
         final GmModel gmModel = (GmModel) getHost().getModel();
         final Classifier owner = (Classifier) gmModel.getRelatedElement();
-        return (!owner.equals(element.getCompositionOwner()) && (element instanceof AssociationEnd ||
-                                                                                        element instanceof Attribute ||
-                                                                                        element instanceof Instance ||
-                                                                                        element instanceof NameSpace || element instanceof Parameter));
+        return !owner.equals(element.getCompositionOwner()) &&
+                !(owner instanceof Signal) &&
+                (element instanceof AssociationEnd ||
+                        element instanceof Attribute ||
+                        element instanceof Instance ||
+                        element instanceof NameSpace ||
+                        element instanceof Parameter);
     }
 
     @objid ("3432205c-55b7-11e2-877f-002564c97630")
@@ -126,17 +132,18 @@ public class ClassifierElementDropEditPolicy extends DefaultElementDropEditPolic
 
     @objid ("3433a6bd-55b7-11e2-877f-002564c97630")
     private boolean isSmartCollabUseNodeTarget(final MObject element, final ModelElementDropRequest request) {
-        if (!request.isSmart())
+        if (!request.isSmart()) {
             return false;
+        }
         
         final GmModel gmModel = (GmModel) getHost().getModel();
         final Classifier owner = (Classifier) gmModel.getRelatedElement();
-        return (!owner.equals(element.getCompositionOwner()) && (element instanceof Collaboration));
+        return !owner.equals(element.getCompositionOwner()) && element instanceof Collaboration;
     }
 
     @objid ("52614648-b7cc-423b-8f44-80daf97f7bfe")
-    private Command createSubCommand(ModelElementDropRequest request, Point dropLocation, MObject toUnmask) {
-        ModelElementDropRequest subReq = new ModelElementDropRequest();
+    private Command createSubCommand(final ModelElementDropRequest request, final Point dropLocation, final MObject toUnmask) {
+        final ModelElementDropRequest subReq = new ModelElementDropRequest();
         subReq.setDroppedElements(new MObject[] { toUnmask });
         subReq.setExtendedData(request.getExtendedData());
         subReq.setLocation(dropLocation);

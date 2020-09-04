@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -99,6 +99,7 @@ public class ScalableFreeformLayeredPane2 extends ScalableFreeformLayeredPane im
      * Set a filter to use when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
+     * 
      * @param f an extent filter.
      */
     @objid ("af2d5f82-a64f-42e2-a5a4-4cbaccab3951")
@@ -111,6 +112,7 @@ public class ScalableFreeformLayeredPane2 extends ScalableFreeformLayeredPane im
      * Get the filter used when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
+     * 
      * @return an extent filter.
      */
     @objid ("259cec09-5f5c-4f1d-b5e9-5f0778adf22f")

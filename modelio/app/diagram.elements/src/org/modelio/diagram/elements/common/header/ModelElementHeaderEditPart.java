@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class ModelElementHeaderEditPart extends AbstractNodeEditPart {
      * Get the main label figure.
      * <p>
      * The main label usually displays the element name.
+     * 
      * @return the main label figure.
      */
     @objid ("7e739715-1dec-11e2-8cad-001ec947c8cc")
@@ -95,14 +96,13 @@ public class ModelElementHeaderEditPart extends AbstractNodeEditPart {
             final IEditableText editableText = ((GmModel) getModel()).getEditableText();
             if (editableText != null) {
                 IHeaderFigure headerFigure = getHeaderFigure(getFigure());
-        
                 TextDirectEditManager
-                        .forLabelum(
-                                this,
-                                headerFigure.getMainLabelFigure(),
-                                editableText.getText(),
-                                !headerFigure.isWrapped())
-                        .show();
+                .forLabelum(
+                        this,
+                        headerFigure,
+                        editableText.getText(),
+                        !headerFigure.isWrapped())
+                .show();
             }
         } else {
             super.performRequest(req);
@@ -172,6 +172,7 @@ public class ModelElementHeaderEditPart extends AbstractNodeEditPart {
      * Default implementation casts the argument to <code>IHeaderFigure</code> and returns it.
      * <p>
      * Sub classes that may put the <code>IHeaderFigure</code> inside another figure and modify the implementation.
+     * 
      * @param aFigure a figure, usually {@link #getFigure()}.
      * @return the {@link IHeaderFigure}.
      */
@@ -197,6 +198,7 @@ public class ModelElementHeaderEditPart extends AbstractNodeEditPart {
      * Get whether the given model must be displayed as a flat header or a stacked wrapped header.
      * <p>
      * The default implementation directly asks the question to the model.
+     * 
      * @param gm the graphic model
      * @return <i>true</i> to display it flat.
      */
@@ -242,6 +244,7 @@ public class ModelElementHeaderEditPart extends AbstractNodeEditPart {
 
     /**
      * To be called when the stereotype mode changes or when the applied stereotypes change.
+     * 
      * @param aFigure The figure to update.
      * @param mode the stereotype display mode.
      */
@@ -317,6 +320,7 @@ public class ModelElementHeaderEditPart extends AbstractNodeEditPart {
 
     /**
      * Refresh the wrapping mode from the figure.
+     * 
      * @param fig the header's figure.
      * @param style the current style.
      * @return if the wrapping mode changed
@@ -411,6 +415,7 @@ public class ModelElementHeaderEditPart extends AbstractNodeEditPart {
 
     /**
      * Refresh the tagged values zone.
+     * 
      * @param aFigure The figure to update
      */
     @objid ("7e739745-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class DefaultDeleteBendPointCommand extends Command {
 
     /**
      * Constructor.
+     * 
      * @param iGmLinkObject The link to edit
      * @param index the index of the point to remove.
      */

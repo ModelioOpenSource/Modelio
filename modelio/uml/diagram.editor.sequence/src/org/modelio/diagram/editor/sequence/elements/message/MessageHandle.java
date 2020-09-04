@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class MessageHandle extends ConnectionHandle {
 
     /**
      * Creates a new MessageHandle, sets its owner to <code>owner</code> , and sets its locator to a {@link ConnectionLocator}.
+     * 
      * @param owner the ConnectionEditPart owner
      * @param location one of {@link ConnectionLocator#SOURCE}, {@link ConnectionLocator#MIDDLE} or {@link ConnectionLocator#TARGET}.
      */
@@ -56,6 +57,7 @@ public class MessageHandle extends ConnectionHandle {
 
     /**
      * Creates a new MessageHandle and sets its owner to <code>owner</code>. If the handle is fixed, it cannot be dragged.
+     * 
      * @param owner the ConnectionEditPart owner
      * @param fixed if true, handle cannot be dragged.
      * @param location one of {@link ConnectionLocator#SOURCE}, {@link ConnectionLocator#MIDDLE} or {@link ConnectionLocator#TARGET}.
@@ -71,6 +73,7 @@ public class MessageHandle extends ConnectionHandle {
 
     /**
      * Creates a new MessageHandle.
+     * 
      * @param location one of {@link ConnectionLocator#SOURCE}, {@link ConnectionLocator#MIDDLE} or {@link ConnectionLocator#TARGET}.
      */
     @objid ("d965311b-55b6-11e2-877f-002564c97630")
@@ -80,6 +83,7 @@ public class MessageHandle extends ConnectionHandle {
 
     /**
      * Return the endpoint handle.
+     * 
      * @return the location, which is is either {@link ConnectionLocator#SOURCE}, {@link ConnectionLocator#MIDDLE} or {@link ConnectionLocator#TARGET}.
      * @since 3.5
      */

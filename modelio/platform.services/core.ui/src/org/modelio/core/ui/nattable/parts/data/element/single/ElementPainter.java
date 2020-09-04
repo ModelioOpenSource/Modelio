@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class ElementPainter extends BackgroundPainter implements IToolTipProvide
 
     /**
      * Create a new painter.
+     * 
      * @param labelProvider a label provider to delegate image/text computing to.
      * @param underline whether the painter should underline the cell's contents or not.
      */
@@ -176,16 +177,13 @@ public class ElementPainter extends BackgroundPainter implements IToolTipProvide
         bounds.width -= imageBounds.width + 1;
         
         gc.drawText(displayedText, x, y, SWT.DRAW_TRANSPARENT | SWT.DRAW_DELIMITER);
+        
         if (this.underline) {
-            // check and draw underline and strikethrough separately so it is
-            // possible to combine both
-            if (this.underline) {
-                // y = start y of text + font height
-                // - half of the font descent so the underline is between the
-                // baseline and the bottom
-                final int underlineY = y + fontHeight - (gc.getFontMetrics().getDescent() / 2);
-                gc.drawLine(x, underlineY, x + gc.textExtent(text).x, underlineY);
-            }
+            // y = start y of text + font height
+            // - half of the font descent so the underline is between the
+            // baseline and the bottom
+            final int underlineY = y + fontHeight - (gc.getFontMetrics().getDescent() / 2);
+            gc.drawLine(x, underlineY, x + gc.textExtent(text).x, underlineY);
         }
     }
 
@@ -222,6 +220,7 @@ public class ElementPainter extends BackgroundPainter implements IToolTipProvide
 
     /**
      * Checks if the given text is bigger than the available space. If not the given text is simply returned without modification. If the text does not fit into the available space, it will be modified by cutting and adding three dots.
+     * 
      * @param text the text to compute
      * @param gc the current GC
      * @param availableLength the available space
@@ -297,6 +296,7 @@ public class ElementPainter extends BackgroundPainter implements IToolTipProvide
 
     /**
      * Checks if a row resize needs to be triggered.
+     * 
      * @param contentHeight The necessary height to show the content completely
      * @param rectangle The available rectangle to render to
      * @return <code>true</code> if a row resize needs to be performed, <code>false</code> if not

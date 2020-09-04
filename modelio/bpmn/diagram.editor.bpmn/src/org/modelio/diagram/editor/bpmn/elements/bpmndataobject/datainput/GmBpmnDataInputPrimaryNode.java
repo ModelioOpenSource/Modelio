@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public final class GmBpmnDataInputPrimaryNode extends GmNoStyleSimpleNode implem
 
     /**
      * Create a initial graphic node.
+     * 
      * @param diagram The diagram
      * @param relatedRef The related element reference, may not be null.
      */
@@ -99,6 +100,7 @@ public final class GmBpmnDataInputPrimaryNode extends GmNoStyleSimpleNode implem
 
     /**
      * Get the parent model representation mode.
+     * 
      * @return the parent representation mode or null if the node has still no parent.
      */
     @objid ("60b754fb-55b6-11e2-877f-002564c97630")

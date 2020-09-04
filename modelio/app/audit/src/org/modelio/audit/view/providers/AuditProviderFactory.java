@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,36 +51,59 @@ public class AuditProviderFactory {
     @objid ("485a6140-5f6b-412c-94b4-6b0b541ae580")
     public AuditProviderFactory(String jobId, IAuditConfigurationPlan auditConfigurationPlan) {
         this.viewMode = AuditViewMode.BYTYPE;
-        
         this.modeMap = new HashMap<>();
         
         ViewModeImpl flatImpl = new ViewModeImpl();
-        flatImpl.defaultColumnSize = new int[] { 80, 20, 50, 60, 400 };
-        flatImpl.columnName = new String[] { Audit.I18N.getString("AuditView.TableTitle.Time"), Audit.I18N.getString("AuditView.TableTitle.Type"), Audit.I18N.getString("AuditView.TableTitle.Rule"), Audit.I18N.getString("AuditView.TableTitle.Element"), Audit.I18N.getString("AuditView.TableTitle.Description") };
+        flatImpl.defaultColumnSize = new int[] { 80, 40, 50, 120, 400};
+        flatImpl.columnName = new String[] { Audit.I18N.getString("AuditView.TableTitle.Time"),
+                                             Audit.I18N.getString("AuditView.TableTitle.Type"),
+                                             Audit.I18N.getString("AuditView.TableTitle.Rule"),
+                                             Audit.I18N.getString("AuditView.TableTitle.Element"),
+                                             Audit.I18N.getString("AuditView.TableTitle.Description")};
         flatImpl.contentProvider = new FlatContentProvider(jobId);
-        flatImpl.labelsProviders = new CellLabelProvider[] { new TimeLabelProvider(), new TypeLabelProvier(), new RuleLabelProvider(), new ElementLabelProvider(), new MessageLabelProvider(auditConfigurationPlan) };
+        flatImpl.labelsProviders = new CellLabelProvider[] { new TimeLabelProvider(),
+                                                             new TypeLabelProvier(),
+                                                             new RuleLabelProvider(),
+                                                             new ElementLabelProvider(),
+                                                             new MessageLabelProvider(auditConfigurationPlan)};
         this.modeMap.put(AuditViewMode.FLAT, flatImpl);
         
         ViewModeImpl bytypeImpl = new ViewModeImpl();
-        bytypeImpl.defaultColumnSize = new int[] { 145, 60, 400 };
-        bytypeImpl.columnName = new String[] { Audit.I18N.getString("AuditView.TableTitle.FullType"), Audit.I18N.getString("AuditView.TableTitle.Rule"), Audit.I18N.getString("AuditView.TableTitle.Description") };
+        bytypeImpl.defaultColumnSize = new int[] { 160, 50, 400};
+        bytypeImpl.columnName = new String[] { Audit.I18N.getString("AuditView.TableTitle.FullType"),
+                                               Audit.I18N.getString("AuditView.TableTitle.Rule"),
+                                               Audit.I18N.getString("AuditView.TableTitle.Description")};
         bytypeImpl.contentProvider = new ByTypeContentProvider(jobId);
-        bytypeImpl.labelsProviders = new CellLabelProvider[] { new NumberedTypeLabelProvider(), new RuleLabelProvider(), new MessageLabelProvider(auditConfigurationPlan) };
+        bytypeImpl.labelsProviders = new CellLabelProvider[] { new NumberedTypeLabelProvider(),
+                                                               new RuleLabelProvider(),
+                                                               new MessageLabelProvider(auditConfigurationPlan) };
         this.modeMap.put(AuditViewMode.BYTYPE, bytypeImpl);
         
         ViewModeImpl byelementImpl = new ViewModeImpl();
-        byelementImpl.defaultColumnSize = new int[] { 120, 20, 60, 400 };
-        byelementImpl.columnName = new String[] { Audit.I18N.getString("AuditView.TableTitle.Element"), Audit.I18N.getString("AuditView.TableTitle.Type"), Audit.I18N.getString("AuditView.TableTitle.Rule"), Audit.I18N.getString("AuditView.TableTitle.Description") };
+        byelementImpl.defaultColumnSize = new int[] { 200, 40, 50, 400};
+        byelementImpl.columnName = new String[] { Audit.I18N.getString("AuditView.TableTitle.Element"),
+                                                  Audit.I18N.getString("AuditView.TableTitle.Type"),
+                                                  Audit.I18N.getString("AuditView.TableTitle.Rule"),
+                                                  Audit.I18N.getString("AuditView.TableTitle.Description")};
         byelementImpl.contentProvider = new ByElementContentProvider(jobId);
-        byelementImpl.labelsProviders = new CellLabelProvider[] { new NumberedElementLabelProvider(), new TypeLabelProvier(), new RuleLabelProvider(), new MessageLabelProvider(auditConfigurationPlan) };
+        byelementImpl.labelsProviders = new CellLabelProvider[] { new NumberedElementLabelProvider(),
+                                                                  new TypeLabelProvier(),
+                                                                  new RuleLabelProvider(),
+                                                                  new MessageLabelProvider(auditConfigurationPlan) };
         this.modeMap.put(AuditViewMode.BYELEMENT, byelementImpl);
         
         ViewModeImpl byrule = new ViewModeImpl();
-        byrule.defaultColumnSize = new int[] { 120, 60, 400 };
-        byrule.columnName = new String[] { Audit.I18N.getString("AuditView.TableTitle.Rule"), Audit.I18N.getString("AuditView.TableTitle.Element"), Audit.I18N.getString("AuditView.TableTitle.Description") };
+        byrule.defaultColumnSize = new int[] { 120, 120, 400};
+        byrule.columnName = new String[] { Audit.I18N.getString("AuditView.TableTitle.Rule"),
+                                           Audit.I18N.getString("AuditView.TableTitle.Element"),
+                                           Audit.I18N.getString("AuditView.TableTitle.Description")};
         byrule.contentProvider = new ByRuleContentProvider(jobId);
-        byrule.labelsProviders = new CellLabelProvider[] { new NumberedRuleLabelProvider(), new ElementLabelProvider(), new MessageLabelProvider(auditConfigurationPlan) };
+        byrule.labelsProviders = new CellLabelProvider[] { new NumberedRuleLabelProvider(),
+                                                           new ElementLabelProvider(),
+                                                           new MessageLabelProvider(auditConfigurationPlan) };
         this.modeMap.put(AuditViewMode.BYRULE, byrule);
+        
+        setJobId(jobId);
     }
 
     @objid ("f280c61d-3fdf-48fa-904b-a5dbc69f2b3b")
@@ -118,6 +141,19 @@ public class AuditProviderFactory {
         return this.viewMode;
     }
 
+    /**
+     * Reconfigure the content providers to filter contents by 'jobId'
+     * 
+     * @param jobId if null all audit contents are returned by providers otherwise filtered contents is returned.
+     */
+    @objid ("d378cee1-7672-44fa-b9cc-ac2f1c19ecfc")
+    public void setJobId(String jobId) {
+        this.modeMap.get(AuditViewMode.FLAT).contentProvider = new FlatContentProvider(jobId!=null ? jobId : "");
+        this.modeMap.get(AuditViewMode.BYTYPE).contentProvider = new ByTypeContentProvider(jobId!=null ? jobId : "");
+        this.modeMap.get(AuditViewMode.BYELEMENT).contentProvider = new ByElementContentProvider(jobId!=null ? jobId : "");
+        this.modeMap.get(AuditViewMode.BYRULE).contentProvider = new ByRuleContentProvider(jobId!=null ? jobId : "");
+    }
+
     @objid ("4267c2ad-6430-4954-8781-3e33e317850d")
     private class ViewModeImpl {
         @objid ("524d76d3-ff70-47a6-92e1-dd9426f76ad3")
@@ -129,7 +165,7 @@ public class AuditProviderFactory {
         @objid ("8a6e1144-3d02-4048-b4d8-c259ee5f5e51")
         public IContentProvider contentProvider;
 
-        @objid ("71fcc44e-16fb-45f3-8710-a4e789244b07")
+        @objid ("21e8db77-a8b9-4913-857e-fcbb2670fb0d")
         public CellLabelProvider[] labelsProviders;
 
     }

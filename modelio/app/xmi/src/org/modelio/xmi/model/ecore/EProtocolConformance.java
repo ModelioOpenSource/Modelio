@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,32 +21,15 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
-import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.xmi.plugin.Xmi;
-import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
+import org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2ProtocolConformance;
 
 @objid ("5b3b64cc-f9ad-4680-9bd2-4d4f9b234224")
 public class EProtocolConformance extends EElement {
     @objid ("e5946d3a-8772-4e2f-b7fb-a3a2451793bc")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
-        Dependency result = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createDependency();
-        
-        try {
-            result.getExtension().add(mmServices.getStereotype(XMIProperties.modelerModuleName,
-                    IModelerModuleStereotypes.UML2PROTOCOLCONFORMANCE, result.getMClass()));
-        } catch (ElementNotUniqueException e) {
-            Xmi.LOG.warning(e);
-        }
-        return result;
+        return UML2ProtocolConformance.create().getElement();
     }
 
     @objid ("f4d78669-5c4c-4504-bf76-35c6b9399a3d")

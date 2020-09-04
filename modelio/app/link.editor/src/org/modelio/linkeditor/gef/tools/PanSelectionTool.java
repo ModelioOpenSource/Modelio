@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -103,6 +103,7 @@ public class PanSelectionTool extends SelectionTool {
     /**
      * Returns the cursor used under normal conditions.
      * @see #setDefaultCursor(Cursor)
+     * 
      * @return the default cursor
      */
     @objid ("1bb75786-5e33-11e2-b81d-002564c97630")

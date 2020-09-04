@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -78,6 +78,7 @@ public class ManipulationHelper {
 
     /**
      * Initialize the helper.
+     * 
      * @param host the host edit part.
      */
     @objid ("25cf255d-1267-4a12-a8f2-a57dd6ba3f0d")
@@ -87,6 +88,7 @@ public class ManipulationHelper {
 
     /**
      * Reset the helper and computes predicates that must be valid.
+     * 
      * @param objs the interaction element(s) handled by the host edit part.
      */
     @objid ("ddb5ecb0-a980-4f34-88f5-c8c3b839890f")
@@ -109,6 +111,7 @@ public class ManipulationHelper {
      * Show source feed back on the given feedback layer.
      * <p>
      * Display rectangles in red where predicates fail.
+     * 
      * @param fbLayer the feedback layer.
      */
     @objid ("c86dd748-832c-4c1f-b3cf-feab04b57f05")
@@ -173,6 +176,7 @@ public class ManipulationHelper {
      * Update the {@link Variable} for a {@link MObject}.
      * <p>
      * In case of initialization the variable is created if non existent.
+     * 
      * @param ref the time reference
      * @param value the new line value
      * @return the found or created variable.
@@ -186,6 +190,7 @@ public class ManipulationHelper {
      * Update the {@link Variable} for a {@link TimeReference}.
      * <p>
      * In case of initialization the variable is created if non existent.
+     * 
      * @param ref the time reference
      * @param value the new line value
      * @return the found or created variable.
@@ -206,6 +211,7 @@ public class ManipulationHelper {
 
     /**
      * Tests whether the move is valid.
+     * 
      * @return <i>true</i> if the move is valid else <i>false</i>.
      */
     @objid ("d9683e49-55b6-11e2-877f-002564c97630")
@@ -310,6 +316,7 @@ public class ManipulationHelper {
      * Initialize a {@link Variable} for a {@link TimeReference}.
      * <p>
      * The variable is created if non existent. If the variable already exists it is directly returned.
+     * 
      * @param ref the time reference
      * @param value the new line value
      * @return the found or created variable.
@@ -330,6 +337,7 @@ public class ManipulationHelper {
 
     /**
      * Erase source feedback.
+     * 
      * @param fbLayer The feedback layer.
      */
     @objid ("88f80ce7-aac5-445f-91d5-a149ad2d2e13")
@@ -342,6 +350,7 @@ public class ManipulationHelper {
 
     /**
      * Ensure forMessageEnd is not moved before a creation message or after a destroy message received on its lifeline.
+     * 
      * @param forMessageEnd a message end
      * @param forVariable the message end variable
      * @since 3.7.1

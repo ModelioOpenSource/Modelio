@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,17 +20,14 @@
 
 package org.modelio.xmi.model.ecore;
 
-import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.metamodel.uml.behavior.interactionModel.Lifeline;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.ObjingEAnnotation;
 
 @objid ("900e8f42-72ec-429f-9b2e-3df7f4e14880")
 public class ELifeline extends ENamedElement {
@@ -63,44 +60,17 @@ public class ELifeline extends ENamedElement {
         setRepresented((Lifeline) objingElt);
     }
 
-    @objid ("41ad24e0-502f-4a7b-9189-f5a9c5cc26e4")
-    private void setRepresented(Lifeline lifeline) {
-        ReverseProperties revProp = ReverseProperties.getInstance();
-        
-        boolean isRepresented = false;
-        
-        if ( revProp.isRoundtripEnabled()) {
-        
-            for (Object dependency : ((org.eclipse.uml2.uml.Lifeline) getEcoreElement()).getClientDependencies()){
-        
-                if (ObjingEAnnotation.isRepresentation((org.eclipse.uml2.uml.Element)dependency)){
-                    Element representation = (Element)revProp.getMappedElement(((org.eclipse.uml2.uml.Dependency)dependency).getSuppliers().get(0));
-        
-                    if (representation instanceof Instance){
-                        lifeline.setRepresented((Instance)representation);
-                        isRepresented = true;
-                        break;
-                    }
-                }
-            }
-        }
-        
-        if (!isRepresented){
-            setNormalRepresented(revProp,lifeline);
-        }
-    }
-
     @objid ("c99da5ef-8631-4acd-89ea-6f114c16ee38")
-    private void setNormalRepresented(ReverseProperties revProp, Lifeline lifeline) {
+    private void setRepresented(Lifeline lifeline) {
         org.eclipse.uml2.uml.ConnectableElement ecoreRepresented = ((org.eclipse.uml2.uml.Lifeline) getEcoreElement()).getRepresents();
         
         if (ecoreRepresented != null) {
         
-            Object objingRepresented = revProp.getMappedElement(ecoreRepresented);
+            Object objingRepresented = ReverseProperties.getInstance().getMappedElement(ecoreRepresented);
             if (objingRepresented instanceof Instance)
-                lifeline.setRepresented((Instance)objingRepresented);
+                lifeline.setRepresented((Instance) objingRepresented);
             else if (objingRepresented instanceof List){
-                for (ModelElement elt : (ArrayList<ModelElement>) objingRepresented){
+                for (Object elt : (List<?>) objingRepresented){
                     if (elt instanceof Instance){
                         lifeline.setRepresented((Instance) elt);
                     }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,11 +68,12 @@ public class OAttributeLink extends OElement implements IOElement {
         setDefiningFeature((org.eclipse.uml2.uml.Slot) ecoreElt);
         setExpressionOfValue((org.eclipse.uml2.uml.Slot) ecoreElt);
         
-        ObjingEAnnotation.setValue(ecoreElt, getObjingElement().getValue());
-        ObjingEAnnotation.setIsAttributeLink(ecoreElt);
-        ObjingEAnnotation.setName(ecoreElt, getObjingElement().getName());
-        
-        setOwnerAnnotation(ecoreElt);
+        if (GenerationProperties.getInstance().isRoundtripEnabled()) {
+            ObjingEAnnotation.setValue(ecoreElt, getObjingElement().getValue());
+            ObjingEAnnotation.setIsAttributeLink(ecoreElt);
+            ObjingEAnnotation.setName(ecoreElt, getObjingElement().getName());
+            setOwnerAnnotation(ecoreElt);
+        }
     }
 
     @objid ("84a7d5b4-a55c-4d4e-bf42-a4c1bc213d4b")
@@ -125,7 +126,7 @@ public class OAttributeLink extends OElement implements IOElement {
                             try {
                                 ((org.eclipse.uml2.uml.LiteralUnlimitedNatural) result).setValue(Integer.valueOf(value.toString()));
                             } catch (NumberFormatException e) {
-        
+                                Xmi.LOG.warning(e);
                                 literalNull.destroy();
                                 setExpression(slot, value);
                             }
@@ -160,12 +161,13 @@ public class OAttributeLink extends OElement implements IOElement {
                                 }
         
                             } catch (NumberFormatException e) {
+                                Xmi.LOG.warning(e);
                                 setExpression(slot, value);
                                 String contextualMsg = Xmi.I18N.getMessage("logFile.exception.stringConverter.defaultValue", getObjingElement().getName(), "AttributeLink");
         
                                 String message = Xmi.I18N.getMessage("logFile.exception.stringConverter.defaultMsg", "String", "\"" + value + "\"", "Integer");
                                 GenerationProperties.getInstance().addInfo(contextualMsg, getObjingElement(), message);
-                                    }
+                            }
                         } else if (((umlTypes.getCHAR() != null) && (umlTypes.getCHAR().equals(objingType)))
                                 || ((umlTypes.getSTRING() != null) && (umlTypes.getSTRING().equals(objingType)))) {// CHAR and STRING case
         

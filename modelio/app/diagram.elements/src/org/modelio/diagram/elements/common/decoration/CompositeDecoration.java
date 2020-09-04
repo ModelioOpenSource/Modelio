@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -102,6 +102,7 @@ public class CompositeDecoration extends Figure implements IPenOptionsSupport, R
 
     /**
      * Get the location given to the last call to {@link #setLocation(Point)}.
+     * 
      * @return this decoration location.
      */
     @objid ("f98d04f1-9fc9-4a62-b208-60580d75595f")
@@ -111,6 +112,7 @@ public class CompositeDecoration extends Figure implements IPenOptionsSupport, R
 
     /**
      * Set the qualifier group
+     * 
      * @param qualifierGroup the qualifier group
      */
     @objid ("a56ba33c-77b7-4c27-a6e2-6c0366ab263e")
@@ -129,6 +131,7 @@ public class CompositeDecoration extends Figure implements IPenOptionsSupport, R
 
     /**
      * Set the arrow decoration.
+     * 
      * @param deco the arrow decoration.
      */
     @objid ("519ecac8-f896-4cd4-a237-fb0cd1042e07")
@@ -157,6 +160,7 @@ public class CompositeDecoration extends Figure implements IPenOptionsSupport, R
 
     /**
      * Direction the arrow should be pointing FROM.
+     * 
      * @return Direction the arrow should be pointing FROM.
      */
     @objid ("79eb9697-8b77-4732-8ccf-5cbc01a0a2bc")
@@ -264,6 +268,7 @@ public class CompositeDecoration extends Figure implements IPenOptionsSupport, R
 
     /**
      * Get the decoration part of the composite decoration.
+     * 
      * @return the decoration part.
      */
     @objid ("9e0c643f-e971-487c-812a-84d2812d6a0e")
@@ -333,6 +338,7 @@ public class CompositeDecoration extends Figure implements IPenOptionsSupport, R
 
         /**
          * Get the given node bounds in the container figure coordinates.
+         * 
          * @param node a figure
          * @return the figure bounds in the container coordinates.
          */
@@ -351,6 +357,7 @@ public class CompositeDecoration extends Figure implements IPenOptionsSupport, R
 
         /**
          * Get the connection extremity this decoration is sticked on.
+         * 
          * @return a node figure.
          */
         @objid ("4b88dc76-033b-45d2-a135-70444c98d312")
@@ -370,6 +377,7 @@ public class CompositeDecoration extends Figure implements IPenOptionsSupport, R
 
         /**
          * Place the decoration
+         * 
          * @param r the qualifier bounds
          * @param side the side where to place the decoration
          */

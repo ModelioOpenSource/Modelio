@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -110,6 +110,7 @@ public class MofSmClass extends SmObjectSmClass {
 
     /**
      * Quick access to the 'Name' attribute.
+     * 
      * @return the 'Name' attribute.
      */
     @objid ("31866cff-7c06-4336-a007-5eaaf62dc026")
@@ -173,6 +174,7 @@ public class MofSmClass extends SmObjectSmClass {
      * <p>
      * A relationship metaclass elements represents links between other objects. They have source and target MDependencies.
      * @since toutatis
+     * 
      * @return true if this metaclass is fake.
      */
     @objid ("3c442a9d-1529-4b5a-b97d-832a9a0652bd")
@@ -226,6 +228,7 @@ public class MofSmClass extends SmObjectSmClass {
 
     /**
      * Set the parent metaclass.
+     * 
      * @param aMofCls the parent metaclass.
      */
     @objid ("572b7ced-7195-47e5-a31d-f874fa51dd40")
@@ -367,6 +370,7 @@ public class MofSmClass extends SmObjectSmClass {
      * Delete a dependency.
      * <p>
      * The opposite is not deleted.
+     * 
      * @param depName the dependency to remove.
      */
     @objid ("81716d51-519c-4b72-86fa-12bd9aedc1a4")

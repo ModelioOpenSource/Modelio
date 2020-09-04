@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -346,6 +346,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
 
     /**
      * Sets the behaviour to adopt.
+     * 
      * @param value the new behaviour.
      */
     @objid ("6132ed8f-55b6-11e2-877f-002564c97630")
@@ -473,6 +474,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
 
     /**
      * Returns the current behaviour.
+     * 
      * @return the current behaviour.
      */
     @objid ("6132eda3-55b6-11e2-877f-002564c97630")

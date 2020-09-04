@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Localization: plugin
 Bundle-Name: Core Help
 Bundle-SymbolicName: org.modelio.core.rcp;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Vendor: modelio.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.modelio.utils,
@@ -17,6 +17,7 @@ Require-Bundle: org.modelio.utils,
  org.eclipse.core.runtime,
  org.eclipse.e4.core.contexts
 Export-Package: org.modelio.core.rcp.e4model,
+ org.modelio.core.rcp.extensionpoint,
  org.modelio.core.rcp.inputpart,
  org.modelio.core.rcp.system,
  org.modelio.core.rcp.uiservice

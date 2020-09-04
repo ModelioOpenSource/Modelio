@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,10 +77,10 @@ public class PackageRamcHandler {
                 return;
             }
         
-            RamcModel model = new RamcModel(projectService.getOpenedProject().getProjectPath(), ramc);
+            RamcModel model = new RamcModel(projectService.getOpenedProject().getProjectFileStructure().getProjectPath(), ramc);
             List<IModule> contributorCandidates = new ArrayList<>();
             for (IRTModule m : moduleService.getStartedModules()) {
-                if ((m.getIModule() != null && m.getIModule().getModelComponentContributor(model) != null)) {
+                if (m.getIModule() != null && m.getIModule().getModelComponentContributor(model) != null) {
                     contributorCandidates.add(m.getIModule());
                 }
             }
@@ -170,7 +170,7 @@ public class PackageRamcHandler {
         // Create and configure the file chooser dialog
         String defaultName = makeDefaultName(model);
         final FileDialog fileChooser = new FileDialog(shell, SWT.SAVE | SWT.SINGLE);
-        fileChooser.setFilterPath(gproject.getProjectPath().toString());
+        fileChooser.setFilterPath(gproject.getProjectFileStructure().getProjectPath().toString());
         fileChooser.setFileName(defaultName);
         
         while (true) {

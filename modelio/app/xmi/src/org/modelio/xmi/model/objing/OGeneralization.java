@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,21 +49,21 @@ public class OGeneralization extends OElement implements IOElement {
     @Override
     public void attach(org.eclipse.uml2.uml.Element ecoreElt) {
         GenerationProperties genProp = GenerationProperties.getInstance();
-                
+        
         NameSpace objingSubType = this.objingElement.getSubType();
         NameSpace objingSuperType = this.objingElement.getSuperType();
-                
+        
         // Gets or creates the ecore subtype element:
         org.eclipse.uml2.uml.Element ecoreSubType = genProp
                 .getMappedElement(objingSubType);
-                
+        
         // Gets or creates the ecore supertype element:
         org.eclipse.uml2.uml.Element ecoreSuperType = genProp
                 .getMappedElement(objingSuperType);
-                
+        
         if (ecoreSubType != null && ecoreSuperType != null) {
             org.eclipse.uml2.uml.Generalization ecoreLink = (org.eclipse.uml2.uml.Generalization) ecoreElt;
-                
+        
             if (ecoreSubType instanceof org.eclipse.uml2.uml.Classifier
                     && ecoreSuperType instanceof org.eclipse.uml2.uml.Classifier) {
                 ecoreLink.setSpecific( (org.eclipse.uml2.uml.Classifier) ecoreSubType);
@@ -85,7 +85,9 @@ public class OGeneralization extends OElement implements IOElement {
     @objid ("f208959b-479c-4d51-8c95-de97f094dac9")
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
-        setDiscriminatorEAnnotation((org.eclipse.uml2.uml.Generalization) ecoreElt);
+        if (GenerationProperties.getInstance().isRoundtripEnabled()){
+            setDiscriminatorEAnnotation((org.eclipse.uml2.uml.Generalization) ecoreElt);
+        }
     }
 
     @objid ("b5dcff6b-25d0-48da-aece-c61d847b7233")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class VerticalTextIconPainter extends AbstractCellPainter {
 
     /**
      * Create a new painter.
+     * 
      * @param underline whether the painter should underline the cell's contents or not.
      */
     @objid ("eca61429-b4cc-45cb-904c-7266f4c0dd68")
@@ -79,6 +80,7 @@ public class VerticalTextIconPainter extends AbstractCellPainter {
      * <dt><b>Styles: </b></dt>
      * <dd>UP, DOWN</dd>
      * </dl>
+     * 
      * @param image the image to draw
      * @param x the x coordinate of the top left corner of the drawing rectangle
      * @param y the y coordinate of the top left corner of the drawing rectangle
@@ -259,6 +261,7 @@ public class VerticalTextIconPainter extends AbstractCellPainter {
      * given text is simply returned without modification. If the text does not
      * fit into the available space, it will be modified by cutting and adding
      * three dots.
+     * 
      * @param text the text to compute
      * @param gc the current GC
      * @param availableLength the available space

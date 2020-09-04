@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -82,6 +82,7 @@ public class EditionManager {
 
     /**
      * Open an editor for the given parameters.
+     * 
      * @param modelElement the represented model element
      * @param file the file to open
      * @param editorTypeID the editor type

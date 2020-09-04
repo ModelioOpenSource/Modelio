@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -133,6 +133,7 @@ public class ArtifactEditPart extends AbstractNodeEditPart {
 
     /**
      * Update the separation lines between zones.
+     * 
      * @param stateFig the composite figure to update.
      */
     @objid ("9712bca5-55b6-11e2-877f-002564c97630")

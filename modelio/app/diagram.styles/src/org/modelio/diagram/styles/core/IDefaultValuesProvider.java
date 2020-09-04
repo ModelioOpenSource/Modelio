@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ public interface IDefaultValuesProvider {
      * However, for some specific case, safe defaults values are possible, for example a Font.<br>
      * @param type
      * @throws Exception
+     * 
      * @return the value or null
      */
     @objid ("85512461-1926-11e2-92d2-001ec947c8cc")
@@ -42,6 +43,7 @@ public interface IDefaultValuesProvider {
      * meaning.
      * @param metaKey
      * @throws Exception
+     * 
      * @return the value or null
      */
     @objid ("85512467-1926-11e2-92d2-001ec947c8cc")

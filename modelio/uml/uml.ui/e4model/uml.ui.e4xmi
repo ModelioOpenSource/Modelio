@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_FhNXwDeVEea5itNs1dsXhg">
-  <imports xsi:type="menu:Menu" xmi:id="_XpI_oDkYEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.view.menu.createroot"/>
-  <imports xsi:type="basic:Part" xmi:id="_5phMYDkmEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.view.part"/>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_FhNXwDeVEea5itNs1dsXhg">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_YQZM4DkYEeaqWoLYUSg6nw" featurename="children" parentElementId="org.modelio.model.browser.view.menu.createroot">
     <elements xsi:type="menu:DirectMenuItem" xmi:id="_c4CGYDkYEeaqWoLYUSg6nw" elementId="org.modelio.model.browser.item.createumlroot" label="%CreateElementMenu.CreateUmlProject.label" iconURI="platform:/plugin/org.modelio.uml.ui/icons/uml.png" tooltip="%CreateElementMenu.CreateUmlProject.tooltip" contributionURI="bundleclass://org.modelio.uml.ui/org.modelio.uml.ui.browser.handlers.CreateUmlProjectHandler"/>
   </fragments>

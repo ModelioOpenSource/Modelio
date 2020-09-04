@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class ClonePropertiesSelectionTool extends PanSelectionTool {
 
     /**
      * C'tor.
+     * 
      * @param refEditPart the edit part used as reference.
      */
     @objid ("66a54802-33f7-11e2-95fe-001ec947c8cc")
@@ -111,7 +112,7 @@ public class ClonePropertiesSelectionTool extends PanSelectionTool {
             }
             
             // Save diagram
-            diagram.getPersister().save(false);
+            diagram.save(false);
             
             // end of processing code , commit the transaction
             transaction.commit();
@@ -213,6 +214,7 @@ public class ClonePropertiesSelectionTool extends PanSelectionTool {
     /**
      * Returns the GraphicalEditPart being hovered by the mouse however
      * excluding the root edit part.
+     * 
      * @return the hovered GraphicalEditPart or null
      */
     @objid ("66a7aa5e-33f7-11e2-95fe-001ec947c8cc")

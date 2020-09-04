@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -110,6 +110,7 @@ public class BPMNShape extends LabeledShape {
 
     /**
      * Sets the value of the bpmnLabel property.
+     * 
      * @param value allowed object is
      * {@link BPMNLabel }
      */
@@ -131,6 +132,7 @@ public class BPMNShape extends LabeledShape {
 
     /**
      * Sets the value of the bpmnElement property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -152,6 +154,7 @@ public class BPMNShape extends LabeledShape {
 
     /**
      * Sets the value of the isHorizontal property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -173,6 +176,7 @@ public class BPMNShape extends LabeledShape {
 
     /**
      * Sets the value of the isExpanded property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -194,6 +198,7 @@ public class BPMNShape extends LabeledShape {
 
     /**
      * Sets the value of the isMarkerVisible property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -215,6 +220,7 @@ public class BPMNShape extends LabeledShape {
 
     /**
      * Sets the value of the isMessageVisible property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -236,6 +242,7 @@ public class BPMNShape extends LabeledShape {
 
     /**
      * Sets the value of the participantBandKind property.
+     * 
      * @param value allowed object is
      * {@link ParticipantBandKind }
      */
@@ -257,6 +264,7 @@ public class BPMNShape extends LabeledShape {
 
     /**
      * Sets the value of the choreographyActivityShape property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

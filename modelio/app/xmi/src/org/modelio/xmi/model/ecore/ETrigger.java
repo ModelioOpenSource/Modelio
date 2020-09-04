@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -134,8 +134,7 @@ public class ETrigger extends ENamedElement {
                     objingElt.setExpression(String.valueOf(bool));
                 else{
                     Integer inte = value.integerValue();
-                    if (inte != null)
-                        objingElt.setExpression(String.valueOf(inte));
+                    objingElt.setExpression(String.valueOf(inte));
                 }
             }
         }
@@ -148,7 +147,7 @@ public class ETrigger extends ENamedElement {
         if (value != null){
             String expr = value.stringValue();
             if (expr != null){
-               objingElt.setExpression(expr);
+                objingElt.setExpression(expr);
             }
         }
     }

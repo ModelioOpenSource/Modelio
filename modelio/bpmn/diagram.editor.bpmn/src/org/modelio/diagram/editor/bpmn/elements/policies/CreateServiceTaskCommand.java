@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class CreateServiceTaskCommand extends Command {
 
     /**
      * Initialize the command.
+     * 
      * @param dropLocation The location of the element in the diagram
      * @param elementToBeCalled The element to be 'called'.
      * @param editPart The destination edit part that will own the call activity.
@@ -130,6 +131,7 @@ public class CreateServiceTaskCommand extends Command {
 
     /**
      * Unmask the given element in the destination edit part.
+     * 
      * @param el The element to unmask
      */
     @objid ("e8cc09e2-e07a-4607-8545-e6783d469710")

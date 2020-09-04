@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,6 +60,7 @@ public interface ILinkTool extends IDiagramTool {
      * If the interaction is not allowed the method <code>return new InteractionStatus(false, "Tooltip message");</code>
      * . In this case the mouse pointer is changed to a "forbidden" icon and the tooltip message is displayed in a
      * tooltip near the mouse pointer<br>
+     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param targetNode the graphic that is below the mouse pointer.
      * @return an InteractionStatus that represents the result of the acceptFirstElement method.
@@ -77,6 +78,7 @@ public interface ILinkTool extends IDiagramTool {
      * . In this case the mouse pointer is changed to a "forbidden" icon and the tooltip message is displayed in a
      * tooltip near the mouse pointer<br>
      * The acceptSecondElement method will be called until the user choose the destination of the link.
+     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param originNode the graphic that is the origin of the link.
      * @param targetNode the graphic the is below the mouse pointer.
@@ -96,6 +98,7 @@ public interface ILinkTool extends IDiagramTool {
      * 
      * <code>originNode</code> and <code>targetNode</code> are the origin and the destination of the link.
      * @see IDiagramHandle#unmask(MObject, int, int)
+     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param originNode the origin graphic of the link to create.
      * @param targetNode the destination graphic of the link to create.

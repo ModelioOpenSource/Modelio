@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public interface IModelLoaderProvider {
      * Should be called only when no model loader is already available.
      * This loader must be used in a <i>try-with-resource</i> statement in order to always
      * be closed.
+     * 
      * @return a model loader.
      */
     @objid ("1fcf84c5-3a2d-11e2-bf6c-001ec947ccaf")
@@ -59,6 +60,7 @@ public interface IModelLoaderProvider {
      * Should be called only when no model refresher is already available.
      * This refresher must be used in a <i>try-with-resource</i> statement in order to always
      * be closed.
+     * 
      * @return a model refresher.
      */
     @objid ("e71a43e0-d267-4d5e-8fca-6ebe488c7118")
@@ -66,6 +68,7 @@ public interface IModelLoaderProvider {
 
     /**
      * Notifies the registered repository change listeners of a repository change.
+     * 
      * @param event the repository change event.
      */
     @objid ("66924011-c7c6-49c0-bffe-7b6ca182ce91")
@@ -73,6 +76,7 @@ public interface IModelLoaderProvider {
 
     /**
      * Get the metamodel to use to load objects.
+     * 
      * @return the metamodel to use.
      */
     @objid ("26303d20-619a-459f-a104-c35ff1da87d2")
@@ -84,6 +88,7 @@ public interface IModelLoaderProvider {
      * This service is closed with the session.
      * <p>
      * It can be used by the repository to make background work.
+     * 
      * @return the background task service.
      */
     @objid ("8a447076-8b7f-4751-b9d0-382bc72591f8")

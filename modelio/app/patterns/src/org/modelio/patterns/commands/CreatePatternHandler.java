@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreatePatternHandler {
     /**
      * Create a new empty pattern.
+     * 
      * @param selection the current modelio selection.
      * @param patternService the pattern service.
      */
@@ -76,6 +77,7 @@ public class CreatePatternHandler {
 
     /**
      * Available only when the selection contains only one ModelTree.
+     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */

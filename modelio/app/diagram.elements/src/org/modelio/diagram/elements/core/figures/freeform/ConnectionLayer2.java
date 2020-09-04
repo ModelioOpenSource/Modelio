@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class ConnectionLayer2 extends ConnectionLayer implements IFreeformFigure
      * Set a filter to use when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
+     * 
      * @param f an extent filter.
      */
     @objid ("62fc0720-7ddb-4e4c-971d-e01773514098")
@@ -75,6 +76,7 @@ public class ConnectionLayer2 extends ConnectionLayer implements IFreeformFigure
      * Get the filter used when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
+     * 
      * @return an extent filter.
      */
     @objid ("1692dec0-0030-4449-aed8-2d0113cb3e33")

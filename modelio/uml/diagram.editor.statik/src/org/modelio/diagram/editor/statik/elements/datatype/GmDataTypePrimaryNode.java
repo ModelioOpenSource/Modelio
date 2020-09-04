@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -119,6 +119,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Creates a GmClass.
+     * 
      * @param diagram The owner diagram.
      * @param ref a reference to the element this GmModel is related to, must not be null.
      */
@@ -165,6 +166,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Get the group where <tt>GmAttributes</tt> are unmasked.
+     * 
      * @return the attributes group.
      */
     @objid ("34c31591-55b7-11e2-877f-002564c97630")
@@ -198,6 +200,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Get the internal structure.
+     * 
      * @return the internal structure.
      */
     @objid ("34c315a7-55b7-11e2-877f-002564c97630")
@@ -207,6 +210,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Get the group where {@link Operation} are unmasked.
+     * 
      * @return the operations group.
      */
     @objid ("34c315ac-55b7-11e2-877f-002564c97630")

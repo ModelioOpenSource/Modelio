@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -127,6 +127,7 @@ public final class UnoCaller {
      * <p>
      * If called from the SWT Display thread, run an inner event loop while waiting.
      * @throws com.sun.star.uno.RuntimeException if the task couldn't be scheduled.
+     * 
      * @param r the task to call
      * @return the result of the task.
      * @throws java.lang.reflect.InvocationTargetException if the task thrown an exception, it is encapsulated in this exception.
@@ -154,6 +155,7 @@ public final class UnoCaller {
      * <p>
      * Necessary because it seems OpenOffice fails answering calls launched from the SWT thread on Windows OS.
      * It also seems that the SWT thread must be able to answer windows event.
+     * 
      * @param t the operation to call. The operation may return an IOException if it fails.
      * @throws java.io.IOException in case of failure.
      */
@@ -194,6 +196,7 @@ public final class UnoCaller {
      * <p>
      * If called from the SWT Display thread, run an inner event loop while waiting.
      * @throws com.sun.star.uno.RuntimeException if the task couldn't be scheduled.
+     * 
      * @param r the task to call
      * @param refreshDisplay if <code>true</code> and called from the SWT Display thread, run an inner event loop while waiting.
      * @return the result of the task.
@@ -269,6 +272,7 @@ public final class UnoCaller {
      * Call asynchronously an operation in the OpenOffice main thread.
      * <p>
      * @throws com.sun.star.uno.RuntimeException if the task couldn't be scheduled.
+     * 
      * @param r the task to submit
      * @return the future result of the task.
      */
@@ -318,6 +322,7 @@ public final class UnoCaller {
 
         /**
          * notifies the callback implementation
+         * 
          * @param aData private data which was provided when the callback was requested.
          */
         @objid ("7e4ff865-6604-4499-8b14-f6b9062f3d33")

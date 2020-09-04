@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Initialize the tracker.
+     * 
      * @param owner Connection edit part that creates and owns the tracker object
      */
     @objid ("806aa774-1dec-11e2-8cad-001ec947c8cc")
@@ -138,6 +139,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Creates the source request that is activated when the drag operation occurs.
+     * 
      * @return a <code>Request</code> that is the newly created source request
      */
     @objid ("806d099d-1dec-11e2-8cad-001ec947c8cc")
@@ -192,6 +194,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Method getConnectionEditPart.
+     * 
      * @return ConnectionEditPart
      */
     @objid ("806d09de-1dec-11e2-8cad-001ec947c8cc")
@@ -217,6 +220,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Gets the current line segment index that the user clicked on to activate the drag tracker.
+     * 
      * @return int
      */
     @objid ("806d09b3-1dec-11e2-8cad-001ec947c8cc")
@@ -232,6 +236,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Determines the type of request that will be created for the drag operation.
+     * 
      * @return Object
      */
     @objid ("806d09b8-1dec-11e2-8cad-001ec947c8cc")
@@ -297,6 +302,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Handle mouse button down on the given connection point.
+     * 
      * @param button the mouse button
      * @param pointIndex the index of the point in the point list
      * @param points the connection points list.
@@ -317,6 +323,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Handle mouse button down on the source end point.
+     * 
      * @param button the mouse button.
      */
     @objid ("806f6c07-1dec-11e2-8cad-001ec947c8cc")
@@ -327,6 +334,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Handle mouse button down on the target end point.
+     * 
      * @param button the mouse button.
      */
     @objid ("806f6c0c-1dec-11e2-8cad-001ec947c8cc")
@@ -376,6 +384,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Sets the current line segment index based on the location the user clicked on the connection.
+     * 
      * @param i int representing the line segment index in the connection.
      */
     @objid ("806aa77d-1dec-11e2-8cad-001ec947c8cc")
@@ -385,6 +394,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Sets the type of request that will be created for the drag operation.
+     * 
      * @param type the <code>String</code> that represents the type of request.
      */
     @objid ("806aa781-1dec-11e2-8cad-001ec947c8cc")
@@ -394,6 +404,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Determines if the the connection should be dragged or not.
+     * 
      * @return <code>boolean</code> <code>true</code> if dragging can occur, <code>false</code> otherwise.
      */
     @objid ("806d09d3-1dec-11e2-8cad-001ec947c8cc")
@@ -487,6 +498,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
      * Source request getter.
      * <p>
      * Lazily creates the request if needed.
+     * 
      * @return the source request.
      */
     @objid ("806d09ea-1dec-11e2-8cad-001ec947c8cc")
@@ -507,6 +519,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Method setShowingFeedback.
+     * 
      * @param bSet boolean to set the feedback flag on or off.
      */
     @objid ("806f6bf5-1dec-11e2-8cad-001ec947c8cc")

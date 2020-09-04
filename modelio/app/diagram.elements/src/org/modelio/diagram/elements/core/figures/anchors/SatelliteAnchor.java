@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class SatelliteAnchor extends AbstractConnectionAnchor {
 
     /**
      * Create an anchor.
+     * 
      * @param reference The owner node of the anchor
      * @param distance The location of the anchor relative to the owner node location.
      */
@@ -72,6 +73,7 @@ public class SatelliteAnchor extends AbstractConnectionAnchor {
 
     /**
      * Modifies the anchor reference point location
+     * 
      * @param d The new relative location of the reference point.
      */
     @objid ("7f5d3dd0-1dec-11e2-8cad-001ec947c8cc")
@@ -82,6 +84,7 @@ public class SatelliteAnchor extends AbstractConnectionAnchor {
 
     /**
      * Get the distance of the reference point from the owner figure.
+     * 
      * @return the reference distance.
      */
     @objid ("7f5d3dd6-1dec-11e2-8cad-001ec947c8cc")

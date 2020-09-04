@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public interface FakeMClass extends MClass {
     /**
      * Get or create a fake dependency from a dependency that existed on the metaclass before it was discarded.
      * <p>
+     * 
      * @param orig a dependency that existed on the metaclass before it becomes fake.
      * @return the matching fake dependency.
      */

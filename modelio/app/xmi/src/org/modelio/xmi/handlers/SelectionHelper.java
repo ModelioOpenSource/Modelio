@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class SelectionHelper {
 
     /**
      * transform {@link ISelection} to list of {@link MObject}.
+     * 
      * @param selection a selection
      * @return a list of MObject.
      */
@@ -69,6 +70,7 @@ public class SelectionHelper {
 
     /**
      * Transform {@link IStructuredSelection} to list of {@link Object}.
+     * 
      * @param selection a selection
      * @return a list of Object, empty if the selection is not a IStructuredSelection.
      */
@@ -84,6 +86,7 @@ public class SelectionHelper {
     /**
      * Transform {@link IStructuredSelection} to list of T.
      * @param <T> the type of elements to find in the Eclipse selection.
+     * 
      * @param selection a selection
      * @param adapterType the type of adapter to look up
      * @return a list of T, empty if the selection is not a IStructuredSelection.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ public class JdbmSwapMXAdapter implements ISwap, ISwapMXBean {
 
     /**
      * Initialize the swap adapter.
+     * 
      * @param swap the real swap.
      */
     @objid ("dcbe8759-493b-11e2-91c9-001ec947ccaf")

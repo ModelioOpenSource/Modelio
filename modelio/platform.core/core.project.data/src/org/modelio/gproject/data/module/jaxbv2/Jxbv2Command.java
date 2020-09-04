@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -126,6 +126,7 @@ public class Jxbv2Command {
 
     /**
      * Gets the value of the handler property.
+     * 
      * @return possible object is {@link Jxbv2Handler }
      */
     @objid ("297d5aca-870e-43d1-b11a-500522343c94")
@@ -135,6 +136,7 @@ public class Jxbv2Command {
 
     /**
      * Sets the value of the handler property.
+     * 
      * @param value allowed object is {@link Jxbv2Handler }
      */
     @objid ("a1c566e6-a57f-4711-bc0f-2db55bde8d1c")
@@ -144,6 +146,7 @@ public class Jxbv2Command {
 
     /**
      * Gets the value of the id property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("63d94877-ae83-4993-ad63-4cc852669714")
@@ -153,6 +156,7 @@ public class Jxbv2Command {
 
     /**
      * Sets the value of the id property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("3c9f62ff-af3c-4b07-a9da-b834e38f880a")
@@ -162,6 +166,7 @@ public class Jxbv2Command {
 
     /**
      * Gets the value of the label property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("31ea23e8-18dc-416e-9b4f-63ec003c824c")
@@ -171,6 +176,7 @@ public class Jxbv2Command {
 
     /**
      * Sets the value of the label property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("3fb7b422-fceb-4c29-928b-c43c1729cb29")
@@ -180,6 +186,7 @@ public class Jxbv2Command {
 
     /**
      * Gets the value of the tooltip property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("9fc5d379-86b6-413f-af99-b0e8922e0d9e")
@@ -189,6 +196,7 @@ public class Jxbv2Command {
 
     /**
      * Sets the value of the tooltip property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("ae8c5f4a-49c2-4f70-ac23-0c56cce3f099")
@@ -198,6 +206,7 @@ public class Jxbv2Command {
 
     /**
      * Gets the value of the image property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("0ee9ca94-6f56-4bfe-a508-5806a4e63005")
@@ -207,6 +216,7 @@ public class Jxbv2Command {
 
     /**
      * Sets the value of the image property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("b84ae993-5fc0-4305-9f9e-9667021b5e03")
@@ -216,6 +226,7 @@ public class Jxbv2Command {
 
     /**
      * Gets the value of the group property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("2c67ec7f-e9db-4fff-ad73-65b0fbfcf63f")
@@ -225,6 +236,7 @@ public class Jxbv2Command {
 
     /**
      * Sets the value of the group property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("4f146385-fb8e-453b-acdd-0ecb2166f1a4")
@@ -234,6 +246,7 @@ public class Jxbv2Command {
 
     /**
      * Gets the value of the modifyModel property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("c05d2787-1014-4661-ac79-b00e8e1d719c")
@@ -243,6 +256,7 @@ public class Jxbv2Command {
 
     /**
      * Sets the value of the modifyModel property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("d5695918-101f-4a8a-8e98-b0a6f9af7084")
@@ -252,6 +266,7 @@ public class Jxbv2Command {
 
     /**
      * Gets the value of the groupImage property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("8eced4ba-0481-4e60-b611-4150baf76c36")
@@ -261,6 +276,7 @@ public class Jxbv2Command {
 
     /**
      * Sets the value of the groupImage property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("0c2031f5-84ad-46c4-b4a5-b8c03d91e024")

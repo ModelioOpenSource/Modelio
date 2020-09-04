@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -78,6 +78,7 @@ public class GmExternDocument extends GmSimpleNode {
 
     /**
      * Creates a GmExternDocument.
+     * 
      * @param diagram The diagram owning the node
      * @param document The represented document element
      * @param ref The represented document reference
@@ -157,6 +158,7 @@ public class GmExternDocument extends GmSimpleNode {
 
     /**
      * Get the extern document type label.
+     * 
      * @return the document type label.
      */
     @objid ("8156b033-1dec-11e2-8cad-001ec947c8cc")
@@ -174,6 +176,7 @@ public class GmExternDocument extends GmSimpleNode {
 
     /**
      * Get the extern document type label.
+     * 
      * @return the document type label.
      */
     @objid ("8156b038-1dec-11e2-8cad-001ec947c8cc")

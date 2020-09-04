@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -83,6 +83,7 @@ public class TProperty extends TBaseElement {
 
     /**
      * Sets the value of the dataState property.
+     * 
      * @param value allowed object is
      * {@link TDataState }
      */
@@ -104,6 +105,7 @@ public class TProperty extends TBaseElement {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -125,6 +127,7 @@ public class TProperty extends TBaseElement {
 
     /**
      * Sets the value of the itemSubjectRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

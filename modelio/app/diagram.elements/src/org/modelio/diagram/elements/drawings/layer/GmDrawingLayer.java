@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -133,6 +133,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
      * Default constructor.
      * @see #LAYER_ID_BACKGROUND
      * @see #LAYER_ID_TOP
+     * 
      * @param diagram the parent diagram
      * @param relatedRef model object where the drawings will be saved in the future.
      * @param layerIdent the layer identifier.
@@ -160,6 +161,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
 
     /**
      * Add a child to the children list and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
+     * 
      * @param child The node to add
      */
     @objid ("feea2aa4-42f5-4fda-aa5e-c06517299a37")
@@ -173,6 +175,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
 
     /**
      * Add a child to the children list at the given index and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
+     * 
      * @param child The node to add
      * @param index the index where the child will be added.
      */
@@ -187,6 +190,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
 
     /**
      * Remove a child from the children list and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
+     * 
      * @param child The node to remove
      */
     @objid ("f5de75c2-3c4f-448e-9ec5-9cacbf236e44")
@@ -272,6 +276,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
      * Move the given child element to the given position.
      * <p>
      * The element at the given position and all subsequent elements are shifted after the moved element.
+     * 
      * @param child the child node to move
      * @param index the new index. If -1 the element is placed at the end.
      */
@@ -353,6 +358,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
 
     /**
      * Add a link going to this element.
+     * 
      * @param link the ongoing link.
      */
     @objid ("d61c88c9-3675-4f8f-9d88-674041fa3d8b")
@@ -365,6 +371,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
 
     /**
      * Add a link starting from this node.
+     * 
      * @param link The starting link.
      */
     @objid ("9733b2dc-1b33-4263-a3ab-625863d9ea1d")
@@ -377,6 +384,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
 
     /**
      * Get the links going to this node.
+     * 
      * @return the ongoing links.
      */
     @objid ("721d725f-d3a9-440a-9a72-b30d57d1a398")
@@ -389,6 +397,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
 
     /**
      * Remove a link going to this node.
+     * 
      * @param gmLink the link to remove.
      */
     @objid ("f3033955-fe45-4af3-8973-36c120cb0f54")
@@ -401,6 +410,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
 
     /**
      * Remove a link starting from this node.
+     * 
      * @param gmLink the link to remove.
      */
     @objid ("3a6b12e0-614c-4111-8696-8ae099042c1f")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -70,6 +70,7 @@ public class CreateMultiPointRequest extends CreateRequest implements TargetRequ
 
     /**
      * Returns the EditParts that were accepted so far.
+     * 
      * @return the source EditParts
      */
     @objid ("80e903f7-1dec-11e2-8cad-001ec947c8cc")
@@ -79,6 +80,7 @@ public class CreateMultiPointRequest extends CreateRequest implements TargetRequ
 
     /**
      * Returns the EditPart that the target end of the connection should be connected to.
+     * 
      * @return the target EditPart
      */
     @objid ("80e90400-1dec-11e2-8cad-001ec947c8cc")
@@ -89,6 +91,7 @@ public class CreateMultiPointRequest extends CreateRequest implements TargetRequ
     /**
      * Returns the start commands. These commands should only be used to pass on information to the target EditPart so
      * it can create the final command.
+     * 
      * @return the commands
      */
     @objid ("80e90407-1dec-11e2-8cad-001ec947c8cc")
@@ -98,6 +101,7 @@ public class CreateMultiPointRequest extends CreateRequest implements TargetRequ
 
     /**
      * Adds an EditPart to the list of sources.
+     * 
      * @param part the source EditPart to add
      */
     @objid ("80e90410-1dec-11e2-8cad-001ec947c8cc")
@@ -107,6 +111,7 @@ public class CreateMultiPointRequest extends CreateRequest implements TargetRequ
 
     /**
      * Removes an EditPart to the list of sources.
+     * 
      * @param part the source EditPart to remove
      */
     @objid ("80e90417-1dec-11e2-8cad-001ec947c8cc")
@@ -116,6 +121,7 @@ public class CreateMultiPointRequest extends CreateRequest implements TargetRequ
 
     /**
      * Sets the target of the Connection to the given EditPart.
+     * 
      * @param part the target EditPart
      */
     @objid ("80e9041e-1dec-11e2-8cad-001ec947c8cc")
@@ -127,6 +133,7 @@ public class CreateMultiPointRequest extends CreateRequest implements TargetRequ
     /**
      * Adds a Command to the list of start commands. This command is only used to pass on information to the target
      * EditPart so it can create the final command.
+     * 
      * @param command the command
      */
     @objid ("80e90426-1dec-11e2-8cad-001ec947c8cc")
@@ -136,6 +143,7 @@ public class CreateMultiPointRequest extends CreateRequest implements TargetRequ
 
     /**
      * Removes a Command from the list of start commands.
+     * 
      * @param command the command
      */
     @objid ("80eb6633-1dec-11e2-8cad-001ec947c8cc")

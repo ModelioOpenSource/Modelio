@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
 
     /**
      * Creates an XML serializer.
+     * 
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected failure.
      */
     @objid ("cb7c35b8-186f-11e2-92d2-001ec947c8cc")
@@ -73,6 +74,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
 
     /**
      * Get the serialized string.
+     * 
      * @return the serialized string.
      */
     @objid ("cb7c35bb-186f-11e2-92d2-001ec947c8cc")
@@ -86,6 +88,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
      * <p>
      * The root element is the element that was passed to
      * {@link #save(IPersistent)}.
+     * 
      * @return the root element.
      */
     @objid ("cb7e97c1-186f-11e2-92d2-001ec947c8cc")
@@ -96,6 +99,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
 
     /**
      * Save a root persistent element and all its relations.
+     * 
      * @param diagram the element to save
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
@@ -173,6 +177,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
      * An external element is an element that is not stored in this stream but
      * in another one. The provided ids must help the diagram reader to retrieve
      * the data where is stored the external element.
+     * 
      * @param extObj The external element to reference.
      * @param dbId A "database" id that can be used to retrieve the location
      * where the element is stored
@@ -228,6 +233,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
      * Only types for which a writeAtt() method is available are supported.
      * @param attName
      * @param value
+     * 
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
     @objid ("cb7e9807-186f-11e2-92d2-001ec947c8cc")
@@ -282,6 +288,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
      * <p>
      * This (bad) design (work in progress) is made to minimize the methods to
      * add to IPersistent.
+     * 
      * @param c the external element.
      */
     @objid ("cb80fa1f-186f-11e2-92d2-001ec947c8cc")
@@ -305,6 +312,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
 
     /**
      * Write a reference to another XML node.
+     * 
      * @param i the persistent object to reference.
      * @throws javax.xml.stream.XMLStreamException in case of error
      */
@@ -444,6 +452,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
      * Write an integer attribute.
      * @param attName
      * @param value
+     * 
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
     @objid ("cb835c75-186f-11e2-92d2-001ec947c8cc")
@@ -463,6 +472,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
 
     /**
      * Write a single object relation
+     * 
      * @param relation a relation name to be fetched by readObject().
      * @param object the object to write.
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
@@ -485,6 +495,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
     /**
      * Write an {@link MRef} attribute.
      * @param attName
+     * 
      * @param mRef a model element reference
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
@@ -507,6 +518,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
      * Write a string attribute.
      * <p>
      * String attribute values are put in a text xml node to support line breaks.
+     * 
      * @param attName attribute name
      * @param value attribute value
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.

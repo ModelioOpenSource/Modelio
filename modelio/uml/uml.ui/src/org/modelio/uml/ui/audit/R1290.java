@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -228,6 +228,7 @@ public class R1290 extends AbstractUmlRule {
 
         /**
          * Find if there are types that are super types of all the given classes.
+         * 
          * @param sourceClasses The source Classes.
          * @return The list of the super Classes or an empty list is no such Classes are found.
          */
@@ -267,6 +268,7 @@ public class R1290 extends AbstractUmlRule {
 
         /**
          * Check the type of source and target classes and return it.
+         * 
          * @param sourceClasses The source Classes
          * @param targetClasses The target Classes
          * @return The KinfOfType of source and target Classes.
@@ -300,6 +302,7 @@ public class R1290 extends AbstractUmlRule {
 
         /**
          * Gets All the super types of a type.
+         * 
          * @param type The class to start from.
          * @param superTypes The list of found super types.
          */
@@ -325,6 +328,7 @@ public class R1290 extends AbstractUmlRule {
 
         /**
          * Finds all the object nodes that are connected to the given object node, except for object nodes that are controls.
+         * 
          * @param node The ObjectNode to start from.
          * @param sourceClasses The list of found Classes
          * @param visitedNodes A list of visited nodes to avoid cycling
@@ -354,6 +358,7 @@ public class R1290 extends AbstractUmlRule {
 
         /**
          * Finds all the object nodes that are connected to the given object node, except for object nodes that are controls.
+         * 
          * @param node The ObjectNode to start from.
          * @param targetClasses The list of found Classes
          * @param visitedNodes A list of visited nodes to avoid cycling
@@ -383,6 +388,7 @@ public class R1290 extends AbstractUmlRule {
 
         /**
          * Finds all the ObjectFlows connecting the given ObjectNode to another ObjectNode, except for ObjectNodes that are controls.
+         * 
          * @param node The Object node to search from
          * @param objectFlows The list of found ObjectFlow
          * @param visitedFlows The list of visited ObjectFlows
@@ -413,6 +419,7 @@ public class R1290 extends AbstractUmlRule {
 
         /**
          * Finds all the ObjectFlows connecting the given ObjectNode to another ObjectNode, except for ObjectNodes that are controls.
+         * 
          * @param node The Object node to search from
          * @param objectFlows The list of found ObjectFlow
          * @param visitedFlows The list of visited ObjectFlows

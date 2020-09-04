@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 public class LinkEndImpl extends UmlModelElementImpl implements LinkEnd {
     /**
      * Compute the link navigation way from all roles construction.
+     * 
      * @return the link navigability.
      */
     @objid ("1efdf05d-4abe-4809-a5e2-6e5cf051d3a6")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class ReconnectDrawingSourceCommand extends Command {
 
     /**
      * Create the command.
+     * 
      * @param gmLink The link to move.
      * @param dest The new source node.
      */
@@ -76,6 +77,7 @@ public class ReconnectDrawingSourceCommand extends Command {
 
     /**
      * Set the model of the source anchor of the link.
+     * 
      * @param anchorModel the model of the source anchor of the link
      */
     @objid ("c7e5c626-b9f0-4293-9f51-610762dd67a3")

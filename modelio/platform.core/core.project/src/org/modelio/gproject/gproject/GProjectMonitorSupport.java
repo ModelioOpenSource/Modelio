@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class GProjectMonitorSupport {
 
     /**
      * Fire a project event on all projects monitors.
+     * 
      * @param ev a project event.
      */
     @objid ("6181ee5e-08b6-11e2-b193-001ec947ccaf")

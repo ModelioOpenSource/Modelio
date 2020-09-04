@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,7 +22,6 @@ package org.modelio.mda.infra.service.impl;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -134,6 +133,7 @@ class RTModule implements IRTModuleAccess {
 
     /**
      * Returns the collection of {@link IModuleAction} associated with passed location.
+     * 
      * @param location the location for which actions are to be returned.
      * @return the collection of {@link IModuleAction} associated with passed location.
      */
@@ -149,6 +149,7 @@ class RTModule implements IRTModuleAccess {
 
     /**
      * Register a module action for the contextual popupmenu(s) of the application.
+     * 
      * @param location The action insertion point in the popupmenu (see {@link ActionLocation})
      * @param action Action to store
      */
@@ -174,7 +175,7 @@ class RTModule implements IRTModuleAccess {
 
     @objid ("3291a949-c2d8-43af-9e8e-1f99b12d1240")
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ("unchecked")
     public <I> I instanciateExternProcessor(String className, Class<I> clazz, Object... initargs) {
         try {
             // Look for a standard class
@@ -214,6 +215,7 @@ class RTModule implements IRTModuleAccess {
 
     /**
      * Return the defined property panels
+     * 
      * @return The collection of property panels
      */
     @objid ("c0e4c841-da08-40ff-9f85-5ca1dad1423c")
@@ -224,6 +226,7 @@ class RTModule implements IRTModuleAccess {
 
     /**
      * Get ids of all defined diagram tools.
+     * 
      * @return the toolIds.
      */
     @objid ("762d4fa9-9dc4-42bd-93cd-a16d6c7562c6")
@@ -345,6 +348,7 @@ class RTModule implements IRTModuleAccess {
 
     /**
      * The module configuration for API use.
+     * 
      * @return The module configuration for API use.
      */
     @objid ("5c33aaf2-b361-4869-a6e5-3ab20788237b")
@@ -426,14 +430,9 @@ class RTModule implements IRTModuleAccess {
         resetDynamicModel();
         
         // Prepare the ModuleConfiguration objects for the module.
-        Path projectspacePath = gModule.getProject().getProjectPath();
-        
         IModuleHandle moduleHandle = gModule.getModuleHandle();
-        this.moduleUserConfiguration = new ModuleConfiguration(gModule, projectspacePath,
-                moduleHandle.getResourcePath(), moduleHandle.getDocPaths(), moduleHandle.getStylePaths());
-        
-        this.moduleApiConfiguration = new PeerModuleConfiguration(gModule, projectspacePath,
-                moduleHandle.getResourcePath(), moduleHandle.getDocPaths());
+        this.moduleUserConfiguration = new ModuleConfiguration(gModule, moduleHandle.getResourcePath(), moduleHandle.getDocPaths(), moduleHandle.getStylePaths());
+        this.moduleApiConfiguration = new PeerModuleConfiguration(gModule, moduleHandle.getResourcePath(), moduleHandle.getDocPaths());
         
         resetDependencies();
         
@@ -491,7 +490,7 @@ class RTModule implements IRTModuleAccess {
         if (this.gmodule != null) {
             for (IRTModule m : new ArrayList<>(this.moduleRegistry.getModules())) {
                 // Note: calling m.getRequiredDependencies() may result of this.resetModuleUsers() being called
-                
+        
                 if (m.getRequiredDependencies().contains(this)) {
                     newUsers.add(m);
                 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -126,6 +126,7 @@ class RamcBuilder {
      * <li>package the model component containing this module</li>
      * <li>close the temporary project and delete it.</li>
      * </ol>
+     * 
      * @param ramcPath the path to package the ramc into.
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
@@ -354,6 +355,7 @@ class RamcBuilder {
 
         /**
          * Constructor.
+         * 
          * @param session the core modeling session.
          * @param repo the repository where elements will be created.
          */
@@ -484,6 +486,7 @@ class RamcBuilder {
 
         /**
          * Create a module.
+         * 
          * @param loadedModule entry in .xml file
          * @return the created module.
          */

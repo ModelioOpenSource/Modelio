@@ -169,6 +169,29 @@ if isFragmentDeployed("Bpmn"):
   ''' imports of bpmn_implementation.api '''
 if isFragmentDeployed("Infrastructure"):
   ''' imports of infrastructure_impl.api '''
+  from org.modelio.metamodel.uml.infrastructure import AbstractProject
+  from org.modelio.metamodel.uml.infrastructure import AbstractResource
+  from org.modelio.metamodel.uml.infrastructure import Dependency
+  from org.modelio.metamodel.uml.infrastructure import Document
+  from org.modelio.metamodel.uml.infrastructure import Element
+  from org.modelio.metamodel.uml.infrastructure import ExternElement
+  from org.modelio.metamodel.uml.infrastructure import ExternProcessor
+  from org.modelio.metamodel.uml.infrastructure import IResourceHandle
+  from org.modelio.metamodel.uml.infrastructure import MetaclassReference
+  from org.modelio.metamodel.uml.infrastructure import MethodologicalLink
+  from org.modelio.metamodel.uml.infrastructure import ModelElement
+  from org.modelio.metamodel.uml.infrastructure import Note
+  from org.modelio.metamodel.uml.infrastructure import NoteType
+  from org.modelio.metamodel.uml.infrastructure import Profile
+  from org.modelio.metamodel.uml.infrastructure import Resource
+  from org.modelio.metamodel.uml.infrastructure import ResourceType
+  from org.modelio.metamodel.uml.infrastructure import Stereotype
+  from org.modelio.metamodel.uml.infrastructure import TagParameter
+  from org.modelio.metamodel.uml.infrastructure import TagType
+  from org.modelio.metamodel.uml.infrastructure import TaggedValue
+  from org.modelio.metamodel.uml.infrastructure.matrix import MatrixDefinition
+  from org.modelio.metamodel.uml.infrastructure.matrix import QueryDefinition
+  from org.modelio.metamodel.uml.infrastructure.matrix import MatrixValueDefinition
   from org.modelio.metamodel.uml.infrastructure.properties import PropertyDefinition
   from org.modelio.metamodel.uml.infrastructure.properties import PropertyTableDefinition
   from org.modelio.metamodel.uml.infrastructure.properties import PropertyTable
@@ -179,28 +202,6 @@ if isFragmentDeployed("Infrastructure"):
   from org.modelio.metamodel.uml.infrastructure.properties import PropertyEnumerationLitteral
   from org.modelio.metamodel.uml.infrastructure.properties import PropertyBaseType
   from org.modelio.metamodel.uml.infrastructure.properties import DynamicPropertyDefinition
-  from org.modelio.metamodel.uml.infrastructure.matrix import MatrixDefinition
-  from org.modelio.metamodel.uml.infrastructure.matrix import QueryDefinition
-  from org.modelio.metamodel.uml.infrastructure.matrix import MatrixValueDefinition
-  from org.modelio.metamodel.uml.infrastructure import Dependency
-  from org.modelio.metamodel.uml.infrastructure import Element
-  from org.modelio.metamodel.uml.infrastructure import ModelElement
-  from org.modelio.metamodel.uml.infrastructure import Note
-  from org.modelio.metamodel.uml.infrastructure import NoteType
-  from org.modelio.metamodel.uml.infrastructure import Profile
-  from org.modelio.metamodel.uml.infrastructure import Stereotype
-  from org.modelio.metamodel.uml.infrastructure import TagParameter
-  from org.modelio.metamodel.uml.infrastructure import TagType
-  from org.modelio.metamodel.uml.infrastructure import TaggedValue
-  from org.modelio.metamodel.uml.infrastructure import MetaclassReference
-  from org.modelio.metamodel.uml.infrastructure import Document
-  from org.modelio.metamodel.uml.infrastructure import ResourceType
-  from org.modelio.metamodel.uml.infrastructure import ExternProcessor
-  from org.modelio.metamodel.uml.infrastructure import AbstractProject
-  from org.modelio.metamodel.uml.infrastructure import AbstractResource
-  from org.modelio.metamodel.uml.infrastructure import Resource
-  from org.modelio.metamodel.uml.infrastructure import IResourceHandle
-  from org.modelio.metamodel.uml.infrastructure import MethodologicalLink
   from org.modelio.metamodel.mda import ModuleParameter
   from org.modelio.metamodel.mda import ModuleComponent
   from org.modelio.metamodel.mda import ModuleState
@@ -218,7 +219,6 @@ if isFragmentDeployed("Infrastructure"):
   from org.modelio.metamodel.impact import ImpactModel
   from org.modelio.metamodel.impact import ImpactLink
   from org.modelio.metamodel.impact import ImpactDiagram
-  from org.modelio.metamodel.impact import ImpactModelType
   from org.modelio.metamodel.mmextensions.infrastructure import ElementNotUniqueException
   from org.modelio.metamodel.mmextensions.infrastructure import ExtensionNotFoundException
   from org.modelio.metamodel.mmextensions.infrastructure import IInfrastructureModelFactory
@@ -629,7 +629,6 @@ from org.modelio.api.module.context.project import IProjectStructure
 from org.modelio.api.module.context.project import IFragmentStructure
 from org.modelio.api.module.context.project import IModuleStructure
 from org.modelio.api.module.license import ILicenseInfos
-from org.modelio.api.module.license import LicenseInfos
 from org.modelio.api.module.lifecycle import IModuleLifeCycleHandler
 from org.modelio.api.module.lifecycle import DefaultModuleLifeCycleHandler
 from org.modelio.api.module.lifecycle import ModuleException

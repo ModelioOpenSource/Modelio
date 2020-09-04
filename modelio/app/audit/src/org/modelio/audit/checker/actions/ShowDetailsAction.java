@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,14 +36,14 @@ import org.modelio.audit.view.model.AuditElementModel;
 
 @objid ("c5960dc3-ded7-4893-baf2-4fac1156738c")
 public class ShowDetailsAction extends Action {
+    @objid ("ff1fa1d5-3c72-4b1c-a205-1ff4a6a27114")
+    private TreeViewer tree;
+
     @objid ("d5b4c833-a2b2-4d40-b2f5-b50bc69aaf48")
     private IProjectService projectService;
 
     @objid ("1833a222-1f41-44ba-b282-3f315d9a92fb")
     private IModelioNavigationService navigationService;
-
-    @objid ("f1b7c876-f584-4641-9180-547d3c245169")
-    private TreeViewer tree;
 
     @objid ("ac57151d-4012-45bb-bb83-b43001dc1e65")
     private IAuditConfigurationPlan configurationPlan;

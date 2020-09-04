@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class FigureUtilities2 extends FigureUtilities {
 
     /**
      * Get the same font as the given one but smaller.
+     * 
      * @param baseFont the base font
      * @return the smaller font
      */
@@ -79,6 +80,7 @@ public class FigureUtilities2 extends FigureUtilities {
 
     /**
      * Produces a ghosting effect on the shape <i>s</i>.
+     * 
      * @param s the shape
      * @param refFigure unused
      * @return the ghosted shape

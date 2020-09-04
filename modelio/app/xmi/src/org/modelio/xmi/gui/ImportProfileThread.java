@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class ImportProfileThread extends AbstractXMIThread implements IRunnableW
 
     /**
      * @param root The profile owner
+     * 
      * @param shell The current shell
      * @param progressBar The progress bar of the XMI dialog
      */
@@ -94,6 +95,7 @@ public class ImportProfileThread extends AbstractXMIThread implements IRunnableW
                 this.progressBar.addFinalValue();
             }
         } catch (AbortProcessException e) {
+            Xmi.LOG.error(e);
             cancelation();
             revProp.setRollback(true);
         } catch (Exception e) {

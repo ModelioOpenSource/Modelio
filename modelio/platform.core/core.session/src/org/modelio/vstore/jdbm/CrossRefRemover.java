@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ class CrossRefRemover {
 
     /**
      * Remove the given object from cross reference indexes.
+     * 
      * @param toRemove the reference to remove
      * @throws java.io.IOException in case of I/O failure
      */

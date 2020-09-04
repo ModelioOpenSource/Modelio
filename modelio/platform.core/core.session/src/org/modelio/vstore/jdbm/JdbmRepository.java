@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -191,6 +191,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Initialize the repository.
+     * 
      * @param repositoryPath the repository directory.
      */
     @objid ("d4d947ae-788f-48ce-a107-811e3932a350")
@@ -300,6 +301,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Get access to the maintenance operations.
+     * 
      * @return the maintenance operations.
      */
     @objid ("95931d5f-7e09-49b2-8508-ecd0a7f9ec74")
@@ -320,6 +322,7 @@ public class JdbmRepository implements IRepository {
      * Get the repository name.
      * <p>
      * The repository name is intended to be displayed to the user.
+     * 
      * @return the repository name.
      */
     @objid ("967b98e7-177f-439e-b16b-249768b1c61b")
@@ -571,10 +574,10 @@ public class JdbmRepository implements IRepository {
                 mon.worked(1);
                 ++i;
                 if (i % 20 == 0) {
-                    mon.subTask(VCoreSession.getMessage("JdbmRepository.save", getName(), i, nbDirty));
+                    mon.subTask(VCoreSession.I18N.getMessage("JdbmRepository.save", getName(), i, nbDirty));
                 } else if (i % 9011 == 0) {
                     // Save too large for one transaction
-                    mon.subTask(VCoreSession.getMessage("JdbmRepository.save.commit1", getName(), i, nbDirty));
+                    mon.subTask(VCoreSession.I18N.getMessage("JdbmRepository.save.commit1", getName(), i, nbDirty));
                     this.db.commit();
                 }
             }
@@ -589,7 +592,7 @@ public class JdbmRepository implements IRepository {
         
         
             // Free memory and JDBM commit
-            mon.subTask(VCoreSession.getMessage("JdbmRepository.save.commit0", getName()));
+            mon.subTask(VCoreSession.I18N.getMessage("JdbmRepository.save.commit0", getName()));
             this.db.clearCache();
             mon.worked(10);
             
@@ -601,14 +604,14 @@ public class JdbmRepository implements IRepository {
             int gcCounter = (int) readNamedObject(GARBAGE_TABLES_COUNTER_KEY, 0) + nbDirty;
             //Log.trace("JdbmRepository.save: GARBAGE_TABLES_COUNTER_KEY = %d + %d = %d", gcCounter - nbDirty, nbDirty, gcCounter);
             if (gcCounter > GARBAGE_TABLES_FREQ) {
-                mon.subTask(VCoreSession.getMessage("JdbmRepository.save.defrag", getName()));
+                mon.subTask(VCoreSession.I18N.getMessage("JdbmRepository.save.defrag", getName()));
                 this.db.defrag();
                 gcCounter = 0;
             }
             writeNamedObject(GARBAGE_TABLES_COUNTER_KEY, gcCounter);
             
             // Reset dirty statuses
-            mon.subTask(VCoreSession.getMessage("JdbmRepository.save.done", getName()));
+            mon.subTask(VCoreSession.I18N.getMessage("JdbmRepository.save.done", getName()));
             for (SmObjectImpl obj : toSave) {
                 obj.setRStatus(IRStatus.REPO_LOADED, IRStatus.REPO_DIRTY, 0);
             }
@@ -637,6 +640,7 @@ public class JdbmRepository implements IRepository {
      * Set the repository name.
      * <p>
      * The repository name is intended to be displayed to the user.
+     * 
      * @param name the repository name.
      */
     @objid ("a651e65c-899a-4572-8fdd-07432ec8c44d")
@@ -668,6 +672,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Get the EMF mapping.
+     * 
      * @return the EMF mapping.
      */
     @objid ("202c1e20-fca4-4720-bbcc-32b0f909a5f2")
@@ -687,6 +692,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Tells whether the identifier is one of the stored objects.
+     * 
      * @param uuid the object identifier.
      * @return true if stored else false.
      */
@@ -728,6 +734,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Remove the object from the repository.
+     * 
      * @param obj the object to remove.
      */
     @objid ("db0a3e6a-612b-41ca-a405-de1e02871e25")
@@ -738,6 +745,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Unload a model object.
+     * 
      * @param obj a model object to forget.
      */
     @objid ("c77433b1-c3c1-47b1-a861-ef8cdc86f0f8")
@@ -788,6 +796,7 @@ public class JdbmRepository implements IRepository {
      * Find all instances of the given metaclass with its sub classes if asked.
      * <p>
      * The model objects are not loaded, only stubs are instantiated.
+     * 
      * @param cls a metamodel class
      * @param recursive <code>true</code> to load all sub classes too.
      * @throws org.modelio.vcore.model.DuplicateObjectException when adding to the cache an object with the same identifier as another one.
@@ -819,6 +828,7 @@ public class JdbmRepository implements IRepository {
      * its content lazily.
      * <p>
      * The model objects are not loaded, only stubs are instantiated lazily.
+     * 
      * @param cls a metamodel class
      * @param recursive <code>true</code> to load all sub classes too.
      * @throws java.lang.IllegalStateException when adding to the cache an object with the same identifier as another one.
@@ -920,6 +930,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Save a descriptor of the current metamodel.
+     * 
      * @throws java.io.IOException on failure
      */
     @objid ("5bd03f16-9ce8-4983-8259-6afcafe715f4")
@@ -987,6 +998,7 @@ public class JdbmRepository implements IRepository {
          * If this collection contains more than Integer.MAX_VALUE elements, returns Integer.MAX_VALUE.
          * <p>
          * <b>Note: Iterates the whole collection content, avoid calling it. </b>
+         * 
          * @return the collection size.
          */
         @objid ("e15a6764-ada7-4802-b05e-897d39eee933")

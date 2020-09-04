@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_7WbvUFudEem6HpljeXJIXA">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_9fa_oFueEem6HpljeXJIXA" featurename="children" parentElementId="org.modelio.app.trimbar.main" positionInList="before:org.eclipse.e4.ui.PerspectiveSwitcher">
+    <elements xsi:type="menu:ToolControl" xmi:id="_EJK60FufEem6HpljeXJIXA" elementId="org.modelio.app.projecttoolbar" contributionURI="bundleclass://org.modelio.app.project.ui/org.modelio.app.project.ui.toolbar.ProjectToolbar"/>
+  </fragments>
+</fragment:ModelFragments>

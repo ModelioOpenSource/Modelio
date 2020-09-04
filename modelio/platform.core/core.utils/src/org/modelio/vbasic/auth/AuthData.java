@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public abstract class AuthData implements IAuthData {
 
     /**
      * Get all authentication data fields
+     * 
      * @return all authentication data fields.
      */
     @objid ("748d888f-84d1-4ed8-b53d-63640d19dfd8")
@@ -57,24 +58,9 @@ public abstract class AuthData implements IAuthData {
     }
 
     /**
-     * Returns a Properties containing all data to serialize.
-     * @return the datas to serialize.
-     */
-    @objid ("767c37a3-e4b0-48eb-8439-4f2c84ff9333")
-    @Override
-    public abstract Map<String, String> serialize();
-
-    /**
-     * Tells whether this authorization data is complete or some fields are missing.
-     * @return <code>true</code> if this data is complete, <code>false</code> if fields are missing.
-     */
-    @objid ("89bb42f8-2a55-416d-9066-b6023676538c")
-    @Override
-    public abstract boolean isComplete();
-
-    /**
      * Convenience method to get a property value and return a default value if
      * the property is not defined.
+     * 
      * @param prop a property key
      * @param defaultValue the default value
      * @return the property value or the default value.
@@ -85,7 +71,7 @@ public abstract class AuthData implements IAuthData {
         
         if (ret == null)
             return defaultValue;
-        else 
+        else
             return ret;
     }
 

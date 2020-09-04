@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.vcore.smkernel.meta.ISmMetamodelFragment;
 public interface IMetamodelSupport {
     /**
      * Add a new metamodel fragment.
+     * 
      * @param mmFragment the metamodel fragment to add.
      */
     @objid ("00722aa1-04f6-458e-8ba1-67be24220bef")
@@ -39,6 +40,7 @@ public interface IMetamodelSupport {
     /**
      * Remove a metamodel fragment and unload all model objects
      * typed by a metaclass defined by the fragment.
+     * 
      * @param removedMm the metamodel fragment to remove
      */
     @objid ("bbd5d1ac-764d-4b3d-95e4-1785f9599e8b")
@@ -46,6 +48,7 @@ public interface IMetamodelSupport {
 
     /**
      * <p>Add a listener that will be triggered when a metamodel fragment is added or removed.</p>
+     * 
      * 
      * @param listener the metamodel fragment to add.
      */

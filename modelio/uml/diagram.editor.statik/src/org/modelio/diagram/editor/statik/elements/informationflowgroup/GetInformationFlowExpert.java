@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class GetInformationFlowExpert {
     /**
      * Get the information flows realized by the given element.
      * <p>
+     * 
      * @param el a model link or a link end model.
      * @return The realized information flows.
      * @throws java.lang.IllegalArgumentException if the given element cannot realize information flows.

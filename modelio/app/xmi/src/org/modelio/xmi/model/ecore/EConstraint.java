@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,26 +42,27 @@ public class EConstraint extends ENamedElement {
         
         if ((! EcoreModelNavigation.isCondition(this.ecoreElement)) 
                 && ((this.ecoreElement.getConstrainedElements().size() > 0))){
-            
-             EList<org.eclipse.uml2.uml.Element> ecoreConstrainedElts = this.ecoreElement.getConstrainedElements();
-           
-             for (org.eclipse.uml2.uml.Element ecoreConstrainedElt : ecoreConstrainedElts) {
-             
-                 Object object = ReverseProperties.getInstance().getMappedElement(ecoreConstrainedElt);
-             
-                 if (object instanceof UmlModelElement){
-                     UmlModelElement objingConstrainedElt = (UmlModelElement) object;
-                     result = ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createConstraint();
-                     result.getConstrainedElement().add(objingConstrainedElt);
-             
-                 }else if (object instanceof List){
-                     List<UmlModelElement> list = (List<UmlModelElement>) object;
-                     result = ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createConstraint();
-                     for (UmlModelElement objingConstrainedElt : list){
-                         result.getConstrainedElement().add(objingConstrainedElt);
-                     }
-                 }
-             }
+        
+            EList<org.eclipse.uml2.uml.Element> ecoreConstrainedElts = this.ecoreElement.getConstrainedElements();
+        
+            for (org.eclipse.uml2.uml.Element ecoreConstrainedElt : ecoreConstrainedElts) {
+        
+                Object object = ReverseProperties.getInstance().getMappedElement(ecoreConstrainedElt);
+        
+                if (object instanceof UmlModelElement){
+                    UmlModelElement objingConstrainedElt = (UmlModelElement) object;
+                    result = ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createConstraint();
+                    result.getConstrainedElement().add(objingConstrainedElt);
+        
+                }else if (object instanceof List){
+                    List<?> list = (List<?>) object;
+                    result = ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createConstraint();
+                    for (Object objingConstrainedElt : list){
+                        if (objingConstrainedElt instanceof UmlModelElement)
+                            result.getConstrainedElement().add((UmlModelElement) objingConstrainedElt);
+                    }
+                }
+            }
         
         }
         return result;

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public interface ICoreSession {
      * It supports listeners who are activated when it frees memory.
      * <p>
      * The memory manager is shared among all core sessions.
+     * 
      * @return the memory manager.
      */
     @objid ("a31e0ccd-0135-4f50-bd4f-6c4292cfb3ec")
@@ -68,6 +69,7 @@ public interface ICoreSession {
 
     /**
      * Get the session metamodel.
+     * 
      * @return the session metamodel.
      */
     @objid ("9ec714e3-73bc-49c7-b51f-ac5f2adbc63e")
@@ -75,6 +77,7 @@ public interface ICoreSession {
 
     /**
      * Get access to the metamodel modification service.
+     * 
      * @return access to the metamodel modifications.
      */
     @objid ("f285be13-ac4b-4274-99bc-d83a1293418e")
@@ -82,6 +85,7 @@ public interface ICoreSession {
 
     /**
      * Get an access to the model.
+     * 
      * @return the model.
      */
     @objid ("005f3cb4-5f00-10c8-842f-001ec947cd2a")
@@ -92,6 +96,7 @@ public interface ICoreSession {
      * <p>
      * This object manages model and status change listeners. It is used to add and remove listeners and to fire model change
      * events.
+     * 
      * @return the model change support.
      */
     @objid ("0038b256-575b-10c8-842f-001ec947cd2a")
@@ -99,6 +104,7 @@ public interface ICoreSession {
 
     /**
      * Get access to the repositories.
+     * 
      * @return an access point to the repositories.
      */
     @objid ("005f33cc-5f00-10c8-842f-001ec947cd2a")
@@ -110,6 +116,7 @@ public interface ICoreSession {
      * It may be used to execute tasks in background.
      * <p>
      * This service is closed with the session.
+     * 
      * @return the background task service.
      */
     @objid ("d1c15511-e4d4-42f4-b21f-512485b8859e")
@@ -117,6 +124,7 @@ public interface ICoreSession {
 
     /**
      * Get access point to the transactions.
+     * 
      * @return an access point to the transactions.
      */
     @objid ("0038a856-575b-10c8-842f-001ec947cd2a")
@@ -124,6 +132,7 @@ public interface ICoreSession {
 
     /**
      * Tells whether the session needs to be saved.
+     * 
      * @return <code>true</code> if the session needs to be saved, <code>false</code> if no element was modified.
      */
     @objid ("c65ee711-2e8c-4c85-8fac-27c17659a0de")
@@ -131,6 +140,7 @@ public interface ICoreSession {
 
     /**
      * Save the model.
+     * 
      * @param monitor a progress monitor. May be <code>null</code>.
      * @throws java.io.IOException if a repository failed to save.
      */
@@ -141,6 +151,7 @@ public interface ICoreSession {
      * Tells whether the session is open.
      * <p>
      * Returns true until {@link #close()} is called.
+     * 
      * @return <i>false</i> if {@link #close()} has been called , else <i>true</i>.
      * @since 3.7
      */

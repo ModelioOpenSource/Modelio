@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,7 +42,7 @@ public class OComponent extends ONameSpace {
             element = createEcoreComponent();
         else
             // The Ecore org.eclipse.uml2.uml.AssociationClass can be created when parsing the
-            // related Ijing org.eclipse.uml2.uml.Association,
+            // related Modelio org.eclipse.uml2.uml.Association,
             // ClassAssociation, or current Component.
             element = getOrCreateEcoreAssociationClass();
         return element;
@@ -128,10 +128,14 @@ public class OComponent extends ONameSpace {
     @objid ("4730da56-16df-425b-8811-84f4ce85f6dd")
     private void setComponentProperties(org.eclipse.uml2.uml.Component ecoreElt) {
         super.setProperties(ecoreElt);
-        setPrimitiveEAnnotation(ecoreElt);
+        
         setLeaf(ecoreElt);
-        setMainEAnnotation(ecoreElt);
         setActive(ecoreElt);
+        
+        if (GenerationProperties.getInstance().isRoundtripEnabled()) {
+            setPrimitiveEAnnotation(ecoreElt);
+            setMainEAnnotation(ecoreElt);
+        }
     }
 
     @objid ("cbb92038-3ce0-466d-a13e-ea50e536a05c")

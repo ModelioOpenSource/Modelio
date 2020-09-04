@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -82,6 +82,7 @@ public class Parameter {
 
     /**
      * Gets the value of the name property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("acfd60f5-b788-4261-adab-334f1ed5bded")
@@ -91,6 +92,7 @@ public class Parameter {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("bec606a4-0ef5-4242-bce4-d29f27656513")
@@ -100,6 +102,7 @@ public class Parameter {
 
     /**
      * Gets the value of the label property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("2377e76b-022d-4349-a7ef-82ffd55b0203")
@@ -109,6 +112,7 @@ public class Parameter {
 
     /**
      * Sets the value of the label property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("f6dec46c-6df5-4678-94cc-539b89337b8b")
@@ -118,6 +122,7 @@ public class Parameter {
 
     /**
      * Gets the value of the description property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("1eaa9ea1-836f-4d97-bfa2-9a72cc19c31f")
@@ -127,6 +132,7 @@ public class Parameter {
 
     /**
      * Sets the value of the description property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("b180eec7-ab4f-4ec5-9d3a-f9d6d8329ece")
@@ -136,6 +142,7 @@ public class Parameter {
 
     /**
      * Gets the value of the metaclass property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("cf471662-0797-4bed-b340-5e421052beb4")
@@ -145,6 +152,7 @@ public class Parameter {
 
     /**
      * Sets the value of the metaclass property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("606a70b3-9335-4a06-8177-5afd4602421b")
@@ -154,6 +162,7 @@ public class Parameter {
 
     /**
      * Gets the value of the id property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("b98575d0-df18-4b36-a2ee-48e6223bff82")
@@ -163,6 +172,7 @@ public class Parameter {
 
     /**
      * Sets the value of the id property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("37015ca3-8d7d-429b-b434-0ace00750c71")

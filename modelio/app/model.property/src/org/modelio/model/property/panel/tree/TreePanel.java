@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -103,6 +103,7 @@ public class TreePanel extends Composite {
 
     /**
      * Select the given model element in the annotation view.
+     * 
      * @param target the model element to select.
      */
     @objid ("8fb14db1-c068-11e1-8c0a-002564c97630")

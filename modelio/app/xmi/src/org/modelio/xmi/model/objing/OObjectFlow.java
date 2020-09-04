@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,13 +48,15 @@ public class OObjectFlow extends OActivityEdge {
         // Properties defined on super classes:
         super.setProperties(ecoreElt);
         
-        
-        // Properties of ObjectFlows:
-        setEffectEAnnotation((org.eclipse.uml2.uml.ObjectFlow) ecoreElt);
+        // Properties of ObjectFlows:      
         setMultiCast((org.eclipse.uml2.uml.ObjectFlow) ecoreElt);
         setMultiReceive((org.eclipse.uml2.uml.ObjectFlow) ecoreElt);
         setSelectionBehavior((org.eclipse.uml2.uml.ObjectFlow) ecoreElt);
         setTransformationBehavior((org.eclipse.uml2.uml.ObjectFlow) ecoreElt);
+        
+        //Modelio Properties
+        if (GenerationProperties.getInstance().isRoundtripEnabled())
+            setEffectEAnnotation((org.eclipse.uml2.uml.ObjectFlow) ecoreElt);
     }
 
     @objid ("571d6964-acf1-424a-af1a-9c77d22e8113")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class OAttribute extends OStructuralFeature {
 
     /**
      * Constructor of OAttribute.
+     * 
      * @param element : the exported Attribute
      */
     @objid ("323c27ef-98e2-410d-b5c3-20d0306b8591")
@@ -134,6 +135,7 @@ public class OAttribute extends OStructuralFeature {
         super.setProperties(ecoreElt);
         
         Property propertyElt = (Property) ecoreElt;
+        
         setType(propertyElt);
         setStatic(propertyElt);
         setReadOnly(propertyElt);

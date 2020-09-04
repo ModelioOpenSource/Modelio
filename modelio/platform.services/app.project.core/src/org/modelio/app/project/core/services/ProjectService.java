@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,79 +20,67 @@
 
 package org.modelio.app.project.core.services;
 
-import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.FileSystemException;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
-import java.nio.file.LinkOption;
 import java.nio.file.Path;
-import java.nio.file.PathMatcher;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.core.runtime.preferences.IEclipsePreferences;
-import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.e4.core.services.events.IEventBroker;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.IPersistentPreferenceStore;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.app.core.IModelioEventService;
-import org.modelio.app.core.ModelioEnv;
 import org.modelio.app.core.events.ModelioEvent;
+import org.modelio.app.preferences.AppStatePreferenceStore;
 import org.modelio.app.preferences.GProjectPreferenceNode;
 import org.modelio.app.preferences.GProjectPreferenceStore;
 import org.modelio.app.preferences.IGProjectPreferenceStore;
 import org.modelio.app.project.core.creation.IProjectCreationData;
 import org.modelio.app.project.core.creation.IProjectCreator;
-import org.modelio.app.project.core.modelshield.ModelShieldController;
 import org.modelio.app.project.core.plugin.AppProjectCore;
+import org.modelio.app.project.core.services.closeproject.IProjectCloser;
+import org.modelio.app.project.core.services.createproject.IProjectCreator2;
 import org.modelio.app.project.core.services.openproject.IProjectOpener;
 import org.modelio.app.project.core.services.openproject.IProjectServiceAccess;
+import org.modelio.app.project.core.services.workspace.IWorkspaceService;
 import org.modelio.gproject.data.project.FragmentDescriptor;
 import org.modelio.gproject.data.project.ProjectDescriptor;
-import org.modelio.gproject.data.project.ProjectDescriptorWriter;
+import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.gproject.fragment.Fragments;
 import org.modelio.gproject.fragment.IProjectFragment;
 import org.modelio.gproject.gproject.FragmentConflictException;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.gproject.GProjectAuthenticationException;
 import org.modelio.gproject.gproject.GProjectConfigurer;
-import org.modelio.gproject.gproject.GProjectEnvironment;
-import org.modelio.gproject.gproject.GProjectFactory;
-import org.modelio.gproject.gproject.IGProjectEnv;
 import org.modelio.gproject.module.IModuleRTCache;
-import org.modelio.mda.infra.service.IModuleManagementService;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
-import org.modelio.metamodel.mmextensions.standard.services.MModelServices;
 import org.modelio.ui.progress.IModelioProgressService;
 import org.modelio.ui.progress.ModelioProgressAdapter;
 import org.modelio.vbasic.auth.IAuthData;
-import org.modelio.vbasic.files.FileUtils;
-import org.modelio.vbasic.files.Zipper;
 import org.modelio.vbasic.progress.IModelioProgress;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
-import org.osgi.service.prefs.BackingStoreException;
 
 /**
  * {@link IProjectService} implementation.
  */
 @objid ("00964fc4-9ea6-103b-a520-001ec947cd2a")
 public class ProjectService implements IProjectService, EventHandler {
-    @objid ("003dc516-7baa-10b3-9941-001ec947cd2a")
-    private static final String LAST_USED_WORKSPACE_PREFERENCE_KEY = "workspace.last";
+    /**
+     * Whether Modelio is in batch mode.
+     * 
+     * FIXME since creation (3.6), another implementation of {@link IProjectService} should be instantiated.
+     */
+    @objid ("3b141013-8dc9-42dc-9de3-c78f097775c0")
+    private boolean batchMode;
 
     /**
      * Plenty event listeners are not prepared to receive a PROJECT_CLOSING event if PROJECT_OPENING has never been sent.
@@ -100,17 +88,20 @@ public class ProjectService implements IProjectService, EventHandler {
     @objid ("33e06f51-2ce4-45e3-b1b4-05764f3927d1")
     private boolean openingEventSent;
 
-    @objid ("8f3c4e54-c92e-4116-b433-e37e7319520b")
-    private final IEclipseContext context;
+    @objid ("d77b76fe-232e-4e7a-9232-de403377c1f1")
+    private final IProjectCreator2 projectCreator2;
 
-    /**
-     * Whether Modelio is in batch mode.
-     * 
-     * @deprecated FIXME since creation (3.6), another implementation of {@link IProjectService} should be instantiated.
-     */
-    @objid ("3b141013-8dc9-42dc-9de3-c78f097775c0")
-    @Deprecated
-    private boolean batchMode;
+    @objid ("fc48faca-a678-48a5-a2f8-cb40a8dc9fc8")
+    private final IProjectOpener projectOpener;
+
+    @objid ("89878141-4556-4adf-9212-ee39a4c474dc")
+    private final GProjectConfigurer projectSynchronizer;
+
+    @objid ("739a6657-2bf8-4419-8800-3f37f9310cc4")
+    private final IWorkspaceService worskpaceService;
+
+    @objid ("f0d75e23-6c72-4ccb-b883-8377642d25d6")
+    private IPersistentPreferenceStore appStateStore;
 
     @objid ("f354133c-7447-4867-895c-f63bf790b2f0")
     private GProjectPreferenceStore prefsStore;
@@ -118,31 +109,39 @@ public class ProjectService implements IProjectService, EventHandler {
     @objid ("008017fe-acc2-103b-a520-001ec947cd2a")
     private GProject project;
 
-    @objid ("00801182-acc2-103b-a520-001ec947cd2a")
-    private Path workspace;
+    @objid ("2ddd01d5-0476-4acd-aac8-b9e98c131935")
+    private final IEclipseContext context;
 
-    @objid ("89878141-4556-4adf-9212-ee39a4c474dc")
-    private final GProjectConfigurer projectSynchronizer;
+    @objid ("2879dc6a-867c-440a-8b48-9ddcf61495fb")
+    private final IProjectCloser projectCloser;
 
-    @objid ("f0d75e23-6c72-4ccb-b883-8377642d25d6")
-    private IPersistentPreferenceStore appStateStore;
-
-    @objid ("c4227390-308b-42a2-a7d9-cff8276c54b3")
-    private IProjectCreatorFactory projectCreatorFactory;
-
-    @objid ("706d04fa-0399-47bb-85b0-489af72d6b27")
-    private IProjectOpener projectOpener;
+    @objid ("bbaa47ab-d4dc-4487-a44c-5dc91bbdf1d3")
+    private final IFragmentMigratorFactory fragmentMigratorFactory;
 
     /**
-     * C'tor
+     * Mandatory constructor.
+     * 
      * @param context the Eclipse context.
+     * @param projectCreator2 the project creation service
+     * @param projectOpener the project openeing service
+     * @param projectSynchronizer the project synchronization service
+     * @param projectCloser the project closing service
+     * @param worskpaceService the workspace service
+     * @param fragmentMigratorFactory the fragment migration service factory
      */
     @objid ("00802442-acc2-103b-a520-001ec947cd2a")
-    public ProjectService(final IEclipseContext context, IProjectCreatorFactory projectCreatorFactory, IProjectOpener projectOpener, GProjectConfigurer projectSynchronizer) {
-        this.context = context;
-        this.projectCreatorFactory = projectCreatorFactory;
-        this.projectOpener = projectOpener;
-        this.projectSynchronizer = projectSynchronizer;
+    public ProjectService(final IEclipseContext context, final IProjectCreator2 projectCreator2, final IProjectOpener projectOpener, final GProjectConfigurer projectSynchronizer, final IProjectCloser projectCloser, final IWorkspaceService worskpaceService, IFragmentMigratorFactory fragmentMigratorFactory) {
+        this.context = Objects.requireNonNull(context);
+        this.projectCreator2 = Objects.requireNonNull(projectCreator2);
+        this.projectOpener = Objects.requireNonNull(projectOpener);
+        this.projectSynchronizer = Objects.requireNonNull(projectSynchronizer);
+        this.projectCloser = Objects.requireNonNull(projectCloser);
+        this.worskpaceService = Objects.requireNonNull(worskpaceService);
+        this.fragmentMigratorFactory = Objects.requireNonNull(fragmentMigratorFactory);
+        
+        // Create a write access to ProjectService members.
+        final IProjectServiceAccess svcAccess = new ProjectServiceAccess(this);
+        configure(svcAccess);
         
         final IEventBroker eventBroker = context.get(IEventBroker.class);
         eventBroker.subscribe("BATCH", this);
@@ -150,154 +149,32 @@ public class ProjectService implements IProjectService, EventHandler {
 
     @objid ("005385e0-bb2f-103c-a520-001ec947cd2a")
     @Override
-    public void addFragment(GProject openedProject, FragmentDescriptor fragmentDescriptor, IProgressMonitor monitor) throws FragmentConflictException {
+    public void addFragment(final GProject openedProject, final FragmentDescriptor fragmentDescriptor, final IProgressMonitor monitor) throws FragmentConflictException {
         final IProjectFragment newFragment = Fragments.getFactory(fragmentDescriptor).instantiate(fragmentDescriptor);
         openedProject.registerFragment(newFragment, new ModelioProgressAdapter(monitor));
         
         this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.FRAGMENT_ADDED, newFragment);
     }
 
-    /**
-     * @Inheritdoc
-     */
-    @objid ("008063d0-acc2-103b-a520-001ec947cd2a")
+    @objid ("4bf5aa25-e4cd-4639-850f-47816c59766d")
     @Override
-    public void changeWorkspace(Path workspacePath) {
+    public void changeWorkspace(Path path) throws IllegalArgumentException, IllegalStateException {
         if (this.project != null) {
             throw new IllegalStateException("A project is already opened.");
         }
-        
-        if (Files.exists(workspacePath) && Files.isDirectory(workspacePath)) {
-            if (Files.isWritable(workspacePath)) {
-                this.workspace = workspacePath;
-                ProjectService.writePreferedWorkspace(workspacePath);
-                this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.WORKSPACE_SWITCH, workspacePath);
-            } else {
-                MessageDialog.openError(Display.getCurrent().getActiveShell(),
-                        AppProjectCore.I18N.getString("AccessWorkspaceWrite.failed.title"),
-                        AppProjectCore.I18N.getMessage("AccessWorkspaceWrite.failed.message", workspacePath.toString()));
-            }
-        } else {
-            if (workspacePath.toFile().exists()) {
-                MessageDialog.openError(Display.getCurrent().getActiveShell(),
-                        AppProjectCore.I18N.getString("AccessWorkspaceAccessDenied.failed.title"),
-                        AppProjectCore.I18N.getMessage("AccessWorkspaceAccessDenied.failed.message", workspacePath.toString()));
-            } else {
-                throw new IllegalArgumentException("Invalid workspace path: " + workspacePath);
-            }
-        }
+        this.worskpaceService.changeWorkspace(path);
     }
 
-    @objid ("00809bf2-acc2-103b-a520-001ec947cd2a")
-    @Override
-    public void closeProject(GProject projectToClose, boolean sendSyncEvents) throws IllegalStateException {
-        checkProjectOpened();
-        
-        if ((projectToClose == null) || (projectToClose != this.project)) {
-            throw new IllegalArgumentException("Closing invalid " + projectToClose + " project.");
-        }
-        
-        if (this.openingEventSent) {
-            // Plenty event listeners are not prepared to receive a
-            // PROJECT_CLOSING if PROJECT_OPENING
-            // has never been sent.
-            this.context.get(IModelioEventService.class).postSyncEvent(this, ModelioEvent.PROJECT_CLOSING, projectToClose);
-        }
-        
-        // Save the state preferences once the CLOSING events have been fired and processed by listeners
-        if (this.appStateStore != null) {
-            try {
-                this.appStateStore.save();
-            } catch (IOException e) {
-                AppProjectCore.LOG.debug(e);
-            }
-        }
-        this.appStateStore = null;
-        
-        // FIXME use the current monitor...
-        IModuleManagementService moduleService = this.context.get(IModuleManagementService.class);
-        if (moduleService != null) {
-            moduleService.stopAllModules(this.project);
-        }
-        
-        // End ModelShield
-        try {
-            ModelShieldController.onProjectClosing(this.project);
-        } catch (RuntimeException e) {
-            AppProjectCore.LOG.debug(e);
-        }
-        
-        this.project.close();
-        this.project = null;
-        
-        // preferences store
-        this.prefsStore = null;
-        
-        // Invalidate the current model services instance before removing it
-        // so that if some reference have been kept on it by @&#!%*!&
-        // programmers, the error will be detected.
-        final IMModelServices s = this.context.get(IMModelServices.class);
-        if (s != null) {
-            ((MModelServices) s).invalidateProject(null);
-            this.context.remove(IMModelServices.class);
-        }
-        
-        if (this.openingEventSent) {
-            if (sendSyncEvents) {
-                this.context.get(IModelioEventService.class).postSyncEvent(this, ModelioEvent.PROJECT_CLOSED, null);
-            } else {
-                this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.PROJECT_CLOSED, null);
-            }
-        }
-        
-        this.openingEventSent = false;
-    }
-
-    @objid ("4d01f465-9cf4-4e11-9a47-4e061e01c47e")
-    @Override
-    public void closeProject(GProject projectToClose) throws IllegalStateException {
-        closeProject(projectToClose, false);
-    }
-
-    @objid ("e92ae6b5-2c62-44c7-8665-3a6bd7f76ee9")
-    @Override
-    public void createProject(final IProjectCreator projectCreator, final IProjectCreationData data, IProgressMonitor monitor) throws IOException {
-        Objects.requireNonNull(data);
-        if (projectCreator == null) {
-            createProject(data, monitor);
-        } else {
-            doCreateProject(projectCreator, data, monitor);
-        }
-    }
-
-    @objid ("0089dd7a-8c65-103c-a520-001ec947cd2a")
+    @objid ("177f74d3-e774-49fd-85ed-cdc3e12f08e1")
     @Override
     public void deleteProject(ProjectDescriptor projectToDelete) throws FileSystemException, IOException {
-        // TODO this is a quite naive implementation
-        // should deal with project path for delegating project
-        
-        FileUtils.delete(projectToDelete.getPath());
-        refreshWorkspace(null);
+        this.worskpaceService.deleteProject(projectToDelete);
     }
 
-    /**
-     * @throws java.io.IOException in case of I/O failure.
-     */
-    @objid ("0089fb8e-8c65-103c-a520-001ec947cd2a")
+    @objid ("707e1558-0776-4550-be66-21a514e0b74f")
     @Override
-    public void exportProject(ProjectDescriptor projectToExport, Path archivePath, IModelioProgress monitor) throws IOException {
-        Zipper zipper = new Zipper(archivePath);
-        List<PathMatcher> skipDirectoryMatchers = new ArrayList<>();
-        
-        // do not export .runtime/modules directory
-        skipDirectoryMatchers.add(FileSystems.getDefault().getPathMatcher(("glob:**" + projectToExport.getPath().resolve(".runtime").resolve("modules")).replace("\\", "\\\\")));
-        
-        // do not export .DS_Store directory (MacOs)
-        skipDirectoryMatchers.add(FileSystems.getDefault().getPathMatcher("glob:**.DS_Store"));
-        
-        zipper.compress(projectToExport.getPath(), skipDirectoryMatchers, null, monitor, null);
-        
-        AppProjectCore.LOG.info("Exported archive '%s' %,d bytes.", archivePath, Files.size(archivePath));
+    public void exportProject(ProjectDescriptor project, Path archivePath, IModelioProgress monitor) throws IOException {
+        this.worskpaceService.exportProject(project, archivePath, monitor);
     }
 
     @objid ("00804076-acc2-103b-a520-001ec947cd2a")
@@ -314,28 +191,38 @@ public class ProjectService implements IProjectService, EventHandler {
 
     @objid ("14aa57e7-a7cb-4ee1-82ed-973bb22d6870")
     @Override
-    public IGProjectPreferenceStore getProjectPreferences(String nodeId) {
+    public IGProjectPreferenceStore getProjectPreferences(final String nodeId) {
         return new GProjectPreferenceNode(this.prefsStore, nodeId);
     }
 
     @objid ("0053aa84-bb2f-103c-a520-001ec947cd2a")
     @Override
     public ICoreSession getSession() {
-        return (this.project != null) ? this.project.getSession() : null;
+        return this.project != null ? this.project.getSession() : null;
     }
 
-    @objid ("0080f426-acc2-103b-a520-001ec947cd2a")
+    /**
+     * Note that the accessor returns a IPreferenceStore instead of the effective IPersistentPreferenceStore handled by the class.
+     * 
+     * The difference is that IPreferenceStore does not provide a save() method and we do not want callers to save the state preferences themselves.
+     * 
+     * The state preference save policy is strictly under project service control.
+     */
+    @objid ("f6d902e7-d4bb-4bbb-a5ef-f98f4d4527d6")
+    @Override
+    public IPreferenceStore getStatePreferences() {
+        return this.appStateStore;
+    }
+
+    @objid ("b9dd1c28-cc2d-4143-8b49-57b1a2cc5c35")
     @Override
     public Path getWorkspace() {
-        if (this.workspace == null) {
-            this.workspace = ProjectService.readPreferedWorkspace();
-        }
-        return this.workspace;
+        return this.worskpaceService.getWorkspace();
     }
 
     @objid ("004d9dc4-8d1e-10b4-9941-001ec947cd2a")
     @Override
-    public void handleEvent(Event event) {
+    public void handleEvent(final Event event) {
         switch (event.getTopic()) {
         case "BATCH":
             onBATCH((CommandLineData) event.getProperty("org.eclipse.e4.data"));
@@ -351,8 +238,8 @@ public class ProjectService implements IProjectService, EventHandler {
     @objid ("ca2f60e4-1f24-4956-965e-92f53059258c")
     @Override
     public boolean isDirty() {
-        boolean isSessionDirty = (this.project != null) && this.project.isOpen() && this.project.getSession().isDirty();
-        boolean isPrefStoreDirty = (this.prefsStore != null) && this.prefsStore.needsSaving();
+        final boolean isSessionDirty = this.project != null && this.project.isOpen() && this.project.getSession().isDirty();
+        final boolean isPrefStoreDirty = this.prefsStore != null && this.prefsStore.needsSaving();
         return isSessionDirty || isPrefStoreDirty;
     }
 
@@ -372,78 +259,74 @@ public class ProjectService implements IProjectService, EventHandler {
 
     @objid ("971ad6d9-026d-11e2-8189-001ec947ccaf")
     @Override
-    public void openProject(ProjectDescriptor projectToOpen, IAuthData authData, IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException {
+    public void openProject(final ProjectDescriptor projectToOpen, final IAuthData authData, final IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException {
         if (this.project != null) {
             throw new IllegalStateException(String.format(
                     "A '%s' project in '%s' is already opened.",
                     this.project.getName(),
-                    this.project.getProjectPath()));
+                    this.project.getProjectFileStructure().getProjectPath()));
         }
         
         Objects.requireNonNull(projectToOpen, "Cannot open 'null' project descriptor.");
         
-        // Create a write access to ProjectService members.
-        IProjectServiceAccess svcAccess = new IProjectServiceAccess() {
-            @Override
-            public void setOpeningEventSent(boolean b) {
-                ProjectService.this.openingEventSent = b;
-            }
-        
-            @Override
-            public void setProjectPreferenceStore(GProjectPreferenceStore prefsStore) {
-                ProjectService.this.prefsStore = prefsStore;
-            }
-        
-            @Override
-            public void setStatePreferenceStore(IPersistentPreferenceStore store) {
-                ProjectService.this.appStateStore = store;
-            }
-        
-            @Override
-            public IProjectService getProjectService() {
-                return ProjectService.this;
-            }
-        
-            @Override
-            public void setOpenedProject(GProject project) {
-                ProjectService.this.project = project;
-            }
-        };
-        
-        this.projectOpener.openProject(projectToOpen, authData, svcAccess, this.batchMode, monitor);
-        
-        // new OpenProjectService(this.context, getProjectFactoryConfiguration(), svcAccess, this.projectSynchronizer, this.batchMode)
-        // .openProject(projectToOpen, authData, monitor);
+        this.projectOpener.openProject(projectToOpen, authData, this.batchMode, monitor);
     }
 
     @objid ("004dc0f6-8d1e-10b4-9941-001ec947cd2a")
     @Override
-    public void openProject(String projectName, IAuthData authData, IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException {
-        final Path projectPath = getWorkspace().resolve(projectName);
-        final Path confFile = projectPath.resolve("project.conf");
+    public void openProject(final URI projectURI, final IAuthData authData, final IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException {
+        if (this.project != null) {
+            throw new IllegalStateException(String.format(
+                    "A '%s' project in '%s' is already opened.",
+                    this.project.getName(),
+                    this.project.getProjectFileStructure().getProjectPath()));
+        }
         
+        Objects.requireNonNull(projectURI, "Cannot open 'null' project URI.");
+        
+        this.projectOpener.openProject(projectURI, authData, this.batchMode, monitor);
+    }
+
+    @objid ("29e438c4-9d31-43c5-a5b7-d48c966d1f20")
+    @Override
+    public void openProject(final String projectName, final IAuthData authData, final IProgressMonitor newChild) throws GProjectAuthenticationException, IOException, InterruptedException {
+        if (this.project != null) {
+            throw new IllegalStateException(String.format(
+                    "A '%s' project in '%s' is already opened.",
+                    this.project.getName(),
+                    this.project.getProjectFileStructure().getProjectPath()));
+        }
+        
+        Objects.requireNonNull(projectName, "Cannot open 'null' project.");
+        
+        final Path projectPath = getWorkspace().resolve(projectName);
+        final Path confFile = new ProjectFileStructure(projectPath).getProjectConfFile();
         if (Files.isRegularFile(confFile)) {
-            ProjectDescriptor pDesc = GProjectFactory.readProjectDirectory(projectPath);
-            openProject(pDesc, authData, monitor);
+            openProject(confFile.toUri(), authData, newChild);
         }
     }
 
-    /**
-     * @param projectToSelect the project to select after refresh, can be null
-     */
-    @objid ("008118fc-acc2-103b-a520-001ec947cd2a")
+    @objid ("06b1cb72-cbd4-4798-9761-554f3afd144a")
+    @Override
+    public void openProject(ProjectDescriptor projectToOpen, IAuthData authData, boolean batchMode, IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException {
+        this.projectOpener.openProject(projectToOpen, authData, batchMode, monitor);
+    }
+
+    @objid ("12ae51fc-b8d6-46c1-8ff1-49a538e9f4e1")
+    @Override
+    public void openProject(URI projectURI, IAuthData authData, boolean batchMode, IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException {
+        this.projectOpener.openProject(projectURI, authData, batchMode, monitor);
+    }
+
+    @objid ("8e938902-eeec-4181-8f9a-ea5d5d8326f0")
     @Override
     public void refreshWorkspace(String projectToSelect) {
-        this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.WORKSPACE_CONTENTS, this.workspace);
-        
-        if (projectToSelect != null) {
-            this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.WORKSPACE_NAVIGATE, projectToSelect);
-        }
+        this.worskpaceService.refreshWorkspace(projectToSelect);
     }
 
     @objid ("002e01f8-a4c3-1044-a30e-001ec947cd2a")
     @Override
-    public void removeFragment(GProject openedProject, IProjectFragment fragmentToRemove) {
+    public void removeFragment(final GProject openedProject, final IProjectFragment fragmentToRemove) {
         if (fragmentToRemove == null) {
             throw new IllegalArgumentException("Fragment must not be null.");
         }
@@ -462,7 +345,7 @@ public class ProjectService implements IProjectService, EventHandler {
 
     @objid ("b336181e-5102-4ca9-a4c5-2408111aca57")
     @Override
-    public void renameFragment(GProject openedProject, IProjectFragment fragment, String name) throws FileSystemException, FragmentConflictException, IOException {
+    public void renameFragment(final GProject openedProject, final IProjectFragment fragment, final String name) throws FileSystemException, FragmentConflictException, IOException {
         if (fragment == null) {
             throw new IllegalArgumentException("Fragment must not be null.");
         }
@@ -473,33 +356,19 @@ public class ProjectService implements IProjectService, EventHandler {
         this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.FRAGMENT_ADDED, fragment);
     }
 
-    @objid ("ddfed9a9-bcb8-4683-9326-13ed63566396")
+    @objid ("17b2b85f-9ab0-429f-8a8f-6e0d5dc5b91e")
     @Override
-    public void renameProject(ProjectDescriptor projectDescriptor, String name) throws IOException {
-        final Path oldPath = projectDescriptor.getPath();
-        
-        // Set the project name
-        projectDescriptor.setName(name);
-        
-        // Save the new project conf
-        Path confFilePath = oldPath.resolve("project.conf");
-        new ProjectDescriptorWriter().write(projectDescriptor, confFilePath);
-        
-        // Move the project directory itself
-        final Path targetPath = oldPath.resolveSibling(name);
-        
-        Files.move(oldPath, targetPath, StandardCopyOption.ATOMIC_MOVE);
-        
-        refreshWorkspace(name);
+    public void renameProject(ProjectDescriptor projectDescriptor, String name) throws FileSystemException, IOException {
+        this.worskpaceService.renameProject(projectDescriptor, name);
     }
 
     @objid ("0080b83a-acc2-103b-a520-001ec947cd2a")
     @Override
-    public void saveProject(IProgressMonitor monitor) throws IOException {
+    public void saveProject(final IProgressMonitor monitor) throws IOException {
         checkProjectOpened();
         
         final String taskName = AppProjectCore.I18N.getMessage("ProjectService.save.task", this.project.getName());
-        SubMonitor m = SubMonitor.convert(monitor, taskName, 1000);
+        final SubMonitor m = SubMonitor.convert(monitor, taskName, 1000);
         
         this.context.set(IProgressMonitor.class, m.newChild(50));
         this.context.get(IModelioEventService.class).postSyncEvent(this, ModelioEvent.PROJECT_SAVING, this.project);
@@ -522,6 +391,7 @@ public class ProjectService implements IProjectService, EventHandler {
      * Get a module catalog.
      * <p>
      * Returns the module catalog cache. Instantiate the module catalog and the cache on first call.
+     * 
      * @return the module catalog cache.
      */
     @objid ("e84ef926-a1af-4f78-9342-507d1c7efcb4")
@@ -530,86 +400,143 @@ public class ProjectService implements IProjectService, EventHandler {
         return this.context.get(IModuleRTCache.class);
     }
 
-    /**
-     * Get the workspace to use:
-     * <ol>
-     * <li>use the last used workspace as saved in the preferences</li>
-     * <li>default to user's home directory otherwise</li>
-     * </ol>
-     * @return the workspace path
-     */
-    @objid ("0035c4b0-7baa-10b3-9941-001ec947cd2a")
-    private static Path readPreferedWorkspace() {
-        final IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(AppProjectCore.PLUGIN_ID);
-        
-        final String lastUsed = prefs.get(ProjectService.LAST_USED_WORKSPACE_PREFERENCE_KEY, null);
-        if (lastUsed != null) {
-            final Path lastPath = Paths.get(lastUsed);
-            if ((lastPath != null) && Files.isDirectory(lastPath)) {
-                return lastPath; // we are done
-            }
-        }
-        // Preferences could not provide a valid workspace, default to user's
-        // home
-        Path defaultPath = Paths.get(System.getProperty("user.home"), "modelio", "workspace");
-        if (!Files.exists(defaultPath, LinkOption.NOFOLLOW_LINKS)) {
-            (new File(defaultPath.toString())).mkdirs(); // create if the
-            // default workspace
-            // doesn't exist.
-        }
-        return defaultPath;
-    }
-
-    /**
-     * Write the workspace preferences
-     * @param workspace the workspace path
-     */
-    @objid ("0035eddc-7baa-10b3-9941-001ec947cd2a")
-    private static void writePreferedWorkspace(Path workspace) {
-        if (workspace != null) {
-            final IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(AppProjectCore.PLUGIN_ID);
-        
-            prefs.put(ProjectService.LAST_USED_WORKSPACE_PREFERENCE_KEY, workspace.toString());
-            try {
-                prefs.flush();
-            } catch (final BackingStoreException e) {
-                AppProjectCore.LOG.error(e);
-            }
-        }
-    }
-
-    @objid ("806d8c19-00fa-4de0-8d44-08c18843bbc9")
-    private IGProjectEnv getProjectFactoryConfiguration() {
-        ModelioEnv env = this.context.get(ModelioEnv.class);
-        return new GProjectEnvironment().addMetamodelExtensions(env.getMetamodelExtensions())
-                                .setModulesCache(getModuleCache())
-                                .setRamcCache(env.getRamcCachePath());
-    }
-
-    /**
-     * Note that the accessor returns a IPreferenceStore instead of the effective IPersistentPreferenceStore handled by the class. The difference is that IPreferenceStore does not provide a save() method and we do not want callers to save the state
-     * preferences themselves. The state preference save policy is strictly under project service control.
-     */
-    @objid ("f6d902e7-d4bb-4bbb-a5ef-f98f4d4527d6")
+    @objid ("e92ae6b5-2c62-44c7-8665-3a6bd7f76ee9")
     @Override
-    public IPreferenceStore getStatePreferences() {
-        return this.appStateStore;
+    public void createProject(final IProjectCreator projectCreator, final IProjectCreationData data, final IProgressMonitor monitor) throws IOException {
+        Objects.requireNonNull(data);
+        this.projectCreator2.createProject(projectCreator, data, monitor);
     }
 
     @objid ("fd9e23c8-9e64-4728-8928-26116f210a04")
     @Override
-    public void createProject(final IProjectCreationData data, IProgressMonitor monitor) throws IOException {
+    public void createProject(final IProjectCreationData data, final IProgressMonitor monitor) throws IOException {
         Objects.requireNonNull(data);
-        doCreateProject(this.projectCreatorFactory.getProjectCreator(data), data, monitor);
+        this.projectCreator2.createProject(data, monitor);
     }
 
-    @objid ("bd27b341-5e92-478e-a577-0384f6da0050")
-    private void doCreateProject(final IProjectCreator projectCreator, final IProjectCreationData data, IProgressMonitor monitor) throws IOException {
-        Objects.requireNonNull(projectCreator);
+    @objid ("7d1533ec-7800-448b-8b2c-a27212baf61d")
+    @Override
+    public void configure(IProjectServiceAccess svcAccess) {
+        this.projectCreator2.configure(svcAccess);
+        this.projectOpener.configure(svcAccess);
+        this.worskpaceService.configure(svcAccess);
+        this.projectCloser.configure(svcAccess);
+    }
+
+    @objid ("00809bf2-acc2-103b-a520-001ec947cd2a")
+    @Override
+    public void closeProject(final GProject projectToClose, final boolean sendSyncEvents) throws IllegalStateException {
+        checkProjectOpened();
         
-        IModelioProgress progress = monitor == null ? null : new ModelioProgressAdapter(monitor);
-        projectCreator.createProject(data, getProjectFactoryConfiguration(), progress);
-        this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.WORKSPACE_CONTENTS, getWorkspace());
+        if (projectToClose == null || projectToClose != this.project) {
+            throw new IllegalArgumentException("Closing invalid " + projectToClose + " project.");
+        }
+        
+        this.projectCloser.closeProject(projectToClose, sendSyncEvents);
+    }
+
+    @objid ("4d01f465-9cf4-4e11-9a47-4e061e01c47e")
+    @Override
+    public void closeProject(final GProject projectToClose) throws IllegalStateException {
+        closeProject(projectToClose, false);
+    }
+
+    @objid ("0ee23269-9ebc-4fbb-8a11-b04329eeacc3")
+    @Override
+    public FragmentsMigrator getFragmentMigrator(IEclipseContext eclipseContext, GProject project, boolean withConfirmation) {
+        return this.fragmentMigratorFactory.getFragmentMigrator(eclipseContext, project, withConfirmation);
+    }
+
+    /**
+     * Provides write accessors on a {@link ProjectService}
+     */
+    @objid ("53bcd332-f7e4-4565-9a7d-acbc13d2539b")
+    protected static class ProjectServiceAccess implements IProjectServiceAccess {
+        @objid ("646a73fb-4964-4cdb-86b0-55f96959e041")
+        private final ProjectService ps;
+
+        @objid ("3881c5fc-d4b4-47c9-b78c-4cd920d2cebc")
+        @Override
+        public boolean isOpeningEventSent() {
+            return this.ps.openingEventSent;
+        }
+
+        /**
+         * @param ps the {@link ProjectService} to setup.
+         */
+        @objid ("934935a3-a06d-4d50-9b89-c5e9e37be9e2")
+        public ProjectServiceAccess(ProjectService ps) {
+            this.ps = ps;
+        }
+
+        @objid ("45634d3c-6cfc-47e9-842a-83f3a2001443")
+        @Override
+        public void setOpeningEventSent(final boolean b) {
+            this.ps.openingEventSent = b;
+        }
+
+        @objid ("41bee32e-5b60-472c-9dff-c3f0ed1ad49d")
+        @Override
+        public void setProjectPreferenceStore(final GProjectPreferenceStore prefsStore) {
+            this.ps.prefsStore = prefsStore;
+        }
+
+        @objid ("544e4833-c7bc-4c78-866f-2e29e6f1721b")
+        @Override
+        public IProjectService getProjectService() {
+            return this.ps;
+        }
+
+        @objid ("9aba6f60-b734-4739-a3c1-22cd674fb8ce")
+        @Override
+        public void setOpenedProject(final GProject project) {
+            this.ps.project = project;
+        }
+
+        @objid ("eb1e227c-f9e8-4278-9dcb-c40066188f39")
+        @Override
+        public void postSyncEvent(ModelioEvent topic, Object data) {
+            this.ps.context.get(IModelioEventService.class).postSyncEvent(this.ps, topic, data);
+        }
+
+        @objid ("be2df205-1ec9-4cb2-8154-7cbba2cad358")
+        @Override
+        public void postAsyncEvent(ModelioEvent topic, Object data) {
+            this.ps.context.get(IModelioEventService.class).postAsyncEvent(this.ps, topic, data);
+        }
+
+        @objid ("99cb1ce3-22ba-4c4b-a0a5-b1bad64f3505")
+        @Override
+        public IEclipseContext getEclipseContext() {
+            return this.ps.context;
+        }
+
+        @objid ("1c5993d0-dfaa-4fb4-a1cf-e9b01967624b")
+        @Override
+        public void openAppStatePreferenceStore(GProject project) {
+            this.ps.appStateStore = new AppStatePreferenceStore(project);
+        }
+
+        @objid ("3ed82ffc-d55e-4ff7-b71f-ea27d0935119")
+        @Override
+        public void closeAppStatePreferenceStore() {
+            if (this.ps.appStateStore != null) {
+                try {
+                    this.ps.appStateStore.save();
+                } catch (IOException e) {
+                    AppProjectCore.LOG.debug(e);
+                } finally {
+                    this.ps.appStateStore = null;
+                }
+            }
+        }
+
+        @objid ("0a9e400f-6f6d-48ac-bc24-5acbe9f4f7b1")
+        @Override
+        public Path getWorkspace() {
+            return this.ps.getWorkspace();
+        }
+
     }
 
 }

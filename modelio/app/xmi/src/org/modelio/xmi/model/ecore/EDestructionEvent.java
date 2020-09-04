@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,37 +21,19 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
-import org.modelio.metamodel.uml.behavior.commonBehaviors.Event;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.xmi.plugin.Xmi;
+import org.modelio.module.modelermodule.api.xmi.standard.event.UML2DestructionEvent;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("a74c1765-9fae-4e20-9aa1-ace01f164cec")
 public class EDestructionEvent extends ENamedElement {
     @objid ("d20d75da-a3c2-46d0-b42b-a7e72a486e85")
     @Override
     public Element createObjingElt() {
-        org.eclipse.uml2.uml.Element ecoreOwner = getEcoreElement().getOwner();
-        Element objingOwner = (Element) ReverseProperties.getInstance().getMappedElement(ecoreOwner);
-        if (objingOwner instanceof Behavior){
-        
-            IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
-            Event result = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createEvent();
-        
-            try {
-                result.getExtension().add(mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DESTRUCTIONEVENT, objingOwner.getMClass().getMetamodel().getMClass(Event.class)));
-            } catch (IllegalArgumentException | ElementNotUniqueException e) {
-                Xmi.LOG.warning(e);
-            }
-        
-            return result;
+        Object objingOwner = ReverseProperties.getInstance().getMappedElement(getEcoreElement().getOwner());
+        if (objingOwner instanceof Behavior){       
+            return UML2DestructionEvent.create().getElement();
         }
         return null;
     }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,42 +20,28 @@
 
 package org.modelio.gproject.plugin;
 
-import java.text.MessageFormat;
-import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.vbasic.log.Log;
+import org.modelio.vbasic.i18n.MessageBundle;
 
 /**
- * Represents the core.project plugin.
+ * Represents the <b>core.project</b> plugin.
  * <p>
  * Cannot respect the <a href="http://forge.minotaure.softeam.com/projects/modelio-phoenix/wiki/Plugin_singleton">
  * typical plugin singleton pattern</a> because core plugins must not use osgi.
  */
 @objid ("d1ccad8b-c9dd-11e1-96e9-001ec947ccaf")
 public class CoreProject {
+    /**
+     * The plugin ID.
+     */
     @objid ("d4817b07-cb72-11e1-87f1-001ec947ccaf")
     public static final String PLUGIN_ID = "org.modelio.core.project";
 
-    @objid ("d3a8861c-cb72-11e1-87f1-001ec947ccaf")
-    public static final ResourceBundle I18N = ResourceBundle.getBundle("coreproject");
-
     /**
-     * Get the translated formatted message.
-     * @param key the message key
-     * @param args arguments
-     * @return the formatted message
+     * The resource bundle.
      */
-    @objid ("74101c36-cc3e-11e1-87f1-001ec947ccaf")
-    public static String getMessage(String key, Object... args) {
-        String pattern;
-        try {
-            pattern = I18N.getString(key);
-        } catch (MissingResourceException e) {
-            Log.warning("No I18n message for '%s'", key);
-            pattern = "!" + key + "!";
-        }
-        return MessageFormat.format(pattern, args);
-    }
+    @objid ("d3a8861c-cb72-11e1-87f1-001ec947ccaf")
+    public static final MessageBundle I18N = new MessageBundle(ResourceBundle.getBundle("coreproject"));
 
 }

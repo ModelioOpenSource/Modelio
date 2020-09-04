@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,7 +36,7 @@ public class InstallModuleDescriptor extends TodoActionDescriptor {
     @objid ("8e74366a-0eb5-44f1-95c4-bbedb7316e4a")
     @Override
     public String getLocalizedLabel() {
-        return GProjectData.getMessage("TodoDescriptor.install",
+        return GProjectData.I18N.getMessage("TodoDescriptor.install",
                                 this.descriptor.getName(),
                                 this.descriptor.getVersion(),
                                 this.descriptor.getArchiveLocation());

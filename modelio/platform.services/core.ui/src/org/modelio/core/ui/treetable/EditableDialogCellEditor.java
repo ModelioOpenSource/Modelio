@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -112,6 +112,7 @@ public abstract class EditableDialogCellEditor extends CellEditor {
     /**
      * Creates a new dialog cell editor parented under the given control. The
      * cell editor value is <code>null</code> initially, and has no validator.
+     * 
      * @param parent the parent control
      */
     @objid ("778ed338-4697-45bc-952c-a6b800c7cb41")
@@ -125,6 +126,7 @@ public abstract class EditableDialogCellEditor extends CellEditor {
      * The default implementation of this framework method creates the button
      * display on the right hand side of the dialog cell editor.
      * </p>
+     * 
      * @param parent the parent control
      * @return the new button control
      */
@@ -142,6 +144,7 @@ public abstract class EditableDialogCellEditor extends CellEditor {
      * </p>
      * <p>
      * </p>
+     * 
      * @param cell the control for this cell editor
      * @return the underlying control
      */
@@ -256,6 +259,7 @@ public abstract class EditableDialogCellEditor extends CellEditor {
 
     /**
      * Return a listener for button focus.
+     * 
      * @return FocusListener
      */
     @objid ("ce03001b-5da2-4a9c-8e9d-41a27aff64cb")
@@ -304,6 +308,7 @@ public abstract class EditableDialogCellEditor extends CellEditor {
 
     /**
      * Returns the default label widget created by <code>createContents</code>.
+     * 
      * @return the default label widget
      */
     @objid ("e5db8bde-b4c2-4bbc-ac1e-39e0b95898b0")
@@ -320,6 +325,7 @@ public abstract class EditableDialogCellEditor extends CellEditor {
      * called when the user has pressed the button and the dialog box must pop
      * up.
      * </p>
+     * 
      * @param cellEditorWindow the parent control cell editor's window so that a subclass can
      * adjust the dialog box accordingly
      * @return the selected value, or <code>null</code> if the dialog was
@@ -339,6 +345,7 @@ public abstract class EditableDialogCellEditor extends CellEditor {
      * Subclasses may re-implement. If you re-implement this method, you should
      * also re-implement <code>createContents</code>.
      * </p>
+     * 
      * @param newValue the new value of this cell editor
      */
     @objid ("6005c15b-b266-4bff-9d80-3e8a4db7653a")

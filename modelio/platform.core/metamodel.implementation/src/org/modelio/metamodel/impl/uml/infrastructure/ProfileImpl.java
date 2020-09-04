@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -47,13 +47,13 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("008caa50-c4be-1fd8-97fe-001ec947cd2a")
 public class ProfileImpl extends ModelElementImpl implements Profile {
-    @objid ("01859b5e-1a07-47aa-9c32-854871cce3a3")
+    @objid ("e231f443-0f68-477c-9731-be7b98b224b3")
     @Override
     public EList<Stereotype> getDefinedStereotype() {
         return new SmList<>(this, ((ProfileSmClass)getClassOf()).getDefinedStereotypeDep());
     }
 
-    @objid ("4dbca0d1-de4f-4fa5-8d55-2107305bb3c2")
+    @objid ("28645410-bc25-4c32-a1bb-2765f6d100b9")
     @Override
     public <T extends Stereotype> List<T> getDefinedStereotype(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -68,13 +68,13 @@ public class ProfileImpl extends ModelElementImpl implements Profile {
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("66e44894-9153-4d95-b675-1027197fb6b3")
+    @objid ("15d6700e-5a68-4744-8d5e-d7280cbbd9e9")
     @Override
     public EList<MetaclassReference> getOwnedReference() {
         return new SmList<>(this, ((ProfileSmClass)getClassOf()).getOwnedReferenceDep());
     }
 
-    @objid ("3982a2ee-1c2e-4782-a0a9-ba7225157438")
+    @objid ("a37e8a88-74fc-44ee-ba49-b555633b65fc")
     @Override
     public <T extends MetaclassReference> List<T> getOwnedReference(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -89,26 +89,26 @@ public class ProfileImpl extends ModelElementImpl implements Profile {
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("afae90b1-9c2f-4fe8-a8b9-7dca1dae3088")
+    @objid ("d77a3f01-73c2-4289-a8c3-d82d3d081e51")
     @Override
     public ModuleComponent getOwnerModule() {
         Object obj = getDepVal(((ProfileSmClass)getClassOf()).getOwnerModuleDep());
         return (obj instanceof ModuleComponent)? (ModuleComponent)obj : null;
     }
 
-    @objid ("8dfb11b0-662e-4e2e-b579-3dbc81b86bf4")
+    @objid ("c73327ac-8189-42c6-8c19-7ce891422817")
     @Override
     public void setOwnerModule(ModuleComponent value) {
         appendDepVal(((ProfileSmClass)getClassOf()).getOwnerModuleDep(), (SmObjectImpl)value);
     }
 
-    @objid ("fba37ff0-c554-433e-9a84-1b3ed44cc20b")
+    @objid ("24fdbe37-cf21-4830-bdba-eee250e6ab8e")
     @Override
     public EList<PropertyType> getDefinedType() {
         return new SmList<>(this, ((ProfileSmClass)getClassOf()).getDefinedTypeDep());
     }
 
-    @objid ("ca3f4f97-9612-4471-830e-96566d01e2bd")
+    @objid ("51a20b04-47ce-4272-8965-f7fe21aa37c4")
     @Override
     public <T extends PropertyType> List<T> getDefinedType(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -123,7 +123,7 @@ public class ProfileImpl extends ModelElementImpl implements Profile {
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("38953ad6-58e4-4c2e-a2a4-11adc6465e26")
+    @objid ("0671ab48-d99d-4813-8e06-63edbff20c63")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -135,7 +135,7 @@ public class ProfileImpl extends ModelElementImpl implements Profile {
         return super.getCompositionOwner();
     }
 
-    @objid ("e3c9a21e-95fc-4868-b62d-fe5905433303")
+    @objid ("8e1dce1e-4a9f-4271-9102-a6ddc1049a00")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -150,7 +150,7 @@ public class ProfileImpl extends ModelElementImpl implements Profile {
         return super.getCompositionRelation();
     }
 
-    @objid ("a52d042e-650e-4c4e-90a1-43d0dbd3652a")
+    @objid ("a25d00aa-86f7-4449-bad7-e92f59fff0fc")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitProfile(this);

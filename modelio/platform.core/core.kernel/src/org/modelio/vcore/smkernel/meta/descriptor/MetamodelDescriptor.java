@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -90,6 +90,7 @@ public class MetamodelDescriptor implements Serializable {
 
     /**
      * Add a metamodel fragment.
+     * 
      * @param fd a metamodel fragment.
      */
     @objid ("43667447-0251-4f42-9ee5-f14bb537faa1")

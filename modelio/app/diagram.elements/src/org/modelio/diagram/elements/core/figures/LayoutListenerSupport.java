@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class LayoutListenerSupport extends ChainedLayout {
 
     /**
      * Add a layout listener to the figure.
+     * 
      * @param container the figure to listen for
      * @param listener the layout listener
      */
@@ -79,6 +80,7 @@ public class LayoutListenerSupport extends ChainedLayout {
 
     /**
      * Remove a layout listener.
+     * 
      * @param container the figure owning the listener
      * @param listener the listener to remove
      */
@@ -109,6 +111,7 @@ public class LayoutListenerSupport extends ChainedLayout {
      * super.setLayoutManager(LayoutListenerSupport.newLayoutManager(l));
      * }
      * </code></pre>
+     * 
      * @param container the figure
      * @param newLayoutManager the requested new layout manager
      * @return <i>true</i> if the current layout manager was a <code>LayoutListenerSupport</code> else <i>false</i>.
@@ -144,6 +147,7 @@ public class LayoutListenerSupport extends ChainedLayout {
      * Protected constructor.
      * <p>
      * Call {@link #addLayoutListener(IFigure, LayoutListener)} to add a layout listener.
+     * 
      * @param container the container figure
      * @param layout the initial layout manager
      * @param listener a listener to add
@@ -205,6 +209,7 @@ public class LayoutListenerSupport extends ChainedLayout {
 
     /**
      * Shallow copy constructor.
+     * 
      * @param orig the layout listener support to copy
      * @param layout the real layout manager to chain
      */

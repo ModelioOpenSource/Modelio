@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -105,6 +105,7 @@ class LinkUtils {
 
     /**
      * Tells whether child is same or sub type of 'parent'.
+     * 
      * @param child a namespace
      * @param parent a namespace potentially parent of child
      * @return whether child is same or sub type of 'parent'.

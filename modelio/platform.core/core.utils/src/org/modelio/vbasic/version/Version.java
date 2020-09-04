@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class Version implements Comparable<Version>, Serializable {
     /**
      * Instantiate a new Version from its component.<br>
      * The standard format is <b>Major.Minor.Build.Metamodel</b>.
+     * 
      * @param major the first component of the version.
      * @param minor the second component of the version.
      * @param build the third component of the version.
@@ -66,6 +67,7 @@ public class Version implements Comparable<Version>, Serializable {
     /**
      * Instantiate a new Version from a String. The standard format is
      * <b>Major.Minor.Build.Metamodel</b>.
+     * 
      * @param versionString The String to parse to create the version.
      * @throws java.lang.NumberFormatException thrown when the parameter doesn't have a valid format.
      */
@@ -130,6 +132,7 @@ public class Version implements Comparable<Version>, Serializable {
      * <p>
      * Two Versions are considered equal if the only difference is one of their
      * metamodel version being zero.
+     * 
      * @param anObject The object to compare this Version against.
      * @return true if the given object represents a Version equivalent to this
      * Version, false otherwise.
@@ -151,6 +154,7 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Get the build number of this version
+     * 
      * @return the build number of this version.
      */
     @objid ("063d7a26-c9cc-11e1-8052-001ec947ccaf")
@@ -160,6 +164,7 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Get the major number of this version.
+     * 
      * @return the major number of this version.
      */
     @objid ("063d7a27-c9cc-11e1-8052-001ec947ccaf")
@@ -169,6 +174,7 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Get the minor number of this version.
+     * 
      * @return the minor number of this version.
      */
     @objid ("063d7a29-c9cc-11e1-8052-001ec947ccaf")
@@ -190,6 +196,7 @@ public class Version implements Comparable<Version>, Serializable {
     /**
      * Tells whether the only difference between this version and the other
      * is that this version build is newer than the other.
+     * 
      * @param other another version to compare to.
      * @return true only if this version has just a newer build.
      */
@@ -203,6 +210,7 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Check if this Version is same or newer than the given Version.
+     * 
      * @param other the Version object that must be compared to this Version.
      * @return <i>true</i> if this is same or newer than the given version.
      */
@@ -213,6 +221,7 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Check if this Version is strictly newer than the given Version.
+     * 
      * @param other the Version object that must be compared to this Version.
      * @return <i>true</i> if this is newer than the given version.
      */
@@ -246,6 +255,7 @@ public class Version implements Comparable<Version>, Serializable {
     /**
      * Check if this Version is same or older than the given Version.
      * <p>
+     * 
      * @param other the Version object that must be compared to this Version.
      * @return <i>true</i> if this is older or same as the given version.
      */
@@ -256,6 +266,7 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Check if this Version is strictly older than the given Version.
+     * 
      * @param other the Version object that must be compared to this Version.
      * @return <i>true</i> if this is older than the given version.
      */
@@ -297,6 +308,7 @@ public class Version implements Comparable<Version>, Serializable {
      * <LI>CC is the correction level (0-padded to 2 digits)</LI>
      * <LI>mmmm is the metamodel version (4 digits)</LI>
      * </UL>
+     * 
      * @return the formatted string representation of the version.
      */
     @objid ("063d7a2c-c9cc-11e1-8052-001ec947ccaf")
@@ -313,6 +325,7 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Provides a formatted string representation of the version.
+     * 
      * @param format <P>
      * The format is: VRCM where:
      * </P>
@@ -360,6 +373,7 @@ public class Version implements Comparable<Version>, Serializable {
      * Parse the revision number. It may be a decimal number or for ascendant
      * compatibility a letter. In the second case it is parsed as a base 36
      * number.
+     * 
      * @param revision revision number
      * @return the parsed revision number
      * @throws java.lang.NumberFormatException if the revision cannot be parsed.

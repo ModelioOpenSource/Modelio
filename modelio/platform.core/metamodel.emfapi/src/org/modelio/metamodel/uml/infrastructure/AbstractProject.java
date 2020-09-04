@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -39,13 +39,13 @@ public interface AbstractProject extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("348613dd-0b2e-4a09-bd0c-003de4b1490e")
+    @objid ("4cc33a11-c233-4dc1-8076-90d897d46f1c")
     public static final String MNAME = "AbstractProject";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("ac00a39e-d407-46c7-99ac-a491e255b4bd")
+    @objid ("a533a7cf-7b02-46c4-880d-0573d4e35d70")
     public static final String MQNAME = "Infrastructure.AbstractProject";
 
     /**
@@ -54,7 +54,7 @@ public interface AbstractProject extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("94e0ff5a-afde-44b7-b039-0c8a70d99d6b")
+    @objid ("870d3c07-b00d-4c38-ae76-79475024e525")
     DiagramSet getDiagramRoot();
 
     /**
@@ -63,7 +63,7 @@ public interface AbstractProject extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("1fecfcb0-52d0-4209-897b-c74fe066e104")
+    @objid ("a79de47d-acd7-4839-a3b9-230bcef4a0f4")
     void setDiagramRoot(DiagramSet value);
 
 }

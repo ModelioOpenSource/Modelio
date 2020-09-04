@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -93,6 +93,7 @@ public class BodyHybridContainerEditPart extends PartitionContainerEditPart {
 
     /**
      * Updates both the LayoutManager of the Figure and the behaviour state of the LayoutEditPolicy.
+     * 
      * @param newBehaviour the new behaviour to adopt.
      */
     @objid ("2af87b3b-55b6-11e2-877f-002564c97630")
@@ -135,6 +136,7 @@ public class BodyHybridContainerEditPart extends PartitionContainerEditPart {
 
     /**
      * Computes the behaviour to have based on the model.
+     * 
      * @return the behaviour to adopt.
      */
     @objid ("2af87b3f-55b6-11e2-877f-002564c97630")

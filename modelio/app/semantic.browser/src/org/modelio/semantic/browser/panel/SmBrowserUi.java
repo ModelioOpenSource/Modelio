@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -89,6 +89,7 @@ class SmBrowserUi {
 
     /**
      * When changing the project being displayed by the view, new ContenProvider and LabelProvider are created and configured
+     * 
      * @param project might be null
      */
     @objid ("96905266-2901-4323-bafa-16d7a7fe9a78")

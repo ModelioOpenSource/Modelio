@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public abstract class TodoActionDescriptor {
     /**
      * Get a user friendly label for this action.
+     * 
      * @return a label string.
      */
     @objid ("bd8f6af5-d15e-4b72-a8e7-ac2dadabd484")

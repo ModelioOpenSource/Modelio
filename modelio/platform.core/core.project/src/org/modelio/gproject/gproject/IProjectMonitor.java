@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IProjectMonitor {
     /**
      * Handle a project event.
+     * 
      * @param ev a project event.
      */
     @objid ("6181ee62-08b6-11e2-b193-001ec947ccaf")

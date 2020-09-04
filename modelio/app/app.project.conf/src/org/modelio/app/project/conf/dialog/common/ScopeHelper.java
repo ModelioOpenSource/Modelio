@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class ScopeHelper {
     /**
      * Return LOCAL if the control is enabled, SHARED if
      * the control is disabled.
+     * 
      * @param c a SWT control
      * @return the matching definition scope.
      */
@@ -56,6 +57,7 @@ public class ScopeHelper {
     /**
      * Returns <code>true</code> if the property is not defined or defined locally,
      * <code>false</code> if the property value is shared.
+     * 
      * @param props the property container.
      * @param propName a property name.
      * @return <code>true</code> for local scope, <code>false</code> for shared.
@@ -68,6 +70,7 @@ public class ScopeHelper {
 
     /**
      * Get a localized label for the given scope.
+     * 
      * @param scope a definition scope.
      * @return a label for the definition scope.
      */

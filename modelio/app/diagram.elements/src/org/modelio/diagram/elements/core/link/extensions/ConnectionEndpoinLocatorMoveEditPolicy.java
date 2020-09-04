@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -187,9 +187,9 @@ public class ConnectionEndpoinLocatorMoveEditPolicy extends ResizableEditPolicy 
         public LocatorAnchor(final IFigure owner, final SidedConnectionEndpointLocator loc) {
             super(owner);
             if (loc.isEnd()) {
-                this.loc = new FractionalConnectionLocator((Connection) owner, 0.9);
+                this.loc = new FractionalConnectionLocator((Connection) owner, 0.9, false);
             } else {
-                this.loc = new FractionalConnectionLocator((Connection) owner, 0.1);
+                this.loc = new FractionalConnectionLocator((Connection) owner, 0.1, false);
             }
         }
 

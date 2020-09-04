@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import org.modelio.api.module.lifecycle.ModuleException;
 public interface IModuleStateAction {
     /**
      * Execute the action
+     * 
      * @throws org.modelio.api.module.lifecycle.ModuleException to refuse state change
      */
     @objid ("dd139934-bc36-409d-b528-ce8c9cce52e6")

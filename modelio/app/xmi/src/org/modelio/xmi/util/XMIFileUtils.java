@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.channels.FileChannel;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -58,26 +59,28 @@ import org.modelio.xmi.plugin.Xmi;
 
 /**
  * This class provides all service dedicated to XMI file treatment.
+ * 
  * @author ebrosse
  */
 @objid ("98464006-3da7-4eed-a3d2-1ac6016be1e7")
 public class XMIFileUtils {
     /**
      * This service copies a file content into another file.
+     * 
      * @param source The source file
      * @param target The target file
      */
     @objid ("20c78774-840f-463d-a1aa-47857a0c2271")
     public static void copyFile(File source, File target) {
-        if (!source.getAbsolutePath ().contentEquals (target.getAbsolutePath ())) {
+        if (!source.getAbsolutePath().contentEquals(target.getAbsolutePath())) {
         
-            try( FileInputStream inStream = new FileInputStream(source);
+            try (FileInputStream inStream = new FileInputStream(source);
                     FileOutputStream outStream = new FileOutputStream(target);
                     FileChannel in = inStream.getChannel();
                     FileChannel out = outStream.getChannel();) {
         
-                //Copy
-                in.transferTo (0, in.size (), out);
+                // Copy
+                in.transferTo(0, in.size(), out);
         
             } catch (Exception e) {
                 Xmi.LOG.error(Xmi.PLUGIN_ID, e);
@@ -87,6 +90,7 @@ public class XMIFileUtils {
 
     /**
      * This method converts an EMF UML file into the desired UML OMG format
+     * 
      * @param filePath The file location
      */
     @objid ("9e98fff9-cece-4466-a272-62b11828b02b")
@@ -100,105 +104,103 @@ public class XMIFileUtils {
         
         FormatExport versionExport = GenerationProperties.getInstance().getExportVersion();
         
-        if (versionExport.equals(FormatExport.UML211)){
-        
+        if (versionExport.equals(FormatExport.UML211)) {
         
             oldPatterns.add("href[\\s]?=[\\s]?\"pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml");
             oldPatterns.add("xmlns:uml[\\s]?=[\\s]?\"http://www.eclipse.org/uml2/3.0.0/UML");
             oldPatterns.add("xsi:schemaLocation[\\s]?=[\\s]?\"");
         
-            newPatterns.add("href=\"http://schema.omg.org/spec/UML/2.1.1/uml.xml" );
-            newPatterns.add("xmlns:uml=\"http://schema.omg.org/spec/UML/2.1.1" );
+            newPatterns.add("href=\"http://schema.omg.org/spec/UML/2.1.1/uml.xml");
+            newPatterns.add("xmlns:uml=\"http://schema.omg.org/spec/UML/2.1.1");
             newPatterns.add("xsi:schemaLocation=\"http://www.eclipse.org/uml2/3.0.0/UML http://schema.omg.org/spec/UML/2.1.1 ");
         
+            xslExportFile = ResourceLoader.getInstance().getResource("xslt" + java.io.File.separator + "export211.xsl");
         
-            xslExportFile = ResourceLoader.getInstance().getResource("xslt"+ java.io.File.separator + "export211.xsl");
-        
-        }else if (versionExport.equals(FormatExport.UML22)){
+        } else if (versionExport.equals(FormatExport.UML22)) {
         
             oldPatterns.add("href[\\s]?=[\\s]?\"pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml");
             oldPatterns.add("xmlns:uml[\\s]?=[\\s]?\"http://www.eclipse.org/uml2/3.0.0/UML");
             oldPatterns.add("xsi:schemaLocation[\\s]?=[\\s]?\"");
         
-            newPatterns.add("href=\"http://schema.omg.org/spec/UML/2.2/uml.xml" );
-            newPatterns.add("xmlns:uml=\"http://schema.omg.org/spec/UML/2.2" );
+            newPatterns.add("href=\"http://schema.omg.org/spec/UML/2.2/uml.xml");
+            newPatterns.add("xmlns:uml=\"http://schema.omg.org/spec/UML/2.2");
             newPatterns.add("xsi:schemaLocation=\"http://www.eclipse.org/uml2/3.0.0/UML http://schema.omg.org/spec/UML/2.2 ");
         
+            xslExportFile = ResourceLoader.getInstance().getResource("xslt" + java.io.File.separator + "export22.xsl");
         
-            xslExportFile = ResourceLoader.getInstance().getResource("xslt"+ java.io.File.separator + "export22.xsl");
-        
-        }else if (versionExport.equals(FormatExport.UML23)){
+        } else if (versionExport.equals(FormatExport.UML23)) {
         
             oldPatterns.add("href[\\s]?=[\\s]?\"pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml");
             oldPatterns.add("xmlns:uml[\\s]?=[\\s]?\"http://www.eclipse.org/uml2/3.0.0/UML");
             oldPatterns.add("xsi:schemaLocation[\\s]?=[\\s]?\"");
         
-            newPatterns.add("href=\"http://schema.omg.org/spec/20090901/UML.xmi" );
-            newPatterns.add("xmlns:uml=\"http://www.omg.org/spec/UML/20090901" );
+            newPatterns.add("href=\"http://schema.omg.org/spec/20090901/UML.xmi");
+            newPatterns.add("xmlns:uml=\"http://www.omg.org/spec/UML/20090901");
             newPatterns.add("xsi:schemaLocation=\"http://www.eclipse.org/uml2/3.0.0/UML http://schema.omg.org/spec/UML/20090901 ");
         
             xslExportFile = ResourceLoader.getInstance().getResource("xslt" + java.io.File.separator + "export23.xsl");
         
-        }else if (versionExport.equals(FormatExport.UML241)){
+        } else if (versionExport.equals(FormatExport.UML241)) {
         
             oldPatterns.add("href[\\s]?=[\\s]?\"pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml");
             oldPatterns.add("xmlns:uml[\\s]?=[\\s]?\"http://www.eclipse.org/uml2/3.0.0/UML");
             oldPatterns.add("xsi:schemaLocation[\\s]?=[\\s]?\"");
         
-            newPatterns.add("href=\"http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi" );
-            newPatterns.add("xmlns:uml=\"http://www.omg.org/spec/UML/20110701" );
+            newPatterns.add("href=\"http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi");
+            newPatterns.add("xmlns:uml=\"http://www.omg.org/spec/UML/20110701");
             newPatterns.add("xsi:schemaLocation=\"http://www.eclipse.org/uml2/3.0.0/UML http://schema.omg.org/spec/UML/20110701 ");
         
             xslExportFile = ResourceLoader.getInstance().getResource("xslt" + java.io.File.separator + "export241.xsl");
         
         }
         
-        //        if (GenerationProperties.getInstance().isSysMLApplied()){
+        // if (GenerationProperties.getInstance().isSysMLApplied()){
         //
-        //            oldPatterns.add("xmlns:sysml=\"[^\"]*\"");
-        //            newPatterns.add("xmlns:sysml=\"http://www.omg.org/spec/SysML/20100301/SysML-profile\"");
+        // oldPatterns.add("xmlns:sysml=\"[^\"]*\"");
+        // newPatterns.add("xmlns:sysml=\"http://www.omg.org/spec/SysML/20100301/SysML-profile\"");
         //
-        //            oldPatterns.add("http:///schemas/sysml/[^\\s]*\\s");
-        //            newPatterns.add("");
+        // oldPatterns.add("http:///schemas/sysml/[^\\s]*\\s");
+        // newPatterns.add("");
         //
-        //            oldPatterns.add("href=\"sysml.profile.[^\\s]*#[^\\s]*\"");
-        //            newPatterns.add("href=\"http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0\"");
+        // oldPatterns.add("href=\"sysml.profile.[^\\s]*#[^\\s]*\"");
+        // newPatterns.add("href=\"http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0\"");
         //
-        //            oldPatterns.add("[^\\s]*.sysml.profile.[^\\s]*\\s");
-        //            newPatterns.add("");
+        // oldPatterns.add("[^\\s]*.sysml.profile.[^\\s]*\\s");
+        // newPatterns.add("");
         //
-        //            oldPatterns.add("[^\\s]*.sysml.profile.[^\\s]*\"");
-        //            newPatterns.add("\"");
+        // oldPatterns.add("[^\\s]*.sysml.profile.[^\\s]*\"");
+        // newPatterns.add("\"");
         //
-        //        }
+        // }
         
         File tempFolder = getTempFolder();
         
-        String tempPath = tempFolder.getAbsolutePath() + java.io.File.separator  + file.getName() + ".temp";
+        String tempPath = tempFolder.getAbsolutePath() + java.io.File.separator + file.getName() + ".temp";
         File tempFile = new File(tempPath);
-        if (tempFile.exists()){
+        if (tempFile.exists()) {
             tempFile.delete();
         }
         
         applyXSLT(file.getAbsolutePath(), tempPath, xslExportFile);
         
-        if (file.exists()){
+        if (file.exists()) {
             file.delete();
         }
         
         replace(tempPath, file.getAbsolutePath(), oldPatterns, newPatterns);
         
-        if (tempFile.exists()){
+        if (tempFile.exists()) {
             tempFile.delete();
         }
         
-        if (tempFolder.exists()){
+        if (tempFolder.exists()) {
             tempFolder.delete();
         }
     }
 
     /**
      * remove wrong references listed in the listErrors
+     * 
      * @param filePath The location of the file
      * @param listErrors The list of unavailable references
      */
@@ -209,12 +211,12 @@ public class XMIFileUtils {
         int currentError = 0;
         Diagnostic current = listErrors.get(currentError);
         
-        while((!(current instanceof UnresolvedReferenceException))&& (currentError < errorsSize -1)) {
+        while (!(current instanceof UnresolvedReferenceException) && currentError < errorsSize - 1) {
             currentError++;
             current = listErrors.get(currentError);
         }
         
-        if  ((currentError < errorsSize) && (current instanceof UnresolvedReferenceException)){
+        if (currentError < errorsSize && current instanceof UnresolvedReferenceException) {
             String unresolvedRef = ((UnresolvedReferenceException) current).getReference();
             int errorPos = ((UnresolvedReferenceException) current).getLine();
         
@@ -226,45 +228,44 @@ public class XMIFileUtils {
                 XMIFileUtils.copyFile(file, tempFile);
                 file.createNewFile();
         
-                try( FileWriter output = new FileWriter(filePath);
+                try (FileWriter output = new FileWriter(filePath);
                         FileInputStream fis = new FileInputStream(tempFile);
-                        BufferedReader reader = new BufferedReader ( new InputStreamReader(fis));
-                        ) {
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(fis));) {
         
                     int currentLine = 0;
-                    while((line = reader.readLine()) != null) {
+                    while ((line = reader.readLine()) != null) {
                         currentLine++;
         
-                        while(currentLine == errorPos){
+                        while (currentLine == errorPos) {
                             line = line.replaceAll(unresolvedRef, "");
-                            if  (currentError < errorsSize - 1 ){
+                            if (currentError < errorsSize - 1) {
                                 currentError++;
                                 current = listErrors.get(currentError);
-                                while((!(current instanceof UnresolvedReferenceException))&& (currentError < errorsSize -1 )) {
+                                while (!(current instanceof UnresolvedReferenceException) && currentError < errorsSize - 1) {
                                     current = listErrors.get(++currentError);
                                 }
         
-                                if  ((currentError < errorsSize ) && (current instanceof UnresolvedReferenceException)){
+                                if (currentError < errorsSize && current instanceof UnresolvedReferenceException) {
                                     unresolvedRef = ((UnresolvedReferenceException) current).getReference();
                                     errorPos = ((UnresolvedReferenceException) current).getLine();
-                                }else{
+                                } else {
                                     errorPos = 0;
                                 }
-                            }else{
+                            } else {
                                 errorPos = 0;
                             }
                         }
         
-                        output.write(line +"\n");
+                        output.write(line + "\n");
                     }
         
                     output.flush();
-                }catch (IOException e) {
+                } catch (IOException e) {
                     Xmi.LOG.error(Xmi.PLUGIN_ID, e);
                 }
         
                 tempFile.delete();
-            }catch (IOException e) {
+            } catch (IOException e) {
                 Xmi.LOG.error(Xmi.PLUGIN_ID, e);
             }
         }
@@ -273,6 +274,7 @@ public class XMIFileUtils {
     /**
      * Apply the XSL Transformation (located in XSLTFile file) to the file located in oldFilePath.
      * The result is stored in newFilePath location.
+     * 
      * @param oldFilePath The file location on which the XSL will be applied
      * @param newFilePath The result location
      * @param XSLTFile The file containing the XSL Transformation
@@ -282,9 +284,9 @@ public class XMIFileUtils {
     public static boolean applyXSLT(final String oldFilePath, String newFilePath, final File XSLTFile) {
         File oldFile = new File(oldFilePath);
         
-        if (oldFile.exists() && oldFile.canRead()){
+        if (oldFile.exists() && oldFile.canRead()) {
         
-            try(FileOutputStream outputStream = new FileOutputStream(newFilePath); FileInputStream inputStream = new FileInputStream(oldFilePath);) {
+            try (FileOutputStream outputStream = new FileOutputStream(newFilePath); FileInputStream inputStream = new FileInputStream(oldFilePath);) {
         
                 OutputStreamWriter bufferedWriter = new OutputStreamWriter(outputStream, "UTF8");
         
@@ -292,13 +294,11 @@ public class XMIFileUtils {
         
                 TransformerFactory tFactory = TransformerFactory.newInstance();
         
-                Transformer transformer = tFactory.newTransformer
-                        (new javax.xml.transform.stream.StreamSource(XSLTFile));
+                Transformer transformer = tFactory.newTransformer(new javax.xml.transform.stream.StreamSource(XSLTFile));
         
-                transformer.transform(new javax.xml.transform.stream.StreamSource
-                        (bufferedReader),  new javax.xml.transform.stream.StreamResult(bufferedWriter));
+                transformer.transform(new javax.xml.transform.stream.StreamSource(bufferedReader), new javax.xml.transform.stream.StreamResult(bufferedWriter));
         
-            }catch (Exception e) {
+            } catch (Exception e) {
                 Xmi.LOG.error(Xmi.PLUGIN_ID, e);
                 return false;
             }
@@ -308,6 +308,7 @@ public class XMIFileUtils {
 
     /**
      * replace all oldPatterns[i] by newPatterns[i] in the file located in filePath.
+     * 
      * @param filePath The file location
      * @param oldPatterns The strings to replace
      * @param newPatterns The new strings
@@ -317,11 +318,11 @@ public class XMIFileUtils {
     public static boolean replace(final String filePath, final List<String> oldPatterns, final List<String> newPatterns) {
         File file = new File(filePath);
         
-        if (file.exists() && (oldPatterns.size() == newPatterns.size())){
+        if (file.exists() && oldPatterns.size() == newPatterns.size()) {
         
             int i = 0;
             String filePathTemp = filePath + "_" + String.valueOf(i);
-            while((new File(filePathTemp)).exists()){
+            while (new File(filePathTemp).exists()) {
                 i++;
                 filePathTemp = filePath + "_" + String.valueOf(i);
             }
@@ -349,16 +350,16 @@ public class XMIFileUtils {
         FileInputStream fis = null;
         BufferedReader reader = null;
         
-        if (new File(filePath).exists()){
+        if (new File(filePath).exists()) {
             try {
         
                 fis = new FileInputStream(filePath);
-                reader = new BufferedReader (new InputStreamReader(fis));
+                reader = new BufferedReader(new InputStreamReader(fis));
         
-                while((line = reader.readLine()) != null) {
+                while ((line = reader.readLine()) != null) {
         
                     if (line.contains("appliedProfile") && line.contains(" href=\"")
-                            && line.contains("#") && (!line.contains("pathmap:")) ){
+                            && line.contains("#") && !line.contains("pathmap:")) {
                         result.add(line.split(" href=\"")[1].split("#")[0]);
                     }
         
@@ -366,7 +367,7 @@ public class XMIFileUtils {
         
                 reader.close();
         
-            }catch (IOException e) {
+            } catch (IOException e) {
                 Xmi.LOG.error(Xmi.PLUGIN_ID, e);
             }
         }
@@ -375,6 +376,7 @@ public class XMIFileUtils {
 
     /**
      * Test if the file contains at least one of the patterns.
+     * 
      * @param file The file to test
      * @param patterns The list of patterns
      * @return
@@ -385,24 +387,24 @@ public class XMIFileUtils {
         String line = "";
         boolean findModel = false;
         
-        try(FileInputStream fis = new FileInputStream(file.getAbsolutePath());
-                BufferedReader reader = new BufferedReader (new InputStreamReader(fis));){
+        try (FileInputStream fis = new FileInputStream(file.getAbsolutePath());
+                BufferedReader reader = new BufferedReader(new InputStreamReader(fis));) {
         
             List<Pattern> listPatterns = new ArrayList<>();
         
-            for (String oldPattern : patterns){
+            for (String oldPattern : patterns) {
                 listPatterns.add(Pattern.compile(oldPattern));
             }
         
-            while(((line = reader.readLine()) != null) && (!findModel)){
-                for (Pattern pattern : listPatterns){
-                    if (pattern.matcher(line).find()){
+            while ((line = reader.readLine()) != null && !findModel) {
+                for (Pattern pattern : listPatterns) {
+                    if (pattern.matcher(line).find()) {
                         fis.close();
                         reader.close();
                         return true;
                     }
                 }
-               findModel = line.contains("<uml:Model") || line.contains("<uml:Package") || line.contains("<uml:Profile");
+                findModel = line.contains("<uml:Model") || line.contains("<uml:Package") || line.contains("<uml:Profile");
             }
         
             reader.close();
@@ -416,6 +418,7 @@ public class XMIFileUtils {
 
     /**
      * Replace all the oldPatterns[i] by the newPatterns[i] from the oldFile to the newFile
+     * 
      * @param oldFilePath The location of the oldFile
      * @param newFilePath The location of the newFile i.e. the result file
      * @param oldPatterns The list of patterns to be replaced
@@ -425,21 +428,19 @@ public class XMIFileUtils {
     public static void replace(final String oldFilePath, final String newFilePath, final List<String> oldPatterns, final List<String> newPatterns) {
         String line = "";
         
-        
-        try( FileWriter output = new FileWriter(newFilePath);
+        try (FileWriter output = new FileWriter(newFilePath);
                 FileInputStream fis = new FileInputStream(oldFilePath);
-                BufferedReader reader = new BufferedReader ( new InputStreamReader(fis));
-                ) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(fis));) {
         
             List<Pattern> listPatterns = new ArrayList<>();
         
-            for (String oldPattern : oldPatterns){
+            for (String oldPattern : oldPatterns) {
                 listPatterns.add(Pattern.compile(oldPattern));
             }
         
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
         
-                for (Pattern pattern : listPatterns){
+                for (Pattern pattern : listPatterns) {
                     line = pattern.matcher(line).replaceAll(newPatterns.get(listPatterns.indexOf(pattern)));
                 }
         
@@ -448,15 +449,16 @@ public class XMIFileUtils {
         
             output.flush();
         
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             Xmi.LOG.error(Xmi.PLUGIN_ID, e);
-        }catch (IOException e) {
+        } catch (IOException e) {
             Xmi.LOG.error(Xmi.PLUGIN_ID, e);
         }
     }
 
     /**
      * This service returns the list of applied profiles present
+     * 
      * @param filePath The location of the file
      * @return
      * The list of applied profile
@@ -469,12 +471,12 @@ public class XMIFileUtils {
         
         List<String> appliedProfilescurrent = getAppliedProfiles(filePath);
         
-        while (result.size() != appliedProfilescurrent.size()){
+        while (result.size() != appliedProfilescurrent.size()) {
             result.clear();
             temp.clear();
             result.addAll(appliedProfilescurrent);
             temp.addAll(appliedProfilescurrent);
-            for (String appliedProfile : result){
+            for (String appliedProfile : result) {
                 temp.addAll(getAppliedProfiles(directory + java.io.File.separator + appliedProfile));
                 appliedProfilescurrent = new ArrayList<>(new HashSet<>(temp));
             }
@@ -487,7 +489,7 @@ public class XMIFileUtils {
         try {
             URLConnection connection = urlFile.openConnection();
         
-            try( InputStream in = connection.getInputStream();
+            try (InputStream in = connection.getInputStream();
                     FileOutputStream fos = new FileOutputStream(file);) {
         
                 byte[] buf = new byte[512];
@@ -513,10 +515,10 @@ public class XMIFileUtils {
 
     @objid ("91cecbc1-1ac2-4666-84b7-9e916f19a706")
     private static File getTempFolder() {
-        File tempFolder = new File(GProject.getProject(GenerationProperties.getInstance().getRootElements().get(0)).getProjectPath().toString()
-                + java.io.File.separator + "XMI" + java.io.File.separator + "temp");
+        Path projectPath = GProject.getProject(GenerationProperties.getInstance().getRootElements().get(0)).getProjectFileStructure().getProjectPath();
+        File tempFolder = projectPath.resolve("XMI").resolve("temp").toFile();
         
-        if (! tempFolder.exists()){
+        if (!tempFolder.exists()) {
             tempFolder.mkdirs();
             tempFolder.mkdir();
         }
@@ -525,40 +527,34 @@ public class XMIFileUtils {
 
     @objid ("760f2137-510a-44a0-8d4c-d939ecf99b40")
     public static void mergeFile(String oldfile, File mergedfile, String start) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader (oldfile));
-        String         line = null;
-        StringBuilder  stringBuilder = new StringBuilder();
-        String         ls = System.getProperty("line.separator");
+        String line = null;
+        StringBuilder stringBuilder = new StringBuilder();
+        String ls = System.getProperty("line.separator");
         boolean read = false;
         
-        try {
+        try (BufferedReader reader = new BufferedReader(new FileReader(oldfile))) {
+            while ((line = reader.readLine()) != null) {
         
-            while((line = reader.readLine()) != null){
+                if (line.contains("<xmi:XMI")) {
+                    stringBuilder.append(getStart(start, line));
+                }
         
-                if (line.contains("<xmi:XMI")){
-                      stringBuilder.append(getStart(start, line));
-                 }
-        
-                if (line.contains("<profileApplication")){
+                if (line.contains("<profileApplication")) {
                     read = false;
                 }
         
-                if (read){
+                if (read) {
                     stringBuilder.append(line);
                     stringBuilder.append(ls);
                 }
         
-                if ((line.contains("<uml:Model")
+                if (line.contains("<uml:Model")
                         || line.contains("<uml:Profile")
-                        || (line.contains("</profileApplication")))){
+                        || line.contains("</profileApplication")) {
                     read = true;
                 }
         
             }
-        
-        
-        } finally {
-            reader.close();
         }
         
         // if file doesnt exists, then create it
@@ -566,28 +562,27 @@ public class XMIFileUtils {
         
         }
         
-        FileWriter fw = new FileWriter(mergedfile.getAbsoluteFile());
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(stringBuilder.toString());
-        bw.close();
+        try (FileWriter fw = new FileWriter(mergedfile.getAbsoluteFile());
+                BufferedWriter bw = new BufferedWriter(fw)) {
+            bw.write(stringBuilder.toString());
+            bw.close();
+        }
     }
 
     @objid ("aeac1ed9-8c34-46fe-8013-6a4ab32e556e")
     public static String readEmptyFile(String file) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader (file));
-        String         line = null;
-        StringBuilder  stringBuilder = new StringBuilder();
-        String         ls = System.getProperty("line.separator");
+        String line = null;
+        StringBuilder stringBuilder = new StringBuilder();
+        String ls = System.getProperty("line.separator");
         boolean stillReading = true;
         
-        try {
-        
-            while(((line = reader.readLine()) != null) && (stillReading)) {
-                if (!line.contains("<packagedElement")){
-                    if (line.contains( "</uml:Model>")
-                            || line.contains( "</uml:Profile>")){
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            while ((line = reader.readLine()) != null && stillReading) {
+                if (!line.contains("<packagedElement")) {
+                    if (line.contains("</uml:Model>")
+                            || line.contains("</uml:Profile>")) {
                         stillReading = false;
-                    }else{
+                    } else {
                         stringBuilder.append(line);
                         stringBuilder.append(ls);
                     }
@@ -595,8 +590,6 @@ public class XMIFileUtils {
             }
         
             return stringBuilder.toString();
-        } finally {
-            reader.close();
         }
     }
 
@@ -606,34 +599,32 @@ public class XMIFileUtils {
         
         String[] allElt = null;
         
-        //getting start namespaces
+        // getting start namespaces
         allElt = start.split(" ");
         List<String> strtNSs = new ArrayList<>();
-        for (int i = 0; i < allElt.length; i++){
-            String currentStr = allElt[i];
-            if (currentStr.startsWith(namespace)){
+        for (String currentStr : allElt) {
+            if (currentStr.startsWith(namespace)) {
                 strtNSs.add(currentStr.split("=")[0].replaceAll(namespace, ""));
             }
         }
         
-        //getting EMF namespaces
+        // getting EMF namespaces
         allElt = line.split(" ");
         Map<String, String> emfNS = new HashMap<>();
-        for (int i = 0; i < allElt.length; i++){
-            String currentStr = allElt[i];
-            if (currentStr.startsWith(namespace)){
+        for (String element : allElt) {
+            String currentStr = element;
+            if (currentStr.startsWith(namespace)) {
                 currentStr = currentStr.replaceAll(namespace, "");
                 String[] ns = currentStr.split("=");
                 emfNS.put(ns[0], ns[1]);
             }
         }
         
-        
         StringBuffer missingNamespace = new StringBuffer();
         
-        for (Map.Entry<String, String> entry : emfNS.entrySet()){
+        for (Map.Entry<String, String> entry : emfNS.entrySet()) {
             String ns = entry.getKey();
-            if (!strtNSs.contains(ns)){
+            if (!strtNSs.contains(ns)) {
                 missingNamespace.append(" ");
                 missingNamespace.append(namespace);
                 missingNamespace.append(ns);
@@ -646,6 +637,7 @@ public class XMIFileUtils {
 
     /**
      * Create an Ecore Resource in the resourcePath location
+     * 
      * @param resourcePath The desired location of the Ecore Resource
      * @return
      * The Ecore Resource located in resourcePath

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class MTextCellEditor extends MultiLineTextCellEditor {
 
     /**
      * Create a new multi line text editor.
+     * 
      * @param lineWrap Flag to configure whether the text control should enable automatic line wrap behaviour or not.
      * @param moveSelectionOnEnter Flag to configure whether the selection should move after a value was committed after pressing enter.
      */

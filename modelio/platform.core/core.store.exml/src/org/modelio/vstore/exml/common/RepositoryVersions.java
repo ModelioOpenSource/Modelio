@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class RepositoryVersions {
 
     /**
      * Read a {@link RepositoryVersions} written with {@link #write(OutputStream)}.
+     * 
      * @param is the input stream
      * @return the RepositoryVersions
      * @throws java.io.IOException on failure
@@ -84,6 +85,7 @@ public class RepositoryVersions {
 
     /**
      * Constructor from fields.
+     * 
      * @param format the repository format version
      * @param cmsNodesSig The CMS nodes
      */
@@ -95,6 +97,7 @@ public class RepositoryVersions {
 
     /**
      * Constructor for the given metamodel.
+     * 
      * @param mm a metamodel
      */
     @objid ("4c84eefd-4b78-408e-b1df-e5f66598cf19")
@@ -104,6 +107,7 @@ public class RepositoryVersions {
 
     /**
      * Constructor for the given metamodel.
+     * 
      * @param format the format version
      * @param mm a metamodel
      */
@@ -133,6 +137,7 @@ public class RepositoryVersions {
 
     /**
      * Check whether this version is compatible with the project one.
+     * 
      * @param mm the project metamodel
      * @throws org.modelio.vstore.exml.common.RepositoryVersions.IncompatibleVersionException if the version is not compatible.
      */
@@ -160,6 +165,7 @@ public class RepositoryVersions {
 
     /**
      * Write this version in a property map
+     * 
      * @param properties the write destination
      */
     @objid ("5c9a1281-2a9e-4af9-b09c-4769db46e32f")
@@ -177,6 +183,7 @@ public class RepositoryVersions {
 
     /**
      * Write this version in the given stream in the format read by {@link #repositoryFormat} .
+     * 
      * @param out where to write this version.
      * @throws java.io.IOException on I/O failure
      */
@@ -208,6 +215,7 @@ public class RepositoryVersions {
 
         /**
          * Constructs an <code>IncompatibleVersionException</code> with the specified detail message.
+         * 
          * @param message the message
          */
         @objid ("aee7c652-11d3-4734-bb35-5b661972a21e")

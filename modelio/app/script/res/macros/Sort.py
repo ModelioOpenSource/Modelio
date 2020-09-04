@@ -158,6 +158,15 @@ def sortDiagrams(modelelement):
     for d in ownedDiagrams:
         modelelement.getProduct().add(d)
 
+def sortManifestations(artifact):
+    ownedManifestations = []
+    for m in artifact.getUtilized():
+        ownedManifestations.append(m)
+    artifact.getUtilized().clear()
+    ownedManifestations.sort(lambda x, y: cmp(x.getUtilizedElement().getName(), y.getUtilizedElement().getName()))
+    for m in ownedManifestations:
+        artifact.getUtilized().add(m)
+        
 #
 # The macro execution starts here
 #
@@ -181,6 +190,10 @@ if (selectedElements.size > 0):
                 sortAssociationEnds(element)
                 sorted = True
             
+            if (isinstance(element, Artifact)):                
+                sortManifestations(element)
+                sorted = True
+                            
             # Analyst metamodel might be missing, use the metaclass name...
             if (metaclass == "Analyst.RequirementContainer"):
                 sortRequirementContainer(element)

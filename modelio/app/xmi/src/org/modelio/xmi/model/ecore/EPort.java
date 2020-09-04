@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -282,9 +282,9 @@ public class EPort extends EFeature {
         
         if (objOwner instanceof Instance) {       
             ((Instance) objOwner).getPart().add(portClone);
-        }else if (objOwner instanceof ArrayList<?>){
+        }else if (objOwner instanceof List<?>){
         
-            for (UmlModelElement objElt : (ArrayList<UmlModelElement>) objOwner){
+            for (Object objElt : (List<?>) objOwner){
                 if (objElt instanceof Instance)
                     ((Instance) objElt).getPart().add(portClone);
             }       

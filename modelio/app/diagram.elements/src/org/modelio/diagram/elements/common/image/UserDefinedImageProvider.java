@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public class UserDefinedImageProvider implements IImageableNode {
      * <li> an absolute URL
      * </ul>
      * Returns <i>null</i> if the image is not found.
+     * 
      * @param imageSpec an image location specification.
      * @return an image descriptor or <i>null</i>.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -113,6 +113,7 @@ public class VTabItem extends Item {
      * </p>
      * @see SWT
      * @see Widget#getStyle()
+     * 
      * @param parent a VTabFolder which will be the parent of the new instance
      * (cannot be null)
      * @param style the style of control to construct
@@ -147,6 +148,7 @@ public class VTabItem extends Item {
      * </p>
      * @see SWT
      * @see Widget#getStyle()
+     * 
      * @param parent a VTabFolder which will be the parent of the new instance
      * (cannot be null)
      * @param style the style of control to construct
@@ -189,6 +191,7 @@ public class VTabItem extends Item {
     /**
      * Returns a rectangle describing the receiver's size and location relative
      * to its parent.
+     * 
      * @return the receiver's bounding column rectangle
      * 
      * @exception SWTException
@@ -208,6 +211,7 @@ public class VTabItem extends Item {
 
     /**
      * Gets the control that is displayed in the content area of the tab item.
+     * 
      * @return the control
      * 
      * @exception SWTException
@@ -226,6 +230,7 @@ public class VTabItem extends Item {
 
     /**
      * Returns the font that the receiver will use to paint textual information.
+     * 
      * @return the receiver's font
      * 
      * @exception SWTException
@@ -248,6 +253,7 @@ public class VTabItem extends Item {
 
     /**
      * Returns the receiver's parent, which must be a <code>VTabFolder</code>.
+     * 
      * @return the receiver's parent
      * 
      * @exception SWTException
@@ -268,6 +274,7 @@ public class VTabItem extends Item {
      * Returns <code>true</code> to indicate that the receiver's close button
      * should be shown. Otherwise return <code>false</code>. The initial value
      * is defined by the style (SWT.CLOSE) that was used to create the receiver.
+     * 
      * @return <code>true</code> if the close button should be shown
      * 
      * @exception SWTException
@@ -288,6 +295,7 @@ public class VTabItem extends Item {
 
     /**
      * Returns the receiver's tool tip text, or null if it has not been set.
+     * 
      * @return the receiver's tool tip text
      * 
      * @exception SWTException
@@ -312,6 +320,7 @@ public class VTabItem extends Item {
     /**
      * Returns <code>true</code> if the item will be rendered in the visible
      * area of the VTabFolder. Returns false otherwise.
+     * 
      * @return <code>true</code> if the item will be rendered in the visible
      * area of the VTabFolder. Returns false otherwise.
      * 
@@ -334,6 +343,7 @@ public class VTabItem extends Item {
     /**
      * Sets the control that is used to fill the client area of the tab folder
      * when the user selects the tab item.
+     * 
      * @param control the new control (or null)
      * 
      * @exception IllegalArgumentException
@@ -391,6 +401,7 @@ public class VTabItem extends Item {
      * Sets the font that the receiver will use to paint textual information for
      * this item to the font specified by the argument, or to the default font
      * for that kind of control if the argument is null.
+     * 
      * @param font the new font (or null)
      * 
      * @exception IllegalArgumentException
@@ -442,6 +453,7 @@ public class VTabItem extends Item {
      * Sets to <code>true</code> to indicate that the receiver's close button
      * should be shown. If the parent (VTabFolder) was created with SWT.CLOSE
      * style, changing this value has no effect.
+     * 
      * @param close the new state of the close button
      * 
      * @exception SWTException
@@ -491,6 +503,7 @@ public class VTabItem extends Item {
      * tip. To display a single '&amp;' in the tool tip, the character '&amp;'
      * can be escaped by doubling it in the string.
      * </p>
+     * 
      * @param string the new tool tip text (or null)
      * 
      * @exception SWTException

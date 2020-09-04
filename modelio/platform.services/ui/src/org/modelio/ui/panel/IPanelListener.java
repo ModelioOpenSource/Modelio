@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ import org.eclipse.swt.widgets.Text;
 public interface IPanelListener {
     /**
      * Notifies this listener that the panel's data model has changed.
+     * 
      * @param changedData the changed data model.
      * @param isValidate whether or not this change is terminal or not.
      * For example, typing text in a {@link Text} usually triggers non-validating changes for each

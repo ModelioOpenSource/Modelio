@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -30,10 +30,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("9a09c529-6d0a-4687-b5e7-321627f652b1")
 public class AbstractProjectData extends ModelElementData {
-    @objid ("ff330bbf-6af6-4d62-be85-b77ded01c1ce")
+    @objid ("a41fef44-65cf-463e-851e-c84d4f14285a")
      SmObjectImpl mDiagramRoot;
 
-    @objid ("d9011d76-a3ad-41df-b088-e2d9137fe48c")
+    @objid ("67cd3498-ebd2-43a6-ab55-b6e0fecef91a")
     public AbstractProjectData(AbstractProjectSmClass smClass) {
         super(smClass);
     }

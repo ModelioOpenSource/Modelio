@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,6 +72,7 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
 
     /**
      * Creates a GmPackagePrimaryNode.
+     * 
      * @param diagram The diagram.
      * @param ref The represented package reference, may not be <tt>null</tt>.
      */
@@ -187,6 +188,7 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
 
     /**
      * Get the stereotype image to display.
+     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("36238fea-55b7-11e2-877f-002564c97630")
@@ -244,6 +246,7 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
 
     /**
      * Returns the body of this package.
+     * 
      * @return the GmCompositeNode instance that is the body of this package.
      */
     @objid ("3623900c-55b7-11e2-877f-002564c97630")
@@ -253,6 +256,7 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
 
     /**
      * Migration constructor.
+     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("36251679-55b7-11e2-877f-002564c97630")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,8 @@ import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.metamodel.uml.statik.AssociationEnd;
+import org.modelio.metamodel.uml.statik.LinkEnd;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -72,6 +74,7 @@ public class UnmaskLinkCommand extends Command {
 
     /**
      * C'tor.
+     * 
      * @param link the link to unmask.
      * @param host the edit part that was asked to handle the unmasking.
      * @param dropLocation the drop location.
@@ -192,6 +195,13 @@ public class UnmaskLinkCommand extends Command {
         
             // No valid edit part found, return the first one
             return targetEditParts.get(0);
+        } else {
+            // For AssociationEnd and LinkEnd, the link itself is unmasked : try return it instead.
+            if (element instanceof AssociationEnd) {
+                return getEditPartFor(((AssociationEnd) element).getAssociation(), req);
+            } else if (element instanceof LinkEnd) {
+                return getEditPartFor(((LinkEnd) element).getLink(), req);
+            }
         }
         return null;
     }
@@ -221,6 +231,7 @@ public class UnmaskLinkCommand extends Command {
 
     /**
      * Get the center of te figure bounds in absolute coordinates.
+     * 
      * @param editPart a figure edit part
      * @return the center of the figure.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -155,6 +155,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Construct a Label with passed String as its text.
+     * 
      * @param s the label text
      */
     @objid ("164a393c-325f-4d6b-8dfb-78a10d45b2c2")
@@ -165,6 +166,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Construct a Label with passed Image as its icon.
+     * 
      * @param i the label image
      */
     @objid ("3e15a74e-f886-47b9-84c9-5a7a3a519e95")
@@ -176,6 +178,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Construct a Label with passed String as text and passed Image as its
      * icon.
+     * 
      * @param s the label text
      * @param i the label image
      */
@@ -202,6 +205,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Returns the Label's icon.
+     * 
      * @return the label icon
      * @since 2.0
      */
@@ -213,6 +217,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Returns the current alignment of the Label's icon. The default is
      * {@link PositionConstants#CENTER}.
+     * 
      * @return the icon alignment
      * @since 2.0
      */
@@ -223,6 +228,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Returns the bounds of the Label's icon.
+     * 
      * @return the icon's bounds
      * @since 2.0
      */
@@ -235,6 +241,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Returns the gap in pixels between the Label's icon and its text.
+     * 
      * @return the gap
      * @since 2.0
      */
@@ -246,6 +253,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Returns the alignment of the entire label (icon and text). The default
      * label alignment is {@link PositionConstants#CENTER}.
+     * 
      * @return the label alignment
      * @since 3.5
      */
@@ -282,6 +290,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Get the orientation angle in counter-clockwise degrees.
+     * 
      * @return the orientation angle in degrees. 0 means horizontal.
      */
     @objid ("306ba641-2e59-44b0-bfa7-70ddd808deed")
@@ -292,6 +301,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Calculates the amount of the Label's current text will fit in the Label,
      * including an elipsis "..." if truncation is required.
+     * 
      * @return the substring
      */
     @objid ("1d1f59f1-6eda-44d4-b9e3-6f47b5b2664e")
@@ -318,6 +328,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Returns the bounds of the label's text. Note that the bounds are
      * calculated using the label's displayed text, truncated if needed.
+     * 
      * @return the bounds of this label's complete text
      */
     @objid ("c6100c66-f495-443e-a52e-e4a99273dc3d")
@@ -333,6 +344,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * label, regardless of whether it is currently being truncated. Call
      * {@link #getSubStringText()} to return the label's current text contents
      * with truncation considered.
+     * 
      * @return the complete text of this label
      * @since 2.0
      */
@@ -344,6 +356,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Returns the current alignment of the Label's text. The default text
      * alignment is {@link PositionConstants#CENTER}.
+     * 
      * @return the text alignment
      */
     @objid ("f5341eec-bb0a-4309-b083-a18404ca1e9a")
@@ -355,6 +368,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * Returns the bounds of the label's text. Note that the bounds are
      * calculated using the label's complete text regardless of whether the
      * label's text is currently truncated.
+     * 
      * @return the bounds of this label's complete text
      */
     @objid ("6ee9b558-e6ce-4a15-a64b-4c4e91c5f1c0")
@@ -377,6 +391,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * The returned {@link TextLayout} is ready to draw the given text with the labelum style.
      * <p>
      * This TextLayout must not be disposed by clients. The provided TextLayout's orientation will be LTR.
+     * 
      * @param textToDraw the text to draw
      * @param width the available width to draw text. -1 means no limit. Justification and text centering need a positive value.
      * @return a SWT TextLayout that can be used for Bidi
@@ -448,6 +463,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Get the line breaking strategy for this labelum.
+     * 
      * @return the labelum text layouter.
      */
     @objid ("ae5b7ff2-34bd-4827-926d-90023b8ee234")
@@ -458,6 +474,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Returns the current placement of the label's text relative to its icon.
      * The default text placement is {@link PositionConstants#EAST}.
+     * 
      * @return the text placement
      */
     @objid ("c90b6480-5b2c-4aa0-b6df-4ae27b4ff556")
@@ -479,6 +496,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * <li>{@link #setStrikeThrough(boolean)}: {@link TextStyle#strikeout}
      * </ul>
      * You may need to call {@link #repaint()} after changing the text style fields.
+     * 
      * @return the text style
      */
     @objid ("95c2b855-2a3e-4f18-9411-cb25e8023058")
@@ -489,6 +507,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Gets the <code>TextUtilities</code> instance to be used in measurement
      * calculations.
+     * 
      * @return a <code>TextUtilities</code> instance
      * @since 3.4
      */
@@ -523,6 +542,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Sets the label's icon to the passed image.
+     * 
      * @param image the new label image
      * @since 2.0
      */
@@ -552,6 +572,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * <LI>{@link PositionConstants#LEFT}
      * <LI>{@link PositionConstants#RIGHT}
      * </UL>
+     * 
      * @param align the icon alignment
      */
     @objid ("3a94dcf0-1285-4c58-8d76-f5102d3cc654")
@@ -567,6 +588,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Sets the gap in pixels between the label's icon and text to the passed
      * value. The default is 4.
+     * 
      * @param gap the gap
      */
     @objid ("f89fda84-f8bc-4521-b735-0fdbca033afb")
@@ -591,6 +613,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * <LI>{@link PositionConstants#RIGHT}
      * <LI>{@link PositionConstants#LEFT} + {@link PositionConstants#RIGHT} = Takes the whole place and justify text.
      * </UL>
+     * 
      * @param align label alignment
      */
     @objid ("5d0c5514-e59f-4ecc-a8b2-de45a1af3567")
@@ -647,6 +670,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * at the 3 o'clock position.
      * A positive value indicates a counter-clockwise rotation while a negative value
      * indicates a clockwise rotation.
+     * 
      * @param orientation the orientation in degrees.
      */
     @objid ("4303b9fe-46cd-4c62-a493-44442a4ad832")
@@ -664,6 +688,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * <p>
      * {@link PositionConstants#EAST} is the default horizontal direction,
      * {@link PositionConstants#NORTH} is the default vertical direction.
+     * 
      * @param orientation the label orientation
      */
     @objid ("ca3ffe99-bc79-4032-bf55-c2c3ccd935c6")
@@ -700,6 +725,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Set whether the main label is underlined.
+     * 
      * @param strikeThrough true to strike the label
      */
     @objid ("1bdf9bd4-4feb-42bf-95d9-9cfafdd72a95")
@@ -712,6 +738,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Sets the label's text.
+     * 
      * @param s the new label text
      * @since 2.0
      */
@@ -747,6 +774,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Set the text layouter used to define where text lines are broken.
+     * 
      * @param labellumLayouter the text layouter.
      */
     @objid ("690f07b0-b415-48d0-8734-24b8e88cc1c8")
@@ -774,6 +802,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * <LI>{@link PositionConstants#RIGHT}
      * </UL>
      * @see #setLabelAlignment(int)
+     * 
      * @param align the text alignment
      */
     @objid ("2edd573d-169b-485f-875c-2e78e92d8393")
@@ -795,6 +824,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * <LI>{@link PositionConstants#SOUTH}
      * <LI>{@link PositionConstants#WEST}
      * </UL>
+     * 
      * @param where the text placement
      * @since 2.0
      */
@@ -810,6 +840,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Set whether the main label is underlined.
+     * 
      * @param underline true to underline the main label
      */
     @objid ("d8dd1dde-bd96-413d-b765-5c7bda7466f3")
@@ -823,6 +854,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Calculates the size available for text using the passed Dimension as the size
      * of the whole Label's figure.
+     * 
      * @param figureSize the precalculated size of the label's figure.
      * @return the available text size
      */
@@ -855,6 +887,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Calculates the size of the Label using the passed Dimension as the size
      * of the Label's text.
+     * 
      * @param txtSize the precalculated size of the label's text
      * @return the label's size in a new Dimension.
      * @since 2.0
@@ -878,6 +911,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Called by the layout manager.
+     * 
      * @param w rectangle width
      * @param h rectangle height
      * @return The minimum size
@@ -911,6 +945,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Called by the layout manager.
+     * 
      * @param wHint The width hint
      * @param hHint The height hint
      * @return The preferred size
@@ -942,6 +977,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * Dimension is calculated using the Label's full text, regardless of
      * whether or not its text is currently truncated. If text size considering
      * current truncation is desired, use {@link #getSubStringTextSize()}.
+     * 
      * @return the size of the label's text, ignoring truncation
      * @since 2.0
      */
@@ -955,6 +991,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Returns the location of the Label's icon relative to the Label.
+     * 
      * @return the icon's location
      * @since 2.0
      */
@@ -968,6 +1005,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Gets the icon size
+     * 
      * @return the icon size
      * @since 3.4
      */
@@ -1016,6 +1054,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * Returns the size of the Label's current text. If the text is currently
      * truncated, the truncated text with its ellipsis is used to calculate the
      * size.
+     * 
      * @return the size of this label's text, taking into account truncation
      * @since 2.0
      */
@@ -1031,6 +1070,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * Returns the location of the label's text relative to the label.
      * <p>
      * The point is in the inner rectangle coordinates.
+     * 
      * @return the text location
      */
     @objid ("7d176674-2c1e-4d1b-9abb-ac5ce235d395")
@@ -1048,6 +1088,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * label's text is currently being truncated and is displaying an ellipsis.
      * If the size considering current truncation is desired, call
      * {@link #getSubStringTextSize()}.
+     * 
      * @return the size of this label's complete text
      * @since 2.0
      */
@@ -1062,6 +1103,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Gets the string that will be appended to the text when the label is
      * truncated. By default, this returns an ellipsis.
+     * 
      * @return the string to append to the text when truncated
      * @since 3.4
      */
@@ -1243,6 +1285,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
     /**
      * Calculate the max size of a rectangle inside the given rectangle size rotated by the labelum angle .
      * <p>
+     * 
      * @param w rectangle width
      * @param h rectangle height
      * @return the inner rotated rectangle dimension
@@ -1290,6 +1333,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Compute the size of the a rectangle after rotation.
+     * 
      * @param d the initial size.
      * @param target the dimension in which the bounds size of the rotated rectangle will be computed.
      * @return the bounds of the rotated dimension : target for convenience.
@@ -1322,6 +1366,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Guess the ideal text width for the given dimensions.
+     * 
      * @param angle the rotation angle in degrees
      * @param origWidth the constrained width.
      * @param origHeight the constrained height
@@ -1404,6 +1449,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
 
     /**
      * Sets the label's icon size to the passed Dimension.
+     * 
      * @param d the new icon size
      */
     @objid ("7044e1cd-44ef-452b-b678-0d8ba96219ce")
@@ -1419,6 +1465,7 @@ public class LabelumFigure extends Figure implements IPenOptionsSupport, Positio
      * Wrapper aroung {@link Graphics#translate(float, float)} that ignores
      * thrown {@link NullPointerException} because of GEF bug.
      * @see Graphics#translate(float, float)
+     * 
      * @param graphics the Graphics to translate
      * @param x the horizontal offset
      * @param y the vertical offset

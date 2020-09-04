@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,6 +72,7 @@ public class GmQualifierGroup extends GmGroup {
 
     /**
      * Creates a qualifier group.
+     * 
      * @param diagram The diagram.
      * @param relatedRef The related association role reference, must not be <code>null</code>.
      * @param role The represented association role, may be <code>null</code>.
@@ -146,6 +147,7 @@ public class GmQualifierGroup extends GmGroup {
      * Checks whether the given model element can be and still be displayed here.
      * <p>
      * Check all conditions except the case where it is already unmasked.
+     * 
      * @param el The element to unmask
      * @return true if it satisfies all conditions, else false.
      */
@@ -170,6 +172,7 @@ public class GmQualifierGroup extends GmGroup {
 
     /**
      * Update the cascaded style of the group.
+     * 
      * @param parentLink a link model
      */
     @objid ("33f9ab2f-55b7-11e2-877f-002564c97630")
@@ -183,6 +186,7 @@ public class GmQualifierGroup extends GmGroup {
 
     /**
      * Get the node on which this qualifier group is sticked.
+     * 
      * @return the reference node, or <code>null</code> if not yet initialized.
      */
     @objid ("33f9ab36-55b7-11e2-877f-002564c97630")

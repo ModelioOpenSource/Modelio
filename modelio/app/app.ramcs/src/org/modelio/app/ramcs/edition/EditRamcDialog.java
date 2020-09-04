@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -73,6 +73,7 @@ public class EditRamcDialog extends ViewRamcDialog {
 
     /**
      * C'tor.
+     * 
      * @param parentShell the parent shell, or <code>null</code> to create a top-level shell.
      * @param dataModel the data model of the ramc to be edited.
      */
@@ -374,6 +375,7 @@ public class EditRamcDialog extends ViewRamcDialog {
 
         /**
          * C'tor.
+         * 
          * @param viewer - the viewer this drop listener is attached to
          * @param controler - the edition controller.
          * @param model - access to the model in order to be able to find model element from their MRef
@@ -390,6 +392,7 @@ public class EditRamcDialog extends ViewRamcDialog {
          * <p>
          * Metamodel rules are checked, as well as manipulation rights for both the target and dropped elements.
          * </p>
+         * 
          * @param target the targeted element, must be a MObject.
          * @param operation the d&d operation, must be {@link DND#DROP_COPY} or {@link DND#DROP_MOVE}.
          * @param transferType the contents of data being dropped.
@@ -446,6 +449,7 @@ public class EditRamcDialog extends ViewRamcDialog {
 
         /**
          * Check the given elements can be dragged.
+         * 
          * @param elements The dragged elements
          * @return true if the given elements can be dragged.
          */
@@ -499,6 +503,7 @@ public class EditRamcDialog extends ViewRamcDialog {
 
         /**
          * C'tor.
+         * 
          * @param viewer the viewer this drop listener is attached to
          * @param controller the edition controller.
          * @param model access to the model in order to be able to find model element from their MRef.
@@ -515,6 +520,7 @@ public class EditRamcDialog extends ViewRamcDialog {
          * <p>
          * Metamodel rules are checked, as well as manipulation rights for both the target and dropped elements.
          * </p>
+         * 
          * @param target the targeted element, must be a MObject.
          * @param operation the d&d operation, must be {@link DND#DROP_COPY} or {@link DND#DROP_MOVE}.
          * @param transferType the contents of data being dropped.
@@ -577,6 +583,7 @@ public class EditRamcDialog extends ViewRamcDialog {
          * <li>Elements must be Artifact, stereotyped 'ModelComponentArchive'</li>
          * <li>Dropped ramcs must not cause a dependency cycle</li>
          * </ul>
+         * 
          * @param elements The dragged elements
          * @return true if the given elements can be dragged.
          */

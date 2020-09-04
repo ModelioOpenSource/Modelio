@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -101,6 +101,7 @@ public class NatTableViewerContext implements INatTableViewerContext {
 
     /**
      * Constructor to use only if you have no {@link ICurrentProjectService} at hand (eg. the diff/merge dialog).
+     * 
      * @param session the core session
      * @param modelService the model service
      * @param activationService the activation service to open the edition dialog
@@ -134,6 +135,12 @@ public class NatTableViewerContext implements INatTableViewerContext {
     @objid ("73c1c396-71ab-4b15-9b6f-082512208b00")
     public static NatTableViewerContext empty() {
         return new NatTableViewerContext(null, null, null, null, null);
+    }
+
+    @objid ("131e98bc-51ca-40c6-9ba0-81cbeaa172d0")
+    @Override
+    public <T> T getService(Class<T> clazz) {
+        return null;
     }
 
     /**

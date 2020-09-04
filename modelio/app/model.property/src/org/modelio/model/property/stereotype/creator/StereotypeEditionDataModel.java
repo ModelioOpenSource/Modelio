@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,10 +51,11 @@ class StereotypeEditionDataModel {
     private Stereotype editedStereotype;
 
     @objid ("f313f9ec-a377-4d70-a02d-47b6fdb401dc")
-    private Path projectPath;
+    private Path localPath;
 
     /**
      * Set the stereotype name.
+     * 
      * @param stereotypeName the stereotype name to set
      */
     @objid ("33efaed3-492f-42f2-905c-865cbf657dc7")
@@ -64,6 +65,7 @@ class StereotypeEditionDataModel {
 
     /**
      * Get the stereotype name.
+     * 
      * @return the stereotype name
      */
     @objid ("668a1b70-ed00-473b-81b1-0b6d13cb8a26")
@@ -73,16 +75,17 @@ class StereotypeEditionDataModel {
 
     /**
      * Default constructor.
+     * 
      * @param metaclassName the metaclass the stereotype should apply to.
      * @param editedStereotype <code>true</code> if this model is used to create a new stereotype, <code>false</code> to edit an existing stereotype.
-     * @param projectPath the path of the project to create the stereotype in.
+     * @param runtimePath the path in the project to create the stereotype in.
      */
     @objid ("ffef2852-2f3e-4736-9031-ad10221d467c")
-    public StereotypeEditionDataModel(String metaclassName, Stereotype editedStereotype, Path projectPath) {
+    public StereotypeEditionDataModel(String metaclassName, Stereotype editedStereotype, Path runtimePath) {
         super();
         this.metaclassName = metaclassName;
         this.editedStereotype = editedStereotype;
-        this.projectPath = projectPath;
+        this.localPath = runtimePath.resolve("modules").resolve("local");
         if (editedStereotype != null) {
             this.iconName = editedStereotype.getIcon();
             this.imageName = editedStereotype.getImage();
@@ -91,6 +94,7 @@ class StereotypeEditionDataModel {
 
     /**
      * Set the metaclass name.
+     * 
      * @param metaclassName the metaclassName to set
      */
     @objid ("d3fc0d4f-4f69-4759-975a-40abb6ba8b96")
@@ -100,6 +104,7 @@ class StereotypeEditionDataModel {
 
     /**
      * Get the metaclass name.
+     * 
      * @return the metaclassName
      */
     @objid ("a6b2927a-4451-40da-94e9-a7eb28e989a2")
@@ -194,7 +199,7 @@ class StereotypeEditionDataModel {
     @objid ("6993b557-9f7d-426a-91dd-9f114a69586a")
     public Path getDefaultTempIconPath() {
         if (!this.iconName.isEmpty()) {
-            return this.projectPath.resolve(".runtime").resolve("modules").resolve("local").resolve("tempIcon"+getIconExtension());
+            return this.localPath.resolve("tempIcon" + getIconExtension());
         }
         return null;
     }
@@ -202,7 +207,7 @@ class StereotypeEditionDataModel {
     @objid ("cc60609e-50df-4e61-b987-8045ad5c456d")
     public Path getDefaultTempImagePath() {
         if (!this.imageName.isEmpty()) {
-            return this.projectPath.resolve(".runtime").resolve("modules").resolve("local").resolve("tempImage"+getImageExtension());
+            return this.localPath.resolve("tempImage" + getImageExtension());
         }
         return null;
     }
@@ -215,6 +220,11 @@ class StereotypeEditionDataModel {
     @objid ("60876813-048d-44e8-b558-877bed8a4ed8")
     public String getImageExtension() {
         return this.imageName.substring(this.imageName.lastIndexOf("."));
+    }
+
+    @objid ("2be22c1f-a4bd-4fba-ae43-a7053e0cc002")
+    public Path getLocalPath() {
+        return this.localPath;
     }
 
 }

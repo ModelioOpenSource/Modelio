@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ class DiagramsCopier {
      * <p>
      * The given map contains pairs of elements: the original element and its
      * copy.
+     * 
      * @param localDiagram the diagram to modify
      * @param pairs pairs of {source, dest} elements.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,6 +49,7 @@ public abstract class Modelio {
 
     /**
      * Get the audit service.
+     * 
      * @return the audit service.
      * 
      * @deprecated Use {@link IModelioServices#getAuditService()}
@@ -59,6 +60,7 @@ public abstract class Modelio {
 
     /**
      * Get the context of the Modelio application.
+     * 
      * @return the Modelio context.
      * @deprecated Use {@link IModuleContext#getModelioContext()}
      */
@@ -68,6 +70,7 @@ public abstract class Modelio {
 
     /**
      * Get the diagram manipulation service.
+     * 
      * @return the diagram service.
      * @deprecated Use {@link IModelioServices#getDiagramService()}
      */
@@ -77,6 +80,7 @@ public abstract class Modelio {
 
     /**
      * Get the text editor management service.
+     * 
      * @return the edition service.
      * @deprecated Use {@link IModelioServices#getEditionService()}
      */
@@ -86,6 +90,7 @@ public abstract class Modelio {
 
     /**
      * Get the service to import/export model elements.
+     * 
      * @return the exchange service.
      * @since 2.2
      * @deprecated Use @link {@link IModelioServices#getExchangeService()}
@@ -96,6 +101,7 @@ public abstract class Modelio {
 
     /**
      * Get the service to get the image of an element.
+     * 
      * @return the image service.
      * @deprecated Use {@link IModelioServices#getImageService()}
      */
@@ -105,6 +111,7 @@ public abstract class Modelio {
 
     /**
      * Get the modelio application instance.
+     * 
      * @return the singleton instance of Modelio
      * @deprecated the former services of Modelio instance are available on IModule and IModulecontext
      */
@@ -118,6 +125,7 @@ public abstract class Modelio {
 
     /**
      * Get the log service for modules.
+     * 
      * @return the log service.
      * @deprecated Use {@link IModelioServices#getLogService()}
      */
@@ -127,6 +135,7 @@ public abstract class Modelio {
 
     /**
      * Get the metamodel management service.
+     * 
      * @return the metamodel service.
      * @deprecated Use {@link IModelioServices#getMetamodelService()}
      */
@@ -136,6 +145,7 @@ public abstract class Modelio {
 
     /**
      * Get the model component management service.
+     * 
      * @return the model component service.
      * @deprecated Use {@link IModelioServices#getModelComponentService()}
      */
@@ -145,6 +155,7 @@ public abstract class Modelio {
 
     /**
      * Get the model manipulation service.
+     * 
      * @return the model manipulation service.
      * @deprecated Use {@link IModelioServices#getModelManipulationService()}
      */
@@ -154,6 +165,7 @@ public abstract class Modelio {
 
     /**
      * Get the project session.
+     * 
      * @return the current project session.
      * @deprecated Use {@link IModuleContext#getModelingSession()}
      */
@@ -163,6 +175,7 @@ public abstract class Modelio {
 
     /**
      * Get the module management service.
+     * 
      * @return the module management service.
      * @deprecated Use {@link IModelioServices#getModuleService()}
      */
@@ -175,6 +188,7 @@ public abstract class Modelio {
      * <p>
      * The navigation service allow to force selection in all the view/dialog
      * that are registered as NavigationListener.
+     * 
      * @return the navigation service.
      * @deprecated Use {@link IModelioServices#getNavigationService()}
      */
@@ -184,6 +198,7 @@ public abstract class Modelio {
 
     /**
      * Get the service to export/apply patterns.
+     * 
      * @return the pattern service
      * @since 3.4
      * @deprecated Use {@link IModelioServices#getPatternService()}
@@ -194,6 +209,7 @@ public abstract class Modelio {
 
     /**
      * Get the element picking service.
+     * 
      * @return the element picking service.
      * @deprecated Use {@link IModelioServices#getPickingService()}
      */
@@ -203,6 +219,7 @@ public abstract class Modelio {
 
     /**
      * Get the service to get the image of an element in the explorer.
+     * 
      * @return the image service.
      * @deprecated Use {@link IModuleContext#getJythonEngine()}
      */
@@ -214,6 +231,7 @@ public abstract class Modelio {
      * Get the service implementing the given interface.
      * <p>
      * Returns <code>null</code> if no such service is registered.
+     * 
      * @param serviceInterface the service interface.
      * @return the registered service.
      * @deprecated Use {@link IModelioServices#getService(Class)}

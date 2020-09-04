@@ -2,9 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension id="id1" point="org.eclipse.e4.workbench.model">
-      <processor
-            beforefragment="true"
-            class="org.modelio.app.project.core.ext.plugin.ProjectServiceInitializerOrg">
-      </processor> 
+      <processor beforefragment="true" class="org.modelio.app.project.core.ext.plugin.ProjectServiceInitializerOrg"/>
    </extension>
 </plugin>

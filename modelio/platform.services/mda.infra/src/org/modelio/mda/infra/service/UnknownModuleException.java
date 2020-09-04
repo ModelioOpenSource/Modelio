@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ public class UnknownModuleException extends Exception {
 
     /**
      * Constructs a new exception with the specified detail message.
+     * 
      * @param msg the message.
      */
     @objid ("efa529d9-9a11-4540-b0a6-0cd0a891ed96")

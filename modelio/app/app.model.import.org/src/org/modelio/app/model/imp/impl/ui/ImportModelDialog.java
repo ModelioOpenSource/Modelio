@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -88,6 +88,7 @@ public class ImportModelDialog extends ModelioDialog {
 
     /**
      * Initialize the dialog.
+     * 
      * @param parentShell The parent SWT shell
      * @param dataModel the data model of elements to import
      * @param gProjectEnvironment all needed infos to create a GProject
@@ -148,6 +149,7 @@ public class ImportModelDialog extends ModelioDialog {
 
     /**
      * Enable or disable the import button.
+     * 
      * @param canImport true to enable the import button, false to disable it.
      */
     @objid ("b5e9fa4d-d6ad-49d3-8af6-8621d821cb0d")
@@ -159,6 +161,7 @@ public class ImportModelDialog extends ModelioDialog {
 
     /**
      * Set the project path as invalid or not.
+     * 
      * @param isValid false to set the path as invalid
      */
     @objid ("a2a5075f-d7ac-4a32-ab98-9fd183f2a437")
@@ -234,7 +237,7 @@ public class ImportModelDialog extends ModelioDialog {
     @objid ("e0f357ce-6b15-4745-88cc-1e44f4db8c88")
     private void collectHiddenChildren(List<SmObjectImpl> result, SmObjectImpl aRoot) {
         if (aRoot == null || aRoot.getStatus().isRamc()) {
-            return ;
+            return;
         }
         
         for (SmDependency compoDep : aRoot.getClassOf().getAllComponentAndSharedDepDef()) {
@@ -277,7 +280,7 @@ public class ImportModelDialog extends ModelioDialog {
                         .fromProjectDirectory(projectConfPath)
                         .withEnvironment(this.gProjectEnvironment)
                         .open(monitor));
-                
+        
                 setErrorMessage(null);
             } catch (IOException e) {
                 isValidPath = false;
@@ -305,7 +308,12 @@ public class ImportModelDialog extends ModelioDialog {
             public void widgetSelected(SelectionEvent e) {
                 // Open a file chooser to select the project.conf file
                 final FileDialog projectPathChooser = new FileDialog(getShell(), SWT.OPEN);
-                projectPathChooser.setFilterExtensions(new String[] { "project.conf" });
+                if (!System.getProperty("os.name").startsWith("Mac")) {
+                    projectPathChooser.setFilterExtensions(new String[] { "project.conf" });
+                } else {
+                    // On Mac, do not use a complete file or the file chooser will become a directory chooser...
+                    projectPathChooser.setFilterExtensions(new String[] { "*.conf" });
+                }
                 projectPathChooser.setFilterNames(new String[] { AppModelImportOrg.I18N.getString("ImportModelDialog.OfpxFiles") });
         
                 String fileName = projectPathChooser.open();
@@ -372,7 +380,7 @@ public class ImportModelDialog extends ModelioDialog {
         @objid ("ac0de913-6831-4b6d-a944-72a01ffc7951")
         @Override
         public void treeExpanded(TreeExpansionEvent event) {
-            final Object element = (event.getElement());
+            final Object element = event.getElement();
             final boolean checked = this.tree.getChecked(element);
             // final boolean grayed = tree.getGrayed(element);
             

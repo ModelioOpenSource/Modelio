@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class OBehaviorParameter extends OElement implements IOElement {
 
     /**
      * OBehaviorParameter constructor
+     * 
      * @param element : the exported Modelio BehaviorParameter
      */
     @objid ("ead147ad-15d4-4f7b-aa27-910f34ebaa1b")

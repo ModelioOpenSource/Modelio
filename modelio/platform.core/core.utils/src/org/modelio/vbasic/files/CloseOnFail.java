@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class CloseOnFail implements Closeable {
 
     /**
      * Initialize the shield
+     * 
      * @param resource the resource to close on failure
      */
     @objid ("2f95a241-0bbf-11e2-b54c-001ec947ccaf")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 public interface IConnectionHelper {
     /**
      * Updates this path from the given connection creation raw data.
+     * 
      * @param req The connection creation raw data (in absolute coordinates).
      */
     @objid ("80494662-1dec-11e2-8cad-001ec947c8cc")
@@ -42,6 +43,7 @@ public interface IConnectionHelper {
 
     /**
      * Get all bend points without extremity points as stored in the model.
+     * 
      * @return the bend points in coordinates relative to the connection.
      */
     @objid ("80494666-1dec-11e2-8cad-001ec947c8cc")
@@ -49,6 +51,7 @@ public interface IConnectionHelper {
 
     /**
      * Get the path routing mode.
+     * 
      * @return the path routing mode.
      */
     @objid ("8049466d-1dec-11e2-8cad-001ec947c8cc")
@@ -56,6 +59,7 @@ public interface IConnectionHelper {
 
     /**
      * Get the draw2d routing constraint to apply to the connection figure.
+     * 
      * @return the draw2d routing constraint.
      */
     @objid ("7ebe34c5-7485-47bd-96e1-c9ac6401554e")
@@ -64,6 +68,7 @@ public interface IConnectionHelper {
     /**
      * Get the constraint to store in the graphic model.
      * @see IGmPath#setPathData(Object)
+     * 
      * @return the model constraint.
      */
     @objid ("7e2d91f4-5e9f-4b06-8b71-3ae188eee5af")

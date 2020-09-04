@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -83,6 +83,7 @@ class CmsNodeIndex15 implements ICmsNodeIndex {
     /**
      * Initialize the index.
      * @param metamodel
+     * 
      * @param db the JDBM database string the index.
      * @throws org.modelio.vstore.exml.common.index.IndexException if the index is broken
      */
@@ -327,6 +328,7 @@ class CmsNodeIndex15 implements ICmsNodeIndex {
      * Get the object index where this metaclass elements should be stored.
      * <p>
      * Return <i>null</i> if the index is missing.
+     * 
      * @param cls a metaclass
      * @return its index or <i>null</i>.
      * @throws java.io.IOException in case of I/O error
@@ -351,6 +353,7 @@ class CmsNodeIndex15 implements ICmsNodeIndex {
      * Find the object index entry.
      * <p>
      * Return <i>null</i> if the object is not in the index.
+     * 
      * @param id the object identifier
      * @return the index entry or <i>null</i>.
      * @throws java.io.IOException in case of I/O error.
@@ -369,6 +372,7 @@ class CmsNodeIndex15 implements ICmsNodeIndex {
      * Get the object index for a metaclass.
      * <p>
      * The index is created if missing.
+     * 
      * @param cls a metaclass
      * @return the metaclass objects index.
      */

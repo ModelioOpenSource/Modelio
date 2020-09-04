@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.eclipse.swt.widgets.Composite;
 public interface IPanelProvider {
     /**
      * Give a hint about the fact that the provider can provide some useful contents for the object.
+     * 
      * @param input a potential input for the panel
      * @return <code>true</code> if the given input can be used by the panel.
      */
@@ -39,6 +40,7 @@ public interface IPanelProvider {
 
     /**
      * Instantiate the panel graphical elements.
+     * 
      * @param parent the composite to create the new graphical elements into.
      * @return the created panel.
      */
@@ -47,6 +49,7 @@ public interface IPanelProvider {
 
     /**
      * Get the panel graphical elements, usually a {@link Composite} or a {@link Viewer}.
+     * 
      * @return the created panel. <code>null</code> until IPanelProvided#create is called.
      */
     @objid ("a0ad69d6-c677-11e1-8f21-002564c97630")
@@ -60,6 +63,7 @@ public interface IPanelProvider {
 
     /**
      * Get the current input of the panel.
+     * 
      * @return the panel's input.
      */
     @objid ("a0ad69dc-c677-11e1-8f21-002564c97630")
@@ -67,6 +71,7 @@ public interface IPanelProvider {
 
     /**
      * Set a new input for the panel.
+     * 
      * @param input the new input for the panel.
      */
     @objid ("a0ad69d9-c677-11e1-8f21-002564c97630")
@@ -85,6 +90,7 @@ public interface IPanelProvider {
      * Implementers of {@link IPanelProvider} should provide an implementation for this method
      * as the default code only throws an {@link UnsupportedOperationException}.
      * </p>
+     * 
      * @param l an instance of panel listener.
      */
     @objid ("4a35ded0-1621-4c7c-bce6-80fdfb713f53")
@@ -98,6 +104,7 @@ public interface IPanelProvider {
      * Implementers of {@link IPanelProvider} should provide an implementation for this method
      * as the default code only throws an {@link UnsupportedOperationException}.
      * </p>
+     * 
      * @param l an instance of panel listener.
      */
     @objid ("3555a49d-e26d-452f-bddb-d9efce53fa81")

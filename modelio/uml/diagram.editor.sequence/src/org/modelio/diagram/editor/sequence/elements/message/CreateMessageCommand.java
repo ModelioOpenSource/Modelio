@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class CreateMessageCommand extends DefaultCreateLinkCommand {
 
     /**
      * C'tor.
+     * 
      * @param context the creation context.
      */
     @objid ("d94fd45b-55b6-11e2-877f-002564c97630")

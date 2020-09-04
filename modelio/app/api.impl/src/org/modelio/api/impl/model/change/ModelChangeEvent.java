@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public class ModelChangeEvent implements IModelChangeEvent {
      * Only the top created elements are listed here. For example if a package P1 has been created
      * and in the same way, a class C1 has been created and added to the package, only the package P1
      * will be given through the use of this returned list.
+     * 
      * @return The list of created elements
      */
     @objid ("f787607f-5d38-45b4-b83d-2462e759047d")
@@ -82,6 +83,7 @@ public class ModelChangeEvent implements IModelChangeEvent {
      * <p><p>
      * An element is considered as updated only if it was not created or deleted during
      * the transaction.
+     * 
      * @return The updated elements
      */
     @objid ("c0bca7e6-03af-43e3-a033-af48d9d67f1e")
@@ -97,6 +99,7 @@ public class ModelChangeEvent implements IModelChangeEvent {
      * the transaction.
      * <p><p>
      * The {@link ModelMoveEvent} class is used to determine more precise information.
+     * 
      * @return A list of move events
      */
     @objid ("e2384ef3-5e44-4375-a483-49609889bbaf")
@@ -116,6 +119,7 @@ public class ModelChangeEvent implements IModelChangeEvent {
      * Only the top deleted elements are listed here. For example if a package P1, which contained a
      * class C1, has been deleted, only the package P1
      * will be given through the use of this returned list.
+     * 
      * @return The list of deleted elements
      */
     @objid ("be5de62b-f578-4caa-8932-73da72a927d9")

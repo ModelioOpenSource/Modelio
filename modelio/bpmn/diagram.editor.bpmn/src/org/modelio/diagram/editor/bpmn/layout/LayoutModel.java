@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -145,6 +145,7 @@ public class LayoutModel {
 
         /**
          * Get the number of defined columns in this row
+         * 
          * @param row @return
          */
         @objid ("572d5c6b-07c3-41ce-837a-f606f5bd7355")

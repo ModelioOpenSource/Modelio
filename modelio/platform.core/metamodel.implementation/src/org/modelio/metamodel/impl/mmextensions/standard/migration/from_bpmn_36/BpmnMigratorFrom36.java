@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -104,6 +104,7 @@ public class BpmnMigratorFrom36 implements IMofRepositoryMigrator {
 
     /**
      * Modify the metamodel so that it can read the source repository.
+     * 
      * @param metamodel the metamodel at the final state
      * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
      */
@@ -158,6 +159,7 @@ public class BpmnMigratorFrom36 implements IMofRepositoryMigrator {
 
     /**
      * Get a MDependency content then empty it.
+     * 
      * @param obj the dep source
      * @param depName the dep name
      * @return the dependency content.
@@ -172,6 +174,7 @@ public class BpmnMigratorFrom36 implements IMofRepositoryMigrator {
 
     /**
      * Transmute all elements in the list whose metaclass is exactly the given one.
+     * 
      * @param mofSession a MOF session
      * @param dep the elements to transmute
      * @param srcClass the metaclass the element must have to be transmuted

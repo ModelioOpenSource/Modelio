@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -85,6 +85,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
 
     /**
      * Constructor.
+     * 
      * @param diagram The diagram in which this port container will be unmasked.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
@@ -136,6 +137,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
 
     /**
      * Get the main node that is decorated with ports and satellites.
+     * 
      * @return a GmNodeModel, can't be <code>null</code>.
      */
     @objid ("7eeacc9d-1dec-11e2-8cad-001ec947c8cc")
@@ -148,6 +150,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
      * Get the port container main node representation mode.
      * <p>
      * If the container has no main node, returns {@link #getRepresentationMode()}.
+     * 
      * @return the main node representation mode.
      */
     @objid ("c75f8ee0-56eb-45a9-a8fe-1bd4448e6874")
@@ -179,6 +182,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
      * Tells whether the given child node is the main satellite label of this port container node.
      * <p>
      * The default implementation return the first satellite node. Sub classes are strongly encouraged to subclass this method when they may have more than one satellite node..
+     * 
      * @param childNode the node to check.
      * @return the main satellite label of this node.
      */
@@ -189,6 +193,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
      * <p>
      * See {@link #defaultIsPort(GmNodeModel)} for a recommended implementation.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -199,6 +204,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
      * <p>
      * See {@link #defaultIsSatellite(GmNodeModel)} for a recommended implementation.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -237,6 +243,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
      * Tells whether the given child node is the main satellite label of this port container node.
      * <p>
      * The default implementation return the first satellite node. Sub classes are strongly encouraged to subclass this method when they may have more than one satellite node..
+     * 
      * @param childNode the node to check.
      * @return the main satellite label of this node.
      */
@@ -247,6 +254,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
 
     /**
      * Default and recommended implementation for {@link #isPort(GmNodeModel)}
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -258,6 +266,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
 
     /**
      * Default implementation for {@link #isSatellite(GmNodeModel)}.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

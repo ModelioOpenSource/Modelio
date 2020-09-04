@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -43,33 +43,33 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("00860ba0-c4be-1fd8-97fe-001ec947cd2a")
 public class DependencyImpl extends ModelElementImpl implements Dependency {
-    @objid ("4aef5107-956d-4b58-9375-4e359ca074c9")
+    @objid ("958624eb-b6e1-4f60-bc01-c851db7b8e13")
     @Override
     public ModelElement getImpacted() {
         Object obj = getDepVal(((DependencySmClass)getClassOf()).getImpactedDep());
         return (obj instanceof ModelElement)? (ModelElement)obj : null;
     }
 
-    @objid ("be1f517d-6c86-480e-95e4-1cc151d8edc0")
+    @objid ("388497b4-d7e4-4b61-bc83-c660db52ef51")
     @Override
     public void setImpacted(ModelElement value) {
         appendDepVal(((DependencySmClass)getClassOf()).getImpactedDep(), (SmObjectImpl)value);
     }
 
-    @objid ("a2b21a4a-a1eb-469d-b21d-cf931049c415")
+    @objid ("230de310-6aa6-4db7-beac-8df7ff2d26b7")
     @Override
     public ModelElement getDependsOn() {
         Object obj = getDepVal(((DependencySmClass)getClassOf()).getDependsOnDep());
         return (obj instanceof ModelElement)? (ModelElement)obj : null;
     }
 
-    @objid ("c4203d1d-e154-42aa-9675-eb62e2fc66a9")
+    @objid ("3cf27b94-c0fe-453d-a322-a68a7b9bb974")
     @Override
     public void setDependsOn(ModelElement value) {
         appendDepVal(((DependencySmClass)getClassOf()).getDependsOnDep(), (SmObjectImpl)value);
     }
 
-    @objid ("4b5fe7fa-bcb8-4320-91bc-2d1feb9aa8db")
+    @objid ("acb9871c-4eb1-4b75-bec0-7c4464f00e27")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -81,7 +81,7 @@ public class DependencyImpl extends ModelElementImpl implements Dependency {
         return super.getCompositionOwner();
     }
 
-    @objid ("eb4fcb36-c00f-4d82-9a91-3f0001033f76")
+    @objid ("8afb7b8e-7b77-460c-9483-3a7aada6a235")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -96,7 +96,7 @@ public class DependencyImpl extends ModelElementImpl implements Dependency {
         return super.getCompositionRelation();
     }
 
-    @objid ("e0cf11f0-a57b-4760-ba90-c75241a083ab")
+    @objid ("09d35286-2ef0-4497-908f-03ac8f70c54e")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitDependency(this);

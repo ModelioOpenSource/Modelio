@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
 
     /**
      * Create a new <i>BpmnBoundaryEvent</i> data model from an <i>BpmnBoundaryEvent</i>.
+     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      * @param umlPropertyModelVisitor the property model visitor, needed for the event definition.
@@ -82,6 +83,7 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("5691678d-a6eb-481c-869f-71068892598b")
@@ -92,6 +94,7 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("de839e95-9a2d-471f-96b0-655d7d133770")
@@ -107,6 +110,7 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -125,6 +129,7 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -38,13 +38,13 @@ public interface Document extends AbstractResource {
     /**
      * The metaclass simple name.
      */
-    @objid ("490fe0eb-7008-4b88-88e2-eff8fe8226b4")
+    @objid ("d30b8988-d0f5-4458-ad53-b455588a8bb9")
     public static final String MNAME = "Document";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("f6040f43-3258-46c1-999c-0ff0d6c54084")
+    @objid ("74a46bc2-3d9c-42e6-92c5-7f70f330dee8")
     public static final String MQNAME = "Infrastructure.Document";
 
     /**
@@ -54,7 +54,7 @@ public interface Document extends AbstractResource {
      * <i>An Abstract/Resume of the rich note.
      * Tells what the rich note contains without having to open it.</i>
      */
-    @objid ("5bb00370-143a-406f-8eef-cc1eb82576c8")
+    @objid ("6bed717c-6cff-4a1a-a8d5-4a38a8f9bc84")
     String getAbstract();
 
     /**
@@ -64,7 +64,7 @@ public interface Document extends AbstractResource {
      * <i>An Abstract/Resume of the rich note.
      * Tells what the rich note contains without having to open it.</i>
      */
-    @objid ("3bd075a4-195e-4b32-b37c-4efe4ea081ba")
+    @objid ("7b810d4f-6dfa-441b-971f-e446b26bbfea")
     void setAbstract(String value);
 
 }

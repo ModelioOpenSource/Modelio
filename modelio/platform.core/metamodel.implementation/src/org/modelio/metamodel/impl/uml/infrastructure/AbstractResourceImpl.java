@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -52,6 +52,7 @@ public class AbstractResourceImpl extends ModelElementImpl implements AbstractRe
      * Get access to the represented resource.
      * <p>
      * Returns null if the element is not yet initialized.
+     * 
      * @return an access to the represented resource.
      */
     @objid ("1660e785-cba2-44d2-b6e7-c6e9e0ddd351")
@@ -71,6 +72,7 @@ public class AbstractResourceImpl extends ModelElementImpl implements AbstractRe
      * Initialize the element to embed a resource.
      * <p>
      * Use the returned handle to store the resource content.
+     * 
      * @param fileName a file name that will be used in case of file extraction.
      * @return a handle to write the resource content.
      */
@@ -102,57 +104,57 @@ public class AbstractResourceImpl extends ModelElementImpl implements AbstractRe
         return getStorageInfo().startsWith(EMBEDDED_PREFIX);
     }
 
-    @objid ("2083df50-c3fe-40cf-9ad9-dadce1fc9cf5")
+    @objid ("7506ebef-9b6a-49b2-8588-d1e37daf9996")
     @Override
     public String getMimeType() {
         return (String) getAttVal(((AbstractResourceSmClass)getClassOf()).getMimeTypeAtt());
     }
 
-    @objid ("dfb9b3e4-08d5-4717-9954-59d779f6cf99")
+    @objid ("522ef5ed-0adf-49ff-9a01-a5922707d1e0")
     @Override
     public void setMimeType(String value) {
         setAttVal(((AbstractResourceSmClass)getClassOf()).getMimeTypeAtt(), value);
     }
 
-    @objid ("d187c309-a8fb-4ea7-93fa-d3cd9f685210")
+    @objid ("2e90bce0-4c47-4487-b9f5-ae526673d842")
     @Override
     public String getStorageInfo() {
         return (String) getAttVal(((AbstractResourceSmClass)getClassOf()).getStorageInfoAtt());
     }
 
-    @objid ("9d171c02-8673-4289-8ed6-f5cdce172f4f")
+    @objid ("b38ed43d-f34f-492e-8882-77eb25ba930f")
     @Override
     public void setStorageInfo(String value) {
         setAttVal(((AbstractResourceSmClass)getClassOf()).getStorageInfoAtt(), value);
     }
 
-    @objid ("e0ca6964-1d8e-46c0-a1d0-8504ffbfd0d0")
+    @objid ("3c86e079-bec8-4931-b1da-7905b5fad90a")
     @Override
     public ResourceType getType() {
         Object obj = getDepVal(((AbstractResourceSmClass)getClassOf()).getTypeDep());
         return (obj instanceof ResourceType)? (ResourceType)obj : null;
     }
 
-    @objid ("d27f4647-046e-4e16-bf3a-f73405e0e018")
+    @objid ("e28d2a83-bf96-4346-a9d6-ac9afaddc1b1")
     @Override
     public void setType(ResourceType value) {
         appendDepVal(((AbstractResourceSmClass)getClassOf()).getTypeDep(), (SmObjectImpl)value);
     }
 
-    @objid ("0d13452e-f025-419b-b59f-49e9da0ad461")
+    @objid ("2ca13ea5-664a-4f85-9cb4-ecfd36311ef9")
     @Override
     public ModelElement getSubject() {
         Object obj = getDepVal(((AbstractResourceSmClass)getClassOf()).getSubjectDep());
         return (obj instanceof ModelElement)? (ModelElement)obj : null;
     }
 
-    @objid ("b13f6136-4487-4683-bb31-427e60b5abef")
+    @objid ("7caf5bd6-7e5d-4da8-b540-206ebd8e8837")
     @Override
     public void setSubject(ModelElement value) {
         appendDepVal(((AbstractResourceSmClass)getClassOf()).getSubjectDep(), (SmObjectImpl)value);
     }
 
-    @objid ("17baa664-5e9f-40c6-bfc3-95301fc30a34")
+    @objid ("3e1ec899-50c0-4de4-b742-d94a8e81a02b")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -164,7 +166,7 @@ public class AbstractResourceImpl extends ModelElementImpl implements AbstractRe
         return super.getCompositionOwner();
     }
 
-    @objid ("f19d0ec2-066d-432c-8719-d1342285a262")
+    @objid ("7099510a-4e41-4c28-ae8b-664a3291d1d5")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -179,7 +181,7 @@ public class AbstractResourceImpl extends ModelElementImpl implements AbstractRe
         return super.getCompositionRelation();
     }
 
-    @objid ("aa2632b7-6f9b-4576-96ab-d0ac2ba440a3")
+    @objid ("5d2470ff-64a8-424c-a908-93dfd0b7c5ef")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitAbstractResource(this);

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class OInformationItem extends ONameSpace {
 
     /**
      * Constructor
+     * 
      * @param param : the exported Modelio InformationItem
      */
     @objid ("093d257d-bb01-4aa5-b297-240a23e81dff")
@@ -81,7 +82,11 @@ public class OInformationItem extends ONameSpace {
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
+        
+        //UML Properties
         setRepresented((org.eclipse.uml2.uml.InformationItem) ecoreElt);
+        
+        //Modelio Properties
         if (this.genProp.isRoundtripEnabled()){
             setLeaf((org.eclipse.uml2.uml.InformationItem) ecoreElt);
             setRoot((org.eclipse.uml2.uml.InformationItem) ecoreElt);         

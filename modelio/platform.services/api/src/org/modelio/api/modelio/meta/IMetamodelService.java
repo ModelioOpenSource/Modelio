@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IMetamodelService {
     /**
      * Get the Xxxx interface java class corresponding to the given metaclass name.
+     * 
      * @param metaclassName a metaclass name.
      * @return The I class or <code>null</code> if the requested metaclass cannot be found..
      * @deprecated Since Modelio 3.4 use {@link #getMetamodel()}.{@link MMetamodel#getMClass(String)}
@@ -41,6 +42,7 @@ public interface IMetamodelService {
      * Returns the textual name of a metaclass.<br>
      * <em>Note: The returned name is <u>NOT</u> i18n'd.</em>
      * @see MMetamodel#getMClass(Class)
+     * 
      * @param metaclass the metaclass whose name is sought, or <code>null</code> if the given class is not a metaclass.
      * @return the textual name of the metaclass.
      */
@@ -51,6 +53,7 @@ public interface IMetamodelService {
      * Get the metaclasses that inherit from the given metaclass.
      * <p>
      * The given metaclass will in the result list.
+     * 
      * @param metaclass The parent metaclass of the wanted metaclasses.
      * @return A list of metaclasses that inherit from the given metaclass.
      */
@@ -59,10 +62,18 @@ public interface IMetamodelService {
 
     /**
      * Get the current project metamodel.
+     * 
      * @return the metamodel.
      * @since 3.4
      */
     @objid ("cc1429fd-6316-4a63-bd1f-bde1920872b4")
     MMetamodel getMetamodel();
+
+    /**
+     * @return the I18n services for metamodel elements
+     * @since 4.0
+     */
+    @objid ("a53406cd-aa12-46a8-89aa-f09c332b497d")
+    IMetamodelI18nSupport getI18nSupport();
 
 }

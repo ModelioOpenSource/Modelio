@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,7 +72,7 @@ class DocTypeChooserLabelProvider extends LabelProvider {
         
             return ModuleI18NService.getLabel(adapter.getMdac());
         } else if (element instanceof AdapterRichNoteType) {
-            StringBuffer noteTypeLabel = new StringBuffer();
+            StringBuilder noteTypeLabel = new StringBuilder();
             AdapterRichNoteType adapter = (AdapterRichNoteType) element;
         
             String label = ModuleI18NService.getLabel(adapter.getDocType());
@@ -84,7 +84,7 @@ class DocTypeChooserLabelProvider extends LabelProvider {
         
             return noteTypeLabel.toString();
         } else if (element instanceof AdapterStereotype) {
-            StringBuffer noteTypeLabel = new StringBuffer();
+            StringBuilder noteTypeLabel = new StringBuilder();
             AdapterStereotype adapter = (AdapterStereotype) element;
         
             noteTypeLabel.append("<<");
@@ -104,6 +104,7 @@ class DocTypeChooserLabelProvider extends LabelProvider {
 
     /**
      * Get the icon the the rich note type.
+     * 
      * @param docType the rich note type
      */
     @objid ("9885814f-a09e-4000-ae07-cf2e1893dd8a")

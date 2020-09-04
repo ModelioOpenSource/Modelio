@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class InvalidFormatException extends IOException {
 
     /**
      * Constructor
+     * 
      * @param repoName the repository user friendly name
      * @param repositoryPath the repository path
      * @param readVersion the read version
@@ -65,7 +66,7 @@ public class InvalidFormatException extends IOException {
     @objid ("72372a43-46af-414c-a639-6a7349e3a553")
     @Override
     public String getMessage() {
-        return VCoreSession.getMessage("JdbmRepository.InvalidFormatVersion", 
+        return VCoreSession.I18N.getMessage("JdbmRepository.InvalidFormatVersion", 
                                                 this.repoName, 
                                                 this.readVersion, 
                                                 this.expectedVersion, 

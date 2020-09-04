@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundExcept
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.InternalTransition;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
+import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Attribute;
@@ -60,24 +61,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("b6a6cf95-5cc6-4247-a6e7-19cbeb513d4d")
 public class ElementInitializer implements IElementInitializer {
     @objid ("85fdcd2d-f732-4c9d-a536-8e813523a41e")
-    private ElementInitializerVisitor visitor;
+    private final ElementInitializerVisitor visitor;
 
     @objid ("ebca2674-3a06-4781-84c0-814cb7baada6")
-    public ElementInitializer(IStandardModelFactory standardFactory) {
-        Geometry geometry = new Geometry();
+    public ElementInitializer(final IStandardModelFactory standardFactory) {
+        final Geometry geometry = new Geometry();
         
         this.visitor = new ElementInitializerVisitor(standardFactory, geometry);
     }
 
     @objid ("7561bc40-1ca4-49a0-bad9-9210a4cea736")
     @Override
-    public void initialize(MObject element) {
+    public void initialize(final MObject element) {
         element.accept(this.visitor);
     }
 
     @objid ("b538d2af-90f8-4421-898a-2d18319ebd6a")
     @Override
-    public void setDefaultValue(String key, Object value) {
+    public void setDefaultValue(final String key, final Object value) {
         switch (key) {
         case "DEFAULT_ATTRIBUTE_VISIBILITY":
             this.visitor.geometry.setDefaultAttributeVisibility((VisibilityMode) value);
@@ -102,20 +103,20 @@ public class ElementInitializer implements IElementInitializer {
         private static final String DEFAULT_MIMETYPE = "text/plain";
 
         @objid ("40ffee8b-5ec4-41b7-8f9a-3b277754e4c2")
-        private Geometry geometry;
+        private final Geometry geometry;
 
         @objid ("88d405b5-43bb-4c75-8581-73251de00bdf")
-        private IStandardModelFactory standardFactory;
+        private final IStandardModelFactory standardFactory;
 
         @objid ("a340fee5-19dd-430c-9594-1a7a183e06ea")
-        public ElementInitializerVisitor(IStandardModelFactory modelFactory, Geometry geometry) {
+        public ElementInitializerVisitor(final IStandardModelFactory modelFactory, final Geometry geometry) {
             this.standardFactory = modelFactory;
             this.geometry = geometry;
         }
 
         @objid ("2e657745-1c33-4ba7-a8b0-d1b2a5b803ba")
         @Override
-        public Object visitAssociationEnd(AssociationEnd theAssociationEnd) {
+        public Object visitAssociationEnd(final AssociationEnd theAssociationEnd) {
             if (this.geometry.defaultAttributeVisibility != null) {
                 theAssociationEnd.setVisibility(this.geometry.defaultAttributeVisibility);
             }
@@ -124,7 +125,7 @@ public class ElementInitializer implements IElementInitializer {
 
         @objid ("f5ccb62c-5538-4557-8cff-a3cac1b671f0")
         @Override
-        public Object visitAttribute(Attribute theAttribute) {
+        public Object visitAttribute(final Attribute theAttribute) {
             if (this.geometry.defaultAttributeVisibility != null) {
                 theAttribute.setVisibility(this.geometry.defaultAttributeVisibility);
             }
@@ -146,14 +147,14 @@ public class ElementInitializer implements IElementInitializer {
 
         @objid ("a21016bf-9b49-43ab-8809-56dc93870522")
         @Override
-        public Object visitDataType(DataType theDataType) {
+        public Object visitDataType(final DataType theDataType) {
             theDataType.setIsElementary(true);
             return super.visitDataType(theDataType);
         }
 
         @objid ("da6f8750-0550-4b21-aaeb-87b253a9da53")
         @Override
-        public Object visitElementImport(ElementImport theElementImport) {
+        public Object visitElementImport(final ElementImport theElementImport) {
             // Visibility is private by default
             theElementImport.setVisibility(VisibilityMode.PRIVATE);
             return theElementImport;
@@ -161,14 +162,14 @@ public class ElementInitializer implements IElementInitializer {
 
         @objid ("2b7b04d4-4373-4aca-9135-a4f346e333f8")
         @Override
-        public Object visitEnumeration(Enumeration theEnumeration) {
+        public Object visitEnumeration(final Enumeration theEnumeration) {
             theEnumeration.setIsElementary(true);
             return super.visitEnumeration(theEnumeration);
         }
 
         @objid ("896dd2d8-5c32-46e3-9a25-1ec7d7f303a3")
         @Override
-        public Object visitInterface(Interface theInterface) {
+        public Object visitInterface(final Interface theInterface) {
             theInterface.setIsAbstract(true);
             return super.visitInterface(theInterface);
         }
@@ -183,7 +184,7 @@ public class ElementInitializer implements IElementInitializer {
         @objid ("8b6c7953-b1d9-44ee-859e-6790c67ff6f0")
         @Override
         public Object visitLinkEnd(final LinkEnd linkEnd) {
-            AssociationEnd role = linkEnd.getModel();
+            final AssociationEnd role = linkEnd.getModel();
             if (role != null) {
                 // Copy instantiated role properties here.
                 linkEnd.setMultiplicityMin(role.getMultiplicityMin());
@@ -196,15 +197,15 @@ public class ElementInitializer implements IElementInitializer {
 
         @objid ("5208b6b9-65f0-4993-9f71-1b0b15e744d1")
         @Override
-        public Object visitPackageImport(PackageImport thePackageImport) {
+        public Object visitPackageImport(final PackageImport thePackageImport) {
             // Visibility is private by default
             thePackageImport.setVisibility(VisibilityMode.PRIVATE);
-            return (thePackageImport);
+            return thePackageImport;
         }
 
         @objid ("389216a1-7235-4a39-aa1a-f5eabd094035")
         @Override
-        public Object visitParameter(Parameter theParameter) {
+        public Object visitParameter(final Parameter theParameter) {
             // Init multiplicity
             theParameter.setMultiplicityMin("1");
             theParameter.setMultiplicityMax("1");
@@ -219,7 +220,7 @@ public class ElementInitializer implements IElementInitializer {
 
         @objid ("7de82050-f379-40a5-80df-006ba3d1971d")
         @Override
-        public Object visitPort(Port aPort) {
+        public Object visitPort(final Port aPort) {
             aPort.setIsService(true);
             return aPort;
         }
@@ -233,7 +234,7 @@ public class ElementInitializer implements IElementInitializer {
             List<TemplateParameter> parameters;
             final Operation op = aTemplateBinding.getInstanciatedTemplateOperation();
             final NameSpace ns = aTemplateBinding.getInstanciatedTemplate();
-            if ((op != null) && (aTemplateBinding.getBoundOperation() != null)) {
+            if (op != null && aTemplateBinding.getBoundOperation() != null) {
                 parameters = op.getTemplate();
             } else if (ns != null) {
                 parameters = ns.getTemplate();
@@ -242,24 +243,24 @@ public class ElementInitializer implements IElementInitializer {
             }
             
             // Clear all obsolete TemplateParameterSubstitution
-            for (TemplateParameterSubstitution sub : aTemplateBinding.getParameterSubstitution()) {
+            for (final TemplateParameterSubstitution sub : aTemplateBinding.getParameterSubstitution()) {
                 if (!parameters.contains(sub.getFormalParameter())) {
                     sub.delete();
                 }
             }
             
             // Create missing substitutions
-            List<TemplateParameterSubstitution> substitutions = aTemplateBinding.getParameterSubstitution();
-            List<TemplateParameter> substituedParameters = new ArrayList<>(substitutions.size());
+            final List<TemplateParameterSubstitution> substitutions = aTemplateBinding.getParameterSubstitution();
+            final List<TemplateParameter> substituedParameters = new ArrayList<>(substitutions.size());
             
-            for (TemplateParameterSubstitution sub : substitutions) {
+            for (final TemplateParameterSubstitution sub : substitutions) {
                 substituedParameters.add(sub.getFormalParameter());
             }
             
-            for (TemplateParameter param : parameters) {
+            for (final TemplateParameter param : parameters) {
                 if (!substituedParameters.contains(param)) {
-                    if ((param.getDefaultType() == null) && param.getDefaultValue().isEmpty()) {
-                        TemplateParameterSubstitution newSub = this.standardFactory.createTemplateParameterSubstitution();
+                    if (param.getDefaultType() == null && param.getDefaultValue().isEmpty()) {
+                        final TemplateParameterSubstitution newSub = this.standardFactory.createTemplateParameterSubstitution();
                         newSub.setFormalParameter(param);
                         newSub.setName(param.getName());
                         aTemplateBinding.getParameterSubstitution().add(newSub);
@@ -276,15 +277,21 @@ public class ElementInitializer implements IElementInitializer {
         @objid ("111bba3f-a727-48ca-91e6-f6d1a4b7d1f9")
         @Override
         public Object visitUseCase(final UseCase theUseCase) {
-            String content = "...";
-            String[] noteTypes = { "description", "constraint", "non-functional constraint", "exception", "precondition", "postcondition" };
-            for (String noteType : noteTypes) {
+            final String content = "...";
+            
+            if (theUseCase.getNote("ModelerModule", ModelElement.MQNAME, "description") == null) {
+                final Note note = this.standardFactory.createNote("ModelerModule", ModelElement.MQNAME, "description", theUseCase, content);
+                note.setMimeType(ElementInitializerVisitor.DEFAULT_MIMETYPE);
+            }
+            
+            final String[] noteTypes = { "constraint", "non-functional constraint", "exception", "precondition", "postcondition" };
+            for (final String noteType : noteTypes) {
                 try {
-                    if (theUseCase.getNote("ModelerModule", noteType) == null) {
-                        Note note = this.standardFactory.createNote("ModelerModule", UseCase.MQNAME, noteType, theUseCase, content);
+                    if (theUseCase.getNote("ModelerModule", UseCase.MQNAME, noteType) == null) {
+                        final Note note = this.standardFactory.createNote("ModelerModule", UseCase.MQNAME, noteType, theUseCase, content);
                         note.setMimeType(ElementInitializerVisitor.DEFAULT_MIMETYPE);
                     }
-                } catch (ExtensionNotFoundException e) {
+                } catch (final ExtensionNotFoundException e) {
                     Log.error(e);
                 }
             }
@@ -293,14 +300,14 @@ public class ElementInitializer implements IElementInitializer {
 
         @objid ("14b66551-ce58-4068-b828-b7a07ec6acd0")
         @Override
-        public Object visitProject(Project theProject) {
+        public Object visitProject(final Project theProject) {
             // Create root package
-            Package newRootPackage = this.standardFactory.createPackage();
+            final Package newRootPackage = this.standardFactory.createPackage();
             newRootPackage.setName(theProject.getName());
             theProject.getModel().add(newRootPackage);
             
             // Create diagram set root
-            DiagramSet dgRootSet = this.standardFactory.createDiagramSet();
+            final DiagramSet dgRootSet = this.standardFactory.createDiagramSet();
             dgRootSet.setName(theProject.getName());
             theProject.setDiagramRoot(dgRootSet);
             return super.visitProject(theProject);

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public class FakeSmAttribute extends SmAttribute {
 
     /**
      * Create a String fake attribute.
+     * 
      * @param owner the metaclass
      * @param name the name
      */
@@ -58,6 +59,7 @@ public class FakeSmAttribute extends SmAttribute {
 
     /**
      * Fluent version of cast operator to make code more readable.
+     * 
      * @param data the data to cast to {@link FakeSmObjectData}
      * @return the casted data.
      */
@@ -68,6 +70,7 @@ public class FakeSmAttribute extends SmAttribute {
 
     /**
      * Create a fake copy of a SmAttribute.
+     * 
      * @param owner the metaclass that will own this attribute.
      * @param orig the SmAttribute to copy.
      */

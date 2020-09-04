@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -165,6 +165,7 @@ public class GmExecutionOccurenceSpecification extends GmSimpleNode {
 
     /**
      * C'tor.
+     * 
      * @param diagram the diagram this node is created in.
      * @param executionOccurenceSpecification the represented ExecutionOccurenceSpecification. May be <code>null</code>.
      * @param relatedRef a reference to the represented ExecutionOccurenceSpecification. May NOT be <code>null</code>.

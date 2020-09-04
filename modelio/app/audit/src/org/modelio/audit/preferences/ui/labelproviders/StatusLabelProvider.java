@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,32 +24,26 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.Image;
-import org.modelio.audit.plugin.Audit;
 import org.modelio.audit.preferences.model.AuditRule;
+import org.modelio.ui.UIImages;
 
 /**
  * Provide checkbox label
  */
 @objid ("9c85767f-699d-4ca3-a309-5b4892c5df17")
 public class StatusLabelProvider extends ColumnLabelProvider {
-    @objid ("f0900a89-a51d-47ac-b981-e4356ab711f8")
-    private static final Image ON = Audit.getImageDescriptor("icons/on.png").createImage();
-
-    @objid ("afbe88b3-93a3-463d-9b7a-24096886d64f")
-    private static final Image OFF = Audit.getImageDescriptor("icons/off.png").createImage();
-
     @objid ("bb80dc93-5169-4b45-89fe-4089d1a50e54")
     public StatusLabelProvider() {
     }
 
     @objid ("d8ea2074-df43-4b8d-8155-55928f5a58ca")
     @Override
-    public Image getImage(Object element) {
+    public Image getImage(final Object element) {
         if (element instanceof AuditRule) {
             if (((AuditRule) element).isEnabled()) {
-                return StatusLabelProvider.ON;
+                return UIImages.CHECKED;
             } else {
-                return StatusLabelProvider.OFF;
+                return UIImages.UNCHECKED;
             }
         }
         return null;
@@ -57,13 +51,13 @@ public class StatusLabelProvider extends ColumnLabelProvider {
 
     @objid ("e974762f-3e54-46ee-b41e-7d5e4eb066ab")
     @Override
-    public void update(ViewerCell cell) {
+    public void update(final ViewerCell cell) {
         super.update(cell);
     }
 
     @objid ("cd4737ae-ba39-4c8b-893e-cefe92a5233a")
     @Override
-    public String getText(Object element) {
+    public String getText(final Object element) {
         return null;
     }
 

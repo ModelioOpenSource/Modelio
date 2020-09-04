@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public abstract class PlacementConstraint implements IPersistent, Locator {
 
     /**
      * C'tor.
+     * 
      * @param x the x reference in coordinates relative to its parent.
      * @param y the Y reference in coordinates relative to its parent.
      * @param width the desired width in pixels.
@@ -81,6 +82,7 @@ public abstract class PlacementConstraint implements IPersistent, Locator {
 
     /**
      * Computes and return the bounds that would be used if the relocate method was called.
+     * 
      * @param target the figure to relocate.
      * @return the bounds that would be given to the figure.
      */
@@ -106,6 +108,7 @@ public abstract class PlacementConstraint implements IPersistent, Locator {
      * This method can use {@link IDiagramWriter#getRoot()} if needed to know whether it is internal or external.
      * <p>
      * If this is the case, {@link #write(IDiagramWriter)} will be called, which will have to call {@link IDiagramWriter#writeExtRef(IPersistent, String, String)} only.
+     * 
      * @param out the writer where the model is saved.
      * @return true if this element is external, false if the element is to be saved in this writer.
      */
@@ -117,6 +120,7 @@ public abstract class PlacementConstraint implements IPersistent, Locator {
 
     /**
      * Read the element properties from a serialized form.
+     * 
      * @param in a reader to build the graphic model from.
      */
     @objid ("d97a8dc0-55b6-11e2-877f-002564c97630")
@@ -137,6 +141,7 @@ public abstract class PlacementConstraint implements IPersistent, Locator {
 
     /**
      * Sets the desired height for this placement constraint.
+     * 
      * @param height the desired height.
      */
     @objid ("d97a8dcc-55b6-11e2-877f-002564c97630")
@@ -146,6 +151,7 @@ public abstract class PlacementConstraint implements IPersistent, Locator {
 
     /**
      * Sets the desired width for this placement constraint.
+     * 
      * @param width the desired width.
      */
     @objid ("d97a8dd1-55b6-11e2-877f-002564c97630")
@@ -155,6 +161,7 @@ public abstract class PlacementConstraint implements IPersistent, Locator {
 
     /**
      * Sets the X reference.
+     * 
      * @param x the new reference.
      */
     @objid ("d97a8dd6-55b6-11e2-877f-002564c97630")
@@ -164,6 +171,7 @@ public abstract class PlacementConstraint implements IPersistent, Locator {
 
     /**
      * Sets the Y reference.
+     * 
      * @param y the new reference.
      */
     @objid ("d97a8ddb-55b6-11e2-877f-002564c97630")
@@ -177,6 +185,7 @@ public abstract class PlacementConstraint implements IPersistent, Locator {
      * If the element is external to the writer, this method must only call {@link IDiagramWriter#writeExtRef(IPersistent, String, String)}.
      * <p>
      * In the other case it can call any {@link IDiagramWriter IDiagramWriter.writeXxxx(...)} method except <tt>writeExtRef(...)</tt>.
+     * 
      * @param out a writer to save the model to.
      */
     @objid ("d97a8de0-55b6-11e2-877f-002564c97630")
@@ -211,6 +220,7 @@ public abstract class PlacementConstraint implements IPersistent, Locator {
     /**
      * This method is meant to be used in read methods implementation to resolve the MRef.
      * @param <E> the type of element to return.
+     * 
      * @param ref the reference to resolve.
      * @return the found MObject or <code>null</code> if the element is not present in the project.
      */

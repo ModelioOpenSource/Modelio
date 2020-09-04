@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class PrintHandler {
 
     /**
      * Prints the currently shown diagram.
+     * 
      * @param rootEditPart the root EditPart of the diagram to print.
      */
     @objid ("65bba1a1-33f7-11e2-95fe-001ec947c8cc")

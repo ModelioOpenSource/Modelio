@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -82,12 +82,14 @@ public class RakeRouter implements ConnectionRouter {
     @Override
     public void remove(Connection connection) {
         final RakeConstraint old = this.constraints.remove(connection);
-        
-        old.removeListener((AnchorListener) connection);
+        if (old != null) {
+            old.removeListener((AnchorListener) connection);
+        }
     }
 
     /**
      * Route the connection with the rake on the target side on the connection.
+     * 
      * @param conn the connection to route.
      */
     @objid ("7fcae9c8-1dec-11e2-8cad-001ec947c8cc")
@@ -101,62 +103,64 @@ public class RakeRouter implements ConnectionRouter {
         points.removeAllPoints();
         
         RakeConstraint c = this.constraints.get(conn);
-        if (c == null)
+        if (c == null) {
             throw new IllegalStateException("The connection has no layout constraint.");
+        }
         
         // Reference points in absolute coordinates
         // The rake anchor locations are in relative coordinates
         Point srcRef;
-        rakePos.setLocation(c.getTargetRakeAnchor().getReferencePoint());
-        conn.translateToAbsolute(rakePos);
+        RakeRouter.rakePos.setLocation(c.getTargetRakeAnchor().getReferencePoint());
+        conn.translateToAbsolute(RakeRouter.rakePos);
         
         // Align intermediate points on anchor reference point.
-        Direction rakeDir = GeomUtils.getDirection(conn.getTargetAnchor().getLocation(rakePos), targetBounds);
+        Direction rakeDir = GeomUtils.getDirection(conn.getTargetAnchor().getLocation(RakeRouter.rakePos), targetBounds);
         Orientation rakeOrientation = GeomUtils.getOrientation(rakeDir);
         
         if (rakeOrientation == Orientation.VERTICAL) {
-            srcRef = new Point(sourceAnchor.getReferencePoint().x, rakePos.y);
-            rakePos.x = targetAnchor.getReferencePoint().x;
+            srcRef = new Point(sourceAnchor.getReferencePoint().x, RakeRouter.rakePos.y);
+            RakeRouter.rakePos.x = targetAnchor.getReferencePoint().x;
         } else {
-            srcRef = new Point(rakePos.x, sourceAnchor.getReferencePoint().y);
-            rakePos.y = targetAnchor.getReferencePoint().y;
+            srcRef = new Point(RakeRouter.rakePos.x, sourceAnchor.getReferencePoint().y);
+            RakeRouter.rakePos.y = targetAnchor.getReferencePoint().y;
         }
         
         // Source anchor
-        P1.setLocation(sourceAnchor.getLocation(srcRef));
+        RakeRouter.P1.setLocation(sourceAnchor.getLocation(srcRef));
         
         // Bend point on the source side
-        P2.setLocation(srcRef);
+        RakeRouter.P2.setLocation(srcRef);
         
         // Rake anchor on the target side
-        P3.setLocation(rakePos);
+        RakeRouter.P3.setLocation(RakeRouter.rakePos);
         
         // Target anchor
-        P4.setLocation(targetAnchor.getLocation(rakePos));
+        RakeRouter.P4.setLocation(targetAnchor.getLocation(RakeRouter.rakePos));
         
         // Align segments on source and target points.
         if (rakeOrientation == Orientation.VERTICAL) {
-            P3.x = P4.x;
-            P2.x = P1.x;
+            RakeRouter.P3.x = RakeRouter.P4.x;
+            RakeRouter.P2.x = RakeRouter.P1.x;
         } else {
-            P3.y = P4.y;
-            P2.y = P1.y;
+            RakeRouter.P3.y = RakeRouter.P4.y;
+            RakeRouter.P2.y = RakeRouter.P1.y;
         }
         
-        conn.translateToRelative(P1);
-        conn.translateToRelative(P2);
-        conn.translateToRelative(P3);
-        conn.translateToRelative(P4);
+        conn.translateToRelative(RakeRouter.P1);
+        conn.translateToRelative(RakeRouter.P2);
+        conn.translateToRelative(RakeRouter.P3);
+        conn.translateToRelative(RakeRouter.P4);
         
-        points.addPoint(P1);
-        points.addPoint(P2);
-        points.addPoint(P3);
-        points.addPoint(P4);
+        points.addPoint(RakeRouter.P1);
+        points.addPoint(RakeRouter.P2);
+        points.addPoint(RakeRouter.P3);
+        points.addPoint(RakeRouter.P4);
         conn.setPoints(points);
     }
 
     /**
      * Route the connection with the rake on the source side on the connection.
+     * 
      * @param conn the connection to route.
      */
     @objid ("7fcae9ce-1dec-11e2-8cad-001ec947c8cc")
@@ -170,59 +174,59 @@ public class RakeRouter implements ConnectionRouter {
         points.removeAllPoints();
         
         RakeConstraint c = this.constraints.get(conn);
-        if (c == null)
+        if (c == null) {
             throw new IllegalStateException("The connection has no layout constraint.");
+        }
         
         // Reference points in absolute coordinates
         Point ref2;
         
         // The rake anchor locations are in relative coordinates
-        rakePos.setLocation(c.getSourceRakeAnchor().getReferencePoint());
-        conn.translateToAbsolute(rakePos);
+        RakeRouter.rakePos.setLocation(c.getSourceRakeAnchor().getReferencePoint());
+        conn.translateToAbsolute(RakeRouter.rakePos);
         
-        final Direction rakeDir = GeomUtils.getDirection(conn.getSourceAnchor().getLocation(rakePos),
-                                                         srcBounds);
+        final Direction rakeDir = GeomUtils.getDirection(conn.getSourceAnchor().getLocation(RakeRouter.rakePos),
+                srcBounds);
         final Orientation rakeOrientation = GeomUtils.getOrientation(rakeDir);
         
         if (rakeOrientation == Orientation.VERTICAL) {
-            ref2 = new Point(targetAnchor.getReferencePoint().x, rakePos.y);
-            rakePos.x = sourceAnchor.getReferencePoint().x;
+            ref2 = new Point(targetAnchor.getReferencePoint().x, RakeRouter.rakePos.y);
+            RakeRouter.rakePos.x = sourceAnchor.getReferencePoint().x;
         } else {
-            ref2 = new Point(rakePos.x, targetAnchor.getReferencePoint().y);
-            rakePos.y = targetAnchor.getReferencePoint().y;
+            ref2 = new Point(RakeRouter.rakePos.x, targetAnchor.getReferencePoint().y);
+            RakeRouter.rakePos.y = targetAnchor.getReferencePoint().y;
         }
         
         // Source anchor
-        P1.setLocation(sourceAnchor.getLocation(rakePos));
+        RakeRouter.P1.setLocation(sourceAnchor.getLocation(RakeRouter.rakePos));
         
         // Rake anchor on the target side
-        P2.setLocation(rakePos);
+        RakeRouter.P2.setLocation(RakeRouter.rakePos);
         
         // Bend point on the source side
-        P3.setLocation(ref2);
+        RakeRouter.P3.setLocation(ref2);
         
         // Target anchor
-        P4.setLocation(targetAnchor.getLocation(ref2));
+        RakeRouter.P4.setLocation(targetAnchor.getLocation(ref2));
         
         // Align segments on source and target points.
         if (rakeOrientation == Orientation.VERTICAL) {
-            P3.x = P4.x;
-            P2.x = P1.x;
+            RakeRouter.P3.x = RakeRouter.P4.x;
+            RakeRouter.P2.x = RakeRouter.P1.x;
         } else {
-            P3.y = P4.y;
-            P2.y = P1.y;
+            RakeRouter.P3.y = RakeRouter.P4.y;
+            RakeRouter.P2.y = RakeRouter.P1.y;
         }
         
+        conn.translateToRelative(RakeRouter.P1);
+        conn.translateToRelative(RakeRouter.P2);
+        conn.translateToRelative(RakeRouter.P3);
+        conn.translateToRelative(RakeRouter.P4);
         
-        conn.translateToRelative(P1);
-        conn.translateToRelative(P2);
-        conn.translateToRelative(P3);
-        conn.translateToRelative(P4);
-        
-        points.addPoint(P1);
-        points.addPoint(P2);
-        points.addPoint(P3);
-        points.addPoint(P4);
+        points.addPoint(RakeRouter.P1);
+        points.addPoint(RakeRouter.P2);
+        points.addPoint(RakeRouter.P3);
+        points.addPoint(RakeRouter.P4);
         
         conn.setPoints(points);
     }
@@ -230,6 +234,7 @@ public class RakeRouter implements ConnectionRouter {
     /**
      * Get the anchor owner bounds in absolute coordinates. If the anchor is not attached to a figure, returns a 1x1
      * sized rectangle located at the anchor reference point.
+     * 
      * @param anchor The anchor.
      * @return The anchor bounds in absolute coordinates.
      */
@@ -251,11 +256,13 @@ public class RakeRouter implements ConnectionRouter {
     @Override
     public void setConstraint(Connection connection, Object constraint) {
         final RakeConstraint old = this.constraints.get(connection);
-        if (old == constraint)
+        if (old == constraint) {
             return;
+        }
         
-        if (old != null)
+        if (old != null) {
             old.removeListener((AnchorListener) connection);
+        }
         
         final RakeConstraint rakeConstraint = (RakeConstraint) constraint;
         this.constraints.put(connection, rakeConstraint);
@@ -267,13 +274,15 @@ public class RakeRouter implements ConnectionRouter {
     @Override
     public void route(Connection connection) {
         RakeConstraint c = this.constraints.get(connection);
-        if (c == null)
-            return; //throw new IllegalStateException("The connection has no layout constraint.");
+        if (c == null) {
+            return; // throw new IllegalStateException("The connection has no layout constraint.");
+        }
         
-        if (c.getSourceRakeAnchor() != null)
+        if (c.getSourceRakeAnchor() != null) {
             routeToSource(connection);
-        else
+        } else {
             routeToTarget(connection);
+        }
     }
 
 }

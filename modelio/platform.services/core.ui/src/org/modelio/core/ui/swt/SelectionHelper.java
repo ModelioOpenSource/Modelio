@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public final class SelectionHelper {
      * Tells whether the selection contains <b>at least</b> one element of the given type.
      * <p>
      * Returns false if the selection is empty.
+     * 
      * @param selection a selection object
      * @param cls the required type
      * @return true if the selection contains at least one such element.
@@ -70,6 +71,7 @@ public final class SelectionHelper {
      * Tells whether the selection contains <b>only</b> elements of the given type.
      * <p>
      * Returns false if the selection is empty.
+     * 
      * @param selection a selection object
      * @param cls the required type
      * @return true if the selection is not empty and contains only such elements.
@@ -95,6 +97,7 @@ public final class SelectionHelper {
 
     /**
      * Count in the selection the elements matching the given type.
+     * 
      * @param selection a selection object
      * @param cls the required type
      * @return true the matching elements count.
@@ -115,6 +118,7 @@ public final class SelectionHelper {
     /**
      * Get the first element in the selection that matches the given type
      * @param <T> the required type
+     * 
      * @param selection the selection object
      * @param cls the required type class
      * @return the first matching element or null.
@@ -136,6 +140,7 @@ public final class SelectionHelper {
      * Get the selection size.
      * <p>
      * Returns 0 if the selection is not a {@link IStructuredSelection}.
+     * 
      * @param selection a selection object.
      * @return the selection size.
      */
@@ -153,6 +158,7 @@ public final class SelectionHelper {
      * <p>
      * All selection elements not matching the type are filtered out.
      * @param <T> the wanted type
+     * 
      * @param selection the selection object
      * @param cls the wanted type
      * @return the filtered selection content
@@ -178,6 +184,7 @@ public final class SelectionHelper {
      * <p>
      * All selection elements not matching the type are filtered out.
      * @param <T> the wanted type
+     * 
      * @param selection the selection object
      * @param cls the wanted type
      * @return the filtered selection content

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public final class EditorLocatorForLabelFigure implements CellEditorLocator {
 
     /**
      * Standard constructor.
+     * 
      * @param figure the label figure to overwrite
      * @param figureLabelSetter a lambda that must set the label figure text.
      * This method will be called at each {@link #relocate(CellEditor)} just after having called 'figureLabelSetter'.
@@ -126,6 +127,7 @@ public final class EditorLocatorForLabelFigure implements CellEditorLocator {
      * This method will be called at each {@link #relocate(CellEditor)}
      * just after having called 'figureLabelSetter'.
      * This useful when edited figures adjust their font to the text and available size.
+     * 
      * @param fontGetter lambda that returns the font the editor must use.
      * @return this instance to chain calls.
      */
@@ -137,6 +139,7 @@ public final class EditorLocatorForLabelFigure implements CellEditorLocator {
 
     /**
      * Set the minimum editor size.
+     * 
      * @param d the minimum editor size.
      * @return this instance to chain calls.
      */

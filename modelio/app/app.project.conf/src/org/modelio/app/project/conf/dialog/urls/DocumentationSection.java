@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -82,6 +82,7 @@ public class DocumentationSection {
 
     /**
      * Update() is called by the referenced url view when the project to be displayed changes or need contents refresh
+     * 
      * @param selectedProject the project selected in the workspace tree view
      */
     @objid ("d4464549-baf6-4f7e-8bce-318139ba1226")

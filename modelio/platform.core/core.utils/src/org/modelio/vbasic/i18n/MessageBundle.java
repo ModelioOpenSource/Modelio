@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,18 +21,22 @@
 package org.modelio.vbasic.i18n;
 
 import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.log.Log;
 
+/**
+ * Message internationalization service.
+ */
 @objid ("cb5e7bf7-0fcd-4f7d-8637-084be0445433")
 public class MessageBundle {
     @objid ("a9d5b4ed-e047-4c60-b71f-a8f60fd1ba2c")
     private final ResourceBundle resBundle;
 
     @objid ("3f12070c-7a49-416f-863d-b4d3df19e3d5")
-    public MessageBundle(ResourceBundle resBundle) {
+    public MessageBundle(final ResourceBundle resBundle) {
         this.resBundle = resBundle;
     }
 
@@ -40,20 +44,51 @@ public class MessageBundle {
      * Get the translated message formatted with {@link MessageFormat}.
      * <p>
      * If the message is missing return the message key and log the failure as a warning.
+     * </p>
+     * @see MessageFormat
+     * 
      * @param key the message key
-     * @param args arguments
-     * @return the formatted message
+     * @param args message parameters
+     * @return the translated message
      */
     @objid ("253f7b09-918f-4059-ae56-d95c7bfaedb5")
-    public String getMessage(String key, Object... args) {
-        String pattern;
+    public String getMessage(final String key, final Object... args) {
         try {
-            pattern = this.resBundle.getString(key);
-        } catch (@SuppressWarnings("unused") MissingResourceException e) {
-            Log.warning("No I18n message for '%s' in '%s'", key, this.resBundle.getBaseBundleName());
-            pattern = "!" + key + "!";
+            final String pattern = this.resBundle.getString(key);
+            return MessageFormat.format(pattern, args);
+        } catch (final MissingResourceException e) {
+            logMissingMessage("Missing '" + key + "' message in " + this.resBundle);
+            return "!" + key + "(" + Arrays.toString(args) + ")!";
         }
-        return MessageFormat.format(pattern, args);
+    }
+
+    /**
+     * Get a translated string.
+     * <p>
+     * If the message is missing return the message key and log the failure as a warning.
+     * </p>
+     * 
+     * @param key the string key
+     * @return the translated string.
+     */
+    @objid ("7e117658-c2b0-409d-9cc8-2da3bc1a9c56")
+    public String getString(final String key) {
+        try {
+            return this.resBundle.getString(key);
+        } catch (final MissingResourceException e) {
+            logMissingMessage("Missing '" + key + "' message in " + this.resBundle);
+            return "!" + key + "!";
+        }
+    }
+
+    @objid ("9a2abdf0-e968-4ddf-a5b5-13a0a1ee8c08")
+    protected void logMissingMessage(final String message) {
+        Log.warning(message);
+    }
+
+    @objid ("3d1a9070-c67d-44ce-aaf8-438c9fbd037c")
+    public boolean containsKey(final String key) {
+        return this.resBundle.containsKey(key);
     }
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -626,6 +626,7 @@ public final class StandardMetamodelFragment extends AbstractMetamodelFragment {
 
     /**
      * Create all the model checker classes.
+     * 
      * @param metamodel the metamodel
      * @return the live model checkers.
      */
@@ -664,6 +665,7 @@ public final class StandardMetamodelFragment extends AbstractMetamodelFragment {
     /**
      * Get the model shield checkers factory.
      * @param metamodel the metamodel
+     * 
      * @return the model shield checkers factory.
      */
     @objid ("a99daf52-be46-4d6b-86cf-b83fb15d8a72")

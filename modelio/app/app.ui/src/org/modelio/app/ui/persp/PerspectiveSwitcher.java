@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -377,6 +377,7 @@ public class PerspectiveSwitcher extends TrimBarComponent {
 
     /**
      * Initialize the SWT toolbar.
+     * 
      * @param parent a widget which will be the parent of the new SWT components.
      */
     @objid ("a3491422-474c-4ebb-9b21-87e5982edded")

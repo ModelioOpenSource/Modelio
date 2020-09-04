@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -74,6 +74,7 @@ public class OLinkEnd extends OModelElement {
 
     /**
      * Constructor
+     * 
      * @param param : the exported Modelio LinkEnd
      */
     @objid ("8ab4a1df-d09b-4736-a9ad-a94d288ace59")
@@ -106,8 +107,11 @@ public class OLinkEnd extends OModelElement {
 
     @objid ("05ca7df4-08c6-4e3f-be16-a82e8d714194")
     private void setSlotProperties(org.eclipse.uml2.uml.Slot ecoreElt) {
+        //UML Properties
         setLinked(ecoreElt);
         setDefiningFeature(ecoreElt);
+        
+        //Modelio Properties
         if (GenerationProperties.getInstance().isRoundtripEnabled()) {
             setIsLink();
             ObjingEAnnotation.setIsUnique(ecoreElt, this.objElt.isIsUnique());
@@ -196,25 +200,30 @@ public class OLinkEnd extends OModelElement {
 
     @objid ("b4d84f7c-61ac-44ee-b2f2-322c7ee4eb23")
     private void setConnectorEndProperties(org.eclipse.uml2.uml.ConnectorEnd ecoreElt) {
+        //UML properties
         setIsOrdered(ecoreElt);
         setIsUnique(ecoreElt);
         setMax(ecoreElt);
         setMin(ecoreElt);
         setRole(ecoreElt);
         setPartWithPort(ecoreElt);
+        
+        ordering(ecoreElt);
+        
+        //Modelio Properties
         if (GenerationProperties.getInstance().isRoundtripEnabled()) {
             setName(ecoreElt);
-            setIsNavigable(ecoreElt);
-        
+            setIsNavigable(ecoreElt);      
         }
-        ordered(ecoreElt);
     }
 
     @objid ("83ac7a39-c258-4156-b4ef-8423b6377363")
-    private void ordered(org.eclipse.uml2.uml.ConnectorEnd ecoreElt) {
+    private void ordering(org.eclipse.uml2.uml.ConnectorEnd ecoreElt) {
         org.eclipse.uml2.uml.Connector connector = (org.eclipse.uml2.uml.Connector) GenerationProperties.getInstance().getMappedElement(this.objElt.getLink());
+        
         if ((connector.getKind() != null)
                 && (connector.getKind().equals(org.eclipse.uml2.uml.ConnectorKind.DELEGATION_LITERAL))) {
+            
             if (this.objElt.isNavigable()) {
                 connector.getEnds().remove(ecoreElt);
                 connector.getEnds().add(connector.getEnds().size(), ecoreElt);

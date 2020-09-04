@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class MdaExpert implements IMdaExpert {
 
     /**
      * C'tor.
+     * 
      * @param iModuleRegistry module registry to access {@link IRTModule} instances.
      */
     @objid ("00964c31-d071-4f34-9457-45b11a1e0b0f")
@@ -202,6 +203,7 @@ public class MdaExpert implements IMdaExpert {
          * <p>
          * An <i>abstract</i> or <i>invalid</i> stereotype results in an expert always answering <code>false</code>.
          * </p>
+         * 
          * @param el a stereotype. Might be <code>null</code>.
          * @return the matching creation expert, never <i>null</i>.
          */
@@ -228,6 +230,7 @@ public class MdaExpert implements IMdaExpert {
 
         /**
          * Register a stereotyped element creation expert.
+         * 
          * @param ste The stereotype
          * @param expert The creation expert.
          */
@@ -238,6 +241,7 @@ public class MdaExpert implements IMdaExpert {
 
         /**
          * Remove the creation expert registered for the given stereotype.
+         * 
          * @param ste The stereotype to forget.
          */
         @objid ("3211a091-b5a7-4343-b7bc-842e35d5539c")
@@ -247,6 +251,7 @@ public class MdaExpert implements IMdaExpert {
 
         /**
          * This class has no instances.
+         * 
          * @param IModuleRegistry the module registry.
          */
         @objid ("cf802fb8-6abd-49d5-bdab-4e58b4057b51")
@@ -263,6 +268,7 @@ public class MdaExpert implements IMdaExpert {
          * Get the {@link IMdaExpert} matching the stereotype in the module registry.
          * <p>
          * If none is found return the {@link YesMdaExpert} singleton.
+         * 
          * @param el @return
          */
         @objid ("5d0f5de5-cac0-4215-8ad3-1a9964141b5a")

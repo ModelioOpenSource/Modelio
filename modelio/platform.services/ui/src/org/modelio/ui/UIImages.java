@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -200,16 +200,28 @@ public class UIImages {
     @objid ("65fa108d-9bb4-4ff3-b060-3a158cc65144")
     public static final Image UPARROW = UIImages.getImage("icons/uparrow.png");
 
+    /**
+     * Generic 24x24 icon used to represent a "checked" box.
+     */
+    @objid ("ade8acd7-2968-41bc-bbd1-1d6b5d4ca8dc")
+    public static final Image CHECKED = UIImages.getImage("icons/checked.png");
+
+    /**
+     * Generic 24x24 icon used to represent an "unchecked" box.
+     */
+    @objid ("707b5be1-4d1d-42b5-8335-c935d6ccfd74")
+    public static final Image UNCHECKED = UIImages.getImage("icons/unchecked.png");
+
     @objid ("e507fdf4-3f36-4f39-8351-82a02b963917")
     private UIImages() {
     }
 
     @objid ("165b4af5-07f9-4a23-93e2-c53c9917a9ee")
-    private static Image getImage(String relativePath) {
-        Bundle bundle = Platform.getBundle("org.modelio.ui");
-        URL url = bundle.getEntry(relativePath);
-        ImageDescriptor desc = ImageDescriptor.createFromURL(url);
-        Image image = desc.createImage();
+    private static Image getImage(final String relativePath) {
+        final Bundle bundle = Platform.getBundle("org.modelio.ui");
+        final URL url = bundle.getEntry(relativePath);
+        final ImageDescriptor desc = ImageDescriptor.createFromURL(url);
+        final Image image = desc.createImage();
         return image;
     }
 

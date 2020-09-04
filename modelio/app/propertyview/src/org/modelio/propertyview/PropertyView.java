@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,7 +21,6 @@
 package org.modelio.propertyview;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
@@ -33,7 +32,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.mdl;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.InvalidRegistryObjectException;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -61,6 +59,7 @@ import org.modelio.app.core.events.ModelioEventTopics;
 import org.modelio.app.core.picking.IModelioPickingService;
 import org.modelio.app.core.picking.IPickingSession;
 import org.modelio.app.project.core.services.IProjectService;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.core.ui.swt.SelectionHelper;
 import org.modelio.core.ui.swt.images.MetamodelImageService;
 import org.modelio.gproject.gproject.GProject;
@@ -202,6 +201,7 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
 
     /**
      * Called by the framework to create the view and initialize it.
+     * 
      * @param aProjectService the project service.
      * @param modelServices the model service.
      * @param modelioActivationService the activation service
@@ -213,7 +213,7 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
      */
     @objid ("25234b53-7251-4fc7-88ea-d232f7c68d55")
     @PostConstruct
-    public void createControls(IProjectService aProjectService, @Optional IMModelServices modelServices, @Optional IActivationService modelioActivationService, @Optional IModelioPickingService modelioPickingService, Composite parent, @Optional @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, @Optional EMenuService theMenuService, @Optional MPart propertyPart) {
+    public void createControls(final IProjectService aProjectService, @Optional final IMModelServices modelServices, @Optional final IActivationService modelioActivationService, @Optional final IModelioPickingService modelioPickingService, final Composite parent, @Optional @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, @Optional final EMenuService theMenuService, @Optional final MPart propertyPart) {
         this.parentComposite = parent;
         
         // The property view contributors
@@ -236,12 +236,13 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
      * @param isShown whether hidden annotations should be displayed.
      */
     @objid ("16f6c234-c1d4-43e5-af75-b1f5fdf8bcac")
-    public void setShowHiddenMdaElements(boolean isShown) {
+    public void setShowHiddenMdaElements(final boolean isShown) {
         // this.configurator.setShowHiddenMdaElements(isShown);
     }
 
     /**
      * Updates the view for the given selection. Note that this might be called before the GUI has been created !
+     * 
      * @param selection an Eclipse selection
      */
     @objid ("3247ccb8-e344-439b-8324-fbb7ed478b1e")
@@ -260,8 +261,8 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
             // TODO improve algorithm by setting the input only to visible tabs
             // ???
         
-            for (PanelDescriptor desc : this.pvm.getPanels()) {
-                IPanelProvider panel = desc.getPanel();
+            for (final PanelDescriptor desc : this.pvm.getPanels()) {
+                final IPanelProvider panel = desc.getPanel();
                 try {
                     if (panel.isRelevantFor(selection)) {
                         showTabFor(desc);
@@ -270,7 +271,7 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
                         panel.setInput(null);
                         hideTabFor(panel);
                     }
-                } catch (Throwable e) {
+                } catch (final Throwable e) {
                     PropertyViewPlugin.LOG.error(e);
                 }
             } // end for
@@ -319,12 +320,8 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
         setIsPinned(false);
         
         // Restore the selection
-        this.tabFolder.getDisplay().asyncExec(new Runnable() {
-            @Override
-            public void run() {
-                PropertyView.this.update(PropertyView.this.currentSelection);
-            }
-        });
+        this.tabFolder.getDisplay().asyncExec(
+                () -> update(this.currentSelection));
     }
 
     @objid ("7fb8f8ff-50d0-4c1d-aad8-a503b2b74a10")
@@ -342,9 +339,9 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
     @objid ("0491f53a-ccde-42e4-95a3-60851039ff06")
     @Inject
     @Optional
-    void onProjectClosed(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) GProject closedProject) {
+    void onProjectClosed(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) final GProject closedProject) {
         if (closedProject != null && closedProject == this.project) {
-            ICoreSession session = this.project.getSession();
+            final ICoreSession session = this.project.getSession();
             if (session != null) {
                 // Unregister blob provider
                 if (this.blobProvider != null) {
@@ -368,7 +365,7 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
     @objid ("c0005f01-044c-43ac-ba06-74014bda209e")
     @Optional
     @Inject
-    void onProjectOpened(@EventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject openedProject, @Optional IMModelServices mmService, @Optional IModelioPickingService modelioPickingService, @Optional IActivationService modelioActivationService, @Optional EMenuService theMenuService, MPart propertyPart) {
+    void onProjectOpened(@EventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject openedProject, @Optional final IMModelServices mmService, @Optional final IModelioPickingService modelioPickingService, @Optional final IActivationService modelioActivationService, @Optional final EMenuService theMenuService, final MPart propertyPart) {
         this.project = openedProject;
         this.modelService = mmService;
         this.pickingService = modelioPickingService;
@@ -395,7 +392,7 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
     }
 
     @objid ("b4c3140d-d00a-415b-8f85-0afee14fa7e5")
-    void setMenuService(EMenuService value) {
+    void setMenuService(final EMenuService value) {
         // Automatically generated method. Please delete this comment before
         // entering specific code.
         this.menuService = value;
@@ -404,12 +401,11 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
     /**
      * Create the Gui of the property view.<br/>
      * The gui is composed of a header showing the name and the metaclass of the selected elements and a vertical tab container.
-     * @param parent
      */
     @objid ("e88c2fcf-ae30-445e-8030-6de9bdd64d98")
-    private void createGui(Composite parent) {
-        Composite comp = new Composite(parent, SWT.NONE);
-        GridLayout layout = new GridLayout();
+    private void createGui(final Composite parent) {
+        final Composite comp = new Composite(parent, SWT.NONE);
+        final GridLayout layout = new GridLayout();
         layout.marginHeight = 0;
         layout.marginWidth = 0;
         layout.horizontalSpacing = 0;
@@ -419,8 +415,8 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
         // The header
         this.header = new CLabel(comp, SWT.NONE);
         
-        Color[] colors = new Color[] { UIColor.WHITE, null };
-        int[] percents = new int[] { 60 };
+        final Color[] colors = new Color[] { UIColor.WHITE, null };
+        final int[] percents = new int[] { 60 };
         this.header.setBackground(colors, percents, true);
         
         this.header.setFont(CoreFontRegistry.getModifiedFont(this.header.getFont(), SWT.BOLD, 1.2f));
@@ -434,7 +430,7 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
         gd = new GridData(SWT.FILL, SWT.FILL, true, true);
         this.tabFolder.setLayoutData(gd);
         
-        for (PanelDescriptor desc : this.pvm.getPanels()) {
+        for (final PanelDescriptor desc : this.pvm.getPanels()) {
             desc.getPanel().createPanel(this.tabFolder);
         }
         
@@ -442,14 +438,14 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
     }
 
     @objid ("d2eddd1d-8432-4fd3-98f4-500f9cb03af6")
-    private Image getImageFor(IStructuredSelection selection) {
-        ModelElement me = SelectionHelper.getFirst(selection, ModelElement.class);
-        return (me != null) ? MetamodelImageService.getIcon(me.getMClass()) : null;
+    private Image getImageFor(final IStructuredSelection selection) {
+        final ModelElement me = SelectionHelper.getFirst(selection, ModelElement.class);
+        return me != null ? MetamodelImageService.getIcon(me.getMClass()) : null;
     }
 
     @objid ("20a80a04-53bc-44e7-af8e-22ec86e247a0")
-    private String getTitleFor(IStructuredSelection selection) {
-        ModelElement me = SelectionHelper.getFirst(selection, ModelElement.class);
+    private String getTitleFor(final IStructuredSelection selection) {
+        final ModelElement me = SelectionHelper.getFirst(selection, ModelElement.class);
         if (me != null) {
             return me.getName() + " (" + me.getMClass().getName() + ')';
         }
@@ -457,16 +453,16 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
     }
 
     @objid ("6e810b5a-8e8b-4d82-b077-db61ecee3ea9")
-    private void hideTabFor(IPanelProvider panel) {
+    private void hideTabFor(final IPanelProvider panel) {
         // if a tab item already exists for this panel, just dispose it
-        List<VTabItem> tabItemsToDispose = new ArrayList<>();
+        final List<VTabItem> tabItemsToDispose = new ArrayList<>();
         
-        for (VTabItem tabItem : this.tabFolder.getItems()) {
+        for (final VTabItem tabItem : this.tabFolder.getItems()) {
             if (Objects.equals(tabItem.getData(PropertyView.PANEL), panel)) {
                 tabItemsToDispose.add(tabItem);
             }
         }
-        for (VTabItem tabItem : tabItemsToDispose) {
+        for (final VTabItem tabItem : tabItemsToDispose) {
             if (tabItem.getImage() != null) {
                 tabItem.getImage().dispose();
             }
@@ -475,40 +471,40 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
     }
 
     @objid ("2175f01d-ebb8-4f31-91f3-a16bdba4a654")
-    private void setIsPinned(boolean onOff) {
+    private void setIsPinned(final boolean onOff) {
         this.isPinned = onOff;
     }
 
     @objid ("5fca9e1e-e73a-4d97-a9ff-6391b2b61681")
-    private void showTabFor(PanelDescriptor desc) {
+    private void showTabFor(final PanelDescriptor desc) {
         // if a tab item already exists for this panel, just return
-        for (VTabItem tabItem : this.tabFolder.getItems()) {
+        for (final VTabItem tabItem : this.tabFolder.getItems()) {
             if (Objects.equals(tabItem.getData(PropertyView.PANEL), desc.getPanel())) {
                 return;
             }
         }
         
         // Need to create a new tabItem at the proper position
-        VTabItem tabItem = new VTabItem(this.tabFolder, SWT.NULL);
+        final VTabItem tabItem = new VTabItem(this.tabFolder, SWT.NULL);
         tabItem.setText(desc.getPanelLabel());
         
-        ImageDescriptor iconDescriptor = desc.getIconDescriptor();
+        final ImageDescriptor iconDescriptor = desc.getIconDescriptor();
         if (iconDescriptor != null) {
             tabItem.setImage(iconDescriptor.createImage());
         }
         
-        Control top = (Control) desc.getPanel().getPanel();
+        final Control top = (Control) desc.getPanel().getPanel();
         tabItem.setControl(top);
         tabItem.setData(PropertyView.PANEL, desc.getPanel());
     }
 
     @objid ("41df04a4-4616-4713-bca8-6bdd4ea526e6")
     @Override
-    public void statusChanged(IStatusChangeEvent event) {
+    public void statusChanged(final IStatusChangeEvent event) {
         this.tabFolder.getDisplay().asyncExec(() -> {
             if (! this.tabFolder.isDisposed()) {
-                for (VTabItem item : this.tabFolder.getItems()) {
-                    IPanelProvider panel = (IPanelProvider) item.getData(PropertyView.PANEL);
+                for (final VTabItem item : this.tabFolder.getItems()) {
+                    final IPanelProvider panel = (IPanelProvider) item.getData(PropertyView.PANEL);
                     panel.setInput(this.currentSelection);
                 }
             }
@@ -517,12 +513,12 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
 
     @objid ("0d359da7-9b33-4272-ad10-f5577e77453a")
     @Override
-    public void modelChanged(IModelChangeEvent event) {
-        this.tabFolder.getDisplay().syncExec(() -> {
+    public void modelChanged(final IModelChangeEvent event) {
+        this.tabFolder.getDisplay().asyncExec(() -> {
             // Simplest strategy here : setInput on element Panel
             if (! this.tabFolder.isDisposed()) {
-                for (VTabItem item : this.tabFolder.getItems()) {
-                    IPanelProvider panel = (IPanelProvider) item.getData(PropertyView.PANEL);
+                for (final VTabItem item : this.tabFolder.getItems()) {
+                    final IPanelProvider panel = (IPanelProvider) item.getData(PropertyView.PANEL);
                     panel.setInput(this.currentSelection);
                 }
             }
@@ -531,14 +527,14 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
 
     @objid ("eeab94d6-04e8-44b4-af2f-a0a05dde5025")
     public IPanelProvider getSelectedPanel() {
-        return (IPanelProvider) this.tabFolder.getSelection().getData("PANEL");
+        return (IPanelProvider) this.tabFolder.getSelection().getData(PropertyView.PANEL);
     }
 
     @objid ("eb783bd3-a55c-4a05-8150-e02f59543368")
     private static class PanelDescriptor {
         @mdl.prop
         @objid ("aa18d09a-3b3d-42ef-93eb-1b5deab59fb6")
-        private String panelLabel;
+        private final String panelLabel;
 
         @mdl.propgetter
         public String getPanelLabel() {
@@ -548,7 +544,7 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
 
         @mdl.prop
         @objid ("b5b08bc9-3794-4338-8ed5-2c10576da5b8")
-        private boolean primary;
+        private final boolean primary;
 
         @mdl.propgetter
         public boolean isPrimary() {
@@ -558,7 +554,7 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
 
         @mdl.prop
         @objid ("88ffd378-a3a0-4cba-8e0d-1a774680c7f1")
-        private IPanelProvider panel;
+        private final IPanelProvider panel;
 
         @mdl.propgetter
         public IPanelProvider getPanel() {
@@ -568,7 +564,7 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
 
         @mdl.prop
         @objid ("456ba983-ed25-4f58-ae8a-3a1e00b18cd1")
-        private ImageDescriptor iconDescriptor;
+        private final ImageDescriptor iconDescriptor;
 
         @mdl.propgetter
         public ImageDescriptor getIconDescriptor() {
@@ -579,11 +575,12 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
         /**
          * @param id the panel id
          * @param label the panel label
+         * @param iconDescriptor the tab icon ?
          * @param isPrimary whether it is a primary panel: to be displayed first
          * @param panel the panel implementation
          */
         @objid ("e85fbe4c-fcd8-4cbe-8522-2ca29a906a2f")
-        public PanelDescriptor(String id, String label, ImageDescriptor iconDescriptor, boolean isPrimary, IPanelProvider panel) {
+        public PanelDescriptor(final String id, final String label, final ImageDescriptor iconDescriptor, final boolean isPrimary, final IPanelProvider panel) {
             this.panelLabel = label != null ? label : "";
             this.primary = isPrimary;
             this.panel = panel;
@@ -660,25 +657,27 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
 
     @objid ("e00cc1dd-e331-4012-a238-c1c460821083")
     private static class PropertyViewContributorsManager {
+        @objid ("782325bf-4f41-46ba-b2da-b9f4b4f38491")
+        private static final String PROPERTYVIEW_PANEL_EXTENSIONPOINT = "org.modelio.propertyview.panels";
+
         @objid ("90e5cfa8-a561-4e42-b370-5ce446c6d351")
         private ArrayList<PanelDescriptor> panels;
 
         @objid ("a55baa94-cdec-4a81-a542-cd22ffbea3c4")
-        public PropertyViewContributorsManager(IEclipseContext eclipseContext) {
+        public PropertyViewContributorsManager(final IEclipseContext eclipseContext) {
             initializeExtensions(eclipseContext);
         }
 
         @objid ("93719a52-1331-4e37-bc63-be1a9b74bbf0")
-        private void initializeExtensions(IEclipseContext eclipseContext) {
+        private void initializeExtensions(final IEclipseContext eclipseContext) {
             this.panels = new ArrayList<>();
-            final IExtensionRegistry registry = eclipseContext.get(IExtensionRegistry.class);
             
             // Sort contributions by id as a convention id are "org.modelio.propertyview.panels.panelXXX" where XXX is a numer for ordering panels)
             // Contributors are invited to strictly follow the convention to benefit of ordering
-            IConfigurationElement[] contributions = registry.getConfigurationElementsFor("org.modelio.propertyview.panels");
-            Arrays.sort(contributions, new Comparator<IConfigurationElement>() {
+            final List<IConfigurationElement> contributions = new ArrayList<>(new ExtensionPointContributionManager(PROPERTYVIEW_PANEL_EXTENSIONPOINT).getExtensions("panel"));
+            contributions.sort(new Comparator<IConfigurationElement>() {
                 @Override
-                public int compare(IConfigurationElement o1, IConfigurationElement o2) {
+                public int compare(final IConfigurationElement o1, final IConfigurationElement o2) {
                     return o1.getAttribute("id").compareTo(o2.getAttribute("id"));
                 }
             });
@@ -694,8 +693,8 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
                     ContextInjectionFactory.inject(panel, eclipseContext);
             
                     ImageDescriptor iconDescriptor = null;
-                    String extendingPluginId = entry.getDeclaringExtension().getContributor().getName();
-                    String iconPath = entry.getAttribute("icon");
+                    final String extendingPluginId = entry.getDeclaringExtension().getContributor().getName();
+                    final String iconPath = entry.getAttribute("icon");
                     if (iconPath != null) {
                         iconDescriptor = AbstractUIPlugin.imageDescriptorFromPlugin(extendingPluginId, iconPath);
                     }
@@ -726,8 +725,8 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
     private static final class StereotypeIconsBlobProvider implements IBlobProvider {
         @objid ("ab92af6f-8026-41a3-a604-695fdeb85e7a")
         @Override
-        public Collection<String> getRelatedBlobs(MObject obj) {
-            List<String> blobKeys = new ArrayList<>();
+        public Collection<String> getRelatedBlobs(final MObject obj) {
+            final List<String> blobKeys = new ArrayList<>();
             if (obj instanceof Stereotype) {
                 blobKeys.add(getIconKey(obj));
                 blobKeys.add(getImageKey(obj));
@@ -737,7 +736,7 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
 
         @objid ("6592bc2e-9c98-4819-80d3-5e7b49df634c")
         @Override
-        public void objectCopied(MObject from, IRepository fromRepo, MObject to, IRepository toRepo) {
+        public void objectCopied(final MObject from, final IRepository fromRepo, final MObject to, final IRepository toRepo) {
             if (from instanceof Stereotype) {
                 IBlobInfo toInfo = new BlobInfo(getIconKey(to), "icon for " + to.getName());
                 BlobCopier.copy(getIconKey(from), fromRepo, toInfo, toRepo);
@@ -749,8 +748,8 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
 
         @objid ("6e475673-16f6-4390-8809-2c837a941064")
         @Override
-        public void objectsMoved(Collection<? extends MObject> objs, IRepository fromRepo, IRepository destRepo) {
-            for (MObject obj : objs) {
+        public void objectsMoved(final Collection<? extends MObject> objs, final IRepository fromRepo, final IRepository destRepo) {
+            for (final MObject obj : objs) {
                 if (obj instanceof Stereotype) {
                     String blobKey = getIconKey(obj);
                     BlobCopier.move(blobKey, fromRepo, destRepo);
@@ -762,12 +761,12 @@ public class PropertyView implements IModelChangeListener, IStatusChangeListener
         }
 
         @objid ("a1bb9fcf-ffc7-4a39-ae6f-51fbd383569e")
-        private String getIconKey(MObject obj) {
+        private String getIconKey(final MObject obj) {
             return obj.getUuid() + ".icon";
         }
 
         @objid ("259c524c-a1c8-4275-a8ae-3b46c143108f")
-        private String getImageKey(MObject obj) {
+        private String getImageKey(final MObject obj) {
             return obj.getUuid() + ".image";
         }
 

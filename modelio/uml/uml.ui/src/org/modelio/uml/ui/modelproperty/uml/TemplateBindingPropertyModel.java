@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -73,6 +73,7 @@ public class TemplateBindingPropertyModel extends AbstractPropertyModel<Template
      * parameters on the bound namespace or operations. Deletes the obsolete
      * substitutions and create the missing ones with theEditedElement default
      * values.
+     * 
      * @param aTemplateBinding the binding to update
      */
     @objid ("c16f92d9-fedd-447f-9241-63fe857e0f22")
@@ -124,6 +125,7 @@ public class TemplateBindingPropertyModel extends AbstractPropertyModel<Template
     /**
      * Create a new <i>TemplateBinding</i> data model from an
      * <i>TemplateBinding</i>.
+     * 
      * @param theEditedElement the edited element.
      * @param modelService the model services
      */
@@ -136,6 +138,7 @@ public class TemplateBindingPropertyModel extends AbstractPropertyModel<Template
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("2a895fd0-1fa4-4e1b-a6f4-3e7b04f9e23e")
@@ -146,6 +149,7 @@ public class TemplateBindingPropertyModel extends AbstractPropertyModel<Template
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("5abcf1c5-ed9d-4599-b4ca-6bf6d10a0123")
@@ -178,6 +182,7 @@ public class TemplateBindingPropertyModel extends AbstractPropertyModel<Template
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -237,6 +242,7 @@ public class TemplateBindingPropertyModel extends AbstractPropertyModel<Template
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -278,6 +284,7 @@ public class TemplateBindingPropertyModel extends AbstractPropertyModel<Template
      * <p>
      * Calling {@link #updateTemplateBinding(TemplateBinding, IMModelServices)} before this method should
      * ensure it won't return <i>null</i>.
+     * 
      * @param row the edited row
      * @param col the edited column
      * @return a matching {@link TemplateBindingPropertyModel} or <i>null</i>.

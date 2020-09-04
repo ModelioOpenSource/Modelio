@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IModelTool {
     /**
      * Clone a model element.
+     * 
      * @param toClone a model element
      * @return the clone
      */

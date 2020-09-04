@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public interface MMetamodel {
      * Get a meta class by its java interface
      * <p>
      * The meta class must be passed as an Java class defining the meta class structure.
+     * 
      * @param interf a metaclass java interface.
      * @return the meta class corresponding to the 'interf' Java interface class,
      * <i>null</i> if it cannot be found
@@ -48,6 +49,7 @@ public interface MMetamodel {
 
     /**
      * Get a meta class by its name or its {@link MClass#getQualifiedName() qualified name} .
+     * 
      * @param name the metaclass name.
      * @return the meta class named 'name', <i>null</i> if it does not exist.
      */
@@ -56,6 +58,7 @@ public interface MMetamodel {
 
     /**
      * Get all the metamodel classes.
+     * 
      * @return the metamodel classes.
      */
     @objid ("7220c1db-55bf-4459-a011-845c6b46d6ab")
@@ -63,6 +66,7 @@ public interface MMetamodel {
 
     /**
      * Get the metamodel expert, relying on experts provided by each metamodel fragment.
+     * 
      * @return the metamodel expert.
      */
     @objid ("58f98916-a197-4498-8abb-e50a2f0e142e")
@@ -73,6 +77,7 @@ public interface MMetamodel {
      * <p>
      * The returned list is not modifiable.
      * </p>
+     * 
      * @return the metamodel fragments.
      */
     @objid ("40b722b2-b948-4830-8704-0dd3d6f3e9e4")
@@ -82,6 +87,7 @@ public interface MMetamodel {
      * Get the registered metamodel fragments with and fake fragments if asked.
      * <p>
      * The returned list is not modifiable.
+     * 
      * @param withFakes if true the returned collection also contains fake metamodel fragments.
      * @return the requested metamodel fragments.
      */
@@ -92,6 +98,7 @@ public interface MMetamodel {
      * Get the registered fragments sorted by dependencies.
      * <p>
      * The first fragment needs nobody.
+     * 
      * @return the sorted metamodel fragments.
      * @throws java.lang.IllegalStateException if there is a cycle in the metamodel fragment dependencies
      * @since 3.6

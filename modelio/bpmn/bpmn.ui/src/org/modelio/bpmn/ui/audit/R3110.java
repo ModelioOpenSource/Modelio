@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -114,6 +114,7 @@ public class R3110 extends AbstractBpmnRule {
     private static class CheckR3110 extends AbstractControl {
         /**
          * C'tor.
+         * 
          * @param rule the rule to check.
          */
         @objid ("faa9a7ca-2df5-4db6-a810-2688a5603d2b")

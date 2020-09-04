@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ class InformationFlowFactory {
 
     /**
      * Constructor.
+     * 
      * @param modelFactory a model factory. Can be get on the GmDiagram.
      */
     @objid ("81734c6e-1dec-11e2-8cad-001ec947c8cc")
@@ -73,6 +74,7 @@ class InformationFlowFactory {
 
     /**
      * Create an information flow realizing the given link.
+     * 
      * @param realizingLink a model link or a model link end.
      * @return the created information flow.
      */
@@ -174,6 +176,7 @@ class InformationFlowFactory {
          * Sets its owner to the namespace owning all sources and targets.
          * <p>
          * The only remaining work is to add realizing links.
+         * 
          * @param srcs The sources
          * @param dests The targets
          * @return The created information flow.
@@ -199,6 +202,7 @@ class InformationFlowFactory {
 
         /**
          * Get the namespace in the composition hierarchy that owns all the given elements.
+         * 
          * @param elements The elements to search
          * @return The common namespace owning them.
          */
@@ -334,6 +338,7 @@ class InformationFlowFactory {
          * <p>
          * Check that the namespace owning all sources and targets is modifiable.
          * <p>
+         * 
          * @param srcs The sources
          * @param dests The targets
          * @return true if an information flow can be created, else false.
@@ -347,6 +352,7 @@ class InformationFlowFactory {
 
         /**
          * Get the namespace in the composition hierarchy that owns all the given elements.
+         * 
          * @param elements The elements to search
          * @return The common namespace owning them.
          */

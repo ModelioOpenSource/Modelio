@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.modelio.diagram.diagramauto.diagram.layout.FourGroupStructuralLayout;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.impact.ImpactLink;
+import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -217,6 +218,13 @@ public class DependencyCreator extends AbstractDiagramCreator {
             }
         }
         return null;
+    }
+
+// The Dependency auto diagram are class diagrams
+    @objid ("2396ea3c-1824-4a2f-875b-3c9012bc3911")
+    @Override
+    protected AbstractDiagram createDiagramElement(IStandardModelFactory standardFactory) {
+        return standardFactory.createClassDiagram();
     }
 
 }

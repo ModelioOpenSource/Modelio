@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IModelComponentDescriptor {
     /**
      * Get the name of the model component.
+     * 
      * @return the name of the model component.
      */
     @objid ("318987b6-d5cc-11de-884b-001ec947cd2a")
@@ -41,6 +42,7 @@ public interface IModelComponentDescriptor {
 
     /**
      * Get the version of the model component.
+     * 
      * @return the version of the model component.
      */
     @objid ("318987b8-d5cc-11de-884b-001ec947cd2a")

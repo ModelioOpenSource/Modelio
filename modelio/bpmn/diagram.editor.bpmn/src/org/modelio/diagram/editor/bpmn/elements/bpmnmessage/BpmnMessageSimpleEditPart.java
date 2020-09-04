@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -78,7 +78,7 @@ public class BpmnMessageSimpleEditPart extends AbstractNodeEditPart {
         
         installEditPolicy(EditPolicy.NODE_ROLE, new BpmnCreateLinkEditPolicy());
         installEditPolicy("linkedNode", new LinkedNodeEndReconnectEditPolicy());
-        installEditPolicy(ModelElementDropRequest.class, new BpmnMessageElementDropEditPolicy());
+        installEditPolicy(ModelElementDropRequest.TYPE, new BpmnMessageElementDropEditPolicy());
         
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
     }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public class CloseableXMLStreamWriter implements AutoCloseable {
 
     /**
      * Create a {@link XMLStreamWriter}.
+     * 
      * @param os an output stream.
      * @param indent <code>true</code> to instantiate an indenting writer.
      * @throws javax.xml.stream.XMLStreamException in case of failure

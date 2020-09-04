@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class DefaultCreateLinkCommand extends Command implements ICreationComman
 
     /**
      * Command constructor
+     * 
      * @param context Informations on the model element to create and or unmask.
      */
     @objid ("7fe785e2-1dec-11e2-8cad-001ec947c8cc")
@@ -131,6 +132,7 @@ public class DefaultCreateLinkCommand extends Command implements ICreationComman
 
     /**
      * Sets the context
+     * 
      * @param newContext the link creation context.
      */
     @objid ("7fe785ee-1dec-11e2-8cad-001ec947c8cc")
@@ -140,6 +142,7 @@ public class DefaultCreateLinkCommand extends Command implements ICreationComman
 
     /**
      * Set the link source.
+     * 
      * @param sourceNode the link source.
      */
     @objid ("7fe785f2-1dec-11e2-8cad-001ec947c8cc")
@@ -149,6 +152,7 @@ public class DefaultCreateLinkCommand extends Command implements ICreationComman
 
     /**
      * Set the link destination.
+     * 
      * @param targetNode the link destination.
      */
     @objid ("7fe785f7-1dec-11e2-8cad-001ec947c8cc")
@@ -158,6 +162,7 @@ public class DefaultCreateLinkCommand extends Command implements ICreationComman
 
     /**
      * Set the path of the link.
+     * 
      * @param path the link path.
      */
     @objid ("7fe785fc-1dec-11e2-8cad-001ec947c8cc")
@@ -169,6 +174,7 @@ public class DefaultCreateLinkCommand extends Command implements ICreationComman
      * Unmask the link element.
      * <p>
      * May be redefined to do more work.
+     * 
      * @param gmDiagram the diagram where the element must be unmasked
      * @param linkElement the link element to unmask
      * @return The unmasked link graphic model.
@@ -182,6 +188,7 @@ public class DefaultCreateLinkCommand extends Command implements ICreationComman
      * Create the model element specified by the context.
      * <p>
      * May be redefined to do more work.
+     * 
      * @return The created link model element.
      */
     @objid ("7fe7860a-1dec-11e2-8cad-001ec947c8cc")
@@ -220,6 +227,7 @@ public class DefaultCreateLinkCommand extends Command implements ICreationComman
      * <p>
      * If the source and target node are in different diagrams, the link is unmasked in the
      * diagram embedding the source diagram and the target one.
+     * 
      * @return the diagram in which the link must be unmasked.
      * @since 3.7
      */

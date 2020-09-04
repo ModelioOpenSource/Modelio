@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public interface ISearchPanel {
      * @since Modelio 3.8
      * 
      * Whether or not this search panel should be displayed or not (implementors may analyze any condition they want to decide  upon)
+     * 
      * @param session @return
      */
     @objid ("79555ee2-5889-45ec-a43c-db504247af54")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -108,6 +108,7 @@ public class StringField extends AbstractField {
 
     /**
      * Set a value validator.
+     * 
      * @param validator the validator that will be called with the new value.
      * @since Valkyrie 3.8
      */

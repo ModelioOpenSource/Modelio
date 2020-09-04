@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ class Metadatas {
 
     /**
      * initialize the meta datas.
+     * 
      * @param ramc the model component representation.
      */
     @objid ("154faeef-56c6-4de9-85db-0e9deb66ef4b")
@@ -76,6 +77,7 @@ class Metadatas {
      * @param deploymentPath
      * @param fileDate
      * @param fileEntry the entry telling where the file must be deployed.
+     * 
      * @param archiveFileName the file name in the archive
      */
     @objid ("4e57c868-9fca-491d-8f77-95fdd210f821")
@@ -98,6 +100,7 @@ class Metadatas {
 
     /**
      * Writes the "metadatas.xml" file.
+     * 
      * @param exportPath the directory where "metadatas.xml" file will be written.
      * @throws java.io.IOException on failure
      */
@@ -120,6 +123,7 @@ class Metadatas {
 
     /**
      * Adapt this instance to {@link IModelComponentInfos} interface.
+     * 
      * @return the adapter
      */
     @objid ("d40d8002-1dac-40a6-b4e3-c9543e9d8671")

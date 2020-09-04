@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ class EmbeddedZoomManager extends ZoomManager {
 
     /**
      * Sets the zoom level to the given value. Min-max range check is not done.
+     * 
      * @param zoom the new zoom level
      */
     @objid ("6bd9895a-342c-452f-b6a8-d586c5fb1f23")

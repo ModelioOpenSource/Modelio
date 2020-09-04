@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class DynamicStyle extends Style {
      * Get all style keys for which a value has been locally set.
      * <p>
      * Overriden style keys are ignored.
+     * 
      * @return locally defined style keys.
      */
     @objid ("2c2c390d-5770-43db-ba06-f46875c4a29b")
@@ -115,6 +116,7 @@ public class DynamicStyle extends Style {
 
     /**
      * Override a style property.
+     * 
      * @param key a style key
      * @param value the forced value.
      */

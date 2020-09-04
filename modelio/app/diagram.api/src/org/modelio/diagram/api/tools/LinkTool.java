@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -219,6 +219,7 @@ public class LinkTool extends BendedConnectionCreationTool {
 
     /**
      * Sets the tools state.
+     * 
      * @param state the new state
      */
     @objid ("f5a26eb0-323d-45f7-9f17-fef60bf0eea0")
@@ -235,6 +236,7 @@ public class LinkTool extends BendedConnectionCreationTool {
      * Updates the target editpart and returns <code>true</code> if the target changes. The target is updated by using
      * the target conditional and the target request. If the target has been locked, this method does nothing and
      * returns <code>false</code>.
+     * 
      * @return <code>true</code> if the target was changed
      */
     @objid ("edb15184-9ccb-4ff8-8d15-bbbf55aed856")
@@ -271,6 +273,7 @@ public class LinkTool extends BendedConnectionCreationTool {
     /**
      * Find the target editpart and returns it. The target is searched by using the target conditional and the target
      * request.
+     * 
      * @return the edit part that can handle the request under the mouse.
      */
     @objid ("7bdc4ca2-520d-4e1a-812c-a5e8c2bc1003")

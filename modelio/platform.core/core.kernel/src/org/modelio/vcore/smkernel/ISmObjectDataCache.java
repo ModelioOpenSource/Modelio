@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface ISmObjectDataCache {
     /**
      * Get the cached data for the given UUID.
+     * 
      * @param uid the identifier.
      * @return the cached data or <code>null</code>.
      */
@@ -37,6 +38,7 @@ public interface ISmObjectDataCache {
 
     /**
      * Put the given data to cache.
+     * 
      * @param data the data to cache.
      */
     @objid ("02128311-8585-11e1-bb11-001ec947ccaf")

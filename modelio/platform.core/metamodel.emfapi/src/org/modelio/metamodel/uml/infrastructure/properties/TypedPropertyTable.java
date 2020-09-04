@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure.properties;
 
@@ -39,13 +39,13 @@ public interface TypedPropertyTable extends PropertyTable {
     /**
      * The metaclass simple name.
      */
-    @objid ("7c98ce58-9361-484c-94ac-c368f000557d")
+    @objid ("01cfce5e-9fe9-441d-9e51-60b663444459")
     public static final String MNAME = "TypedPropertyTable";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("b56117e4-678e-4553-9d3a-5f09b23d2130")
+    @objid ("0c30b666-003a-43a2-8ab8-e87dd315eb7a")
     public static final String MQNAME = "Infrastructure.TypedPropertyTable";
 
     /**
@@ -53,6 +53,7 @@ public interface TypedPropertyTable extends PropertyTable {
      * <p>
      * It is the responsibility of the called to convert it to the appropriate class according to the property's base class.
      * </p>
+     * 
      * @param pdef a property.
      * @return its value
      */
@@ -61,6 +62,7 @@ public interface TypedPropertyTable extends PropertyTable {
 
     /**
      * Set a property value.
+     * 
      * @param pdef a property.
      * @param value its value.
      */
@@ -69,6 +71,7 @@ public interface TypedPropertyTable extends PropertyTable {
 
     /**
      * Get a property value, converted to the appropriate class according to the definition's base class.
+     * 
      * @param pdef a property.
      * @return its value
      */
@@ -77,6 +80,7 @@ public interface TypedPropertyTable extends PropertyTable {
 
     /**
      * Set a property value.
+     * 
      * @param pdef a property.
      * @param value its value.
      */
@@ -89,7 +93,7 @@ public interface TypedPropertyTable extends PropertyTable {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("8bb239b6-fb29-4c2a-bf6f-bcf964f93aba")
+    @objid ("f1e997c8-6638-48b3-a67c-94560e5eb3a0")
     PropertyTableDefinition getType();
 
     /**
@@ -98,7 +102,7 @@ public interface TypedPropertyTable extends PropertyTable {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("cca4841f-82da-4360-8cee-79baef42a10c")
+    @objid ("26f8be33-ff8a-4315-b938-c259ca03fe4e")
     void setType(PropertyTableDefinition value);
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -284,6 +284,7 @@ public class TextElement {
      * Create and configure the wrapped text control
      * @param parent
      * @param style
+     * 
      * @return the configured Text control
      */
     @objid ("410d2704-bee0-49ea-946f-187b050fcfe1")
@@ -781,6 +782,7 @@ public class TextElement {
 
         /**
          * Extract the list of MObject being dropped, excluding 'deleted' objects.
+         * 
          * @param event @return
          */
         @objid ("73b024de-35de-47b2-9d2c-a62a32f7ff21")

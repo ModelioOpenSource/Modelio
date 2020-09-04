@@ -109,7 +109,6 @@
       </children>
     </elements>
     <elements xsi:type="menu:MenuContribution" xmi:id="_vwwjIG21EeWQutzUkmlP2Q" elementId="diagram.editor.menucontribution.relateddiagrams" positionInParent="before=org.modelio.model.browser.view.popupmenu.menuseparator.2" parentId="org.modelio.model.browser.view.popupmenu">
-      <children xsi:type="menu:MenuSeparator" xmi:id="_dDaZkG29EeWQutzUkmlP2Q" elementId="diagram.editor.menuseparator.0"/>
       <children xsi:type="menu:DynamicMenuContribution" xmi:id="_7XMawG21EeWQutzUkmlP2Q" elementId="diagram.editor.menucontribution.relateddiagrams.dynmenu" contributionURI="bundleclass://org.modelio.diagram.editor/org.modelio.diagram.editor.context.RelatedDiagramsMenuCreator"/>
     </elements>
   </fragments>

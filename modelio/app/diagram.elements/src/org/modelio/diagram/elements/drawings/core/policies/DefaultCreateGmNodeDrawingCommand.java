@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class DefaultCreateGmNodeDrawingCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param layer The parent layer
      * @param newNodeType the node to create
      * @param drawingIdentifier the drawing identifier.
@@ -72,6 +73,7 @@ public class DefaultCreateGmNodeDrawingCommand extends Command {
 
     /**
      * Get the initial layout constraint.
+     * 
      * @return the initial layout constraint.
      */
     @objid ("77cc7a82-16fe-4563-b425-1d2e92d568bc")

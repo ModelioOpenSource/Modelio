@@ -2,29 +2,16 @@
 <?eclipse version="3.4"?>
 <plugin>
 	<extension point="org.eclipse.e4.workbench.model" id="modelContribution">
-		<fragment uri="e4model/admtool.e4xmi"></fragment> 
+		<fragment uri="e4model/admtool.e4xmi"/>
 	</extension>
 
- <extension point="org.modelio.app.preferencepages">
-      <page id="org.modelio.admtool.logpreferences"
-            name="%AdmTool.Admin.label"
-            class="org.modelio.admtool.preferences.AdminPreferencesPage" 
-            icon="icons/admin.png" />
-   </extension>
-   
-    <extension
-        point="org.eclipse.core.runtime.preferences">
-     <initializer
-           class="org.modelio.admtool.preferences.AdminPreferencesInitializer">
-     </initializer>
-  </extension>
-   
+
   <extension point="org.eclipse.core.expressions.definitions">
      <definition id="admtool.definition.adminmode">
         <test property="admtool.test.adminmode"/>
      </definition>
   </extension>
-  
+
   <extension point="org.eclipse.core.expressions.propertyTesters">
      <propertyTester
            class="org.modelio.admtool.plugin.AdminModeTester"
@@ -33,5 +20,18 @@
            properties="adminmode"
            type="org.eclipse.jface.viewers.ISelection">
      </propertyTester>
+  </extension>
+  <extension
+        point="org.modelio.app.preferences">
+     <initialization>
+        <preference
+              name="Log.LogLevel"
+              value="3">
+        </preference>
+        <preference
+              name="AdmTools.Show"
+              value="false">
+        </preference>
+     </initialization>
   </extension>
 </plugin>

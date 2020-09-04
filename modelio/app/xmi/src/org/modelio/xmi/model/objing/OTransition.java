@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class OTransition extends OModelElement {
 
     /**
      * Constructor with the exported Transition as parameter
+     * 
      * @param param : the exported Transition
      */
     @objid ("067c4414-3af8-4475-aec1-23ca0b7d47fb")
@@ -322,29 +323,14 @@ public class OTransition extends OModelElement {
 
     @objid ("8fc1bd32-9dc9-4e95-980f-9794400e2b5b")
     private void setEventTrigger(final org.eclipse.uml2.uml.Transition transition, final Event objingEvent) {
-        //        org.eclipse.uml2.uml.StateMachine sm = EcoreModelNavigation.getMostEnclosingStateMachine(transition);
+        Object ecoreEvent =  this.genProp.getMappedElement(objingEvent);
         
-        org.eclipse.uml2.uml.Event ecorEvent =  (org.eclipse.uml2.uml.Event) this.genProp.getMappedElement(objingEvent);
-        //        org.eclipse.uml2.uml.Trigger trigger = null;
-        //        boolean existTrigger = false;
-        //        for  (org.eclipse.uml2.uml.Trigger ownedTrigger : sm.getOwnedTriggers()){
-        //            if (ownedTrigger.getEvent().equals(ecorEvent)){
-        //                trigger = ownedTrigger;
-        //                existTrigger = true;
-        //            }
-        //        }
-        
-        //        if (existTrigger){
-        //            transition.getTriggers().add(trigger);
-        //        }else{
-        
-        org.eclipse.uml2.uml.Trigger trigger = UMLFactory.eINSTANCE.createTrigger();
-        trigger.setName(objingEvent.getName());
-        transition.getTriggers().add(trigger);
-        
-        trigger.setEvent(ecorEvent);
-        
-        //        }
+        if (ecoreEvent instanceof org.eclipse.uml2.uml.Event) {
+            org.eclipse.uml2.uml.Trigger trigger = UMLFactory.eINSTANCE.createTrigger();
+            trigger.setName(objingEvent.getName());
+            transition.getTriggers().add(trigger);
+            trigger.setEvent((org.eclipse.uml2.uml.Event) ecoreEvent);
+        }
     }
 
     @objid ("09fc5c0a-4e57-47a2-8b0e-37070a89a34a")

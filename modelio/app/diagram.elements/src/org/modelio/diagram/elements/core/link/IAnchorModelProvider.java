@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ import org.modelio.diagram.persistence.IPersistent;
 public interface IAnchorModelProvider extends NodeEditPart {
     /**
      * Create a serializable anchor model from the given anchor.
+     * 
      * @param anchor a figure anchor
      * @return an anchor model.
      */

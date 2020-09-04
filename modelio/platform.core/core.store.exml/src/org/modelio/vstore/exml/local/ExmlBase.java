@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class ExmlBase extends AbstractExmlRepository {
 
     /**
      * Initialize a EXML repository from an EXML resource provider.
+     * 
      * @param resProvider an EXML resource provider.
      */
     @objid ("3e1a4116-1ea1-11e2-90db-001ec947ccaf")
@@ -68,6 +69,7 @@ public class ExmlBase extends AbstractExmlRepository {
      * Initialize a EXML repository from a directory path.
      * <p>
      * The repository needs to be {@link #open(IModelLoaderProvider, IModelioProgress) opened} before being used.
+     * 
      * @param path a directory path.
      * @throws java.io.IOException in case of failure.
      * @deprecated use {@link #ExmlBase(Path, String)}
@@ -82,6 +84,7 @@ public class ExmlBase extends AbstractExmlRepository {
      * Initialize a EXML repository from a directory path.
      * <p>
      * The repository needs to be {@link #open(IModelLoaderProvider, IModelioProgress) opened} before being used.
+     * 
      * @param path a directory path.
      * @param name a repository identifier to use in messages.
      * @throws java.io.IOException in case of failure.

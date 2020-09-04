@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class BpmnCloneFlowElementCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param parentNode The parent node
      * @param parentElement the parent element
      * @param elementToClone MObject to clone
@@ -105,6 +106,7 @@ public class BpmnCloneFlowElementCommand extends Command {
 
     /**
      * Get the initial layout constraint.
+     * 
      * @return the initial layout constraint.
      */
     @objid ("f751e9fb-64d9-4910-8b63-81c5e4d29f71")
@@ -114,6 +116,7 @@ public class BpmnCloneFlowElementCommand extends Command {
 
     /**
      * Get the parent model element.
+     * 
      * @return the parent model element.
      */
     @objid ("35913867-a02a-4bf3-82d5-f2335d698e88")
@@ -123,6 +126,7 @@ public class BpmnCloneFlowElementCommand extends Command {
 
     /**
      * Get the parent graphic node.
+     * 
      * @return the parent graphic node.
      */
     @objid ("7aefc36a-a236-47f3-b46f-67c9d38cecfc")
@@ -149,6 +153,7 @@ public class BpmnCloneFlowElementCommand extends Command {
 
     /**
      * Get the element to clone.
+     * 
      * @return the element to clone.
      */
     @objid ("3ef3e879-d431-484e-8fd8-38dc596771e5")

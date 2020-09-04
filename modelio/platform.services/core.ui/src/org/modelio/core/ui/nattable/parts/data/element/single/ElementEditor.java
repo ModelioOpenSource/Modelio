@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class ElementEditor extends AbstractCellEditor {
 
     /**
      * Build a new editor.
+     * 
      * @param session a model session, needed to look for elements.
      * @param pickingService the picking service, to manually select an element in the model.
      */

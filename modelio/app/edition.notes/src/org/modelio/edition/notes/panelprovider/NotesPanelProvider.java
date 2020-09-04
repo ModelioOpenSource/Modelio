@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -109,6 +109,7 @@ public class NotesPanelProvider implements IPanelProvider {
 
     /**
      * Constructor to use if you don't use Eclipse E4 injection.
+     * 
      * @param context the E4 context, <i>null</i> allowed and means read only panel.
      * @param theActivationService Activate the 'double-click' activation by setting 'activationService' to a not <i>null</i> value.<br/>
      * De-activate the 'double-click' activation by setting 'activationService' to a <i>null</i> value.
@@ -199,6 +200,7 @@ public class NotesPanelProvider implements IPanelProvider {
      * rich note.
      * <p>
      * Other elements are ignored.
+     * 
      * @param target the element to set as input
      */
     @objid ("7806c658-7cea-4bed-b493-f50aabbdb666")
@@ -217,6 +219,7 @@ public class NotesPanelProvider implements IPanelProvider {
      * a not <i>null</i> value.<br/>
      * De-activate the 'double-click' activation by setting 'activationService'
      * to a <i>null</i> value.
+     * 
      * @param activationService the activation service or null
      */
     @objid ("2f41c272-9cf6-4699-948b-786aadaa030e")
@@ -240,6 +243,7 @@ public class NotesPanelProvider implements IPanelProvider {
 
     /**
      * Set the current element displayed by the view.
+     * 
      * @param input the ISelection whose notes are to be listed in the tree panel.
      * May be empty or null.
      */
@@ -274,6 +278,7 @@ public class NotesPanelProvider implements IPanelProvider {
 
     /**
      * Select the given annotation element.
+     * 
      * @param select the annotation to select
      */
     @objid ("ec2d1ce6-37fd-4a68-b4ec-afbeacefe999")
@@ -285,6 +290,7 @@ public class NotesPanelProvider implements IPanelProvider {
      * Called after injection completed.
      * <p>
      * Initialize the activation service
+     * 
      * @param theActivationService the activation service (optional)
      */
     @objid ("142683ee-5e90-4a89-bc57-fb3196e519a3")

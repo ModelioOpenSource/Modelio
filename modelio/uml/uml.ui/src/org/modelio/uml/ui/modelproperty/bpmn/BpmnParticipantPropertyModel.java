@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
 
     /**
      * Create a new <i>BpmnParticipant</i> data model from an <i>BpmnParticipant</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("2a202e1e-57a5-45bd-90e5-b6d135f5c89d")
@@ -78,6 +79,7 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("1c78d8b0-29db-46ba-b00f-543a6d3f515f")
@@ -88,6 +90,7 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("0a85b291-907d-4912-9e65-eccabf5c51bb")
@@ -100,6 +103,7 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -141,6 +145,7 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -217,6 +222,7 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

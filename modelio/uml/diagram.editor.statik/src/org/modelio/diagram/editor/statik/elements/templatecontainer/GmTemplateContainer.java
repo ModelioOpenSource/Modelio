@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public abstract class GmTemplateContainer extends GmPortContainer {
 
     /**
      * Constructor.
+     * 
      * @param diagram The diagram in which this port container will be unmasked.
      * @param mainNode The main node that will be decorated with ports. This node is automatically added as child of the port
      * container.
@@ -109,6 +110,7 @@ public abstract class GmTemplateContainer extends GmPortContainer {
 
     /**
      * Tells whether the related element is a template.
+     * 
      * @return true only if the related element has template parameters.
      */
     @objid ("36e24c0f-55b7-11e2-877f-002564c97630")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public interface IResourceBuilder {
 
     /**
      * Creates the embedded document.
+     * 
      * @return the created document.
      * @throws java.io.IOException if embedding fails with an I/O error.
      */
@@ -58,6 +59,7 @@ public interface IResourceBuilder {
 
     /**
      * Creates the embedded resource.
+     * 
      * @return the created resource.
      * @throws java.io.IOException if embedding fails with an I/O error.
      */
@@ -96,6 +98,7 @@ public interface IResourceBuilder {
 
     /**
      * Set the resource role.
+     * 
      * @param moduleName the module name or regex pattern
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param typeName the role name
@@ -124,6 +127,7 @@ public interface IResourceBuilder {
      * use the given authentication data to at least probe the content type.
      * <p>
      * The password will never be stored in any case. The current implementation does not store the authentication data.
+     * 
      * @param auth authentication data.
      * @return this builder.
      * @since 3.7.1

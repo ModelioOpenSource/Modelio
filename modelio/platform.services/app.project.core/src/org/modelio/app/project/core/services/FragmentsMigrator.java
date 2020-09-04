@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,6 +23,7 @@ package org.modelio.app.project.core.services;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
@@ -30,10 +31,8 @@ import java.util.stream.Collectors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
-import org.eclipse.core.runtime.RegistryFactory;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -42,6 +41,7 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.project.core.plugin.AppProjectCore;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.core.ui.dialogs.auth.AuthDataDialog;
 import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.fragment.FragmentAuthenticationException;
@@ -73,7 +73,7 @@ public class FragmentsMigrator {
     protected IStatus lastConfirmMigrationResult = null;
 
     @objid ("b5d708e3-6cb5-47cf-945e-b362b89c0993")
-    private static final String extensionPointId = "org.modelio.app.project.core.services.IFragmentMigrationContributor";
+    private static final String EXTENSIONPOINT_ID = "org.modelio.app.project.core.services.IFragmentMigrationContributor";
 
     @objid ("33af27b4-62a7-47dd-8637-70cff7bf8f52")
     protected final MetamodelVersionDescriptor mmDesc;
@@ -89,11 +89,12 @@ public class FragmentsMigrator {
 
     /**
      * C'tor
+     * 
      * @param project the project to work on.
      * @param withConfirmation whether to ask user for confirmation.
      */
     @objid ("042f317a-bf12-42ab-bbf5-467301437964")
-    public FragmentsMigrator(IEclipseContext eclipseContext, GProject project, boolean withConfirmation) {
+    public FragmentsMigrator(final IEclipseContext eclipseContext, final GProject project, final boolean withConfirmation) {
         this.eclipseContext = Objects.requireNonNull(eclipseContext);
         this.project = Objects.requireNonNull(project);
         this.lastConfirmMigrationResult = toStatus(withConfirmation ? IDialogConstants.YES_ID : IDialogConstants.YES_TO_ALL_ID, null);
@@ -102,6 +103,7 @@ public class FragmentsMigrator {
 
     /**
      * Propose migration of a fragment.
+     * 
      * @param f the fragment to migrate
      * @param parentShell a parent SWT shell
      * @param parentMon the progress monitor to use
@@ -110,10 +112,10 @@ public class FragmentsMigrator {
      * @throws java.lang.InterruptedException on user cancellation
      */
     @objid ("50464582-98ef-465e-8abc-f9d4443e5562")
-    public IStatus migrateFragment(IProjectFragment f, Shell parentShell, SubMonitor parentMon, int allowedMonWork) throws InterruptedException {
+    public IStatus migrateFragment(final IProjectFragment f, final Shell parentShell, final SubMonitor parentMon, final int allowedMonWork) throws InterruptedException {
         if (f.getDownError() instanceof FragmentMigrationNeededException) {
         
-            IStatus acceptMigration = getMigrationPermission(f, parentShell);
+            final IStatus acceptMigration = getMigrationPermission(f, parentShell);
         
             if (!acceptMigration.isOK()) {
                 if (acceptMigration.getSeverity() == IStatus.CANCEL) {
@@ -125,13 +127,13 @@ public class FragmentsMigrator {
         
             boolean tryAgain = false;
             do {
-                Path logFile = this.project.getProjectRuntimePath().resolve("fragments").resolve(f.getId()).resolve("migration.log");
+                final Path logFile = this.project.getProjectFileStructure().getProjectRuntimePath().resolve("fragments").resolve(f.getId()).resolve("migration.log");
         
                 try (BasicMigrationReporter reporter = new BasicMigrationReporter(logFile);) {
                     try {
-                        SubProgress mon = ModelioProgressAdapter.convert(parentMon.newChild(allowedMonWork), 2);
+                        final SubProgress mon = ModelioProgressAdapter.convert(parentMon.newChild(allowedMonWork), 2);
         
-                        IFragmentMigrator m = f.getMigrator(this.mmDesc);
+                        final IFragmentMigrator m = f.getMigrator(this.mmDesc);
         
                         if (m != null) {
                             runFragmentMigration(mon, reporter, f, m);
@@ -139,22 +141,22 @@ public class FragmentsMigrator {
         
                         f.mount(mon.newChild(1));
         
-                        Status reportStatus = new Status(IStatus.INFO, AppProjectCore.PLUGIN_ID, reporter.getResult(), null);
-                        String msg = AppProjectCore.I18N.getMessage("FragmentsMigrator.migrateFragment.success", f.getId());
+                        final Status reportStatus = new Status(IStatus.INFO, AppProjectCore.PLUGIN_ID, reporter.getResult(), null);
+                        final String msg = AppProjectCore.I18N.getMessage("FragmentsMigrator.migrateFragment.success", f.getId());
                         return new MultiStatus(AppProjectCore.PLUGIN_ID, IStatus.INFO, new Status[] { reportStatus }, msg, null);
         
-                    } catch (MigrationFailedException migrationFailExc) {
+                    } catch (final MigrationFailedException migrationFailExc) {
                         reporter.getResultReporter().println(migrationFailExc.getLocalizedMessage());
                         reporter.getLogger().println(migrationFailExc.getLocalizedMessage());
                         migrationFailExc.printStackTrace(reporter.getLogger());
-                    } catch (RuntimeException migrationFailExc) {
+                    } catch (final RuntimeException migrationFailExc) {
                         migrationFailExc.printStackTrace(reporter.getLogger());
                         reporter.getResultReporter().println(migrationFailExc.toString());
-                    } catch (FragmentAuthenticationException authExc) {
+                    } catch (final FragmentAuthenticationException authExc) {
                         // open the auth data dialog then try again
                         tryAgain = handleFragmentAuthenticationException(f, authExc, parentShell);
                         if (!tryAgain) {
-                            Throwable oldError = f.getDownError();
+                            final Throwable oldError = f.getDownError();
                             authExc.addSuppressed(oldError);
                             f.setDown(authExc);
         
@@ -170,14 +172,14 @@ public class FragmentsMigrator {
                             null);
         
                     if (parentMon.isCanceled()) {
-                        String msg = AppProjectCore.I18N.getMessage("FragmentsMigrator.migrateFragment.cancel", f.getId());
+                        final String msg = AppProjectCore.I18N.getMessage("FragmentsMigrator.migrateFragment.cancel", f.getId());
                         return new Status(IStatus.WARNING, AppProjectCore.PLUGIN_ID, msg, null);
                     } else if (!tryAgain) {
-                        String msg = AppProjectCore.I18N.getMessage("FragmentsMigrator.migrateFragment.failed", f.getId());
+                        final String msg = AppProjectCore.I18N.getMessage("FragmentsMigrator.migrateFragment.failed", f.getId());
                         return new MultiStatus(AppProjectCore.PLUGIN_ID, IStatus.ERROR, new Status[] { reportStatus }, msg, null);
                     }
         
-                } catch (IOException e) {
+                } catch (final IOException e) {
                     // "reporter" instantiation failed
                     return new Status(IStatus.ERROR, AppProjectCore.PLUGIN_ID, FileUtils.getLocalizedMessage(e), e);
                 }
@@ -189,29 +191,30 @@ public class FragmentsMigrator {
 
     /**
      * Propose migration of all model fragments that may be migrated.
+     * 
      * @param parentMon the progress monitor to use
      * @param allowedMonWork the maximum progress ticks this method may use
      * @throws java.lang.InterruptedException on cancel
      */
     @objid ("2afc1535-052c-439e-84e7-d17d8de792eb")
-    public void migrateFragments(SubMonitor parentMon, int allowedMonWork) throws InterruptedException {
-        List<IProjectFragment> fragsToMigrate = this.project.getOwnFragments()
+    public void migrateFragments(final SubMonitor parentMon, final int allowedMonWork) throws InterruptedException {
+        final List<IProjectFragment> fragsToMigrate = this.project.getOwnFragments()
                 .stream()
                 .filter(f -> (f.getDownError() instanceof FragmentMigrationNeededException))
                 .collect(Collectors.toList());
         
-        Shell parentShell = SwtThreadHelper.syncSupply(this.display, DefaultShellProvider::getBestParentShell);
+        final Shell parentShell = SwtThreadHelper.syncSupply(this.display, DefaultShellProvider::getBestParentShell);
         
         if (!fragsToMigrate.isEmpty()) {
-            String taskName = AppProjectCore.I18N.getMessage("FragmentsMigrator.monitor.begin", fragsToMigrate.size());
+            final String taskName = AppProjectCore.I18N.getMessage("FragmentsMigrator.monitor.begin", fragsToMigrate.size());
             parentMon.setTaskName(taskName);
             parentMon.subTask(taskName);
             int nbFails = 0;
         
-            ArrayList<IStatus> allresult = new ArrayList<>();
+            final ArrayList<IStatus> allresult = new ArrayList<>();
         
-            for (IProjectFragment f : fragsToMigrate) {
-                IStatus result = migrateFragment(f, parentShell, parentMon, 1);
+            for (final IProjectFragment f : fragsToMigrate) {
+                final IStatus result = migrateFragment(f, parentShell, parentMon, 1);
         
                 if (result != null) {
                     allresult.add(result);
@@ -231,9 +234,9 @@ public class FragmentsMigrator {
                 return;
             } else if (allresult.size() > 1) {
                 // many fragments
-                String resMsg = (nbFails == 0) ? AppProjectCore.I18N.getMessage("FragmentsMigrator.displayMigrationResult.success.message", fragsToMigrate.size())
+                final String resMsg = nbFails == 0 ? AppProjectCore.I18N.getMessage("FragmentsMigrator.displayMigrationResult.success.message", fragsToMigrate.size())
                         : AppProjectCore.I18N.getMessage("FragmentsMigrator.displayMigrationResult.failed.message", fragsToMigrate.size(), nbFails);
-                MultiStatus globresult = new MultiStatus(AppProjectCore.PLUGIN_ID, 0, allresult.toArray(new Status[allresult.size()]), resMsg, null);
+                final MultiStatus globresult = new MultiStatus(AppProjectCore.PLUGIN_ID, 0, allresult.toArray(new Status[allresult.size()]), resMsg, null);
                 displayMigrationResult(globresult, parentShell);
             } else {
                 // Only one fragment
@@ -254,7 +257,7 @@ public class FragmentsMigrator {
         }
         
         // Display the dialog in SWT thread
-        IStatus status = displayConfirmMigrationDialog(f, parentShell).join();
+        final IStatus status = displayConfirmMigrationDialog(f, parentShell).join();
         
         switch (status.getCode()) {
         case IDialogConstants.YES_TO_ALL_ID:
@@ -273,22 +276,22 @@ public class FragmentsMigrator {
     }
 
     @objid ("e05e191a-88a0-4ed1-b48d-bcecf0ad7ea7")
-    private void displayMigrationResult(IStatus report, final Shell parentShell) {
+    private void displayMigrationResult(final IStatus report, final Shell parentShell) {
         this.display.syncExec(() -> {
-            String title = AppProjectCore.I18N.getMessage("FragmentsMigrator.displayMigrationResult.title");
+            final String title = AppProjectCore.I18N.getMessage("FragmentsMigrator.displayMigrationResult.title");
         
             ErrorDialog.openError(parentShell, title, null, report);
         });
     }
 
     @objid ("a8f9ad05-873e-478a-bc3f-4f411bf4ed9e")
-    private boolean handleFragmentAuthenticationException(IProjectFragment f, FragmentAuthenticationException e, Shell parentShell) {
+    private boolean handleFragmentAuthenticationException(final IProjectFragment f, final FragmentAuthenticationException e, final Shell parentShell) {
         final IAuthData ret[] = new IAuthData[] { null };
         
         this.display.syncExec(() -> {
-            IAuthData badData = f.getAuthConfiguration().getAuthData();
-            IAuthData initialData = badData != null ? badData : new UserPasswordAuthData();
-            AuthDataDialog dlg = new AuthDataDialog(
+            final IAuthData badData = f.getAuthConfiguration().getAuthData();
+            final IAuthData initialData = badData != null ? badData : new UserPasswordAuthData();
+            final AuthDataDialog dlg = new AuthDataDialog(
                     parentShell,
                     initialData,
                     f.getId() + " @ " + f.getUri().getHost());
@@ -307,9 +310,9 @@ public class FragmentsMigrator {
     }
 
     @objid ("0d8b727d-61f6-4cde-9951-e639bb776ee3")
-    protected void runFragmentMigration(SubProgress monitor, BasicMigrationReporter reporter, IProjectFragment f, IFragmentMigrator migrator) throws FragmentAuthenticationException, IOException, MigrationFailedException {
-        SubProgress mon = SubProgress.convert(monitor, 6);
-        MetamodelVersionDescriptor fromVersion = f.getRequiredMetamodelDescriptor();
+    protected void runFragmentMigration(final SubProgress monitor, final BasicMigrationReporter reporter, final IProjectFragment f, final IFragmentMigrator migrator) throws FragmentAuthenticationException, IOException, MigrationFailedException {
+        final SubProgress mon = SubProgress.convert(monitor, 6);
+        final MetamodelVersionDescriptor fromVersion = f.getRequiredMetamodelDescriptor();
         
         try (IMigrationProcess mp = migrator.start(mon.newChild(1), reporter);) {
         
@@ -322,21 +325,20 @@ public class FragmentsMigrator {
     }
 
     @objid ("dbefcd5d-94f9-4be9-8f1c-932d1428331a")
-    private void runFragmentMigrationContributors(SubProgress monitor, BasicMigrationReporter reporter, IProjectFragment f, MetamodelVersionDescriptor fromVersion) throws MigrationFailedException {
-        IExtensionRegistry registry = RegistryFactory.getRegistry();
-        IConfigurationElement[] configurationElements = registry.getConfigurationElementsFor(FragmentsMigrator.extensionPointId);
-        monitor.setWorkRemaining(configurationElements.length * 3);
-        for (IConfigurationElement ce : configurationElements) {
+    private void runFragmentMigrationContributors(final SubProgress monitor, final BasicMigrationReporter reporter, final IProjectFragment f, final MetamodelVersionDescriptor fromVersion) throws MigrationFailedException {
+        final Collection<IConfigurationElement> configurationElements = new ExtensionPointContributionManager(EXTENSIONPOINT_ID).getExtensions("contributor");
+        monitor.setWorkRemaining(configurationElements.size() * 3);
+        for (final IConfigurationElement ce : configurationElements) {
             try {
-                IFragmentMigrationContributor svc = (IFragmentMigrationContributor) ce.createExecutableExtension("class");
+                final IFragmentMigrationContributor svc = (IFragmentMigrationContributor) ce.createExecutableExtension("class");
                 reporter.getLogger().format("Running %s migration contributor ...%n", svc.getClass());
         
                 svc.contributeMigration(monitor.newChild(2), reporter, this.project, f, fromVersion, this.eclipseContext);
         
                 f.getRepository().save(monitor.newChild(1));
-            } catch (CoreException e) {
+            } catch (final CoreException e) {
                 throw new MigrationFailedException(e.getLocalizedMessage(), e);
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 throw new MigrationFailedException(FileUtils.getLocalizedMessage(e), e);
             }
         }
@@ -344,20 +346,21 @@ public class FragmentsMigrator {
 
     /**
      * Ask the user for migration confirmation.
+     * 
      * @param f the fragment to migrate
      * @param parentShell a parent SWT shell
      * @return a future that will be completed when the user has made a choice.
      */
     @objid ("56454e44-e3bf-4a77-8622-f08411b39acb")
     protected CompletableFuture<IStatus> displayConfirmMigrationDialog(final IProjectFragment f, final Shell parentShell) {
-        CompletableFuture<IStatus> ret = CompletableFuture
+        final CompletableFuture<IStatus> ret = CompletableFuture
                 .supplyAsync(() -> {
                     try {
-                        ConfirmMigrationDialog dlg = new ConfirmMigrationDialog(parentShell, f, this.mmDesc);
+                        final ConfirmMigrationDialog dlg = new ConfirmMigrationDialog(parentShell, f, this.mmDesc);
                         // Display the dialog
-                        int dlgResult = dlg.open();
+                        final int dlgResult = dlg.open();
                         return toStatus(dlgResult, f);
-                    } catch (IOException e) {
+                    } catch (final IOException e) {
                         return new Status(IStatus.ERROR, AppProjectCore.PLUGIN_ID, IDialogConstants.NO_ID, FileUtils.getLocalizedMessage(e), e);
                     }
                 }, this.display::syncExec)
@@ -372,7 +375,7 @@ public class FragmentsMigrator {
 
     @objid ("fad998d8-4a07-4290-98ad-433248667485")
     protected IStatus getMigrationPermission(final IProjectFragment f, final Shell parentShell) throws InterruptedException {
-        FragmentMigrationNeededException ex = (FragmentMigrationNeededException) f.getDownError();
+        final FragmentMigrationNeededException ex = (FragmentMigrationNeededException) f.getDownError();
         if (!ex.isRemoteMigrationNeeded()) {
             // Local migration only, always accept
             return toStatus(IDialogConstants.YES_ID, f);
@@ -383,7 +386,7 @@ public class FragmentsMigrator {
                     IStatus.ERROR,
                     AppProjectCore.PLUGIN_ID,
                     IDialogConstants.NO_ID,
-                    AppProjectCore.I18N.getMessage("FragmentsMigrator.ask.error", f.getId(), f.getType()), null);
+                    AppProjectCore.I18N.getMessage("FragmentsMigrator.ask.denied", f.getId(), f.getType()), null);
         
         }
         return askForMigration(f, parentShell);
@@ -391,12 +394,13 @@ public class FragmentsMigrator {
 
     /**
      * Convert {@link IDialogConstants} to a {@link IStatus} with a user friendly message.
+     * 
      * @param dlgConstant one of {@link IDialogConstants}
      * @param f a project fragment
      * @return the built {@link IStatus}, never <i>null</i>.
      */
     @objid ("71e67bb3-30af-410c-86aa-6920c4e7ed87")
-    protected static IStatus toStatus(int dlgConstant, final IProjectFragment f) {
+    protected static IStatus toStatus(final int dlgConstant, final IProjectFragment f) {
         String msg;
         switch (dlgConstant) {
         case IDialogConstants.YES_ID:
@@ -412,7 +416,7 @@ public class FragmentsMigrator {
             return new Status(IStatus.CANCEL, AppProjectCore.PLUGIN_ID, dlgConstant, msg, null);
         default:
             // should not happen
-            String strVal = String.valueOf(dlgConstant);
+            final String strVal = String.valueOf(dlgConstant);
             return new Status(IStatus.ERROR, AppProjectCore.PLUGIN_ID, dlgConstant, "unknown " + strVal, new IllegalArgumentException(strVal));
         }
     }

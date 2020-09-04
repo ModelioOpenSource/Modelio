@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public class ModulePropertyView {
     /**
      * This listener is activated when the selection changes in the workbench.<br>
      * Its responsibility is to set the NotesView's current element.
+     * 
      * @param selection the current modelio selection.
      */
     @objid ("c88566e1-1eba-11e2-9382-bc305ba4815c")

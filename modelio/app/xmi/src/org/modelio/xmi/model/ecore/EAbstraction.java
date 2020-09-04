@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,20 +20,18 @@
 
 package org.modelio.xmi.model.ecore;
 
-import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.uml.infrastructure.Abstraction;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 
 @objid ("ae9e83c2-86e5-46ea-81c7-cdfbc62759c9")
 public class EAbstraction extends EDependency {
     @objid ("008860eb-4962-491c-9a57-9d89acaf91c8")
     @Override
-    public List<UmlModelElement> createObjingElt() {
-        return new ArrayList<>();
+    public List<Element> createObjingElt() {
+        return super.createObjingElt();
     }
 
     @objid ("7b1d772c-f2ac-4739-afe4-c91c20fabc39")
@@ -54,6 +52,7 @@ public class EAbstraction extends EDependency {
     @objid ("8a3e5ba3-c827-47c8-9d79-3960070d1fce")
     private void setMapping(Abstraction objingElt) {
         org.eclipse.uml2.uml.OpaqueExpression opaqueExpr = ((org.eclipse.uml2.uml.Abstraction) getEcoreElement()).getMapping();
+        
         if (opaqueExpr != null){
             StringBuffer objingMapping = new StringBuffer();
             EList<String> bodies = opaqueExpr.getBodies();

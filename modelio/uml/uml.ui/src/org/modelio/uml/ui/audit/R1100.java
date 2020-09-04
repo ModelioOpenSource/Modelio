@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -132,6 +132,7 @@ public class R1100 extends AbstractUmlRule {
 
         /**
          * UML2.3, ActivityPartition, Constraints [4]
+         * 
          * @param partition The partition to check.
          * @return The audit entry result.
          */
@@ -189,6 +190,7 @@ public class R1100 extends AbstractUmlRule {
 
         /**
          * When a partition is updated or moved, we need to check if it satisfies the rule, but in the case it is updated, we also need to check if its sub partitions, if any, satisfy the rule or not.
+         * 
          * @param partition The updated partition.
          * @return A list of audit entry for each concerned partition.
          */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,7 +77,7 @@ public class GProjectConfigurer {
     private IAccessDeniedHandler accessDeniedHandler;
 
     @objid ("009e7105-8a6c-48ba-bb6d-d1f0826d6a1d")
-    private List<Failure> failures = new ArrayList<>();
+    private List<GProblem> failures = new ArrayList<>();
 
     @objid ("547b67ec-3786-42fc-85a2-41591e0032ae")
     private Map<String, ModuleChange> moduleChanges;
@@ -98,15 +98,17 @@ public class GProjectConfigurer {
 
     /**
      * Get the list of fragments or modules that couldn't be installed/removed or modified.
+     * 
      * @return the failures list.
      */
     @objid ("97df6319-296e-4234-b887-8c0941659964")
-    public List<Failure> getFailures() {
+    public List<GProblem> getFailures() {
         return this.failures;
     }
 
     /**
      * Get the modules modified by the last synchronization.
+     * 
      * @return the module changes.
      */
     @objid ("51292fd2-af65-4427-9381-d57e982ea91b")
@@ -118,11 +120,11 @@ public class GProjectConfigurer {
      * Reconfigure the project with the given new descriptor.
      * <p>
      * Replaces the project content. Old fragments will be removed, new ones will be added and mount.
+     * 
      * @param aProject The project to synchronize
      * @param newDesc the new project description
-     * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
-     * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
-     * reported and that the operation cannot be cancelled.
+     * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
+     * operation cannot be cancelled.
      * @throws java.io.IOException in case of failure preventing synchronization
      */
     @objid ("cb5025f3-61d6-4aed-9e1a-55dc13c2b4be")
@@ -131,37 +133,36 @@ public class GProjectConfigurer {
         this.failures = new ArrayList<>();
         this.todo = aProject.getTodo();
         
-        
-        final int nModuleTicks = newDesc.getModules().size() ;
+        final int nModuleTicks = newDesc.getModules().size();
         final int nFragmentTicks = newDesc.getFragments().size();
         final int nResourceTicks = newDesc.getSharedResources().size() + this.project.getSharedResources().size();
         final SubProgress mon = SubProgress.convert(monitor, nModuleTicks + nFragmentTicks + 1 + nResourceTicks);
         
-        if(! this.project.getName().equals(newDesc.getName())) {
+        if (!this.project.getName().equals(newDesc.getName())) {
             // Project renamed, no pb
             this.project.setName(newDesc.getName());
         }
         
-        if(! this.project.getRemoteLocation().equals(newDesc.getRemoteLocation())) {
+        if (!this.project.getRemoteLocation().equals(newDesc.getRemoteLocation())) {
             // Project address on server renamed, no pb
             try {
                 this.project.setRemoteLocation(newDesc.getRemoteLocation());
             } catch (URISyntaxException e) {
-                this.failures.add(new Failure(e));
+                this.failures.add(new GProblem(e));
             }
         }
         
-        if (! this.project.getType().toString().equals(newDesc.getType())) {
+        if (!this.project.getType().toString().equals(newDesc.getType())) {
             // different type, this is a different project.
-            throw new IllegalArgumentException(this+" incompatible with "+ newDesc.getType());
+            throw new IllegalArgumentException(this + " incompatible with " + newDesc.getType());
         }
         
         this.project.reconfigureExpectedVersion(newDesc.getModelioVersion());
         
         this.project.reconfigureProperties(newDesc.getProperties(), mon.newChild(1));
         
-        //TODO I don't know what to do if project login changes.
-        @SuppressWarnings("unused")
+        // TODO I don't know what to do if project login changes.
+        @SuppressWarnings ("unused")
         boolean authChanged = this.project.getAuthConfiguration().reconfigure(newDesc.getAuthDescriptor());
         
         // Modules
@@ -181,6 +182,7 @@ public class GProjectConfigurer {
      * Set the callback that will be called if authentication fails for a fragment or a module.
      * <p>
      * The implementation is expected to prompt the user for new authentication data.
+     * 
      * @param accessDeniedHandler the callback.
      * @since 3.7
      */
@@ -193,10 +195,10 @@ public class GProjectConfigurer {
      * Synchronize the project against its remote configuration.
      * <p>
      * Does nothing on local projects.
+     * 
      * @param aProject The project to synchronize
-     * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
-     * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
-     * reported and that the operation cannot be cancelled.
+     * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
+     * operation cannot be cancelled.
      * @return <code>true</code> if the configuration was changed, <code>false</code> if no change was made.
      * @throws java.io.IOException in case of failure preventing synchronization.
      * @throws org.modelio.gproject.gproject.GProjectAuthenticationException in case of authentication error.
@@ -204,25 +206,28 @@ public class GProjectConfigurer {
     @objid ("cd85e181-73c6-4b4b-9f6e-10cd4e201570")
     public boolean synchronize(GProject aProject, IModuleStore moduleCatalog, IModelioProgress monitor) throws GProjectAuthenticationException, IOException {
         if (aProject instanceof GRemoteProject) {
-            String title = CoreProject.getMessage("GProjectConfigurer.Synchronizing",aProject.getName());
+            String title = CoreProject.I18N.getMessage("GProjectConfigurer.Synchronizing", aProject.getName());
             SubProgress mon = SubProgress.convert(monitor, title, 100);
         
             GRemoteProject rp = (GRemoteProject) aProject;
         
             ProjectDescriptor newDesc = new ProjectWriter(rp).writeProject();
-            IAuthData authData  = rp.getAuthConfiguration().getAuthData();
+            IAuthData authData = rp.getAuthConfiguration().getAuthData();
             ProjectDescriptor newServerDesc = GProjectFactory.getRemoteDescriptor(newDesc, authData, mon.newChild(10));
         
             addMandatoryModules(mon.newChild(5), newServerDesc, moduleCatalog);
-            
+        
             if (newServerDesc == null) {
-                final String msg = CoreProject.getMessage("GProjectConfigurer.NoRemoteProjectDescriptor", rp.getRemoteLocation());
+                final String msg = CoreProject.I18N.getMessage("GProjectConfigurer.NoRemoteProjectDescriptor", rp.getRemoteLocation());
                 rp.getMonitorSupport().fireMonitors(GProjectEvent.buildWarning(new IOException(msg)));
                 Log.trace(new IOException(msg));
             } else if (aProject.needsReconfiguration(newServerDesc)) {
                 DescriptorServices.removeSharedPart(newDesc);
                 DescriptorServices.merge(newServerDesc, newDesc);
                 newDesc.cleanup();
+        
+                // Clean previously unresolved TODO actions
+                newDesc.getTodo().getActions().clear();
         
                 reconfigure(aProject, newDesc, mon.newChild(95));
         
@@ -235,6 +240,7 @@ public class GProjectConfigurer {
 
     /**
      * Download synchronized resources to update.
+     * 
      * @param mon a progress monitor
      * @param aProject the project to synchronize.
      * @param resourcesToDownload The descriptors of the resources to download, with their target location.
@@ -250,7 +256,7 @@ public class GProjectConfigurer {
      * Fetch a module handle for the given descriptor.
      * <p>
      * Prompt for authentication if needed.
-     * @param mon
+     * 
      * @param md a module descriptor
      * @return the module handle
      * @throws java.nio.file.FileSystemException in case of failure
@@ -262,10 +268,10 @@ public class GProjectConfigurer {
             return this.project.getModuleHandle(mon, md);
         } catch (AccessDeniedException e) {
             AuthDescriptor authDesc = md.getAuthDescriptor();
-            final IAuthData badAuthData = authDesc.getData() ;
+            final IAuthData badAuthData = authDesc.getData();
             if (authDesc.getScope() == DefinitionScope.LOCAL || badAuthData == null) {
                 // Authentication may be modified locally, prompt user for correct ones
-                final String moduleLabel = md.getName()+" "+md.getVersion();
+                final String moduleLabel = md.getName() + " " + md.getVersion();
                 IAuthData authData = handleAccessDeniedException(moduleLabel, md.getArchiveLocation(), badAuthData, e);
                 if (authData != null) {
                     authDesc.setData(authData);
@@ -280,10 +286,10 @@ public class GProjectConfigurer {
      * Install a new module.
      * <p>
      * May be redefined.
+     * 
      * @param fd the new module descriptor.
-     * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
-     * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
-     * reported and that the operation cannot be cancelled.
+     * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
+     * operation cannot be cancelled.
      * @throws java.io.IOException in case of failure
      */
     @objid ("ea6f1023-85dd-4f21-816a-090fee511246")
@@ -299,13 +305,12 @@ public class GProjectConfigurer {
     /**
      * Default implementation replaces share scoped parameters with the news.
      * <p>
-     * Local scope parameters are left untouched.
-     * To be redefined for a better behavior.
+     * Local scope parameters are left untouched. To be redefined for a better behavior.
+     * 
      * @param m the module to update
      * @param desc the new module parameters.
-     * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
-     * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
-     * reported and that the operation cannot be cancelled.
+     * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
+     * operation cannot be cancelled.
      * @throws java.io.IOException in case of failure
      */
     @objid ("5b042a6f-1415-4f2c-95ce-7010b25d1e09")
@@ -324,14 +329,14 @@ public class GProjectConfigurer {
         
         for (Entry theirParam : descParams.entries()) {
             final Entry myParam = myParameters.getProperty(theirParam.getName());
-            if (myParam == null || theirParam.getScope()==DefinitionScope.SHARED || myParam.getScope()==DefinitionScope.SHARED) {
+            if (myParam == null || theirParam.getScope() == DefinitionScope.SHARED || myParam.getScope() == DefinitionScope.SHARED) {
                 myParameters.setProperty(theirParam.getName(), theirParam.getValue(), theirParam.getScope());
             }
         }
         
         // Shared parameters that are not on the server anymore become local
         for (Entry p : myParameters.entries()) {
-            if (p.getScope()==DefinitionScope.SHARED && descParams.getProperty(p.getName()) == null) {
+            if (p.getScope() == DefinitionScope.SHARED && descParams.getProperty(p.getName()) == null) {
                 p.setScope(DefinitionScope.LOCAL);
             }
         }
@@ -359,7 +364,7 @@ public class GProjectConfigurer {
         
         for (ModuleDescriptor md : newDesc.getModules()) {
             try {
-                
+        
                 IModuleHandle mh = fetchModuleHandle(mon.newChild(1), md);
         
                 ModuleChange entry = this.moduleChanges.get(md.getName());
@@ -369,7 +374,7 @@ public class GProjectConfigurer {
                     this.moduleChanges.put(mh.getName(), entry);
                 } else {
                     // It's an existing module
-                    if(pw.writeModuleDescriptor(entry.oldModule).equals(md)) {
+                    if (pw.writeModuleDescriptor(entry.oldModule).equals(md)) {
                         // No change, remove entry
                         this.moduleChanges.remove(md.getName());
                     } else {
@@ -388,7 +393,7 @@ public class GProjectConfigurer {
         }
         
         // Process modules changes
-        List<IModuleHandle> allModuleHandles = new ArrayList<>( newDesc.getModules().size());
+        List<IModuleHandle> allModuleHandles = new ArrayList<>(newDesc.getModules().size());
         for (ModuleChange change : this.moduleChanges.values()) {
             if (change.newHandle != null) {
                 allModuleHandles.add(change.newHandle);
@@ -422,12 +427,11 @@ public class GProjectConfigurer {
     /**
      * Uninstall a module.
      * <p>
-     * By default postpone the action in the to-do descriptor.
-     * To be redefined to add other behavior.
+     * By default postpone the action in the to-do descriptor. To be redefined to add other behavior.
+     * 
      * @param m the module to remove.
-     * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
-     * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
-     * reported and that the operation cannot be cancelled.
+     * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
+     * operation cannot be cancelled.
      * @throws java.io.IOException in case of failure
      */
     @objid ("27503c90-5d40-4bbf-a76d-02a69d9db936")
@@ -443,11 +447,11 @@ public class GProjectConfigurer {
      * May be redefined.
      * <p>
      * By default postpone the operation in the project to-do list.
+     * 
      * @param oldModule the module to update
      * @param md the new module descriptor
-     * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
-     * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
-     * reported and that the operation cannot be cancelled.
+     * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
+     * operation cannot be cancelled.
      * @throws java.io.IOException in case of failure
      */
     @objid ("f7e455f8-2eed-4888-b017-baaa46ffb9c5")
@@ -461,46 +465,47 @@ public class GProjectConfigurer {
 
     /**
      * Record failure to synchronize a module.
+     * 
      * @param moduleDescriptor a module descriptor if available
      * @param module the module if available
      * @param cause the error
      */
     @objid ("c8223389-c506-4fb9-b8ad-365e419d0866")
     private void addFailure(ModuleDescriptor moduleDescriptor, GModule module, Throwable cause) {
-        Failure failure = new Failure(moduleDescriptor, module, cause);
-        this.failures.add(failure);
+        this.failures.add(new GProblem(moduleDescriptor, module, cause));
     }
 
     /**
      * Record failure to synchronize a fragment.
+     * 
      * @param f the fragment if available
      * @param fd a fragment descriptor if available
      * @param cause the error
      */
     @objid ("30814275-e282-4d16-a5cc-3a6ec0e2e4a2")
     private void addFailure(IProjectFragment f, FragmentDescriptor fd, Exception cause) {
-        this.failures.add(new Failure(fd, f, cause));
+        this.failures.add(new GProblem(fd, f, cause));
     }
 
     @objid ("eb1e6797-17ca-4c29-bfde-67da41c67c2e")
     private void callDownloadResources(SubProgress mon, GProject aProject, Collection<ResourceDescriptor> resourcesToDownload) {
-        mon.subTask("Downloading "+resourcesToDownload.size()+"...");
+        mon.subTask("Downloading " + resourcesToDownload.size() + "...");
         mon.setWorkRemaining(4);
         
         try {
             downloadResources(mon.newChild(3), aProject, resourcesToDownload);
-            
+        
             checkDownloadedResources(mon, resourcesToDownload);
-            
+        
         } catch (IOException | RuntimeException e) {
             Log.warning(e);
-            this.failures.add(new Failure(e));
+            this.failures.add(new GProblem(e));
         }
     }
 
     @objid ("289fd0a5-9690-48cf-8e1b-80aac5a6c6a7")
     private void callInstallModule(ModuleChange entry, IModelioProgress mon) {
-        mon.subTask("Installing "+entry.newDesc.getName()+" "+entry.newDesc.getVersion()+"...");
+        mon.subTask("Installing " + entry.newDesc.getName() + " " + entry.newDesc.getVersion() + "...");
         
         try {
             installModule(entry.newDesc, mon);
@@ -511,7 +516,7 @@ public class GProjectConfigurer {
 
     @objid ("61098f30-1054-4e06-9088-15b447fa0ba8")
     private void callReconfigureFragment(SubProgress mon, IProjectFragment f, FragmentDescriptor fd) {
-        mon.subTask(CoreProject.getMessage("GProjectConfigurer.SynchronizingFragment",f.getId()));
+        mon.subTask(CoreProject.I18N.getMessage("GProjectConfigurer.SynchronizingFragment", f.getId()));
         
         try {
             f.reconfigure(fd, mon);
@@ -531,7 +536,7 @@ public class GProjectConfigurer {
 
     @objid ("cd5fa51e-1823-463d-abdb-e133715bcdc7")
     private void callRemoveModule(GModule m, SubProgress mon) {
-        mon.subTask("Removing "+m.getName()+" "+m.getVersion()+"...");
+        mon.subTask("Removing " + m.getName() + " " + m.getVersion() + "...");
         
         try {
             removeModule(m, mon);
@@ -543,7 +548,7 @@ public class GProjectConfigurer {
     @objid ("0d2ee5da-eb51-44c0-b4a7-80b839df1679")
     private void callUpgradeModule(ModuleChange ch, IModelioProgress mon) {
         try {
-             upgradeModule(ch.oldModule, ch.newDesc, mon);
+            upgradeModule(ch.oldModule, ch.newDesc, mon);
         } catch (IOException | RuntimeException e) {
             addFailure(ch.newDesc, ch.oldModule, e);
         }
@@ -553,16 +558,16 @@ public class GProjectConfigurer {
     private void checkDownloadedResources(SubProgress mon, Collection<ResourceDescriptor> resourcesToDownload) {
         mon.setWorkRemaining(resourcesToDownload.size());
         for (ResourceDescriptor newRd : resourcesToDownload) {
-            Path newPath = this.project.getProjectPath().resolve(newRd.getTargetLocation());
+            Path newPath = this.project.getProjectFileStructure().getProjectPath().resolve(newRd.getTargetLocation());
         
             try {
                 FileTime newTimeStamp = Files.getLastModifiedTime(newPath);
         
                 newRd.setTimestamp(newTimeStamp.toMillis());
-            } catch(IOException e ) {
+            } catch (IOException e) {
                 // download failed, force update on next synchro .
                 newRd.setTimestamp(0);
-                this.failures.add(new Failure(newRd, e));
+                this.failures.add(new GProblem(newRd, e));
             }
             mon.worked(1);
         }
@@ -572,6 +577,7 @@ public class GProjectConfigurer {
      * Sort the module handles by dependency order.
      * <p>
      * Reports and does best effort in case of dependency cycle.
+     * 
      * @param allModuleHandles the handles to sort
      * @param map the changes map for failure reporting
      * @return the sorted handle.
@@ -585,7 +591,7 @@ public class GProjectConfigurer {
         } catch (CyclicDependencyException e) {
             // Report an error for each module involved in the cycle
             // note : the cycle members list is not sorted.
-            for (IModuleHandle h : e.<IModuleHandle>getCycle()) {
+            for (IModuleHandle h : e.<IModuleHandle> getCycle()) {
                 ModuleChange entry = map.get(h.getName());
                 addFailure(entry.newDesc, entry.oldModule, e);
             }
@@ -596,7 +602,7 @@ public class GProjectConfigurer {
                 sortedHandles.removeAll(e.getCycle());
         
                 sortedHandles = ModuleSorter.sortHandles(allModuleHandles);
-                sortedHandles.addAll(e.<IModuleHandle>getCycle());
+                sortedHandles.addAll(e.<IModuleHandle> getCycle());
             } catch (CyclicDependencyException e2) {
                 // Last resort, return the not sorted list
                 sortedHandles = allModuleHandles;
@@ -609,6 +615,7 @@ public class GProjectConfigurer {
      * Called when authentication fails on a fragment or a module.
      * <p>
      * Not redefinable anymore since 3.7, subclasses or caller may either set a callback with {@link #setAccessDeniedHandler(IAccessDeniedHandler)}.
+     * 
      * @param name the name of the module/fragment that cannot be accessed
      * @param uri the location of the element
      * @param data the failed authentication data
@@ -639,7 +646,7 @@ public class GProjectConfigurer {
     private void reconfigureFragments(ProjectDescriptor newDesc, SubProgress mon) {
         ProjectWriter dfact = new ProjectWriter(this.project);
         
-        List<FragmentDescriptor> newFragments = new ArrayList<>( newDesc.getFragments());
+        List<FragmentDescriptor> newFragments = new ArrayList<>(newDesc.getFragments());
         
         for (IProjectFragment f : this.project.getOwnFragments()) {
             boolean found = false;
@@ -648,7 +655,7 @@ public class GProjectConfigurer {
                 if (fd.getId().equals(f.getId()) && fd.getType().equals(f.getType())) {
                     found = true;
         
-                    if (! dfact.writeFragmentDescriptor(f).equals(fd)) {
+                    if (!dfact.writeFragmentDescriptor(f).equals(fd)) {
                         callReconfigureFragment(mon.newChild(10), f, fd);
                     }
         
@@ -656,23 +663,22 @@ public class GProjectConfigurer {
                 }
             }
         
-            if (! found) {
-                mon.subTask(CoreProject.getMessage("GProjectConfigurer.RemovingFragment",f.getId()));
+            if (!found) {
+                mon.subTask(CoreProject.I18N.getMessage("GProjectConfigurer.RemovingFragment", f.getId()));
                 this.project.unregisterFragment(f);
                 try {
-                    mon.subTask(CoreProject.getMessage("GProjectConfigurer.DeletingFragment",f.getId()));
+                    mon.subTask(CoreProject.I18N.getMessage("GProjectConfigurer.DeletingFragment", f.getId()));
                     f.delete();
                 } catch (IOException | RuntimeException e) {
-                    this.failures.add(new Failure(null,f,e));
+                    this.failures.add(new GProblem(null, f, e));
                 }
             }
         }
         
-        
         // Add new fragments
         for (FragmentDescriptor fd : newFragments) {
             IProjectFragment fragment = Fragments.getFactory(fd).instantiate(fd);
-            mon.subTask(CoreProject.getMessage("GProjectConfigurer.AddingFragment",fd.getId()));
+            mon.subTask(CoreProject.I18N.getMessage("GProjectConfigurer.AddingFragment", fd.getId()));
             try {
                 this.project.registerFragment(fragment, mon.newChild(10));
             } catch (FragmentConflictException | RuntimeException e) {
@@ -695,16 +701,16 @@ public class GProjectConfigurer {
             ResourceDescriptor oldRd = it.next();
             ResourceDescriptor newRd = newDesc.getSharedResource(oldRd.getId());
         
-            Path oldPath = this.project.getProjectPath().resolve(oldRd.getTargetLocation());
+            Path oldPath = this.project.getProjectFileStructure().getProjectPath().resolve(oldRd.getTargetLocation());
         
             // Fetch last modif time from file system and compare
             boolean isOutdated = false;
             try {
                 FileTime timeStamp = Files.getLastModifiedTime(oldPath);
                 oldRd.setTimestamp(timeStamp.toMillis());
-                
-                isOutdated = (newRd == null || !newRd.equals(oldRd));
-            } catch (@SuppressWarnings("unused") NoSuchFileException e) {
+        
+                isOutdated = newRd == null || !newRd.equals(oldRd);
+            } catch (@SuppressWarnings ("unused") NoSuchFileException e) {
                 // Resource missing, set it as to download
                 isOutdated = true;
             }
@@ -714,7 +720,7 @@ public class GProjectConfigurer {
                     if (Files.exists(oldPath)) {
                         FileUtils.delete(oldPath);
                     }
-                    
+        
                     if (newRd == null) {
                         it.remove();
                     } else {
@@ -722,14 +728,14 @@ public class GProjectConfigurer {
                         resourcesToDownload.add(oldRd);
                     }
                 } catch (IOException e) {
-                    this.failures.add(new Failure(oldRd, e));
+                    this.failures.add(new GProblem(oldRd, e));
                 }
-            } 
+            }
         }
         
         // Add new resources
         for (ResourceDescriptor newrd : newDesc.getSharedResources()) {
-            if (! isResource(ownSharedResources, newrd.getId())) {
+            if (!isResource(ownSharedResources, newrd.getId())) {
                 resourcesToDownload.add(newrd);
                 ownSharedResources.add(newrd);
             }
@@ -743,6 +749,7 @@ public class GProjectConfigurer {
 
     /**
      * Complete the {@link ProjectDescriptor} by adding missing mandatory modules.
+     * 
      * @param monitor a progress monitor
      * @param projDesc the descriptor to complete
      * @param moduleCatalog the module catalog
@@ -750,7 +757,7 @@ public class GProjectConfigurer {
      */
     @objid ("b674f2ee-6a31-4edd-97a6-18ca58221b22")
     protected void addMandatoryModules(IModelioProgress monitor, ProjectDescriptor projDesc, IModuleStore moduleCatalog) throws IOException {
-        if (projDesc==null) {
+        if (projDesc == null) {
             return;
         }
         
@@ -765,139 +772,15 @@ public class GProjectConfigurer {
                     projDesc.getModules().add(md);
                 }
             }
-            
+        
         }
-    }
-
-    /**
-     * Represents the failure of a synchronization operation.
-     */
-    @objid ("49c099d0-c1f6-4746-8b05-12ae4cd6cdd4")
-    public static class Failure {
-        @objid ("2fd2395a-5cf0-46c8-adf0-844df7c293fd")
-        private String source;
-
-        @objid ("16f77fd4-79ec-4837-b886-67c937e29282")
-        private Throwable cause;
-
-        /**
-         * Create a project synchronization failure.
-         * @param cause the failure
-         */
-        @objid ("e2917e1e-41a4-488d-aad9-906be423298d")
-        Failure(Throwable cause) {
-            this.cause = cause;
-        }
-
-        /**
-         * Create a module synchronization failure.
-         * @param moduleDescriptor module descriptor
-         * @param module a GModule
-         * @param cause the failure
-         */
-        @objid ("814f883c-1dd2-4457-a383-060d5163ee0c")
-        Failure(ModuleDescriptor moduleDescriptor, GModule module, Throwable cause) {
-            this.cause = cause;
-            this.source = computeSourceIdentifier(moduleDescriptor, module, null, null);
-        }
-
-        /**
-         * @return the cause of the failure.
-         */
-        @objid ("d5f9d62f-98c2-44fd-9d54-5640f0d3ff1a")
-        public Throwable getCause() {
-            return this.cause;
-        }
-
-        @objid ("3e47560b-9e5c-4264-80aa-7c2dba722069")
-        @Override
-        public String toString() {
-            String id = getSourceIdentifier();
-            
-            String msg = this.cause.getLocalizedMessage();
-            if (this.cause instanceof IOException) {
-                msg = FileUtils.getLocalizedMessage((IOException) this.cause);
-            }
-            
-            if (msg == null || msg.isEmpty()) {
-                msg = this.cause.toString();
-            }
-            return id + ": " + msg;
-        }
-
-        /**
-         * Get an identifier for the failed element
-         * @return a string
-         */
-        @objid ("8e564601-527a-4735-ac6c-b94ac4644925")
-        public String getSourceIdentifier() {
-            return this.source;
-        }
-
-        /**
-         * Create a module synchronization failure.
-         * @param source the failure source
-         * @param cause the failure
-         */
-        @objid ("3a2a5179-12ef-4d15-a2c5-42db8f4f4146")
-        public Failure(String source, Throwable cause) {
-            this.cause = cause;
-            this.source = source;
-        }
-
-        @objid ("4d2b24d8-4cdd-4aa5-8bf2-3f53cda3c08e")
-        private String computeSourceIdentifier(ModuleDescriptor moduleDescriptor, GModule module, FragmentDescriptor fragmentDescriptor, IProjectFragment fragment) {
-            String name = "?";
-            String version = "?";
-            String id = "Project";
-            
-            if (module != null) {
-                name = module.getName();
-                version = module.getVersion().toString();
-                id = name+" v"+version;
-            } else if (moduleDescriptor != null) {
-                name = moduleDescriptor.getName();
-                version = moduleDescriptor.getVersion().toString();
-                id = name+" v"+version;
-            } else if (fragment != null) {
-                name = fragment.getId();
-                id = name;
-            } else if (fragmentDescriptor != null) {
-                name = fragmentDescriptor.getId();
-                id = name;
-            }
-            return id;
-        }
-
-        /**
-         * Create a fragment synchronization failure.
-         * @param fd fragment descriptor
-         * @param f a fragment
-         * @param cause the failure
-         */
-        @objid ("3f610ba3-2d64-4b43-909f-5a3317804a7e")
-        Failure(FragmentDescriptor fd, IProjectFragment f, Throwable cause) {
-            this.cause = cause;
-            this.source = computeSourceIdentifier(null, null, fd, f);
-        }
-
-        /**
-         * Create a shared resource synchronization failure.
-         * @param rd the shared resource descriptor.
-         * @param cause the failure.
-         */
-        @objid ("85252e52-78e9-43d1-b18a-95d77274fa50")
-        Failure(ResourceDescriptor rd, Throwable cause) {
-            this.cause = cause;
-            this.source = rd.getTargetLocation()+"("+rd.getId()+")";
-        }
-
     }
 
     /**
      * Callback called when authentication fails on a fragment or a module.
      * <p>
      * Implementations should prompt the user for new authentication data.
+     * 
      * @author cma
      * @since 3.7
      */
@@ -907,6 +790,7 @@ public class GProjectConfigurer {
          * Called when authentication fails on a fragment or a module.
          * <p>
          * Implementations should prompt the user for new authentication data.
+         * 
          * @param name the name of the module/fragment that cannot be accessed
          * @param uri the location of the element
          * @param data the failed authentication data

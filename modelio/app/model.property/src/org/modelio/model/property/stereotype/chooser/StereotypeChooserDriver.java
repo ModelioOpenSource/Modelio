@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.AbstractTreeViewer;
+import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -34,6 +35,7 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.modelio.core.ui.dialogs.elementChooser.IElementChooserDriver;
+import org.modelio.core.ui.swt.images.ElementDecoratedStyledLabelProvider;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Element;
@@ -74,6 +76,7 @@ public class StereotypeChooserDriver implements IElementChooserDriver {
 
     /**
      * Initialize the chooser driver.
+     * 
      * @param modelService a model service
      * @param selectedModule a ModuleComponent
      */
@@ -98,15 +101,17 @@ public class StereotypeChooserDriver implements IElementChooserDriver {
     public StructuredViewer createViewer(Composite parent) {
         this.leftViewer = new TreeViewer(parent, SWT.BORDER | SWT.MULTI);
         this.leftViewer.setContentProvider(new StereotypeChooserContentProvider(this.modelService));
-        this.leftViewer.setLabelProvider(new StereotypeChooserLabelProvider());
-        this.leftViewer.setSorter(new StereotypeChooserSorter());
+        this.leftViewer.setLabelProvider(new ElementDecoratedStyledLabelProvider(new StereotypeChooserLabelProvider()));
+        this.leftViewer.setComparator(new StereotypeChooserComparator());
         this.leftViewer.setAutoExpandLevel(AbstractTreeViewer.ALL_LEVELS);
         this.leftViewer.addSelectionChangedListener(this.stereotypeSelectionListener);
+        ColumnViewerToolTipSupport.enableFor(this.leftViewer);
         return this.leftViewer;
     }
 
     /**
      * Get the last created stereotype.
+     * 
      * @return the last created stereotype.
      */
     @objid ("0ff29a75-30fd-4cca-ba3f-3b72a6864bdc")

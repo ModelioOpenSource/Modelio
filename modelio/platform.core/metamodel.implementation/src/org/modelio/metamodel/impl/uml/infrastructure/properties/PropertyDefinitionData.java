@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
@@ -31,19 +31,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("00653092-ec87-1098-b22e-001ec947cd2a")
 public class PropertyDefinitionData extends ModelElementData {
-    @objid ("a0f18ada-dff4-43d8-904f-258b10443185")
+    @objid ("6f198caa-89bf-42b6-af06-4d5974eab566")
      Object mIsEditable = true;
 
-    @objid ("c4720bdd-853c-4287-b52b-b1fc679b2645")
+    @objid ("dcd6559f-9115-4a10-97a3-e8887f442665")
      Object mDefaultValue = "";
 
-    @objid ("5992bb29-5be4-49e4-a4d1-cac4faef7c71")
+    @objid ("19f97416-961a-4c90-a263-1f4283da3f22")
      SmObjectImpl mType;
 
-    @objid ("212e490b-d685-4bd8-8eab-7c03a8ca4dc7")
+    @objid ("6fe6914e-ee9f-4c21-ae04-91b8a108cabf")
      SmObjectImpl mOwner;
 
-    @objid ("839c6726-d1ed-42a5-ba77-1baa75d56ed1")
+    @objid ("acfb144e-399a-4aef-a677-0edf612663b5")
     public PropertyDefinitionData(PropertyDefinitionSmClass smClass) {
         super(smClass);
     }

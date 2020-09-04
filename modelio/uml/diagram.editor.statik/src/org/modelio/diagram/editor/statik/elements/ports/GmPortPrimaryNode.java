@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class GmPortPrimaryNode extends GmNoStyleSimpleNode implements IImageable
 
     /**
      * Creates a port model.
+     * 
      * @param diagram The owning diagram
      * @param ref The represented port reference
      */
@@ -151,6 +152,7 @@ public class GmPortPrimaryNode extends GmNoStyleSimpleNode implements IImageable
     /**
      * Sets the new position of this Port. Passed value must be one of {@link PositionConstants} values among:
      * NONE, NORTH, NORTH_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST and NORTH_WEST.
+     * 
      * @param position the new position of this Port.
      */
     @objid ("36482efd-55b7-11e2-877f-002564c97630")

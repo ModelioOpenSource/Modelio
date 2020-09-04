@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -105,6 +105,7 @@ class MicrosoftDocumentViewer {
 
     /**
      * Create and open the document.
+     * 
      * @param file the path for the rich note
      * @param docFormat a rich note format
      * @throws java.io.IOException in case of failure
@@ -141,6 +142,7 @@ class MicrosoftDocumentViewer {
 
     /**
      * Creates the SWT controls for this viewer.
+     * 
      * @param parent the parent control
      */
     @objid ("e03b4653-439f-4183-97c7-6dca9798373b")
@@ -263,6 +265,7 @@ class MicrosoftDocumentViewer {
 
     /**
      * Save the content to the given stream.
+     * 
      * @param file where the document will be saved.
      * @throws java.io.IOException in case of error saving the document.
      */
@@ -280,6 +283,7 @@ class MicrosoftDocumentViewer {
 
     /**
      * Save the content in another file.
+     * 
      * @throws java.io.IOException in case of error saving the document.
      */
     @objid ("78de602b-3c55-44b2-b52c-b269febb901c")
@@ -397,6 +401,7 @@ class MicrosoftDocumentViewer {
 
     /**
      * Save the edited document by keeping a backup in the case save fails.
+     * 
      * @param clientSite the editor to save
      * @param file the destination file
      * @throws java.io.IOException in case of save or backup failure.
@@ -413,6 +418,7 @@ class MicrosoftDocumentViewer {
 
     /**
      * Rename the given file
+     * 
      * @param file the file to rename
      * @param tempFile new name
      */
@@ -429,6 +435,7 @@ class MicrosoftDocumentViewer {
 
     /**
      * Try to print in the console the currently open Word documents.
+     * 
      * @param application a Word.Application OLE object
      */
     @objid ("dd725439-ed13-463b-a532-e620c3759bb5")
@@ -550,6 +557,7 @@ class MicrosoftDocumentViewer {
 
     /**
      * Create a Word.Application OLE client.
+     * 
      * @param composite @return
      */
     @objid ("76e53bae-e7b0-420f-8b31-1e819bde8451")
@@ -574,6 +582,7 @@ class MicrosoftDocumentViewer {
 
     /**
      * Save a screenshot of the OLE control in the idle image.
+     * 
      * @param create true to create the image if none exist, <code>false</code> to do nothing
      * if the image does not exist.
      */

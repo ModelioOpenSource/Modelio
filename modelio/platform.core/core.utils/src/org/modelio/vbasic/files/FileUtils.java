@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,7 +24,6 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.channels.AsynchronousCloseException;
 import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.FileSystemException;
@@ -58,6 +57,7 @@ import org.modelio.vbasic.plugin.CoreUtils;
 public final class FileUtils {
     /**
      * Compute the size of all files stored in a directory tree.
+     * 
      * @param path a directory path.
      * @return the size of the directory.
      * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to get the error cause.
@@ -76,6 +76,7 @@ public final class FileUtils {
      * Copy recursively the given directory to (not into) the destination directory.
      * <p>
      * The destination directory does not have to exist.
+     * 
      * @param from the directory to copy
      * @param toDir the directory copy path
      * @throws java.io.IOException in case of failure
@@ -95,6 +96,7 @@ public final class FileUtils {
      * 
      * <p>
      * If this method fails, then it may do so after creating some, but not all, of the parent directories.
+     * 
      * @param dir the directory to create
      * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to get the error cause.
      * @throws java.nio.file.FileSystemException if a file system exception occurs. <b>Note:</b> {@linkplain FileSystemException#getMessage()} usually does not
@@ -117,6 +119,7 @@ public final class FileUtils {
 
     /**
      * Decode a string from a file name encoded with {@link #encodeFileName(String, StringBuilder)}.
+     * 
      * @param fileName a file name with/without extension
      * @param sb the string builder to use to build the decoded string. The decoded file name will be appended to the buffer.
      * @return the string builder for convenience.
@@ -146,6 +149,7 @@ public final class FileUtils {
      * Deletes the given file or directory recursively.
      * <p>
      * If the path denotes a directory, tries to delete it with all its content.
+     * 
      * @param path the path to the file or directory to delete
      * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to
      * get the error cause.
@@ -193,6 +197,7 @@ public final class FileUtils {
      * Deletes the given file or directory recursively.
      * <p>
      * If the path denotes a directory, tries to delete it with all its content.
+     * 
      * @param path the path to the file or directory to delete
      * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to get the error cause.
      * @throws java.nio.file.FileSystemException if a file system exception occurs. <b>Note:</b> {@linkplain FileSystemException#getMessage()} usually does not
@@ -213,6 +218,7 @@ public final class FileUtils {
      * Deletes the given file or directory recursively.
      * <p>
      * If the path denotes a directory, tries to delete it with all its content.
+     * 
      * @param file the file or directory to delete.
      * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to
      * get the error cause.
@@ -229,6 +235,7 @@ public final class FileUtils {
      * Encode any string to a legal file name.
      * <p>
      * Illegal characters are encoded by '%' followed by the hex value of the character.
+     * 
      * @param s a string to encode
      * @param sb the string builder to use to build the encoded string. The encoded file name will be appended to the buffer.
      * @return the string builder for convenience.
@@ -259,6 +266,7 @@ public final class FileUtils {
 
     /**
      * Make best effort to compute a user friendly message from the given {@link IOException}.
+     * 
      * @param e the exception.
      * @return a message, won't be null.
      */
@@ -268,7 +276,7 @@ public final class FileUtils {
             if (e instanceof org.apache.http.client.ClientProtocolException) {
                 return getApacheErrorMessage(e);
             }
-        } catch (NoClassDefFoundError ignored) {
+        } catch (@SuppressWarnings ("unused") NoClassDefFoundError ignored) {
             // ignore "NoClassDefFoundError: org.apache.http.client.ClientProtocolException not found"
         }
         
@@ -279,20 +287,23 @@ public final class FileUtils {
             }
         } 
         
-        if (e instanceof AsynchronousCloseException) {
-            String pattern = CoreUtils.I18N.getString("$"+e.getClass().getName());
-            return MessageFormat.format(pattern, e.getMessage());
-        }
-        
         if (e instanceof java.io.SyncFailedException && e.getMessage().equals("sync failed")) {
             String pattern = CoreUtils.I18N.getString("$"+e.getClass().getName());
             return MessageFormat.format(pattern, e.getMessage());
         }
-            
         
         if (e instanceof FileSystemException) {
             return getFileSystemExceptionLocalizedMessage((FileSystemException) e) ;
-        } else if (e.getLocalizedMessage() != null) {
+        }
+        
+        // Handles AsynchronousCloseException, java.net.UnknownHostException ...
+        String key = "$"+e.getClass().getName();
+        if (CoreUtils.I18N.containsKey(key)) {
+            String pattern = CoreUtils.I18N.getString(key);
+            return MessageFormat.format(pattern, e.getMessage());
+        }
+        
+        if (e.getLocalizedMessage() != null) {
             return e.getLocalizedMessage();
         } else {
             return e.toString();
@@ -305,6 +316,7 @@ public final class FileUtils {
      * Avoids {@link DirectoryNotEmptyException} thrown by the standard {@link Files#move(Path, Path, java.nio.file.CopyOption...)} method
      * when moving a directory tree by copying each file and then deleting the directory tree itself.
      * </p>
+     * 
      * @param source the path to the file to move
      * @param target the path to the target file (may be associated with a different provider to the source path)
      * @throws java.io.IOException in case of failure
@@ -319,6 +331,7 @@ public final class FileUtils {
      * Read the whole content of an input stream and returns it as a string.
      * <p>
      * To be used for small files.
+     * 
      * @param is an input stream
      * @param charset The encoding type used to convert bytes from the stream into characters.
      * @return the read string
@@ -345,6 +358,7 @@ public final class FileUtils {
      * Read the whole content of a file and returns it as a string.
      * <p>
      * To be used for small files.
+     * 
      * @param file a file path.
      * @param charset The encoding type used to convert bytes from the stream into characters.
      * @return the read string
@@ -389,6 +403,7 @@ public final class FileUtils {
      * 
      * <pre>Cannot convert host to URI: http://www.m&lt;odeliosoft.com
      * Illegal character in authority at index 7: http://www.m&lt;odeliosoft.com</pre>
+     * 
      * @param e the Apache exception
      */
     @objid ("9cd5ba5d-6fef-4fb3-ad00-fff9da570869")
@@ -426,6 +441,7 @@ public final class FileUtils {
 
     /**
      * Compute and return a user friendly message from the given FileSystemException.
+     * 
      * @param e the exception.
      * @return a message, won't be null.
      */

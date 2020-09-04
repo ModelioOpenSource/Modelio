@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -87,7 +87,11 @@ public class OCollaboration extends ONameSpace {
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
+        
+        //UML Properties
         setLeaf( (org.eclipse.uml2.uml.Collaboration) ecoreElt);
+        
+        //Modelio Properties
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             setConcurrentEAnnotation( (org.eclipse.uml2.uml.Collaboration) ecoreElt);
             setRootEAnnotation( (org.eclipse.uml2.uml.Collaboration)ecoreElt);

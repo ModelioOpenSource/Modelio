@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,10 +25,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.e4.core.services.statusreporter.StatusReporter;
 import org.eclipse.swt.widgets.Display;
-import org.modelio.app.core.IModelioEventService;
 import org.modelio.app.core.events.ModelioEvent;
 import org.modelio.app.project.core.plugin.AppProjectCore;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.gproject.fragment.FragmentState;
 import org.modelio.gproject.gproject.GProjectEvent;
 import org.modelio.gproject.gproject.GProjectEventType;
@@ -45,17 +43,12 @@ final class ProjectMonitor implements IProjectMonitor {
     private StatusReporter reporter;
 
     @objid ("2a2643d9-41dc-447b-a164-4834ef0d812f")
-    private IProjectService projectService;
-
-    @objid ("a674c936-0e9d-43ae-95ed-af41cf5ce079")
-    private IModelioEventService modelioEventService;
+    private IProjectServiceAccess projectServiceAccess;
 
     @objid ("6bca6931-37b3-11e2-82ed-001ec947ccaf")
-    ProjectMonitor(IProjectService projectService, StatusReporter reporter, IModelioEventService modelioEventService) {
-        this.projectService = projectService;
+    ProjectMonitor(IProjectServiceAccess projectService, StatusReporter reporter) {
+        this.projectServiceAccess = projectService;
         this.reporter = reporter;
-        // nothing
-        this.modelioEventService = modelioEventService;
     }
 
     @objid ("6bca6933-37b3-11e2-82ed-001ec947ccaf")
@@ -69,9 +62,9 @@ final class ProjectMonitor implements IProjectMonitor {
         
             // display problem to user
             reportAsStatus(ev);
-            
+        
             // post as E4 event
-            this.modelioEventService.postAsyncEvent(this.projectService, ModelioEvent.FRAGMENT_DOWN, ev.fragment);
+            this.projectServiceAccess.postAsyncEvent(ModelioEvent.FRAGMENT_DOWN, ev.fragment);
         
             break;
         case WARNING:
@@ -88,7 +81,7 @@ final class ProjectMonitor implements IProjectMonitor {
         case FRAGMENT_STATE_CHANGED:
             AppProjectCore.LOG.debug("'%s' fragment state changed to '%s'.", ev.fragment.getId(), ev.fragment.getState().toString());
             if ((ev.fragment.getState() == FragmentState.UP_FULL) || (ev.fragment.getState() == FragmentState.UP_LIGHT)) {
-                this.modelioEventService.postAsyncEvent(this.projectService, ModelioEvent.FRAGMENT_UP, ev.fragment);
+                this.projectServiceAccess.postAsyncEvent(ModelioEvent.FRAGMENT_UP, ev.fragment);
             }
             break;
         default:

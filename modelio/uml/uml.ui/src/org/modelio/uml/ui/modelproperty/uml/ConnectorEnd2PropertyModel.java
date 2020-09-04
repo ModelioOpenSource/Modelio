@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class ConnectorEnd2PropertyModel extends AbstractPropertyModel<ConnectorE
 
     /**
      * Create a new <i>LinkEnd</i> data model from an <i>LinkEnd</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("2a85870d-8ebd-421b-8e73-f7204fbe5680")

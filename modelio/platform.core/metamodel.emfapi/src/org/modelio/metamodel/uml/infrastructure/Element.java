@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -45,13 +45,13 @@ public interface Element extends EObject, MObject {
     /**
      * The metaclass simple name.
      */
-    @objid ("029bbce5-c978-4911-96b1-54af77363b2e")
+    @objid ("7233ed55-3bc2-4794-a881-58e6aa4ca091")
     public static final String MNAME = "Element";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("f1cf4eca-e041-430c-a9cb-12ecf9415e40")
+    @objid ("52b2af4f-0c62-4ae5-a782-615160f65bc1")
     public static final String MQNAME = "Infrastructure.Element";
 
     /**
@@ -60,7 +60,7 @@ public interface Element extends EObject, MObject {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("60870987-b207-4650-a388-9b15e6e78ba3")
+    @objid ("f172fb8b-0de2-4060-aa50-6a80ea0b0fee")
     EList<AbstractDiagram> getDiagramElement();
 
     /**
@@ -69,7 +69,7 @@ public interface Element extends EObject, MObject {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("13d54baa-07ab-4ae5-9a7f-9e857b428668")
+    @objid ("ea8db136-0314-417b-a1b4-0c8df0e06029")
     <T extends AbstractDiagram> List<T> getDiagramElement(java.lang.Class<T> filterClass);
 
     /**
@@ -78,7 +78,7 @@ public interface Element extends EObject, MObject {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("4231fa1c-e425-4a21-bb41-36e53510918f")
+    @objid ("a528d3d8-3134-49b7-a31f-ac514bcccb53")
     EList<QueryDefinition> getAddedToQuery();
 
     /**
@@ -87,7 +87,7 @@ public interface Element extends EObject, MObject {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("418ff991-e34c-47a2-8d5a-cfb08ec380d0")
+    @objid ("b8dc9001-b60f-47e9-9ab6-4605ef580815")
     <T extends QueryDefinition> List<T> getAddedToQuery(java.lang.Class<T> filterClass);
 
     /**
@@ -96,7 +96,7 @@ public interface Element extends EObject, MObject {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("549b94e2-6dce-4d40-877c-51fd70dabdb4")
+    @objid ("b679a7d4-7fe8-432c-9804-84f8a6b6565d")
     EList<ImpactLink> getCausedImpact();
 
     /**
@@ -105,7 +105,7 @@ public interface Element extends EObject, MObject {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("ea24b847-57a6-4c4b-836f-7e73779d77cb")
+    @objid ("146467da-dca9-46fc-a67a-1e80090bebf0")
     <T extends ImpactLink> List<T> getCausedImpact(java.lang.Class<T> filterClass);
 
 }

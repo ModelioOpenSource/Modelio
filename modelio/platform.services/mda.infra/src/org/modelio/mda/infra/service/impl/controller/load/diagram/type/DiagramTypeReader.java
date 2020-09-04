@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ import org.modelio.vcore.smkernel.mapi.MMetamodel;
 public class DiagramTypeReader {
     /**
      * Registers diagram customizations from module.xml .
+     * 
      * @param diagramDef the module.xml part
      * @param module the module to fill
      */

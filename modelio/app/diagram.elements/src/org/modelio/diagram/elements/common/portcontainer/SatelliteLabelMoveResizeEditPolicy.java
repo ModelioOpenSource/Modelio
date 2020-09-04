@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -122,6 +122,7 @@ public class SatelliteLabelMoveResizeEditPolicy extends DefaultNodeResizableEdit
 
     /**
      * Get the main node figure.
+     * 
      * @return the main node figure.
      */
     @objid ("1aab4bca-425c-4442-b688-5d2b7d81f2a3")
@@ -147,6 +148,7 @@ public class SatelliteLabelMoveResizeEditPolicy extends DefaultNodeResizableEdit
 
     /**
      * Modify the request so that the figure border keeps the same distance from its owner.
+     * 
      * @param request the resize request to modify
      * @param fig the figure being resized
      * @param initBounds figure current bounds in absolute coordinates

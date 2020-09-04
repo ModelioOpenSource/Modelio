@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -125,6 +125,7 @@ public class NotesPanelView {
 
     /**
      * C'tor
+     * 
      * @param controller the controller
      */
     @objid ("066e8175-289d-4376-9f2b-b91b7d07c642")
@@ -134,6 +135,7 @@ public class NotesPanelView {
 
     /**
      * Build the view GUI.
+     * 
      * @param parent the parent SWt Composite
      * @return the created GUI
      */
@@ -174,6 +176,7 @@ public class NotesPanelView {
 
     /**
      * Get the top level container of the view.
+     * 
      * @return the top level container of the view.
      */
     @objid ("c4b5e473-444d-49c1-a826-5be9028ba4c4")
@@ -236,6 +239,7 @@ public class NotesPanelView {
 
     /**
      * Set the edited model element.
+     * 
      * @param e the element to edit.
      */
     @objid ("e5f119eb-12e4-4719-a6f6-4f6f573b240a")
@@ -246,6 +250,7 @@ public class NotesPanelView {
 
     /**
      * Set the selected annotation on the edited element.
+     * 
      * @param select the annotation to select
      */
     @objid ("cc0bdef9-1f59-4609-bce7-0470e047471a")
@@ -275,6 +280,7 @@ public class NotesPanelView {
 
     /**
      * Create the notes tree
+     * 
      * @param parent @return
      */
     @objid ("eab700c2-7e45-4eea-a9ec-153e1a20b85b")
@@ -400,6 +406,7 @@ public class NotesPanelView {
     /**
      * This method tries to guess the smartest possible item selection for the
      * current element.
+     * 
      * @return the annotation to select.
      */
     @objid ("7667946d-9895-4a54-8074-2fa80a8365f9")
@@ -485,6 +492,7 @@ public class NotesPanelView {
 
         /**
          * C'tor
+         * 
          * @param view the notes panel view
          */
         @objid ("7fe32178-a8d0-44c6-9b82-6ff8fbcd88e0")

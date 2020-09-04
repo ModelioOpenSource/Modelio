@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -178,6 +178,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
     /**
      * Returns whether this edit policy can handle this metaclass (either through simple or smart behavior). Default behavior is to accept any metaclass that can be child (in the CreationExpert's understanding) of the host's metaclass This method should be
      * overridden by subclasses to add specific the behavior.
+     * 
      * @param metaclass the metaclass to handle.
      * @return true if this policy can handle the metaclass.
      */
@@ -337,6 +338,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
      * Retrieves the child's current constraint from the {@link #getLayoutContainer() layout container} <code>LayoutManager</code>.
      * <p>
      * The returned constraint may be a reference and must not be modified.
+     * 
      * @param child the child
      * @return the current constraint by reference.
      */
@@ -386,6 +388,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Return the host edit part if this policy can handle the metaclass involved in the request.
+     * 
      * @param createRequest the request.
      * @return the host editpart if the metaclass involved in the request can be handled by this policy, <code>null</code> otherwise.
      */
@@ -410,6 +413,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Return the host edit part if this policy can handle all edit parts involved in the request.
+     * 
      * @param changeBoundsRequest the request, can be CLONE or ADD.
      * @return the host edit part if all edit parts involved in the request can be handled by this policy, <code>null</code> otherwise.
      */
@@ -458,6 +462,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Build the commands to avoid new nodes and links intersections based on the intersections remover.
+     * 
      * @param helper the intersections remover.
      * @param finalCommand the compound command the built ones will be added to.
      */
@@ -490,6 +495,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
      * <p>
      * The NewIntersectionsRemover is put in requests extended data and passed to request created from initial requests. Each container having a BaseFreeZoneLayoutEditPolicy may have its own NewIntersectionsRemover in the request. This allows using the
      * same remover for all moved elements edit part on multiple selection moves.
+     * 
      * @param request the request to parse.
      * @return the host intersection remover.
      */
@@ -534,6 +540,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Compute the bounds of the given edit part after having applied the request.
+     * 
      * @param request the request to apply
      * @param layoutOrigin the container layout origin. see {@link #getLayoutOrigin()}
      * @param child the moved/resized edit part
@@ -563,6 +570,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Redefined to handle {@link ChainedLayout} layout managers.
+     * 
      * @return the {@link XYLayout} layout manager set on the {@link LayoutEditPolicy#getLayoutContainer() container}
      */
     @objid ("54dcf5ad-90db-45e0-8558-c1e4917cad1c")
@@ -577,6 +585,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Used by {@link #showTargetFeedback(Request)} to know which figure must be highlighted.
+     * 
      * @param request the request sent to {@link #showTargetFeedback(Request)}
      * @return the figure to highlight.
      */
@@ -612,6 +621,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
     /**
      * Compute the trimmed bounds of the given edit part after having applied the request.
      * @see AbstractNodeEditPart#getTrimmedBounds()
+     * 
      * @param request the request to apply
      * @param layoutOrigin the container layout origin. see {@link #getLayoutOrigin()}
      * @param child the moved/resized edit part
@@ -697,6 +707,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
      * Tells whether the layout assistant is disabled in the viewer properties.
      * <p>
      * The layout assistant may be disabled temporarily (without modifying the model) by setting {@link ILayoutAssistant#VIEWPROP_ENABLED} property id to <i>false</i>.
+     * 
      * @return whether the layout assistant is disabled in the viewer properties.
      */
     @objid ("3747901a-8367-4ae2-8517-fdef8c35365c")

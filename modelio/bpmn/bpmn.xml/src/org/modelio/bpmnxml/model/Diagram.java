@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -94,6 +94,7 @@ public abstract class Diagram {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -115,6 +116,7 @@ public abstract class Diagram {
 
     /**
      * Sets the value of the documentation property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -136,6 +138,7 @@ public abstract class Diagram {
 
     /**
      * Sets the value of the resolution property.
+     * 
      * @param value allowed object is
      * {@link Double }
      */
@@ -157,6 +160,7 @@ public abstract class Diagram {
 
     /**
      * Sets the value of the id property.
+     * 
      * @param value allowed object is
      * {@link String }
      */

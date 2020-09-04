@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -113,6 +113,7 @@ public class TLinkEventDefinition extends TEventDefinition {
 
     /**
      * Sets the value of the target property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -134,6 +135,7 @@ public class TLinkEventDefinition extends TEventDefinition {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */

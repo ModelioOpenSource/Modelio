@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class IndexBuilder {
 
     /**
      * Initialize the index builder.
+     * 
      * @param metamodel the metamodel
      * @param parentIndex the parent/child index
      * @param userIndex the used CMS nodes index.
@@ -77,6 +78,7 @@ public class IndexBuilder {
 
     /**
      * Run the builder on an XML file.
+     * 
      * @param is the XML input source.
      * @throws java.io.IOException in case of failure writing the index.
      * @throws org.modelio.vstore.exml.common.index.builder.InvalidExmlException in case of error reading the EXML source.

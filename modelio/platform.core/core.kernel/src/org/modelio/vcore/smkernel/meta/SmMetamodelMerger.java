@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class SmMetamodelMerger extends AbstractMetamodelMerger {
      * merge a {@link MetamodelDescriptor} into a {@link SmMetamodelMerger}.
      * <p>
      * Missing metamodel fragments, metaclasses and attributes are created.
+     * 
      * @param desc the descriptor to merge
      * @param target the metamodel to modify
      */

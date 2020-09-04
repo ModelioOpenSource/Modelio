@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class OStateMachine extends OModelElement {
 
     /**
      * Constructor
+     * 
      * @param element : the exported Modelio StateMachine
      */
     @objid ("541932f3-9cb0-4aa3-bf9d-d8d821bab04b")
@@ -109,6 +110,7 @@ public class OStateMachine extends OModelElement {
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
+        
         if (this.genProp.isRoundtripEnabled())
             setReentrant((org.eclipse.uml2.uml.StateMachine) ecoreElt);
     }

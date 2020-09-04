@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -95,6 +95,7 @@ public class MultiPointCreationTool extends TargetingTool {
 
     /**
      * Constructs a new MultiPointCreationTool with the given creation factory.
+     * 
      * @param factory the creation factory
      */
     @objid ("80f751f5-1dec-11e2-8cad-001ec947c8cc")
@@ -115,6 +116,7 @@ public class MultiPointCreationTool extends TargetingTool {
 
     /**
      * Sets the creation factory used in the request.
+     * 
      * @param factory the factory
      */
     @objid ("80f751ff-1dec-11e2-8cad-001ec947c8cc")
@@ -124,6 +126,7 @@ public class MultiPointCreationTool extends TargetingTool {
 
     /**
      * Add to the list of the source editparts for the creation
+     * 
      * @param source the additionnal source editpart node
      */
     @objid ("80f75206-1dec-11e2-8cad-001ec947c8cc")
@@ -199,6 +202,7 @@ public class MultiPointCreationTool extends TargetingTool {
 
     /**
      * Returns the creation factory that will be used with the create connection request.
+     * 
      * @return the creation factory
      */
     @objid ("80f7522e-1dec-11e2-8cad-001ec947c8cc")
@@ -209,6 +213,7 @@ public class MultiPointCreationTool extends TargetingTool {
     /**
      * Returns the request sent to the each source node. Each source node receives the same request, the only difference
      * is that at that time the request will be typed as {@link RequestConstants#REQ_CONNECTION_START}.
+     * 
      * @return the request used with the source node editpart
      */
     @objid ("80f75235-1dec-11e2-8cad-001ec947c8cc")
@@ -226,6 +231,7 @@ public class MultiPointCreationTool extends TargetingTool {
      * When the button is first pressed, the source node and its command contribution are determined and locked in.
      * After that time, the tool will be looking for additional sources or the target node to complete the connection
      * @see org.eclipse.gef.tools.AbstractTool#handleButtonDown(int)
+     * 
      * @param button which button is pressed
      * @return <code>true</code> if the button down was processed
      */
@@ -305,6 +311,7 @@ public class MultiPointCreationTool extends TargetingTool {
      * Method that is called when the gesture to create the connection has been received. Subclasses may extend or
      * override this method to do additional creation setup, such as prompting the user to choose an option about the
      * connection being created. Returns <code>true</code> to indicate that the connection creation succeeded.
+     * 
      * @return <code>true</code> if the connection creation was performed
      */
     @objid ("80f9b465-1dec-11e2-8cad-001ec947c8cc")
@@ -400,6 +407,7 @@ public class MultiPointCreationTool extends TargetingTool {
 
     /**
      * Returns <code>true</code> if feedback is being shown.
+     * 
      * @return <code>true</code> if showing source feedback
      */
     @objid ("80f9b490-1dec-11e2-8cad-001ec947c8cc")

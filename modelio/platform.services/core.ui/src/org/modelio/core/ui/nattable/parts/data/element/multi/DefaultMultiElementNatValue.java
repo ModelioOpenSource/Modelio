@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,7 +20,6 @@
 
 package org.modelio.core.ui.nattable.parts.data.element.multi;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collection;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,6 +40,7 @@ public class DefaultMultiElementNatValue extends DefaultNatValue implements IMul
 
     /**
      * Creates a new instance.
+     * 
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
      * @param allowedClasses list of the accepted metaclasses for the value.
@@ -53,6 +53,7 @@ public class DefaultMultiElementNatValue extends DefaultNatValue implements IMul
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("e9fde442-d4b8-4a48-8b75-7e5dfd4a2566")
@@ -89,7 +90,7 @@ public class DefaultMultiElementNatValue extends DefaultNatValue implements IMul
     @Override
     public void setValue(Object value) {
         if (value != null && !(value instanceof Collection)) {
-            throw new InvalidParameterException("Value must be a MObject Collection.");
+            throw new IllegalArgumentException("Value must be a MObject Collection.");
         }
         super.setValue(value);
     }

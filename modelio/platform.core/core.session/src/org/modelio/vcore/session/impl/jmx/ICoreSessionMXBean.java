@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public interface ICoreSessionMXBean {
 
     /**
      * Returns the number of SmObjectImpl currently in memory.
+     * 
      * @return the loaded objects count.
      */
     @objid ("b2e05929-49c5-11e2-91c9-001ec947ccaf")
@@ -55,6 +56,7 @@ public interface ICoreSessionMXBean {
 
     /**
      * Get the number of deleted SmObjectImpl in memory.
+     * 
      * @return the deleted objects count.
      */
     @objid ("b2e0592b-49c5-11e2-91c9-001ec947ccaf")

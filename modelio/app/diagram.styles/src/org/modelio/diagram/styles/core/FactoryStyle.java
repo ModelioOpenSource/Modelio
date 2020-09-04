@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class FactoryStyle implements IStyle, IPersistent {
      * <p>
      * The listener will be fired each time a property is changed or removed.<br>
      * Registering 2 times a listener will make it fired 2 times.
+     * 
      * @param l The style change listener.
      */
     @objid ("8549fd35-1926-11e2-92d2-001ec947c8cc")
@@ -77,6 +78,7 @@ public class FactoryStyle implements IStyle, IPersistent {
     /**
      * Modelio plugin implementing diagrams can declare their {@link AbstractStyleKeyProvider} classes to the FactoryStyle so that
      * their {@link StyleKey} instances are known by the FactoryStyle.
+     * 
      * @param styleProvider the style key provider to register.
      * @throws java.lang.IllegalArgumentException if the style provider instantiation failed. A nested exception is then provided.
      */
@@ -96,6 +98,7 @@ public class FactoryStyle implements IStyle, IPersistent {
     /**
      * Modelio plugin implementing diagrams can declare their {@link AbstractStyleKeyProvider} instances to the FactoryStyle so that
      * their {@link StyleKey} instances are known by the FactoryStyle.
+     * 
      * @param styleProvider the style key provider to register.
      * @throws java.lang.IllegalArgumentException if the style provider instantiation failed. A nested exception is then provided.
      */
@@ -116,6 +119,7 @@ public class FactoryStyle implements IStyle, IPersistent {
 
     /**
      * Convenience method to get a boolean property.
+     * 
      * @param propertyKey The property key
      * @return The boolean value.
      */
@@ -137,6 +141,7 @@ public class FactoryStyle implements IStyle, IPersistent {
 
     /**
      * Convenience method to get a Color property.
+     * 
      * @param propertyKey The property key
      * @return The Color value.
      */
@@ -151,6 +156,7 @@ public class FactoryStyle implements IStyle, IPersistent {
 
     /**
      * Convenience method to get a Font property.
+     * 
      * @param propertyKey The property key
      * @return The Font value.
      */
@@ -165,6 +171,7 @@ public class FactoryStyle implements IStyle, IPersistent {
 
     /**
      * Get the factory style instance.
+     * 
      * @return the factory style instance.
      */
     @objid ("8549fd2e-1926-11e2-92d2-001ec947c8cc")
@@ -174,6 +181,7 @@ public class FactoryStyle implements IStyle, IPersistent {
 
     /**
      * Convenience method to get an integer property.
+     * 
      * @param propertyKey The property key
      * @return The integer value.
      */
@@ -201,6 +209,7 @@ public class FactoryStyle implements IStyle, IPersistent {
 
     /**
      * Get a style property
+     * 
      * @param propertyKey The property key
      * @return The property value
      */
@@ -230,6 +239,7 @@ public class FactoryStyle implements IStyle, IPersistent {
 
     /**
      * Inject the values defined in 'properties' into the FactoryStyle settings overriding existing values when required.
+     * 
      * @param defaultValues the values to inject in the FactoryStyle
      */
     @objid ("854c5f84-1926-11e2-92d2-001ec947c8cc")
@@ -282,6 +292,7 @@ public class FactoryStyle implements IStyle, IPersistent {
 
     /**
      * Remove a style change listener.
+     * 
      * @param l a style change listener to remove.
      */
     @objid ("854ec1ea-1926-11e2-92d2-001ec947c8cc")
@@ -292,6 +303,7 @@ public class FactoryStyle implements IStyle, IPersistent {
 
     /**
      * Remove a property value and fires style changes listeners.
+     * 
      * @param key The property to remove
      */
     @objid ("854ec1ef-1926-11e2-92d2-001ec947c8cc")
@@ -320,6 +332,7 @@ public class FactoryStyle implements IStyle, IPersistent {
 
     /**
      * Set the parent style used to get a property value when it is not defined on this style.
+     * 
      * @param style The new parent style.
      */
     @objid ("854ec1f8-1926-11e2-92d2-001ec947c8cc")
@@ -330,6 +343,7 @@ public class FactoryStyle implements IStyle, IPersistent {
 
     /**
      * Change a style property and fires the style listeners.
+     * 
      * @param key The property key.
      * @param value The new value.
      */

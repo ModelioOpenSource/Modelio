@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ import org.modelio.metamodel.uml.statik.TemplateParameterSubstitution;
 public class TemplateBindingSymbolProvider {
     /**
      * Get the symbol of the given template binding.
+     * 
      * @param binding a template binding.
      * @return the symbol.
      */

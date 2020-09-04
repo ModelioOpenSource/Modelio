@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface MMofObject extends MObject {
     /**
      * Get an attribute value.
+     * 
      * @param attName the attribute name.
      * @return attribute value.
      * @throws java.lang.IllegalArgumentException if the attribute does not exist on the metaclass.
@@ -42,6 +43,7 @@ public interface MMofObject extends MObject {
 
     /**
      * Set an attribute value
+     * 
      * @param attName the attribute name
      * @param value the value to set.
      */
@@ -53,6 +55,7 @@ public interface MMofObject extends MObject {
      * <p>
      * The returned list reflects the model : modifying the list
      * modifies the model.
+     * 
      * @param depName the dependency name
      * @return the dependency content.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public final class StandardGmLinkFactory implements IGmLinkFactory {
 
     /**
      * Instantiate the factory.
+     * 
      * @param factoryId identifier of the main factory.
      * @param useGenericFactory whether or not the generic factory should be used as fallback.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ import org.modelio.diagram.styles.core.StyleKey;
 public abstract class DiagramAbstractNode extends DiagramGraphic implements IDiagramNode {
     /**
      * Creates a diagram node.
+     * 
      * @param diagramHandle The diagram manipulation class.
      */
     @objid ("fe776269-7dfd-4e28-a41d-a20b864c0880")
@@ -70,6 +71,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
 
     /**
      * Return the node location and size as a Rectangle.
+     * 
      * @return the node bounds.
      */
     @objid ("490748e6-68ee-472e-9b8f-a5344eb57588")
@@ -102,6 +104,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
     /**
      * This method changes both the location and the size of a node by changing its current bounds.<br>
      * Note however that the requested change might no be performed when some layout constraints are maintained by the parent of the node (ie the requested changes are refused or adapted by the parent of the node).
+     * 
      * @param newBounds the new node bounds
      */
     @objid ("e6eacc0f-78f1-4b62-8ff1-40ae61305557")
@@ -132,6 +135,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
     /**
      * Change the location of the node, setting its new position to (x,y). Note however that the requested change might no be performed when some layout constraints are maintained by the parent of the node (ie the requested change is refused or adapted by
      * the parent of the node).
+     * 
      * @param x the new X position
      * @param y the new Y position
      * @return true if the change could be requested (different from 'performed' see note above)
@@ -168,6 +172,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
     /**
      * Change the size of the node to (width,height).<br>
      * Note however that the requested change might no be performed when some layout constraints are maintained by the parent of the node (ie the requested change is refused or adapted by the parent of the node).
+     * 
      * @param width the new width
      * @param height the new height
      * @return true if the change could be requested (different from 'performed' see note above)

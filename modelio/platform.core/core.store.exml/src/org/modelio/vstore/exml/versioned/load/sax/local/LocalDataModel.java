@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ final class LocalDataModel implements ExmlTags {
 
     /**
      * initialize the loader
+     * 
      * @param loadHelper a load helper
      */
     @objid ("b5c32c01-3fbb-11e2-87cb-001ec947ccaf")
@@ -147,6 +148,7 @@ final class LocalDataModel implements ExmlTags {
 
     /**
      * Initialize the document locator.
+     * 
      * @param aLocator a SAX locator.
      */
     @objid ("b5c58deb-3fbb-11e2-87cb-001ec947ccaf")
@@ -156,6 +158,7 @@ final class LocalDataModel implements ExmlTags {
 
     /**
      * initialize the model loader.
+     * 
      * @param modelLoader a model loader.
      */
     @objid ("b5c58def-3fbb-11e2-87cb-001ec947ccaf")
@@ -165,6 +168,7 @@ final class LocalDataModel implements ExmlTags {
 
     /**
      * Set the file format version.
+     * 
      * @param v the file format version.
      */
     @objid ("b5c58df6-3fbb-11e2-87cb-001ec947ccaf")
@@ -179,6 +183,7 @@ final class LocalDataModel implements ExmlTags {
 
     /**
      * Get the local content of a model object dependency
+     * 
      * @param obj a model object
      * @param dep a dependency
      * @return the dependency content or <code>null</code> if none.
@@ -200,6 +205,7 @@ final class LocalDataModel implements ExmlTags {
 
     /**
      * Get the dependencies for which there is a local content.
+     * 
      * @param obj a model object
      * @return all dependencies with a local content.
      */

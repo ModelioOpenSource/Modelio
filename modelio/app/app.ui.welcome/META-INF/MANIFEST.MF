@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Welcome
+Bundle-SymbolicName: org.modelio.app.ui.welcome;singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-Vendor: modelio.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Localization: plugin
+Bundle-ActivationPolicy: lazy
+Import-Package: javax.annotation;version="1.1.0",
+ javax.inject;version="1.0.0"
+Bundle-ClassPath: .,
+ res/
+Require-Bundle: org.eclipse.e4.ui.workbench,
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.e4.core.di.annotations,
+ org.modelio.core.rcp,
+ org.eclipse.swt,
+ org.modelio.app.project.core,
+ org.modelio.ui,
+ org.eclipse.help.base,
+ org.eclipse.jface,
+ org.eclipse.osgi,
+ org.modelio.utils,
+ org.eclipse.e4.ui.di,
+ org.eclipse.core.runtime,
+ org.modelio.core.utils,
+ org.eclipse.ui.workbench,
+ org.modelio.app.ui
+Bundle-Activator: org.modelio.app.ui.welcome.plugin.AppUiWelcome
+Export-Package: org.modelio.app.ui.welcome.impl
+
+

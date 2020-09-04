@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ public interface IUserNodeIndex {
     /**
      * Remove a CMS node from the indexes.
      * @param id
+     * 
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of IO failure.
      */
     @objid ("32337f90-5c7b-11e1-863f-001ec947ccaf")
@@ -39,6 +40,7 @@ public interface IUserNodeIndex {
 
     /**
      * Add a used object.
+     * 
      * @param userNodeId the user CMS node
      * @param depName the dependency from user to used.
      * @param usedObjectId the used object.
@@ -49,6 +51,7 @@ public interface IUserNodeIndex {
 
     /**
      * Get the CMS nodes using the given object.
+     * 
      * @param objectId an object ID.
      * @return The ID of all CMS nodes using it.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of IO failure.

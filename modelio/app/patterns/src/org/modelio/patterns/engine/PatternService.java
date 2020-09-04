@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ class PatternService implements IPatternService {
 
     /**
      * Called by injection when the current project is closed, to dereference its pattern catalog.
+     * 
      * @param project the current project.
      */
     @objid ("cd77fe80-0796-44ac-bea1-9c0708119dc0")
@@ -67,6 +68,7 @@ class PatternService implements IPatternService {
 
     /**
      * Called by injection when a project is opened, to load its pattern catalog.
+     * 
      * @param project the current project.
      */
     @objid ("5a58cde4-dd24-495b-ad96-c7457c85970a")

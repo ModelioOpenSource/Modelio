@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,6 +27,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface ITextElementSelectionListener {
     /**
      * Called when the selected element changes.
+     * 
      * @param oldElement previously selected element. May be null.
      * @param newElement newly selected element. May be null.
      */

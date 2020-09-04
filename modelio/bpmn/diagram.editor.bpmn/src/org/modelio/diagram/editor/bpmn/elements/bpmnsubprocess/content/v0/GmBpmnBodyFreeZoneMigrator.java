@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class GmBpmnBodyFreeZoneMigrator implements IPersistentMigrator {
      * Else, if the migration takes place in a sub process diagram "X" and the sub process being migrated is X's owner,<br/>
      * said sub process is masked and its contents transfered into the diagram itself, therefore avoiding potential infinite loops.
      * </p>
+     * 
      * @param oldGmBody the gm being migrated.
      * @return the migrated gm, replacing the given one. Might be <code>null</code>.
      */

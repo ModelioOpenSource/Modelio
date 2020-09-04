@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,34 +21,20 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.metamodel.uml.statik.PassingMode;
+import org.modelio.module.modelermodule.api.xmi.standard.parameter.UML2OperationTemplateParameter;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("b4d93993-9137-414a-acd4-1138fb83a0a0")
 public class EOperationTemplateParameter extends EElement {
     @objid ("c1051335-bb37-4b8f-ae86-31fbab26ede2")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
-        Parameter result = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createParameter();
-        
-        try {
-            result.getExtension().add(mmServices.getStereotype(XMIProperties.modelerModuleName,
-                    IModelerModuleStereotypes.UML2OPERATIONTEMPLATEPARAMETER, result.getMClass()));
-        } catch (ElementNotUniqueException e) {
-           Xmi.LOG.warning(e);
-        }
-        return result;
+        return UML2OperationTemplateParameter.create().getElement();
     }
 
     @objid ("f7cf5ae8-59fc-42ba-ac07-578f3d575ae1")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class LegacyStyleKeyProviderSymbolViewModel implements ISymbolViewModel {
      * Constructor for graphic model style edition.
      * <p>
      * Adds a style chooser at first position.
+     * 
      * @param input the style key provider.
      * @param diagramStyle the diagram style, added as choice in the style chooser combo.
      */
@@ -76,6 +77,7 @@ public class LegacyStyleKeyProviderSymbolViewModel implements ISymbolViewModel {
 
     /**
      * Constructor for Named style edition.
+     * 
      * @param label the root label
      * @param styleKeys all style keys to display
      * @param diagramStyle the diagram style, added as choice in the style chooser combo.

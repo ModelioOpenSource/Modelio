@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure.matrix;
 
@@ -46,13 +46,13 @@ public interface QueryDefinition extends Element {
     /**
      * The metaclass simple name.
      */
-    @objid ("9b8daa5c-0f15-4e2a-b7fe-2c965d17e893")
+    @objid ("17218617-d30e-4aa8-a60c-594874f7973f")
     public static final String MNAME = "QueryDefinition";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("476954fa-a610-45a0-83fd-3f2abe554d20")
+    @objid ("926a87f8-780a-45ea-ad9b-070f39ca8435")
     public static final String MQNAME = "Infrastructure.QueryDefinition";
 
     /**
@@ -61,7 +61,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("fd90cfc4-a0be-4b6a-93e9-60d5695707a6")
+    @objid ("5affaafb-76f1-499c-a1d2-615bde499d20")
     boolean isUsingAdditions();
 
     /**
@@ -70,7 +70,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("8ab64a96-ed3d-48c3-81c3-83a8498101ae")
+    @objid ("7a2f33e4-e3cc-4f2b-a90d-fae03f2d8dd2")
     void setUsingAdditions(boolean value);
 
     /**
@@ -79,7 +79,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>Elements manually added to the lines or columns.</i>
      */
-    @objid ("bd6fa3a6-2bfe-4bea-a66c-37a1c8b5eb62")
+    @objid ("8e519d87-9316-4a14-a9fb-1f2afa4b9d3a")
     EList<Element> getAdded();
 
     /**
@@ -88,7 +88,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>Elements manually added to the lines or columns.</i>
      */
-    @objid ("74ae49a1-a568-4f5c-bf9e-7959124010b2")
+    @objid ("94925c15-c30a-4d60-9b8a-ccc03732f575")
     <T extends Element> List<T> getAdded(java.lang.Class<T> filterClass);
 
     /**
@@ -97,7 +97,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>External processor used to execute the query.</i>
      */
-    @objid ("9cfb53ec-d1c3-437e-90a6-84179f2b5c80")
+    @objid ("299f0126-a60f-41f3-bf7c-feb8f3dfb0fd")
     ExternProcessor getProcessor();
 
     /**
@@ -106,7 +106,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>External processor used to execute the query.</i>
      */
-    @objid ("35ed532d-d39a-4951-b878-bc69ab0fb91b")
+    @objid ("18e4988f-af75-4e6e-9453-ada6b9967e6c")
     void setProcessor(ExternProcessor value);
 
     /**
@@ -115,7 +115,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>Parameters to pass to the external processor.</i>
      */
-    @objid ("dcb9bede-f520-40f3-8c60-deb7b40d42aa")
+    @objid ("0af13d8e-69f9-4bd1-83b1-60d4cc99c859")
     PropertyTable getParameters();
 
     /**
@@ -124,7 +124,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>Parameters to pass to the external processor.</i>
      */
-    @objid ("cbb7ba11-f584-43ee-b54a-007b23ed05e6")
+    @objid ("607ac3cf-f65b-4ffd-a5b4-470319a05a20")
     void setParameters(PropertyTable value);
 
     /**
@@ -133,7 +133,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("04b3fd07-168f-4f22-ae6a-ac77dd3982be")
+    @objid ("dacad759-a5d6-4015-897e-f61f24cc6197")
     MatrixDefinition getOwnerAsLine();
 
     /**
@@ -142,7 +142,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("cd322c10-39b0-4c34-9752-6bdaada969b6")
+    @objid ("2128b5a2-7370-468d-aa19-a2c5a8cf7246")
     void setOwnerAsLine(MatrixDefinition value);
 
     /**
@@ -151,7 +151,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("d2592e13-21f4-4d03-ac5e-d3f8ea201c21")
+    @objid ("c9391643-bbbc-462b-80fb-8489c2780df9")
     MatrixDefinition getOwnerAsCol();
 
     /**
@@ -160,7 +160,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("0ebb8ab0-2f21-4fa7-915b-b027fce6a367")
+    @objid ("1d6d80d0-36b0-4606-9449-cdc2924b250e")
     void setOwnerAsCol(MatrixDefinition value);
 
     /**
@@ -169,7 +169,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("2df118f5-cd4d-4608-afe9-21cb147766c6")
+    @objid ("4c97504a-6d8d-40c0-b5d4-777bc98869a0")
     MatrixDefinition getOwnerAsDepth();
 
     /**
@@ -178,7 +178,7 @@ public interface QueryDefinition extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("05197d57-55a0-4022-b227-e923a1b84346")
+    @objid ("ac52db70-4ff2-48ec-843a-f663c15fe9f2")
     void setOwnerAsDepth(MatrixDefinition value);
 
 }

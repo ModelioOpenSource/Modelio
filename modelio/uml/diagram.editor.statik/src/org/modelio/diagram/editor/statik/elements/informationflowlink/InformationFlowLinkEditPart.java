@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -118,8 +118,7 @@ public class InformationFlowLinkEditPart extends LinkEditPart {
         this.deco.setOpaque(true);
         this.deco.setFill(true);
         
-        FractionalConnectionLocator locator = new FractionalConnectionLocator(connection, 0.66);
-        locator.setTowardTarget(true);
+        FractionalConnectionLocator locator = new FractionalConnectionLocator(connection, 0.66, true);
         connection.add(this.deco, locator);
     }
 

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ public abstract class GRemoteProject extends GProject {
      * <p>
      * Checks the Modelio version matches the server defined version.
      * For server project Modelio version must be same or build compatible with the server version.
+     * 
      * @throws java.io.IOException if the Modelio version does not match.
      */
     @objid ("7de7e182-677e-4146-8aec-f1181b72f81c")
@@ -50,12 +51,12 @@ public abstract class GRemoteProject extends GProject {
         }
         
         if (expectedVersion.isNewerThan(ModelioVersion.VERSION)) {
-            throw new IOException(CoreProject.getMessage("GProject.modelioTooOld", getName(), expectedVersion, ModelioVersion.VERSION));
+            throw new IOException(CoreProject.I18N.getMessage("GProject.modelioTooOld", getName(), expectedVersion, ModelioVersion.VERSION));
         } else {
             // For server project Modelio must be build compatible
             if (expectedVersion.getMajorVersion() != ModelioVersion.VERSION.getMajorVersion() ||
                     expectedVersion.getMinorVersion() != ModelioVersion.VERSION.getMinorVersion()) {
-                throw new IOException(CoreProject.getMessage("GProject.serverVersionDoesNotMatch", getName(), expectedVersion, ModelioVersion.VERSION));
+                throw new IOException(CoreProject.I18N.getMessage("GProject.serverVersionDoesNotMatch", getName(), expectedVersion, ModelioVersion.VERSION));
             }
         }
     }

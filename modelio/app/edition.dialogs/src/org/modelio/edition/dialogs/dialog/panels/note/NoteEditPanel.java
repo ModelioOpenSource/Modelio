@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -278,6 +278,7 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Returns the mime type preference of the NoteType
+         * 
          * @param model @return
          */
         @objid ("925f2ddd-916f-41d2-b6b5-ed17cfd82ce5")

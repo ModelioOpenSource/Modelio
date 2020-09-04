@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,9 +22,11 @@ package org.modelio.diagram.editor.state.elements.region;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.core.ui.MetamodelLabels;
 import org.modelio.diagram.elements.common.freezone.GmFreeZone;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
+import org.modelio.diagram.elements.style.SymbolViewContentBuilder;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.FactoryStyle;
@@ -33,6 +35,7 @@ import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.Style;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
 import org.modelio.vcore.smkernel.mapi.MExpert;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
@@ -69,6 +72,7 @@ public class GmRegion extends GmFreeZone {
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theRegion the represented region, may be null.
      * @param ref a reference to the represented clause.
@@ -149,8 +153,8 @@ public class GmRegion extends GmFreeZone {
     protected boolean isValidChild(GmNodeModel node) {
         final MObject childEl = node.getRelatedElement();
         return (childEl == null
-                                        || (!childEl.isValid() && canCreate(node.getRelatedMClass().getJavaInterface()))
-                                        || canUnmask(childEl));
+                || (!childEl.isValid() && canCreate(node.getRelatedMClass().getJavaInterface()))
+                || canUnmask(childEl));
     }
 
     @objid ("f56a0b1e-55b6-11e2-877f-002564c97630")
@@ -191,6 +195,19 @@ public class GmRegion extends GmFreeZone {
     @Override
     public int getMajorVersion() {
         return GmRegion.MAJOR_VERSION;
+    }
+
+    @objid ("45dc4885-8282-4bdd-8304-076c16b08985")
+    @Override
+    public ISymbolViewModel getSymbolViewModel() {
+        SymbolViewContentBuilder b = new SymbolViewContentBuilder(MetamodelLabels.getString(Region.MNAME));
+        b.add(b.createLabelItem(MetamodelLabels.getString(Region.MNAME))
+                .add(b.createStyleItem(GmRegionStructuredStyleKeys.FILLMODE))
+                .add(b.createStyleItem(GmRegionStructuredStyleKeys.FILLCOLOR)
+                        .filter(GmRegionStructuredStyleKeys.FILLMODE, v -> v != StyleKey.FillMode.TRANSPARENT))
+        
+                );
+        return b.build(getPersistedStyle(), this);
     }
 
 }

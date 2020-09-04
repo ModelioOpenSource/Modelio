@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.eclipse.gef.EditPartViewer;
 public interface IPostLoadAction {
     /**
      * Run this action
+     * 
      * @param viewer the edit part viewer.
      */
     @objid ("9d382761-aeda-410a-84c3-32ae3671a5a3")

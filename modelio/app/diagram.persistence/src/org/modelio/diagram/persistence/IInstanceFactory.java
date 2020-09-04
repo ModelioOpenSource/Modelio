@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ public interface IInstanceFactory {
      * <p>
      * This method may create a new instance or return an existing one.
      * </p>
+     * 
      * @param classNamespace The java namespace of class inheriting from {@link IPersistent}. This class must have an accessible default (no parameter) constructor.
      * @return The created instance.
      * 
@@ -44,6 +45,7 @@ public interface IInstanceFactory {
 
     /**
      * Get the enumeration class of the given java namespace.
+     * 
      * @param enumNamespace The java namespace of an enumeration class
      * @return The enumeration namespace
      */
@@ -55,6 +57,7 @@ public interface IInstanceFactory {
      * <p>
      * This method may create a new instance or return an existing one.
      * </p>
+     * 
      * @param classNamespace The java namespace of class inheriting from {@link IPersistentMigrator}. This class must have an accessible default (no parameter) constructor.
      * @return The created instance.
      * 

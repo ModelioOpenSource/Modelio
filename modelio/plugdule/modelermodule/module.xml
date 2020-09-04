@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module author="modelio" binaryversion="3.8.0"
+<Module author="modelio" binaryversion="4.0.0"
     class="org.modelio.module.modelermodule.impl.ModelerModuleModule"
     id="ModelerModule" image="" schema-level="2"
-    uid="00000000-0000-2710-0000-000000000000" url="" version="9.0.06">
+    uid="00000000-0000-2710-0000-000000000000" url="" version="9.1.00">
     <ClassPath/>
     <Profiles>
         <Profile id="Code" uid="00300000-0000-0032-0000-000000000000">
@@ -774,19 +774,33 @@
             </MetaclassReference>
         </Profile>
         <Profile id="Analyst" uid="1be2e3fc-27ca-11e1-8d9c-002564c97630">
-            <Stereotype is-abstract="false" is-hidden="true"
-                label="%stereotype.dictionary_propertyset.label"
-                metaclass="Infrastructure.PropertyTableDefinition"
-                name="dictionary_propertyset" owner-stereotype="" uid="01ec141c-0000-12fc-0000-000000000000">
-                <Icon path=""/>
+            <Stereotype is-abstract="false" is-hidden="false"
+                label="%stereotype.+influence.label"
+                metaclass="Infrastructure.Dependency" name="+influence"
+                owner-stereotype="" uid="01ec12fc-0000-0247-0000-000000000000">
+                <Icon path="res/icon/dependency_positiveinfluence.png"/>
                 <Image path=""/>
             </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="true"
-                label="%stereotype.dictionary_diagram.label"
-                metaclass="Standard.StaticDiagram"
-                name="dictionary_diagram" owner-stereotype="" uid="01ec12fc-0000-0c02-0000-000000000000">
-                <Icon path="res/icon/dictionarydiagram.png"/>
-                <Image path="res/images/dictionarydiagram48x48.png"/>
+            <Stereotype is-abstract="false" is-hidden="false"
+                label="%stereotype.-influence.label"
+                metaclass="Infrastructure.Dependency" name="-influence"
+                owner-stereotype="" uid="01ec12fc-0000-024c-0000-000000000000">
+                <Icon path="res/icon/dependency_negativeinfluence.png"/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype is-abstract="false" is-hidden="false"
+                label="%stereotype.antonym.label"
+                metaclass="Infrastructure.Dependency" name="antonym"
+                owner-stereotype="" uid="01ec12fc-0000-0233-0000-000000000000">
+                <Icon path="res/icon/dependency_antonym.png"/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype is-abstract="false" is-hidden="false"
+                label="%stereotype.assigned.label"
+                metaclass="Infrastructure.Dependency" name="assigned"
+                owner-stereotype="" uid="01ec12fc-0000-025b-0000-000000000000">
+                <Icon path="res/icon/dependency_assigned.png"/>
+                <Image path=""/>
             </Stereotype>
             <Stereotype is-abstract="false" is-hidden="true"
                 label="%stereotype.business_rule_diagram.label"
@@ -802,24 +816,31 @@
                 <Icon path=""/>
                 <Image path=""/>
             </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="true"
-                label="%stereotype.requirement_propertyset.label"
-                metaclass="Infrastructure.PropertyTableDefinition"
-                name="requirement_propertyset" owner-stereotype="" uid="01ec141c-0000-12f7-0000-000000000000">
-                <Icon path=""/>
+            <Stereotype is-abstract="false" is-hidden="false"
+                label="%stereotype.context.label"
+                metaclass="Infrastructure.Dependency" name="context"
+                owner-stereotype="" uid="01ec12fc-0000-0242-0000-000000000000">
+                <Icon path="res/icon/dependency_context.png"/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype is-abstract="false" is-hidden="false"
+                label="%stereotype.derive.label"
+                metaclass="Infrastructure.Dependency" name="derive"
+                owner-stereotype="" uid="01ec12fc-0000-021a-0000-000000000000">
+                <Icon path="res/icon/dependency_derive.png"/>
                 <Image path=""/>
             </Stereotype>
             <Stereotype is-abstract="false" is-hidden="true"
-                label="%stereotype.requirement_diagram.label"
+                label="%stereotype.dictionary_diagram.label"
                 metaclass="Standard.StaticDiagram"
-                name="requirement_diagram" owner-stereotype="" uid="01ec12fc-0000-0bfd-0000-000000000000">
-                <Icon path="res/icon/requirementdiagram.png"/>
-                <Image path="res/images/requirementdiagram48x48.png"/>
+                name="dictionary_diagram" owner-stereotype="" uid="01ec12fc-0000-0c02-0000-000000000000">
+                <Icon path="res/icon/dictionarydiagram.png"/>
+                <Image path="res/images/dictionarydiagram48x48.png"/>
             </Stereotype>
             <Stereotype is-abstract="false" is-hidden="true"
-                label="%stereotype.goal_propertyset.label"
+                label="%stereotype.dictionary_propertyset.label"
                 metaclass="Infrastructure.PropertyTableDefinition"
-                name="goal_propertyset" owner-stereotype="" uid="01ec141c-0000-12f2-0000-000000000000">
+                name="dictionary_propertyset" owner-stereotype="" uid="01ec141c-0000-12fc-0000-000000000000">
                 <Icon path=""/>
                 <Image path=""/>
             </Stereotype>
@@ -829,6 +850,41 @@
                 owner-stereotype="" uid="01ec12fc-0000-0a37-0000-000000000000">
                 <Icon path="res/icon/goaldiagram.png"/>
                 <Image path="res/images/goaldiagram48x48.png"/>
+            </Stereotype>
+            <Stereotype is-abstract="false" is-hidden="true"
+                label="%stereotype.goal_propertyset.label"
+                metaclass="Infrastructure.PropertyTableDefinition"
+                name="goal_propertyset" owner-stereotype="" uid="01ec141c-0000-12f2-0000-000000000000">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype is-abstract="false" is-hidden="false"
+                label="%stereotype.guarantee.label"
+                metaclass="Infrastructure.Dependency" name="guarantee"
+                owner-stereotype="" uid="01ec12fc-0000-0251-0000-000000000000">
+                <Icon path="res/icon/dependency_guarantee.png"/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype is-abstract="false" is-hidden="false"
+                label="%stereotype.homonym.label"
+                metaclass="Infrastructure.Dependency" name="homonym"
+                owner-stereotype="" uid="01ec12fc-0000-0238-0000-000000000000">
+                <Icon path="res/icon/dependency_homonym.png"/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype is-abstract="false" is-hidden="false"
+                label="%stereotype.implement.label"
+                metaclass="Infrastructure.Dependency" name="implement"
+                owner-stereotype="" uid="01ec12fc-0000-0260-0000-000000000000">
+                <Icon path="res/icon/dependency_implement.png"/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype is-abstract="false" is-hidden="false"
+                label="%stereotype.kind-of.label"
+                metaclass="Infrastructure.Dependency" name="kind-of"
+                owner-stereotype="" uid="01ec1228-0000-12f8-0000-000000000000">
+                <Icon path="res/icon/dependency_derive.png"/>
+                <Image path=""/>
             </Stereotype>
             <Stereotype is-abstract="false" is-hidden="true"
                 label="%stereotype.kpi_diagram.label"
@@ -844,29 +900,11 @@
                 <Icon path=""/>
                 <Image path=""/>
             </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="true"
-                label="%stereotype.risk_propertyset.label"
-                metaclass="Infrastructure.PropertyTableDefinition"
-                name="risk_propertyset" owner-stereotype="" uid="679a9417-8f06-4255-a409-1e1f7136e418">
-                <Icon path=""/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="true"
-                label="%stereotype.risk_diagram.label"
-                metaclass="Standard.StaticDiagram" name="risk_diagram"
-                owner-stereotype="" uid="61222898-ff82-4681-a82f-a8f14c479dd1"/>
-            <Stereotype is-abstract="false" is-hidden="true"
-                label="%stereotype.test_propertyset.label"
-                metaclass="Infrastructure.PropertyTableDefinition"
-                name="test_propertyset" owner-stereotype="" uid="859f8b76-5acc-4a9c-a5eb-973467388b13">
-                <Icon path=""/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="true"
-                label="%stereotype.test_diagram.label"
-                metaclass="Standard.StaticDiagram" name="test_diagram"
-                owner-stereotype="" uid="e1d2f141-a387-4fd1-bff7-3f7dcbcb8718">
-                <Icon path=""/>
+            <Stereotype is-abstract="false" is-hidden="false"
+                label="%stereotype.measure.label"
+                metaclass="Infrastructure.Dependency" name="measure"
+                owner-stereotype="" uid="01ec12fc-0000-0256-0000-000000000000">
+                <Icon path="res/icon/dependency_measure.png"/>
                 <Image path=""/>
             </Stereotype>
             <Stereotype is-abstract="false" is-hidden="false"
@@ -874,27 +912,6 @@
                 metaclass="Infrastructure.Dependency" name="part"
                 owner-stereotype="" uid="01ec12fc-0000-00b7-0000-000000000000">
                 <Icon path="res/icon/dependency_part.png"/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.derive.label"
-                metaclass="Infrastructure.Dependency" name="derive"
-                owner-stereotype="" uid="01ec12fc-0000-021a-0000-000000000000">
-                <Icon path="res/icon/dependency_derive.png"/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.satisfy.label"
-                metaclass="Infrastructure.Dependency" name="satisfy"
-                owner-stereotype="" uid="01ec12fc-0000-0224-0000-000000000000">
-                <Icon path="res/icon/dependency_satisfy.png"/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.verify.label"
-                metaclass="Infrastructure.Dependency" name="verify"
-                owner-stereotype="" uid="01ec12fc-0000-0229-0000-000000000000">
-                <Icon path="res/icon/dependency_verify.png"/>
                 <Image path=""/>
             </Stereotype>
             <Stereotype is-abstract="false" is-hidden="false"
@@ -918,60 +935,36 @@
                 <Icon path="res/icon/dependency_related.png"/>
                 <Image path=""/>
             </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.implement.label"
-                metaclass="Infrastructure.Dependency" name="implement"
-                owner-stereotype="" uid="01ec12fc-0000-0260-0000-000000000000">
-                <Icon path="res/icon/dependency_implement.png"/>
+            <Stereotype is-abstract="false" is-hidden="true"
+                label="%stereotype.requirement_diagram.label"
+                metaclass="Standard.StaticDiagram"
+                name="requirement_diagram" owner-stereotype="" uid="01ec12fc-0000-0bfd-0000-000000000000">
+                <Icon path="res/icon/requirementdiagram.png"/>
+                <Image path="res/images/requirementdiagram48x48.png"/>
+            </Stereotype>
+            <Stereotype is-abstract="false" is-hidden="true"
+                label="%stereotype.requirement_propertyset.label"
+                metaclass="Infrastructure.PropertyTableDefinition"
+                name="requirement_propertyset" owner-stereotype="" uid="01ec141c-0000-12f7-0000-000000000000">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype is-abstract="false" is-hidden="true"
+                label="%stereotype.risk_diagram.label"
+                metaclass="Standard.StaticDiagram" name="risk_diagram"
+                owner-stereotype="" uid="61222898-ff82-4681-a82f-a8f14c479dd1"/>
+            <Stereotype is-abstract="false" is-hidden="true"
+                label="%stereotype.risk_propertyset.label"
+                metaclass="Infrastructure.PropertyTableDefinition"
+                name="risk_propertyset" owner-stereotype="" uid="679a9417-8f06-4255-a409-1e1f7136e418">
+                <Icon path=""/>
                 <Image path=""/>
             </Stereotype>
             <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.+influence.label"
-                metaclass="Infrastructure.Dependency" name="+influence"
-                owner-stereotype="" uid="01ec12fc-0000-0247-0000-000000000000">
-                <Icon path="res/icon/dependency_positiveinfluence.png"/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.-influence.label"
-                metaclass="Infrastructure.Dependency" name="-influence"
-                owner-stereotype="" uid="01ec12fc-0000-024c-0000-000000000000">
-                <Icon path="res/icon/dependency_negativeinfluence.png"/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.guarantee.label"
-                metaclass="Infrastructure.Dependency" name="guarantee"
-                owner-stereotype="" uid="01ec12fc-0000-0251-0000-000000000000">
-                <Icon path="res/icon/dependency_guarantee.png"/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.homonym.label"
-                metaclass="Infrastructure.Dependency" name="homonym"
-                owner-stereotype="" uid="01ec12fc-0000-0238-0000-000000000000">
-                <Icon path="res/icon/dependency_homonym.png"/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.measure.label"
-                metaclass="Infrastructure.Dependency" name="measure"
-                owner-stereotype="" uid="01ec12fc-0000-0256-0000-000000000000">
-                <Icon path="res/icon/dependency_measure.png"/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.antonym.label"
-                metaclass="Infrastructure.Dependency" name="antonym"
-                owner-stereotype="" uid="01ec12fc-0000-0233-0000-000000000000">
-                <Icon path="res/icon/dependency_antonym.png"/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.assigned.label"
-                metaclass="Infrastructure.Dependency" name="assigned"
-                owner-stereotype="" uid="01ec12fc-0000-025b-0000-000000000000">
-                <Icon path="res/icon/dependency_assigned.png"/>
+                label="%stereotype.satisfy.label"
+                metaclass="Infrastructure.Dependency" name="satisfy"
+                owner-stereotype="" uid="01ec12fc-0000-0224-0000-000000000000">
+                <Icon path="res/icon/dependency_satisfy.png"/>
                 <Image path=""/>
             </Stereotype>
             <Stereotype is-abstract="false" is-hidden="false"
@@ -981,18 +974,25 @@
                 <Icon path="res/icon/dependency_synonym.png"/>
                 <Image path=""/>
             </Stereotype>
-            <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.context.label"
-                metaclass="Infrastructure.Dependency" name="context"
-                owner-stereotype="" uid="01ec12fc-0000-0242-0000-000000000000">
-                <Icon path="res/icon/dependency_context.png"/>
+            <Stereotype is-abstract="false" is-hidden="true"
+                label="%stereotype.test_diagram.label"
+                metaclass="Standard.StaticDiagram" name="test_diagram"
+                owner-stereotype="" uid="e1d2f141-a387-4fd1-bff7-3f7dcbcb8718">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype is-abstract="false" is-hidden="true"
+                label="%stereotype.test_propertyset.label"
+                metaclass="Infrastructure.PropertyTableDefinition"
+                name="test_propertyset" owner-stereotype="" uid="859f8b76-5acc-4a9c-a5eb-973467388b13">
+                <Icon path=""/>
                 <Image path=""/>
             </Stereotype>
             <Stereotype is-abstract="false" is-hidden="false"
-                label="%stereotype.kind-of.label"
-                metaclass="Infrastructure.Dependency" name="kind-of"
-                owner-stereotype="" uid="01ec1228-0000-12f8-0000-000000000000">
-                <Icon path="res/icon/dependency_derive.png"/>
+                label="%stereotype.verify.label"
+                metaclass="Infrastructure.Dependency" name="verify"
+                owner-stereotype="" uid="01ec12fc-0000-0229-0000-000000000000">
+                <Icon path="res/icon/dependency_verify.png"/>
                 <Image path=""/>
             </Stereotype>
             <MetaclassReference metaclass="Analyst.AnalystElement" uid="2d98d6ca-5644-418a-9bae-94b5362d3c51">
@@ -1902,6 +1902,7 @@
             <CommandRef group="" group-image="" refid="CreateClassifierByLifeline"/>
             <CommandRef group="" group-image="" refid="UpdateFromClassifier"/>
             <CommandRef group="" group-image="" refid="UpdateFromClassifierByLifeline"/>
+            <CommandRef group="" group-image="" refid="UpdateFromAssociation"/>
             <CommandRef group="" group-image="" refid="CreateOperation"/>
             <CommandRef group="" group-image="" refid="CreateOperationFromTransition"/>
             <CommandRef group="" group-image="" refid="CreateAttribute"/>
@@ -1941,6 +1942,15 @@
                 modify-model="true" tooltip="%command.UpdateFromClassifierByLifeline.tooltip">
                 <Scope metaclass="Standard.Lifeline" stereotype=""/>
                 <Handler class="org.modelio.module.modelermodule.command.UpdateFromClassifierByLifeline"/>
+            </Command>
+            <Command id="UpdateFromAssociation" image=""
+                label="%command.UpdateFromAssociation.label"
+                modify-model="true" tooltip="%command.UpdateFromAssociation.tooltip">
+                <Scope metaclass="Standard.Link" stereotype=""/>
+                <Scope metaclass="Standard.LinkEnd" stereotype=""/>
+                <Handler class="org.modelio.module.modelermodule.command.UpdateFromAssociation">
+                    <HParameter name="name" value=""/>
+                </Handler>
             </Command>
             <Command id="CreateOperation" image=""
                 label="%command.CreateOperation.label"

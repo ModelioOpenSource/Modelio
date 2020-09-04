@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IAccessOrdered {
     /**
      * Set the last access time.
+     * 
      * @param accessTime the last access time.
      */
     @objid ("b1f82ea0-3a48-41a8-81e9-756ffc52e9e0")

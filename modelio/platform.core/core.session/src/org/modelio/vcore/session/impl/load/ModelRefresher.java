@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -209,6 +209,7 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
      * Remove a value to a dependency content.
      * <p>
      * Does not remove it from the other side.
+     * 
      * @param obj a model object
      * @param dep the dependency to modify
      * @param toRemove the model object to remove
@@ -232,6 +233,7 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
 
     /**
      * Delete the given object individually.
+     * 
      * @param obj the object to delete.
      */
     @objid ("ab9f7625-7ea1-4657-89d9-48c962718e50")
@@ -264,6 +266,7 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
 
     /**
      * Debug method to dump recorded actions.
+     * 
      * @return the string dump
      */
     @objid ("f1800684-5912-45f6-bdf2-18866b99e1da")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -170,6 +170,7 @@ final class ObjectDataModel implements IObjectDataModel {
      * Find the SmDependency from its name.
      * <p>
      * Modelio 2 compatibility : convert to camel case if not found
+     * 
      * @param object an object
      * @param relation the relation name
      * @return the found dependency or <code>null</code>.
@@ -200,6 +201,7 @@ final class ObjectDataModel implements IObjectDataModel {
 
     /**
      * Initialize the object data model
+     * 
      * @param dataModel TODO
      * @param obj the loaded object
      * @param isNew <code>true</code> if the object didn't exist in memory.

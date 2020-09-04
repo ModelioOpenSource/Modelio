@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ class DocTypeChooserModel {
 
     /**
      * Get accessor for mdacAdapters
+     * 
      * @return the module nodes.
      */
     @objid ("41ed2acb-25d5-48f8-9645-371c43ae574c")
@@ -116,13 +117,17 @@ class DocTypeChooserModel {
     private void init() {
         List<Stereotype> stereotypes = this.element.getExtension();
         for (Stereotype stereotype : stereotypes) {
+            Stereotype current = stereotype;
+        
             boolean hasDocTypes = false;
-            List<ResourceType> docTypes = stereotype.getDefinedResourceType();
-            for (ResourceType docType : docTypes) {
-                if (!docType.isIsHidden()) {
-                    hasDocTypes = true;
-                    break;
+            while (!hasDocTypes && current != null) {
+                for (ResourceType docType : current.getDefinedResourceType()) {
+                    if (!docType.isIsHidden()) {
+                        hasDocTypes = true;
+                        break;
+                    }
                 }
+                current = current.getParent();
             }
         
             if (hasDocTypes) {

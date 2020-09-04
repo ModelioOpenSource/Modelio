@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bundle-Description: 
+Bundle-Description: Standard Modelio UML Modeler extensions.
 Bundle-SymbolicName: org.modelio.modelermodule;singleton=true
 Require-Bundle: org.modelio.mda.infra, org.modelio.api, org.modelio.me
  tamodel.emfapi, org.modelio.core.kernel, org.modelio.core.project, or
@@ -63,7 +63,7 @@ Export-Package: org.modelio.module.modelermodule.api,org.modelio.modul
  .xmi.standard.structuredactivitynode,org.modelio.module.modelermodule
  .api.xmi.standard.templateparameter
 Bundle-Name: ModelerModule
-Bundle-Version: 9.0.6
+Bundle-Version: 9.1.0
 Bundle-Localization: plugin
 Bundle-ClassPath: res/,.
 

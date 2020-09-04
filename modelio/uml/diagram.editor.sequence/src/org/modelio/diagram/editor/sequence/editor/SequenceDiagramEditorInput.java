@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public class SequenceDiagramEditorInput extends DiagramEditorInput {
      * Initialize the editor input.
      * <p>
      * Creates the diagram graphic model and load it from the diagram model element.
+     * 
      * @param modelManager the link between the Gm model and the Ob model.
      * @param diagram the diagram to edit.
      * @param gmDiagramCreator a small factory to instanciate the Gm diagram itself.

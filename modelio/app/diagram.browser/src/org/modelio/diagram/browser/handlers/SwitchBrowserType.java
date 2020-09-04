@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ public class SwitchBrowserType {
      * For some obscure reason the execute method is called twice when changing
      * the model => check for a real model change before doing anything
      * @param part
+     * 
      * @param type @return
      */
     @objid ("001c147a-0d4f-10c6-842f-001ec947cd2a")

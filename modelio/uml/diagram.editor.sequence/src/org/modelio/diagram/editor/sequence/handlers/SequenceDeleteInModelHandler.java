@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -137,6 +137,7 @@ public class SequenceDeleteInModelHandler {
 
     /**
      * Collect the edit parts to mask by analyzing the selected edit parts.
+     * 
      * @param selected the selected edit parts to analyze
      */
     @objid ("86b35685-00c6-4711-96cb-01d173617870")
@@ -160,6 +161,7 @@ public class SequenceDeleteInModelHandler {
 
     /**
      * Collect the element to delete by analyzing the selected edit parts.
+     * 
      * @param selected the selected edit parts to analyze
      * @return <code>null</code> to indicate that the delete operation is not possible due to read only element(s). Otherwise the effective of the elements to delete is returned.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -98,7 +98,7 @@ class ModelPanelUI {
         this.docTypeDriver = new DocTypeChooserDriver();
         this.docTypeViewer = this.docTypeDriver.createViewer(this.top);
         this.docTypeViewer.getControl().setToolTipText(EditorsRichNote.I18N.getString("ModelWizardPage.DocType.tooltip"));
-        this.docTypeViewer.getControl().setLayoutData(GridDataFactory.fillDefaults().grab(true, false).create());
+        this.docTypeViewer.getControl().setLayoutData(GridDataFactory.fillDefaults().grab(true, true).hint(SWT.DEFAULT, 120).create());
         this.docTypeViewer.addSelectionChangedListener(e -> {
             ModelPanelUI.this.controller.onDocTypeChanged(ModelPanelUI.this.docTypeDriver.getSelection());
         });

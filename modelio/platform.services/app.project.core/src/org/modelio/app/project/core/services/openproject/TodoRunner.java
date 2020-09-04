@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,23 +20,25 @@
 
 package org.modelio.app.project.core.services.openproject;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.AccessDeniedException;
+import java.nio.file.NoSuchFileException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.app.project.core.plugin.AppProjectCore;
 import org.modelio.gproject.data.project.ModuleDescriptor;
+import org.modelio.gproject.gproject.GProblem;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.gproject.TodoActionsRunner;
 import org.modelio.gproject.module.GModule;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.mda.infra.service.IModuleManagementService;
+import org.modelio.vbasic.auth.IAuthData;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.progress.IModelioProgress;
 import org.modelio.vbasic.progress.SubProgress;
-import org.modelio.vcore.smkernel.AccessDeniedException;
 
 /**
  * Post open to-do action runner.
@@ -46,15 +48,20 @@ class TodoRunner extends TodoActionsRunner {
     @objid ("c3d552da-b123-48c4-9b85-1cdef7b1221e")
     private final IModuleManagementService moduleService;
 
+    @objid ("3542f1e7-ec7b-4348-9bee-f7bf03e89fec")
+    private final IAuthenticationPrompter authPrompter;
+
     /**
      * Initialize the project configurer.
+     * 
      * @param project the project to synchronize
      * @param moduleService the module service used to install and remove modules.
      */
     @objid ("2a248da2-da07-4866-9ead-3f7bbba0bf30")
-    public TodoRunner(GProject project, IModuleManagementService moduleService) {
+    public TodoRunner(GProject project, IModuleManagementService moduleService, IAuthenticationPrompter authPrompter) {
         super(project);
         this.moduleService = moduleService;
+        this.authPrompter = authPrompter;
     }
 
     @objid ("b0e7c795-84a6-48d4-ac84-eca1f5817df2")
@@ -67,10 +74,10 @@ class TodoRunner extends TodoActionsRunner {
         
             // Install the module as if the user asked for it
             IModuleHandle rtModuleHandle = getModuleHandle(mon.newChild(1), fd);
-            this.moduleService.installModule(mon.newChild(1), getProject(), rtModuleHandle , fd.getArchiveLocation());
-            
+            this.moduleService.installModule(mon.newChild(1), getProject(), rtModuleHandle, fd.getArchiveLocation());
+        
             // Overwrite default module parameters with the server parameters
-            GModule gModule = getModule(fd.getName()); 
+            GModule gModule = getModule(fd.getName());
             reconfigureModule(gModule, fd, mon);
         
         } catch (ModuleException e) {
@@ -96,12 +103,12 @@ class TodoRunner extends TodoActionsRunner {
         monitor.subTask(AppProjectCore.I18N.getMessage("ProjectSynchro.updateModule",
                 m.getName(), m.getVersion(), fd.getVersion()));
         
-        try  {
+        try {
             // Install the module as if the user asked for it
             // The module may change some parameters on upgrade, they won't be lost.
             SubProgress mon = SubProgress.convert(monitor, 3);
             IModuleHandle rtModuleHandle = getModuleHandle(mon.newChild(1), fd);
-            this.moduleService.installModule(mon.newChild(1), getProject(), rtModuleHandle , fd.getArchiveLocation());
+            this.moduleService.installModule(mon.newChild(1), getProject(), rtModuleHandle, fd.getArchiveLocation());
         
         } catch (ModuleException e) {
             throw new IOException(e.getLocalizedMessage(), e);
@@ -117,23 +124,17 @@ class TodoRunner extends TodoActionsRunner {
 
     /**
      * Report failures to user
+     * 
      * @param shell a SWT shell
      */
     @objid ("457984e9-466e-40de-8cdd-1f9598bab209")
     public void reportFailures(Shell shell) {
-        // TODO make a better dialog
-        final String sb = getFailuresReport();
-        
-        // Get a shell
-        final String title = AppProjectCore.I18N.getMessage("ProjectService.ProjectSynchroProblems.title", getProject().getName());
-        
-        Display d = shell != null ? shell.getDisplay() : Display.getDefault();
-        d.asyncExec(
-                () -> MessageDialog.openWarning(shell, title, sb));
+        shell.getDisplay().syncExec(() -> GProblemReportDialog.open(shell, getProject().getName(), getFailures()));
     }
 
     /**
      * Concatenates failures in a string builder.
+     * 
      * @return the failures
      */
     @objid ("4214d867-d139-479e-b085-958a0d1be488")
@@ -142,21 +143,12 @@ class TodoRunner extends TodoActionsRunner {
         
         sb.append(AppProjectCore.I18N.getMessage("ProjectService.ProjectSynchroProblems.message", getProject().getName()));
         
-        for (Failure f : getFailures()) {
+        for (GProblem f : getFailures()) {
             sb.append(" - ")
-            .append(f.getAction().getLocalizedLabel())
-            .append(":\n   ");
+                    .append(f.getSubject())
+                    .append(":\n   ");
         
-            Throwable cause = f.getError();
-            if (cause instanceof IOException) {
-                sb.append(indented(FileUtils.getLocalizedMessage((IOException) cause)));
-            } else if (cause instanceof AccessDeniedException) {
-                sb.append(indented(cause.getLocalizedMessage()));
-            } else if (cause instanceof RuntimeException) {
-                sb.append(indented(cause.toString()));
-            } else {
-                sb.append(indented(cause.getLocalizedMessage()));
-            }
+            sb.append(f.getProblem());
             sb.append("\n\n");
         }
         return sb.toString();
@@ -165,6 +157,31 @@ class TodoRunner extends TodoActionsRunner {
     @objid ("5a31613c-bad2-4def-a285-6260152f1e15")
     private static String indented(String str) {
         return str.replace("\n", "\n\t");
+    }
+
+    @objid ("e1fc9b2c-7aec-4b88-8d90-63837c84ca40")
+    @Override
+    protected IModuleHandle getModuleHandle(IModelioProgress monitor, ModuleDescriptor md) throws FileNotFoundException, IOException, NoSuchFileException {
+        if (this.authPrompter == null)
+            return super.getModuleHandle(monitor, md);
+        
+        do {
+            try {
+                return super.getModuleHandle(monitor, md);
+            } catch (AccessDeniedException e) {
+                IAuthData newAuth = this.authPrompter.promptAuthentication(
+                        md.getAuthDescriptor().getData(),
+                        md.getName(),
+                        md.getArchiveLocation().toString(),
+                        FileUtils.getLocalizedMessage(e));
+        
+                if (newAuth != null) {
+                    md.getAuthDescriptor().setData(newAuth);
+                } else {
+                    throw e;
+                }
+            }
+        } while (true) ;
     }
 
 }

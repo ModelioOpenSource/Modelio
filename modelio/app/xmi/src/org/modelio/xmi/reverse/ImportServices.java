@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,28 +62,24 @@ public class ImportServices {
 
     @objid ("178269f7-c1d6-40dd-8299-8c64c15addec")
     private Resource loadEcoreModel(File xmiFile) {
-        ResourceSet resourceSet = ReverseProperties.getInstance().createResourceSet();
-        
-        URI fileURI = URI.createFileURI(xmiFile.getAbsolutePath());
-        
+        ResourceSet resourceSet = ReverseProperties.getInstance().createResourceSet();      
+        URI fileURI = URI.createFileURI(xmiFile.getAbsolutePath());      
         Resource result = null;
         
         try{
             result = resourceSet.getResource(fileURI, true);
         }catch(Exception e){
         
-            deleteUnresolvedReference(xmiFile, fileURI, resourceSet );
-        
+            Xmi.LOG.error(Xmi.PLUGIN_ID, e);
+            deleteUnresolvedReference(xmiFile, fileURI, resourceSet );    
             result = resourceSet.getResource(fileURI, false);
         
             //ecriture du log
-            if (result != null){
-                       
+            if (result != null){                      
                 for (Resource.Diagnostic diagnostic : result.getErrors()){
                     String message = Xmi.I18N.getMessage("info.import.emf.error", diagnostic.getMessage());
                     Xmi.LOG.error(Xmi.PLUGIN_ID, message);
-                }
-        
+                }    
             }
         }
         return result;
@@ -150,6 +146,7 @@ public class ImportServices {
 
     /**
      * @throws Exception
+     * 
      * @param xmiFile @return
      */
     @objid ("3c930297-3485-4ed3-a72c-c7fa35a33fcd")
@@ -232,6 +229,7 @@ public class ImportServices {
 
     /**
      * @return false if any errors occurs
+     * 
      * @param resource : the Ecore resource
      * @param progressBar : the progressBar
      * @param shell : the parent Shell
@@ -292,6 +290,7 @@ public class ImportServices {
     /**
      * This Method export a given profile in a given Ecore Resource
      * @param root : the root of the export
+     * 
      * @param resource : the Ecore Resource
      * @param progressBar : the progressBar
      * @param shell : the current shell
@@ -343,6 +342,8 @@ public class ImportServices {
         
                 if(progressBar != null)  progressBar.setLabel(Xmi.I18N
                         .getString("progressBar.content.import.checkConsistency"));
+                
+                revProp.clean();
         
             } else {
                 error = true;

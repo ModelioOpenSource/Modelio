@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,15 +52,15 @@ import org.modelio.metamodel.uml.statik.Node;
 import org.modelio.metamodel.uml.statik.Port;
 import org.modelio.metamodel.uml.statik.StructuralFeature;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
 import org.modelio.xmi.util.EcoreModelNavigation;
 import org.modelio.xmi.util.EcorePrimitiveTypeMapper;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.ObjingEAnnotation;
 import org.modelio.xmi.util.ProfileUtils;
-import org.modelio.xmi.util.XMIProperties;
 
 /**
  * This class manages the import of UML Property elements
@@ -171,15 +171,6 @@ public class EProperty extends EStructuralFeature {
         }
     }
 
-    @objid ("d57e9364-a17a-478a-89a1-d59a58e83521")
-    @Override
-    public void attach(List<Object> objingElts) {
-        for (Object objingElt : objingElts){
-            if (objingElt instanceof Element)
-                attach((Element) objingElt);
-        }
-    }
-
     @objid ("7c9ae24e-cadd-4129-b7aa-5ba8452ff4e2")
     @Override
     public void setProperties(Element objingElt) {
@@ -203,6 +194,7 @@ public class EProperty extends EStructuralFeature {
     @objid ("6e4bfc73-fe60-42d4-8032-c16a8fa790a1")
     private void setFeature(Feature objingElt) {
         boolean roundTripEnable = ReverseProperties.getInstance().isRoundtripEnabled();
+        
         if (objingElt instanceof StructuralFeature) {
         
             StructuralFeature structFeature = (StructuralFeature) objingElt;
@@ -213,7 +205,7 @@ public class EProperty extends EStructuralFeature {
         
             if (roundTripEnable) {
                 setChangeableEAnnotation(structFeature);
-                setDerivedEAnnotation(structFeature);
+                setAbstractEAnnotation(objingElt);
             }
         
         
@@ -240,10 +232,6 @@ public class EProperty extends EStructuralFeature {
                 setNaryAssociationKind((NaryAssociationEnd) objingElt);                
             }
         }
-        
-        if (roundTripEnable) {
-            setAbstractEAnnotation(objingElt);
-        }
     }
 
     @objid ("10535903-9334-4b5b-9307-8a1bbe521731")
@@ -252,11 +240,14 @@ public class EProperty extends EStructuralFeature {
         Property currentEnd = ((Property) getEcoreElement());
         Property oppositeEnd = currentEnd.getOtherEnd();
         
-        List<Element> objEnds = (List<Element>) ReverseProperties.getInstance().getMappedElement(oppositeEnd);
-        for (Element temp : objEnds){
-            if (temp instanceof AssociationEnd){
-                objOppositeEnd = (AssociationEnd) temp;
-                break;
+        Object objEnds = ReverseProperties.getInstance().getMappedElement(oppositeEnd);
+        if (objEnds instanceof List<?>) {
+            List<?> temps = (List<?>) objEnds;
+            for (Object temp : temps){
+                if (temp instanceof AssociationEnd){
+                    objOppositeEnd = (AssociationEnd) temp;
+                    break;
+                }
             }
         }
         
@@ -266,10 +257,10 @@ public class EProperty extends EStructuralFeature {
                 objEnd.setTarget((Classifier)  ReverseProperties.getInstance().getMappedElement(currentEnd.getType())) ;
                 objEnd.setOpposite(objOppositeEnd);
                 setSource(objEnd, oppositeEnd);
-                
+        
             }else{
                 objEnd.setOpposite(objOppositeEnd);
-                
+        
                 if (!oppositeEnd.isNavigable()){
                     setSource(objEnd, oppositeEnd);
                     objEnd.setOpposite(objOppositeEnd);
@@ -346,12 +337,6 @@ public class EProperty extends EStructuralFeature {
         }
     }
 
-    @objid ("2d6fa9bb-82d6-4182-95a1-a893763b9f96")
-    private void setDerivedEAnnotation(StructuralFeature attribute) {
-        attribute.setIsDerived(ObjingEAnnotation
-                .isDynamicDependency(getEcoreElement()));
-    }
-
     @objid ("18a5d2b8-58cb-4c0d-92cc-23e9fbaca1a7")
     private void setValueEAnnotation(Attribute attribute) {
         String value = ObjingEAnnotation.getValue(getEcoreElement());
@@ -420,7 +405,7 @@ public class EProperty extends EStructuralFeature {
                     if ((instance instanceof Instance)) {
                         try {
                             ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createDependency(
-                                    attribute, (Instance) instance, XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2INSTANCEVALUE);
+                                    attribute, (Instance) instance, IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSTANCEVALUE);
                         } catch (ExtensionNotFoundException e) {
                             Xmi.LOG.warning(Xmi.PLUGIN_ID, e);       
                         }
@@ -441,9 +426,12 @@ public class EProperty extends EStructuralFeature {
             objingAttribute.setOwner((Classifier) objingOwner);
         else if ((ecoreOwner instanceof Property) 
                 && (EcoreModelNavigation.isAssocEnd((Property) ecoreOwner))) {
-            for (Element objElt : (ArrayList<? extends Element>) objingOwner){
-                if (objElt instanceof AssociationEnd)
-                    objingAttribute.setQualified((AssociationEnd) objElt);
+            
+            if (objingOwner instanceof List<?>) {
+                for (Object objElt : (List<?>) objingOwner){
+                    if (objElt instanceof AssociationEnd)
+                        objingAttribute.setQualified((AssociationEnd) objElt);
+                }
             }
         
         }
@@ -595,7 +583,7 @@ public class EProperty extends EStructuralFeature {
             Classifier classifier = (Classifier) type;
             if (classifier.getCompositionOwner() == null)
                 classifier.setOwner(revProp.getExternalPackage());
-            
+        
             objEnd.setSource(classifier);
         }
     }

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Session
 Bundle-SymbolicName: org.modelio.core.session;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Export-Package: org.modelio.vcore.model.api,
  org.modelio.vcore.model.spi,
  org.modelio.vcore.model.spi.mm,

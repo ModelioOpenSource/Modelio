@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -97,6 +97,7 @@ public class MicrosoftEditor implements IRichNoteEditor {
 
     /**
      * E4 constructor.
+     * 
      * @param aPart the E4 part
      * @param parent the SWT parent
      * @param editedInput the edited rich note
@@ -160,6 +161,7 @@ public class MicrosoftEditor implements IRichNoteEditor {
 
     /**
      * Called by E4 to save the rich note.
+     * 
      * @param monitor a
      */
     @objid ("c57aad39-b5e7-47cb-8336-309dd2b656c2")
@@ -208,6 +210,7 @@ public class MicrosoftEditor implements IRichNoteEditor {
 
     /**
      * Get the OLE program ID to use to open the document
+     * 
      * @param doc a document
      * @return the OLE program ID.
      */
@@ -270,6 +273,7 @@ public class MicrosoftEditor implements IRichNoteEditor {
 
     /**
      * Load the file referenced by the artifact.
+     * 
      * @param art the artifact to load
      * @throws java.io.IOException in case of error opening the file.
      * @throws java.io.FileNotFoundException if the referenced file is not found.
@@ -287,6 +291,7 @@ public class MicrosoftEditor implements IRichNoteEditor {
 
     /**
      * Load the element text into the editor.
+     * 
      * @param element the edited model object
      */
     @objid ("fff6bcc6-59ae-453e-9517-9e495dc8fa43")
@@ -315,6 +320,7 @@ public class MicrosoftEditor implements IRichNoteEditor {
 
     /**
      * Load the file referenced by the external document.
+     * 
      * @param doc the rich note to load
      * @throws java.io.IOException in case of error opening the file.
      */
@@ -422,6 +428,7 @@ public class MicrosoftEditor implements IRichNoteEditor {
 
     /**
      * Create a new Microsoft file.
+     * 
      * @param file the file path
      * @param format the file format
      * @throws java.io.IOException in case of failure
@@ -531,6 +538,7 @@ public class MicrosoftEditor implements IRichNoteEditor {
          * <li>Set the view read only if the model becomes read only (to be done)
          * <li>Close the diagram if deleted from the model.
          * <p>
+         * 
          * @param changeEvent the model change event
          */
         @objid ("545bbad0-71a5-4a81-9508-0f074d1ff684")

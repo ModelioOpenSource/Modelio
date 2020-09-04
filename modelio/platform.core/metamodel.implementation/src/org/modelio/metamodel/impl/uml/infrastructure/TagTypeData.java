@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -31,31 +31,31 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("008fbe34-c4be-1fd8-97fe-001ec947cd2a")
 public class TagTypeData extends ModelElementData {
-    @objid ("be3bd94d-45fb-4839-843d-6f9b1c8f334a")
+    @objid ("d62529b8-6c95-4e45-89fd-b175d1eea44a")
      Object mParamNumber = "1";
 
-    @objid ("6cd9f375-fe79-43f6-b3a8-7c4456c30e6f")
+    @objid ("9caba601-5ed6-4446-ab5d-44b551a5a4d9")
      Object mIsQualified = false;
 
-    @objid ("3627069c-2ea7-4ee2-a3e5-67d47bfaaf9a")
+    @objid ("91981517-c49d-4efa-bcb8-63a06063638e")
      Object mBelongToPrototype = false;
 
-    @objid ("2001320e-3270-4b80-a649-e7b72c9cbe4e")
+    @objid ("2dbd2258-3b5e-4e6d-b6f2-dc654e3ec20a")
      Object mIsHidden = false;
 
-    @objid ("8b848bc5-770f-4c16-a010-a5e3a30bc8ca")
+    @objid ("53f83b2b-0b5d-410f-b78b-183486214ee8")
      Object mLabelKey = "";
 
-    @objid ("5f6e1463-f612-4867-b3d1-c7daff6b3089")
+    @objid ("93017048-764e-4f6b-9881-bc8d1e26c635")
      List<SmObjectImpl> mTagOccurence = null;
 
-    @objid ("35c0cf2b-b266-4acc-afc8-fd2b327f4d0c")
+    @objid ("aaaf4163-6d35-4ae9-9451-8fd26e8e2437")
      SmObjectImpl mOwnerStereotype;
 
-    @objid ("885523e5-ef60-491c-9302-f6e7bb033e32")
+    @objid ("0c5ac9d5-b8c7-4e9a-ae92-e3d15c7d9a0b")
      SmObjectImpl mOwnerReference;
 
-    @objid ("4c3691a5-f79d-4ee6-b197-bdb7eb84d4e8")
+    @objid ("d9382fa7-bae7-42be-88f7-6d72ea33e460")
     public TagTypeData(TagTypeSmClass smClass) {
         super(smClass);
     }

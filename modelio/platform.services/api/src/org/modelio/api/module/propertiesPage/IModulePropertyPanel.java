@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import org.modelio.api.module.IModule;
 public interface IModulePropertyPanel {
     /**
      * Get the name of the property page.
+     * 
      * @return the name of the property page.
      */
     @objid ("00d00158-0001-5e73-0000-000000000000")
@@ -31,6 +32,7 @@ public interface IModulePropertyPanel {
 
     /**
      * Get the label of this property page.
+     * 
      * @return the text that will be displayed in the property page's label.
      */
     @objid ("00d00158-0001-5e77-0000-000000000000")
@@ -38,6 +40,7 @@ public interface IModulePropertyPanel {
 
     /**
      * Get the module of this property page.
+     * 
      * @return the module displaying this property page.
      */
     @objid ("00d00158-0001-5e84-0000-000000000000")
@@ -45,6 +48,7 @@ public interface IModulePropertyPanel {
 
     /**
      * Set the name of the property page.
+     * 
      * @param name the name of the property page.
      */
     @objid ("2c497859-e5f5-11e0-9cef-bc305ba4815c")
@@ -52,6 +56,7 @@ public interface IModulePropertyPanel {
 
     /**
      * Set the labe of this property page.
+     * 
      * @param label the text that will be displayed in the property page's label.
      */
     @objid ("2c499f6d-e5f5-11e0-9cef-bc305ba4815c")
@@ -59,6 +64,7 @@ public interface IModulePropertyPanel {
 
     /**
      * Set the mdac of this property page.
+     * 
      * @param mdac the module owning this property page.
      */
     @objid ("2c49c67b-e5f5-11e0-9cef-bc305ba4815c")
@@ -66,6 +72,7 @@ public interface IModulePropertyPanel {
 
     /**
      * Return the relevance criterion used to reorder the contributed panels in the edition dialog.
+     * 
      * @return a string matching the name of the module providing the panel or the MDA extensions managed by the panel (might be different of this module)
      * @since 3.6
      */

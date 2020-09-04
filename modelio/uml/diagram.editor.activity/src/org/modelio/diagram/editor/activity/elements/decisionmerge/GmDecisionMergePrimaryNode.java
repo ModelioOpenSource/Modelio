@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class GmDecisionMergePrimaryNode extends GmNoStyleSimpleNode implements I
 
     /**
      * Initialize the graphic node.
+     * 
      * @param diagram The diagram.
      * @param relatedRef the related element reference, may not be null.
      */
@@ -112,6 +113,7 @@ public class GmDecisionMergePrimaryNode extends GmNoStyleSimpleNode implements I
 
     /**
      * Get the parent model representation mode.
+     * 
      * @return the parent representation mode or null if the node has still no parent.
      */
     @objid ("2a41605f-55b6-11e2-877f-002564c97630")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,7 +20,7 @@
 
 package org.modelio.uml.ui.modelproperty.uml;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -62,12 +62,18 @@ public class InformationFlowPropertyModel extends AbstractPropertyModel<Informat
      * </ul>
      */
     @objid ("d4400923-2ffc-4821-81e4-2c55478496bd")
-    private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Conveyed",
-			"InformationSource", "Owner", "InformationTarget", "Realizing" };
+    private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID,
+            "Name",
+            "Conveyed",
+			"InformationSource",
+			"InformationTarget",
+            "Owner",
+			"Realizing" };
 
     /**
      * Create a new <i>InformationFlow</i> data model from an
      * <i>InformationFlow</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("1c409e1b-273c-4ab0-bc1f-a40dfc21c529")
@@ -77,6 +83,7 @@ public class InformationFlowPropertyModel extends AbstractPropertyModel<Informat
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("bca31842-c97f-4f80-a4a8-55cd04e3964d")
@@ -87,6 +94,7 @@ public class InformationFlowPropertyModel extends AbstractPropertyModel<Informat
 
     /**
      * Returns the element realizing by the given InformationFlow node.
+     * 
      * @return the realizing element
      */
     @objid ("b53e1e78-0bdb-4518-94ae-298f67ab87f9")
@@ -137,6 +145,7 @@ public class InformationFlowPropertyModel extends AbstractPropertyModel<Informat
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("a2f782c8-7faa-4fb2-98d6-7fe9b243f3c9")
@@ -149,6 +158,7 @@ public class InformationFlowPropertyModel extends AbstractPropertyModel<Informat
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -171,18 +181,17 @@ public class InformationFlowPropertyModel extends AbstractPropertyModel<Informat
                 if (sources != null && sources.size() > 0) {
                     return sources.get(0);
                 }
-                // else
                 return null;
             }
-            case 4:
-                return this.theEditedElement.getOwner();
-            case 5: {
+            case 4: {
                 EList<UmlModelElement> targets = this.theEditedElement.getInformationTarget();
                 if (targets != null && targets.size() > 0) {
                     return targets.get(0);
                 }
-                // else
                 return null;
+            }
+            case 5: {
+                return this.theEditedElement.getOwner();
             }
             case 6:
                 return getRealizing();
@@ -201,6 +210,7 @@ public class InformationFlowPropertyModel extends AbstractPropertyModel<Informat
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -225,18 +235,18 @@ public class InformationFlowPropertyModel extends AbstractPropertyModel<Informat
                 return new DefaultElementNatValue((MObject) getValue(row, col), false,
                         Collections.singletonList(UmlModelElement.class));
             case 4:
-                return new DefaultElementNatValue((MObject) getValue(row, col), true,
-                        Collections.singletonList(NameSpace.class));
-            case 5:
                 return new DefaultElementNatValue((MObject) getValue(row, col), false,
                         Collections.singletonList(UmlModelElement.class));
+            case 5:
+                return new DefaultElementNatValue((MObject) getValue(row, col), true,
+                        Collections.singletonList(NameSpace.class));
             case 6:
-                List<java.lang.Class<? extends MObject>> realizingTypes = new ArrayList<>();
-                realizingTypes.add(ActivityEdge.class);
-                realizingTypes.add(CommunicationMessage.class);
-                realizingTypes.add(LinkEnd.class);
-                realizingTypes.add(Message.class);
-                realizingTypes.add(StructuralFeature.class);
+                List<java.lang.Class<? extends MObject>> realizingTypes = Arrays.asList(
+                        ActivityEdge.class,
+                        CommunicationMessage.class,
+                        LinkEnd.class,
+                        Message.class,
+                        StructuralFeature.class);
                 return new DefaultElementNatValue((MObject) getValue(row, col), true, realizingTypes);
             default:
                 return null;
@@ -249,6 +259,7 @@ public class InformationFlowPropertyModel extends AbstractPropertyModel<Informat
     /**
      * Set the InstanceNode realizing elements. This method set the right
      * dependency and clears the otheEditedElement.
+     * 
      * @param theEditedElement the instance node
      * @param value the new represented element
      */
@@ -321,6 +332,7 @@ public class InformationFlowPropertyModel extends AbstractPropertyModel<Informat
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -340,37 +352,20 @@ public class InformationFlowPropertyModel extends AbstractPropertyModel<Informat
                 this.theEditedElement.setName((String) value);
                 break;
             case 2:
-                // IModelFactory factory =
-                // ModelFactory.getFactory(this.theEditedElement);
-        
-                this.theEditedElement.getConveyed().clear();
                 List<Classifier> newcontent = (List<Classifier>) value;
-                for (Classifier c : newcontent) {
-                    // if (! (c instanceof InformationItem)) {
-                    // Smart interaction:
-                    // do not add a classifier but create an InformationItem
-                    // representing it
-                    // InformationItem item = factory.createInformationItem();
-                    // item.setOwner(this.theEditedElement.getOwner());
-                    // item.setName(c.getName());
-                    // item.getRepresented().add(c);
-                    //
-                    // this.theEditedElement.getConveyed().add(item);
-                    // } else {
-                    this.theEditedElement.getConveyed().add(c);
-                    // }
-                }
+                this.theEditedElement.getConveyed().clear();
+                this.theEditedElement.getConveyed().addAll(newcontent);
                 break;
             case 3:
                 this.theEditedElement.getInformationSource().clear();
                 this.theEditedElement.getInformationSource().add((UmlModelElement) value);
                 break;
             case 4:
-                this.theEditedElement.setOwner((NameSpace) value);
-                break;
-            case 5:
                 this.theEditedElement.getInformationTarget().clear();
                 this.theEditedElement.getInformationTarget().add((UmlModelElement) value);
+                break;
+            case 5:
+                this.theEditedElement.setOwner((NameSpace) value);
                 break;
             case 6:
                 setRealizing(this.theEditedElement, value);

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public class GmBpmnStartEvent extends GmPortContainer {
 
     /**
      * Constructor.
+     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
@@ -169,6 +170,7 @@ public class GmBpmnStartEvent extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -180,6 +182,7 @@ public class GmBpmnStartEvent extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

@@ -2,24 +2,24 @@
 <?eclipse version="3.4"?>
 <plugin>
 	<extension id="diagram.deployment" point="org.eclipse.e4.workbench.model">
-      <fragment
-            uri="e4model/diagram_deployment_editor.e4xmi">
-      </fragment>
+      <fragment uri="e4model/diagram_deployment_editor.e4xmi"/>
       <processor beforefragment="true" class="org.modelio.diagram.editor.deployment.plugin.DeploymentProcessor"/>
    </extension>
    <extension point="org.modelio.diagram.editor.inputprovider">
       <inputprovider class="org.modelio.diagram.editor.deployment.editor.DeploymentDiagramEditorInputProvider"/>
    </extension>
    <extension point="org.modelio.diagram.editor.toolregistry">
-		<creationtool id="CREATE_ARTIFACT" label="%Artifact.label" tooltip="%Artifact.tooltip" interactor="node">
-			<context metaclass="Standard.Artifact" />
-		</creationtool>
-		<creationtool id="CREATE_NODE" label="%Node.label" tooltip="%Node.tooltip" interactor="node">
-			<context metaclass="Standard.Node" />
-		</creationtool>
-		<creationtool id="CREATE_MANIFESTATION" label="%Manifestation.label" tooltip="%Manifestation.tooltip" interactor="link">
-			<context metaclass="Standard.Manifestation" router="MANIFESTATION_ROUTINGMODE"/>
-		</creationtool>
+   		<tools>
+			<creationtool id="CREATE_ARTIFACT" label="%Artifact.label" tooltip="%Artifact.tooltip" interactor="node">
+				<context metaclass="Standard.Artifact" />
+			</creationtool>
+			<creationtool id="CREATE_NODE" label="%Node.label" tooltip="%Node.tooltip" interactor="node">
+				<context metaclass="Standard.Node" />
+			</creationtool>
+			<creationtool id="CREATE_MANIFESTATION" label="%Manifestation.label" tooltip="%Manifestation.tooltip" interactor="link">
+				<context metaclass="Standard.Manifestation" router="MANIFESTATION_ROUTINGMODE"/>
+			</creationtool>
+		</tools>
 	</extension>
 
 	<extension point="org.modelio.creation.wizard.contributor">
@@ -94,6 +94,6 @@
           </palette_group>
        </palette>
     </extension>
-    
+
 
 </plugin>

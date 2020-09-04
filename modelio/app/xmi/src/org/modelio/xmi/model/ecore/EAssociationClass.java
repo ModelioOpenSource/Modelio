@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,11 +20,10 @@
 
 package org.modelio.xmi.model.ecore;
 
-import java.util.ArrayList;
+import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.infrastructure.Profile;
 import org.modelio.metamodel.uml.statik.Association;
@@ -32,6 +31,7 @@ import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Class;
 import org.modelio.metamodel.uml.statik.ClassAssociation;
 import org.modelio.metamodel.uml.statik.Node;
+import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
 import org.modelio.xmi.util.EcoreModelNavigation;
 import org.modelio.xmi.util.ObjingEAnnotation;
@@ -202,6 +202,7 @@ public class EAssociationClass extends ENamedElement {
             this.objingClassAssociation = this.objingClass.getLinkToAssociation();
             this.objingAssociation = this.objingClassAssociation.getAssociationPart();
         } catch (Exception e) {
+            Xmi.LOG.error(e);
             deleteElements();
         }
     }
@@ -214,25 +215,28 @@ public class EAssociationClass extends ENamedElement {
             for (Object memberEnd : ((org.eclipse.uml2.uml.AssociationClass)getEcoreElement()).getMemberEnds()) {
         
                 Object ends = revProp.getMappedElement((org.eclipse.uml2.uml.Element) memberEnd);
-                AssociationEnd objingAssocEnd = null;
-                for (ModelElement end : (ArrayList<ModelElement>) ends ){
-                    if (end instanceof AssociationEnd){
-                        objingAssocEnd = (AssociationEnd) end;
-                        break;
+                if (ends instanceof List<?>) {
+         
+                    List<?> alist = (List<?>) ends;
+                    AssociationEnd objingAssocEnd = null;
+                    for (Object end : alist ){
+                        if (end instanceof AssociationEnd){
+                            objingAssocEnd = (AssociationEnd) end;
+                            break;
+                        }
                     }
-                }
         
-                if (objingAssocEnd != null) {
-                    // Links the AssociationEnd to the org.eclipse.uml2.uml.Association:
-                    objingAssocEnd.setAssociation(this.objingAssociation);
-                    nbEnds++;
+                    if (objingAssocEnd != null) {
+                        // Links the AssociationEnd to the org.eclipse.uml2.uml.Association:
+                        objingAssocEnd.setAssociation(this.objingAssociation);
+                        nbEnds++;
+                    }
                 }
             }
         
-            if(nbEnds !=2){
+            if (nbEnds != 2) {
                 this.objingAssociation.delete();
                 this.objingAssociation = null;
-        
             }
         
         }

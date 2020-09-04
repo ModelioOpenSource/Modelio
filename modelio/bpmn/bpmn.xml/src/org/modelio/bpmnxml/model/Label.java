@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public abstract class Label extends Node {
 
     /**
      * Sets the value of the bounds property.
+     * 
      * @param value allowed object is
      * {@link Bounds }
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -185,6 +185,7 @@ public abstract class AbstractElementTransmuter implements IModelTransformer {
 
     /**
      * Public constructor required by the {@link TransformerRegistry}.
+     * 
      * @param targetMetaclass target metaclass of the transmutation
      */
     @objid ("2a06d727-fc3d-4d33-a47b-f591ee48bed8")

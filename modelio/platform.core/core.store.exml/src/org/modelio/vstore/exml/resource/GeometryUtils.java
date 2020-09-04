@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ final class GeometryUtils {
 
     /**
      * Get the file name part of a file path.
+     * 
      * @param filePath a file path.
      * @return the file name with the extension.
      */
@@ -52,6 +53,7 @@ final class GeometryUtils {
 
     /**
      * Get the parent directory name.
+     * 
      * @param filePath a file path
      * @return the parent directory name
      * @throws java.lang.ArrayIndexOutOfBoundsException if there is no parent directory.

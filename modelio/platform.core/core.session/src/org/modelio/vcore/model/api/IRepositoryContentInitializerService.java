@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ public interface IRepositoryContentInitializerService extends IRepositoryContent
      * Get the metamodel extensions point.
      * <p>
      * Use it to register metamodel extensions to this service.
+     * 
      * @return the metamodel extensions point.
      */
     @objid ("6b480d6f-4f85-4124-9396-922946d3c60b")

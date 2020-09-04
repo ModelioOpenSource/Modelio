@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -125,8 +125,7 @@ public class OForkJoinNode extends OActivityNode {
             ObjingEAnnotation.setJoinSpec(ecoreElt, getObjingElement().getJoinSpec());
             ObjingEAnnotation.setIsCombineDuplicate(ecoreElt, getObjingElement().isIsCombineDuplicate());
         }
-        
-        
+               
         if (!this.isJoinNode && !this.isForkNode) {
             setName(this.forkNode);
         }
@@ -236,7 +235,7 @@ public class OForkJoinNode extends OActivityNode {
         if (ecoreOwner instanceof org.eclipse.uml2.uml.Clause) {
             org.eclipse.uml2.uml.Clause owner =  (org.eclipse.uml2.uml.Clause) ecoreOwner;
         
-            // A ForkJoinNode can't have any org.eclipse.uml2.uml.Pin in Ijing => use of the
+            // A ForkJoinNode can't have any org.eclipse.uml2.uml.Pin in Modelio => use of the
             // "body" role:
             if (ecoreElt instanceof org.eclipse.uml2.uml.ExecutableNode)
                 owner.getBodies().add( (org.eclipse.uml2.uml.ExecutableNode) ecoreElt);

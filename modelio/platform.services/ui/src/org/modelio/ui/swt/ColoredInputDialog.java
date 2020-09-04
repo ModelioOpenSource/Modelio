@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.eclipse.swt.widgets.Shell;
 public class ColoredInputDialog extends InputDialog {
     /**
      * C'tor.
+     * 
      * @param parentShell the parent shell, or <code>null</code> to create a top-level shell
      * @param dialogTitle the dialog title, or <code>null</code> if none
      * @param dialogMessage the dialog message, or <code>null</code> if none

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ import org.modelio.vcore.session.impl.CoreSession;
 public class EditPatternHandler {
     /**
      * Edit an existing pattern model.
+     * 
      * @param selection the current modelio selection.
      */
     @objid ("c7fb719b-87f3-43a9-b952-7bc8a0af0a8b")
@@ -73,6 +74,7 @@ public class EditPatternHandler {
 
     /**
      * Available only when the selection contains only a pattern.
+     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */

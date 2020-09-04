@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class ExpandToContentCommand extends Command {
 
     /**
      * Initialize the expand command.
+     * 
      * @param editPart The graphic edit part to expand.
      */
     @objid ("7f40a154-1dec-11e2-8cad-001ec947c8cc")
@@ -63,6 +64,7 @@ public class ExpandToContentCommand extends Command {
 
     /**
      * Ask for the command that will expand the node to its preferred size.
+     * 
      * @return The resize command. May return <tt>null</tt>.
      */
     @objid ("7f40a15e-1dec-11e2-8cad-001ec947c8cc")

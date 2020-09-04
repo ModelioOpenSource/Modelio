@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
@@ -101,6 +101,7 @@ public class PropertyTableImpl extends ElementImpl implements PropertyTable {
 
     /**
      * Update the cached Properties from the string content.
+     * 
      * @return the new cached Properties.
      */
     @objid ("b5b0b9f3-8d2c-44a1-8173-3c97f0a44fe1")
@@ -122,6 +123,7 @@ public class PropertyTableImpl extends ElementImpl implements PropertyTable {
      * Get the internal property table.
      * <p>
      * The internal property table reflects the string content at the moment it is computed.
+     * 
      * @return the internal property table.
      */
     @objid ("0ab19bd3-e3e4-41f5-be52-5cee16a1623e")
@@ -136,6 +138,7 @@ public class PropertyTableImpl extends ElementImpl implements PropertyTable {
 
     /**
      * Return the cached properties if the Properties is up to date with the string content.
+     * 
      * @return the cached property table or <code>null</code>.
      */
     @objid ("07ffcaec-5a48-4ecb-ba9d-767191ca6ac7")
@@ -152,70 +155,70 @@ public class PropertyTableImpl extends ElementImpl implements PropertyTable {
         return props;
     }
 
-    @objid ("e8cfe84a-b9e4-47cd-a967-f7b359006dde")
+    @objid ("e0059d8c-fcb4-4a5e-970b-651bf211c3c1")
     @Override
     public String getName() {
         return (String) getAttVal(((PropertyTableSmClass)getClassOf()).getNameAtt());
     }
 
-    @objid ("03d0f48b-fab0-422c-b3ad-0b66491eb10e")
+    @objid ("8082709c-33f1-4715-a41e-b505395f70a1")
     @Override
     public void setName(String value) {
         setAttVal(((PropertyTableSmClass)getClassOf()).getNameAtt(), value);
     }
 
-    @objid ("da032541-6444-4691-b945-fb21a7700a0e")
+    @objid ("819f7012-a663-41d6-aae3-d591e5cc7f05")
     @Override
     public String getContent() {
         return (String) getAttVal(((PropertyTableSmClass)getClassOf()).getContentAtt());
     }
 
-    @objid ("4b03d2da-ada6-4fad-b516-2c580993472b")
+    @objid ("1fe82863-c41e-4e3a-ab7e-ec59476470b5")
     @Override
     public void setContent(String value) {
         setAttVal(((PropertyTableSmClass)getClassOf()).getContentAtt(), value);
     }
 
-    @objid ("0fe60a15-4969-4b5b-b23c-120b5ae873bf")
+    @objid ("f2d6ff07-bda8-4f50-80a2-3bbf31bf81b3")
     @Override
     public MatrixValueDefinition getOwnerValDef() {
         Object obj = getDepVal(((PropertyTableSmClass)getClassOf()).getOwnerValDefDep());
         return (obj instanceof MatrixValueDefinition)? (MatrixValueDefinition)obj : null;
     }
 
-    @objid ("a0b0ea52-bef4-4823-9927-3bbb024cd7cc")
+    @objid ("470f8520-2c3f-44ed-936d-247cb2969c65")
     @Override
     public void setOwnerValDef(MatrixValueDefinition value) {
         appendDepVal(((PropertyTableSmClass)getClassOf()).getOwnerValDefDep(), (SmObjectImpl)value);
     }
 
-    @objid ("b3a67799-45c5-4d06-92b3-c57b96ad5b13")
+    @objid ("cf16743c-4bc2-4bf4-8756-54ba60f7c990")
     @Override
     public QueryDefinition getOwnerQuery() {
         Object obj = getDepVal(((PropertyTableSmClass)getClassOf()).getOwnerQueryDep());
         return (obj instanceof QueryDefinition)? (QueryDefinition)obj : null;
     }
 
-    @objid ("90605d31-5fe6-4c8e-90b2-c73ae2e9d7a2")
+    @objid ("32ebcd17-f382-4777-a135-66bfb28d5827")
     @Override
     public void setOwnerQuery(QueryDefinition value) {
         appendDepVal(((PropertyTableSmClass)getClassOf()).getOwnerQueryDep(), (SmObjectImpl)value);
     }
 
-    @objid ("5bc4aaa5-6d15-45f8-9525-4e830b702ada")
+    @objid ("8d4b4516-94ab-40ac-91c2-3cb0c5aa29e4")
     @Override
     public ModelElement getOwner() {
         Object obj = getDepVal(((PropertyTableSmClass)getClassOf()).getOwnerDep());
         return (obj instanceof ModelElement)? (ModelElement)obj : null;
     }
 
-    @objid ("3e26a9c3-01be-4397-95b1-4feae485c71a")
+    @objid ("d6c0914f-b0a0-4298-93cc-0321b72e57d7")
     @Override
     public void setOwner(ModelElement value) {
         appendDepVal(((PropertyTableSmClass)getClassOf()).getOwnerDep(), (SmObjectImpl)value);
     }
 
-    @objid ("c0c8e2ea-d2cd-4152-8bad-2e50f09562c9")
+    @objid ("0cc65dd1-1db9-4167-a484-4ec8b4a549f0")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -235,7 +238,7 @@ public class PropertyTableImpl extends ElementImpl implements PropertyTable {
         return super.getCompositionOwner();
     }
 
-    @objid ("a979f257-256d-4f2f-aa6b-7be54a576985")
+    @objid ("a5f7a8eb-dfc2-4d28-8603-e3ebd216d031")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -260,7 +263,7 @@ public class PropertyTableImpl extends ElementImpl implements PropertyTable {
         return super.getCompositionRelation();
     }
 
-    @objid ("517fbd53-6f47-490d-a842-bf255bcbf6f4")
+    @objid ("c04d6635-d000-4a88-8dd6-a936423e09e6")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitPropertyTable(this);

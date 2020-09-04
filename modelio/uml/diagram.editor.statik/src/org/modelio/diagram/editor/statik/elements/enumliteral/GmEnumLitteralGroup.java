@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class GmEnumLitteralGroup extends GmGroup {
 
     /**
      * Creates an attribute group.
+     * 
      * @param diagram The diagram.
      * @param relatedRef The related element reference, must not be null.
      */

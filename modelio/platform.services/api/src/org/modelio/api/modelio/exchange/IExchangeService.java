@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ public interface IExchangeService {
      * This service exports a part of the model into an XMI file.
      * TODO progress monitor is unused yet.
      * @see XmiExportConfiguration for more info about the format and which element to export.
+     * 
      * @param configuration the configuration of export process.
      * @param monitor a monitor for progress infos. Might be <code>null</code>.
      * @throws org.modelio.api.modelio.exchange.XmiException the first occurring exception
@@ -42,6 +43,7 @@ public interface IExchangeService {
      * This service imports a model from an XMI file into Modelio.
      * TODO progress monitor is unused yet.
      * @see XmiExportConfiguration for more info.
+     * 
      * @param configuration the configuration of import process.
      * @param monitor a monitor for progress infos. Might be <code>null</code>.
      * @throws org.modelio.api.modelio.exchange.XmiException the first occurring exception

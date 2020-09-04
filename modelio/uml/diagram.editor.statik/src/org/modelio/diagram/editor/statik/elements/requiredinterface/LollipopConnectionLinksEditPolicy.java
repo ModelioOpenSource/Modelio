@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -151,6 +151,7 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
 
         /**
          * Disconnect the required interface from any lollipop.
+         * 
          * @param link The required interface link to disconnect.
          */
         @objid ("367d96c5-55b7-11e2-877f-002564c97630")
@@ -160,6 +161,7 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
 
         /**
          * Tells whether the required interface is connected to the given lollipop Connector
+         * 
          * @param link The required interface
          * @param target the lollipop, should be a Connector.
          * @return <code>true</code> only if the required interface is connected to the lollipop Connector
@@ -279,6 +281,7 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
 
         /**
          * Disconnect the required interface from any lollipop.
+         * 
          * @param link The required interface link to disconnect.
          */
         @objid ("367f1d5c-55b7-11e2-877f-002564c97630")
@@ -288,6 +291,7 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
 
         /**
          * Tells whether the provided interface is connected to the given lollipop Connector
+         * 
          * @param link The required interface
          * @param target the lollipop, should be a Connector.
          * @return <code>true</code> only if the provided interface is connected to the lollipop Connector

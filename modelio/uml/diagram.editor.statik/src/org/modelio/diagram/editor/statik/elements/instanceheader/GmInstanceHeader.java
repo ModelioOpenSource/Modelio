@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class GmInstanceHeader extends GmDefaultModelElementHeader {
 
     /**
      * Initialize a classifier header
+     * 
      * @param diagram the owning diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */

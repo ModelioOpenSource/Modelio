@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -114,6 +114,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
     /**
      * Get children for a MObject
+     * 
      * @param parent @return
      */
     @objid ("1c431ccf-5d0b-4e13-9518-6725f63cd2a9")
@@ -132,6 +133,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
     /**
      * Has children? for a MObject
+     * 
      * @param parent @return
      */
     @objid ("c28725f9-e27d-4ffb-b8c8-f65ce0608e91")
@@ -357,6 +359,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
         /**
          * Avoid having a duplicated element in the result, but preserves order unlike a Set.
+         * 
          * @param elt the element to add.
          */
         @objid ("eaa45a42-d9ef-49c6-9ff7-c66aef099e3e")
@@ -368,6 +371,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
         /**
          * Avoid having duplicated elements in the result, but preserves order unlike a Set.
+         * 
          * @param elts the element to add.
          */
         @objid ("8ddb65b6-4ac0-47bc-a0bf-42bfaa496887")
@@ -380,6 +384,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
         /**
          * Avoid having a duplicated element in the result, but preserves order unlike a Set.
+         * 
          * @param elt the element to add.
          */
         @objid ("f8a12327-9202-468d-81d7-a102bebfc2ff")
@@ -391,6 +396,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
         /**
          * Avoid having duplicated elements in the result, but preserves order unlike a Set.
+         * 
          * @param elts the element to add.
          */
         @objid ("f064358f-833d-4fed-8be6-cac71f968de0")
@@ -403,6 +409,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
         /**
          * Get the non-links children to display into the given element.
+         * 
          * @param parent the element where children will be looked for
          * @return The children to display when expanding the tree node.
          */
@@ -417,6 +424,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
         /**
          * Get the link children to display into the given element.
+         * 
          * @param parent the element where children will be looked for
          * @return The children to display when expanding the tree node.
          */

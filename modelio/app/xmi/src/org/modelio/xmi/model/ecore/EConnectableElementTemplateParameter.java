@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,32 +21,15 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.metamodel.uml.statik.TemplateParameter;
-import org.modelio.xmi.plugin.Xmi;
-import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
+import org.modelio.module.modelermodule.api.xmi.standard.templateparameter.UML2ConnectableElementTemplateParameter;
 
 @objid ("1c09ea4a-fa77-4a91-9f92-ef3100b6eec8")
 public class EConnectableElementTemplateParameter extends EElement {
     @objid ("f6ba83b1-85e2-470d-aa82-1a58afbddb43")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
-        TemplateParameter result = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createTemplateParameter();
-        
-        try {
-            result.getExtension().add(mmServices.getStereotype(XMIProperties.modelerModuleName, 
-                    IModelerModuleStereotypes.UML2CONNECTABLEELEMENTTEMPLATEPARAMETER, result.getMClass()));
-        } catch (ElementNotUniqueException e) {
-           Xmi.LOG.warning(e);
-        }
-        return result;
+        return UML2ConnectableElementTemplateParameter.create().getElement();
     }
 
     @objid ("ea5fc7b4-ab44-4196-8e29-057d5fc401d4")

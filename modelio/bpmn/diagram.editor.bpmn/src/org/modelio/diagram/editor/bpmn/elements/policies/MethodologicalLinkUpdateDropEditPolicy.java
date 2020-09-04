@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,8 +48,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("ab7c7d9d-45e5-4249-9b17-53f53b293219")
 public class MethodologicalLinkUpdateDropEditPolicy extends DefaultElementDropEditPolicy {
+    @objid ("30386958-018a-4327-8b2d-4397adbe2bc9")
+    private boolean synchronizeName;
+
     @objid ("6102653c-656d-4f77-8230-6a2502e2f685")
     private Stereotype methoLinkStereotype;
+
+    /**
+     * Instanciate the policy for a specific {@link MethodologicalLink} stereotype.
+     * <p>
+     * Equivalent to <code>MethodologicalLinkUpdateDropEditPolicy(Stereotype, false)</code>.
+     * </p>
+     * 
+     * @param methoLinkStereotype a {@link MethodologicalLink} stereotype.
+     */
+    @objid ("6c94c081-de35-400d-84e5-1bc398a401f8")
+    public MethodologicalLinkUpdateDropEditPolicy(Stereotype methoLinkStereotype) {
+        this(methoLinkStereotype, false);
+    }
 
     /**
      * Unmasking of a {@link ModelElement} that can be the target of a {@link MethodologicalLink} to use it as the element's type.
@@ -66,7 +82,7 @@ public class MethodologicalLinkUpdateDropEditPolicy extends DefaultElementDropEd
             GmModel gmModel = (GmModel) getHost().getModel();
             IGmDiagram gmDiagram = gmModel.getDiagram();
             MObject droppedElement = request.getDroppedElements()[0];
-            if (isSmartCallActivity(droppedElement, gmDiagram)) {
+            if (isSmart(droppedElement, gmDiagram)) {
                 // Allow smart drop
                 return getHost();
             }
@@ -86,15 +102,15 @@ public class MethodologicalLinkUpdateDropEditPolicy extends DefaultElementDropEd
         MObject element = ((GmModel) getHost().getModel()).getRelatedElement();
         if (request.getDroppedElements().length == 1) {
             MObject droppedElement = request.getDroppedElements()[0];
-            if (isSmartCallActivity(droppedElement, gmDiagram)) {
-                return new UpdateMethoLinkCommand(element, droppedElement, this.methoLinkStereotype);
+            if (isSmart(droppedElement, gmDiagram)) {
+                return new UpdateMethoLinkCommand(element, droppedElement, this.methoLinkStereotype, this.synchronizeName);
             }
         }
         return null;
     }
 
     @objid ("6304b0d9-4a18-44cd-88ca-93f84fadbdde")
-    private boolean isSmartCallActivity(MObject droppedElement, IGmDiagram gmDiagram) {
+    private boolean isSmart(MObject droppedElement, IGmDiagram gmDiagram) {
         GmModel gmModel = (GmModel) getHost().getModel();
         MObject element = gmModel.getRelatedElement();
         MClass linkMetaclass = element.getMClass().getMetamodel().getMClass(MethodologicalLink.MQNAME);
@@ -105,11 +121,14 @@ public class MethodologicalLinkUpdateDropEditPolicy extends DefaultElementDropEd
 
     /**
      * Instanciate the policy for a specific {@link MethodologicalLink} stereotype.
+     * 
      * @param methoLinkStereotype a {@link MethodologicalLink} stereotype.
+     * @param synchronizeName whether or not the name of the element owning the methodological link should be updated when a link is set.
      */
-    @objid ("6c94c081-de35-400d-84e5-1bc398a401f8")
-    public MethodologicalLinkUpdateDropEditPolicy(Stereotype methoLinkStereotype) {
+    @objid ("6e47b292-b412-4da3-ab23-02c23424c6a0")
+    public MethodologicalLinkUpdateDropEditPolicy(Stereotype methoLinkStereotype, boolean synchronizeName) {
         this.methoLinkStereotype = methoLinkStereotype;
+        this.synchronizeName = synchronizeName;
     }
 
     /**
@@ -117,6 +136,9 @@ public class MethodologicalLinkUpdateDropEditPolicy extends DefaultElementDropEd
      */
     @objid ("3b625e51-7fe3-4681-b362-27a29d5fb75d")
     private static class UpdateMethoLinkCommand extends Command {
+        @objid ("6a703d3b-1d30-4079-b72a-9618463e3b34")
+        private boolean synchronizeName;
+
         @objid ("eb7057c4-a388-4eb9-81b2-d30af5451d91")
         private MObject elementToType;
 
@@ -128,15 +150,18 @@ public class MethodologicalLinkUpdateDropEditPolicy extends DefaultElementDropEd
 
         /**
          * Constructor for the command.
+         * 
          * @param elementToType the element to type.
          * @param newType the type to use. Might be <code>null</code>.
          * @param methoLinkStereotype the stereotype to use for the {@link MethodologicalLink}.
+         * @param synchronizeName whether or not the name of the element owning the methodological link should be updated when a link is set.
          */
         @objid ("8021b9b5-18be-4014-8593-48efc363b2ed")
-        public UpdateMethoLinkCommand(final MObject elementToType, final MObject newType, Stereotype methoLinkStereotype) {
+        public UpdateMethoLinkCommand(final MObject elementToType, final MObject newType, Stereotype methoLinkStereotype, boolean synchronizeName) {
             this.elementToType = elementToType;
             this.newType = newType;
             this.methoLinkStereotype = methoLinkStereotype;
+            this.synchronizeName = synchronizeName;
         }
 
         @objid ("78381c06-9d89-45b0-bd28-f9a76109d1d9")
@@ -151,6 +176,9 @@ public class MethodologicalLinkUpdateDropEditPolicy extends DefaultElementDropEd
         public void execute() {
             if (isChangeConfirmed()) {
                 AbstractMethodologicalLink.setTarget((ModelElement) this.elementToType, this.methoLinkStereotype, (ModelElement) this.newType);
+                if (this.synchronizeName) {
+                    this.elementToType.setName(this.newType.getName());
+                }
             }
         }
 

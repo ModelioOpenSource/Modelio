@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public abstract class GmAbstractLocator implements IGmLocator {
 
     /**
      * Copy constructor.
+     * 
      * @param source the object to copy.
      */
     @objid ("5051907a-8432-413d-a6ed-953bed1eceff")

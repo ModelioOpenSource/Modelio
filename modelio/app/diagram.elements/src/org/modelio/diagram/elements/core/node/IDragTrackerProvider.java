@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ import org.eclipse.gef.Request;
 public interface IDragTrackerProvider {
     /**
      * Returns a Drag Tracker.
+     * 
      * @param request current request for which a Drag Tracker is needed.
      * @return a DragTracker.
      */

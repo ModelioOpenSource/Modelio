@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -103,6 +103,7 @@ public class DiagramViewEditPart extends AbstractNodeEditPart {
         fig.setLayoutManager(new BorderLayout());
         
         MinimumSizeLayout.apply(fig, 150, 100);
+        fig.setPreferredSize(200, 200);
         
         // Set style dependent properties
         refreshFromStyle(fig, getModelStyle());

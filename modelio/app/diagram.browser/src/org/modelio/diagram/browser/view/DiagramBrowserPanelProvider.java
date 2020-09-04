@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -113,7 +113,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
         this.treeViewer = new TreeViewer(parent, SWT.MULTI);
         
         Transfer[] transferTypes = new Transfer[] { LocalSelectionTransfer.getTransfer() };
-        this.treeViewer.addDragSupport(DND.DROP_MOVE, transferTypes, new DiagramBrowserDragListener(this.treeViewer));
+        this.treeViewer.addDragSupport(DND.DROP_MOVE | DND.DROP_COPY, transferTypes, new DiagramBrowserDragListener(this.treeViewer));
         this.treeViewer.addDropSupport(DND.DROP_MOVE, transferTypes,
                 new DiagramBrowserDropListener(this.treeViewer, this.project.getSession()));
         

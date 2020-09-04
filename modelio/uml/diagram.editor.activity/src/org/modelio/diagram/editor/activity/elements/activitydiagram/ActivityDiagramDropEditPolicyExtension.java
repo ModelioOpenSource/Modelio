@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,13 +22,17 @@ package org.modelio.diagram.editor.activity.elements.activitydiagram;
 
 import java.util.Deque;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.commands.Command;
 import org.modelio.diagram.editor.activity.elements.commands.CreateActivityParameterNodeCommand;
 import org.modelio.diagram.editor.activity.elements.commands.CreateCallBehaviorCommand;
 import org.modelio.diagram.editor.activity.elements.commands.CreateCallOperationCommand;
+import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramElementDropEditPolicyExtension;
 import org.modelio.diagram.elements.common.abstractdiagram.DiagramElementDropEditPolicy;
+import org.modelio.diagram.elements.common.abstractdiagram.UnmaskConstraintCommand;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.metamodel.StandardMetamodel;
@@ -40,6 +44,7 @@ import org.modelio.metamodel.uml.behavior.activityModel.CallOperationAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.BehaviorParameter;
+import org.modelio.metamodel.uml.infrastructure.Constraint;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Attribute;
@@ -47,6 +52,7 @@ import org.modelio.metamodel.uml.statik.GeneralClass;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.Parameter;
+import org.modelio.metamodel.visitors.DefaultModelVisitor;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -82,7 +88,8 @@ public class ActivityDiagramDropEditPolicyExtension extends AbstractDiagramEleme
         } else if (droppedElement != null) {
             // TODO improve check for an "activity diagram" element
             if (droppedElement.getMClass().getOrigin().getName().equals(StandardMetamodel.NAME)) {
-                return super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
+                Command cmd = (Command) droppedElement.accept(new StandardVisitorImpl(dropPolicy, dropLocation));
+                return cmd != null ? cmd : super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
             }
         }
         return null;
@@ -173,6 +180,28 @@ public class ActivityDiagramDropEditPolicyExtension extends AbstractDiagramEleme
             }
         }
         return false;
+    }
+
+    @objid ("b1661927-3180-4f10-89cd-b68b7b41ba5c")
+    private static class StandardVisitorImpl extends DefaultModelVisitor {
+        @objid ("c8b03b88-258b-405b-b1fb-f6bc80e0f79d")
+        private Point dropLocation;
+
+        @objid ("e05695d0-f444-4ff7-b474-c025fc227260")
+        private DiagramElementDropEditPolicy dropPolicy;
+
+        @objid ("7ffce151-b0af-49c4-ba77-0a80d0c828fd")
+        public StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
+            this.dropPolicy = dropPolicy;
+            this.dropLocation = dropLocation;
+        }
+
+        @objid ("3ee100c4-6e5f-44c6-8638-691059e1a2ba")
+        @Override
+        public Object visitConstraint(final Constraint theConstraint) {
+            return new UnmaskConstraintCommand(theConstraint, (AbstractDiagramEditPart) this.dropPolicy.getHost(), new Rectangle(this.dropLocation, new Dimension(-1, -1)));
+        }
+
     }
 
 }

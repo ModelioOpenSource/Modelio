@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -144,6 +144,7 @@ public class GmBpmnLaneSetContainer extends GmNoStyleCompositeNode {
 
     /**
      * Get the contained {@link GmBpmnLane} nodes.
+     * 
      * @return a list of {@link GmBpmnLane} nodes.
      */
     @objid ("61453d0b-55b6-11e2-877f-002564c97630")

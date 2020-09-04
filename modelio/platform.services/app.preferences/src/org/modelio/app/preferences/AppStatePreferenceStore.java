@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,18 +29,22 @@ import org.modelio.app.preferences.plugin.AppPreferences;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.vbasic.files.FileUtils;
 
+/**
+ * The AppStatePreferenceStore stores the state of the application in the context of a project.
+ * Typical use: opened diagrams, shown views etc..
+ */
 @objid ("f698d9f8-7233-48f8-b4f5-22e9fd647d3f")
 public class AppStatePreferenceStore extends PreferenceStore {
     @objid ("ab76bea7-2b14-4138-9e52-b373031c80c4")
     public AppStatePreferenceStore(GProject project) {
         super();
         
-        Path p = project.getProjectRuntimePath().resolve(".save");
+        Path p = project.getProjectFileStructure().getProjectRuntimePath().resolve(".save");
         setFilename(p.toString());
         try {
             // Create the file only if it does not exist
-            Files.createDirectories(project.getProjectRuntimePath());
-            p.toFile().createNewFile(); 
+            Files.createDirectories(project.getProjectFileStructure().getProjectRuntimePath());
+            p.toFile().createNewFile();
         
             load();
         } catch (IOException e) {

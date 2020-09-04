@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -70,6 +70,7 @@ public class BendedConnectionCreationTool extends AbstractConnectionCreationTool
 
     /**
      * Constructs a new ConnectionCreationTool with the given factory.
+     * 
      * @param factory the creation factory
      */
     @objid ("80df7a7b-1dec-11e2-8cad-001ec947c8cc")
@@ -205,6 +206,7 @@ public class BendedConnectionCreationTool extends AbstractConnectionCreationTool
      * Get the current routing mode.
      * <p>
      * The routing mode is lazily initialized here.
+     * 
      * @return the the current routing mode.
      */
     @objid ("80e1dcfc-1dec-11e2-8cad-001ec947c8cc")
@@ -240,6 +242,7 @@ public class BendedConnectionCreationTool extends AbstractConnectionCreationTool
      * 
      * 
      * </ol>
+     * 
      * @param button the button that was pressed
      * @return <code>true</code> if the button down was processed
      */
@@ -283,6 +286,7 @@ public class BendedConnectionCreationTool extends AbstractConnectionCreationTool
 
     /**
      * Cleans up feedback and resets the tool when focus is lost.
+     * 
      * @return <code>true</code> if this focus lost event was processed
      */
     @objid ("80e1dd0d-1dec-11e2-8cad-001ec947c8cc")
@@ -299,6 +303,7 @@ public class BendedConnectionCreationTool extends AbstractConnectionCreationTool
 
     /**
      * Processes the arrow keys (to move the cursor to nearby anchor locations) and the enter key (to start or complete a connections).
+     * 
      * @param event the key event
      * @return <code>true</code> if this key down event was processed
      */
@@ -440,6 +445,7 @@ public class BendedConnectionCreationTool extends AbstractConnectionCreationTool
 
     /**
      * Get the alternate connection routing mode that is activated when pressing &lt;shift>.
+     * 
      * @return the alternate connection routing mode.
      */
     @objid ("80e43f2c-1dec-11e2-8cad-001ec947c8cc")
@@ -458,6 +464,7 @@ public class BendedConnectionCreationTool extends AbstractConnectionCreationTool
      * Get the primary routing mode.
      * <p>
      * The primary routing mode is lazily initialized from the routing mode style key.
+     * 
      * @return the primary routing mode.
      */
     @objid ("80e43f30-1dec-11e2-8cad-001ec947c8cc")
@@ -481,6 +488,7 @@ public class BendedConnectionCreationTool extends AbstractConnectionCreationTool
      * Find the target editpart and returns it.
      * <p>
      * The target is searched by using the target conditional and the target request temporarily modified to the given request type.
+     * 
      * @param requestType The request type to try.
      * @return the edit part that can handle the request under the mouse.
      */
@@ -504,6 +512,7 @@ public class BendedConnectionCreationTool extends AbstractConnectionCreationTool
 
     /**
      * Method that is called when the gesture to create an intermediate point has been received. Returns <code>true</code> to indicate that the point creation succeeded.
+     * 
      * @return <code>true</code> if the connection point was performed
      */
     @objid ("80e43f3c-1dec-11e2-8cad-001ec947c8cc")
@@ -538,6 +547,7 @@ public class BendedConnectionCreationTool extends AbstractConnectionCreationTool
     /**
      * Same as {@link org.eclipse.gef.tools.TargetingTool#setTargetEditPart(EditPart) setTargetEditPart(EditPart)} but returns whether a change was done or not.
      * @param requestType the new request
+     * 
      * @param editPart The new edit part, may be null
      * @return true if the edit part was changed, false if it is still the same.
      */

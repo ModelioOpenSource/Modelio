@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public class DefaultPeerModule implements IPeerModule {
 
     /**
      * Instantiate the Default peer module.
+     * 
      * @param moduleComponent the module model element
      * @param configuration the access to module parameter and resource paths.
      */

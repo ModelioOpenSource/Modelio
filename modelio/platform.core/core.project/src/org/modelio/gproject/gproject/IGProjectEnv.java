@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public interface IGProjectEnv {
 
     /**
      * Get the metamodel fragments to use with the project.
+     * 
      * @return the metamodel fragments.
      */
     @objid ("2bfd352d-fc79-4a99-abb4-e3d60cd2aff8")

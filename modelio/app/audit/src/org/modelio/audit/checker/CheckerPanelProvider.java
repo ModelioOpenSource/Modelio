@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,8 +34,8 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -71,6 +71,21 @@ public class CheckerPanelProvider implements IPanelProvider {
     @objid ("68a5e4bb-9868-46d4-8af1-a1d0d04cba5f")
     private String jobId;
 
+    @objid ("d0f30f82-789c-4193-9f77-a18f1529759e")
+    private Button byElementButton;
+
+    @objid ("2dfb629c-7881-4d4f-bf49-a0754f62e96c")
+    private Button byListButton;
+
+    @objid ("79194d11-bf00-4729-90f9-29aabf3295c1")
+    private Button byRuleButton;
+
+    @objid ("48f3215d-47cf-4c65-8f95-f7c71842e463")
+    private Button byTypeButton;
+
+    @objid ("336bb503-b306-4417-a331-a64ff88faaac")
+    private Composite rootComposite;
+
     @objid ("6e220856-42cc-43c8-bd0f-909f5924e0f3")
     private AuditPanelProvider auditPanel;
 
@@ -78,18 +93,6 @@ public class CheckerPanelProvider implements IPanelProvider {
     @Inject
     @Optional
     private IAuditService auditService;
-
-    @objid ("b8355824-d879-4889-92d5-9043b2d14856")
-    private Button byElementButton;
-
-    @objid ("9cccfac9-56f6-42a4-bbea-fc0fd993c903")
-    private Button byListButton;
-
-    @objid ("ecb4712e-2799-4b16-ae3d-4c80bcb35a82")
-    private Button byRuleButton;
-
-    @objid ("e6ef31b9-71c1-4980-a584-a9b33b301afb")
-    private Button byTypeButton;
 
     @objid ("b300eafd-8ea4-4289-b3f4-97a8d6096886")
     private Object input;
@@ -109,9 +112,6 @@ public class CheckerPanelProvider implements IPanelProvider {
     @Optional
     private IProjectService projectService;
 
-    @objid ("991cfdd8-6fd6-4ab3-9af7-8192a6574d59")
-    private Composite rootComposite;
-
     @objid ("106b1506-22a7-4fae-ba45-39f2736da135")
     public CheckerPanelProvider() {
         this.jobId = UUID.randomUUID().toString();
@@ -121,7 +121,7 @@ public class CheckerPanelProvider implements IPanelProvider {
     @Override
     public Object createPanel(Composite parent) {
         this.auditPanel = new AuditPanelProvider(this.auditService, this.projectService.getSession(), this.modelService,
-                this.navigationService, this.application, this.emService, this.jobId);
+                this.navigationService, this.application, this.emService);
         
         this.rootComposite = new Composite(parent, SWT.NONE);
         GridData gd = new GridData();
@@ -134,95 +134,90 @@ public class CheckerPanelProvider implements IPanelProvider {
         
         this.byTypeButton = new Button(this.rootComposite, SWT.TOGGLE);
         this.byTypeButton.setImage(Audit.getImageDescriptor("icons/layoutbytype.png").createImage());
-        this.byTypeButton.addMouseListener(new MouseListener() {
+        
+        this.byTypeButton.addSelectionListener(new SelectionListener() {
         
             @Override
-            public void mouseUp(MouseEvent e) {
-                CheckerPanelProvider.this.auditPanel.setAuditViewMode(AuditViewMode.BYTYPE);
+            public void widgetSelected(SelectionEvent e) {
+                CheckerPanelProvider.this.auditPanel.setViewMode(AuditViewMode.BYTYPE);
                 CheckerPanelProvider.this.byRuleButton.setSelection(false);
                 CheckerPanelProvider.this.byElementButton.setSelection(false);
                 CheckerPanelProvider.this.byListButton.setSelection(false);
             }
         
             @Override
-            public void mouseDown(MouseEvent e) {
-                // Ignore
-            }
+            public void widgetDefaultSelected(SelectionEvent e) {
+             // Ignore
         
-            @Override
-            public void mouseDoubleClick(MouseEvent e) {
-                // Ignore
             }
         });
         this.byTypeButton.setSelection(true);
         
         this.byRuleButton = new Button(this.rootComposite, SWT.TOGGLE);
         this.byRuleButton.setImage(Audit.getImageDescriptor("icons/layoutbyrule.png").createImage());
-        this.byRuleButton.addMouseListener(new MouseListener() {
+        
+        this.byRuleButton.addSelectionListener(new SelectionListener() {
         
             @Override
-            public void mouseUp(MouseEvent e) {
-                CheckerPanelProvider.this.auditPanel.setAuditViewMode(AuditViewMode.BYRULE);
+            public void widgetSelected(SelectionEvent e) {
+                CheckerPanelProvider.this.auditPanel.setViewMode(AuditViewMode.BYRULE);
                 CheckerPanelProvider.this.byTypeButton.setSelection(false);
                 CheckerPanelProvider.this.byElementButton.setSelection(false);
                 CheckerPanelProvider.this.byListButton.setSelection(false);
             }
         
             @Override
-            public void mouseDown(MouseEvent e) {
+            public void widgetDefaultSelected(SelectionEvent e) {
                 // Ignore
+        
             }
         
-            @Override
-            public void mouseDoubleClick(MouseEvent e) {
-                // Ignore
-            }
         });
+        
+        
         
         this.byElementButton = new Button(this.rootComposite, SWT.TOGGLE);
         this.byElementButton.setImage(Audit.getImageDescriptor("icons/layoutbyelement.png").createImage());
-        this.byElementButton.addMouseListener(new MouseListener() {
+        
+        this.byElementButton.addSelectionListener(new SelectionListener() {
         
             @Override
-            public void mouseUp(MouseEvent e) {
-                CheckerPanelProvider.this.auditPanel.setAuditViewMode(AuditViewMode.BYELEMENT);
+            public void widgetSelected(SelectionEvent e) {
+                CheckerPanelProvider.this.auditPanel.setViewMode(AuditViewMode.BYELEMENT);
                 CheckerPanelProvider.this.byTypeButton.setSelection(false);
                 CheckerPanelProvider.this.byRuleButton.setSelection(false);
                 CheckerPanelProvider.this.byListButton.setSelection(false);
             }
         
             @Override
-            public void mouseDown(MouseEvent e) {
+            public void widgetDefaultSelected(SelectionEvent e) {
                 // Ignore
-            }
         
-            @Override
-            public void mouseDoubleClick(MouseEvent e) {
-                // Ignore
             }
         });
+        
         this.byListButton = new Button(this.rootComposite, SWT.TOGGLE);
         this.byListButton.setImage(Audit.getImageDescriptor("icons/layoutflat.png").createImage());
-        this.byListButton.addMouseListener(new MouseListener() {
+        
+        this.byListButton.addSelectionListener(new SelectionListener() {
         
             @Override
-            public void mouseUp(MouseEvent e) {
-                CheckerPanelProvider.this.auditPanel.setAuditViewMode(AuditViewMode.FLAT);
+            public void widgetSelected(SelectionEvent e) {
+                CheckerPanelProvider.this.auditPanel.setViewMode(AuditViewMode.FLAT);
                 CheckerPanelProvider.this.byTypeButton.setSelection(false);
                 CheckerPanelProvider.this.byRuleButton.setSelection(false);
                 CheckerPanelProvider.this.byElementButton.setSelection(false);
             }
         
             @Override
-            public void mouseDown(MouseEvent e) {
+            public void widgetDefaultSelected(SelectionEvent e) {
                 // Ignore
-            }
         
-            @Override
-            public void mouseDoubleClick(MouseEvent e) {
-                // Ignore
             }
         });
+        
+        
+        
         this.auditPanel.createPanel(this.rootComposite);
         gd = new GridData();
         gd.horizontalSpan = 6;

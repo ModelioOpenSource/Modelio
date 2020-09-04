@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,9 +37,24 @@ public class SetHtmlCommand extends Command {
     }
 
     @objid ("3c6ddc2d-e687-46b9-8863-d032c47c8f86")
+    @SuppressWarnings ("unused")
     @Override
     public String getScript() {
-        return "integration.editor.setData('" + this.html + "');";
+        // CKEditor note: setData(...) is asynchronous and accepts an optional callback.
+        // We should wait for finish before sending other commands
+        // see https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-setData
+        if (false) {
+            // run setData with ending callback
+            return " __delegate_log('setData(...) start');"+
+                    "integration.editor.setData('" + this.html + "', {"+
+                    "    callback:function() {"+
+                    "     __delegate_log('setData(...) End');"+
+                    "    } " +
+                    "});"
+                    ;
+        } else {
+            return "integration.editor.setData('" + this.html + "');";
+        }
     }
 
 }

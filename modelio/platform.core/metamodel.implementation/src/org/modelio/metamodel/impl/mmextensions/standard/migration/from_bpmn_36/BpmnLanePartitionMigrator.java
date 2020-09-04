@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class BpmnLanePartitionMigrator {
     /**
      * Move all BpmnLane.PartitionElement containing BPMN elements to BpmnLane.BpmnPartitionElementRef .
      * @param mofSession the MOF session
+     * 
      * @param monitor a progress monitor
      */
     @objid ("590904ba-f5ae-41d5-ad52-e18a97f3cc9b")

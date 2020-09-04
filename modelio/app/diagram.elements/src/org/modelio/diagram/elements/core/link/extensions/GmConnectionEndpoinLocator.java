@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
 
     /**
      * Returns the distance in pixels from the anchor's owner.
+     * 
      * @return the offset distance from the endpoint figure
      */
     @objid ("8001bfda-1dec-11e2-8cad-001ec947c8cc")
@@ -61,6 +62,7 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
 
     /**
      * Returns the distance in pixels from the connection
+     * 
      * @return the offset from the connection itself
      */
     @objid ("8001bfdf-1dec-11e2-8cad-001ec947c8cc")
@@ -71,6 +73,7 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
     /**
      * If <i>isEnd</i> is <code>true</code>, the location is relative to the Connection's end (or target) point. If
      * <i>isEnd</i> is <code>false</code> , the location is relative to the Connection's start (or source) point.
+     * 
      * @return <code>true</code> is location is relative to target point.
      */
     @objid ("8001bfe4-1dec-11e2-8cad-001ec947c8cc")
@@ -97,6 +100,7 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
     /**
      * If <i>isEnd</i> is <code>true</code>, the location is relative to the Connection's end (or target) point. If
      * <i>isEnd</i> is <code>false</code> , the location is relative to the Connection's start (or source) point.
+     * 
      * @param isEnd whether the location is relative to the target end or not.
      */
     @objid ("8001bff3-1dec-11e2-8cad-001ec947c8cc")
@@ -106,6 +110,7 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
 
     /**
      * Sets the distance in pixels from the Connection's owner.
+     * 
      * @param distance Number of pixels to place the ConnectionEndpointLocator from its owner.
      * @since 2.0
      */
@@ -116,6 +121,7 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
 
     /**
      * Sets the distance in pixels from the Connection.
+     * 
      * @param distance Number of pixels to place the ConnectionEndpointLocator from its Connection.
      * @since 2.0
      */
@@ -142,6 +148,7 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
 
     /**
      * Copy constructor.
+     * 
      * @param source the locator to copy.
      */
     @objid ("0cfbb86a-3f6d-4f9f-8214-66d2704a1a99")

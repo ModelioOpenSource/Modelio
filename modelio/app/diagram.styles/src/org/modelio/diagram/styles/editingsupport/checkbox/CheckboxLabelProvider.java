@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,8 +27,8 @@ import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.view.ISymbolViewItem;
-import org.modelio.diagram.styles.plugin.DiagramStyles;
 import org.modelio.diagram.styles.viewer.StyleEditPanelUIData;
+import org.modelio.ui.UIImages;
 
 /**
  * Provide checkbox label
@@ -36,40 +36,34 @@ import org.modelio.diagram.styles.viewer.StyleEditPanelUIData;
 @objid ("858cbf02-1926-11e2-92d2-001ec947c8cc")
 public class CheckboxLabelProvider extends ColumnLabelProvider {
     @objid ("ecaf6906-e792-44de-84be-804a33fc053d")
-    private ColumnViewer viewer;
-
-    @objid ("ff2b9461-9e76-47a9-8b86-3342c1853f56")
-    private static final Image CHECKED = DiagramStyles.getImageDescriptor("icons/checked.png").createImage();
-
-    @objid ("f5cd43c9-9f6d-427f-87a0-d4b25f9cd9fd")
-    private static final Image UNCHECKED = DiagramStyles.getImageDescriptor("icons/unchecked.png").createImage();
+    private final ColumnViewer viewer;
 
     @objid ("858cbf09-1926-11e2-92d2-001ec947c8cc")
-    public CheckboxLabelProvider(ColumnViewer viewer) {
+    public CheckboxLabelProvider(final ColumnViewer viewer) {
         this.viewer = viewer;
     }
 
     @objid ("858cbf0c-1926-11e2-92d2-001ec947c8cc")
     @Override
-    public Image getImage(Object element) {
-        ISymbolViewItem item = (ISymbolViewItem) element;
+    public Image getImage(final Object element) {
+        final ISymbolViewItem item = (ISymbolViewItem) element;
         
         if ((Boolean) item.getValue(getEditedStyle())) {
-            return CHECKED;
+            return UIImages.CHECKED;
         } else {
-            return UNCHECKED;
+            return UIImages.UNCHECKED;
         }
     }
 
     @objid ("858cbf11-1926-11e2-92d2-001ec947c8cc")
     @Override
-    public void update(ViewerCell cell) {
+    public void update(final ViewerCell cell) {
         super.update(cell);
     }
 
     @objid ("858cbf15-1926-11e2-92d2-001ec947c8cc")
     @Override
-    public String getText(Object element) {
+    public String getText(final Object element) {
         return null;
     }
 

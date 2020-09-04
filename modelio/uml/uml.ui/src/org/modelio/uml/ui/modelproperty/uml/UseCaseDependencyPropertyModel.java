@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class UseCaseDependencyPropertyModel extends AbstractPropertyModel<UseCas
     /**
      * Create a new <i>UseCaseDependency</i> data model from an
      * <i>UseCaseDependency</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("0913b8f8-3c23-441f-a45b-e7c483036965")

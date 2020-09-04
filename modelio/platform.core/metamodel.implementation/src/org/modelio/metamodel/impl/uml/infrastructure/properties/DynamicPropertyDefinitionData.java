@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
@@ -29,7 +29,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("9ab0ac5e-1050-4546-8b50-f8fc9f82e2b0")
 public class DynamicPropertyDefinitionData extends PropertyDefinitionData {
-    @objid ("56733506-b102-4a6a-a9fc-8a7d2d4a0d64")
+    @objid ("91634254-2d2f-4772-bab8-87bb12cd4e37")
     public DynamicPropertyDefinitionData(DynamicPropertyDefinitionSmClass smClass) {
         super(smClass);
     }

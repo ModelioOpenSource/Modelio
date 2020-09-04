@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,7 @@ public class InvalidUuidException extends RuntimeException {
 
     /**
      * Constructs an InvalidPathException with the specified detail message.
+     * 
      * @param message the detail message.
      */
     @objid ("5376f3f4-7592-11e0-8651-001ec947cd2a")

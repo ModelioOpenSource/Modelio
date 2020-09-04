@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -73,6 +73,7 @@ public class MacroToolbarProvider extends TrimBarComponent {
 
     /**
      * Initialize the SWT control.
+     * 
      * @param parent a widget which will be the parent of the new SWT components.
      */
     @objid ("86a0b24e-5c5f-4caa-9fa2-e2c79c974a0b")
@@ -99,6 +100,7 @@ public class MacroToolbarProvider extends TrimBarComponent {
 
     /**
      * Create a new tool item from a macro.
+     * 
      * @param entry the macro to create the tool item from.
      * @return a new toolbar item.
      */
@@ -155,6 +157,7 @@ public class MacroToolbarProvider extends TrimBarComponent {
      * <p>
      * Only macros shown in the toolbar are returned.
      * </p>
+     * 
      * @param entries the macros to build the toolbar.
      * @return a list of menu elements.
      */

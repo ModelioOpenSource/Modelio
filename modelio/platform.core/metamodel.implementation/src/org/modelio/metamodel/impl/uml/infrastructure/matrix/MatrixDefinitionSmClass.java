@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.matrix;
 
@@ -48,57 +48,57 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("2e3cf8ca-2a31-49dc-9304-38b05b812c6c")
 public class MatrixDefinitionSmClass extends ModelElementSmClass {
-    @objid ("728ad72f-9fba-4028-943c-623c2f445401")
+    @objid ("de57e7f6-d4c9-4f3d-ae0a-47be4a8a4e1f")
     private SmDependency linesDefinitionDep;
 
-    @objid ("20200bd5-5115-4bc2-86d3-754c879cc974")
+    @objid ("ad25366c-b01d-4904-9a78-984b9ab05b52")
     private SmDependency columnsDefinitionDep;
 
-    @objid ("60a6a594-e2fb-4594-a483-5d393f073702")
+    @objid ("ae9d1e8e-b422-40e0-a9ca-7e1b76cd66c3")
     private SmDependency valuesDefinitionDep;
 
-    @objid ("cd49da72-cae6-4096-bd2e-6ac09c2535a1")
+    @objid ("c584e7ff-498d-44ee-b0e9-88c81985e1b6")
     private SmDependency depthDefinitionDep;
 
-    @objid ("327f53d5-75f5-4bee-ab9e-fa26fcac7a70")
+    @objid ("35d63ab1-35c7-4019-b067-64b6f6264700")
     private SmDependency ownerDep;
 
-    @objid ("97b8162d-2d23-4883-afd5-8c7c9dda6f10")
+    @objid ("5ce46ad5-392c-460e-bd97-6eea8d3caba6")
     public MatrixDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("74b7f681-fe76-4652-8d66-48df5b7acbad")
+    @objid ("cfd0ba18-3d22-4b24-9d33-7f4d4702478d")
     @Override
     public String getName() {
         return "MatrixDefinition";
     }
 
-    @objid ("e1bb707d-54df-4654-a74e-220d904328d1")
+    @objid ("0bd8016d-a2d2-4fc5-b73b-9c96a922e8e5")
     @Override
     public Version getVersion() {
         return new Version("0.0.9054");
     }
 
-    @objid ("8e69e90c-d3be-44f8-ae1b-3558bb5ad516")
+    @objid ("6cc60b2a-0089-4f95-8ea4-c14d382d1655")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return MatrixDefinition.class;
     }
 
-    @objid ("cfc40d19-c98d-4fe3-8e84-f877467298f2")
+    @objid ("77a05a4a-4ca1-403e-a060-33a09587f769")
     @Override
     public boolean isCmsNode() {
         return false;
     }
 
-    @objid ("e7472d93-fb77-487d-ae33-fd8f70f80b5b")
+    @objid ("964bbaa3-15cb-447e-a6d4-b42a59a8545a")
     @Override
     public boolean isAbstract() {
         return false;
     }
 
-    @objid ("17ba643b-2f41-48c8-a061-82d39c21f84a")
+    @objid ("3d243a30-1285-44ef-98ca-8e3986cc6843")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(ModelElement.MQNAME);
@@ -129,7 +129,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
         registerDependency(this.ownerDep);
     }
 
-    @objid ("e379f5b4-1278-42d2-b67e-213e7bd036e0")
+    @objid ("11a8c971-d5e4-45e8-9cd2-a5ceaaa57a1e")
     public SmDependency getLinesDefinitionDep() {
         if (this.linesDefinitionDep == null) {
         	this.linesDefinitionDep = this.getDependencyDef("LinesDefinition");
@@ -137,7 +137,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
         return this.linesDefinitionDep;
     }
 
-    @objid ("71157c0d-e943-4bd5-9713-eec6cba39e40")
+    @objid ("29ef73ff-6c34-42c5-ae70-6f3f9a5da6a9")
     public SmDependency getColumnsDefinitionDep() {
         if (this.columnsDefinitionDep == null) {
         	this.columnsDefinitionDep = this.getDependencyDef("ColumnsDefinition");
@@ -145,7 +145,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
         return this.columnsDefinitionDep;
     }
 
-    @objid ("abf015fb-55f4-4024-bc60-e908a75c5f89")
+    @objid ("a89f163d-97cf-40dc-b27e-41c1de172990")
     public SmDependency getValuesDefinitionDep() {
         if (this.valuesDefinitionDep == null) {
         	this.valuesDefinitionDep = this.getDependencyDef("ValuesDefinition");
@@ -153,7 +153,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
         return this.valuesDefinitionDep;
     }
 
-    @objid ("f6af2e0e-0786-42f4-9004-e61e1fdb53d2")
+    @objid ("0d200ec7-b8d8-4361-8ab3-8c8e59ea9e48")
     public SmDependency getDepthDefinitionDep() {
         if (this.depthDefinitionDep == null) {
         	this.depthDefinitionDep = this.getDependencyDef("DepthDefinition");
@@ -161,7 +161,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
         return this.depthDefinitionDep;
     }
 
-    @objid ("3a6d15dc-86bf-487f-a381-8beba9b03491")
+    @objid ("e2f62316-1fb6-4710-90e6-e69682db0d4e")
     public SmDependency getOwnerDep() {
         if (this.ownerDep == null) {
         	this.ownerDep = this.getDependencyDef("Owner");
@@ -171,21 +171,21 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
 
     @objid ("560eaf85-a56b-4d74-8ca7-3df759e15a1d")
     private static class MatrixDefinitionObjectFactory implements ISmObjectFactory {
-        @objid ("f57c82bc-6edb-4706-b63c-5435ba5abdc2")
+        @objid ("73668100-e28a-4828-8d8c-a1b7bd55d0f7")
         private MatrixDefinitionSmClass smClass;
 
-        @objid ("7f1bfd72-64b3-4fe4-8694-047e33b65198")
+        @objid ("de15f900-63fa-4946-98f7-c4c9b97e1e0f")
         public MatrixDefinitionObjectFactory(MatrixDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("361c4925-754b-44e2-abc2-59c6ec44de4f")
+        @objid ("5b2aa8dd-f751-4e49-ae55-084b367416a1")
         @Override
         public ISmObjectData createData() {
             return new MatrixDefinitionData(this.smClass);
         }
 
-        @objid ("b8e44463-8660-43a5-9967-92ce0a4b94f2")
+        @objid ("be691414-fc0c-45bc-92c8-78cf77639ef7")
         @Override
         public SmObjectImpl createImpl() {
             return new MatrixDefinitionImpl();
@@ -195,22 +195,22 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
 
     @objid ("2cf12629-f437-4d9d-987f-90caa9f63e28")
     public static class LinesDefinitionSmDependency extends SmSingleDependency {
-        @objid ("bc843f4e-081f-417a-b9f0-24339113a2ad")
+        @objid ("3798c021-c195-4490-9d57-97b34ffe8e70")
         private SmDependency symetricDep;
 
-        @objid ("4aae2ee0-642c-4405-8074-662c10b01fb9")
+        @objid ("a9b24dec-c5e9-4c6f-87bc-4bac5558ef22")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((MatrixDefinitionData) data).mLinesDefinition;
         }
 
-        @objid ("0d3547b6-4d9d-47d2-9e96-2190efe128ac")
+        @objid ("171f9005-ce20-4a58-803d-98c36b961c06")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((MatrixDefinitionData) data).mLinesDefinition = value;
         }
 
-        @objid ("4612bdda-22e7-45b5-9216-d45a5cbea8b5")
+        @objid ("2f5bb9d8-64a1-4a3d-a6b3-c057d945dc61")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -223,22 +223,22 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
 
     @objid ("80b42027-5eb8-4762-81ff-83e31d0f5fd3")
     public static class ColumnsDefinitionSmDependency extends SmSingleDependency {
-        @objid ("64c41348-9ae5-4b14-838b-36885e694378")
+        @objid ("7e2b9c05-584a-4eea-b7b9-4cfdd612a643")
         private SmDependency symetricDep;
 
-        @objid ("3852238e-29e2-4033-98c7-3bd712415054")
+        @objid ("82cb0385-15b9-4bd9-a1e6-94067c4a1e3b")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((MatrixDefinitionData) data).mColumnsDefinition;
         }
 
-        @objid ("762c154d-c40d-4f8c-b91c-e304f2b8fe0b")
+        @objid ("23845efe-f1d0-4af7-ba66-bd6c961dcd26")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((MatrixDefinitionData) data).mColumnsDefinition = value;
         }
 
-        @objid ("2d2af772-1b46-4478-b2dd-44029e8471b1")
+        @objid ("a4263d9e-ce54-4433-9e3d-c02f5f5a784e")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -251,22 +251,22 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
 
     @objid ("6d85f4cb-3120-4fdd-8325-15ef402c6989")
     public static class ValuesDefinitionSmDependency extends SmSingleDependency {
-        @objid ("1eab3bf1-77a4-4f75-aac7-1967c388faa0")
+        @objid ("e40264cc-bdde-4fd7-96f3-7f20b8730a04")
         private SmDependency symetricDep;
 
-        @objid ("d5ccd4aa-08b0-41aa-b44e-a4cdafccab4e")
+        @objid ("ff9f7439-4ca5-4f4f-9269-00889b16fb6f")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((MatrixDefinitionData) data).mValuesDefinition;
         }
 
-        @objid ("afecf16b-a66a-4e6a-88c9-431b10ec1ddb")
+        @objid ("46d4428e-70ea-4ba5-85b9-0bfe45d2e2a6")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((MatrixDefinitionData) data).mValuesDefinition = value;
         }
 
-        @objid ("2b2e2f07-5b9b-470e-a306-e5c61aa4df63")
+        @objid ("97a1c7dc-6819-4830-8807-a7f47d329005")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -279,22 +279,22 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
 
     @objid ("1018623d-5ebf-4d7d-be6a-4588e7b2052f")
     public static class DepthDefinitionSmDependency extends SmSingleDependency {
-        @objid ("9b032532-be12-4328-bb6f-6b5c6f35b3b4")
+        @objid ("8ecb63da-6c89-4a4e-a817-f4589752b0df")
         private SmDependency symetricDep;
 
-        @objid ("9b854aba-59af-4abf-a242-181a5f267111")
+        @objid ("c7007d5f-a9f9-494d-ad6c-ed087d1536e0")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((MatrixDefinitionData) data).mDepthDefinition;
         }
 
-        @objid ("5423d716-41fe-4d8b-b9a0-1ed7a3f7911b")
+        @objid ("fe91a21c-d21d-4af0-81c6-811a20286a92")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((MatrixDefinitionData) data).mDepthDefinition = value;
         }
 
-        @objid ("cfe41fa3-46c6-48aa-ba1d-04e725fd192d")
+        @objid ("be98628c-e6c4-47c8-8789-bf728315d6c3")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -307,22 +307,22 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
 
     @objid ("16e1ca50-872c-4aaa-837e-665e33d73c42")
     public static class OwnerSmDependency extends SmSingleDependency {
-        @objid ("c7c65845-d922-49c1-acff-82704532f481")
+        @objid ("efce4eec-1236-4149-ac15-618a7846d96b")
         private SmDependency symetricDep;
 
-        @objid ("c4b9f6af-f036-44b5-92b1-fc51a480c9eb")
+        @objid ("cf104f14-2149-42ae-a565-cc146dc9303f")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((MatrixDefinitionData) data).mOwner;
         }
 
-        @objid ("9a80bf5f-8aff-45fd-b2f7-71aeb7901a0f")
+        @objid ("69e69163-31eb-43ef-ac5b-96c528b0650d")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((MatrixDefinitionData) data).mOwner = value;
         }
 
-        @objid ("49ff14ce-3dfa-40c5-a5fe-6ca0cbcdf7ea")
+        @objid ("361ce7cc-5e09-4798-b7e0-c3833aedecd2")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

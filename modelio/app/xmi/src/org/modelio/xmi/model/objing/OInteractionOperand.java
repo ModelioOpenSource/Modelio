@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,7 +61,10 @@ public class OInteractionOperand extends OInteractionFragment {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setGuard((org.eclipse.uml2.uml.InteractionOperand) ecoreElt);
-        setEndLineNumber(ecoreElt);
+        
+        if (GenerationProperties.getInstance().isRoundtripEnabled()){
+            setEndLineNumber(ecoreElt);
+        }
     }
 
     @objid ("bf9a1003-a8e9-4377-a7d7-dc09b231cdaa")
@@ -82,9 +85,7 @@ public class OInteractionOperand extends OInteractionFragment {
 
     @objid ("f95a7098-1b09-42bc-9151-84f0eed26a3f")
     private void setEndLineNumber(org.eclipse.uml2.uml.Element ecoreElt) {
-        if (GenerationProperties.getInstance().isRoundtripEnabled()){
-            ObjingEAnnotation.setEndLineNumber(ecoreElt, ((InteractionOperand) getObjingElement()).getEndLineNumber());
-        }
+        ObjingEAnnotation.setEndLineNumber(ecoreElt, ((InteractionOperand) getObjingElement()).getEndLineNumber());
     }
 
 }

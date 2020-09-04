@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ import org.modelio.vcore.model.api.IElementNamer;
 class CreateCommunicationMessageCommand extends DefaultCreateElementCommand {
     /**
      * Creates the command
+     * 
      * @param gmGroup The group where the flow must be created
      * @param ctx The creation context
      * @param index an index in the group

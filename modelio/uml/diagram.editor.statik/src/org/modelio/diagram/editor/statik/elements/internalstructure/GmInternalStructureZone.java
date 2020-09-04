@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -26,7 +26,7 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Modelio is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -34,7 +34,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  */
 package org.modelio.diagram.editor.statik.elements.internalstructure;
 
@@ -42,6 +42,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.diagram.elements.common.freezone.GmFreeZone;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
@@ -75,6 +76,7 @@ public final class GmInternalStructureZone extends GmFreeZone {
 
     /**
      * Creates the zone
+     * 
      * @param diagram The diagram
      * @param relatedRef a reference to the element this GmModel is related to.
      */
@@ -101,8 +103,8 @@ public final class GmInternalStructureZone extends GmFreeZone {
     @objid ("35911418-55b7-11e2-877f-002564c97630")
     @Override
     public boolean isVisible() {
-        GmInternalStructure parent = (GmInternalStructure) getParent();
-        if (parent != null && parent.getRepresentationMode() == RepresentationMode.STRUCTURED && parent.isVisible()) {
+        GmCompositeNode parent = getParentNode();
+        if (parent != null && parent.isVisible() && parent.getRepresentationMode() == RepresentationMode.STRUCTURED) {
             StyleKey viewModeStyleKey = getViewModeStyleKey();
             if (viewModeStyleKey == null) {
                 return false;

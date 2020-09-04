@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -85,6 +85,7 @@ class ProjectInfoHtmlGenerator {
 
     /**
      * Instantiate the generator and immediately generates the HTML page.
+     * 
      * @param projectAdapter the project model
      */
     @objid ("f835672e-8d78-4c1e-8338-bd945dbde595")
@@ -120,7 +121,7 @@ class ProjectInfoHtmlGenerator {
             }
         } else {
             try {
-                java.nio.file.Path iconPath = this.projectAdapter.getPath().resolve("data").resolve(iconName);
+                java.nio.file.Path iconPath = this.projectAdapter.getProjectFileStructure().getProjectDataPath().resolve(iconName);
                 if (Files.exists(iconPath)) {
                     addIconString.append("<img src=\"");
                     addIconString.append(iconPath.toString());
@@ -135,6 +136,7 @@ class ProjectInfoHtmlGenerator {
 
     /**
      * Create Libraries Fragments table content Columns: Name, Version, Description
+     * 
      * @param fragments @return
      */
     @objid ("fc59e2b0-cd2a-4f29-a20b-2c5aa6f9f312")
@@ -170,6 +172,7 @@ class ProjectInfoHtmlGenerator {
 
     /**
      * Create Modules table content Columns: Name, Version
+     * 
      * @param modules @return
      */
     @objid ("25fe63e2-5bab-4c58-9a0a-659b45167b4b")
@@ -220,7 +223,7 @@ class ProjectInfoHtmlGenerator {
         }
         
         // Get the .runtime file
-        java.nio.file.Path runtimeProjectInfoPagePath = this.projectAdapter.getProjectDescriptor().getPath().resolve(".runtime").resolve("projectInfo.html");
+        java.nio.file.Path runtimeProjectInfoPagePath = this.projectAdapter.getProjectDescriptor().getProjectFileStructure().getProjectRuntimePath().resolve("projectInfo.html");
         try {
             java.nio.file.Path parent = runtimeProjectInfoPagePath.getParent();
             if (parent != null) {
@@ -250,6 +253,7 @@ class ProjectInfoHtmlGenerator {
 
     /**
      * Create Work Models Fragments table content Columns: Name, Type, Uri
+     * 
      * @param fragments @return
      */
     @objid ("325e6f93-4795-4cea-9ea2-43c0595c7486")
@@ -526,15 +530,14 @@ class ProjectInfoHtmlGenerator {
             content.append("<div class='listitem'>");
             String fDescription = fragment.getProperties().getValue("FragmentDescription");
             if (fDescription != null && fDescription.length() > 0) {
-                content.append("<span data-toggle=\"tooltip\" data-html=\"true\" title=\""+fDescription+"\">");
-            }
-            else {
+                content.append("<span data-toggle=\"tooltip\" data-html=\"true\" title=\"" + fDescription + "\">");
+            } else {
                 content.append("<span>");
-            }                        
-            
-            String addIconString = "<img src=\"" + getFragmentIconPath(fragment.getType()) + "\"> ";            
+            }
+        
+            String addIconString = "<img src=\"" + getFragmentIconPath(fragment.getType()) + "\"> ";
             content.append(addIconString);
-            content.append(fragment.getId()); 
+            content.append(fragment.getId());
             content.append("</span>");
             content.append("</div>");
         }
@@ -548,9 +551,9 @@ class ProjectInfoHtmlGenerator {
         String addIconString = "<img src=\"" + getFragmentIconPath(FragmentType.MDA) + "\"> ";
         for (Object element : modules) {
             if (element instanceof ModuleDescriptor) {
-                content.append("<div class='listitem'>");                
+                content.append("<div class='listitem'>");
                 content.append(addIconString);
-                content.append(((ModuleDescriptor) element).getName() + " " + ((ModuleDescriptor) element).getVersion().toString());                
+                content.append(((ModuleDescriptor) element).getName() + " " + ((ModuleDescriptor) element).getVersion().toString());
                 content.append("</div>");
             }
         }
@@ -565,14 +568,13 @@ class ProjectInfoHtmlGenerator {
             boolean isDistant = fragment.getType() == FragmentType.EXML_SVN;
             String fUriString = isDistant ? fragment.getUri().toString().replaceAll("%20", " ") : "";
             if (fUriString != null && fUriString.length() > 0) {
-                content.append("<span data-toggle=\"tooltip\" data-html=\"true\" title=\""+fUriString+"\">");
-            }
-            else {
+                content.append("<span data-toggle=\"tooltip\" data-html=\"true\" title=\"" + fUriString + "\">");
+            } else {
                 content.append("<span>");
             }
-            String addIconString = "<img src=\"" + getFragmentIconPath(fragment.getType()) + "\"> ";            
+            String addIconString = "<img src=\"" + getFragmentIconPath(fragment.getType()) + "\"> ";
             content.append(addIconString);
-            content.append(fragment.getId());  
+            content.append(fragment.getId());
             content.append("</span>");
             content.append("</div>");
         }
@@ -581,10 +583,10 @@ class ProjectInfoHtmlGenerator {
 
     @objid ("05a3cb56-62a8-49cd-a3b5-80b4930558ab")
     private String createCssList(String[] cssArray) {
-        StringBuilder cssList = new StringBuilder();           
+        StringBuilder cssList = new StringBuilder();
         
-        for (int i = 0; i < cssArray.length; i++) {
-            cssList.append("<link rel='stylesheet' href='" + getFilePathOf(cssArray[i]) + "' type='text/css'></link>");
+        for (String element : cssArray) {
+            cssList.append("<link rel='stylesheet' href='" + getFilePathOf(element) + "' type='text/css'></link>");
             cssList.append(System.getProperty("line.separator"));
         }
         return cssList.toString();
@@ -592,10 +594,10 @@ class ProjectInfoHtmlGenerator {
 
     @objid ("b4196f48-fbfe-48e6-a2d7-c2454064e936")
     private String createJavascriptList(String[] javascriptArray) {
-        StringBuilder JsList = new StringBuilder();        
+        StringBuilder JsList = new StringBuilder();
         
-        for (int i = 0; i < javascriptArray.length; i++) {
-            JsList.append("<script src='" + getFilePathOf(javascriptArray[i]) + "' type='text/javascript'></script>");
+        for (String element : javascriptArray) {
+            JsList.append("<script src='" + getFilePathOf(element) + "' type='text/javascript'></script>");
             JsList.append(System.getProperty("line.separator"));
         }
         return JsList.toString();

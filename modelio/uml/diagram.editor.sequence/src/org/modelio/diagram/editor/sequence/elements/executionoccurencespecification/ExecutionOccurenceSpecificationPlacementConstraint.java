@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class ExecutionOccurenceSpecificationPlacementConstraint extends Placemen
 
     /**
      * Constructor.
+     * 
      * @param executionOccurenceSpecification the represented execution
      * @param x the desired X coordinate in absolute coordinates.
      * @param y the desired Y coordinate in absolute coordinates.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public class ModuleComponentPropertyModel extends AbstractPropertyModel<ModuleCo
 
     /**
      * Instantiate the project properties view.
+     * 
      * @param theEditedElement the current project.
      */
     @objid ("d3d0e292-18bb-4866-afdc-43fe666993d3")

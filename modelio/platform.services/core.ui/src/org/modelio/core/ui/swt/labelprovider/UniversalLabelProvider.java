@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class UniversalLabelProvider extends BrowserLabelProvider {
      * <li>a "metamodel" string attribute
      * <li>a "implementation" string attribute representing a java class accessible by the declaring plugin.
      * </ul>
+     * 
      * @param configurationElements the {@link IConfigurationElement} at the root of the matched plugin extensions.
      */
     @objid ("44d3d12b-1757-4282-afba-e323d233f90e")
@@ -90,6 +91,7 @@ public class UniversalLabelProvider extends BrowserLabelProvider {
     /**
      * Unregister the services that were registered with {@link #addExtensionElements(IConfigurationElement[])}.
      * @see #addExtensionElements(IConfigurationElement[])
+     * 
      * @param configurationElements the configuration elements to remove.
      */
     @objid ("477bf3d3-fc26-411c-8242-e6d96c4abc6d")

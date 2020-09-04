@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -97,6 +97,7 @@ public class EcoreTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the Byte Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'Byte' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("2caa9669-beea-4bbd-8e99-72c49963f13e")
@@ -116,6 +117,7 @@ public class EcoreTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the Char Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'Char' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("0db97b7d-66a4-4cee-b9b9-4fbae1550e08")
@@ -134,6 +136,7 @@ public class EcoreTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the Date Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'Date' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("a819a838-b827-4ed4-b29d-ea11d96e34fd")
@@ -152,6 +155,7 @@ public class EcoreTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the Double Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'Double' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("2626b422-2223-4df3-a0a2-4ae90e02ca46")
@@ -170,6 +174,7 @@ public class EcoreTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the Float Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'Float' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("19fa753a-2ab5-4d6f-a245-3b95ccd3ac65")
@@ -188,6 +193,7 @@ public class EcoreTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the Long Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'Long' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("cd0f2a7f-21ac-4106-bacf-1a9d38027a73")
@@ -206,6 +212,7 @@ public class EcoreTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the Short Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'Short' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("b1086453-6bfa-4022-813c-a3e612e89920")
@@ -224,6 +231,7 @@ public class EcoreTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the Undefined Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'Undefined' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("43eb5753-65c5-40de-bbea-6961f4ab1337")
@@ -238,6 +246,7 @@ public class EcoreTypes {
 
     /**
      * This method returns a list containing all Ecore Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the list of all Ecore Predefined org.eclipse.uml2.uml.Type
      */
     @objid ("924620d6-61e4-441f-97d8-60c7a075744d")
@@ -247,6 +256,7 @@ public class EcoreTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the String Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'String' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("02a37901-7abb-45ec-aa70-8bfeabad5728")

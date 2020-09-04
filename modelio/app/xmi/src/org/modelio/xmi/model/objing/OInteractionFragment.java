@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class OInteractionFragment extends OModelElement {
 
     /**
      * Constructor
+     * 
      * @param element : the exported Modelio InteractionFragment
      */
     @objid ("a7de0259-dac4-4fe4-b298-5191d74a3a22")
@@ -105,8 +106,11 @@ public class OInteractionFragment extends OModelElement {
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
-        setLineNumber(ecoreElt);
         setCovered(ecoreElt);
+        
+        if (GenerationProperties.getInstance().isRoundtripEnabled()){
+            setLineNumber(ecoreElt);
+        }
     }
 
     @objid ("f1692c33-d623-4bec-8907-cbe048860035")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.eclipse.ui.forms.widgets.Section;
 import org.modelio.app.project.conf.dialog.IProjectConfPage;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.dialog.workmodel.local.LocalModelSection;
+import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 
 @objid ("ee8b6e88-212d-43a8-b095-08cda4351d2f")
 public class WorkModelPage implements IProjectConfPage {
@@ -73,6 +74,12 @@ public class WorkModelPage implements IProjectConfPage {
     @Override
     public Control getControl() {
         return this.form;
+    }
+
+    @objid ("d7cfe4be-7694-4775-8aaf-c40f3bf4a745")
+    @Override
+    public String getHelpTopic() {
+        return AppProjectConfExt.I18N.getString("WorkModelPages.HelpId");
     }
 
 }

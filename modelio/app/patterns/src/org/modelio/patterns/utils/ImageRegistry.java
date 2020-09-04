@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class ImageRegistry {
 
     /**
      * Returns an {@link Image} encoded by the specified {@link InputStream}.
+     * 
      * @param stream the {@link InputStream} encoding the image data
      * @return the {@link Image} encoded by the specified input stream
      */
@@ -75,6 +76,7 @@ public class ImageRegistry {
 
     /**
      * Returns an {@link Image} stored in the file at the specified path.
+     * 
      * @param path the path to the image file
      * @return the {@link Image} stored in the file at the specified path
      */
@@ -119,6 +121,7 @@ public class ImageRegistry {
 
     /**
      * Returns an {@link Image} stored in the file at the specified path.
+     * 
      * @param path The file path as a string
      * @return the {@link Image} stored in the file at the specified path
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure.properties;
 
@@ -45,13 +45,13 @@ public interface PropertyTableDefinition extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("b7bb423f-4f21-4774-ac78-8767f5e878c6")
+    @objid ("b35df7b0-3ebc-4da2-b979-363d1922bf42")
     public static final String MNAME = "PropertyTableDefinition";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("9586f8b1-8224-4d76-9edb-02ff3213f400")
+    @objid ("225f5ed7-3de5-405f-b31d-5f388d818b22")
     public static final String MQNAME = "Infrastructure.PropertyTableDefinition";
 
     /**
@@ -69,7 +69,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("c2b7fd02-a6ba-4b71-b1c7-79a7bb12e655")
+    @objid ("68665ced-fc04-4cbc-9d82-781b934ecb4c")
     EList<TypedPropertyTable> getTypedTable();
 
     /**
@@ -78,7 +78,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("3cf73342-2dbc-4a7c-b622-1dc177f0911f")
+    @objid ("4a57fa89-bd5f-446c-89e5-40fd11b58794")
     <T extends TypedPropertyTable> List<T> getTypedTable(java.lang.Class<T> filterClass);
 
     /**
@@ -87,7 +87,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("62c19a47-73da-4816-82e4-3911b5a2ce27")
+    @objid ("7c573276-3cec-42ef-a158-555b34627e5c")
     MetaclassReference getOwnerReference();
 
     /**
@@ -96,7 +96,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("1e384d8e-76fd-4a5d-beac-2d67ef84131b")
+    @objid ("7a3c1476-78f4-4e77-aeac-5aa3de729832")
     void setOwnerReference(MetaclassReference value);
 
     /**
@@ -105,7 +105,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("88683fc2-3c56-4e08-9e3e-cbae1f805089")
+    @objid ("be419eaa-b951-4045-a7a0-cc4ea7a19057")
     Stereotype getOwnerStereotype();
 
     /**
@@ -114,7 +114,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("8b38e862-f09f-4a46-b0a1-2ed8f4b4edf6")
+    @objid ("049ec8ab-03dc-42d3-bbf5-9f36a607dd0a")
     void setOwnerStereotype(Stereotype value);
 
     /**
@@ -123,7 +123,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("92fd73fd-1358-4f39-887d-0ce264a32f35")
+    @objid ("3f87d97c-964b-48de-9bbb-ae5936dcd816")
     EList<PropertyDefinition> getOwned();
 
     /**
@@ -132,7 +132,7 @@ public interface PropertyTableDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("99129f89-42a0-4ca1-9539-d065963ad28d")
+    @objid ("fa620c26-5647-4122-8495-0c34d8fe0ace")
     <T extends PropertyDefinition> List<T> getOwned(java.lang.Class<T> filterClass);
 
 }

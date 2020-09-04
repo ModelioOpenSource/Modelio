@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class OTemplateParameterSubstitution extends OElement implements IOElemen
 
     /**
      * Constructor
+     * 
      * @param param : the exported Modelio TemplateParameterSubstitution
      */
     @objid ("68ec8b48-d3fb-427e-9665-3cc7b0edd72c")

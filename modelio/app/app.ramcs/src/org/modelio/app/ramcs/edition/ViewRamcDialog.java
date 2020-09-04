@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -114,6 +114,7 @@ public class ViewRamcDialog extends ModelioDialog {
 
     /**
      * C'tor.
+     * 
      * @param parentShell the parent shell, or <code>null</code> to create a top-level shell.
      * @param dataModel the data model of the ramc to be viewed.
      */
@@ -230,7 +231,7 @@ public class ViewRamcDialog extends ModelioDialog {
         Label ramcDescriptionLabel = new Label(area, SWT.NONE);
         ramcDescriptionLabel.setText(AppRamcs.I18N.getString("EditRamcDialog.RamcDescription.label"));
         final GridData descriptionGD = new GridData(SWT.LEFT, SWT.UP, false, false);
-        descriptionGD.heightHint = 100;
+        descriptionGD.heightHint = 200;
         ramcDescriptionLabel.setLayoutData(descriptionGD);
         
         // Text
@@ -372,7 +373,7 @@ public class ViewRamcDialog extends ModelioDialog {
         
         // Branch list providers
         this.manifestationsTable.setContentProvider(new ArrayContentProvider());
-        this.manifestationsTable.setLabelProvider(new BasicModelElementLabelProvider());
+        this.manifestationsTable.setLabelProvider(new BasicModelElementLabelProvider(true));
         
         this.manifestationsTable.getTable().setForeground(UIColor.EDITOR_ROTEXT_FG);
         this.manifestationsTable.getTable().setBackground(UIColor.TEXT_READONLY_BG);
@@ -401,11 +402,11 @@ public class ViewRamcDialog extends ModelioDialog {
             public String getText(Object element) {
                 return ((ExportedFileEntry) element).getFileToExport().toString();
             }
-            
+        
             @Override
             public String getToolTipText(Object element) {
                 ExportedFileEntry entry = ((ExportedFileEntry) element);
-                
+        
                 Path fileToExport = entry.getFileToExport();
                 Path realPath = ViewRamcDialog.this.dataModel.getProjectPath().resolve(fileToExport).normalize();
                 if ( Files.exists(realPath)) {
@@ -576,7 +577,7 @@ public class ViewRamcDialog extends ModelioDialog {
     @objid ("8089e241-2d0e-4491-b175-d09d89658f00")
     @Override
     protected Point getInitialSize() {
-        return new Point(800, 700);
+        return new Point(800, 800);
     }
 
     @objid ("dc16a046-3b45-4642-9685-ab37c37eb25f")

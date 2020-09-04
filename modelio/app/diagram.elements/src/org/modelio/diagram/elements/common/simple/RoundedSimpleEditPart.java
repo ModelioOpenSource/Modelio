@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public class RoundedSimpleEditPart extends AbstractNodeEditPart {
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
      * @param figure The figure to update, should be {@link #getFigure()}.
+     * 
      * @param style The style to update from, usually {
      * @link #getModelStyle()}
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -123,6 +123,7 @@ public class InheritSearchEngine implements ISearchEngine {
     /**
      * Get the implementers of an interface
      * @param root
+     * 
      * @param recurse @return
      */
     @objid ("5db35c95-392c-4cba-a12b-82121c4f40d8")

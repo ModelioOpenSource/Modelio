@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,17 +21,13 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.xmi.plugin.Xmi;
+import org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2AssociationReference;
+import org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearAssociationAction;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("55b46864-c754-4c74-91c0-b825b7abe37f")
 public class EClearAssociationAction extends EActivityNode {
@@ -41,16 +37,7 @@ public class EClearAssociationAction extends EActivityNode {
     @objid ("0242d01d-02bb-43f5-a0c3-8f2379e7b3d7")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmService = ReverseProperties.getInstance().getMModelServices();
-        
-        OpaqueAction element = mmService.getModelFactory().getFactory(IStandardModelFactory.class).createOpaqueAction();
-        
-        try {
-            element.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLEARASSOCIATIONACTION);
-        } catch (ExtensionNotFoundException e) {
-            Xmi.LOG.warning(e);
-        }
-        return element;
+        return UML2ClearAssociationAction.create().getElement();
     }
 
     @objid ("e45e3016-7357-4257-80da-3a297a53d2e0")
@@ -69,20 +56,15 @@ public class EClearAssociationAction extends EActivityNode {
     @objid ("27c13eef-627c-4fdc-82a0-c0bf6b555cd0")
     private void setAssociation(OpaqueAction objingElt) {
         org.eclipse.uml2.uml.Association association = this.ecoreElement.getAssociation();
+        
         if (association != null){
-            ModelElement obBehavior = (ModelElement)ReverseProperties.getInstance().getMappedElement(association);
+            Object obBehavior = ReverseProperties.getInstance().getMappedElement(association);
         
-            IMModelServices mmServices  = ReverseProperties.getInstance().getMModelServices();
-            Dependency dependency = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createDependency();
-        
-            try {
-                dependency.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ASSOCIATIONREFERENCE);
-            } catch (ExtensionNotFoundException e) {
-                Xmi.LOG.warning(e);
+            if ((obBehavior != null) && (obBehavior instanceof ModelElement)) {
+                Dependency dependency = UML2AssociationReference.create().getElement();        
+                dependency.setDependsOn((ModelElement) obBehavior);
+                dependency.setImpacted(objingElt);
             }
-        
-            dependency.setDependsOn(obBehavior);
-            dependency.setImpacted(objingElt);
         }
     }
 

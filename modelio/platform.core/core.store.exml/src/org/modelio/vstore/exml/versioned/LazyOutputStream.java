@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ class LazyOutputStream extends OutputStream {
 
     /**
      * Initialize the lazy stream.
+     * 
      * @param exmlResource an EXML resource.
      */
     @objid ("977d1082-12de-11e2-816a-001ec947ccaf")

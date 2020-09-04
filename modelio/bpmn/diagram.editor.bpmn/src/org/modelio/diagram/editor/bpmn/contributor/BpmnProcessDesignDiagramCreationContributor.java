@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -146,6 +146,7 @@ public class BpmnProcessDesignDiagramCreationContributor extends AbstractDiagram
 
     /**
      * Create a BPMNProcess under <code>diagramContext</code> if possible.
+     * 
      * @param modelFactory the model factory
      * @param diagramContext the parent candidate for the process to create
      * @return <code>null</code> if creation was not possible

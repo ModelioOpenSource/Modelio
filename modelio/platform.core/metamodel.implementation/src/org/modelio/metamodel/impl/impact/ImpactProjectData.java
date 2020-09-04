@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.impact;
 
@@ -32,10 +32,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("5265a643-d557-46f2-899b-26d0629a63d9")
 public class ImpactProjectData extends AbstractProjectData {
-    @objid ("03f7766e-ab74-47f9-a389-9f423d40a6b7")
+    @objid ("40823b09-fa04-4b3e-89f0-22a4055e8c31")
      List<SmObjectImpl> mModel = null;
 
-    @objid ("7a622f95-6db5-474d-96a5-7f059aab6b79")
+    @objid ("765d8cec-de23-437a-b5dc-cf0de7935099")
     public ImpactProjectData(ImpactProjectSmClass smClass) {
         super(smClass);
     }

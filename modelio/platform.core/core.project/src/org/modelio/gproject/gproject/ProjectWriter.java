@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class ProjectWriter {
 
     /**
      * Instantiate the writer.
+     * 
      * @param aProject the related project.
      */
     @objid ("eed3ae02-e758-4d5c-98e4-d68425e669c8")
@@ -66,6 +67,7 @@ public class ProjectWriter {
 
     /**
      * Get the descriptor of a fragment.
+     * 
      * @param projectFragment a project fragment
      * @return its descriptor
      */
@@ -87,17 +89,18 @@ public class ProjectWriter {
 
     /**
      * Get the descriptor of a module.
+     * 
      * @param m a module
      * @return its descriptor.
      */
     @objid ("aa89539b-ec75-11e1-912e-001ec947ccaf")
     public ModuleDescriptor writeModuleDescriptor(final GModule m) {
         ModuleDescriptor d = new ModuleDescriptor();
-        d.setName( m.getName());
+        d.setName(m.getName());
         d.setScope(m.getScope());
         d.setActivated(m.isActivated());
         
-        d.setVersion( m.getVersion());
+        d.setVersion(m.getVersion());
         if (m.getOriginalArchiveUri() != null) {
             d.setArchiveLocation(getRelativeUri(m.getOriginalArchiveUri()));
         }
@@ -109,6 +112,7 @@ public class ProjectWriter {
 
     /**
      * Write the project configuration to a descriptor.
+     * 
      * @return the descriptor of the project.
      */
     @objid ("eed9bfb6-9a71-11e1-ac83-001ec947ccaf")
@@ -125,7 +129,7 @@ public class ProjectWriter {
         
         ProjectDescriptor out = new ProjectDescriptor();
         out.setName(this.project.getName());
-        out.setPath(this.project.getProjectDataPath());
+        out.setPath(this.project.getProjectFileStructure().getProjectPath());
         out.setType(this.project.getType().name());
         out.setModelioVersion(modelioVersion);
         
@@ -156,7 +160,7 @@ public class ProjectWriter {
             rd.setId(r.getId());
             rd.setTargetLocation(r.getTargetLocation());
             rd.setTimestamp(r.getTimestamp());
-            
+        
             out.getSharedResources().add(rd);
         }
         return out;
@@ -167,7 +171,7 @@ public class ProjectWriter {
         if (uri == null) {
             return null;
         } else {
-            return this.project.getProjectDataPath().toUri().relativize(uri);
+            return this.project.getProjectFileStructure().getProjectPath().toUri().relativize(uri);
         }
     }
 

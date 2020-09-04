@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.modelio.vcore.model.spi.mm.IMigrationStepDescription;
 public interface IFragmentMigrator {
     /**
      * Run the migration
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user.
      * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
      * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
@@ -53,6 +54,7 @@ public interface IFragmentMigrator {
 
     /**
      * Get an optional a detailed message to warn to the user telling what he needs to do.
+     * 
      * @return a migration detail message.
      */
     @objid ("cf5e28af-ac8f-4ce9-a3a9-503c1144b005")
@@ -62,6 +64,7 @@ public interface IFragmentMigrator {
      * Start a migration process on which you have some control.
      * <p>
      * See {@link IMigrationProcess} documentation for usage.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user.
      * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
      * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
@@ -109,6 +112,7 @@ public interface IFragmentMigrator {
          * <p>
          * When this method return the fragment may be mount.
          * @throws FragmentAuthenticationException
+         * 
          * @param monitor the progress monitor to use for reporting progress to the user.
          * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
          * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
@@ -119,6 +123,7 @@ public interface IFragmentMigrator {
 
         /**
          * Finish and commit the migration process.
+         * 
          * @param monitor the progress monitor to use for reporting progress to the user.
          * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
          * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
@@ -131,6 +136,7 @@ public interface IFragmentMigrator {
          * Abort the migration process.
          * <p>
          * The implementation should completely cancel the migration of the fragment and restore it to its previous version.
+         * 
          * @param monitor the progress monitor to use for reporting progress to the user.
          * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
          * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.

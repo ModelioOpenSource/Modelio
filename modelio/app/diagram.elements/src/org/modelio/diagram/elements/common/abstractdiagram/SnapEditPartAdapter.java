@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class SnapEditPartAdapter {
 
     /**
      * Generates the SnapToHelper.
+     * 
      * @return a SnapToHelper
      */
     @objid ("e4012c1e-c134-468a-a879-f6e8e9cd104e")
@@ -112,6 +113,7 @@ public class SnapEditPartAdapter {
      * All the container children will be considered, with their bounds expanded by the given margin.
      * If the margin is positive, the dragged parts insets will be also added to the margin
      * so that the dragged parts may draw a frame around the snapped to graphic.
+     * 
      * @param container the container whose children geometry must be considered
      * @param margin the margin that should expand children bounds with.
      * @return this instance for calls chaining.

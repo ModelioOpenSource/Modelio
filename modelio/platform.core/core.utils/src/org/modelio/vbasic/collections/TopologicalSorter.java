@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public abstract class TopologicalSorter<T> {
     /**
      * Get <a href="http://en.wikipedia.org/wiki/Directed_acyclic_graph"
      * > Directed Acyclic Graph</a>, vertices.
+     * 
      * @return all nodes to be sorted
      */
     @objid ("d0df18a7-193a-43e3-a48b-20175a0e2c93")
@@ -52,6 +53,7 @@ public abstract class TopologicalSorter<T> {
 
     /**
      * Get the adjacent nodes for a node.
+     * 
      * @param node a node
      * @return all adjacent nodes
      */
@@ -61,6 +63,7 @@ public abstract class TopologicalSorter<T> {
     /**
      * Method removes self dependencies and adds missing leaf nodes.
      * @param <T> graph node type
+     * 
      * @param g <a href="http://en.wikipedia.org/wiki/Directed_acyclic_graph"
      * > Directed Acyclic Graph</a>, where vertices are stored as
      * {@link java.util.HashMap HashMap} elements.
@@ -107,6 +110,7 @@ public abstract class TopologicalSorter<T> {
      * HashSet: [F4, F11, F8, F9, F7, F10, F6, F5, F3, F2, F1]
      * TreeSet: [F4, F11, F7, F8, F9, F10, F6, F3, F5, F2, F1] (or ordered collection)
      * </pre>
+     * 
      * @return Linear ordering of input nodes.
      * @throws org.modelio.vbasic.collections.TopologicalSorter.CyclicDependencyException Thrown when cyclic dependency is detected, error message also
      * contains elements in cycle.
@@ -187,6 +191,7 @@ public abstract class TopologicalSorter<T> {
          * Get the members of the cycle.
          * The returned collection is not sorted.
          * @param <T> the type of nodes
+         * 
          * @return the cycle content
          */
         @objid ("9388b79e-4f13-4bea-a913-aafc46b62bd4")

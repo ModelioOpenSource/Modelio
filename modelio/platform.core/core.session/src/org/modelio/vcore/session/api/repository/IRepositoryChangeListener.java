@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IRepositoryChangeListener {
     /**
      * Called when a repository has changed outside Modelio.
+     * 
      * @param event the repository change event.
      */
     @objid ("4b690a37-faf3-4672-94d8-904708131bb1")

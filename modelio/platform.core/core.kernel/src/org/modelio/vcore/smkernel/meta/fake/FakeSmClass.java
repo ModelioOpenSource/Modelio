@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -86,6 +86,7 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
      * Get the attribute definition with the given name.
      * <p>
      * Look into the class attributes and inherited attributes.
+     * 
      * @param att_name the meta attribute name
      * @return the found meta attribute or null.
      */
@@ -103,6 +104,7 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
      * Get the relation definition with the given name.
      * <p>
      * Look into the class relations and inherited relations
+     * 
      * @param dep_name the meta relation name
      * @return the found meta relation or null.
      */
@@ -162,6 +164,7 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
 
     /**
      * Get the "Name" attribute defined for all fake metaclasses.
+     * 
      * @return the "Name" attribute.
      */
     @objid ("a728cf97-400e-4d12-b78b-596bb0e06b89")
@@ -172,6 +175,7 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
     /**
      * Get or create a fake dependency from a dependency that existed on the metaclass before it was discarded.
      * <p>
+     * 
      * @param orig a dependency that existed on the metaclass before it becomes fake.
      * @return the matching fake dependency.
      */
@@ -216,6 +220,7 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
      * <p>
      * A relationship metaclass elements represents links between other objects. They have source and target MDependencies.
      * @since toutatis
+     * 
      * @return true if this metaclass is fake.
      */
     @objid ("c263441a-166a-4f5f-aec9-5c76c761823e")

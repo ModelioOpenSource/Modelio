@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,7 +54,6 @@ import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Profile;
-import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.gui.SwtWizardExportProfile;
@@ -87,8 +86,7 @@ public class ExportProfile {
         while(itr.hasNext()) {
             Object element = itr.next();
             if (element instanceof Profile){
-                this.selectedProfile.add((Package)element);
-        
+                this.selectedProfile.add((Profile) element);     
             }
         }
         return (!(this.selectedProfile.isEmpty()));
@@ -97,6 +95,7 @@ public class ExportProfile {
     /**
      * This methods authorizes a command to be displayed in a defined context. The commands are displayed, by default,
      * depending on the kind of metaclass on which the command has been launched.
+     * 
      * @param selectedElements the selection
      * @return <code>true</code> to display the command, <code>false</code> to hide it.
      */
@@ -107,6 +106,7 @@ public class ExportProfile {
                 if (!(selectedElement instanceof Profile))
                     return false;
             }
+            //All elements are UML profile
             return true;
         }
         return false;

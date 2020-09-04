@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class GmNodeDragTracker extends DragEditPartsTracker {
 
     /**
      * Constructs a new GmNodeDragTracker with the given source edit part.
+     * 
      * @param sourceEditPart the source edit part.
      */
     @objid ("808e6ab0-1dec-11e2-8cad-001ec947c8cc")
@@ -222,6 +223,7 @@ public class GmNodeDragTracker extends DragEditPartsTracker {
      * Returns the transitive child edit part set of the given parent <code>GraphicalEditPart</code>.
      * 
      * Prunes embedded diagram edit parts from the result.
+     * 
      * @param parentEditPart the parent graphical edit part for which to retrieve the transitive child edit part set.
      * @return the transitive child edit part set
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -111,6 +111,7 @@ public class TUserTask extends TTask {
 
     /**
      * Sets the value of the implementation property.
+     * 
      * @param value allowed object is
      * {@link String }
      */

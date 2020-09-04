@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -105,6 +105,7 @@ public class ImageEditPart extends AbstractNodeEditPart {
 
     /**
      * Set the image provider.
+     * 
      * @param imageProv the new image provider.
      */
     @objid ("94d8a5ac-ea83-4c59-ae71-784aa5d24b1d")
@@ -117,6 +118,7 @@ public class ImageEditPart extends AbstractNodeEditPart {
      * <p>
      * Returns by default the {@link #getModel()} unless a custom image provider
      * has been set with {@link #setImageProvider(IImageableNode)}.
+     * 
      * @return the image provider.
      */
     @objid ("d7e36d5f-177c-4538-963f-a96cb4d3398d")
@@ -134,6 +136,7 @@ public class ImageEditPart extends AbstractNodeEditPart {
      * Get the image to display.
      * <p>
      * Returns a default "no image" image if no image is defined.
+     * 
      * @return the image to display.
      */
     @objid ("6602866d-78f1-424a-b9ec-e33082ad3b4b")

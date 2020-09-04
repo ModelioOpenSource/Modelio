@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class DelegatingEditPartFactory implements EditPartFactory {
 
     /**
      * Instantiate the factory.
+     * 
      * @param factoryIds identifier of the cascaded factories needed to call the {@link DiagramFactoryRegistry}.
      */
     @objid ("502b04b1-58c6-40c8-987a-16408be3cd01")
@@ -73,6 +74,7 @@ public class DelegatingEditPartFactory implements EditPartFactory {
 
     /**
      * Register a cascaded factory.
+     * 
      * @param factory the edit part factory.
      */
     @objid ("d8c7ce11-d733-4dff-9ac8-6b4a5485ba5a")
@@ -84,6 +86,7 @@ public class DelegatingEditPartFactory implements EditPartFactory {
 
     /**
      * Remove a registered cascaded factory.
+     * 
      * @param factory the edit part factory.
      */
     @objid ("21962ed9-b082-4ff9-be31-6afc2e985e43")

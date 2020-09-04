@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class ImportProfile {
         
         revprop.initialize(mmService, projectService.getSession().getMetamodel(), navigationService);
         revprop.setProfileRoot(this.selectedModule);
+        revprop.setRootElement(this.selectedModule);
         revprop.setCoreSession(GProject.getProject(this.selectedModule).getSession());
         
         final SwtWizardImportProfile dialog = new SwtWizardImportProfile(activeShell, progressService, projectService);
@@ -76,8 +77,8 @@ public class ImportProfile {
     @objid ("1dcff0dd-1e37-4488-9c5e-817165e57385")
     public static boolean isVisible(List<MObject> selectedElements) {
         return ((! selectedElements.isEmpty())
-                                && (selectedElements.size() == 1)
-                                && (selectedElements.get(0) instanceof ModuleComponent));
+                && (selectedElements.size() == 1)
+                && (selectedElements.get(0) instanceof ModuleComponent));
     }
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -141,6 +141,7 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
      * </ul>
      * </ul>
      * @see IAdaptable#getAdapter(Class)
+     * 
      * @param adapter the adapter class to look up
      * @return a object castable to the given class, or <code>null</code> if this object does not have an adapter for
      * the given class
@@ -297,6 +298,7 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
 
     /**
      * Create a XY anchor with the layer coordinates
+     * 
      * @param absPoint an absolute point.
      * @return a XY anchor for the layer figure
      */
@@ -337,6 +339,7 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
      * Add a connection to the layer.
      * <p>
      * The connection is added to the connections sub layer.
+     * 
      * @param connectionFigure a connection figure
      */
     @objid ("688b848e-599b-44f5-b3d1-ae78d4059316")

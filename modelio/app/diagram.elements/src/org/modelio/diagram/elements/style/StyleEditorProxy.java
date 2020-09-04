@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class StyleEditorProxy implements IStyle {
 
     /**
      * Constructor
+     * 
      * @param editedGraphic The graphic element whose style is to be modified.
      */
     @objid ("ac4c95fc-55b7-11e2-877f-002564c97630")
@@ -168,6 +169,7 @@ public class StyleEditorProxy implements IStyle {
 
     /**
      * Run the work in a Modelio transaction.
+     * 
      * @param actionName A name for the transaction.
      */
     @objid ("ac4fa33d-55b7-11e2-877f-002564c97630")
@@ -178,7 +180,7 @@ public class StyleEditorProxy implements IStyle {
         
         try (ITransaction transaction = transactionManager.createTransaction(actionName)) {
             toRun.run();
-            this.diagram.getPersister().save(false);
+            this.diagram.save(false);
             transaction.commit();
         }
     }

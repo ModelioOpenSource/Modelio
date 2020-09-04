@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class MessagePropertyModel extends AbstractPropertyModel<Message> {
 
     /**
      * Create a new <i>Message</i> data model from an <i>Message</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("02177845-a005-4ccb-871e-5e0fb1bd3407")
@@ -125,6 +126,7 @@ public class MessagePropertyModel extends AbstractPropertyModel<Message> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("e3d91e9d-4b0d-4b9e-ad31-78706e7f4248")
@@ -172,6 +174,7 @@ public class MessagePropertyModel extends AbstractPropertyModel<Message> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("196ce8b4-7ccb-4a8f-8328-8ec57e9fc48e")
@@ -184,6 +187,7 @@ public class MessagePropertyModel extends AbstractPropertyModel<Message> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -220,6 +224,7 @@ public class MessagePropertyModel extends AbstractPropertyModel<Message> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -254,6 +259,7 @@ public class MessagePropertyModel extends AbstractPropertyModel<Message> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -247,6 +247,7 @@ public class SharedModelingSession implements org.modelio.vcore.session.api.mode
 
     /**
      * Check if an element is part of a library, i.e. in a model component or an HTTP fragment.
+     * 
      * @param element the element to check.
      * @return <code>true</code> if the element is part of a library.
      */

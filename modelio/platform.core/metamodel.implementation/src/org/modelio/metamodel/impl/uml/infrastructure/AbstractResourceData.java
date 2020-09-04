@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -30,19 +30,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("12ba785b-8cd0-43d6-b472-cb571e989c4b")
 public class AbstractResourceData extends ModelElementData {
-    @objid ("9cce04a1-d170-44e4-99f2-ae98a6521c3d")
+    @objid ("bbce31e0-fa13-4fc5-b1dc-37d10488fa5f")
      Object mMimeType = "";
 
-    @objid ("e870853f-04ff-441b-b4b3-48c1b55c85a0")
+    @objid ("231f78a0-fc85-445e-89b1-67c9cb82848b")
      Object mStorageInfo = "";
 
-    @objid ("45fdd158-a53b-476b-b415-9c907b295079")
+    @objid ("a4176631-a870-4a8f-a8c1-befbbb4a8b94")
      SmObjectImpl mType;
 
-    @objid ("44497710-a032-4a88-ad10-64b62b8bc953")
+    @objid ("87febf6f-6553-4b26-9658-d1d82e68e9b9")
      SmObjectImpl mSubject;
 
-    @objid ("13a25590-b315-4ec0-aded-97d1b023a9b7")
+    @objid ("c2b703c2-e7cd-479a-ba62-be03ed9adf79")
     public AbstractResourceData(AbstractResourceSmClass smClass) {
         super(smClass);
     }

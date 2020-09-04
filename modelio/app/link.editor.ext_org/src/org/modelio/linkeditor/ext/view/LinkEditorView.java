@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -106,6 +106,7 @@ public class LinkEditorView implements ILinkEditorView {
      * However, calling it directly passing a ModelElement is perfectly valid.
      * Passing a <code>null</code> element 'disables' the view that becomes inactive.
      * <p>
+     * 
      * @param element the new input element for the view.
      */
     @objid ("1ba6add5-5e33-11e2-b81d-002564c97630")
@@ -153,6 +154,7 @@ public class LinkEditorView implements ILinkEditorView {
 
     /**
      * Eclipse 4 constructor.
+     * 
      * @param part the Eclipse 4 part
      * @param composite the parent SWT composite
      * @param theProjectService the Modelio project services

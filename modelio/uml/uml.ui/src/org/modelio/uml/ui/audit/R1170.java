@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -181,6 +181,7 @@ public class R1170 extends AbstractUmlRule {
 
         /**
          * If an InputPin is updated and is on a CallOperationAction, its self attribute potentially change so we need to check the rule on this CallOperationAction.
+         * 
          * @param inputPin @return
          */
         @objid ("a37e7eaf-557e-4bdd-80e9-a356bc2f29f3")
@@ -194,6 +195,7 @@ public class R1170 extends AbstractUmlRule {
 
         /**
          * If an operation is moved, its owner's classifier potentially changes so we need to check the rule on every CallOperationAction that calls this operation.
+         * 
          * @param operation The moved operation.
          * @return A list of audit entry for each concerned CallOperationAction.
          */

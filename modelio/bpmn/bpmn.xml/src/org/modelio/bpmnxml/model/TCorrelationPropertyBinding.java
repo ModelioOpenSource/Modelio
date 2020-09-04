@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public class TCorrelationPropertyBinding extends TBaseElement {
 
     /**
      * Sets the value of the dataPath property.
+     * 
      * @param value allowed object is
      * {@link TFormalExpression }
      */
@@ -101,6 +102,7 @@ public class TCorrelationPropertyBinding extends TBaseElement {
 
     /**
      * Sets the value of the correlationPropertyRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

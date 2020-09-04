@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,6 +23,7 @@ package org.modelio.xmi.model.objing;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.uml.behavior.activityModel.Pin;
+import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.util.ObjingEAnnotation;
 
 @objid ("b3b180a8-f097-490e-a25f-ea48843fe394")
@@ -55,7 +56,8 @@ public class OPin extends OObjectNode {
         super.setProperties(ecoreElt);
         if (ecoreElt instanceof org.eclipse.uml2.uml.Pin){
             setControl((org.eclipse.uml2.uml.Pin) ecoreElt);
-            setExpansionEAnnotation((org.eclipse.uml2.uml.Pin) ecoreElt);
+            if (GenerationProperties.getInstance().isRoundtripEnabled())
+                setExpansionEAnnotation((org.eclipse.uml2.uml.Pin) ecoreElt);
         }
     }
 

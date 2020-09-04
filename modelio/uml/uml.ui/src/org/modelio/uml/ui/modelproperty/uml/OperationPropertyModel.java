@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class OperationPropertyModel extends AbstractPropertyModel<Operation> {
 
     /**
      * Create a new <i>Operation</i> data model from an <i>Operation</i>.
+     * 
      * @param theEditedElement The edited element.
      */
     @objid ("d54b150f-06b9-4100-a7ff-d7716e01a817")
@@ -68,6 +69,7 @@ public class OperationPropertyModel extends AbstractPropertyModel<Operation> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("7b4e74fe-ab62-4975-ab11-fab81b288866")
@@ -78,6 +80,7 @@ public class OperationPropertyModel extends AbstractPropertyModel<Operation> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("f1884a8e-7daa-4dc5-a7a3-aa32b32d6571")
@@ -93,6 +96,7 @@ public class OperationPropertyModel extends AbstractPropertyModel<Operation> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -135,6 +139,7 @@ public class OperationPropertyModel extends AbstractPropertyModel<Operation> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -176,6 +181,7 @@ public class OperationPropertyModel extends AbstractPropertyModel<Operation> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

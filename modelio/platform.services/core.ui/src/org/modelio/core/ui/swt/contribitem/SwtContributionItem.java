@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -184,6 +184,7 @@ public class SwtContributionItem extends ContributionItem {
     /**
      * Creates a new contribution item from the given action. The id of the
      * action is used as the id of the item.
+     * 
      * @param style the action
      */
     @objid ("9c223825-f21c-4778-afdd-1622ec494241")
@@ -358,6 +359,7 @@ public class SwtContributionItem extends ContributionItem {
 
     /**
      * Returns the action associated with this contribution item.
+     * 
      * @return the action
      */
     @objid ("61ab63dc-52d3-4c87-b554-5373efc42db5")
@@ -370,6 +372,7 @@ public class SwtContributionItem extends ContributionItem {
      * <code>MODE_*</code> constants. The default mode setting is 0, meaning
      * that for menu items, both text and image are shown (if present), but for
      * tool items, the text is shown only if there is no image.
+     * 
      * @return the presentation mode settings
      */
     @objid ("433ba94b-bce9-4e11-bc7f-342415b56772")
@@ -390,6 +393,7 @@ public class SwtContributionItem extends ContributionItem {
      * When the user presses a key sequence that matches the mnemonic, a selection event occurs.
      * On most platforms, the mnemonic appears underlined but may be emphasised in a platform specific manner.
      * The mnemonic indicator character '&' can be escaped by doubling it in the string, causing a single '&' to be displayed.
+     * 
      * @return the item text.
      */
     @objid ("eb588b1b-7820-4705-abc0-cbcb366dd8d2")
@@ -404,6 +408,7 @@ public class SwtContributionItem extends ContributionItem {
 
     /**
      * Returns whether color icons should be used in toolbars.
+     * 
      * @return <code>true</code> if color icons should be used in toolbars,
      * <code>false</code> otherwise
      */
@@ -421,6 +426,7 @@ public class SwtContributionItem extends ContributionItem {
      * actual type of the widget can be any valid control for this
      * ContributionItem's current ContributionManager.
      * </p>
+     * 
      * @return the widget, or <code>null</code> depending on the lifecycle.
      */
     @objid ("57948fff-83a1-4567-b4ac-25a1e86c4dfd")
@@ -533,6 +539,7 @@ public class SwtContributionItem extends ContributionItem {
      * Sets the presentation mode, which is the bitwise-or of the
      * <code>MODE_*</code> constants.
      * @see #MODE_FORCE_TEXT
+     * 
      * @param mode the presentation mode settings
      */
     @objid ("b8159e7d-1714-46c6-88e4-2f920aa870e1")
@@ -549,6 +556,7 @@ public class SwtContributionItem extends ContributionItem {
      * When the user presses a key sequence that matches the mnemonic, a selection event occurs.
      * On most platforms, the mnemonic appears underlined but may be emphasised in a platform specific manner.
      * The mnemonic indicator character '&' can be escaped by doubling it in the string, causing a single '&' to be displayed.
+     * 
      * @param text the item text.
      */
     @objid ("ab5c6720-2cc9-4edf-88d4-1458c5541105")
@@ -569,6 +577,7 @@ public class SwtContributionItem extends ContributionItem {
      * @see ToolItem#setToolTipText(String)
      * @see Button#setToolTipText(String)
      * @see #setTooltipText(String, boolean)
+     * 
      * @param tooltipText the tooltip text.
      */
     @objid ("77b70109-7fe0-4877-a571-4687d7801c4c")
@@ -583,6 +592,7 @@ public class SwtContributionItem extends ContributionItem {
      * @see MenuItem#setToolTipText(String)
      * @see ToolItem#setToolTipText(String)
      * @see Button#setToolTipText(String)
+     * 
      * @param tooltipText the tooltip text.
      * @param escapeMnemonics whether to escape '&' mnemonic character.
      */
@@ -597,6 +607,7 @@ public class SwtContributionItem extends ContributionItem {
 
     /**
      * Sets whether color icons should be used in toolbars.
+     * 
      * @param useColorIcons <code>true</code> if color icons should be used in toolbars,
      * <code>false</code> otherwise
      */
@@ -617,6 +628,7 @@ public class SwtContributionItem extends ContributionItem {
 
     /**
      * Synchronizes the UI with the given property.
+     * 
      * @param propertyName the name of the property, or <code>null</code> meaning all
      * applicable properties
      */
@@ -651,6 +663,7 @@ public class SwtContributionItem extends ContributionItem {
     /**
      * Returns <code>true</code> if this item is allowed to enable,
      * <code>false</code> otherwise.
+     * 
      * @return if this item is allowed to be enabled
      */
     @objid ("91e06e50-9dc5-4779-a39b-e8c273e2dbb6")
@@ -667,6 +680,7 @@ public class SwtContributionItem extends ContributionItem {
      * the width of the given ToolItem.The default implementation replaces
      * characters in the center of the original string with an ellipsis ("...").
      * Override if you need a different strategy.
+     * 
      * @param textValue the text to shorten
      * @param item the tool item the text belongs to
      * @return the shortened string
@@ -845,6 +859,7 @@ public class SwtContributionItem extends ContributionItem {
     /**
      * Create MenuItems in the proxy menu that can execute the real menu items
      * if selected. Create proxy menus for any real item submenus.
+     * 
      * @param realMenu the real menu to copy from
      * @param proxy the proxy menu to populate
      */
@@ -926,6 +941,7 @@ public class SwtContributionItem extends ContributionItem {
 
     /**
      * Returns the listener for SWT button widget events.
+     * 
      * @return a listener for button events
      */
     @objid ("b9bc0099-5120-4624-bf4a-c26a67b93958")
@@ -977,6 +993,7 @@ public class SwtContributionItem extends ContributionItem {
     /**
      * Handle show and hide on the proxy menu for IAction.AS_DROP_DOWN_MENU
      * actions.
+     * 
      * @return the appropriate listener
      */
     @objid ("6cf14fc0-78e8-45e6-a9ae-1db9d0fa0dab")
@@ -998,6 +1015,7 @@ public class SwtContributionItem extends ContributionItem {
 
     /**
      * Returns the listener for SWT menu item widget events.
+     * 
      * @return a listener for menu item events
      */
     @objid ("934938fa-5122-4345-ac59-e5f466509450")
@@ -1023,6 +1041,7 @@ public class SwtContributionItem extends ContributionItem {
 
     /**
      * Returns the listener for SWT tool item widget events.
+     * 
      * @return a listener for tool item events
      */
     @objid ("157b6c2d-6664-4496-a084-326af40da730")
@@ -1049,6 +1068,7 @@ public class SwtContributionItem extends ContributionItem {
 
     /**
      * The proxy menu is being hidden, so we need to make it go away.
+     * 
      * @param proxy the proxy menu
      */
     @objid ("d931473f-9b60-4ad8-8d2a-30e4d084d5d1")
@@ -1069,6 +1089,7 @@ public class SwtContributionItem extends ContributionItem {
 
     /**
      * The proxy menu is being shown, we better get the real menu.
+     * 
      * @param proxy the proxy menu
      */
     @objid ("d1d2ee64-2c77-4de7-bd63-c49fb0116dd4")
@@ -1178,6 +1199,7 @@ public class SwtContributionItem extends ContributionItem {
      * Returns whether the given action has any images.
      * @param actionToCheck
      * the action
+     * 
      * @return <code>true</code> if the action has any images,
      * <code>false</code> if not
      */
@@ -1190,6 +1212,7 @@ public class SwtContributionItem extends ContributionItem {
 
     /**
      * Updates the images for this action.
+     * 
      * @param forceImage <code>true</code> if some form of image is compulsory, and
      * <code>false</code> if it is acceptable for this item to have
      * no image

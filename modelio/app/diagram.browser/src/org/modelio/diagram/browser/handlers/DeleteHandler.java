@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class DeleteHandler extends AbstractBrwModelHandler {
 
     /**
      * Rule for enabling a multiple selection => all selected elements are modifiable
+     * 
      * @param selection the eclipse selection
      * @return if the selection may be deleted.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class JxbScope {
 
     /**
      * Sets the value of the metaclass property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -88,6 +89,7 @@ public class JxbScope {
 
     /**
      * Sets the value of the stereotype property.
+     * 
      * @param value allowed object is
      * {@link String }
      */

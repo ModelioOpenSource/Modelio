@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,6 +72,7 @@ public class PanelDescriptor {
     /**
      * @param origin the origin of the panel. for a module panel it is the module itself, for a plugin contribution this value is either a particular formalism (UML, Analysis,...) or null for secondary non-specific panels
      * @param isPrimary whether it is a primary panel: to be displayed first
+     * 
      * @param id the panel id
      * @param label the panel label
      * @param panel the panel implementation

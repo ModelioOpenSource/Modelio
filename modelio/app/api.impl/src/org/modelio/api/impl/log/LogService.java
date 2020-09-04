@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -83,6 +83,7 @@ public final class LogService implements ILogService {
      * <li>the module identifier (the module model is not available)
      * <li> {@value #API_PLUGIN_ID} (there is no module)
      * <li>
+     * 
      * @return an identifier for the module
      */
     @objid ("a2f9dac6-b411-4dfb-b0ab-852bf4d22e59")

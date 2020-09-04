@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,15 +24,15 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.uml.behavior.activityModel.StructuredActivityNode;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 
 @objid ("2388b0d9-4df1-48fc-a15c-b82ecd8c97f8")
 public class OStructuredActivityNode extends OActivityNode {
     @objid ("967f38c3-031f-4eba-b1a7-b1c60d07784f")
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
-        if (((ModelElement)getObjingElement()).isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2SEQUENCENODE))
+        if (((ModelElement)getObjingElement()).isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2SEQUENCENODE))
             return UMLFactory.eINSTANCE.createSequenceNode();
         else
             return UMLFactory.eINSTANCE.createStructuredActivityNode();

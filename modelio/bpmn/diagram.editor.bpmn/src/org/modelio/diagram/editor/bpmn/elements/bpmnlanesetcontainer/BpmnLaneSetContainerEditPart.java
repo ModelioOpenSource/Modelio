@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -167,6 +167,7 @@ public class BpmnLaneSetContainerEditPart extends AbstractNodeEditPart {
      * <p>
      * In an horizontal lane, sub-lanes should be stacked vertically.
      * </p>
+     * 
      * @return <code>true</code> if the lane set container's layout should be horizontal.
      */
     @objid ("5116d403-0abd-40c6-9da2-7b19a28ea7b1")

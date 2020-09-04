@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,7 +46,7 @@ final class NestedBasicLogger implements IBasicLogger {
     public void warning(String message) {
         this.wrapped.warning(message);
         
-        this.writer.println(PREFIX + "WARNING: " + message);
+        this.writer.println(NestedBasicLogger.PREFIX + "WARNING: " + message);
     }
 
     @objid ("70fc9643-fd79-49f4-942b-9b62c9f03800")
@@ -54,7 +54,7 @@ final class NestedBasicLogger implements IBasicLogger {
     public void warning(Throwable ex) {
         this.wrapped.warning(ex);
         
-        this.writer.append(PREFIX);
+        this.writer.append(NestedBasicLogger.PREFIX);
         this.writer.append("WARNING: ");
         
         ex.printStackTrace(this.writer);
@@ -66,7 +66,7 @@ final class NestedBasicLogger implements IBasicLogger {
     public void warning(String format, Object... args) {
         this.wrapped.warning(format, args);
         
-        this.writer.format(PREFIX + "WARNING: " + format + "%n", args);
+        this.writer.format(NestedBasicLogger.PREFIX + "WARNING: " + format + "%n", args);
     }
 
     @objid ("45e65821-4521-4da1-a502-8154710b0320")
@@ -74,7 +74,7 @@ final class NestedBasicLogger implements IBasicLogger {
     public void trace(Throwable ex) {
         this.wrapped.trace(ex);
         
-        this.writer.append(PREFIX + "trace: ");
+        this.writer.append(NestedBasicLogger.PREFIX + "trace: ");
         
         ex.printStackTrace(this.writer);
         this.writer.println();
@@ -85,7 +85,7 @@ final class NestedBasicLogger implements IBasicLogger {
     public void trace(String format, Object... args) {
         this.wrapped.trace(format, args);
         
-        this.writer.format(PREFIX + "trace: " + format + "%n", args);
+        this.writer.format(NestedBasicLogger.PREFIX + "trace: " + format + "%n", args);
     }
 
     @objid ("7620f634-67c4-451e-ac9f-15ae5e61b57a")
@@ -93,7 +93,7 @@ final class NestedBasicLogger implements IBasicLogger {
     public void trace(String message) {
         this.wrapped.trace(message);
         
-        this.writer.println(PREFIX + "trace: " + message);
+        this.writer.println(NestedBasicLogger.PREFIX + "trace: " + message);
     }
 
     @objid ("c3d51d87-8437-4ee8-8c11-8a5042d7a24e")
@@ -101,7 +101,7 @@ final class NestedBasicLogger implements IBasicLogger {
     public void error(Throwable ex) {
         this.wrapped.error(ex);
         
-        this.writer.append(PREFIX + "ERROR: ");
+        this.writer.append(NestedBasicLogger.PREFIX + "ERROR: ");
         
         ex.printStackTrace(this.writer);
         this.writer.println();
@@ -112,7 +112,7 @@ final class NestedBasicLogger implements IBasicLogger {
     public void error(String format, Object... args) {
         this.wrapped.error(format, args);
         
-        this.writer.format(PREFIX + "ERROR: " + format + "%n", args);
+        this.writer.format(NestedBasicLogger.PREFIX + "ERROR: " + format + "%n", args);
     }
 
     @objid ("8e858af3-9013-40c6-a998-a78a317bd449")
@@ -120,7 +120,19 @@ final class NestedBasicLogger implements IBasicLogger {
     public void error(String message) {
         this.wrapped.error(message);
         
-        this.writer.println(PREFIX + "ERROR: " + message);
+        this.writer.println(NestedBasicLogger.PREFIX + "ERROR: " + message);
+    }
+
+    @objid ("8e7ee003-3438-47a1-9db9-454a0adac669")
+    @Override
+    public int getLevel() {
+        return IBasicLogger.TRACE;
+    }
+
+    @objid ("dff3434f-d7d0-4145-a020-4e45a549f401")
+    @Override
+    public void setLevel(int level) {
+        // Ignored
     }
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public final class Loader {
      * Gets the customized class path with the UNO jar files.
      * <p>
      * Returns <code>null</code> if LibreOffice or OpenOffice is not installed.
+     * 
      * @return the customized class loader
      * @throws java.io.IOException if the LibreOffice/OpenOffice installation is broken or incomplete.
      */
@@ -235,6 +236,7 @@ public final class Loader {
 
     /**
      * Check all URLS are valid and throws {@link IOException} if an invalid URL is found.
+     * 
      * @param vec the URLS to validate
      * @throws java.io.IOException if an invalid URL is found.
      */

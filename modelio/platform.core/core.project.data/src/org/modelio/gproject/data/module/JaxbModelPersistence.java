@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ import org.modelio.gproject.data.module.migration.Migrator;
 public class JaxbModelPersistence {
     /**
      * Load a JAXB model from a jmdac file.
+     * 
      * @param modulePath the .jmdac file path
      * @return the JAXB module
      * @throws java.io.IOException in case of failure.
@@ -76,6 +77,7 @@ public class JaxbModelPersistence {
 
     /**
      * Load a JAXB model
+     * 
      * @param moduleXmlFile the module.xml file path
      * @return the JAXB module
      * @throws java.io.IOException in case of failure.
@@ -95,6 +97,7 @@ public class JaxbModelPersistence {
 
     /**
      * Save the JAXB model to a file.
+     * 
      * @param module the JAXB module model to save.
      * @param moduleXmlFile the module.xml file path
      * @throws java.io.IOException in case of failure.

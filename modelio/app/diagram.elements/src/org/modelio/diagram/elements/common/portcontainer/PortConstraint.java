@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class PortConstraint implements IPersistent {
 
     /**
      * Sets the requested bounds.
+     * 
      * @param requestedBounds the requested bounds.
      */
     @objid ("7eed2f09-1dec-11e2-8cad-001ec947c8cc")
@@ -78,6 +79,7 @@ public class PortConstraint implements IPersistent {
 
     /**
      * Sets the reference border.
+     * 
      * @param referenceBorder the reference border.
      */
     @objid ("7eed2f14-1dec-11e2-8cad-001ec947c8cc")
@@ -131,6 +133,7 @@ public class PortConstraint implements IPersistent {
 
     /**
      * Sets the requested centre.
+     * 
      * @param requestedCenter the requested centre.
      */
     @objid ("7eef9154-1dec-11e2-8cad-001ec947c8cc")

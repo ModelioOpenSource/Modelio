@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ class SidedConnectionEndpointLocatorFactory {
 
     /**
      * Compute a new uDistance and vDistance depending on the move delta and the edge object figure.
+     * 
      * @param conn The connection figure
      * @param extension The extension figure to move
      * @param moveDelta the current move delta
@@ -158,6 +159,7 @@ class SidedConnectionEndpointLocatorFactory {
     /**
      * Returns an integer representing the side of the passed Rectangle that a point lies on. 1 == Top 2 == Right 3 == Bottom 4
      * == Left
+     * 
      * @param loc The point that is to be located
      */
     @objid ("800b4949-1dec-11e2-8cad-001ec947c8cc")
@@ -198,6 +200,7 @@ class SidedConnectionEndpointLocatorFactory {
      * This method is used to calculate the "quadrant" value of a connection that does not have an owner on its starting point.
      * 
      * 1 == Top 2 == Right 3 == Bottom 4 == Left
+     * 
      * @param startPoint The starting point of the connection.
      * @param endPoint The end point of the connection.
      */
@@ -221,6 +224,7 @@ class SidedConnectionEndpointLocatorFactory {
     /**
      * Calculates 'tan' which is used as a factor for y adjustment when placing the connection label. 'tan' is capped at 1.0 in
      * the positive direction and -1.0 in the negative direction.
+     * 
      * @param startPoint The starting point of the connection.
      * @param endPoint The end point of the connection.
      * 
@@ -259,6 +263,7 @@ class SidedConnectionEndpointLocatorFactory {
 
     /**
      * Get the node figure at the given side of the connection
+     * 
      * @param conn The connection figure
      * @param isEnd <i>false</i> for the source side, <i>true</i> for the target side.
      * @return The node figure.

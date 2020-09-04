@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,6 +25,13 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.gef.ConnectionEditPart;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.Request;
+import org.eclipse.gef.RequestConstants;
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.requests.ReconnectRequest;
 import org.eclipse.swt.graphics.Color;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramLink;
@@ -52,6 +59,7 @@ public abstract class DiagramLink extends DiagramAbstractLink {
 
     /**
      * Creates a diagram link.
+     * 
      * @param diagramHandle The diagram manipulation class.
      * @param gmLink The gm link represented by this class.
      */
@@ -74,7 +82,7 @@ public abstract class DiagramLink extends DiagramAbstractLink {
                 from instanceof GmNodeModel &&
                 ((GmNodeModel) from).getParent() instanceof GmPortContainer) {
             ret = DGFactory.getInstance().getDiagramGraphic(this.diagramHandle,
-                                                            ((GmNodeModel) from).getParent());
+                    ((GmNodeModel) from).getParent());
         }
         return ret;
     }
@@ -92,7 +100,7 @@ public abstract class DiagramLink extends DiagramAbstractLink {
                 to instanceof GmNodeModel &&
                 ((GmNodeModel) to).getParent() instanceof GmPortContainer) {
             ret = DGFactory.getInstance().getDiagramGraphic(this.diagramHandle,
-                                                            ((GmNodeModel) to).getParent());
+                    ((GmNodeModel) to).getParent());
         }
         return ret;
     }
@@ -154,11 +162,12 @@ public abstract class DiagramLink extends DiagramAbstractLink {
             return;
         }
         this.gmLink.getDisplayedStyle()
-        .setProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+                .setProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
     }
 
     /**
      * Return the links that are starting (ie outgoing links) from this node.
+     * 
      * @return A list of links in any case, possibly an empty one. Never returns null
      */
     @objid ("31b051d0-60de-4e90-96c5-2cd43816b021")
@@ -176,6 +185,7 @@ public abstract class DiagramLink extends DiagramAbstractLink {
 
     /**
      * Return the links that are ending (ie incoming links) at this node.
+     * 
      * @return A list of links in any case, possibly an empty one. Never returns null
      */
     @objid ("71d2d2f0-0043-4476-8455-261ebf6fc10e")
@@ -193,13 +203,14 @@ public abstract class DiagramLink extends DiagramAbstractLink {
 
     /**
      * Return the name of this link.
+     * 
      * @return the link name
      */
     @objid ("5a77b0d0-5e96-43e2-879c-0fe4701f7a4c")
     @Override
     public String getName() {
         return this.gmLink.getRelatedElement() != null ? this.gmLink.getRelatedElement().getName()
-                                                : this.gmLink.getGhostLabel();
+                : this.gmLink.getGhostLabel();
     }
 
     @objid ("82e6fac1-0d2b-42f7-b495-054138cd4529")
@@ -250,6 +261,7 @@ public abstract class DiagramLink extends DiagramAbstractLink {
 
     /**
      * Default implementation of {@link #getGmNodes(ExtensionRole)} to call for default behavior.
+     * 
      * @param role the asked role
      * @return the found extension nodes.
      */
@@ -258,10 +270,63 @@ public abstract class DiagramLink extends DiagramAbstractLink {
         switch (role) {
         case MAIN:
             return getGmLink().getExtensions(IGmLink.ROLE_MAIN_LABEL);
-            //$CASES-OMITTED$
+        // $CASES-OMITTED$
         default:
             return Collections.emptyList();
         }
+    }
+
+    @objid ("db68662f-53e9-43d7-a00a-e6a1331ccd49")
+    @Override
+    public void setFrom(IDiagramGraphic source) {
+        IGmObject newNode = ((DiagramGraphic) source).getModel();
+        String type = RequestConstants.REQ_RECONNECT_SOURCE;
+        reconnect(newNode, type);
+    }
+
+    @objid ("28fe3b0a-8634-4354-a4d6-6389d5c6587b")
+    @Override
+    public void setTo(IDiagramGraphic target) {
+        IGmObject newNode = ((DiagramGraphic) target).getModel();
+        String type = RequestConstants.REQ_RECONNECT_TARGET;
+        reconnect(newNode, type);
+    }
+
+    @objid ("671f24c0-6084-41aa-8bad-9fefcbd0c750")
+    private void reconnect(IGmObject newNode, String type) {
+        if (newNode instanceof IGmLinkable) {
+            // Reconnect connectionEditPart from srcNode to newNode
+            ReconnectRequest recoReq = new ReconnectRequest(type);
+            recoReq.setConnectionEditPart((ConnectionEditPart) this.diagramHandle.getEditPart(this.gmLink));
+            recoReq.setLocation(new Point(0, 0));
+        
+            EditPart newMainNode = DiagramLink.findChildEditPartFor(this.diagramHandle.getEditPart(newNode), recoReq);
+            recoReq.setTargetEditPart(newMainNode);
+        
+            Command recoCommand = newMainNode.getCommand(recoReq);
+            if (recoCommand == null || !recoCommand.canExecute()) {
+                throw new IllegalArgumentException("Reconnection is not supported");
+            } else {
+                recoCommand.execute();
+            }
+        }
+    }
+
+    @objid ("811e0083-0da4-4e4f-8dcd-f8616cf5c7fe")
+    private static EditPart findChildEditPartFor(EditPart from, Request req) {
+        EditPart targetEditPart = from.getTargetEditPart(req);
+        if (targetEditPart != null) {
+            return targetEditPart;
+        }
+        
+        for (EditPart e : (List<EditPart>) from.getChildren()) {
+            targetEditPart = e.getTargetEditPart(req);
+            if (targetEditPart != null) {
+                return targetEditPart;
+            }
+        }
+        
+        throw new IllegalArgumentException("Reconnection is not supported");
     }
 
 }

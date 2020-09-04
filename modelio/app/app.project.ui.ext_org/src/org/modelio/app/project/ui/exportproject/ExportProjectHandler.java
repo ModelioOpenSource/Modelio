@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -74,7 +74,7 @@ public class ExportProjectHandler {
         // Exporting a project consists in zipping its directory contents into a
         // zip archive
         // Prompt the user for the archive file path and name
-        final Path archiveFile = promptUserForFile(shell, projectToExport.getPath());
+        final Path archiveFile = promptUserForFile(shell, projectToExport.getProjectFileStructure().getProjectPath());
         if (archiveFile == null) {
             AppProjectUi.LOG.info("Export aborted by user.");
             return;

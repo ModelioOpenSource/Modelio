@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,6 +46,7 @@ public final class ModelElementTransfer extends ByteArrayTransfer {
 
     /**
      * Returns the singleton gadget transfer instance.
+     * 
      * @return the instance of ModelElementTransfer.
      */
     @objid ("01f4081c-0000-001a-0000-000000000000")
@@ -95,6 +96,7 @@ public final class ModelElementTransfer extends ByteArrayTransfer {
 
     /**
      * Converts a table of model element references to a byte array.
+     * 
      * @param refs the model elements to convert.
      * @return a java byte[] containing the converted data if the conversion was successful; otherwise null
      */
@@ -118,6 +120,7 @@ public final class ModelElementTransfer extends ByteArrayTransfer {
 
     /**
      * Converts a byte array to a table of model element references.
+     * 
      * @param buffer the byte array to convert.
      * @return an ObRef[] containing the converted data if the conversion was successful; otherwise null
      */

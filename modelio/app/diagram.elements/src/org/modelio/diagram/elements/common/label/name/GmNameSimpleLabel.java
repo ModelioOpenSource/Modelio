@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public final class GmNameSimpleLabel extends GmElementLabel implements IEditable
 
     /**
      * Creates a name label.
+     * 
      * @param diagram The diagram
      * @param relatedRef The reference to the related elements.
      */

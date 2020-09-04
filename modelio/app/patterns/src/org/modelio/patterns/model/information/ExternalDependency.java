@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class ExternalDependency {
 
     /**
      * Gets the value of the name property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("5288c643-b840-4908-a242-2c13adec4d3f")
@@ -76,6 +77,7 @@ public class ExternalDependency {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("aa61b59d-7590-4370-bddc-cbf5ae5f625d")
@@ -85,6 +87,7 @@ public class ExternalDependency {
 
     /**
      * Gets the value of the version property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("c73ed5b7-ada3-48e0-9b4f-022ed1d69c00")
@@ -94,6 +97,7 @@ public class ExternalDependency {
 
     /**
      * Sets the value of the version property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("a1fe7a67-171a-4eb8-824e-965d406a26d2")

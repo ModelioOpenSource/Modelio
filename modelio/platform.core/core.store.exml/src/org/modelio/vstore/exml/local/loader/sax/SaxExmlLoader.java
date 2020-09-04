@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class SaxExmlLoader implements IExmlLoader {
 
     /**
      * Initialize the SAX loader.
+     * 
      * @param loadHelper a load helper
      */
     @objid ("2b011b9f-3faf-11e2-87cb-001ec947ccaf")
@@ -88,6 +89,7 @@ public class SaxExmlLoader implements IExmlLoader {
 
     /**
      * Load an EXML resource from an XML {@link InputSource}.
+     * 
      * @param is the EXML source.
      * @param loader the API to use to load the content.
      * @return the loaded CMS node.

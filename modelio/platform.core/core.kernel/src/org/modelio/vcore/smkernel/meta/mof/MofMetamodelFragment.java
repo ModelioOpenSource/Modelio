@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -104,6 +104,7 @@ public class MofMetamodelFragment implements ISmMetamodelFragment {
 
     /**
      * Create the metaclasses.
+     * 
      * @return the metaclasses.
      */
     @objid ("6247bde4-af88-4f8a-8e7d-3b455046a2f4")
@@ -137,6 +138,7 @@ public class MofMetamodelFragment implements ISmMetamodelFragment {
      * or a standard Modelio metamodel fragment.
      * <p>
      * Standard Modelio metamodel fragments are guaranteed to have no metaclass name collisions.
+     * 
      * @param name the metamodel fragment name.
      * @param version the metamodel fragment version.
      * @param isExtension <i>true</i> if the fragment is an extension, <i>false</i> if it is a Modelio standard fragment.
@@ -159,6 +161,7 @@ public class MofMetamodelFragment implements ISmMetamodelFragment {
 
     /**
      * Creates a metamodel fragment with 1.0.0 as version.
+     * 
      * @param name the metamodel fragment name.
      */
     @objid ("adb267f6-8ada-4ed5-ba0f-7933df10ff63")
@@ -172,6 +175,7 @@ public class MofMetamodelFragment implements ISmMetamodelFragment {
 
     /**
      * Set the provider.
+     * 
      * @param provider the provider.
      * @return this instance.
      */

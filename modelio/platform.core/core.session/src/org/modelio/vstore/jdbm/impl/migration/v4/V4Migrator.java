@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -90,14 +90,14 @@ public class V4Migrator {
     private void recoverFromFailure(IModelioProgress monitor) throws IOException {
         Path oldDbTempPath = getOldDbTempPath();
         if (oldDbTempPath.toFile().isDirectory()) {
-            monitor.subTask(VCoreSession.getMessage("jdbm.V4Migrator.RestoringOldDb", this.dbName, oldDbTempPath));
+            monitor.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.RestoringOldDb", this.dbName, oldDbTempPath));
             Log.trace(" JDBM migration: original database present in '%s' temp dir, a previous migration may have failed. ", oldDbTempPath);
             Files.move(oldDbTempPath, this.oldDbPath.toPath() );
         }
         
         if (this.newDbTempPath.isDirectory()) {
             Log.trace(" JDBM migration: reseting aborted migration");
-            monitor.subTask(VCoreSession.getMessage("jdbm.V4Migrator.ResetAbortedMigration", this.dbName));
+            monitor.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.ResetAbortedMigration", this.dbName));
             FileUtils.delete(this.newDbTempPath);
         }
     }
@@ -116,7 +116,7 @@ public class V4Migrator {
 
     @objid ("7c6f7297-4bb8-4022-8982-a4108a914138")
     public void execute(IModelioProgress monitor) throws IOException {
-        SubProgress mon = SubProgress.convert(monitor, VCoreSession.getMessage("jdbm.V4Migrator.MigrateBaseTask", this.dbName), 100);
+        SubProgress mon = SubProgress.convert(monitor, VCoreSession.I18N.getMessage("jdbm.V4Migrator.MigrateBaseTask", this.dbName), 100);
         Log.trace("Migrating '%s' JDBM base in '%s'", this.dbName, this.oldDbPath);
         
         recoverFromFailure(mon.newChild(5));
@@ -145,13 +145,13 @@ public class V4Migrator {
         Path oldDbTmpPath = getOldDbTempPath();
         
         // Copy blobs 
-        mon.subTask(VCoreSession.getMessage("jdbm.V4Migrator.CopyingBlobs", this.dbName));
+        mon.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.CopyingBlobs", this.dbName));
         Log.trace(" JDBM migration: Copy blobs to '%s' temp place ...", oldDbTmpPath);
         FileUtils.copyDirectoryTo(indexDirPath.resolve("blobs"), this.newDbTempPath.toPath().resolve("blobs"));
         
         // Swap old and new directory
         
-        mon.subTask(VCoreSession.getMessage("jdbm.V4Migrator.SwappingDatabases", this.dbName));
+        mon.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.SwappingDatabases", this.dbName));
         
         Log.trace(" JDBM migration: move old database to '%s' temp place...", oldDbTmpPath);
         Files.move(indexDirPath, oldDbTmpPath);
@@ -173,7 +173,7 @@ public class V4Migrator {
 
     @objid ("48ca7dc2-705f-4699-804f-bff89e614a32")
     private void executeMigration(IModelioProgress monitor) throws IOException {
-        SubProgress mon = SubProgress.convert(monitor, VCoreSession.getMessage("jdbm.V4Migrator.MigrateBaseTask", this.dbName), 5);
+        SubProgress mon = SubProgress.convert(monitor, VCoreSession.I18N.getMessage("jdbm.V4Migrator.MigrateBaseTask", this.dbName), 5);
         
         Log.trace(" JDBM migration: connecting maps");
         
@@ -190,7 +190,7 @@ public class V4Migrator {
         final SerializerInput in = new SerializerInput(bis);
         
         Log.trace(" JDBM migration: converting data...");
-        mon.subTask(VCoreSession.getMessage("jdbm.V4Migrator.ConvertingData", this.dbName));
+        mon.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.ConvertingData", this.dbName));
         
         int i = 0;
         for (Entry<UUID, byte[]> entry : oldDbContent.entrySet()) {
@@ -212,12 +212,12 @@ public class V4Migrator {
             // Commit sometimes to avoid OOME
             ++i;
             if (i % 500 == 0) {
-                mon.subTask(VCoreSession.getMessage("jdbm.V4Migrator.Converting.flushing", this.dbName, i));
+                mon.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.Converting.flushing", this.dbName, i));
                 this.newDb.commit();
-                mon.subTask(VCoreSession.getMessage("jdbm.V4Migrator.Converting.progress", this.dbName, i));
+                mon.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.Converting.progress", this.dbName, i));
             }
             if (i % 21 == 0) {
-                mon.subTask(VCoreSession.getMessage("jdbm.V4Migrator.Converting.progress", this.dbName, i));
+                mon.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.Converting.progress", this.dbName, i));
                 mon.worked(1);
                 mon.setWorkRemaining(5);
             }
@@ -227,7 +227,7 @@ public class V4Migrator {
         Log.trace(" JDBM migration: conversion last commit...");
         
         mon.setWorkRemaining(3);
-        mon.subTask(VCoreSession.getMessage("jdbm.V4Migrator.Converting.finish", this.dbName, i));
+        mon.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.Converting.finish", this.dbName, i));
         this.newDb.commit();
         mon.worked(1);
     }

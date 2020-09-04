@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class GmRoleNameLabel extends GmDefaultModelElementHeader {
 
     /**
      * Creates a role name label.
+     * 
      * @param diagram the owning diagram.
      * @param role The represented role, may be null.
      * @param ref the represented role reference, must not be null.
@@ -136,6 +137,7 @@ public class GmRoleNameLabel extends GmDefaultModelElementHeader {
 
     /**
      * compute the visibility symbol of the role.
+     * 
      * @param att a role
      * @return the visibility symbol.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ public interface IBlobInfo {
      * Get the blob key.
      * <p>
      * The key is the unique identifier for a blob in a repository.
+     * 
      * @return the blob key.
      */
     @objid ("b98b44c8-cc81-40db-927b-edea8497687c")
@@ -44,6 +45,7 @@ public interface IBlobInfo {
      * <p>
      * This label is meant to be displayed to the user.
      * Must not return <code>null</code>.
+     * 
      * @return the blob label.
      * @deprecated since 3.7, not used anymore
      */
@@ -55,6 +57,7 @@ public interface IBlobInfo {
      * Get the model object this blob is related to.
      * <p>
      * The blob is expected to be deleted with its model object on save.
+     * 
      * @return the related model object.
      * @since 3.7
      */
@@ -65,6 +68,7 @@ public interface IBlobInfo {
      * Get the name of the blob, identify it among the blobs related to a same model object.
      * <p>
      * Returns the key if the blob is not related to a model object.
+     * 
      * @return the local name.
      * @since 3.7
      */

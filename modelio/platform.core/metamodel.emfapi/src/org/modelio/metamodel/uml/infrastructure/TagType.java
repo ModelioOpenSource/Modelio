@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -44,13 +44,13 @@ public interface TagType extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("42828bdf-8790-455e-9b24-344616bf9f9e")
+    @objid ("ea22d5e7-acec-4db0-9883-1507f8e4d925")
     public static final String MNAME = "TagType";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("0e227500-66e6-4dd1-a422-00aae68aac91")
+    @objid ("6c72ae8b-f1ac-4cc5-8de9-108257a40758")
     public static final String MQNAME = "Infrastructure.TagType";
 
     @objid ("1bb2d0a1-acf1-4d78-85d4-08a7d74e0427")
@@ -62,7 +62,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>Number of parameters an occurrence may have.</i>
      */
-    @objid ("5c20c6d3-69f1-4a30-a1ad-0e9d6fdf334c")
+    @objid ("aad2fbee-f412-42dc-83e4-74afe5eade5b")
     String getParamNumber();
 
     /**
@@ -71,7 +71,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>Number of parameters an occurrence may have.</i>
      */
-    @objid ("efdc7c44-cda3-41ed-8b59-e2888a87c505")
+    @objid ("1a5570f2-cd98-4cde-b1eb-97669b34f285")
     void setParamNumber(String value);
 
     /**
@@ -80,7 +80,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>Determines whether or not an occurrence (TaggedValue) has a qualifier.</i>
      */
-    @objid ("ce3423c1-0edf-4b69-b0b4-d7a92af4cc22")
+    @objid ("f00e8a1b-7e10-438d-bfec-92d127f729d4")
     boolean isIsQualified();
 
     /**
@@ -89,7 +89,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>Determines whether or not an occurrence (TaggedValue) has a qualifier.</i>
      */
-    @objid ("f1b5a9ba-c416-4e2c-a486-f5f6c687ec2d")
+    @objid ("0ab5e72a-dca2-4874-862b-903d0a5daf5a")
     void setIsQualified(boolean value);
 
     /**
@@ -98,7 +98,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>Determines whether or not a TagType occurrence  belongs to the signature. For example, the TagType * that defines a pointer declaration in C++ belongs to the prototype of operations.</i>
      */
-    @objid ("462eeaed-c31b-41cf-a2f1-f8d65763851d")
+    @objid ("bf3a5185-6eda-46cc-a924-1658bbcd992a")
     boolean isBelongToPrototype();
 
     /**
@@ -107,43 +107,47 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>Determines whether or not a TagType occurrence  belongs to the signature. For example, the TagType * that defines a pointer declaration in C++ belongs to the prototype of operations.</i>
      */
-    @objid ("0a3cca09-a31a-415e-96ae-557cf5e237c6")
+    @objid ("85d549d7-e4e9-44e1-8bf6-8db4ad17011c")
     void setBelongToPrototype(boolean value);
 
     /**
      * Getter for attribute 'TagType.IsHidden'
      * 
      * Metamodel description:
-     * <i>null</i>
+     * <i><p>Indicates whether or not this tag type will be visible for manual addition/suppression by the user.</p>
+     * </i>
      */
-    @objid ("96524fc7-13f5-447c-ac9a-cf4162cf0f4e")
+    @objid ("3898ddbe-a21f-404f-86fd-7c4cdfb3cf97")
     boolean isIsHidden();
 
     /**
      * Setter for attribute 'TagType.IsHidden'
      * 
      * Metamodel description:
-     * <i>null</i>
+     * <i><p>Indicates whether or not this tag type will be visible for manual addition/suppression by the user.</p>
+     * </i>
      */
-    @objid ("a942b9d5-099e-43ac-b72f-9013d57ce903")
+    @objid ("fe602546-27ed-4480-914e-76e6205d2813")
     void setIsHidden(boolean value);
 
     /**
      * Getter for attribute 'TagType.LabelKey'
      * 
      * Metamodel description:
-     * <i></i>
+     * <i><p>The tag type label key used to look into module resources for the translated stereotype label.</p>
+     * </i>
      */
-    @objid ("fa49af99-8ec7-484d-9af7-f3c4294fa713")
+    @objid ("544a5053-baf6-460d-9271-b0a37bd127c0")
     String getLabelKey();
 
     /**
      * Setter for attribute 'TagType.LabelKey'
      * 
      * Metamodel description:
-     * <i></i>
+     * <i><p>The tag type label key used to look into module resources for the translated stereotype label.</p>
+     * </i>
      */
-    @objid ("183b31f1-9119-4932-b91e-b5402d60c408")
+    @objid ("a21a544f-32ab-418d-8122-276a97f3d253")
     void setLabelKey(String value);
 
     /**
@@ -152,7 +156,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("ef1a3fae-8ead-45ca-8880-8f30e568d028")
+    @objid ("08068ac3-de9f-434b-afce-3b24e9235cd8")
     EList<TaggedValue> getTagOccurence();
 
     /**
@@ -161,7 +165,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("a445ed38-5a53-4037-9994-ace79bdbcb35")
+    @objid ("b8a0e20e-e48b-4cc9-8cea-c2c34eb79d8a")
     <T extends TaggedValue> List<T> getTagOccurence(java.lang.Class<T> filterClass);
 
     /**
@@ -170,7 +174,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("eaabbeea-0689-4a76-8635-818b8ea34ccf")
+    @objid ("ce94ece2-7a12-461a-b987-cbf3570a2c3d")
     Stereotype getOwnerStereotype();
 
     /**
@@ -179,7 +183,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("8afb78b7-efda-4397-a0f3-10c3cd443cf3")
+    @objid ("3416bc70-4100-4304-94e3-0d837ad4713a")
     void setOwnerStereotype(Stereotype value);
 
     /**
@@ -188,7 +192,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("c9038fcd-655a-4055-9d50-036ff4493afd")
+    @objid ("c1620ba2-11e5-40f2-a7c0-42a2b95fe32a")
     MetaclassReference getOwnerReference();
 
     /**
@@ -197,7 +201,7 @@ public interface TagType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("36584cb5-cefe-46f6-ad3a-2e75d25c204f")
+    @objid ("08051e43-75a6-44aa-b712-2ed2a53fa3b6")
     void setOwnerReference(MetaclassReference value);
 
 }

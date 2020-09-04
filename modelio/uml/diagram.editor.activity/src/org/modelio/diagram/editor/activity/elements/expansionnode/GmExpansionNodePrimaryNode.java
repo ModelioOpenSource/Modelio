@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class GmExpansionNodePrimaryNode extends GmNoStyleSimpleNode implements I
 
     /**
      * Default C'tor.
+     * 
      * @param diagram the diagram in which this Gm is created.
      * @param el the expansion node represented.
      * @param ref a reference to the represented expansion node.
@@ -105,6 +106,7 @@ public class GmExpansionNodePrimaryNode extends GmNoStyleSimpleNode implements I
 
     /**
      * Get the stereotype image to display.
+     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("2a5843a1-55b6-11e2-877f-002564c97630")

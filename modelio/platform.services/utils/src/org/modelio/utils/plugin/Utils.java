@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,11 +27,8 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.Appender;
 import ch.qos.logback.core.FileAppender;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.utils.log.readers.LogBackListener;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.ServiceReference;
-import org.osgi.service.log.LogReaderService;
 import org.slf4j.LoggerFactory;
 
 @objid ("0049aab6-4382-1fe3-9845-001ec947cd2a")
@@ -42,47 +39,27 @@ public class Utils implements BundleActivator {
     @objid ("003cb1f8-0db0-1feb-93a7-001ec947cd2a")
     public static final String MODELIO_LOGFILENAME = "modelio.log";
 
-    @objid ("00390a26-0db0-1feb-93a7-001ec947cd2a")
-    private LogBackListener logbackListener;
-
+// private LogBackListener logbackListener;
     @objid ("004ffcae-4447-1fe3-9845-001ec947cd2a")
     @Override
     public void start(BundleContext bundleContext) {
-        ServiceReference<LogReaderService> ref = bundleContext
-                .getServiceReference(LogReaderService.class);
-        LogReaderService service = bundleContext.getService(ref);
-        
-        this.logbackListener = new LogBackListener();
-        service.addLogListener(this.logbackListener);
-        
         plugKernelLogToEclipseLog();
     }
 
     @objid ("005028aa-4447-1fe3-9845-001ec947cd2a")
     @Override
     public void stop(BundleContext bundleContext) {
-        ServiceReference<LogReaderService> ref = bundleContext
-                .getServiceReference(LogReaderService.class);
-        LogReaderService service = bundleContext.getService(ref);
-        
-        if (this.logbackListener != null) {
-            service.removeLogListener(this.logbackListener);
-        }
     }
 
     @objid ("5d0016a8-64f0-493c-9f8f-0158238c4637")
     private void plugKernelLogToEclipseLog() {
         // Set Modelio kernel logger
         org.modelio.vbasic.log.Log.setLogger(new KernelLogger());
-        
-        // Log enabled log levels
-        org.modelio.vbasic.log.Log.error("Kernel log test : error enabled.");
-        org.modelio.vbasic.log.Log.warning("Kernel log test : warning enabled.");
-        org.modelio.vbasic.log.Log.trace("Kernel log test : trace enabled.");
     }
 
     /**
      * Find the current Modelio log file from the logback current configuration.
+     * 
      * @return the current Modelio log file, null if unable to find it.
      */
     @objid ("2ba8983e-a272-477b-811d-dc94502b0907")

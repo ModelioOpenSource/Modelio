@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -155,6 +155,7 @@ public class BindingCreationExpert extends DefaultDelegatingLinkExpert {
 
     /**
      * Get the Classifier owning the given element
+     * 
      * @param e an element
      * @return The classifier owner or null.
      */
@@ -172,6 +173,7 @@ public class BindingCreationExpert extends DefaultDelegatingLinkExpert {
      * Get the collaboration owning the given element, or null if the element is not owned by a collaboration.
      * @param e
      * an element
+     * 
      * @return The owning collaboration or null.
      */
     @objid ("7e97413f-1eb2-11e2-8009-002564c97630")
@@ -191,6 +193,7 @@ public class BindingCreationExpert extends DefaultDelegatingLinkExpert {
 
     /**
      * Guess the collaboration use from the represented feature and the role.
+     * 
      * @param feature the represented feature
      * @param role the role
      * @return the found collaboration use or null if none.
@@ -217,6 +220,7 @@ public class BindingCreationExpert extends DefaultDelegatingLinkExpert {
 
     /**
      * Get the collaboration uses accessible from the given represented feature.
+     * 
      * @param feature a represented feature
      * @return accessible collaboration uses
      */

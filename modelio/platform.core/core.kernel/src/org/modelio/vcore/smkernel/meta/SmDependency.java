@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -115,6 +115,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
 
     /**
      * Add/set value to the dependency. This method is specialized by subclasses.
+     * 
      * @param obj the model object to modify
      * @param value the model object to add
      * @return <code>true</code> if the value was added, <code>false</code> if the value was already present.
@@ -124,6 +125,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
 
     /**
      * This method returns <code>true</code> if a modification to the dependency must be considered as also modifying its owner.
+     * 
      * @return <code>true</code> to tell the source model object is modified.
      */
     @objid ("00841f3e-ed97-1f1f-85a5-001ec947cd2a")
@@ -136,6 +138,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
 
     /**
      * Get the dependency type checker.
+     * 
      * @return the dependency checker.
      */
     @objid ("44ea0a02-2cda-11e2-81f1-001ec947ccaf")
@@ -145,6 +148,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
 
     /**
      * Get the EMF adapter for this dependency.
+     * 
      * @return the EMF dependency.
      */
     @objid ("efae71ca-bea9-11e1-b576-001ec947ccaf")
@@ -180,6 +184,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
 
     /**
      * Get the SmDependency used to walk the meta association from the opposite side.
+     * 
      * @return The opposite SmDependency.
      */
     @objid ("00830838-ed97-1f1f-85a5-001ec947cd2a")
@@ -204,6 +209,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
      * Get the dependency value.
      * <p>
      * This getter accessor is redefined by specialized classes to access the proper data field.
+     * 
      * @param object the model object data.
      * @return the dependency content.
      */
@@ -214,6 +220,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
      * Get the dependency value.
      * <p>
      * This getter accessor is redefined by specialized classes to access the proper data field.
+     * 
      * @param object the model object data.
      * @return the dependency content.
      */
@@ -242,6 +249,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
 
     /**
      * Insert a value in the dependency. This method is specialized by subclasses.
+     * 
      * @param obj The object to modify
      * @param value The value to add
      * @param index The index where the value must be inserted.
@@ -251,6 +259,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
 
     /**
      * Tells whether this dependency is a composition.
+     * 
      * @return <code>true</code> if this dependency is a composition
      */
     @objid ("00842146-ed97-1f1f-85a5-001ec947cd2a")
@@ -268,6 +277,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
      * Tells whether this dependency is a way to get an object composition owner.
      * <p>
      * The opposite dependency is either a composition or a shared composition.
+     * 
      * @return <code>true</code> if the dependency is a composition opposite.
      */
     @objid ("c289b8ec-e325-4041-b8a9-1a0380cbe46e")
@@ -286,6 +296,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
      * <p>
      * This flag is used when storing the dependency would use a lot of space and/or is often modified but is not often read. The
      * store is advised to use the content from the opposite side to compute its content.
+     * 
      * @return true to advice the store to not write the content.
      */
     @objid ("008421e6-ed97-1f1f-85a5-001ec947cd2a")
@@ -309,6 +320,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
      * <p>
      * If not the main navigable way is usually the {@link #getSymetric() opposite} dependency. The main side is the side used to
      * walk the dependency on copy/paste, export, diff/merge, and most storing formats...
+     * 
      * @return <code>true</code> if the dependency is the main navigation way.
      */
     @objid ("00842362-ed97-1f1f-85a5-001ec947cd2a")
@@ -321,6 +333,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
      * <p>
      * The shared composition means that the target elements may be owned by more than one element. There is also more chances to be
      * a cycle in the composition graph.
+     * 
      * @return <code>true</code> if it is a shared composition.
      */
     @objid ("d63cb2ff-5989-11e1-be4a-001ec947ccaf")
@@ -333,6 +346,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
      * Tells whether the target elements must be deleted when deleting the source element.
      * <p>
      * Composition associations and shared compositions are all in this case.
+     * 
      * @return <code>true</code> to delete targets with the source, else <code>false</code>.
      */
     @objid ("00842574-ed97-1f1f-85a5-001ec947cd2a")
@@ -350,6 +364,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
 
     /**
      * Move a dependency value by an offset
+     * 
      * @param refered the source object
      * @param ref the value to move
      * @param offset the offset
@@ -360,6 +375,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
 
     /**
      * Remove value from the dependency. This method is specialized by subclasses.
+     * 
      * @param obj the source model object
      * @param value the value to remove
      * @return true if the value was removed, <code>false</code> if the value was absent.
@@ -379,6 +395,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
 
     /**
      * Initialize the EMF adapter for this dependency.
+     * 
      * @param emfAdapter the EMF dependency.
      */
     @objid ("efae71cf-bea9-11e1-b576-001ec947ccaf")
@@ -420,6 +437,7 @@ public abstract class SmDependency extends SmFeature implements MDependency {
      * <p>
      * Warn : The target should be set at construction time,
      * call only if you know what you are doing !
+     * 
      * @param target the target metaclass.
      */
     @objid ("c900e9c7-3ff4-473b-8983-a54a8130bb32")

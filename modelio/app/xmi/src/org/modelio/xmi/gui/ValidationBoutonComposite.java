@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ public class ValidationBoutonComposite extends Composite {
 
     /**
      * This methods return the Cancel Button
+     * 
      * @return SWT button
      */
     @objid ("72c6e07f-9459-49f1-91a7-e6869c01537e")
@@ -55,6 +56,7 @@ public class ValidationBoutonComposite extends Composite {
 
     /**
      * This methods return the Validation Button
+     * 
      * @return SWT button
      */
     @objid ("640fc381-5fa5-4811-b19b-233e96f4b62e")
@@ -65,6 +67,7 @@ public class ValidationBoutonComposite extends Composite {
     /**
      * Contructor of the composite.
      * it needs a parent composite, its SWT style, the label of the cancellation button and the label of the validation button
+     * 
      * @param parent : the parent composition
      * @param style : the SWT style
      * @param cancelField : the label of the cancellation button

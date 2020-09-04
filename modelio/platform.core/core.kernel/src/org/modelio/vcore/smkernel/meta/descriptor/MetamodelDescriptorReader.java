@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class MetamodelDescriptorReader {
 
     /**
      * Read a project descriptor from an XML input source.
+     * 
      * @param in an input stream.
      * @param location The XML source {@link InputSource#getSystemId() system id}
      * @return the read descriptor.
@@ -67,6 +68,7 @@ public class MetamodelDescriptorReader {
 
     /**
      * Read a project descriptor from an XML input source.
+     * 
      * @param src the XML input source.
      * @return the read descriptor.
      * @throws java.io.IOException in case of failure
@@ -78,6 +80,7 @@ public class MetamodelDescriptorReader {
 
     /**
      * Read a project descriptor from an XML input source.
+     * 
      * @param is the XML input source.
      * @return the read descriptor.
      * @throws java.io.IOException in case of failure
@@ -301,6 +304,7 @@ public class MetamodelDescriptorReader {
 
     /**
      * Read a project descriptor from an XML string.
+     * 
      * @param str XML in a string.
      * @return the read descriptor.
      * @throws java.io.IOException in case of failure

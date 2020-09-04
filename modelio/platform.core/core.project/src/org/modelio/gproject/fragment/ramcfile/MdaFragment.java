@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ import org.modelio.gproject.data.project.GProperties;
 public class MdaFragment extends RamcFileFragment {
     /**
      * Initialize the MDA fragment
+     * 
      * @param id the fragment ID
      * @param uri the .ram file URI
      * @param definitionScope the definition scope

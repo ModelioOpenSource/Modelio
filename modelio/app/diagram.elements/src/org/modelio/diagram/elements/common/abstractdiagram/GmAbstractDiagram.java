@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -101,12 +101,14 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
     public static final String PROP_DIAGRAM_LOAD_END = "diagram_load_finished";
 
     /**
-     * Event property telling the diagram finished writing the model to persistence.
+     * Property name for UI data version change events.
      * <p>
-     * The old value is always null. The new value is a {@link PersistenceException} on failure, anything else on success.
+     * The old value is the former UI data version, the new value the new UI data version.
+     * </p>
+     * Changes typically occur after a diagram save operation.
      */
     @objid ("9aa29637-f040-46a5-b0c0-709f9e335a4c")
-    public static final String PROP_DIAGRAM_SAVE_END = "diagram_save_finished";
+    public static final String PROP_UIDATA_VERSION = "diagram_save_finished";
 
     @objid ("9d3eb649-bff4-4544-a308-b8edc1b5f779")
     private static final String PROP_DRAWING_LAYERS = "DrawingLayers";
@@ -170,6 +172,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Initialize a GmAbstractDiagram.
+     * 
      * @param modelManager The model manager
      * @param diagramRef a reference to the diagram.
      */
@@ -199,6 +202,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Add a drawing to the diagram.
+     * 
      * @param child a drawing.
      */
     @objid ("98cd15c5-bb69-4f5c-87c2-b3f42b25e77e")
@@ -222,6 +226,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * Register a graphic element in the diagram.
      * <p>
      * This method should only be called by the GmModel constructor, its read() method or {@link IGmObject#updateDiagram()}.
+     * 
      * @param model the graphic element to add.
      */
     @objid ("7e169b77-1dec-11e2-8cad-001ec947c8cc")
@@ -257,6 +262,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * Tells whether this composite node support child nodes of the given java class.
      * <p>
      * {@link GmElementLabel GmElementLabel} cannot be contained directly by the diagram's background.
+     * 
      * @return <i>false</i> if nodeClass is GmElementLabel or a subclass, <i>true</i> otherwise.
      */
     @objid ("7e169b7b-1dec-11e2-8cad-001ec947c8cc")
@@ -271,6 +277,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * <p>
      * To be redefined by subclasses if they need to always contain some child GMs...
      * </p>
+     * 
      * @param hasPersistedData if <code>false</code>, this GM should be just like it was after a call to its constructor at the end of the reset method. Should be empty otherwise.
      */
     @objid ("7e18fdb1-1dec-11e2-8cad-001ec947c8cc")
@@ -360,6 +367,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Reconfigure the current refresher for either processing or ignoring the model change events.
+     * 
      * @param onOff true to process events, false to defer them.
      */
     @objid ("3e21c01e-b5d2-4134-b25a-a07714f79292")
@@ -397,6 +405,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Returns all {@link IGmDrawing} that are in this diagram, or an empty list if none is found.
+     * 
      * @return the list of {@link IGmDrawing}, or an empty list if none is found.
      */
     @objid ("10c7326d-4ff3-4f53-ab4f-5e9b7d2ed76e")
@@ -406,6 +415,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Returns all {@link GmModel} that are somehow related to the given reference in this diagram, or an empty list if none is found.
+     * 
      * @param representedElementRef a reference to a model element for which we are searching Gm.
      * @return the list of all Gm related to the passed reference, or an empty list if none is found.
      */
@@ -423,6 +433,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Returns the list of graphic models (Gm) representing (ie: for which the getRepresentedElement() method does return the element of) the given reference in this diagram or an empty list if none is found.
+     * 
      * @param representedElementRef a reference to a model element for which we are searching Gm.
      * @return the list of all Gm representing the passed reference, or an empty list if none is found.
      */
@@ -448,6 +459,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * Get all represented graphic models.
      * <p>
      * The returned collection is a snapshot copy of the contained graphics. It may freely be modified.
+     * 
      * @return all graphic models.
      */
     @objid ("7e18fdc7-1dec-11e2-8cad-001ec947c8cc")
@@ -463,6 +475,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Get the background drawing layer.
+     * 
      * @return the background drawing layer.
      */
     @objid ("d6e87752-e465-4828-86ae-418b86338533")
@@ -479,6 +492,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Get the drawing identified by the given string.
+     * 
      * @param identifier the drawing identifier.
      * @return the found drawing or <i>null</i>.
      */
@@ -505,6 +519,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Get the existing GmModel for a given element.
+     * 
      * @param element a model element.
      * @return null if the model element is not currently (already) unmasked and visible in the diagram
      */
@@ -528,6 +543,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Get the model manager storing the session and model factory.
+     * 
      * @return the model manager.
      */
     @objid ("7e18fdde-1dec-11e2-8cad-001ec947c8cc")
@@ -536,12 +552,10 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
         return this.modelManager;
     }
 
-    @objid ("5e95821e-500e-4451-94e0-194c2ab30263")
-    @Override
-    public final IDiagramPersister getPersister() {
-        return new DiagramPersistence(this);
-    }
-
+// @objid ("5e95821e-500e-4451-94e0-194c2ab30263")
+// protected final IDiagramPersister getPersister() {
+// return ;
+// }
     @objid ("3c23003d-7004-4364-8e8d-1faf17294fc6")
     @Override
     public AbstractDiagram getRelatedElement() {
@@ -558,6 +572,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * Tells whether the diagram model is disposed.
      * <p>
      * A disposed diagram model won't react to model modifications and shouldn't be used anymore.
+     * 
      * @return <code>true</code> if the diagram model is disposed, else <code>false</code>.
      */
     @objid ("7e18fde3-1dec-11e2-8cad-001ec947c8cc")
@@ -572,7 +587,8 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
         MObject relatedElement = getRelatedElement();
         return relatedElement != null
                 && !(relatedElement.isShell() || relatedElement.isDeleted())
-                && relatedElement.getStatus().isModifiable();
+                && relatedElement.getStatus().isModifiable()
+                && getDiagramOwner() == null;
     }
 
     @objid ("7e18fde8-1dec-11e2-8cad-001ec947c8cc")
@@ -592,7 +608,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
             break;
         
         default:
-            assert (false) : readVersion + " version number not covered!";
+            assert false : readVersion + " version number not covered!";
             // reading as last handled version: 0
             read_0(in);
             break;
@@ -648,6 +664,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * Remove a graphic model from the diagram.
      * <p>
      * To be called only by {@link GmModel#delete()}.
+     * 
      * @param model the graphic element to remove.
      */
     @objid ("7e18fdf4-1dec-11e2-8cad-001ec947c8cc")
@@ -675,6 +692,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Remove a drawing layer
+     * 
      * @param gmDrawingLayer a drawing layer
      */
     @objid ("44a65a3a-8d44-48ab-96ec-10da54535eb2")
@@ -702,6 +720,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * <p>
      * This method is called during the class initialization, and should not access fields (that may not be initialized yet).
      * </p>
+     * 
      * @return the link creation factory. Must not be <code>null</code>.
      */
     @objid ("7e18fdf8-1dec-11e2-8cad-001ec947c8cc")
@@ -714,6 +733,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * <p>
      * This method is called during the class initialization, and should not access fields (that may not be initialized yet).
      * </p>
+     * 
      * @return the node creation factory. Must not be <code>null</code>.
      */
     @objid ("7e1b6009-1dec-11e2-8cad-001ec947c8cc")
@@ -723,6 +743,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Unmask the given model element as a node inside the given graphic node.
+     * 
      * @param parentNode The parent graphic node that will contain the element
      * @param newElement The element to unmask
      * @param initialLayoutData The initial layout data of the unmasked element.<br>
@@ -763,6 +784,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
     /**
      * Unmask the given link element in the diagram.
      * <p>
+     * 
      * @param createdLinkElement The link to unmask
      * @param fromNode The source node
      * @param toNode The destination node
@@ -797,6 +819,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Creates a GmLink for the given element. Link is not initialized (ie: it have no source node, no destination node and no layout data).
+     * 
      * @param linkElement the element for which to create a GmLink
      * @return the uninitialized GmLink for the element, or <code>null</code>.
      */
@@ -835,9 +858,10 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * Read the diagram model from the persisted serialized data.
      */
     @objid ("8b0e6312-451e-4bed-acc0-926c4af02dc0")
-    void loadFromPersistence() {
+    @Override
+    public void load() {
         try {
-            getPersister().load();
+            new DiagramPersistence(this).load();
             firePropertyChange(GmAbstractDiagram.PROP_DIAGRAM_LOAD_END, null, Boolean.TRUE);
         } catch (PersistenceException e) {
             // Failed to read string, log error.
@@ -851,6 +875,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * <p>
      * This method is called during the class initialization, and should not access fields (that may not be initialized yet).
      * </p>
+     * 
      * @return a diagram refresher. Must not be <code>null</code>.
      */
     @objid ("9e4cd3c3-52b7-404e-bad6-65e7be8e0a7f")
@@ -872,6 +897,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * <p>
      * This method is called during the class initialization, and should not access fields (that may not be initialized yet).
      * </p>
+     * 
      * @return a diagram refresher. Must not be <code>null</code>.
      */
     @objid ("7e1b6043-1dec-11e2-8cad-001ec947c8cc")
@@ -898,6 +924,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Get the factory used to unmask relationship model elements as links in this diagram.
+     * 
      * @return The graphic link factory.
      */
     @objid ("7e1b603e-1dec-11e2-8cad-001ec947c8cc")
@@ -908,6 +935,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
     /**
      * Get the factory used to unmask relationship model elements as nodes in this diagram.
+     * 
      * @return The graphic node factory
      */
     @objid ("7e1b602c-1dec-11e2-8cad-001ec947c8cc")
@@ -1010,6 +1038,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * Get the registered post load actions.
      * <p>
      * The list is returned by reference. To be used by the controller to run them.
+     * 
      * @return the registered post load actions.
      */
     @objid ("3a624f0c-8c0c-4433-a45f-8403e3400efa")
@@ -1034,6 +1063,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
      * <p>
      * An diagram is usable if its model manager field has not been nullified.
      * </p>
+     * 
      * @return <code>true</code> if the gm is valid, <code>false</code> otherwise.
      * @since Modelio 3.7
      */
@@ -1068,6 +1098,22 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
     @objid ("07d6c476-fd4d-481f-9f1f-17ed2e086179")
     protected abstract boolean doCanUnmask(MObject el);
 
+    @objid ("c5431dcc-29bd-4d7d-96d5-605af2fadcc1")
+    @Override
+    public void save(boolean withEmbeddeddiagrams) throws PersistenceException {
+        try {
+            long ref = this.lastSavedUiDataVersion;
+            new DiagramPersistence(this).save(withEmbeddeddiagrams);
+            if (ref != this.lastSavedUiDataVersion) {
+                firePropertyChange(GmAbstractDiagram.PROP_UIDATA_VERSION, ref, this.lastSavedUiDataVersion);
+            }
+        
+        } catch (PersistenceException e) {
+            // Failed to write string, log error.
+            DiagramElements.LOG.error(e);
+        }
+    }
+
     /**
      * Updates the Graphic Model from the Ob model.
      */
@@ -1078,6 +1124,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
         /**
          * Default constructor.
+         * 
          * @param gmAbstractDiagram the opened diagram.
          */
         @objid ("7e1dc276-1dec-11e2-8cad-001ec947c8cc")
@@ -1105,7 +1152,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
             
                     // Save the refreshed diagram only if sync with the Ob model
                     if (obDiagram.getUiDataVersion() == this.gmAbstractDiagram.lastSavedUiDataVersion) {
-                        this.gmAbstractDiagram.getPersister().save(false);
+                        this.gmAbstractDiagram.save(false);
                     }
                 }
             });
@@ -1147,6 +1194,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
         /**
          * Default constructor.
+         * 
          * @param gmAbstractDiagram the opened diagram.
          */
         @objid ("7e1dc262-1dec-11e2-8cad-001ec947c8cc")
@@ -1190,7 +1238,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
                     }
             
                     if (!invalidRefs.isEmpty()) {
-                        this.gmAbstractDiagram.loadFromPersistence();
+                        this.gmAbstractDiagram.load();
             
                         // Delete all Gm whose refs were invalid, to avoid
                         // unwanted ghosts.
@@ -1204,7 +1252,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
             
                         // Save the refreshed diagram if necessary
                         if (deletedNodes > 0) {
-                            this.gmAbstractDiagram.getPersister().save(false);
+                            this.gmAbstractDiagram.save(false);
                         }
                     }
                 } else {
@@ -1216,6 +1264,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
 
         /**
          * Reload the diagram if it has been modified outside of the diagram editor.
+         * 
          * @param event The change event.
          */
         @objid ("7e1dc26b-1dec-11e2-8cad-001ec947c8cc")
@@ -1277,7 +1326,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
             // Save the refreshed diagram
             final AbstractDiagram obDiagram = this.gmAbstractDiagram.getRelatedElement();
             if (obDiagram.isModifiable()) {
-                this.gmAbstractDiagram.getPersister().save(false);
+                this.gmAbstractDiagram.save(false);
             }
         }
 
@@ -1287,7 +1336,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
                 Display.getDefault().asyncExec(() -> {
                     this.reloadScheduled.set(false);
                     if (!this.gmAbstractDiagram.isDisposed() && this.gmAbstractDiagram.getModelManager().getModelingSession().isValid()) {
-                        this.gmAbstractDiagram.loadFromPersistence();
+                        this.gmAbstractDiagram.load();
                     }
                 });
             }
@@ -1299,7 +1348,7 @@ public abstract class GmAbstractDiagram extends GmCompositeNode implements IGmDi
             if (visible) {
                 MObject relatedElement = this.gmAbstractDiagram.getRelatedElement();
                 if (relatedElement != null) {
-                    this.gmAbstractDiagram.loadFromPersistence();
+                    this.gmAbstractDiagram.load();
                 }
             }
         }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class GmStateLabel extends GmDefaultModelElementHeader {
 
     /**
      * Creates an State label.
+     * 
      * @param diagram the owning graphic diagram, may not be <tt>null</tt>.
      * @param ref the represented State reference, may not be <tt>null</tt>.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public class TransactionScriptRunner implements IScriptRunner {
 
     /**
      * Constructor
+     * 
      * @param runner the adapted runner.
      */
     @objid ("89cc69b2-ed76-461f-b726-b29fd740d516")

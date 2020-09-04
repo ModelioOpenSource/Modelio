@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: BPMN extensions
 Bundle-SymbolicName: org.modelio.bpmn.extensions;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-ClassPath: .,
  res/
 Bundle-Vendor: modelio.org

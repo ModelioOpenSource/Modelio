@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class OrthoConnectionHelper implements IConnectionHelper {
 
     /**
      * Constructor a connection and its existing points.
+     * 
      * @param connection the connection for which this helper is created.
      */
     @objid ("804e0aff-1dec-11e2-8cad-001ec947c8cc")
@@ -85,6 +86,7 @@ public class OrthoConnectionHelper implements IConnectionHelper {
      * <p>
      * Uses {@link #updateFrom(RawPathData)} newt.
      * @param rawData the {@link RawPathData} to build from.
+     * 
      * @param connection the connection for which this helper is created.
      */
     @objid ("804e0b06-1dec-11e2-8cad-001ec947c8cc")
@@ -95,6 +97,7 @@ public class OrthoConnectionHelper implements IConnectionHelper {
 
     /**
      * Constructor from a list of points stored in the model (in coordinates relative to the connection or the origin figure).
+     * 
      * @param modelBendPoints the list of point as stored in the model.
      * @param connection the connection for which this helper is created.
      */
@@ -165,6 +168,7 @@ public class OrthoConnectionHelper implements IConnectionHelper {
      * Get the anchor owner (handle)bounds in absolute coordinates.
      * <p>
      * If the anchor is not attached to a figure, returns a 1x1 sized rectangle located at the anchor reference point.
+     * 
      * @param anchor The anchor.
      * @return The anchor owner bounds.
      */
@@ -186,6 +190,7 @@ public class OrthoConnectionHelper implements IConnectionHelper {
      * Go through the list of point and try to make an orthogonal path from it.
      * <p>
      * Add the points to {@link #modelBendPoints} .
+     * 
      * @param path a list of points in absolute coordinates
      * @param lastPoint the last point, not used anymore
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class EditorActivationStrategy extends ColumnViewerEditorActivationStrate
      * Instantiates the strategy.
      * <p>
      * Edition will be triggered with two clicks on the same object in a duration comprised between 0.3 and 1 second.
+     * 
      * @param viewer the column viewer
      */
     @objid ("1fc23827-1de3-11e2-bcbe-002564c97630")
@@ -73,6 +74,7 @@ public class EditorActivationStrategy extends ColumnViewerEditorActivationStrate
      * <p>
      * If <i>withTimeDelta</i> is <i>true</i>, edition will be triggered with two clicks on the same object in a duration comprised between 0.3 and 1 second.<br>
      * If <i>withTimeDelta</i> is <i>false</i> edition will be triggered on second click on the same object whatever the delay.
+     * 
      * @param viewer the column viewer
      * @param withTimeDelta whether to test time delta on second click to activate the editor.
      * @since 3.7.1

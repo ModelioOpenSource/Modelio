@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class CallWatchThread extends Thread {
 
     /**
      * Initialize and starts the thread watcher.
+     * 
      * @param nTimeout timeout in milliseconds
      */
     @objid ("9b990e2b-8f71-4303-be52-ded6feffa29b")
@@ -59,6 +60,7 @@ public class CallWatchThread extends Thread {
 
     /**
      * Initialize and starts the thread watcher.
+     * 
      * @param nTimeout timeout in milliseconds
      * @param aTag name of the watcher for debug.
      */
@@ -89,6 +91,7 @@ public class CallWatchThread extends Thread {
 
     /**
      * Reset the counter and watch the thread again.
+     * 
      * @throws java.lang.InterruptedException if the thread was interrupted.
      */
     @objid ("d69e6950-4b51-44c1-ab7a-0fa52ab8fc9e")

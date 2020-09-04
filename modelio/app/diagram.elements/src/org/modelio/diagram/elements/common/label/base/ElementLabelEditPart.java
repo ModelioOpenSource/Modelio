@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -218,6 +218,7 @@ public class ElementLabelEditPart extends AbstractNodeEditPart {
      * Get the {@link LabelumFigure} from the main figure.
      * <p>
      * To be redefined if {@link #createFigure()} is redefined and returns a composite figure.
+     * 
      * @param mainFig the main figure, usually {@link #getFigure()}
      * @return the {@link LabelumFigure}
      */

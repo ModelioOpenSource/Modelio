@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,10 +22,14 @@ package org.modelio.diagram.editor.sequence.elements.sequencediagram;
 
 import java.util.Deque;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.commands.Command;
+import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramElementDropEditPolicyExtension;
 import org.modelio.diagram.elements.common.abstractdiagram.DiagramElementDropEditPolicy;
+import org.modelio.diagram.elements.common.abstractdiagram.UnmaskConstraintCommand;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.metamodel.StandardMetamodel;
@@ -33,12 +37,14 @@ import org.modelio.metamodel.diagrams.SequenceDiagram;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionUse;
 import org.modelio.metamodel.uml.behavior.interactionModel.Lifeline;
+import org.modelio.metamodel.uml.infrastructure.Constraint;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Attribute;
 import org.modelio.metamodel.uml.statik.GeneralClass;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.Port;
+import org.modelio.metamodel.visitors.DefaultModelVisitor;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -66,7 +72,8 @@ public class SequenceDiagramDropEditPolicyExtension extends AbstractDiagramEleme
         } else if (droppedElement != null) {
             // TODO improve check for a "sequence diagram" element
             if (droppedElement.getMClass().getOrigin().getName().equals(StandardMetamodel.NAME)) {
-                return super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
+                Command cmd = (Command) droppedElement.accept(new StandardVisitorImpl(dropPolicy, dropLocation));
+                return cmd != null ? cmd : super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
             }
         }
         return null;
@@ -132,6 +139,28 @@ public class SequenceDiagramDropEditPolicyExtension extends AbstractDiagramEleme
         final SequenceDiagram owner = diagramModel.getRelatedElement();
         Interaction origin = (Interaction) owner.getOrigin();
         return new SmartCreateInteractionUseCommand(dropLocation, (Interaction) toUnmask, dropPolicy.getHost(), origin);
+    }
+
+    @objid ("50a8ac2c-c8e5-4b13-aa6d-07fefde77edb")
+    private static class StandardVisitorImpl extends DefaultModelVisitor {
+        @objid ("052cda81-7477-476a-9b0e-b2779f4e0136")
+        private Point dropLocation;
+
+        @objid ("84f36b49-a999-45fc-9503-5b7d168039b0")
+        private DiagramElementDropEditPolicy dropPolicy;
+
+        @objid ("5edcc9b7-c8ce-46fb-9994-08743c2667b9")
+        public StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
+            this.dropPolicy = dropPolicy;
+            this.dropLocation = dropLocation;
+        }
+
+        @objid ("6f1ea738-9f0a-45d6-9939-9ce564db1494")
+        @Override
+        public Object visitConstraint(final Constraint theConstraint) {
+            return new UnmaskConstraintCommand(theConstraint, (AbstractDiagramEditPart) this.dropPolicy.getHost(), new Rectangle(this.dropLocation, new Dimension(-1, -1)));
+        }
+
     }
 
 }

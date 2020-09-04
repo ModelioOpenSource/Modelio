@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -154,6 +154,7 @@ public abstract class TChoreographyActivity extends TFlowNode {
 
     /**
      * Sets the value of the initiatingParticipantRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -179,6 +180,7 @@ public abstract class TChoreographyActivity extends TFlowNode {
 
     /**
      * Sets the value of the loopType property.
+     * 
      * @param value allowed object is
      * {@link TChoreographyLoopType }
      */

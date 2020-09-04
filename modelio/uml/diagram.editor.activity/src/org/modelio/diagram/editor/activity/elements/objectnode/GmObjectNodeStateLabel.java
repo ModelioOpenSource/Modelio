@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class GmObjectNodeStateLabel extends GmElementLabel {
 
     /**
      * C'tor.
+     * 
      * @param diagram the diagram.
      * @param relatedRef ref to the related ObjectNode
      */

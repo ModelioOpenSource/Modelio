@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class PrintMargin {
      * specified printer with the given margin in inches.
      * Note: all four sides share the same margin width.
      * @param printer
+     * 
      * @param margin @return
      */
     @objid ("e48a9c21-5693-411c-886e-d4a39fb04334")

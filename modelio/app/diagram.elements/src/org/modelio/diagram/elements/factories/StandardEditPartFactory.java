@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class StandardEditPartFactory implements EditPartFactory {
 
     /**
      * Instantiate the factory.
+     * 
      * @param factoryId identifier of the main factory.
      */
     @objid ("ba6ea29a-5b54-4e1f-96c2-be423f6fac92")

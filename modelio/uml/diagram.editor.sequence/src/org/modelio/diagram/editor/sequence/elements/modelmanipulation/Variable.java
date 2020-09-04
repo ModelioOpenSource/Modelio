@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public class Variable {
 
     /**
      * Returns the current integer value of this Variable object.
+     * 
      * @return the current integer value.
      */
     @objid ("d96fdf7f-55b6-11e2-877f-002564c97630")
@@ -47,6 +48,7 @@ public class Variable {
 
     /**
      * Sets the new value of this Variable object.
+     * 
      * @param value the new integer value.
      */
     @objid ("d96fdf84-55b6-11e2-877f-002564c97630")

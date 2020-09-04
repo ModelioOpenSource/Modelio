@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class CreateNAssocCommand extends Command {
 
     /**
      * Creates a n-ary association creation command.
+     * 
      * @param editPart the edit part producing this command
      * @param sourceModels The models that are to be linked to the created association.
      * @param parentNode The parent node unmasking the "diamond" of the association.

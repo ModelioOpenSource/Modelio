@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -210,6 +210,7 @@ public class ScriptView {
 
     /**
      * Get the script view.
+     * 
      * @return The script view
      */
     @objid ("0080721c-663d-105c-84ef-001ec947cd2a")

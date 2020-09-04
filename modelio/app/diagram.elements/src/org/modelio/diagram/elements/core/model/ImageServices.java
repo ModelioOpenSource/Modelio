@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class ImageServices {
 
     /**
      * Get the image used when no stereotype image is available.
+     * 
      * @return The default image used when no stereotype image is available.
      */
     @objid ("8084e15e-1dec-11e2-8cad-001ec947c8cc")
@@ -66,6 +67,7 @@ public class ImageServices {
 
     /**
      * Get the image registry of the diagram viewer from an EditPart.
+     * 
      * @param context an edit part
      * @return the image registry
      */

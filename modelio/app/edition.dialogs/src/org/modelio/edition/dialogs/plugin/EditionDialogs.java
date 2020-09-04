@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,6 +72,7 @@ public class EditionDialogs implements BundleActivator {
     /**
      * Returns an image descriptor for the image file at the given plug-in
      * relative path
+     * 
      * @param path the path
      * @return the image descriptor
      */

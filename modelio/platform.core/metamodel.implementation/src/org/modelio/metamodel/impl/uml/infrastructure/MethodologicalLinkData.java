@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,17 +19,21 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("0a2aea9c-195c-486c-ad58-68e58c037306")
 public class MethodologicalLinkData extends DependencyData {
-    @objid ("042b85d3-9e97-477d-a012-726ced0c4a21")
+    @objid ("8db61673-42a6-436e-a52d-99cc448ed049")
+     SmObjectImpl mExternElement;
+
+    @objid ("08aa3f42-8855-434d-a39d-588989774f47")
     public MethodologicalLinkData(MethodologicalLinkSmClass smClass) {
         super(smClass);
     }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -44,13 +44,13 @@ public interface NoteType extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("a5dc1f8f-65a3-4159-97b9-ea107771a5dd")
+    @objid ("f5214290-729f-45c4-844a-40b499acc190")
     public static final String MNAME = "NoteType";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("26335595-921b-4280-9d75-69c27c3a9b6c")
+    @objid ("7e0e800d-9926-4e9e-ae07-2e0a5613fb2b")
     public static final String MQNAME = "Infrastructure.NoteType";
 
     @objid ("86c9b1d3-36e0-4281-ae56-13648e6465ec")
@@ -60,36 +60,40 @@ public interface NoteType extends ModelElement {
      * Getter for attribute 'NoteType.IsHidden'
      * 
      * Metamodel description:
-     * <i>null</i>
+     * <i><p>Indicates whether or not this note type will be visible for manual addition/suppression by the user.</p>
+     * </i>
      */
-    @objid ("fff09dde-318c-4cbd-a664-d2aaf8ea5642")
+    @objid ("f1cc01f4-1ef3-4cab-bc6d-945e962973e3")
     boolean isIsHidden();
 
     /**
      * Setter for attribute 'NoteType.IsHidden'
      * 
      * Metamodel description:
-     * <i>null</i>
+     * <i><p>Indicates whether or not this note type will be visible for manual addition/suppression by the user.</p>
+     * </i>
      */
-    @objid ("f0833bb0-28e8-4902-b960-9e54e3dfc023")
+    @objid ("5b20c8ff-9719-4043-a71c-e1d0447c0a78")
     void setIsHidden(boolean value);
 
     /**
      * Getter for attribute 'NoteType.LabelKey'
      * 
      * Metamodel description:
-     * <i></i>
+     * <i><p>The note type label key used to look into module resources for the translated stereotype label.</p>
+     * </i>
      */
-    @objid ("7ea1b714-6303-45c2-9ae5-62bc97810ba5")
+    @objid ("e523d6ba-9493-4378-a58a-4cc1b5376c1d")
     String getLabelKey();
 
     /**
      * Setter for attribute 'NoteType.LabelKey'
      * 
      * Metamodel description:
-     * <i></i>
+     * <i><p>The note type label key used to look into module resources for the translated stereotype label.</p>
+     * </i>
      */
-    @objid ("8ef42045-ab4a-46fb-b71e-c526cb92cf83")
+    @objid ("cd72b2ae-dee7-4085-a5c2-79bb2ed0265b")
     void setLabelKey(String value);
 
     /**
@@ -98,7 +102,7 @@ public interface NoteType extends ModelElement {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("570df1c9-f7fb-440e-8644-1300dedaa800")
+    @objid ("0c7bcadc-474c-4ff3-8ac7-2659367c4410")
     String getMimeType();
 
     /**
@@ -107,7 +111,7 @@ public interface NoteType extends ModelElement {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("b08e1558-458c-4d65-905a-a213072c1c45")
+    @objid ("610f92db-e55f-4260-81eb-32a48bdfad36")
     void setMimeType(String value);
 
     /**
@@ -116,7 +120,7 @@ public interface NoteType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("734fac16-b75c-45c3-83c4-0ce8ab938284")
+    @objid ("379829eb-a458-4070-b30d-0b40c94d1c42")
     EList<Note> getElement();
 
     /**
@@ -125,7 +129,7 @@ public interface NoteType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("e58b951a-bb01-408a-85a9-d8773d4df10f")
+    @objid ("bc36d71e-65bf-4efa-ac5d-b7b2026d61c3")
     <T extends Note> List<T> getElement(java.lang.Class<T> filterClass);
 
     /**
@@ -134,7 +138,7 @@ public interface NoteType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("41152a02-f56c-4a6e-a0da-12ce2c14e741")
+    @objid ("d7480b42-cbb3-4ebe-88cb-0dfa012af190")
     Stereotype getOwnerStereotype();
 
     /**
@@ -143,7 +147,7 @@ public interface NoteType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("0d9f98e4-6cb6-4b53-9440-93836352d79b")
+    @objid ("963e0d39-4f88-494e-be35-ad6d475d79e1")
     void setOwnerStereotype(Stereotype value);
 
     /**
@@ -152,7 +156,7 @@ public interface NoteType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("6453da3b-7c3c-4bab-bad1-0f799d5d1f5f")
+    @objid ("9bf3ff4f-4204-4409-899d-cc48f3420875")
     MetaclassReference getOwnerReference();
 
     /**
@@ -161,7 +165,7 @@ public interface NoteType extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("b02c82d4-175e-40b3-9b8f-a0b1e31d24e0")
+    @objid ("dd57f229-726a-4bab-a45e-f90cee61163b")
     void setOwnerReference(MetaclassReference value);
 
 }

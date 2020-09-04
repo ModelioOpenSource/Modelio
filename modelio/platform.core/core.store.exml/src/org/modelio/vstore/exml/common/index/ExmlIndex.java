@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -79,6 +79,7 @@ public class ExmlIndex {
 
     /**
      * Instantiate the indexes and open them.
+     * 
      * @param resProvider the EXML resources provider.
      * @param errSupport error reporter
      */
@@ -92,6 +93,7 @@ public class ExmlIndex {
      * Build the indexes from scratch.
      * <p>
      * The index must be empty.
+     * 
      * @param aMonitor a progress monitor
      * @throws java.io.IOException in case of failure reading EXML files.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of error writing the index.
@@ -115,7 +117,7 @@ public class ExmlIndex {
                 commitSometimes();
                 i++;
                 if (i % 10 == 0) {
-                    monitor.subTask( VStoreExml.getMessage("AbstractExmlRepository.mon.buildingIndexes.i",this.resProvider.getName(), i, nbResources));
+                    monitor.subTask( VStoreExml.I18N.getMessage("AbstractExmlRepository.mon.buildingIndexes.i",this.resProvider.getName(), i, nbResources));
                 }
         
                 monitor.worked(1);
@@ -143,6 +145,7 @@ public class ExmlIndex {
 
     /**
      * Close the indexes.
+     * 
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of failure.
      */
     @objid ("f778d0d2-d023-11e1-bf59-001ec947ccaf")
@@ -158,6 +161,7 @@ public class ExmlIndex {
 
     /**
      * Check the indexes are up to date.
+     * 
      * @throws java.io.IOException in case of stamp reading error
      * @throws org.modelio.vstore.exml.common.index.IndexOutdatedException if the indexes are out of date.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of read error.
@@ -169,13 +173,13 @@ public class ExmlIndex {
         
         // Check index is here
         if (this.cmsNodeIndex.isEmpty()) {
-            throw new IndexOutdatedException(VStoreExml.getMessage("ExmlIndex.indexMissing", this.resProvider.getName()));
+            throw new IndexOutdatedException(VStoreExml.I18N.getMessage("ExmlIndex.indexMissing", this.resProvider.getName()));
         }
         
         // Check index stamp
         String stamp = this.resProvider.getStamp();
         if( !(getStoredStamp().equals(stamp))) {
-            throw new IndexOutdatedException(VStoreExml.getMessage("ExmlIndex.indexNotSynchro",
+            throw new IndexOutdatedException(VStoreExml.I18N.getMessage("ExmlIndex.indexNotSynchro",
                     this.resProvider.getName(),
                     getStoredStamp(),
                     stamp));
@@ -184,6 +188,7 @@ public class ExmlIndex {
 
     /**
      * Commit pending changes now, and reset internal counter.
+     * 
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of index writing failure.
      */
     @objid ("43dbc287-3879-11e2-920a-001ec947ccaf")
@@ -196,6 +201,7 @@ public class ExmlIndex {
 
     /**
      * Close and delete completely the indexes.
+     * 
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of failure.
      */
     @objid ("cf3179b2-03e4-11e2-b5bf-001ec947ccaf")
@@ -214,6 +220,7 @@ public class ExmlIndex {
      * Get a <i>try-with-resource</i> shield that closes the index on close() unless success() has been called.
      * <p>
      * To be used to close the index when an operation on the resource fails with an exception.
+     * 
      * @return a shield that closes the index on close() unless success() has been called.
      */
     @objid ("39c250ba-1b58-4ff9-91a7-ab79ce48ce2b")
@@ -239,6 +246,7 @@ public class ExmlIndex {
 
     /**
      * Open the indexes and rebuild them if necessary.
+     * 
      * @param aMonitor a progress monitor to report index building and opening.
      * @param metamodel the metamodel
      * @throws org.modelio.vstore.exml.common.index.IndexException if unable to open and unable to recreate indexes.
@@ -278,6 +286,7 @@ public class ExmlIndex {
      * Remove an object from all indexes.
      * <p>
      * If the object is a CMS node all its content is removed too.
+     * 
      * @param id the identifier to remove
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure.
      */
@@ -298,6 +307,7 @@ public class ExmlIndex {
 
     /**
      * Update the indexes for the given CMS node.
+     * 
      * @param cmsNodeId a CMS node identifier
      * @throws org.modelio.vstore.exml.common.index.IndexException if the indexes cannot be modified.
      */
@@ -351,6 +361,7 @@ public class ExmlIndex {
 
     /**
      * Read the index stamp.
+     * 
      * @return the index stamp.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
      */
@@ -361,6 +372,7 @@ public class ExmlIndex {
 
     /**
      * Defragments the index, so it consumes less space. This commits any uncommitted data.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done()
      * on the given monitor. Accepts null, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
@@ -388,6 +400,7 @@ public class ExmlIndex {
 
         /**
          * Initialize the shield
+         * 
          * @param resource the resource to close on failure
          */
         @objid ("0007ff9f-57f7-4450-9960-cf7200662e10")

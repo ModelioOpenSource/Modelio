@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +43,7 @@ public class XmiImportConfiguration {
 
     /**
      * Default constructor.
+     * 
      * @param xmiFile File in XMI format containing the model to import.
      * @param packageToImport the default owner for the import.
      */

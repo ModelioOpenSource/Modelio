@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -124,6 +124,7 @@ class MigratorFrom36 implements IMofRepositoryMigrator {
 
     /**
      * Modify the metamodel so that it can read the source repository.
+     * 
      * @param metamodel the metamodel at the final state
      * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
      */
@@ -197,6 +198,7 @@ class MigratorFrom36 implements IMofRepositoryMigrator {
      * <p>
      * Requires the elements having been transmuted to the new metaclasses.
      * @param reporter the logger
+     * 
      * @param monitor a progress monitor
      * @param mofsession the session
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException on buggy code
@@ -258,6 +260,7 @@ class MigratorFrom36 implements IMofRepositoryMigrator {
 
     /**
      * Prepare the metamodel for metaclasses renaming.
+     * 
      * @param metamodel the MOF metamodel.
      * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on failure
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,7 @@ import org.modelio.vcore.smkernel.mapi.MClass;
 public interface IMetaclassSelector {
     /**
      * Setup a metaclass filter.
+     * 
      * @param filter a {@link Predicate} that returns true to display the metaclass, false to exclude it.
      */
     @objid ("08b6aeaa-6b31-4da2-b6fe-35c1d46fd945")
@@ -51,6 +52,7 @@ public interface IMetaclassSelector {
 
     /**
      * Add a listener to be notified when the selection changes.
+     * 
      * @param listener a {@link Consumer} that accepts the selected metaclass.
      */
     @objid ("d38389eb-f663-40cb-b0c4-c2bbf9b7badd")
@@ -71,6 +73,7 @@ public interface IMetaclassSelector {
 
     /**
      * remove a listener added with {@link #addListener(Consumer)}.
+     * 
      * @param listener the listener to remove.
      */
     @objid ("f43dfb13-0362-42e4-b8a1-92d12512961a")
@@ -78,6 +81,7 @@ public interface IMetaclassSelector {
 
     /**
      * Set the selected metaclass.
+     * 
      * @param mClass the selected metaclass.
      */
     @objid ("ef91aa87-211c-4415-a3b4-beddd7de9a24")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class UnmaskDocumentCommand extends Command {
 
     /**
      * C'tor.
+     * 
      * @param theExternDocument the extern document to unmask.
      * @param host the edit part of the diagram in which to unmask it.
      * @param initialLayoutData the initial layout data for the node part

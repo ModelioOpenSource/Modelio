@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,7 +63,7 @@ public class DocTypeChooserDriver {
         this.leftViewer = new TreeViewer(parent, SWT.BORDER);
         this.leftViewer.setContentProvider(new DocTypeChooserContentProvider());
         this.leftViewer.setLabelProvider(new DocTypeChooserLabelProvider());
-        this.leftViewer.setSorter(new DocTypeChooserSorter());
+        this.leftViewer.setComparator(new DocTypeChooserComparator());
         this.leftViewer.setAutoExpandLevel(AbstractTreeViewer.ALL_LEVELS);
         this.leftViewer.addSelectionChangedListener(this.selectionListener);
         return this.leftViewer;
@@ -119,7 +119,7 @@ public class DocTypeChooserDriver {
         for (AdapterModule m : this.leftModel.getMdacAdapters().values()) {
             for (IAdaptable ad : m.getAdapters()) {
                 ResourceType rnt = ad.getAdapter(ResourceType.class);
-                if (Objects.equals(rnt.getName(), "other")) {
+                if (rnt != null && Objects.equals(rnt.getName(), "other")) {
                     return rnt;
                 }
             }
@@ -134,7 +134,7 @@ public class DocTypeChooserDriver {
 
         @objid ("f4ba7f4c-663c-4b43-b66d-fd396fa28c42")
         @Override
-        @SuppressWarnings ({ "unchecked", "synthetic-access" })
+        @SuppressWarnings ({ "synthetic-access" })
         public void selectionChanged(SelectionChangedEvent event) {
             if (this.enable) {
                 this.enable = false;

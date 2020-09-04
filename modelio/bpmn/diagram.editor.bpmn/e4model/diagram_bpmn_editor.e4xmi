@@ -54,6 +54,7 @@
       <handlers xmi:id="_5b2bsF2NEeePzd0pv7_JMw" elementId="diagram.editor.bpmn.handler.mask" contributionURI="bundleclass://org.modelio.diagram.editor.bpmn/org.modelio.diagram.editor.bpmn.handlers.BpmnMaskHandler" command="_y45G4IfOEeWj6a9oyLXySQ"/>
       <handlers xmi:id="_8SDJEH6EEeeEctyje8CmTQ" elementId="diagram.editor.bpmn.handler.selectall" contributionURI="bundleclass://org.modelio.diagram.editor.bpmn/org.modelio.diagram.editor.bpmn.handlers.BpmnSelectAllHandler" command="_s5534OI0EeKWx8-qQ2OLqA"/>
       <handlers xmi:id="_WvV4ALphEee4b7eVKu6yFw" elementId="diagram.editor.bpmn.handler.opendiagram" contributionURI="bundleclass://org.modelio.diagram.editor.bpmn/org.modelio.diagram.editor.bpmn.handlers.BpmnOpenEditor" command="_sVXWcO4XEeaDZJqnhFLKuA"/>
+      <handlers xmi:id="_Wb60cED7EemWVaecTK3WUA" elementId="diagram.editor.bpmn.handler.selectinexplorer" contributionURI="bundleclass://org.modelio.diagram.editor.bpmn/org.modelio.diagram.editor.bpmn.handlers.BpmnSelectInExplorerHandler" command="_atUx8IJpEeKtkfwbSBQBAQ"/>
       <menus xsi:type="menu:PopupMenu" xmi:id="_ioYI0ID8EeKKLZZAYaz6Sg" elementId="org.modelio.diagram.editor.bpmn.menu.popupmenu" accessibilityPhrase="" label="" tooltip="Test de popup menu pour bpmn">
         <tags>popup:org.modelio.popupmenu.cms</tags>
         <tags>popup:org.modelio.diagram.editor.popup</tags>

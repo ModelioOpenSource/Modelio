@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -88,6 +88,7 @@ public class SimpleFigure extends GradientFigure {
 
     /**
      * Sets the text of the label figure.
+     * 
      * @param name new text of the label figure.
      */
     @objid ("7f240553-1dec-11e2-8cad-001ec947c8cc")
@@ -97,6 +98,7 @@ public class SimpleFigure extends GradientFigure {
 
     /**
      * Returns the label figure.
+     * 
      * @return the label figure.
      */
     @objid ("7f240557-1dec-11e2-8cad-001ec947c8cc")

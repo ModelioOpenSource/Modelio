@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ import org.modelio.metamodel.diagrams.AbstractDiagram;
 public interface IDiagramEditorInputProvider {
     /**
      * Instanciate a {@link DiagramEditorInput} for a diagram.
+     * 
      * @param diagramUid the UUID of an existing diagram.
      * @param modelManager a diagram model manager.
      * @return the editor input, or <code>null</code> if the diagram's instance can't be handled by this provider.
@@ -62,6 +63,7 @@ public interface IDiagramEditorInputProvider {
          * diagram.getPersister().load();
          * </code>
          * </p>
+         * 
          * @param modelManager a diagram model manager
          * @param diagram The element to unmask
          * @return The created graphic node.

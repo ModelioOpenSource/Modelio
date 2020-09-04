@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.gproject.data.project.GProperties.Entry;
@@ -53,6 +54,7 @@ public class ModuleUpdater {
 
     /**
      * @param gProject the project
+     * @param moduleRegistry the module registry
      */
     @objid ("a9653cb9-9432-43db-b7b3-5c63afda0241")
     public ModuleUpdater(GProject gProject, IModuleRegistryAccess moduleRegistry) {
@@ -62,14 +64,20 @@ public class ModuleUpdater {
 
     /**
      * Update an already installed module
-     * @param moduleFilePath the module file path
+     * 
      * @param rtModuleToUpdate the existing module
      * @param rtModuleHandle the module handle to install
+     * @param moduleUri the module file path
      * @throws org.modelio.api.module.lifecycle.ModuleException on failure.
      */
     @objid ("44326855-0324-11e2-9fca-001ec947c8cc")
     public void moduleUpdateInstall(IRTModuleAccess rtModuleToUpdate, IModuleHandle rtModuleHandle, URI moduleUri) throws ModuleException {
         GModule oldGModule = rtModuleToUpdate.getGModule();
+        
+        if (Objects.equals(oldGModule.getModuleHandle(), rtModuleHandle)) {
+            // This is the same module handle instance, no need to restart it
+            return;
+        }
         
         MdaInfra.LOG.info("Updating '%s' %s module to '%s' %s", oldGModule.getName(), oldGModule.getVersion(), rtModuleHandle.getName(), rtModuleHandle.getVersion());
         MdaInfra.LOG.indent();
@@ -147,6 +155,7 @@ public class ModuleUpdater {
 
     /**
      * Run the module update process from its already updated GModule.
+     * 
      * @param rtModule the module to update
      * @param oldVersion the old module version
      * @throws org.modelio.api.module.lifecycle.ModuleException on failure

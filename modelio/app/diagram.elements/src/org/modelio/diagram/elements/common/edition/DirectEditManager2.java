@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public abstract class DirectEditManager2 extends DirectEditManager {
     /**
      * Constructs a new DirectEditManager2 for the given source edit part. The cell editor will be created by
      * instantiating the type <i>editorType</i>. The cell editor will be placed using the given CellEditorLocator.
+     * 
      * @param source the source edit part
      * @param editorType the cell editor type
      * @param locator the locator
@@ -56,6 +57,7 @@ public abstract class DirectEditManager2 extends DirectEditManager {
     /**
      * Constructs a new DirectEditManager2 for the given source edit part. The cell editor will be created by
      * instantiating the type <i>editorType</i>. The cell editor will be placed using the given CellEditorLocator.
+     * 
      * @param source the source edit part
      * @param editorType the cell editor type
      * @param locator the locator

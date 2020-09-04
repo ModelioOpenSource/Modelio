@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -129,6 +129,7 @@ public class JdbmSwap implements ISwap {
      * Initializes the swap to the given directory.
      * <p>
      * The directory will be deleted on close.
+     * 
      * @param metamodel the metamodel
      * @param swapDirectory The swap path. Must be a directory, preferably empty.
      */
@@ -192,6 +193,7 @@ public class JdbmSwap implements ISwap {
      * Set the commit to disk frequency.
      * <p>
      * The value is the number of call to {@link #swap(SmObjectData)} leading to one commit.
+     * 
      * @return the commit to swap frequency.
      */
     @objid ("dcbc24f5-493b-11e2-91c9-001ec947ccaf")
@@ -203,6 +205,7 @@ public class JdbmSwap implements ISwap {
      * Set the commit to disk frequency.
      * <p>
      * The value is the number of call to {@link #swap(SmObjectData)} leading to one commit.
+     * 
      * @param commitFreq the commit to swap frequency
      */
     @objid ("dcbc24fa-493b-11e2-91c9-001ec947ccaf")

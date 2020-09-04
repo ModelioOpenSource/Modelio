@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public final class GmInstanceInternalStructure extends GmNoStyleCompositeNode im
 
     /**
      * Creates an InternalStructure classes group.
+     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
@@ -86,7 +87,7 @@ public final class GmInstanceInternalStructure extends GmNoStyleCompositeNode im
         
         this.InternalStructureZone = new GmInstanceInternalStructureZone(diagram, relatedRef);
         this.InternalStructureZone.setRoleInComposition(ZONE);
-        // Register as a property change listener for content synchronization in MANUAL unmask mode. 
+        // Register as a property change listener for content synchronization in MANUAL unmask mode.
         this.InternalStructureZone.addPropertyChangeListener(this);
         
         this.InternalGroup = new GmInstanceInternalStructureGroup(diagram, relatedRef);
@@ -100,6 +101,7 @@ public final class GmInstanceInternalStructure extends GmNoStyleCompositeNode im
 
     /**
      * Creates an InternalStructure classes group from existing zone & group.
+     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      * @param zone an existing InternalStructure zone.
@@ -118,7 +120,7 @@ public final class GmInstanceInternalStructure extends GmNoStyleCompositeNode im
         super.addChild(this.InternalGroup);
         super.addChild(this.InternalStructureZone);
         
-        // Register as a property change listener for content synchronization. 
+        // Register as a property change listener for content synchronization.
         this.InternalStructureZone.addPropertyChangeListener(this);
         this.InternalGroup.addPropertyChangeListener(this);
     }
@@ -239,6 +241,7 @@ public final class GmInstanceInternalStructure extends GmNoStyleCompositeNode im
      * Synchronize target's children according to the source's children.
      * Unwanted children are all masked.
      * Missing children are unmasked.
+     * 
      * @param source the gm having the right children.
      * @param target the gm that might have unwanted/missing children.
      */
@@ -318,7 +321,8 @@ public final class GmInstanceInternalStructure extends GmNoStyleCompositeNode im
     @objid ("354f7710-55b7-11e2-877f-002564c97630")
     @Override
     public boolean isVisible() {
-        if (getParent() != null && getParent().getRepresentationMode() == RepresentationMode.STRUCTURED) {
+        GmCompositeNode parentNode = getParentNode();
+        if (parentNode != null && parentNode.isVisible() && parentNode.getRepresentationMode() == RepresentationMode.STRUCTURED) {
             StyleKey viewModeStyleKey = getViewModeStyleKey();
             if (viewModeStyleKey == null) {
                 return false;

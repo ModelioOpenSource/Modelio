@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ import org.eclipse.gef.editparts.ScalableFreeformRootEditPart;
 import org.eclipse.gef.editparts.ZoomManager;
 import org.eclipse.gef.tools.SelectionTool;
 import org.modelio.app.project.core.services.IProjectService;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.diagram.editor.AbstractDiagramEditor;
 import org.modelio.diagram.editor.DiagramEditorInput;
 import org.modelio.diagram.editor.IDiagramEditor;
@@ -78,15 +79,16 @@ public class SilentDiagramEditor implements IDiagramEditor {
     private DiagramEditorInput editorInput = null;
 
     @objid ("2c847454-3a3d-11e2-a430-001ec947c8cc")
-    private IProjectService projectService;
+    private final IProjectService projectService;
 
     /**
      * C'tor.
+     * 
      * @param input the editor input to use as data source.
      * @param projectService a project service
      */
     @objid ("66995c5a-33f7-11e2-95fe-001ec947c8cc")
-    public SilentDiagramEditor(final DiagramEditorInput input, IProjectService projectService) {
+    public SilentDiagramEditor(final DiagramEditorInput input, final IProjectService projectService) {
         this.projectService = projectService;
         setEditDomain(new EditDomain());
         this.editorInput = input;
@@ -138,7 +140,7 @@ public class SilentDiagramEditor implements IDiagramEditor {
     @Override
     public void disposeHandle() {
         // Dispose the editor input
-        DiagramEditorInput input = (getEditorInput());
+        final DiagramEditorInput input = getEditorInput();
         if (input != null) {
             input.dispose();
         }
@@ -198,7 +200,7 @@ public class SilentDiagramEditor implements IDiagramEditor {
         SilentDiagramEditor.initializeConnectionRouters(routersRegistry);
         
         // Set the viewer content
-        IGmDiagram gmDiagram = getEditorInput().getGmDiagram();
+        final IGmDiagram gmDiagram = getEditorInput().getGmDiagram();
         viewer.setContents(gmDiagram);
         // Force a complete refresh now that edit parts are finally listening to events that might
         // be sent by the model (e.g.: links that have changed source and/or target while diagram
@@ -210,6 +212,7 @@ public class SilentDiagramEditor implements IDiagramEditor {
 
     /**
      * Return the root edit part of this editor.
+     * 
      * @return the root edit part of this editor.
      */
     @objid ("66995c80-33f7-11e2-95fe-001ec947c8cc")
@@ -232,6 +235,7 @@ public class SilentDiagramEditor implements IDiagramEditor {
 
     /**
      * Returns the input for this editor.
+     * 
      * @return the editor input
      */
     @objid ("669bbe9f-33f7-11e2-95fe-001ec947c8cc")
@@ -247,22 +251,21 @@ public class SilentDiagramEditor implements IDiagramEditor {
 
     @objid ("8d672526-367c-4b87-b27c-b4e847bda1de")
     private List<IDiagramElementDropEditPolicyExtension> loadDropExtensions() {
-        List<IDiagramElementDropEditPolicyExtension> ret = new ArrayList<>();
+        final List<IDiagramElementDropEditPolicyExtension> ret = new ArrayList<>();
         // Infra contribution is ALWAYS registered
         ret.add(new InfraDiagramElementDropEditPolicyExtension());
         
-        IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor(SilentDiagramEditor.DROPPOLICYEXTENSION_ID);
-        for (IConfigurationElement dropExtensionElement : config) {
-            for (IConfigurationElement scope : dropExtensionElement.getChildren("scope")) {
-                String editorId = scope.getAttribute("editorId");
+        for (final IConfigurationElement dropExtensionElement : new ExtensionPointContributionManager(SilentDiagramEditor.DROPPOLICYEXTENSION_ID).getExtensions("droppolicyextension")) {
+            for (final IConfigurationElement scope : dropExtensionElement.getChildren("scope")) {
+                final String editorId = scope.getAttribute("editorId");
                 if (editorId.equals(this.editorInput.getEditorId())) {
                     // TODO handle metaclass & stereotype
                     try {
-                        Object o = dropExtensionElement.createExecutableExtension("class");
+                        final Object o = dropExtensionElement.createExecutableExtension("class");
                         if (o instanceof IDiagramElementDropEditPolicyExtension) {
                             ret.add((IDiagramElementDropEditPolicyExtension) o);
                         }
-                    } catch (CoreException e1) {
+                    } catch (final CoreException e1) {
                         DiagramEditor.LOG.error(e1);
                     }
         

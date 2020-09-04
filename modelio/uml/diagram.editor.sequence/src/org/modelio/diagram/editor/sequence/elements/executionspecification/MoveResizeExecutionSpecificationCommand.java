@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class MoveResizeExecutionSpecificationCommand extends Command {
 
     /**
      * Sets the new "time" of the ExecutionOccurenceSpecification that finishes the execution.
+     * 
      * @param value the new "time" of the ExecutionOccurenceSpecification that finishes the execution.
      */
     @objid ("d8efb2e4-55b6-11e2-877f-002564c97630")
@@ -59,6 +60,7 @@ public class MoveResizeExecutionSpecificationCommand extends Command {
 
     /**
      * Sets the modified execution.
+     * 
      * @param value the modified execution.
      */
     @objid ("d8efb2e8-55b6-11e2-877f-002564c97630")
@@ -68,6 +70,7 @@ public class MoveResizeExecutionSpecificationCommand extends Command {
 
     /**
      * Sets the new "time" of the ExecutionOccurenceSpecification that starts the execution.
+     * 
      * @param value the new "time" of the ExecutionOccurenceSpecification that starts the execution.
      */
     @objid ("d8efb2ec-55b6-11e2-877f-002564c97630")

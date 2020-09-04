@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -102,6 +102,7 @@ public class DiagramElementDropEditPolicy extends DefaultElementDropEditPolicy {
 
     /**
      * Creates a drop command for an element that will be unmasked as a link.
+     * 
      * @param dropLocation the point where the drop happened.
      * @param link the link.
      * @return the created command.
@@ -155,6 +156,7 @@ public class DiagramElementDropEditPolicy extends DefaultElementDropEditPolicy {
 
     /**
      * Creates a drop command for an element that will be unmasked as a node.
+     * 
      * @param dropLocation the point where the drop happened.
      * @param toUnmask the element to unmask.
      * @return the created command.
@@ -250,6 +252,7 @@ public class DiagramElementDropEditPolicy extends DefaultElementDropEditPolicy {
 
     /**
      * C'tor.
+     * 
      * @param multipleUnmaskAllowed allow or forbid multiple unmask for model elements.
      */
     @objid ("45449ee2-30e0-41b9-a420-5f67660dea1f")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class GmBpmnMessageLink extends GmLink implements IGmNodeLink {
 
     /**
      * Creates a new GmNoteLink
+     * 
      * @param diagram The diagram containing the link.
      * @param relatedRef a reference to the represented Note.
      */
@@ -128,6 +129,7 @@ public class GmBpmnMessageLink extends GmLink implements IGmNodeLink {
 
     /**
      * Updates the proxy style to point to the given node style.
+     * 
      * @param ref the reference node, may be null.
      */
     @objid ("6163c1b7-55b6-11e2-877f-002564c97630")

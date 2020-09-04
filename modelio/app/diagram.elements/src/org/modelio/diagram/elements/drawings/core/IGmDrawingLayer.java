@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ import org.modelio.diagram.elements.core.model.IGmObject;
 public interface IGmDrawingLayer extends IGmDrawingLinkable, IGmModelRelated {
     /**
      * Add a child to the children list at the given index and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
+     * 
      * @param child The node to add
      * @param index the index where the child will be added.
      */
@@ -40,6 +41,7 @@ public interface IGmDrawingLayer extends IGmDrawingLinkable, IGmModelRelated {
 
     /**
      * Add a child to the children list and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
+     * 
      * @param child The node to add
      */
     @objid ("8b04a00c-552a-45a3-a1dc-1c90f9c06f35")
@@ -47,6 +49,7 @@ public interface IGmDrawingLayer extends IGmDrawingLinkable, IGmModelRelated {
 
     /**
      * Get the node drawings.
+     * 
      * @return the node drawings.
      */
     @objid ("5c33a7d9-3c52-41f2-ad7e-e442e510fc18")
@@ -54,6 +57,7 @@ public interface IGmDrawingLayer extends IGmDrawingLinkable, IGmModelRelated {
 
     /**
      * Remove a child from the children list and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
+     * 
      * @param child The node to remove
      */
     @objid ("68d296fc-a6f3-4a18-9ad8-6537e8774cc7")

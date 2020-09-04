@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class DefaultElementDropEditPolicy extends AbstractElementDropEditPolicy 
 
     /**
      * C'tor.
+     * 
      * @param multipleUnmaskAllowed allow or forbid multiple unmask for model elements.
      */
     @objid ("4bb89082-bf6f-43a1-86e9-ee608b5796b9")
@@ -82,6 +83,7 @@ public class DefaultElementDropEditPolicy extends AbstractElementDropEditPolicy 
     /**
      * Creates a drop command for an element that will be unmasked as a node.
      * @param command the compound in which to add the created command.
+     * 
      * @param dropLocation the point where the drop happened.
      * @param toUnmask the element to unmask.
      */
@@ -137,6 +139,7 @@ public class DefaultElementDropEditPolicy extends AbstractElementDropEditPolicy 
 
     /**
      * Creates a drop command for an element that will be unmasked as a link.
+     * 
      * @param dropLocation the point where the drop happened.
      * @param link the link.
      * @return the created command.
@@ -160,6 +163,7 @@ public class DefaultElementDropEditPolicy extends AbstractElementDropEditPolicy 
      * Creates the Command to handle a ModelElementDropRequest. This default
      * implementation will delegate a CreateRequest for each dropped element.
      * </p>
+     * 
      * @param request The drop request.
      * @return the created command.
      */
@@ -206,6 +210,7 @@ public class DefaultElementDropEditPolicy extends AbstractElementDropEditPolicy 
      * <p>
      * Subclasses should redefine this method to provide "smart interactions".
      * </p>
+     * 
      * @param request the drop request
      * @return the host if all dropped elements can be unmasked by the Gm,
      * <code>null</code> otherwise.
@@ -238,6 +243,7 @@ public class DefaultElementDropEditPolicy extends AbstractElementDropEditPolicy 
      * <p>
      * Subclasses should redefine this method to provide "smart interactions".
      * </p>
+     * 
      * @param request The drop request.
      * @return the created command.
      */

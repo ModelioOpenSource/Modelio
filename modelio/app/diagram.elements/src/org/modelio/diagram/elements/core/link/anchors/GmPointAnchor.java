@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ public class GmPointAnchor extends GmAbstractLinkAnchor {
 
     /**
      * Creates a link anchor.
+     * 
      * @param location The anchor reference point location relative to the anchored node location.
      */
     @objid ("7fe05efa-1dec-11e2-8cad-001ec947c8cc")

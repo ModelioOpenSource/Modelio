@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.impact;
 
@@ -30,7 +30,7 @@ import org.modelio.metamodel.impl.diagrams.AbstractDiagramData;
 
 @objid ("528fa805-c5f8-4f0c-9588-63e3ee694569")
 public class ImpactDiagramData extends AbstractDiagramData {
-    @objid ("6380c3a7-0690-431f-a215-46d5cf919df8")
+    @objid ("32dcd827-e1e8-46b0-a02a-96ff1a5895be")
     public ImpactDiagramData(ImpactDiagramSmClass smClass) {
         super(smClass);
     }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -117,6 +117,7 @@ public class SimpleModeDeferringCreateNodePolicy extends DefaultCreateNodeEditPo
      * If no child model is found, return <tt>null</tt>.<br>
      * If the found model has no edit part, return the host edit part.
      * <p>
+     * 
      * @param metaclass The metaclass to create or drop.
      * @return <ul>
      * <li><tt>null</tt> if no suitable child model could be found <li>{@link #getHost()} if the child model is not

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ public interface IFreeformFigure2 extends FreeformFigure {
      * Set a filter to use when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
+     * 
      * @param f an extent filter.
      */
     @objid ("e9c0598f-f65b-4d48-a3fb-240b3f752340")
@@ -43,6 +44,7 @@ public interface IFreeformFigure2 extends FreeformFigure {
      * Get the filter used when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
+     * 
      * @return an extent filter.
      */
     @objid ("cad7beb4-7ecb-4ce2-b1ac-3160cd31e73b")

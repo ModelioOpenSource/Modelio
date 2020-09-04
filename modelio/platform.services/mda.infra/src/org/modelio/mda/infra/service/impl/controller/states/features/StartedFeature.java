@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -249,6 +249,7 @@ public class StartedFeature extends AbstractFeature {
 
     /**
      * fire listeners on dependent modules first then on the given module.
+     * 
      * @param amodule the module being unloaded
      */
     @objid ("acab238a-3001-40dd-ac92-d1bee452d308")

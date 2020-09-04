@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ import org.modelio.diagram.elements.core.figures.RoundedBoxFigure;
 public class DoubleRoundedRectangleBorder extends LineBorder {
     /**
      * Constructs a DoubleRoundedRectangleBorder with the specified color and of the specified width.
+     * 
      * @param color The color of the border.
      * @param width The width of the border in pixels.
      * @since 2.0
@@ -67,6 +68,7 @@ public class DoubleRoundedRectangleBorder extends LineBorder {
 
     /**
      * Returns the space used by the border for the figure provided as input. In this border all sides always have equal width.
+     * 
      * @param figure The figure this border belongs to
      * @return This border's insets
      */

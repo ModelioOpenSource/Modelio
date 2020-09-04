@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
 
     /**
      * Constructor to use if you don't use Eclipse E4 injection.
+     * 
      * @param context the E4 context service, null allowed (null => read only panel).
      */
     @objid ("afd40f98-1ad0-46c2-be26-db55f91d28c2")
@@ -89,6 +90,7 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
 
     /**
      * Called by the framework to create the view and initialize it.
+     * 
      * @return the SashForm containing the property panel.
      */
     @objid ("8fa7c87e-c068-11e1-8c0a-002564c97630")
@@ -112,6 +114,7 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
 
     /**
      * Get the current element displayed by the view.
+     * 
      * @return the model element whose content is listed in the property panel.
      * May be null.
      */
@@ -136,6 +139,7 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
      * Tells whether the view is "pinned".
      * <p>
      * A pinned view doesn't update on selection changes or navigation events.
+     * 
      * @return <code>true</code> if the view is pinned, else <code>false</code>.
      */
     @objid ("8faa29c2-c068-11e1-8c0a-002564c97630")
@@ -170,6 +174,7 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
 
     /**
      * Set the current element displayed by the view.
+     * 
      * @param input the ISelection whose content is listed in the property panel.
      * May be null or empty.
      */
@@ -179,18 +184,8 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
         Element me = input instanceof Element ? (Element) input : SelectionHelper.getFirst((ISelection) input, Element.class);
         
         if (this.controller != null) {
-            if (me != null) {
-                // Just delegate to the controller
-                this.controller.setInputs(me, null);
-            } else {
-                // Reuse the precedent input
-                Element input2 = getInput();
-                if (input2 != null && input2.isValid()) {
-                    this.controller.setInputs(input2, null);
-                } else {
-                    this.controller.setInputs(null, null);
-                }
-            }
+            // Just delegate to the controller
+            this.controller.setInputs(me, null);
         }
     }
 
@@ -198,6 +193,7 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
      * Pin or unpin the view.
      * <p>
      * A pinned view doesn't update on selection changes or navigation events.
+     * 
      * @param pinned <code>true</code> if the view must be pinned, else
      * <code>false</code>.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -96,6 +96,7 @@ public class TResourceRole extends TBaseElement {
 
     /**
      * Sets the value of the resourceRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -145,6 +146,7 @@ public class TResourceRole extends TBaseElement {
 
     /**
      * Sets the value of the resourceAssignmentExpression property.
+     * 
      * @param value allowed object is
      * {@link TResourceAssignmentExpression }
      */
@@ -166,6 +168,7 @@ public class TResourceRole extends TBaseElement {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */

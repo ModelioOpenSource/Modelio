@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -93,6 +93,7 @@ public class Font {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -114,6 +115,7 @@ public class Font {
 
     /**
      * Sets the value of the size property.
+     * 
      * @param value allowed object is
      * {@link Double }
      */
@@ -135,6 +137,7 @@ public class Font {
 
     /**
      * Sets the value of the isBold property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -156,6 +159,7 @@ public class Font {
 
     /**
      * Sets the value of the isItalic property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -177,6 +181,7 @@ public class Font {
 
     /**
      * Sets the value of the isUnderline property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -198,6 +203,7 @@ public class Font {
 
     /**
      * Sets the value of the isStrikeThrough property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -88,6 +88,7 @@ public class ModelComponentArchive {
     /**
      * Initialize the RAMC from a path that may represent a .ramc archive or an extracted
      * RAMC directory.
+     * 
      * @param path a file system path
      * @param isArchive <code>true</code> if the path is a .ramc file, <code>false</code> if the
      * path is a directory.
@@ -103,6 +104,7 @@ public class ModelComponentArchive {
 
     /**
      * Build a fragment descriptor.
+     * 
      * @return the RAMC fragment descriptor.
      * @throws java.io.IOException in case of I/O error
      */
@@ -129,6 +131,7 @@ public class ModelComponentArchive {
 
     /**
      * Get the RAMC informations.
+     * 
      * @return the informations.
      * @throws java.io.IOException in case of I/O error.
      */
@@ -146,6 +149,7 @@ public class ModelComponentArchive {
 
     /**
      * Get the RAMC informations from a file system mounted on the RAMC archive
+     * 
      * @param fs a file system mounted on the RAMC archive.
      * @return the RAMc informations.
      * @throws java.io.IOException in case of I/O failure.
@@ -158,6 +162,7 @@ public class ModelComponentArchive {
 
     /**
      * Get the RAMC information from a RAMC extracted to the given directory.
+     * 
      * @param ramcDir the directory here the RAMC is extracted.
      * @return the RAMC informations
      * @throws java.io.IOException in case of I/O failure.
@@ -169,6 +174,7 @@ public class ModelComponentArchive {
 
     /**
      * Deploy the RAMC external files to the deployment directory.
+     * 
      * @param deploymentPath the deployment directory
      * @param monitor a progress monitor
      * @throws java.io.IOException in case of I/O failure.
@@ -184,6 +190,7 @@ public class ModelComponentArchive {
 
     /**
      * Delete deployment files from the deployment directory.
+     * 
      * @param deploymentPath the deployment directory to clean
      * @param monitor a progress monitor
      * @throws java.io.IOException in case of I/O failure.
@@ -262,7 +269,7 @@ public class ModelComponentArchive {
         @objid ("a01e662e-cc36-11e1-87f1-001ec947ccaf")
         public void deployfromArchive(final Path ramcFile, final Path deploymentPath, IModelioProgress monitor) throws IOException {
             SubProgress subMonitor = SubProgress.convert(monitor, 30);
-            subMonitor.subTask(GProjectData.getMessage("MC.Archive.ExtractModelComponent", ramcFile.getFileName()));
+            subMonitor.subTask(GProjectData.I18N.getMessage("MC.Archive.ExtractModelComponent", ramcFile.getFileName()));
             
             try (TmpDir tmpDirectory = new TmpDir(deploymentPath)) {
                 // Unzip the archive
@@ -276,7 +283,7 @@ public class ModelComponentArchive {
         private void unzipRamc(Path ramcFile, Path ramcDirectory, IModelioProgress monitor) throws IOException {
             SubProgress subMonitor = SubProgress.convert(monitor);
             Unzipper unzipper = new Unzipper();
-            unzipper.setProgressLabelPrefix(GProjectData.getMessage("MC.Archive.ExtractModelComponent", ramcFile.getFileName()));
+            unzipper.setProgressLabelPrefix(GProjectData.I18N.getMessage("MC.Archive.ExtractModelComponent", ramcFile.getFileName()));
             unzipper.unzip(ramcFile, ramcDirectory, subMonitor);
         }
 
@@ -307,7 +314,7 @@ public class ModelComponentArchive {
             } catch (SAXException e) {
                 throw new IOException("Sax parsing exception", e); //$NON-NLS-1$
             } catch (FileSystemException e) {
-                throw new IOException(GProjectData.getMessage("MC.Archive.ManifestParsingIOException", FileUtils.getLocalizedMessage(e))); //$NON-NLS-1$
+                throw new IOException(GProjectData.I18N.getMessage("MC.Archive.ManifestParsingIOException", FileUtils.getLocalizedMessage(e))); //$NON-NLS-1$
             } catch (IOException e) {
                 throw new IOException("MC.Archive.ManifestParsingIOException", e); //$NON-NLS-1$
             }
@@ -339,9 +346,9 @@ public class ModelComponentArchive {
                     }
                 }
             } catch (FileSystemException e) {
-                throw new IOException(GProjectData.getMessage("MC.Archive.ManifestParsingIOException", FileUtils.getLocalizedMessage(e))); //$NON-NLS-1$
+                throw new IOException(GProjectData.I18N.getMessage("MC.Archive.ManifestParsingIOException", FileUtils.getLocalizedMessage(e))); //$NON-NLS-1$
             } catch (IOException e) {
-                throw new IOException(GProjectData.getMessage("MC.Archive.ManifestParsingIOException", e.getMessage())); //$NON-NLS-1$
+                throw new IOException(GProjectData.I18N.getMessage("MC.Archive.ManifestParsingIOException", e.getMessage())); //$NON-NLS-1$
             }
         }
 

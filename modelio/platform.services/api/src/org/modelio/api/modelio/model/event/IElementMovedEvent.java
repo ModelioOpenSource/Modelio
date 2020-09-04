@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ public interface IElementMovedEvent {
 
     /**
      * Used to get the moved element.
+     * 
      * @return Returns the moved element
      */
     @objid ("a41ee09d-0ecc-11e2-96c4-002564c97630")
@@ -41,6 +42,7 @@ public interface IElementMovedEvent {
      * <p><p>
      * The parent corresponds to the element accessed through the use of the
      * {@link MObject#mGetCompositionOwner()} method.
+     * 
      * @return Returns the new parent of the moved element
      */
     @objid ("a41ee0a0-0ecc-11e2-96c4-002564c97630")
@@ -51,6 +53,7 @@ public interface IElementMovedEvent {
      * <p><p>
      * The parent corresponds to the element accessed through the use of the
      * {@link MObject#mGetCompositionOwner()} method.
+     * 
      * @return Returns the old parent of the moved element
      */
     @objid ("a41f07af-0ecc-11e2-96c4-002564c97630")

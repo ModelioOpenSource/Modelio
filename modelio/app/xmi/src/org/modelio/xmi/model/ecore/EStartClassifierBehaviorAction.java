@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,31 +21,15 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
-import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.xmi.plugin.Xmi;
-import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
+import org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2StartClassifierBehaviorAction;
 
 @objid ("cfa90e3f-ff0c-4645-bc0f-4259b450d910")
 public class EStartClassifierBehaviorAction extends EActivityNode {
     @objid ("19eb4e48-85c8-4705-a2d9-593567493ccb")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
-        OpaqueAction element = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createOpaqueAction();
-        
-        try {
-            element.getExtension().add(mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2STARTCLASSIFIERBEHAVIORACTION, element.getMClass()));
-        } catch (ElementNotUniqueException e) {
-           Xmi.LOG.warning(e);
-        }
-        return element;
+        return UML2StartClassifierBehaviorAction.create().getElement();
     }
 
     @objid ("76cb27cf-1652-425d-a3f0-0cecdc543eb4")

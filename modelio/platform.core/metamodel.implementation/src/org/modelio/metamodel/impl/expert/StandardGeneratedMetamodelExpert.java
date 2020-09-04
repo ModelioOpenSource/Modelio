@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -280,6 +280,7 @@ public class StandardGeneratedMetamodelExpert extends CompositeMetamodelExpert {
      * Constructor.
      * <p>
      * You need to call {@link #register()} next.
+     * 
      * @param mm The metamodel.
      */
     @objid ("53f30271-45b0-4441-8481-366df8985c1b")

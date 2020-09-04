@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
 public class CreateLinkedBpmnMessageCommand extends CreateLinkedNodeCommand {
     /**
      * Creates a node creation command.
+     * 
      * @param context Details on the MObject and/or the node to create
      */
     @objid ("615a99fd-55b6-11e2-877f-002564c97630")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
 
     /**
      * Sets wether this figure shoud draw an 'X' or not. Used for destruction events.
+     * 
      * @param drawX the new value.
      */
     @objid ("d8da5620-55b6-11e2-877f-002564c97630")
@@ -74,6 +75,7 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
 
     /**
      * Returns the Rectangle around which handles are to be placed. The Rectangle should be in the same coordinate system as the figure itself.
+     * 
      * @return The rectangle used for handles
      */
     @objid ("d8da562a-55b6-11e2-877f-002564c97630")
@@ -92,6 +94,7 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
 
     /**
      * Set the fill color.
+     * 
      * @param fillColor the fill color.
      */
     @objid ("d8da5633-55b6-11e2-877f-002564c97630")
@@ -106,6 +109,7 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
 
     /**
      * Get the fill color.
+     * 
      * @return the fill color.
      */
     @objid ("d8da5638-55b6-11e2-877f-002564c97630")
@@ -116,6 +120,7 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
 
     /**
      * Tells whether the background is filled with a gradient.
+     * 
      * @return true if the background is filled with a gradient, false in the other case.
      */
     @objid ("d8da563e-55b6-11e2-877f-002564c97630")
@@ -126,6 +131,7 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
 
     /**
      * Set whether the background is filled with a gradient.
+     * 
      * @param useGradient true to fill with a gradient, false to fill only with the fill color.
      */
     @objid ("d8da5644-55b6-11e2-877f-002564c97630")

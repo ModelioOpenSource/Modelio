@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class LinkPath implements ILinkPath {
 
     /**
      * Creates a new link path.
+     * 
      * @param points points of the path
      */
     @objid ("fbdc9a1b-0e16-45dc-b424-65cebf087897")

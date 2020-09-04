@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ import org.eclipse.swt.widgets.Text;
 public class StringEditor extends TextCellEditor {
     /**
      * Build a new editor.
+     * 
      * @param commitOnUpDown Flag to configure whether the editor should commit and move
      * the selection in the corresponding way if the up or down key
      * is pressed.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -79,7 +79,7 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
         IStandardModelFactory factory = MTools.get(coreSession).getModelFactory(IStandardModelFactory.class);
         
         // Force the style manager to load now
-        DiagramStyles.getStyleManager().reloadStylesIn(gproject.getProjectDataPath().resolve(DiagramStyles.PROJECT_STYLE_SUBDIR));
+        DiagramStyles.getStyleManager().reloadStylesIn(gproject.getProjectFileStructure().getProjectPath().resolve(DiagramStyles.PROJECT_STYLE_SUBDIR));
         
         try (ITransaction t = coreSession.getTransactionSupport().createTransaction("BPMN diagrams migration")) {
             migrateTo2_1_0(reporter, eclipseContext, mon, coreSession, f, factory);

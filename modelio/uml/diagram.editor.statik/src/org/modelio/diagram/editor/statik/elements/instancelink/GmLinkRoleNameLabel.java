@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class GmLinkRoleNameLabel extends GmDefaultModelElementHeader {
 
     /**
      * c'tor.
+     * 
      * @param diagram the diagram in which this label is created
      * @param role the represented role, might be null.
      * @param ref a reference to the represented role. must be non null.

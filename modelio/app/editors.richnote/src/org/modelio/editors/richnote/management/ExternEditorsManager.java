@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,7 +20,6 @@
 
 package org.modelio.editors.richnote.management;
 
-import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -37,6 +36,7 @@ import org.modelio.app.core.events.ModelioEventTopics;
 import org.modelio.editors.richnote.plugin.EditorsRichNote;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.statik.Artifact;
+import org.modelio.ui.desktop.SystemOpener;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -104,12 +104,7 @@ public class ExternEditorsManager {
 
     @objid ("96f2c025-0c45-4b61-a047-648e0488539f")
     private void mail(URI mailToUri) throws IOException {
-        if (Desktop.isDesktopSupported()) {
-            Desktop desktop = Desktop.getDesktop();
-            if (desktop.isSupported(Desktop.Action.MAIL)) {
-                desktop.mail(mailToUri);
-            }
-        }
+        SystemOpener.mailto(mailToUri);
     }
 
     @objid ("c51713d2-b209-488b-a2b5-601cc33583e4")
@@ -123,22 +118,12 @@ public class ExternEditorsManager {
 
     @objid ("a4f28ee6-557a-4fdb-96ba-65c06d2baef7")
     private void openFile(Path filePath) throws IOException {
-        if (Desktop.isDesktopSupported()) {
-            Desktop desktop = Desktop.getDesktop();
-            if (desktop.isSupported(Desktop.Action.OPEN)) {
-                desktop.open(filePath.toFile());
-            }
-        }
+        SystemOpener.open(filePath);
     }
 
     @objid ("1617303f-bce0-4464-8257-fd12bd678121")
     private void browse(URI fileUri) throws IOException {
-        if (Desktop.isDesktopSupported()) {
-            Desktop desktop = Desktop.getDesktop();
-            if (desktop.isSupported(Desktop.Action.BROWSE)) {
-                desktop.browse(fileUri);
-            }
-        }
+        SystemOpener.browse(fileUri);
     }
 
     @objid ("d2a2673b-2028-4e11-b65f-dee0bdae3aa7")

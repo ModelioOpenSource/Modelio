@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,9 +32,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.di.annotations.Optional;
-import org.eclipse.e4.core.di.extensions.EventTopic;
+import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.ConnectionCreationToolEntry;
 import org.eclipse.gef.palette.CreationToolEntry;
@@ -47,6 +46,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.modelio.app.core.events.ModelioEventTopics;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.core.ui.swt.images.MetamodelImageService;
 import org.modelio.diagram.editor.tools.NodeCreationTool;
 import org.modelio.diagram.editor.tools.PanSelectionTool;
@@ -121,7 +121,7 @@ public class ToolRegistry {
     private IMModelServices mModelServices;
 
     @objid ("a9bc92a8-0549-4fa7-9ec5-bf88abf88528")
-    private Map<String, ToolEntry> toolRegistry;
+    private Map<String, ToolEntry> toolMap;
 
     /**
      * Initialize the tool registry.
@@ -132,17 +132,13 @@ public class ToolRegistry {
 
     /**
      * Get the palette tool from the given id.
+     * 
      * @param toolId An id.
      * @return the found palette tool or <i>null</i> if none found.
      */
     @objid ("6677fb58-33f7-11e2-95fe-001ec947c8cc")
-    public ToolEntry getTool(String toolId) {
-        // Load all the tools
-        if (this.toolRegistry == null) {
-            initRegistery();
-        }
-        
-        final ToolEntry toolEntry = this.toolRegistry.get(toolId);
+    public ToolEntry getTool(final String toolId) {
+        final ToolEntry toolEntry = getToolMap().get(toolId);
         
         // a tool should never be null...
         return toolEntry != null ? toolEntry : createDummyTool(toolId);
@@ -150,88 +146,83 @@ public class ToolRegistry {
 
     /**
      * Return a non modifiable view of all registered tools.
+     * 
      * @return all registered tools.
      */
     @objid ("51c1b91b-f952-46ec-bbe7-579df85e1d67")
     public Collection<ToolEntry> getTools() {
-        return Collections.unmodifiableCollection(this.toolRegistry.values());
+        return Collections.unmodifiableCollection(getToolMap().values());
     }
 
     /**
      * Register a new palette Tool.
+     * 
      * @param toolId The new tool id.
      * @param tool The new tool.
      */
     @objid ("6677fb4f-33f7-11e2-95fe-001ec947c8cc")
-    public void registerTool(String toolId, ToolEntry tool) {
-        // Load all the tools
-        if (this.toolRegistry == null) {
-            initRegistery();
-        }
-        
-        if (this.toolRegistry.containsKey(toolId)) {
+    public void registerTool(final String toolId, final ToolEntry tool) {
+        if (getToolMap().containsKey(toolId)) {
             DiagramEditor.LOG.error("WARNING: redefining tool entry '%s'" + toolId);
         }
-        this.toolRegistry.put(toolId, tool);
+        getToolMap().put(toolId, tool);
     }
 
     /**
      * Remove a tool from the palette.
+     * 
      * @param toolId The id of the tool to remove.
      */
     @objid ("6677fb54-33f7-11e2-95fe-001ec947c8cc")
-    public void unregisterTool(String toolId) {
-        if (this.toolRegistry != null) {
-            this.toolRegistry.remove(toolId);
+    public void unregisterTool(final String toolId) {
+        if (this.toolMap != null) {
+            this.toolMap.remove(toolId);
         }
     }
 
     @objid ("5cc45a36-a84c-4168-85f1-27a60ebd0554")
     @Inject
     @Optional
-    void onProjectClose(@SuppressWarnings ("unused") @EventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project) {
+    void onProjectClose(@SuppressWarnings ("unused") @UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project) {
         // Empty the tool registry
-        this.toolRegistry = null;
+        this.toolMap = null;
     }
 
     @objid ("667f2268-33f7-11e2-95fe-001ec947c8cc")
     @Inject
     @Optional
-    void onProjectOpen(IMModelServices modelServices) {
+    void onProjectOpening(@SuppressWarnings ("unused") @UIEventTopic (ModelioEventTopics.PROJECT_OPENING) final GProject project, final IMModelServices modelServices) {
         this.mModelServices = modelServices;
+        // tool registry initialization must be delayed until ModelerModule is ready, first module to register a tool will trigger it automatically
     }
 
     @objid ("6677fb64-33f7-11e2-95fe-001ec947c8cc")
-    protected void dump(IPath iPath) {
-        PrintStream fout;
-        try {
-            fout = new PrintStream(new FileOutputStream(iPath.toFile()));
-        
+    protected void dump(final IPath iPath) {
+        try (PrintStream fout = new PrintStream(new FileOutputStream(iPath.toFile()))){
             fout.println("\nTool registry contents:");
-            for (String k : this.toolRegistry.keySet()) {
-                fout.println(" - " + k + " " + this.toolRegistry.get(k));
+            for (final String k : getToolMap().keySet()) {
+                fout.println(" - " + k + " " + getToolMap().get(k));
             }
             fout.println();
             fout.close();
-        
-        } catch (FileNotFoundException e) {
+        } catch (final FileNotFoundException e) {
             DiagramEditor.LOG.error(e);
         }
     }
 
     @objid ("6677fb67-33f7-11e2-95fe-001ec947c8cc")
-    protected void parseCreationTool(IConfigurationElement e) {
-        String id = e.getAttribute("id");
-        String label = e.getAttribute("label");
-        String tooltip = e.getAttribute("tooltip");
+    protected void parseCreationTool(final IConfigurationElement e) {
+        final String id = e.getAttribute("id");
+        final String label = e.getAttribute("label");
+        final String tooltip = e.getAttribute("tooltip");
         // String iconName = e.getAttribute("icon");
-        String interactor = e.getAttribute("interactor");
-        IConfigurationElement contextElement = e.getChildren("context")[0];
-        IConfigurationElement[] propertyElements = contextElement.getChildren("property");
-        ImageDescriptor icon = getIconDescriptor(e);
+        final String interactor = e.getAttribute("interactor");
+        final IConfigurationElement contextElement = e.getChildren("context")[0];
+        final IConfigurationElement[] propertyElements = contextElement.getChildren("property");
+        final ImageDescriptor icon = getIconDescriptor(e);
         
-        Map<String, Object> properties = new HashMap<>();
-        for (IConfigurationElement pe : propertyElements) {
+        final Map<String, Object> properties = new HashMap<>();
+        for (final IConfigurationElement pe : propertyElements) {
             properties.put(pe.getAttribute("name"), pe.getAttribute("value"));
         }
         
@@ -268,14 +259,14 @@ public class ToolRegistry {
     }
 
     @objid ("7e6bc821-cb11-4a46-8fa0-9f1195226be4")
-    private void createDrawingTool(String toolName, Class<? extends Tool> toolClass, CreationFactory context) {
-        String label = DiagramEditor.I18N.getString("$Tool." + toolName + ".label");
-        String tooltip = DiagramEditor.I18N.getString("$Tool." + toolName + ".tooltip");
-        String iconPath = DiagramEditor.I18N.getString("$Tool." + toolName + ".icon");
+    private void createDrawingTool(final String toolName, final Class<? extends Tool> toolClass, final CreationFactory context) {
+        final String label = DiagramEditor.I18N.getString("$Tool." + toolName + ".label");
+        final String tooltip = DiagramEditor.I18N.getString("$Tool." + toolName + ".tooltip");
+        final String iconPath = DiagramEditor.I18N.getString("$Tool." + toolName + ".icon");
         ImageDescriptor icon;
         icon = AbstractUIPlugin.imageDescriptorFromPlugin(DiagramEditor.PLUGIN_ID, iconPath);
         
-        ToolEntry toolEntry = new CreationToolEntry(label, tooltip, context, icon, icon);
+        final ToolEntry toolEntry = new CreationToolEntry(label, tooltip, context, icon, icon);
         toolEntry.setToolClass(toolClass);
         
         // Return to default selection tool after finished
@@ -298,8 +289,8 @@ public class ToolRegistry {
     }
 
     @objid ("b2ac7d74-58ab-11e2-9574-002564c97630")
-    private ToolEntry createDummyTool(String toolId) {
-        SelectionToolEntry selectionToolEntry = new SelectionToolEntry();
+    private ToolEntry createDummyTool(final String toolId) {
+        final SelectionToolEntry selectionToolEntry = new SelectionToolEntry();
         selectionToolEntry.setToolClass(PanSelectionTool.class);
         selectionToolEntry.setLabel(toolId);
         selectionToolEntry.setDescription(toolId);
@@ -308,14 +299,14 @@ public class ToolRegistry {
 
     @objid ("8c22feb4-fffd-497c-b0e6-0c6af0d2084f")
     private void createPopupMenuLinkCreationTool() {
-        String toolName = ToolRegistry.TOOL_POPUPMENU_CREATELINK;
+        final String toolName = ToolRegistry.TOOL_POPUPMENU_CREATELINK;
         
-        String label = DiagramEditor.I18N.getString("$Tool." + toolName + ".label");
-        String tooltip = DiagramEditor.I18N.getString("$Tool." + toolName + ".tooltip");
-        String iconPath = DiagramEditor.I18N.getString("$Tool." + toolName + ".icon");
-        ImageDescriptor icon = AbstractUIPlugin.imageDescriptorFromPlugin(DiagramEditor.PLUGIN_ID, iconPath);
+        final String label = DiagramEditor.I18N.getString("$Tool." + toolName + ".label");
+        final String tooltip = DiagramEditor.I18N.getString("$Tool." + toolName + ".tooltip");
+        final String iconPath = DiagramEditor.I18N.getString("$Tool." + toolName + ".icon");
+        final ImageDescriptor icon = AbstractUIPlugin.imageDescriptorFromPlugin(DiagramEditor.PLUGIN_ID, iconPath);
         
-        ToolEntry toolEntry = new ConnectionCreationToolEntry(label, tooltip, new UserChoiceLinkCreationFactory(), icon, icon);
+        final ToolEntry toolEntry = new ConnectionCreationToolEntry(label, tooltip, new UserChoiceLinkCreationFactory(), icon, icon);
         toolEntry.setToolClass(BendedConnectionAndNodeCreationTool.class);
         
         // Return to default selection tool after finished
@@ -325,8 +316,8 @@ public class ToolRegistry {
 
     @objid ("667cc00b-33f7-11e2-95fe-001ec947c8cc")
     private static ImageDescriptor getIconDescriptor(final IConfigurationElement element) {
-        String extendingPluginId = element.getDeclaringExtension().getContributor().getName();
-        String iconPath = element.getAttribute("icon");
+        final String extendingPluginId = element.getDeclaringExtension().getContributor().getName();
+        final String iconPath = element.getAttribute("icon");
         if (iconPath != null) {
             return AbstractUIPlugin.imageDescriptorFromPlugin(extendingPluginId, iconPath);
         }
@@ -334,11 +325,11 @@ public class ToolRegistry {
     }
 
     @objid ("667cc000-33f7-11e2-95fe-001ec947c8cc")
-    private static ImageDescriptor getStandardIcon(MClass metaclass, Stereotype stereotype) {
+    private static ImageDescriptor getStandardIcon(final MClass metaclass, final Stereotype stereotype) {
         if (stereotype != null) {
             final Profile owner = stereotype.getOwner();
             if (owner != null) {
-                Image image = ModuleI18NService.getIcon(stereotype);
+                final Image image = ModuleI18NService.getIcon(stereotype);
                 if (image != null) {
                     return ImageDescriptor.createFromImage(image);
                 }
@@ -353,12 +344,12 @@ public class ToolRegistry {
     }
 
     @objid ("667cc005-33f7-11e2-95fe-001ec947c8cc")
-    private Stereotype getStereotype(MClass metaclass, String stereotypeName) {
+    private Stereotype getStereotype(final MClass metaclass, final String stereotypeName) {
         Stereotype stereotype = null;
         if (stereotypeName != null) {
             try {
                 stereotype = this.mModelServices.getStereotype(".*", stereotypeName, metaclass);
-            } catch (ElementNotUniqueException e1) {
+            } catch (final ElementNotUniqueException e1) {
                 DiagramEditor.LOG.error(e1);
             }
         }
@@ -366,24 +357,18 @@ public class ToolRegistry {
     }
 
     /**
-     * Fills the tool registery from the platform extensions.
+     * Fills the tool registry from the {@value #FACTORYEXTENSION_ID} extension point.
      */
     @objid ("6677fb61-33f7-11e2-95fe-001ec947c8cc")
-    private void initRegistery() {
-        this.toolRegistry = new HashMap<>();
-        
-        IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor(ToolRegistry.FACTORYEXTENSION_ID);
-        for (IConfigurationElement e : config) {
-            if (e.getName().equals("creationtool")) {
-                parseCreationTool(e);
+    private void readExtensionPoint() {
+        for (final IConfigurationElement e : new ExtensionPointContributionManager(ToolRegistry.FACTORYEXTENSION_ID).getExtensions("tools")) {
+            for (final IConfigurationElement c : e.getChildren("creationtool")) {
+                parseCreationTool(c);
             }
-        
         }
         
         createDrawingTools();
         createPopupMenuLinkCreationTool();
-        
-        dump(Platform.getLogFileLocation());
     }
 
     /**
@@ -392,6 +377,7 @@ public class ToolRegistry {
      * The specification is expected to have the format "maybe.qualifed.metaclass.dependencyName".
      * <p>
      * Bad specifications are reported to log.
+     * 
      * @param id the tool id
      * @param contextElement the tool configuration
      * @param metamodel the metamodel
@@ -399,17 +385,17 @@ public class ToolRegistry {
      * @since 3.4.1
      */
     @objid ("4b2a166b-8d53-4135-878d-f6390ceeff8e")
-    private MDependency readDependencySpec(String id, IConfigurationElement contextElement, MMetamodel metamodel) {
-        String dependencySpec = contextElement.getAttribute("dependency");
+    private MDependency readDependencySpec(final String id, final IConfigurationElement contextElement, final MMetamodel metamodel) {
+        final String dependencySpec = contextElement.getAttribute("dependency");
         
         MDependency dep = null;
         if (dependencySpec != null && !dependencySpec.isEmpty() && !dependencySpec.equals("null")) {
-            int dotIdx = dependencySpec.lastIndexOf(".");
+            final int dotIdx = dependencySpec.lastIndexOf(".");
             if (dotIdx > 0) {
-                String srcClassName = dependencySpec.substring(0, dotIdx);
-                MClass srcMClass = metamodel.getMClass(srcClassName);
+                final String srcClassName = dependencySpec.substring(0, dotIdx);
+                final MClass srcMClass = metamodel.getMClass(srcClassName);
                 if (srcMClass != null) {
-                    String depName = dependencySpec.substring(dotIdx + 1);
+                    final String depName = dependencySpec.substring(dotIdx + 1);
                     dep = srcMClass.getDependency(depName);
                     if (dep == null) {
                         DiagramEditor.LOG.warning("ToolRegistry: '%s' tool: '%s' dependency specification invalid : the '%s' dependency does not exist on '%s' metaclass. (see %s)", id, dependencySpec, srcMClass.getQualifiedName(),
@@ -421,8 +407,8 @@ public class ToolRegistry {
             } else {
                 // no metaclass in spec : obsolete form.
                 // Use the target metaclass (argh !) old way to look for the dependency.
-                String metaclassName = contextElement.getAttribute("metaclass");
-                MClass srcMClass = metamodel.getMClass(metaclassName);
+                final String metaclassName = contextElement.getAttribute("metaclass");
+                final MClass srcMClass = metamodel.getMClass(metaclassName);
                 dep = srcMClass.getDependency(dependencySpec);
                 if (dep == null) {
                     DiagramEditor.LOG.warning("ToolRegistry: '%s' tool ERROR: '%s' dependency does not exist on '%s' metaclass. (from %s)", id, dependencySpec, metaclassName, contextElement.getContributor().getName());
@@ -436,14 +422,14 @@ public class ToolRegistry {
 
     @objid ("79392a8c-936b-4950-b588-cad5e42db6e9")
     @SuppressWarnings ("unchecked")
-    private void registerDrawingNodeCreationTool(String id, String label, String tooltip, ImageDescriptor anIcon, IConfigurationElement contextElement, Map<String, Object> properties) {
-        ImageDescriptor icon = anIcon;
-        String className = contextElement.getAttribute("metaclass");
+    private void registerDrawingNodeCreationTool(final String id, final String label, final String tooltip, final ImageDescriptor anIcon, final IConfigurationElement contextElement, final Map<String, Object> properties) {
+        final ImageDescriptor icon = anIcon;
+        final String className = contextElement.getAttribute("metaclass");
         
         Class<? extends GmDrawing> nodeClass = null;
         try {
             nodeClass = (Class<? extends GmDrawing>) contextElement.createExecutableExtension("metaclass").getClass();
-        } catch (CoreException e) {
+        } catch (final CoreException e) {
             DiagramEditor.LOG.error("ToolRegistry: invalid metaclass '" + className + "' for entry '" + id
                     + "'. Entry has been ignored:");
             DiagramEditor.LOG.error(e);
@@ -456,11 +442,11 @@ public class ToolRegistry {
         }
         
         // configure modelio creation context
-        DrawingObjectFactory context = new DrawingObjectFactory(nodeClass);
+        final DrawingObjectFactory context = new DrawingObjectFactory(nodeClass);
         context.setProperties(properties);
         
         // create and register tool entry
-        ToolEntry toolEntry = new CreationToolEntry(label, tooltip, context, icon, icon);
+        final ToolEntry toolEntry = new CreationToolEntry(label, tooltip, context, icon, icon);
         toolEntry.setToolClass(NodeCreationTool.class);
         
         // Keep the tool after finished
@@ -470,22 +456,21 @@ public class ToolRegistry {
     }
 
     @objid ("667a5dac-33f7-11e2-95fe-001ec947c8cc")
-    private void registerLinkCreationTool(String id, String label, String tooltip, ImageDescriptor anIcon, IConfigurationElement contextElement, Map<String, Object> properties) {
+    private void registerLinkCreationTool(final String id, final String label, final String tooltip, final ImageDescriptor anIcon, final IConfigurationElement contextElement, final Map<String, Object> properties) {
         ImageDescriptor icon = anIcon;
-        String metaclassName = contextElement.getAttribute("metaclass");
-        String stereotypeName = contextElement.getAttribute("stereotype");
-        String routerName = contextElement.getAttribute("router");
+        final String metaclassName = contextElement.getAttribute("metaclass");
+        final String stereotypeName = contextElement.getAttribute("stereotype");
+        final String routerName = contextElement.getAttribute("router");
         
         // Check for existing metaclass
-        MClass metaclass = this.mModelServices.getMetamodel().getMClass(metaclassName);
+        final MClass metaclass = this.mModelServices.getMetamodel().getMClass(metaclassName);
         if (metaclass == null) {
             DiagramEditor.LOG.error("ToolRegistry: invalid metaclass '" + metaclassName + "' for entry '" + id
                     + "'. Entry has been ignored.");
             return;
         }
         
-        Stereotype stereotype = null;
-        stereotype = getStereotype(metaclass, stereotypeName);
+        final Stereotype stereotype = getStereotype(metaclass, stereotypeName);
         
         if (icon == null) {
             icon = getStandardIcon(metaclass, stereotype);
@@ -502,7 +487,7 @@ public class ToolRegistry {
         }
         
         // Create and register tool entry
-        ToolEntry toolEntry = new ConnectionCreationToolEntry(label, tooltip, context, icon, icon);
+        final ToolEntry toolEntry = new ConnectionCreationToolEntry(label, tooltip, context, icon, icon);
         
         toolEntry.setToolClass(BendedConnectionCreationTool.class);
         
@@ -515,19 +500,19 @@ public class ToolRegistry {
     @objid ("667cc011-33f7-11e2-95fe-001ec947c8cc")
     private void registerLinkToVoidCreationTool(final String id, final String label, final String tooltip, final ImageDescriptor anIcon, final IConfigurationElement contextElement, final Map<String, Object> properties) {
         ImageDescriptor icon = anIcon;
-        String metaclassName = contextElement.getAttribute("metaclass");
-        String stereotypeName = contextElement.getAttribute("stereotype");
-        String routerName = contextElement.getAttribute("router");
+        final String metaclassName = contextElement.getAttribute("metaclass");
+        final String stereotypeName = contextElement.getAttribute("stereotype");
+        final String routerName = contextElement.getAttribute("router");
         
-        MMetamodel metamodel = this.mModelServices.getMetamodel();
-        MClass metaclass = metamodel.getMClass(metaclassName);
+        final MMetamodel metamodel = this.mModelServices.getMetamodel();
+        final MClass metaclass = metamodel.getMClass(metaclassName);
         if (metaclass == null) {
             DiagramEditor.LOG.error("ToolRegistry: invalid metaclass '" + metaclassName + "' for entry '" + id
                     + "'. Entry has been ignored.");
             return;
         }
         
-        MDependency dep = readDependencySpec(id, contextElement, metamodel);
+        final MDependency dep = readDependencySpec(id, contextElement, metamodel);
         
         Stereotype stereotype = null;
         stereotype = getStereotype(metaclass, stereotypeName);
@@ -537,7 +522,7 @@ public class ToolRegistry {
         }
         
         // configure modelio creation context
-        ModelioCreationContext context = new ModelioCreationContext(metaclass, dep, stereotype);
+        final ModelioCreationContext context = new ModelioCreationContext(metaclass, dep, stereotype);
         context.setProperties(properties);
         
         if (routerName != null && !routerName.isEmpty()) {
@@ -546,7 +531,7 @@ public class ToolRegistry {
         }
         
         // create and register tool entry
-        ToolEntry toolEntry = new ConnectionCreationToolEntry(label, tooltip, context, icon, icon);
+        final ToolEntry toolEntry = new ConnectionCreationToolEntry(label, tooltip, context, icon, icon);
         toolEntry.setToolClass(LinkToVoidCreationTool.class);
         
         // Return to default selection tool after finished
@@ -556,21 +541,21 @@ public class ToolRegistry {
     }
 
     @objid ("667a5db7-33f7-11e2-95fe-001ec947c8cc")
-    private void registerLinkedNodeCreationTool(String id, String label, String tooltip, ImageDescriptor anIcon, IConfigurationElement contextElement, Map<String, Object> properties) {
+    private void registerLinkedNodeCreationTool(final String id, final String label, final String tooltip, final ImageDescriptor anIcon, final IConfigurationElement contextElement, final Map<String, Object> properties) {
         ImageDescriptor icon = anIcon;
-        String metaclassName = contextElement.getAttribute("metaclass");
-        String stereotypeName = contextElement.getAttribute("stereotype");
-        String routerName = contextElement.getAttribute("router");
+        final String metaclassName = contextElement.getAttribute("metaclass");
+        final String stereotypeName = contextElement.getAttribute("stereotype");
+        final String routerName = contextElement.getAttribute("router");
         
-        MMetamodel metamodel = this.mModelServices.getMetamodel();
-        MClass metaclass = metamodel.getMClass(metaclassName);
+        final MMetamodel metamodel = this.mModelServices.getMetamodel();
+        final MClass metaclass = metamodel.getMClass(metaclassName);
         if (metaclass == null) {
             DiagramEditor.LOG.error("ToolRegistry: invalid metaclass '" + metaclassName + "' for entry '" + id
                     + "'. Entry has been ignored.");
             return;
         }
         
-        MDependency dep = readDependencySpec(id, contextElement, metamodel);
+        final MDependency dep = readDependencySpec(id, contextElement, metamodel);
         
         Stereotype stereotype = null;
         stereotype = getStereotype(metaclass, stereotypeName);
@@ -580,7 +565,7 @@ public class ToolRegistry {
         }
         
         // configure modelio creation context
-        ModelioCreationContext context = new ModelioCreationContext(metaclass, dep, stereotype);
+        final ModelioCreationContext context = new ModelioCreationContext(metaclass, dep, stereotype);
         context.setProperties(properties);
         
         if (routerName != null && !routerName.isEmpty()) {
@@ -589,7 +574,7 @@ public class ToolRegistry {
         }
         
         // create and register tool entry
-        ToolEntry toolEntry = new ConnectionCreationToolEntry(label, tooltip, context, icon, icon);
+        final ToolEntry toolEntry = new ConnectionCreationToolEntry(label, tooltip, context, icon, icon);
         toolEntry.setToolClass(LinkedNodeCreationTool.class);
         // Return to default selection tool after finished
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
@@ -600,11 +585,11 @@ public class ToolRegistry {
     @objid ("667cc022-33f7-11e2-95fe-001ec947c8cc")
     private void registerMultiPointCreationTool(final String id, final String label, final String tooltip, final ImageDescriptor anIcon, final IConfigurationElement contextElement, final Map<String, Object> properties) {
         ImageDescriptor icon = anIcon;
-        String metaclassName = contextElement.getAttribute("metaclass");
-        String stereotypeName = contextElement.getAttribute("stereotype");
-        String routerName = contextElement.getAttribute("router");
+        final String metaclassName = contextElement.getAttribute("metaclass");
+        final String stereotypeName = contextElement.getAttribute("stereotype");
+        final String routerName = contextElement.getAttribute("router");
         
-        MClass metaclass = this.mModelServices.getMetamodel().getMClass(metaclassName);
+        final MClass metaclass = this.mModelServices.getMetamodel().getMClass(metaclassName);
         if (metaclass == null) {
             DiagramEditor.LOG.error("ToolRegistry: invalid metaclass '" + metaclassName + "' for entry '" + id
                     + "'. Entry has been ignored.");
@@ -619,7 +604,7 @@ public class ToolRegistry {
         }
         
         // configure modelio creation context
-        ModelioLinkCreationContext context = new ModelioLinkCreationContext(metaclass, stereotype);
+        final ModelioLinkCreationContext context = new ModelioLinkCreationContext(metaclass, stereotype);
         context.setProperties(properties);
         
         if (routerName != null) {
@@ -627,7 +612,7 @@ public class ToolRegistry {
         }
         
         // Create and register tool entry
-        ToolEntry toolEntry = new CreationToolEntry(label, tooltip, context, icon, icon);
+        final ToolEntry toolEntry = new CreationToolEntry(label, tooltip, context, icon, icon);
         toolEntry.setToolClass(MultiPointCreationTool.class);
         
         // Return to default selection tool after finished
@@ -637,32 +622,32 @@ public class ToolRegistry {
     }
 
     @objid ("6677fb6a-33f7-11e2-95fe-001ec947c8cc")
-    private void registerNodeCreationTool(String id, String label, String tooltip, ImageDescriptor anIcon, IConfigurationElement contextElement, Map<String, Object> properties) {
+    private void registerNodeCreationTool(final String id, final String label, final String tooltip, final ImageDescriptor anIcon, final IConfigurationElement contextElement, final Map<String, Object> properties) {
         ImageDescriptor icon = anIcon;
-        String metaclassName = contextElement.getAttribute("metaclass");
-        String stereotypeName = contextElement.getAttribute("stereotype");
+        final String metaclassName = contextElement.getAttribute("metaclass");
+        final String stereotypeName = contextElement.getAttribute("stereotype");
         
-        MMetamodel metamodel = this.mModelServices.getMetamodel();
-        MClass metaclass = metamodel.getMClass(metaclassName);
+        final MMetamodel metamodel = this.mModelServices.getMetamodel();
+        final MClass metaclass = metamodel.getMClass(metaclassName);
         if (metaclass == null) {
             DiagramEditor.LOG.error("ToolRegistry: invalid metaclass '%s' for entry '%s'. Entry has been ignored.", metaclassName, id);
             return;
         }
         
-        MDependency dep = readDependencySpec(id, contextElement, metamodel);
+        final MDependency dep = readDependencySpec(id, contextElement, metamodel);
         
-        Stereotype stereotype = getStereotype(metaclass, stereotypeName);
+        final Stereotype stereotype = getStereotype(metaclass, stereotypeName);
         
         if (icon == null) {
             icon = getStandardIcon(metaclass, stereotype);
         }
         
         // configure modelio creation context
-        ModelioCreationContext context = new ModelioCreationContext(metaclass, dep, stereotype);
+        final ModelioCreationContext context = new ModelioCreationContext(metaclass, dep, stereotype);
         context.setProperties(properties);
         
         // create and register tool entry
-        ToolEntry toolEntry = new CreationToolEntry(label, tooltip, context, icon, icon);
+        final ToolEntry toolEntry = new CreationToolEntry(label, tooltip, context, icon, icon);
         toolEntry.setToolClass(NodeCreationTool.class);
         
         // Keep the tool after finished
@@ -672,20 +657,20 @@ public class ToolRegistry {
     }
 
     @objid ("667a5dc2-33f7-11e2-95fe-001ec947c8cc")
-    private void registerPointNodeCreationTool(String id, String label, String tooltip, ImageDescriptor anIcon, IConfigurationElement contextElement, Map<String, Object> properties) {
+    private void registerPointNodeCreationTool(final String id, final String label, final String tooltip, final ImageDescriptor anIcon, final IConfigurationElement contextElement, final Map<String, Object> properties) {
         ImageDescriptor icon = anIcon;
-        String metaclassName = contextElement.getAttribute("metaclass");
-        String stereotypeName = contextElement.getAttribute("stereotype");
+        final String metaclassName = contextElement.getAttribute("metaclass");
+        final String stereotypeName = contextElement.getAttribute("stereotype");
         
-        MMetamodel metamodel = this.mModelServices.getMetamodel();
-        MClass metaclass = metamodel.getMClass(metaclassName);
+        final MMetamodel metamodel = this.mModelServices.getMetamodel();
+        final MClass metaclass = metamodel.getMClass(metaclassName);
         if (metaclass == null) {
             DiagramEditor.LOG.error("ToolRegistry: invalid '" + metaclassName + "' metaclass for entry '" + id
                     + "'. Entry has been ignored.");
             return;
         }
         
-        MDependency dep = readDependencySpec(id, contextElement, metamodel);
+        final MDependency dep = readDependencySpec(id, contextElement, metamodel);
         
         Stereotype stereotype = null;
         stereotype = getStereotype(metaclass, stereotypeName);
@@ -695,11 +680,11 @@ public class ToolRegistry {
         }
         
         // configure modelio creation context
-        ModelioCreationContext context = new ModelioCreationContext(metaclass, dep, stereotype);
+        final ModelioCreationContext context = new ModelioCreationContext(metaclass, dep, stereotype);
         context.setProperties(properties);
         
         // create and register tool entry
-        ToolEntry toolEntry = new CreationToolEntry(label, tooltip, context, icon, icon);
+        final ToolEntry toolEntry = new CreationToolEntry(label, tooltip, context, icon, icon);
         toolEntry.setToolClass(PointCreationTool.class);
         
         // Keep the tool after finished
@@ -709,14 +694,14 @@ public class ToolRegistry {
     }
 
     @objid ("73716411-7fcf-429e-84e4-607e52b6742a")
-    private void registerLinkAndNodeCreationTool(String id, String label, String tooltip, ImageDescriptor anIcon, IConfigurationElement contextElement, Map<String, Object> properties) {
+    private void registerLinkAndNodeCreationTool(final String id, final String label, final String tooltip, final ImageDescriptor anIcon, final IConfigurationElement contextElement, final Map<String, Object> properties) {
         ImageDescriptor icon = anIcon;
-        String metaclassName = contextElement.getAttribute("metaclass");
-        String stereotypeName = contextElement.getAttribute("stereotype");
-        String routerName = contextElement.getAttribute("router");
+        final String metaclassName = contextElement.getAttribute("metaclass");
+        final String stereotypeName = contextElement.getAttribute("stereotype");
+        final String routerName = contextElement.getAttribute("router");
         
         // Check for existing metaclass
-        MClass metaclass = this.mModelServices.getMetamodel().getMClass(metaclassName);
+        final MClass metaclass = this.mModelServices.getMetamodel().getMClass(metaclassName);
         if (metaclass == null) {
             DiagramEditor.LOG.error("ToolRegistry: invalid metaclass '" + metaclassName + "' for entry '" + id
                     + "'. Entry has been ignored.");
@@ -741,7 +726,7 @@ public class ToolRegistry {
         }
         
         // Create and register tool entry
-        ToolEntry toolEntry = new ConnectionCreationToolEntry(label, tooltip, context, icon, icon);
+        final ToolEntry toolEntry = new ConnectionCreationToolEntry(label, tooltip, context, icon, icon);
         
         toolEntry.setToolClass(BendedConnectionAndNodeCreationTool.class);
         
@@ -749,6 +734,16 @@ public class ToolRegistry {
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
         
         registerTool(id, toolEntry);
+    }
+
+    @objid ("e3bfdb2f-9821-44f6-80fd-7dde83428061")
+    private synchronized Map<String, ToolEntry> getToolMap() {
+        if (this.toolMap == null) {
+            // lazy initialization
+            this.toolMap = new HashMap<>();
+            readExtensionPoint();
+        }
+        return this.toolMap;
     }
 
     /**

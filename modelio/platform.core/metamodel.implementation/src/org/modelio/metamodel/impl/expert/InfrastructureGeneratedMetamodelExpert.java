@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Document;
 import org.modelio.metamodel.uml.infrastructure.Element;
+import org.modelio.metamodel.uml.infrastructure.ExternElement;
 import org.modelio.metamodel.uml.infrastructure.ExternProcessor;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
@@ -76,9 +77,10 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
      * Constructor.
      * <p>
      * You need to call {@link #register()} next.
+     * 
      * @param mm The metamodel.
      */
-    @objid ("3e775f95-fa79-4bb0-8833-80509165ade2")
+    @objid ("47a21945-335d-40df-8593-31096be6c138")
     public InfrastructureGeneratedMetamodelExpert(MMetamodel mm) {
         super(mm);
     }
@@ -86,7 +88,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
     /**
      * Initializes this expert.
      */
-    @objid ("2093be64-f0bc-498a-a296-a01e4f24ab71")
+    @objid ("6b9fee1d-5053-43da-a0b7-590c4386ff71")
     public void register() {
         registerLinkExpertForImpactLink();
         registerLinkExpertForDependency();
@@ -103,6 +105,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         registerMetaExpertForMethodologicalLink();
         registerMetaExpertForMetaclassReference();
         registerMetaExpertForExternProcessor();
+        registerMetaExpertForExternElement();
         registerMetaExpertForDocument();
         registerMetaExpertForDependency();
         registerMetaExpertForAbstractResource();
@@ -132,7 +135,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         registerMetaExpertForElement();
     }
 
-    @objid ("01a9e9b9-90fd-4f19-a766-239a3c8a4720")
+    @objid ("4abc4bba-7e83-47f6-aea4-e22edd285521")
     protected void registerLinkExpertForImpactLink() {
         // Infrastructure.ImpactLink
         // -----------
@@ -149,7 +152,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleLinkExpert.addRule(ImpactLink.class, null, null);
     }
 
-    @objid ("ff9dcb97-ca32-4041-a578-bf4dffc17f18")
+    @objid ("c0b3a897-edbe-414b-8f5b-1e9c7ee39146")
     protected void registerLinkExpertForDependency() {
         // Infrastructure.Dependency
         // -----------
@@ -166,7 +169,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleLinkExpert.addRule(Dependency.class, null, null);
     }
 
-    @objid ("92f67088-ae55-4893-82a2-78bfd8ce6aaf")
+    @objid ("996fb2ab-05b7-4477-bb6e-3852a662327b")
     protected void registerLinkExpertForMethodologicalLink() {
         // Infrastructure.MethodologicalLink
         // -----------
@@ -183,7 +186,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleLinkExpert.addRule(MethodologicalLink.class, null, null);
     }
 
-    @objid ("c30ae38f-354b-4729-aa27-04a2a21d0ffa")
+    @objid ("91e3c4ef-caba-4755-aead-e6b43461aeb1")
     protected void registerMetaExpertForTaggedValue() {
         // Infrastructure.TaggedValue
         // -----------
@@ -198,19 +201,19 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(TaggedValue.class, null, "Definition");
     }
 
-    @objid ("753daa08-69e9-4d9e-b1ef-661903ada8bd")
+    @objid ("2bcd7f3e-4a44-4a08-ae6a-8127265c7250")
     protected void registerMetaExpertForTagType() {
         // Infrastructure.TagType
         // -----------
     }
 
-    @objid ("b1b6ebf3-ac5c-4bdb-998d-e84ddb1937ec")
+    @objid ("a97a0113-dda9-4f40-aaf3-347a3e44563f")
     protected void registerMetaExpertForTagParameter() {
         // Infrastructure.TagParameter
         // -----------
     }
 
-    @objid ("37238262-875f-4f96-a8cf-51d06ef3f31c")
+    @objid ("b2b1fa00-e36e-4e1a-9794-e3f3d295ba2a")
     protected void registerMetaExpertForStereotype() {
         // Infrastructure.Stereotype
         // -----------
@@ -231,19 +234,19 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(Stereotype.class, null, "DefinedNoteType");
     }
 
-    @objid ("a2b33c2a-fb1a-4571-abe1-ae178c02e074")
+    @objid ("b873a8d3-1697-4f16-83a0-0cf0c033dae2")
     protected void registerMetaExpertForResourceType() {
         // Infrastructure.ResourceType
         // -----------
     }
 
-    @objid ("71147037-e09c-4d50-9168-8ba6812afd18")
+    @objid ("f4a70bb4-2dc2-4b71-acb7-8e9995f2450e")
     protected void registerMetaExpertForResource() {
         // Infrastructure.Resource
         // -----------
     }
 
-    @objid ("4f56b6a6-fc42-4375-a2bd-d40a211a40e1")
+    @objid ("57533a81-b404-4ff3-a447-a6dd12e9ed89")
     protected void registerMetaExpertForProfile() {
         // Infrastructure.Profile
         // -----------
@@ -258,13 +261,13 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(Profile.class, null, "DefinedType");
     }
 
-    @objid ("325f428e-b080-4c29-aa75-8fafab8d0099")
+    @objid ("94c601e7-6630-4734-b710-35ab2bbd6ca1")
     protected void registerMetaExpertForNoteType() {
         // Infrastructure.NoteType
         // -----------
     }
 
-    @objid ("b99015ab-3a75-4a60-bcb0-31ea9c035d07")
+    @objid ("674a0bf0-6a67-4328-bd8a-831dd636f211")
     protected void registerMetaExpertForNote() {
         // Infrastructure.Note
         // -----------
@@ -273,13 +276,16 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(Note.class, null, "Model");
     }
 
-    @objid ("540a5bf9-3c82-4e82-ace0-8fffb010f259")
+    @objid ("724d1f83-82b1-42b9-b27c-3538152b4a31")
     protected void registerMetaExpertForMethodologicalLink() {
         // Infrastructure.MethodologicalLink
         // -----------
+        
+        // no constraint on MethodologicalLink.ExternElement : ExternElement from Infrastructure.MethodologicalLink to Infrastructure.ExternElement
+        this.ruleMetaExpert.addDependencyRule(MethodologicalLink.class, null, "ExternElement");
     }
 
-    @objid ("cba34968-1f8b-4242-9a3b-ad78227bc26f")
+    @objid ("830a36d4-0b82-4d5b-86eb-0bcb18f896c2")
     protected void registerMetaExpertForMetaclassReference() {
         // Infrastructure.MetaclassReference
         // -----------
@@ -297,19 +303,25 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(MetaclassReference.class, null, "DefinedTagType");
     }
 
-    @objid ("74cfa0c0-887c-4df1-adba-b9eef52d2c97")
+    @objid ("d28c7c47-f3e1-45a2-9691-10dbc241123e")
     protected void registerMetaExpertForExternProcessor() {
         // Infrastructure.ExternProcessor
         // -----------
     }
 
-    @objid ("7fdc703d-0287-4b0e-9b09-0eea195f53b2")
+    @objid ("c3b677aa-cf85-4dd8-8857-9a3f81ed93af")
+    protected void registerMetaExpertForExternElement() {
+        // Infrastructure.ExternElement
+        // -----------
+    }
+
+    @objid ("be4426cf-c7a8-4470-ae4b-a1b3a83e014d")
     protected void registerMetaExpertForDocument() {
         // Infrastructure.Document
         // -----------
     }
 
-    @objid ("e58b3013-a9eb-4237-8159-0e141dea7222")
+    @objid ("61943bb5-53c5-4f6d-aa05-8c3af7596ed3")
     protected void registerMetaExpertForDependency() {
         // Infrastructure.Dependency
         // -----------
@@ -319,7 +331,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(MethodologicalLink.class, null, "DependsOn");
     }
 
-    @objid ("0e98e6ce-1ab0-4d9c-a753-e3d9c277e50b")
+    @objid ("d7e708d4-fbf6-4fde-9d07-48ef1c499675")
     protected void registerMetaExpertForAbstractResource() {
         // Infrastructure.AbstractResource
         // -----------
@@ -330,7 +342,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(Resource.class, null, "Type");
     }
 
-    @objid ("2784b67c-567a-4683-89ae-80c529e075e8")
+    @objid ("00941d1b-908d-41d8-9b8d-c1c900aa09b0")
     protected void registerMetaExpertForTypedPropertyTable() {
         // Infrastructure.TypedPropertyTable
         // -----------
@@ -339,7 +351,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(TypedPropertyTable.class, null, "Type");
     }
 
-    @objid ("f9a97e96-06d9-4061-aa35-d78c63ff0062")
+    @objid ("1d5235ed-4d27-441f-9970-8cc83b69a213")
     protected void registerMetaExpertForPropertyTableDefinition() {
         // Infrastructure.PropertyTableDefinition
         // -----------
@@ -348,13 +360,13 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(PropertyTableDefinition.class, null, "Owned");
     }
 
-    @objid ("4d28387f-7e9a-427f-b5f1-d4ba41903de1")
+    @objid ("b0b2e14c-3768-4067-ba44-25166dbad8b3")
     protected void registerMetaExpertForPropertyEnumerationLitteral() {
         // Infrastructure.PropertyEnumerationLitteral
         // -----------
     }
 
-    @objid ("87ee66bb-78ed-407b-8184-e87288c7d799")
+    @objid ("c97fdc91-5645-4270-9694-3e22d6755976")
     protected void registerMetaExpertForLocalPropertyTable() {
         // Infrastructure.LocalPropertyTable
         // -----------
@@ -363,13 +375,13 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(LocalPropertyTable.class, null, "LocalAnnoted");
     }
 
-    @objid ("2eb7ca94-fc5c-4066-bad8-c41cf6d41af7")
+    @objid ("50357d44-e289-48b4-8b5e-7041e6bfccc7")
     protected void registerMetaExpertForPropertyTable() {
         // Infrastructure.PropertyTable
         // -----------
     }
 
-    @objid ("64c052f0-5742-42e0-8ba6-5712be022058")
+    @objid ("e5e54efc-2993-47d4-b20e-3ed254c732d7")
     protected void registerMetaExpertForEnumeratedPropertyType() {
         // Infrastructure.EnumeratedPropertyType
         // -----------
@@ -378,19 +390,19 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Litteral");
     }
 
-    @objid ("b2dcb118-1819-492b-9464-c463ff5c592f")
+    @objid ("e8853de1-b3fb-457e-b2c4-368f7dee79fe")
     protected void registerMetaExpertForPropertyType() {
         // Infrastructure.PropertyType
         // -----------
     }
 
-    @objid ("a153d145-e0cd-48d0-94f6-ed9ce74d83b3")
+    @objid ("8a15da33-4342-4813-93a5-d7feacab6bb9")
     protected void registerMetaExpertForDynamicPropertyDefinition() {
         // Infrastructure.DynamicPropertyDefinition
         // -----------
     }
 
-    @objid ("eb06ba88-f8b6-4e25-ba18-86100f46fca1")
+    @objid ("df8f7fba-d8ea-4eb0-9ea4-0aaef2d385e6")
     protected void registerMetaExpertForPropertyDefinition() {
         // Infrastructure.PropertyDefinition
         // -----------
@@ -400,7 +412,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(PropertyDefinition.class, null, "Type");
     }
 
-    @objid ("dd6e2f65-4885-4013-91a0-2ae115a0d0fe")
+    @objid ("e466eb37-4d4f-4d96-b3a8-b12c9d089c0a")
     protected void registerMetaExpertForQueryDefinition() {
         // Infrastructure.QueryDefinition
         // -----------
@@ -415,7 +427,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(QueryDefinition.class, null, "Parameters");
     }
 
-    @objid ("524a9b10-5477-4911-8fe8-894d15cc9832")
+    @objid ("2e2112b4-de09-4a65-ae7c-3c947b374110")
     protected void registerMetaExpertForMatrixValueDefinition() {
         // Infrastructure.MatrixValueDefinition
         // -----------
@@ -427,7 +439,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(MatrixValueDefinition.class, null, "Parameters");
     }
 
-    @objid ("85b7372e-4ebe-4758-a266-485ccf397132")
+    @objid ("3f6509a9-6e7e-4c0e-b467-8d9713288ba5")
     protected void registerMetaExpertForMatrixDefinition() {
         // Infrastructure.MatrixDefinition
         // -----------
@@ -445,7 +457,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(MatrixDefinition.class, null, "DepthDefinition");
     }
 
-    @objid ("caab11e5-70b5-400a-ab33-19f928c9be3d")
+    @objid ("21d02f99-01bd-4ebb-8cf4-169e630085b7")
     protected void registerMetaExpertForModuleParameter() {
         // Infrastructure.ModuleParameter
         // -----------
@@ -454,7 +466,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(ModuleParameter.class, null, "EnumType");
     }
 
-    @objid ("04d731d1-81fc-42f1-80cb-ebc94720ce13")
+    @objid ("01d0e722-315a-4519-97f2-e6f5ecf18475")
     protected void registerMetaExpertForModuleComponent() {
         // Infrastructure.ModuleComponent
         // -----------
@@ -472,7 +484,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(ModuleComponent.class, null, "DependsOn");
     }
 
-    @objid ("f2e8c9ab-721d-448b-81a6-2e4cddd79983")
+    @objid ("29f0d0b4-aa1b-42b9-abb2-6cc24573dd0e")
     protected void registerMetaExpertForImpactProject() {
         // Infrastructure.ImpactProject
         // -----------
@@ -481,7 +493,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(ImpactProject.class, null, "model");
     }
 
-    @objid ("8b2a6d78-ceb8-4964-be6f-5c60a7a3322a")
+    @objid ("e508082b-74fc-44cf-9eb7-67b1c52cf0da")
     protected void registerMetaExpertForAbstractProject() {
         // Infrastructure.AbstractProject is abstract
         
@@ -493,7 +505,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(ModuleComponent.class, null, "DiagramRoot");
     }
 
-    @objid ("db39d486-2721-4d7c-b700-de68f7648968")
+    @objid ("6820c317-ffcd-4c36-9e43-b256c953e735")
     protected void registerMetaExpertForImpactModel() {
         // Infrastructure.ImpactModel
         // -----------
@@ -502,7 +514,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(ImpactModel.class, ImpactDiagram.class, "Product");
     }
 
-    @objid ("d00c8489-e3a2-4865-9467-36398dc62747")
+    @objid ("cd5df3d7-72bf-44d6-aa0c-1bcb08f2f3a1")
     protected void registerMetaExpertForImpactLink() {
         // Infrastructure.ImpactLink
         // -----------
@@ -520,19 +532,19 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(ImpactLink.class, null, "owner");
     }
 
-    @objid ("94a59614-3662-4440-a162-0ddd0d97f22d")
+    @objid ("db1fbba4-6bc3-41fa-828b-278d922634e8")
     protected void registerMetaExpertForImpactDiagram() {
         // Infrastructure.ImpactDiagram
         // -----------
     }
 
-    @objid ("3cfb1366-0a39-4dfe-9c2f-d4b4b1dbd724")
+    @objid ("49d81a3b-df20-451e-881d-f9bed7267936")
     protected void registerMetaExpertForGraphDiagram() {
         // Infrastructure.GraphDiagram
         // -----------
     }
 
-    @objid ("00b89cc6-1f29-42c3-b129-97c5648392bb")
+    @objid ("0aedd40f-f755-4a20-a009-55ad28772f20")
     protected void registerMetaExpertForDiagramSet() {
         // Infrastructure.DiagramSet
         // -----------
@@ -544,7 +556,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(DiagramSet.class, null, "ReferencedDiagram");
     }
 
-    @objid ("ad9b6e9d-1d49-42ca-81c9-1d4c134bcfd4")
+    @objid ("a67a286b-f143-4937-9234-f382d22ff67c")
     protected void registerMetaExpertForAbstractDiagram() {
         // Infrastructure.AbstractDiagram is abstract
         
@@ -561,7 +573,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Origin");
     }
 
-    @objid ("bb344afd-ecc6-40e1-8597-02fbc88fe32d")
+    @objid ("573d6a55-aa5d-43b5-8e27-d5c34e1874b9")
     protected void registerMetaExpertForModelElement() {
         // Infrastructure.ModelElement is abstract
         
@@ -576,6 +588,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Extension");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Extension");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Extension");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Extension");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Extension");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Extension");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Extension");
@@ -609,6 +622,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "DependsOnDependency");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "DependsOnDependency");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "DependsOnDependency");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "DependsOnDependency");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "DependsOnDependency");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "DependsOnDependency");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "DependsOnDependency");
@@ -642,6 +656,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Tag");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Tag");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Tag");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Tag");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Tag");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Tag");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Tag");
@@ -675,6 +690,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Properties");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Properties");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Properties");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Properties");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Properties");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Properties");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Properties");
@@ -708,6 +724,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Descriptor");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Descriptor");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Descriptor");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Descriptor");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Descriptor");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Descriptor");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Descriptor");
@@ -741,6 +758,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Matrix");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Matrix");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Matrix");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Matrix");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Matrix");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Matrix");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Matrix");
@@ -774,6 +792,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Attached");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Attached");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Attached");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Attached");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Attached");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Attached");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Attached");
@@ -799,7 +818,7 @@ public class InfrastructureGeneratedMetamodelExpert extends CompositeMetamodelEx
         this.ruleMetaExpert.addDependencyRule(TaggedValue.class, null, "Attached");
     }
 
-    @objid ("03b1398f-8dce-4ec9-b4bb-e6a57779fa00")
+    @objid ("9cfadeef-7836-4ec7-9ae5-93924c39e020")
     protected void registerMetaExpertForElement() {
         // Infrastructure.Element is abstract
         

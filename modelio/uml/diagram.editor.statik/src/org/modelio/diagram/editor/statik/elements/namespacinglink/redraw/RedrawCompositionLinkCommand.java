@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class RedrawCompositionLinkCommand extends Command {
 
     /**
      * Command constructor
+     * 
      * @param context Informations on the model element to create and or unmask.
      */
     @objid ("35b2a5a6-55b7-11e2-877f-002564c97630")
@@ -80,6 +81,7 @@ public class RedrawCompositionLinkCommand extends Command {
 
     /**
      * Sets the context
+     * 
      * @param newContext the link creation context.
      */
     @objid ("35b2a5b2-55b7-11e2-877f-002564c97630")
@@ -89,6 +91,7 @@ public class RedrawCompositionLinkCommand extends Command {
 
     /**
      * Set the link source.
+     * 
      * @param sourceNode the link source.
      */
     @objid ("35b2a5b6-55b7-11e2-877f-002564c97630")
@@ -98,6 +101,7 @@ public class RedrawCompositionLinkCommand extends Command {
 
     /**
      * Set the link destination.
+     * 
      * @param targetNode the link destination.
      */
     @objid ("35b2a5bd-55b7-11e2-877f-002564c97630")
@@ -107,6 +111,7 @@ public class RedrawCompositionLinkCommand extends Command {
 
     /**
      * Set the path of the link.
+     * 
      * @param path the link path.
      */
     @objid ("35b2a5c4-55b7-11e2-877f-002564c97630")

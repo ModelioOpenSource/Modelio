@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class ODataType extends ONameSpace {
 
     /**
      * Constructor with an the exported DataType
+     * 
      * @param element : the exported DataType
      */
     @objid ("74af972b-798c-429f-8449-242386243434")
@@ -116,8 +117,10 @@ public class ODataType extends ONameSpace {
         super.setProperties(ecoreElt);
         // -> isPrimitive => export as a org.eclipse.uml2.uml.PrimitiveType element
         // -> else => export as a org.eclipse.uml2.uml.DataType element.
+        //UML Properties
         setLeaf((org.eclipse.uml2.uml.DataType) ecoreElt);
         
+        //Modelio Properties
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             setRootEAnnotation( ecoreElt);
             setPrimitiveEAnnotation(ecoreElt, this.objingElement.isIsElementary());       

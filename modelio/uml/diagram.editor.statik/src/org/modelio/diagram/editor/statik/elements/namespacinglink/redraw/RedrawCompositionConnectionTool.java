@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
 
     /**
      * Constructs a new RedrawConnectionTool to redraw the given {@link LinkEditPart}
+     * 
      * @param linkEditPart the edit part of the link to redraw.
      */
     @objid ("35b739ab-55b7-11e2-877f-002564c97630")
@@ -195,6 +196,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
      * Get the current routing mode.
      * <p>
      * The routing mode is lazily initialized here.
+     * 
      * @return the the current routing mode.
      */
     @objid ("35b8c02e-55b7-11e2-877f-002564c97630")
@@ -220,6 +222,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
     /**
      * If the connections is already started, the second button down will call
      * {@link AbstractConnectionCreationTool#handleCreateConnection()}. Otherwise, it attempts to start the connection.
+     * 
      * @param button the button that was pressed
      * @return <code>true</code> if the button down was processed
      */
@@ -260,6 +263,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
 
     /**
      * Cleans up feedback and resets the tool when focus is lost.
+     * 
      * @return <code>true</code> if this focus lost event was processed
      */
     @objid ("35b8c043-55b7-11e2-877f-002564c97630")
@@ -277,6 +281,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
     /**
      * Processes the arrow keys (to move the cursor to nearby anchor locations) and the enter key (to start or complete
      * a connections).
+     * 
      * @param event the key event
      * @return <code>true</code> if this key down event was processed
      */
@@ -416,6 +421,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
 
     /**
      * Get the alternate connection routing mode that is activated when pressing &lt;shift>.
+     * 
      * @return the alternate connection routing mode.
      */
     @objid ("35ba46c6-55b7-11e2-877f-002564c97630")
@@ -434,6 +440,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
      * Get the primary routing mode.
      * <p>
      * The primary routing mode is lazily initialized from the routing mode style key.
+     * 
      * @return the primary routing mode.
      */
     @objid ("35ba46cc-55b7-11e2-877f-002564c97630")
@@ -456,6 +463,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
     /**
      * Find the target editpart and returns it. The target is searched by using the target conditional and the target
      * request.
+     * 
      * @return the edit part that can handle the request under the mouse.
      */
     @objid ("35ba46d3-55b7-11e2-877f-002564c97630")
@@ -472,6 +480,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
     /**
      * Method that is called when the gesture to create an intermediate point has been received. Returns
      * <code>true</code> to indicate that the point creation succeeded.
+     * 
      * @return <code>true</code> if the connection point was performed
      */
     @objid ("35ba46d8-55b7-11e2-877f-002564c97630")
@@ -507,6 +516,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
     /**
      * Same as {@link org.eclipse.gef.tools.TargetingTool#setTargetEditPart(EditPart) setTargetEditPart(EditPart)} but
      * returns whether a change was done or not.
+     * 
      * @param editPart The new edit part, may be null
      * @return true if the edit part was changed, false if it is still the same.
      */
@@ -582,7 +592,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
         }
         super.deactivate();
         if (mustReload) {
-            this.originalGmLink.getDiagram().getPersister().load();
+            this.originalGmLink.getDiagram().load();
         }
     }
 

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public final class CreateDiagramViewCommand extends CreateLinkedNodeCommand {
     /**
      * Creates a node creation command.
+     * 
      * @param context Details on the MObject and/or the node to create
      */
     @objid ("b7c9c5b2-57be-4605-a6cd-d0b98edf3bc5")

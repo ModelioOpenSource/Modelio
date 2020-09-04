@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class TemplateParameterPropertyModel extends AbstractPropertyModel<Templa
     /**
      * Create a new <i>TemplateParameter</i> data model from an
      * <i>TemplateParameter</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("ea7d69ae-3b0e-43f5-b392-ce0a593390d8")
@@ -58,6 +59,7 @@ public class TemplateParameterPropertyModel extends AbstractPropertyModel<Templa
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("5429d367-3903-4695-9f39-aac28fa44cee")
@@ -68,6 +70,7 @@ public class TemplateParameterPropertyModel extends AbstractPropertyModel<Templa
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("a273fa94-d9eb-4b92-b332-db497f0c243e")
@@ -83,6 +86,7 @@ public class TemplateParameterPropertyModel extends AbstractPropertyModel<Templa
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -118,6 +122,7 @@ public class TemplateParameterPropertyModel extends AbstractPropertyModel<Templa
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

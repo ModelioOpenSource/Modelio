@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -130,6 +130,7 @@ public class TreeContentProvider implements ITreeContentProvider {
      * <li>it is started</li>
      * </ul>
      * @param element
+     * 
      * @return a collection of Modules
      */
     @objid ("8faeec69-c068-11e1-8c0a-002564c97630")

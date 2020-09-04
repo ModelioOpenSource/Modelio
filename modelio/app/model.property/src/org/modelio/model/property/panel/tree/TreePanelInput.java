@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class TreePanelInput {
 
     /**
      * Copy constructor.
+     * 
      * @param other the copied input.
      */
     @objid ("31d89695-1ec8-4c7e-947e-746d7e45e913")

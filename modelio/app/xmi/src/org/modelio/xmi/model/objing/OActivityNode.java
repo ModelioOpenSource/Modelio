@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -121,12 +121,13 @@ public class OActivityNode extends OModelElement {
             }else{
         
                  ActivityNode objElt = (ActivityNode) getObjingElement();
-                 String message = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType",
-                         "test",
-                         objingOwnerClause.getName(),
-                         objingOwnerClause.getClass().getSimpleName(),
-                         "ExecutableNode");
-                 GenerationProperties.getInstance().addWarning(message, objElt);
+                 
+                 String message = Xmi.I18N.getMessage(" logFile.warning.export.unsupportedOwner.message");
+                 String description = Xmi.I18N.getMessage(" logFile.warning.export.unsupportedOwner.description",
+                         objElt.getName(),
+                         objElt.getClass().getSimpleName(),
+                         owner.getClass().getSimpleName());
+                 GenerationProperties.getInstance().addWarning(message,  objElt, description);
             }
         
             // Setting composition relation (in org.eclipse.uml2.uml.ConditionalNode):

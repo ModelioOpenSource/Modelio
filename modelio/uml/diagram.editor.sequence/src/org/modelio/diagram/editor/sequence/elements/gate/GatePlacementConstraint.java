@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class GatePlacementConstraint extends PlacementConstraint {
 
     /**
      * Main c'tor.
+     * 
      * @param x the requested X coordinate.
      * @param y the requested y coordinate.
      * @param width the requested width.

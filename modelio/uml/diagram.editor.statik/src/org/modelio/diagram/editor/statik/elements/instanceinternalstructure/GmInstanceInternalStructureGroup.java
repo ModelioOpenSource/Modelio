@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,6 +25,7 @@ import org.modelio.diagram.editor.statik.elements.instance.GmInstanceStructuredS
 import org.modelio.diagram.elements.common.group.GmGroup;
 import org.modelio.diagram.elements.common.label.base.GmElementLabel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
@@ -58,6 +59,7 @@ public class GmInstanceInternalStructureGroup extends GmGroup {
 
     /**
      * Creates an internal structure group.
+     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
@@ -87,7 +89,8 @@ public class GmInstanceInternalStructureGroup extends GmGroup {
     @objid ("3550fdae-55b7-11e2-877f-002564c97630")
     @Override
     public boolean isVisible() {
-        if (getParent() != null && getParent().getRepresentationMode() == RepresentationMode.STRUCTURED) {
+        GmCompositeNode parentNode = getParentNode();
+        if (parentNode != null && parentNode.isVisible() && parentNode.getRepresentationMode() == RepresentationMode.STRUCTURED) {
             InternalsViewMode v = getDisplayedStyle().getProperty(GmInstanceStructuredStyleKeys.INTERNALSVIEWMODE);
             return (v == InternalsViewMode.LIST);
         }

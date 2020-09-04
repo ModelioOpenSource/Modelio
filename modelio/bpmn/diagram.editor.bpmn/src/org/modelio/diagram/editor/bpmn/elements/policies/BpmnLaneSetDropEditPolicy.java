@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class BpmnLaneSetDropEditPolicy extends GraphicalEditPolicy {
      * </p>
      * 
      * *
+     * 
      * @param request the drop request
      * @return the host if all dropped elements are sub partitions, <code>null</code> otherwise.
      */

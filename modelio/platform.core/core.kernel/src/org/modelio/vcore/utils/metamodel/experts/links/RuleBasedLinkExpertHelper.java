@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -95,6 +95,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Add an allowed rule.
+     * 
      * @param mcD link metaclass
      * @param mcX source metaclass
      * @param mcY target metaclass
@@ -106,6 +107,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Add an allowed rule with subclasses if asked for.
+     * 
      * @param mcD link metaclass
      * @param mcX source metaclass
      * @param xRec with subclasses
@@ -119,6 +121,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Get a model link source
+     * 
      * @param aLink a model link.
      * @return the link source
      */
@@ -138,6 +141,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Get a model link target.
+     * 
      * @param aLink a model link.
      * @return the link target.
      */
@@ -166,6 +170,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Change a model link target.
+     * 
      * @param link a model link.
      * @param oldTarget the old target.
      * @param newTarget the new target.
@@ -207,6 +212,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Change a model link source.
+     * 
      * @param link a model link.
      * @param oldSource the old source.
      * @param newSource the new source.
@@ -248,6 +254,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Register a source dependency
+     * 
      * @param depClass the link metaclass interface
      * @param srcDepName the dependency name
      * @throws java.lang.IllegalArgumentException on input mistake.
@@ -272,6 +279,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Register a link metaclass.
+     * 
      * @param linkMetaclassInterface a link metaclass name.
      */
     @objid ("ee7c9185-dfcf-4ee1-b642-f7fe4e1f9613")
@@ -296,6 +304,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Register a target dependency.
+     * 
      * @param depClass the link metaclass interface
      * @param depName the dependency name
      * @throws java.lang.IllegalArgumentException on input mistake.
@@ -364,6 +373,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
         /**
          * Tells whether a link of the given metaclass can have another metaclass as source.
+         * 
          * @param linkMetaclass The link metaclass
          * @param fromMetaclass The source metaclass
          * @return true if the creation is possible, false otherwise.
@@ -377,6 +387,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
         /**
          * Tells whether a link of the given metaclass can be created between the 2 other metaclasses.
+         * 
          * @param linkMetaclass The link metaclass
          * @param fromMetaclass The Source metaclass
          * @param toMetaclass The destination metaclass
@@ -392,6 +403,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
         /**
          * Returns whether this metaclass is known or not.
+         * 
          * @param linkMetaclass The link metaclass
          * @param toMetaclass The target metaclass
          * @return true if the creation is possible, false otherwise.
@@ -405,6 +417,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
         /**
          * Add an allowed rule.
+         * 
          * @param mcD link metaclass
          * @param mcX source metaclass
          * @param mcY target metaclass
@@ -416,6 +429,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
         /**
          * Add an allowed rule.
+         * 
          * @param mcD link metaclass
          * @param mcX source metaclass
          * @param xRec with subclasses
@@ -450,6 +464,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
         /**
          * Create a rule key from metaclass java interfaces.
+         * 
          * @param link link metaclass
          * @param source source metaclass
          * @param target target metaclass

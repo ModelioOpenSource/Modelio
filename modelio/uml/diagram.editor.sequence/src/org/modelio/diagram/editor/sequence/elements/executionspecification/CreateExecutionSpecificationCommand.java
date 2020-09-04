@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class CreateExecutionSpecificationCommand extends Command {
 
     /**
      * C'tor.
+     * 
      * @param parentNode the node into which the created execution should be unmasked.
      * @param initialLayoutData the initial layout data to use. X coordinate will be ignored, since it will be updated in the container's layout.
      */

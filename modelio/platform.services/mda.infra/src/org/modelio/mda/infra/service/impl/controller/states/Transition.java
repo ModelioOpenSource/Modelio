@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -89,6 +89,7 @@ public class Transition {
 
     /**
      * Get a transition builder object.
+     * 
      * @return a transition builder.
      */
     @objid ("caad743f-aa19-44e7-a042-22c9daf561ab")
@@ -98,6 +99,7 @@ public class Transition {
 
     /**
      * Get actions to execute before switching to the target state.
+     * 
      * @return the transition actions
      */
     @objid ("5fd46033-08ef-447c-9aa2-586137792355")
@@ -130,6 +132,7 @@ public class Transition {
 
         /**
          * Set the origin state.
+         * 
          * @param srcState the origin state
          * @return this
          */
@@ -141,6 +144,7 @@ public class Transition {
 
         /**
          * Set the target state.
+         * 
          * @param targetState the target state
          * @return this
          */
@@ -154,6 +158,7 @@ public class Transition {
          * Create the transition.
          * <p>
          * The builder can still be used with the configuration already set.
+         * 
          * @return the created transition.
          */
         @objid ("f215ccae-927f-4857-985c-85812ab9d464")
@@ -165,6 +170,7 @@ public class Transition {
 
         /**
          * Set the message that triggers the transition.
+         * 
          * @param message the trigger message.
          * @return this
          */
@@ -176,6 +182,7 @@ public class Transition {
 
         /**
          * Set a new message to send once the transition is complete.
+         * 
          * @param postTransitionMessage the post transition message to send
          * @return this
          */
@@ -187,6 +194,7 @@ public class Transition {
 
         /**
          * Add an action to execute before switching to the target state.
+         * 
          * @param action an action to execute.
          * @return this builder for convenience.
          */

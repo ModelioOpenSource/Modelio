@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,8 +47,7 @@ class AdapterStereotype implements IAdaptable {
 
     @objid ("00f78da4-0e10-40e9-b1bd-829b662ea573")
     @Override
-    @SuppressWarnings({ "rawtypes" })
-    public Object getAdapter(Class adapter) {
+    public <T> T getAdapter(Class<T> adapter) {
         return null;
     }
 

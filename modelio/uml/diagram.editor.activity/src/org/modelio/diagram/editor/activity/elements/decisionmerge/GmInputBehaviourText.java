@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class GmInputBehaviourText extends GmElementText {
 
     /**
      * Default c'tor.
+     * 
      * @param diagram the diagram.
      * @param relatedRef reference of the related element, must not be null.
      */

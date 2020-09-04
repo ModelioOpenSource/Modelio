@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,11 +36,11 @@ import org.modelio.audit.view.model.AuditRuleModel;
  */
 @objid ("ce3c6a8a-510e-4cbd-a08e-edf436c7e072")
 public class DisableRuleHandlerAction extends Action {
+    @objid ("d06468bc-864b-4dec-8fcf-26cf3d98333f")
+    private Tree tree;
+
     @objid ("b715079c-f533-42ea-bc52-2da8cebdc68c")
     private IAuditService auditService;
-
-    @objid ("8ac0434d-f677-41c6-9b81-be78961b689a")
-    private Tree tree;
 
     @objid ("f1f6d2a2-284c-4663-8b25-13d40883ae5c")
     public DisableRuleHandlerAction(IAuditService auditService, Tree tree) {

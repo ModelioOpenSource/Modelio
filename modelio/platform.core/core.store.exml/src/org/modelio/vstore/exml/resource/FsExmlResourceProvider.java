@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class FsExmlResourceProvider extends LocalExmlResourceProvider {
 
     /**
      * Initialize the resource provider.
+     * 
      * @param distantPath the location of the repository
      * @param runtimePath a directory in the local file system.
      * If <code>null</code> a temporary directory will be created in $(TEMP).
@@ -161,6 +162,7 @@ public class FsExmlResourceProvider extends LocalExmlResourceProvider {
 
     /**
      * Check the given path is a local directory.
+     * 
      * @param localWorkPath a path
      * @throws java.lang.IllegalArgumentException if the path is not valid.
      */

@@ -2,10 +2,8 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="org.modelio.script.engine.classloaders" name="Script classloaders" schema="schema/org.modelio.script.engine.classloaders.exsd"/>
-                    
+
    <extension  point="org.modelio.script.engine.classloaders">
-      <jython-api-provider
-            classloaderprovider="org.modelio.script.engine.plugin.JythonClassLoaderProvider">
-      </jython-api-provider>
-   </extension> 
+      <jython-api-provider classloaderprovider="org.modelio.script.engine.plugin.JythonClassLoaderProvider" />
+   </extension>
 </plugin>

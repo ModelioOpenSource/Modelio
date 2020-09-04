@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class OConnector extends OLink {
 
     /**
      * Constructor
+     * 
      * @param param : the exported Modelio Connector
      */
     @objid ("a207c7b9-2480-4217-8d75-f0beb4459af0")
@@ -111,8 +112,7 @@ public class OConnector extends OLink {
         if (ecoreElt != null){
             super.setProperties(ecoreElt);
         
-            if (GenerationProperties.getInstance().isRoundtripEnabled()
-                    && (ecoreElt instanceof InstanceSpecification)
+            if ((ecoreElt instanceof InstanceSpecification)
                     && (this.objElt instanceof Connector))
                 ObjingEAnnotation.setIsConnector(ecoreElt);
         }

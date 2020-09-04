@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ public class Frame extends Wrapper implements com.sun.star.frame.XFrame, com.sun
 
     /**
      * Constructor.
+     * 
      * @param xFrame the wrapped XFrame
      */
     @objid ("87fb604a-59ba-43cd-b7dd-ea7da63c34ac")

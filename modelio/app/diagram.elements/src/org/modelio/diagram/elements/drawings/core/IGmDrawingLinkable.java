@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IGmDrawingLinkable extends IGmDrawing {
     /**
      * Get the links going to this node.
+     * 
      * @return the ongoing links.
      */
     @objid ("b5dfe29a-2980-4415-99a9-239acbc9ca07")
@@ -37,6 +38,7 @@ public interface IGmDrawingLinkable extends IGmDrawing {
 
     /**
      * Get the links going to this node.
+     * 
      * @return the ongoing links.
      */
     @objid ("766e660f-d90b-4d1d-9f69-6e5830594cca")
@@ -44,6 +46,7 @@ public interface IGmDrawingLinkable extends IGmDrawing {
 
     /**
      * Add a link starting from this node.
+     * 
      * @param link The starting link.
      */
     @objid ("6408cf3e-48f7-427a-b558-589a579fed4a")
@@ -51,6 +54,7 @@ public interface IGmDrawingLinkable extends IGmDrawing {
 
     /**
      * Add a link going to this element.
+     * 
      * @param link the ongoing link.
      */
     @objid ("ec105eab-448a-42c2-8bad-5acccb06de6c")
@@ -58,6 +62,7 @@ public interface IGmDrawingLinkable extends IGmDrawing {
 
     /**
      * Remove a link starting from this node.
+     * 
      * @param gmLink the link to remove.
      */
     @objid ("cfdff1a1-c8e8-479a-96a4-92eaf792506e")
@@ -65,6 +70,7 @@ public interface IGmDrawingLinkable extends IGmDrawing {
 
     /**
      * Remove a link going to this node.
+     * 
      * @param gmLink the link to remove.
      */
     @objid ("680f9fe3-d8f2-43d6-8553-f77a9ea788c8")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
     /**
      * Create a new <i>ExceptionHandler</i> data model from an
      * <i>ExceptionHandler</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("a6c4f567-27dc-4e8b-b308-8c02d01bf8a5")
@@ -70,6 +71,7 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("695d4294-852a-441d-b8ff-03ccfabc3506")
@@ -80,6 +82,7 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("b7bda5ac-497b-4c10-a504-25c4001489ce")
@@ -92,6 +95,7 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -126,6 +130,7 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -161,6 +166,7 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

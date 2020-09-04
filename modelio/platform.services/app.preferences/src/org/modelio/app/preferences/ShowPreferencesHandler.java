@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -18,7 +18,7 @@
  * 
  */
 
-/* 
+/*
  * Handler to open up a configured preferences dialog.
  * Written by Brian de Alwis, Manumitting Technologies.
  * Placed in the public domain.
@@ -27,7 +27,6 @@ package org.modelio.app.preferences;
 
 import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -47,8 +46,8 @@ public class ShowPreferencesHandler {
 
     @objid ("e3799e44-84b2-4139-8279-1f40ad188777")
     @Execute
-    public void execute(MApplication app, @Named(IServiceConstants.ACTIVE_SHELL) Shell shell, IEclipseContext context, IExtensionRegistry registry) {
-        ModelioPreferenceDialog dialog = new ModelioPreferenceDialog(shell, context, registry);
+    public void execute(final MApplication app, @Named(IServiceConstants.ACTIVE_SHELL) final Shell shell, final IEclipseContext context) {
+        final ModelioPreferenceDialog dialog = new ModelioPreferenceDialog(shell, context);
         dialog.open();
     }
 

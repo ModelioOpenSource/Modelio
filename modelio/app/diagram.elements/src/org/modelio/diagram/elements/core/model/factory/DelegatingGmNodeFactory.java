@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public final class DelegatingGmNodeFactory implements IGmNodeFactory {
 
     /**
      * Instantiate the factory.
+     * 
      * @param factoryIds identifier of the cascaded factories needed to call the {@link DiagramFactoryRegistry}.
      */
     @objid ("6ea497f0-0ee7-4e63-952a-3fd82a01b2a0")
@@ -116,6 +117,7 @@ public final class DelegatingGmNodeFactory implements IGmNodeFactory {
 
     /**
      * Register a cascaded factory.
+     * 
      * @param factory the node factory extension.
      */
     @objid ("90116ded-837a-4861-871c-1930dacdaa81")
@@ -127,6 +129,7 @@ public final class DelegatingGmNodeFactory implements IGmNodeFactory {
 
     /**
      * Remove a registered cascaded factory.
+     * 
      * @param factory the node factory extension.
      */
     @objid ("fa8bc1c2-a1b0-4716-bf75-c92346381c90")
@@ -136,6 +139,7 @@ public final class DelegatingGmNodeFactory implements IGmNodeFactory {
 
     /**
      * Instantiate the factory.
+     * 
      * @param factory a cascaded factory.
      */
     @objid ("07312c92-6313-412b-9c6a-a434322bd5eb")

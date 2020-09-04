@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -102,6 +102,7 @@ public class SmObjectDataSerializer {
 
     /**
      * Read the SmObjectImpl content from the stream.
+     * 
      * @param in the stream
      * @param obj the model object to populate
      * @param loader the model loader
@@ -295,6 +296,7 @@ public class SmObjectDataSerializer {
 
     /**
      * Get all possible enumeration values of an enumerate type.
+     * 
      * @param type a enumerate class.
      * @return all possible values, ordered.
      */
@@ -321,6 +323,7 @@ public class SmObjectDataSerializer {
 
     /**
      * Parse the input stream and call the consumer of each found dependency reference.
+     * 
      * @param in input stream
      * @param refConsumer reference consumer
      * @throws java.io.IOException on I/O failure

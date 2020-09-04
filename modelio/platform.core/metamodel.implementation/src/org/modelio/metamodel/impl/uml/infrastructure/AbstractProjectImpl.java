@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -43,20 +43,20 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("fd1c4e0b-0cd4-4bb5-bc18-359cb4e3c561")
 public class AbstractProjectImpl extends ModelElementImpl implements AbstractProject {
-    @objid ("4ed38419-c184-493c-8272-b4d3a2579e0c")
+    @objid ("d5f35d11-1f2b-4bd0-8170-3ead18d8e775")
     @Override
     public DiagramSet getDiagramRoot() {
         Object obj = getDepVal(((AbstractProjectSmClass)getClassOf()).getDiagramRootDep());
         return (obj instanceof DiagramSet)? (DiagramSet)obj : null;
     }
 
-    @objid ("5344ee03-0579-4bdf-ac27-f4b8d68ff8b6")
+    @objid ("c98c528a-04f2-4288-8e2c-5fc4da6d27a7")
     @Override
     public void setDiagramRoot(DiagramSet value) {
         appendDepVal(((AbstractProjectSmClass)getClassOf()).getDiagramRootDep(), (SmObjectImpl)value);
     }
 
-    @objid ("ae25b4de-b6dd-4357-821e-f9511a62d79a")
+    @objid ("1ca40474-482a-4096-b734-7fd8fb5efbc7")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -64,7 +64,7 @@ public class AbstractProjectImpl extends ModelElementImpl implements AbstractPro
         return super.getCompositionOwner();
     }
 
-    @objid ("44708bc3-5627-45e3-85b9-d3bd3acaf68e")
+    @objid ("e06d7d2e-1b5a-4e30-80d9-9c3ec0bdf9ba")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -74,7 +74,7 @@ public class AbstractProjectImpl extends ModelElementImpl implements AbstractPro
         return super.getCompositionRelation();
     }
 
-    @objid ("3de34380-bbbb-4011-be96-e3e99c12ae17")
+    @objid ("2bcf1f30-388d-46d7-b0b4-76abeddfea57")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitAbstractProject(this);

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -89,6 +89,7 @@ public class GhostNodeFigure extends Figure {
 
     /**
      * Sets the metaclass label of the figure.
+     * 
      * @param label the new label.
      */
     @objid ("7e4b0f5f-1dec-11e2-8cad-001ec947c8cc")
@@ -98,6 +99,7 @@ public class GhostNodeFigure extends Figure {
 
     /**
      * Sets the name label of the figure.
+     * 
      * @param label the new label.
      */
     @objid ("7e4d716b-1dec-11e2-8cad-001ec947c8cc")
@@ -107,6 +109,7 @@ public class GhostNodeFigure extends Figure {
 
     /**
      * Sets the id label of the figure.
+     * 
      * @param label the new label.
      */
     @objid ("7e4d7170-1dec-11e2-8cad-001ec947c8cc")

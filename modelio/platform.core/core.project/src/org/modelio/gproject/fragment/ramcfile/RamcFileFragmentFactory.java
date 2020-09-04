@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class RamcFileFragmentFactory implements IFragmentFactory {
 
     /**
      * Instantiate a RAMC fragment directly from an URI.
+     * 
      * @param uri an URI referring to a .ramc file.
      * @param authData authentication data, may be <code>null</code>.
      * @return the RAMC fragment.
@@ -73,6 +74,7 @@ public class RamcFileFragmentFactory implements IFragmentFactory {
 
     /**
      * Instantiate a RAMC fragment directly from an RAMC file path.
+     * 
      * @param path a file path referring to a .ramc file.
      * @return the RAMC fragment.
      * @throws java.io.IOException if the RAMC archive couldn't be read.
@@ -99,6 +101,7 @@ public class RamcFileFragmentFactory implements IFragmentFactory {
 
     /**
      * Instantiate a RAMC fragment descriptor directly from a .ramc file URI.
+     * 
      * @param uri a .ramc file URI.
      * @param authData authentication data
      * @return a RAMC fragment descriptor or <code>null</code> if the RAMC file couldn't be read.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -182,6 +182,7 @@ public class StandardMmMigrationProvider implements IMigrationProvider {
 
         /**
          * Scan metamodel to look for CMS node metaclass differences.
+         * 
          * @param metamodel the prepared metamodel
          * @param srcMmDesc the source metamodel descriptor
          * @deprecated Experimental begin of implementation

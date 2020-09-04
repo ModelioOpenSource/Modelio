@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -112,6 +112,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
 
     /**
      * Get the notes panel.
+     * 
      * @return the current notes panel.
      */
     @objid ("f5a048c6-3634-409c-bd26-94494f9ce41d")
@@ -121,6 +122,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
 
     /**
      * Called by the framework to create the view and initialize it.
+     * 
      * @param projectService the project service.
      * @param parent the composite the view must add its content into.
      * @param selection the application selection.
@@ -212,6 +214,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
     /**
      * This listener is activated when the selection changes in the workbench.<br>
      * Its responsibility is to set the NotesView's current element.
+     * 
      * @param selection the current modelio selection.
      */
     @objid ("5565698e-2918-4551-ba17-8e9893e5e18b")
@@ -250,6 +253,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
 
     /**
      * E4 destructor.
+     * 
      * @param projectService the project service.
      */
     @objid ("e3d6e9c3-ff4c-472d-a0a2-7ea4fd199c75")

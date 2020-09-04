@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -218,6 +218,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
      * Copy constructor.
      * <p>
      * Copy only what can be safely be copied, skip layout manager, Border and composition hierarchy.
+     * 
      * @param orig the original figure.
      */
     @objid ("e98df5b2-c891-4034-a851-af50e389a784")
@@ -251,6 +252,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
      * This method might require re-definition in sub-classes, should these subclasses use a different approach to draw the gradient background.
      * 
      * Typically {@link ShapedFigure} uses a clippath to limit the gradient drawing instead of relying on their shaped border.
+     * 
      * @return the static tempRect is returned to avoid expensive rectangle allocations.
      */
     @objid ("3217fcd8-e156-4637-b4d3-509eb98e73f7")

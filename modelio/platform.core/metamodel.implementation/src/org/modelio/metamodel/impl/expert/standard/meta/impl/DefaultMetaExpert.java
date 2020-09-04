@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -315,6 +315,7 @@ public class DefaultMetaExpert implements IMetaExpert {
 
         /**
          * Returns whether the childMetaclass can be created as a child of the parentMetaclass.
+         * 
          * @param childMetaclass the child
          * @param parentMetaclass the parent
          * @return true if the creation is possible, false otherwise.
@@ -1077,6 +1078,7 @@ public class DefaultMetaExpert implements IMetaExpert {
             // Project
             addRule(Project.MQNAME, Constraint.MQNAME);
             addRule(Project.MQNAME, Package.MQNAME);
+            addRule(Project.MQNAME, StaticDiagram.MQNAME);
             
             // PropertyEnumerationLitteral
             addRule(PropertyEnumerationLitteral.MQNAME, Constraint.MQNAME);

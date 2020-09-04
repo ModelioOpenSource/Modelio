@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class TCompensateEventDefinition extends TEventDefinition {
 
     /**
      * Sets the value of the waitForCompletion property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -96,6 +97,7 @@ public class TCompensateEventDefinition extends TEventDefinition {
 
     /**
      * Sets the value of the activityRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

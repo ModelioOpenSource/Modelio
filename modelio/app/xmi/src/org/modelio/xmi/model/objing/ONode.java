@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,10 +24,10 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.statik.Node;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.generation.GenerationProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.NotFoundException;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("9b31f892-cc73-4864-b253-575d5bd7820f")
 public class ONode extends ONameSpace {
@@ -37,9 +37,9 @@ public class ONode extends ONameSpace {
     @objid ("1999f5cd-c118-4906-b2c7-d27d741f908d")
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
-        if (this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DEVICE))
+        if (this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DEVICE))
             return UMLFactory.eINSTANCE.createDevice();
-        else if (this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXECUTIONENVIRONMENT))
+        else if (this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXECUTIONENVIRONMENT))
             return UMLFactory.eINSTANCE.createExecutionEnvironment();
         else
             return UMLFactory.eINSTANCE.createNode();

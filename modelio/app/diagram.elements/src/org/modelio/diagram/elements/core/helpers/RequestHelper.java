@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class RequestHelper {
      * <p>
      * The copy and the original requests share the same extended data map.
      * Move delta and resize delta are not shared.
+     * 
      * @param orig the original request
      * @return the request copy.
      */
@@ -67,6 +68,7 @@ public class RequestHelper {
      * Create a deep copy of the given request.
      * <p>
      * The copy has a copy of the original extended data map, move delta and size delta.
+     * 
      * @param orig the original request
      * @return the request copy.
      */
@@ -89,6 +91,7 @@ public class RequestHelper {
      * Get a copy of the figure bounds after applying the given request.
      * <p>
      * The returned rectangle is in the figure coordinates.
+     * 
      * @param fig a figure
      * @param request a move/resize request
      * @return the transformed figure bounds.
@@ -104,6 +107,7 @@ public class RequestHelper {
 
     /**
      * Set the request move and size delta to ask the given figure to move/resize to the given bounds.
+     * 
      * @param req the request to modify
      * @param fig the figure to move/resize
      * @param requestedBounds the requested figure bounds in the figure coordinates.
@@ -125,6 +129,7 @@ public class RequestHelper {
 
     /**
      * Dump the request to a string for debugging.
+     * 
      * @param req a request
      * @return a string representation
      */
@@ -142,6 +147,7 @@ public class RequestHelper {
 
     /**
      * Dump the request to a string for debugging.
+     * 
      * @param req a request
      * @return a string representation
      */
@@ -154,6 +160,7 @@ public class RequestHelper {
      * Add the value to the request extended data entry.
      * <p>
      * The data entry is handled as a Collection.
+     * 
      * @param req the request
      * @param key the extended data entry key
      * @param value the value to add to the data entry

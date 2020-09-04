@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class StorageException extends Exception {
      * Initialize from an exception.
      * <p>
      * If the exception is a {@link FileSystemException}, a user friendly message is computed.
+     * 
      * @param repository the repository where the error occurred.
      * @param cause the error that occurred
      */
@@ -54,6 +55,7 @@ public class StorageException extends Exception {
 
     /**
      * initialize from an error message.
+     * 
      * @param repository the repository where the error occurred.
      * @param message the error message
      */

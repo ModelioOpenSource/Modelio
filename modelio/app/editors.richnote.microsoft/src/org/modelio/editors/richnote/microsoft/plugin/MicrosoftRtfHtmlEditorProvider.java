@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -86,6 +86,7 @@ public class MicrosoftRtfHtmlEditorProvider extends MicrosoftEditorProvider {
 
     /**
      * Create a Word.Application OLE client.
+     * 
      * @param monitor a progress monitor.
      * @return true if Word found else false.
      */

@@ -8,6 +8,9 @@
   <script name="Sort" path="Sort.py" icon-path="icons/sort.png" show-menu="true" show-toolbar="true">
     <description>This macro sorts the model elements under a Classifier or a Package.</description>
     <metaclass name="Standard.Classifier"></metaclass>
-    <metaclass name="Standard.Package"></metaclass>
+    <metaclass name="Standard.ModelTree"></metaclass>
+    <metaclass name="Analyst.RequirementContainer"></metaclass>
+    <metaclass name="Analyst.Dictionary"></metaclass>
+    <metaclass name="Archimate.Folder"></metaclass>
   </script>
 </catalog>

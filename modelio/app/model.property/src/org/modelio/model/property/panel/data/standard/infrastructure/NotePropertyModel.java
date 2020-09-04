@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class NotePropertyModel extends AbstractPropertyModel<Note> {
 
     /**
      * Instantiate the note type properties view.
+     * 
      * @param theEditedElement the current note type.
      */
     @objid ("41cfd428-4eee-47fe-88a6-03d7720b84e2")

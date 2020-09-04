@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,7 +32,6 @@ import org.eclipse.e4.ui.model.application.descriptor.basic.MPartDescriptor;
 import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPlaceholder;
 import org.eclipse.e4.ui.model.application.ui.advanced.impl.AdvancedFactoryImpl;
-import org.eclipse.e4.ui.model.application.ui.basic.MInputPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.model.application.ui.basic.impl.BasicFactoryImpl;
@@ -44,35 +43,27 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 @objid ("b9b73977-2fd8-11e2-a79f-bc305ba4815c")
 public class InputPartService implements IInputPartService {
-    @objid ("b9b73978-2fd8-11e2-a79f-bc305ba4815c")
+    @objid ("492ded00-b3f7-46d9-a16f-000bfae3ad91")
     @Inject
     private MApplication application;
 
-    @objid ("b9bbfc44-2fd8-11e2-a79f-bc305ba4815c")
+    @objid ("cbe89145-5c4a-4661-8d26-9406c58006a7")
     @Inject
     @Optional
     private MWindow workbenchWindow;
-
-    @objid ("b9bbfc33-2fd8-11e2-a79f-bc305ba4815c")
-    @Override
-    public MInputPart createInputPart(String id) {
-        MPartDescriptor descriptor = findDescriptor(id);
-        return createInputPart(descriptor);
-    }
 
     @objid ("b9bbfc39-2fd8-11e2-a79f-bc305ba4815c")
     @Override
     public MPlaceholder createSharedInputPart(String id, String inputURI) {
         MWindow sharedWindow = getModelioWindow();
         // Do we already have the part to share?
-        MInputPart sharedPart = null;
+        MPart sharedPart = null;
         
         // check for existing parts if necessary
-        
         for (MUIElement element : sharedWindow.getSharedElements()) {
-            if (element.getElementId().equals(id) && element instanceof MInputPart) {
-                MInputPart part = (MInputPart) element;
-                if(part.getInputURI() != null && part.getInputURI().equals(inputURI)){
+            if (element.getElementId().equals(id) && element instanceof MPart) {
+                MPart part = (MPart) element;
+                if(part.getPersistedState().get("inputURI") != null && part.getPersistedState().get("inputURI").equals(inputURI)){
                     sharedPart = part;
                     break;
                 }
@@ -85,7 +76,7 @@ public class InputPartService implements IInputPartService {
             if (sharedPart == null) {
                 return null;
             }
-            sharedPart.setInputURI(inputURI);
+            sharedPart.getPersistedState().put("inputURI", inputURI);
         
             sharedWindow.getSharedElements().add(sharedPart);
         }
@@ -93,7 +84,7 @@ public class InputPartService implements IInputPartService {
     }
 
     @objid ("b9bbfc3f-2fd8-11e2-a79f-bc305ba4815c")
-    private static MPlaceholder createSharedPart(MInputPart sharedPart) {
+    private static MPlaceholder createSharedPart(MPart sharedPart) {
         // Create and return a reference to the shared part
         MPlaceholder sharedPartRef = AdvancedFactoryImpl.eINSTANCE.createPlaceholder();
         sharedPartRef.setElementId(sharedPart.getElementId());
@@ -124,12 +115,12 @@ public class InputPartService implements IInputPartService {
     }
 
     @objid ("b9bbfc4e-2fd8-11e2-a79f-bc305ba4815c")
-    private static MInputPart createInputPart(MPartDescriptor descriptor) {
+    private static MPart createInputPart(MPartDescriptor descriptor) {
         if (descriptor == null) {
             return null;
         }
         
-        MInputPart part = BasicFactoryImpl.eINSTANCE.createInputPart();
+        MPart part = BasicFactoryImpl.eINSTANCE.createPart();
         part.setElementId(descriptor.getElementId());
         part.getMenus().addAll(EcoreUtil.copyAll(descriptor.getMenus()));
         if (descriptor.getToolbar() != null) {
@@ -160,17 +151,14 @@ public class InputPartService implements IInputPartService {
             if (part == null) {
                 return null;
             }
-            ((MInputPart)part).setInputURI(inputURI);
+            part.getPersistedState().put("inputURI", inputURI);
         }
         return getPartService().showPart(part, partState);
     }
 
     @objid ("303322d8-3ff6-4aac-b978-9da3bd64327e")
-    @Override
     public void hideInputPart(MPart part) {
-        //Force to show the part before hidding it (actually the part cannot be hidden if it is not visible in the current perspective)
-        getPartService().showPart(part, PartState.VISIBLE);
-        getPartService().hidePart(part, true);
+        hideInputPart(part, false);
     }
 
     @objid ("659a254f-d1f7-4e51-a121-a46fcbd1a50b")
@@ -188,8 +176,8 @@ public class InputPartService implements IInputPartService {
     @objid ("f27c9c88-d9e4-4d06-8b63-3a7ac4c45507")
     @Override
     public MPart getInputPart(String id, String inputURI) {
-        for (MPart inputPart : getPartService().getInputParts(inputURI)) {
-            if (id.equals(inputPart.getElementId())) {
+        for (MPart inputPart : getPartService().getParts()) {
+            if (id.equals(inputPart.getElementId()) && inputURI.equals(inputPart.getPersistedState().get("inputURI"))) {
                 return inputPart;
             }
         }
@@ -201,12 +189,23 @@ public class InputPartService implements IInputPartService {
      * <p>
      * Warning: do not inject the EPartService, it could be broken if a modal dialog is running.
      * </p>
+     * 
      * @return the current EPartService.
      */
     @objid ("0529ae92-b7e1-4f6a-bed8-ac29948786e8")
     private EPartService getPartService() {
-        
         return getModelioWindow().getContext().get(EPartService.class);
+    }
+
+    @objid ("c84bdcaf-e98d-488b-873f-90b065cce51e")
+    @Override
+    public void hideInputPart(MPart part, boolean force) {
+        if (force || !part.isVisible()) {
+            //Force to show the part before hidding it (actually the part cannot be hidden if it is not visible in the current perspective)
+            getPartService().showPart(part, PartState.VISIBLE);
+        }
+        
+        getPartService().hidePart(part, true);
     }
 
 }

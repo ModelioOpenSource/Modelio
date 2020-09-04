@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -127,6 +127,7 @@ public class NamedStyle extends Style {
 
     /**
      * Creates a named style.
+     * 
      * @param name The named style name.
      * @param cascadedStyle The parent style.
      */

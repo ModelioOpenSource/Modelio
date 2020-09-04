@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,6 +23,10 @@ package org.modelio.xmi.util;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
+import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
+import org.modelio.metamodel.uml.behavior.interactionModel.InteractionOperand;
+import org.modelio.metamodel.uml.behavior.interactionModel.InteractionUse;
+import org.modelio.metamodel.uml.behavior.interactionModel.StateInvariant;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.InternalTransition;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Transition;
@@ -32,6 +36,7 @@ import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.NaryAssociationEnd;
 import org.modelio.metamodel.uml.statik.Operation;
+import org.modelio.module.modelermodule.api.IModelerModuleTagTypes;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.xmi.reverse.ReverseProperties;
 
@@ -46,7 +51,7 @@ public class ModelUtils {
         for (TaggedValue taggedValue : assocEnd.getTag()){
             if (taggedValue.getDefinition().getName().equals(IModelerModuleTagTypes.ASSOCIATIONEND_XMIISOWNEDBYCLASSIFIER)){
                 for (TagParameter actual : taggedValue.getActual()){
-                   return (actual.getValue().equals("true"));
+                    return (actual.getValue().equals("true"));
                 }
             }
         }
@@ -132,7 +137,7 @@ public class ModelUtils {
         
         for (org.eclipse.uml2.uml.Behavior beh : opaqueBehavior.getRedefinedBehaviors()){
             Object objBeh = revProp.getMappedElement(beh);
-        if (objBeh instanceof Behavior){
+            if (objBeh instanceof Behavior){
                 intTrans.setBehaviorEffect((Behavior) objBeh);
                 break;
             }
@@ -153,11 +158,51 @@ public class ModelUtils {
         for (TaggedValue taggedValue : assocEnd.getTag()){
             if (taggedValue.getDefinition().getName().equals(IModelerModuleTagTypes.ASSOCIATIONEND_XMIISOWNEDBYCLASSIFIER)){
                 for (TagParameter actual : taggedValue.getActual()){
-                   return (actual.getValue().equals("true"));
+                    return (actual.getValue().equals("true"));
                 }
             }
         }
         return false;
+    }
+
+    @objid ("4f55f6d7-3c7f-4971-b1d5-565d79900b7c")
+    public static void setLineNumber(org.eclipse.uml2.uml.Element ecoreGate) {
+        ReverseProperties revProp = ReverseProperties.getInstance();
+        Object objGate = revProp.getMappedElement(ecoreGate);
+        
+        if (objGate instanceof InteractionFragment) {
+            int lineNumber = 0;
+        
+            if (revProp.isRoundtripEnabled()) {
+                lineNumber = ObjingEAnnotation.getLineNumber(ecoreGate);
+            }else {
+                lineNumber = revProp.getCurrentLineNumber();       
+            }
+        
+            ((InteractionFragment) objGate).setLineNumber(lineNumber);
+        }
+    }
+
+    @objid ("5cd1dd13-0abe-4072-9cee-9033476189c5")
+    public static void setEndLineNumber(org.eclipse.uml2.uml.Element ecoreGate) {
+        ReverseProperties revProp = ReverseProperties.getInstance();
+        Object objGate = revProp.getMappedElement(ecoreGate);
+        
+        int lineNumber = 0;
+        
+        if (revProp.isRoundtripEnabled()) {
+            lineNumber = ObjingEAnnotation.getEndLineNumber(ecoreGate);
+        }else {
+            lineNumber = revProp.getCurrentLineNumber();       
+        }
+        
+        if (objGate instanceof InteractionOperand) {
+            ((InteractionOperand) objGate).setEndLineNumber(lineNumber);
+        }else if (objGate instanceof InteractionUse) {
+            ((InteractionUse) objGate).setEndLineNumber(lineNumber);
+        }else if (objGate instanceof StateInvariant) {
+            ((StateInvariant) objGate).setEndLineNumber(lineNumber);
+        }
     }
 
 }

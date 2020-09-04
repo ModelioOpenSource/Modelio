@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -585,6 +585,7 @@ public class BpmnSharedImages implements ISharedImages {
         /**
          * Compute a new image ref for a {@link MObject}, and store it.
          * @param model a gm model.
+         * 
          * @return <code>true</code> if the ref changed.
          */
         @objid ("ebc15923-2da1-4b81-9941-5ce06b52ebcc")

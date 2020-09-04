@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -86,7 +86,7 @@ public class BpmnDataInputEditPart extends AbstractNodeEditPart {
         installEditPolicy(EditPolicy.NODE_ROLE, new BpmnCreateLinkEditPolicy());
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
-        installEditPolicy(ModelElementDropRequest.class, new BpmnItemAwareElementElementDropEditPolicy());
+        installEditPolicy(ModelElementDropRequest.TYPE, new BpmnItemAwareElementElementDropEditPolicy());
     }
 
     /**

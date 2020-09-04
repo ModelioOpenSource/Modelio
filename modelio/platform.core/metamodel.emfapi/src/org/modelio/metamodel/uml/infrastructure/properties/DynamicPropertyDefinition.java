@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure.properties;
 
@@ -58,13 +58,13 @@ public interface DynamicPropertyDefinition extends PropertyDefinition {
     /**
      * The metaclass simple name.
      */
-    @objid ("77a33673-70ec-4f96-a141-b2728f3aea21")
+    @objid ("89573920-1fdf-495e-a072-8f378751226e")
     public static final String MNAME = "DynamicPropertyDefinition";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("f64383fd-1679-4816-85d8-346522d130b0")
+    @objid ("a2a863b2-3739-44e4-9881-7e0d97cc4fde")
     public static final String MQNAME = "Infrastructure.DynamicPropertyDefinition";
 
     /**
@@ -87,6 +87,7 @@ public interface DynamicPropertyDefinition extends PropertyDefinition {
          * <p>
          * Used after reading a persisted string value in a property table.
          * </p>
+         * 
          * @param pdef definition of the property being edited.
          * @param value the initial string value. Might be <code>null</code>.
          * @param element the element this conversion is done for.
@@ -100,6 +101,7 @@ public interface DynamicPropertyDefinition extends PropertyDefinition {
          * <p>
          * Used before writing a persisted string value in a property table.
          * </p>
+         * 
          * @param pdef definition of the property being edited.
          * @param value a value. Might be <code>null</code>.
          * @param object the element this conversion is done for.

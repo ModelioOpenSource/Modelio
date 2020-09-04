@@ -9,7 +9,7 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 	<parent>
 		<groupId>org.modelio</groupId>
 		<artifactId>modelio-parent</artifactId>
-		<version>3.8.0-SNAPSHOT</version>
+		<version>4.0.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>modelio-aggregator</artifactId>
@@ -17,32 +17,8 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 
 	<modules>
 		<module>..</module>
-		<module>../modelio/platform.core/core.kernel</module>
-		<module>../modelio/platform.core/core.project</module>
-		<module>../modelio/platform.core/core.project.data</module>
-		<module>../modelio/platform.core/core.session</module>
-		<module>../modelio/platform.core/core.store.exml</module>
-		<module>../modelio/platform.core/core.utils</module>
-		<module>../modelio/platform.core/metamodel.emfapi</module>
-		<module>../modelio/platform.core/metamodel.implementation</module>
-		<module>../modelio/platform.core/modelio.version</module>
-		<module>../modelio/platform.core/vaudit</module>
-		<module>../modelio/platform.services/api</module>
-		<module>../modelio/platform.services/app.core</module>
-		<module>../modelio/platform.services/app.preferences</module>
-		<module>../modelio/platform.services/app.project.core</module>
-		<module>../modelio/platform.services/app.project.core.ext_org</module>
-		<module>../modelio/platform.services/core.rcp</module>
-		<module>../modelio/platform.services/core.ui</module>
-		<module>../modelio/platform.services/mda.infra</module>
-		<module>../modelio/platform.services/metamodel.extensions</module>
-		<module>../modelio/platform.services/model.search.engine</module>
-		<module>../modelio/platform.services/module.browser.commands</module>
-		<module>../modelio/platform.services/module.commands</module>
-		<module>../modelio/platform.services/script.engine</module>
-		<module>../modelio/platform.services/ui</module>
-		<module>../modelio/platform.services/utils</module>
 		<module>../modelio/app/admtool</module>
+		<module>../modelio/app/admtool.ext_org</module>
 		<module>../modelio/app/api.impl</module>
 		<module>../modelio/app/api.impl.ext_org</module>
 		<module>../modelio/app/app.model.import.org</module>
@@ -55,6 +31,7 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 		<module>../modelio/app/app.ui</module>
 		<module>../modelio/app/app.ui.ext_org</module>
 		<module>../modelio/app/app.ui.perspective.org</module>
+		<module>../modelio/app/app.ui.welcome</module>
 		<module>../modelio/app/app.update</module>
 		<module>../modelio/app/app.update.ext_org</module>
 		<module>../modelio/app/audit</module>
@@ -95,6 +72,33 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 		<module>../modelio/bpmn/bpmn.ui</module>
 		<module>../modelio/bpmn/bpmn.xml</module>
 		<module>../modelio/bpmn/diagram.editor.bpmn</module>
+		<module>../modelio/platform.core/core.kernel</module>
+		<module>../modelio/platform.core/core.project</module>
+		<module>../modelio/platform.core/core.project.data</module>
+		<module>../modelio/platform.core/core.session</module>
+		<module>../modelio/platform.core/core.store.exml</module>
+		<module>../modelio/platform.core/core.utils</module>
+		<module>../modelio/platform.core/metamodel.emfapi</module>
+		<module>../modelio/platform.core/metamodel.implementation</module>
+		<module>../modelio/platform.core/modelio.version</module>
+		<module>../modelio/platform.core/vaudit</module>
+		<module>../modelio/platform.services/api</module>
+		<module>../modelio/platform.services/app.core</module>
+		<module>../modelio/platform.services/app.preferences</module>
+		<module>../modelio/platform.services/app.project.core</module>
+		<module>../modelio/platform.services/app.project.core.ext_org</module>
+		<module>../modelio/platform.services/app.update.repo</module>
+		<module>../modelio/platform.services/core.rcp</module>
+		<module>../modelio/platform.services/core.ui</module>
+		<module>../modelio/platform.services/mda.infra</module>
+		<module>../modelio/platform.services/metamodel.extensions</module>
+		<module>../modelio/platform.services/model.search.engine</module>
+		<module>../modelio/platform.services/module.browser.commands</module>
+		<module>../modelio/platform.services/module.commands</module>
+		<module>../modelio/platform.services/script.engine</module>
+		<module>../modelio/platform.services/ui</module>
+		<module>../modelio/platform.services/utils</module>
+		<module>../modelio/plugdule/modelermodule</module>
 		<module>../modelio/uml/diagram.editor.activity</module>
 		<module>../modelio/uml/diagram.editor.communication</module>
 		<module>../modelio/uml/diagram.editor.composite</module>
@@ -109,20 +113,35 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 		<module>../modelio/uml/uml.metamodel.impl</module>
 		<module>../modelio/uml/uml.ui</module>
 		<module>../modelio/uml/uml.ui.ext_org</module>
-		<module>../modelio/plugdule/modelermodule</module>
-		<module>../eclipse.resources/features/org.modelio.app.feature</module>
-		<module>../eclipse.resources/features/org.modelio.bpmn.feature</module>
-		<module>../eclipse.resources/features/org.modelio.bundle.feature</module>
-		<module>../eclipse.resources/features/org.modelio.core.feature</module>
-		<module>../eclipse.resources/features/org.modelio.diagrams.feature</module>
-		<module>../eclipse.resources/features/org.modelio.linkeditor.feature</module>
-		<module>../eclipse.resources/features/org.modelio.mda.feature</module>
-		<module>../eclipse.resources/features/org.modelio.model.edition.feature</module>
-		<module>../eclipse.resources/features/org.modelio.platform.feature</module>
-		<module>../eclipse.resources/features/org.modelio.plugdule.feature</module>
-		<module>../eclipse.resources/features/org.modelio.script.feature</module>
-		<module>../eclipse.resources/features/org.modelio.uml.feature</module>
-		<module>../eclipse.resources/features/org.modelio.xmi.feature</module>
-		<module>../eclipse.resources/products</module>
+		<module>../features/opensource/org.modelio.application.core</module>
+		<module>../features/opensource/org.modelio.application.perspective</module>
+		<module>../features/opensource/org.modelio.application.plugdule</module>
+		<module>../features/opensource/org.modelio.application.preferences</module>
+		<module>../features/opensource/org.modelio.application.project</module>
+		<module>../features/opensource/org.modelio.application.services</module>
+		<module>../features/opensource/org.modelio.application.ui</module>
+		<module>../features/opensource/org.modelio.application.welcome</module>
+		<module>../features/opensource/org.modelio.diagrams.auto</module>
+		<module>../features/opensource/org.modelio.diagrams.core</module>
+		<module>../features/opensource/org.modelio.documentation.modeler</module>
+		<module>../features/opensource/org.modelio.formalism.bpmn</module>
+		<module>../features/opensource/org.modelio.formalism.uml</module>
+		<module>../features/opensource/org.modelio.functions.admintool</module>
+		<module>../features/opensource/org.modelio.functions.audit</module>
+		<module>../features/opensource/org.modelio.functions.bundlefiles</module>
+		<module>../features/opensource/org.modelio.functions.editors</module>
+		<module>../features/opensource/org.modelio.functions.elementedition</module>
+		<module>../features/opensource/org.modelio.functions.fle</module>
+		<module>../features/opensource/org.modelio.functions.modelbrowser</module>
+		<module>../features/opensource/org.modelio.functions.modelimport</module>
+		<module>../features/opensource/org.modelio.functions.modules</module>
+		<module>../features/opensource/org.modelio.functions.patterns</module>
+		<module>../features/opensource/org.modelio.functions.script</module>
+		<module>../features/opensource/org.modelio.functions.search</module>
+		<module>../features/opensource/org.modelio.functions.update</module>
+		<module>../features/opensource/org.modelio.functions.xmi</module>
+		<module>../features/opensource/org.modelio.platform.feature</module>
+		<module>../features/opensource/org.modelio.platform.libraries</module>
+		<module>../products</module>
 	</modules>
 </project>

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -30,6 +30,7 @@ import java.util.Collections;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.impl.uml.infrastructure.MethodologicalLinkData;
+import org.modelio.metamodel.uml.infrastructure.ExternElement;
 import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
 import org.modelio.metamodel.visitors.IInfrastructureVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
@@ -42,7 +43,20 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("54eeca61-6ddb-4cfc-9b17-2f0c30f9720b")
 public class MethodologicalLinkImpl extends DependencyImpl implements MethodologicalLink {
-    @objid ("7c580f80-f1cc-4973-8069-3c67a43d5925")
+    @objid ("56585732-ec5f-455b-aed1-2eb882200cf5")
+    @Override
+    public ExternElement getExternElement() {
+        Object obj = getDepVal(((MethodologicalLinkSmClass)getClassOf()).getExternElementDep());
+        return (obj instanceof ExternElement)? (ExternElement)obj : null;
+    }
+
+    @objid ("13a377dd-2fc9-446e-88f1-896f131e5b17")
+    @Override
+    public void setExternElement(ExternElement value) {
+        appendDepVal(((MethodologicalLinkSmClass)getClassOf()).getExternElementDep(), (SmObjectImpl)value);
+    }
+
+    @objid ("f770f90f-d0a4-49a4-8ab1-3a1070066473")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -50,7 +64,7 @@ public class MethodologicalLinkImpl extends DependencyImpl implements Methodolog
         return super.getCompositionOwner();
     }
 
-    @objid ("7240d197-bb82-4756-9c4f-a117d4533447")
+    @objid ("485f15ed-b308-4086-a41a-0e587a6a5f49")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -60,7 +74,7 @@ public class MethodologicalLinkImpl extends DependencyImpl implements Methodolog
         return super.getCompositionRelation();
     }
 
-    @objid ("bf12d3f5-55c6-4978-9faa-ac8873f9a9c5")
+    @objid ("dde3feac-83be-4bf2-a038-fb4a8408d02a")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitMethodologicalLink(this);

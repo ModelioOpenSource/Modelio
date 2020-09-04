@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,10 +30,11 @@ import org.modelio.vcore.smkernel.mapi.modelshield.spi.ICheckerFactory;
 public class InfrastructureCheckerFactory implements ICheckerFactory {
     /**
      * Create and register the model shield checkers.
+     * 
      * @param plan the model shield registry where checkers must be registered.
      * @param metamodel the current metamodel.
      */
-    @objid ("45830743-e8bf-494a-bf11-06e224c830e5")
+    @objid ("18e86d8c-b4c0-44c0-93f4-ec82a91af62e")
     @Override
     public void createCheckers(final IModelShieldRegistry plan, MMetamodel metamodel) {
         new E297Checker().register(plan,metamodel);

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -131,6 +131,7 @@ class InputView extends SourceViewer implements IInputView {
 
     /**
      * Mandatory constructor.
+     * 
      * @param parent parent widget
      * @param styles the SWT style bits for the viewer's control,
      * <em>if <code>SWT.WRAP</code> is set then a custom document adapter needs to be provided, see {@link #createDocumentAdapter()}
@@ -199,6 +200,7 @@ class InputView extends SourceViewer implements IInputView {
      * <li>the selected text if there is a selection. (The selected text will then be removed from the input view if no debug mode.)
      * </li>
      * </ul>
+     * 
      * @return The code to execute.
      */
     @objid ("008310da-663d-105c-84ef-001ec947cd2a")
@@ -241,6 +243,7 @@ class InputView extends SourceViewer implements IInputView {
 
     /**
      * Fill the contextual menu.
+     * 
      * @param menu menu to fill.
      */
     @objid ("00833538-663d-105c-84ef-001ec947cd2a")
@@ -318,6 +321,7 @@ class InputView extends SourceViewer implements IInputView {
 
     /**
      * Update an action state.
+     * 
      * @param actionId the ID of the action to update
      */
     @objid ("0083bc92-663d-105c-84ef-001ec947cd2a")

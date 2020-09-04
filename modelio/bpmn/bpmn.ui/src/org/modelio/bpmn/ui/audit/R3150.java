@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -116,6 +116,7 @@ public class R3150 extends AbstractBpmnRule {
     private static class CheckR3150 extends AbstractControl {
         /**
          * C'tor.
+         * 
          * @param rule the rule to check.
          */
         @objid ("390d3a76-ca84-417f-ad59-bf4075ae4de8")
@@ -184,6 +185,7 @@ public class R3150 extends AbstractBpmnRule {
 
         /**
          * Return the top-lane, starting from a lane.
+         * 
          * @param lane The current lane.
          * @return The top-lane.
          */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
 
     /**
      * Add an object to the cache.
+     * 
      * @param obj the object to add
      * @throws org.modelio.vcore.model.DuplicateObjectException if another object with the same identifier is already in the cache.
      */
@@ -98,6 +99,7 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
 
     /**
      * Register a deleted object.
+     * 
      * @param obj a deleted object
      */
     @objid ("9c73fcf0-354d-11e2-985b-001ec947ccaf")
@@ -123,6 +125,7 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
 
     /**
      * Get the deleted objects.
+     * 
      * @return the deleted objects.
      */
     @objid ("9c73fcf5-354d-11e2-985b-001ec947ccaf")
@@ -145,6 +148,7 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
 
     /**
      * Remove an object from the deleted objects list.
+     * 
      * @param obj a not deleted anymore object.
      */
     @objid ("9c73fcf7-354d-11e2-985b-001ec947ccaf")

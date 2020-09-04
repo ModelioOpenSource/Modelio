@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class MigrationChain {
 
     /**
      * Tells whether the resolution is successful.
+     * 
      * @return whether the resolution is successful.
      */
     @objid ("fff75bc0-eb0c-48d7-9b12-9888d97b376f")
@@ -63,6 +64,7 @@ public class MigrationChain {
      * Tells whether the migration chain is a valid migration chain that does not modify the model.
      * <p>
      * This case usually means that source and target metamodel are compatible and only version metadatas need to be updated.
+     * 
      * @return true if the repository don't need to be modified.
      */
     @objid ("3d14aa4e-79d4-4412-8b22-6319e202a254")
@@ -81,6 +83,7 @@ public class MigrationChain {
 
     /**
      * Return a copy of this migration chain with one migrator appended to the steps.
+     * 
      * @param migrator the migrator to append
      * @return a copy of this migration chain with one migrator appended.
      */

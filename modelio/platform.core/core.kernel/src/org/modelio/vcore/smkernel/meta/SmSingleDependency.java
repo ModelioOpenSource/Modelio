@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public abstract class SmSingleDependency extends SmDependency {
      * Get the dependency value.
      * <p>
      * This getter accessor is redefined by specialized classes to access the proper data field.
+     * 
      * @param object the model object data.
      * @return the dependency content.
      */
@@ -46,6 +47,7 @@ public abstract class SmSingleDependency extends SmDependency {
      * Set the dependency value.
      * <p>
      * This setter accessor is redefined by specialized classes to modify the proper data field.
+     * 
      * @param object the model object data.
      * @param value the dependency content.
      */
@@ -54,6 +56,7 @@ public abstract class SmSingleDependency extends SmDependency {
 
     /**
      * Clear the value if the given one was the current one.
+     * 
      * @param data The object to modify
      * @param value the value to remove
      */
@@ -74,6 +77,7 @@ public abstract class SmSingleDependency extends SmDependency {
      * <li>set the dependency value to the given value
      * <li>ignore the index parameter
      * </ul>
+     * 
      * @param data The object to modify
      * @param value the value to add/set
      */
@@ -85,6 +89,7 @@ public abstract class SmSingleDependency extends SmDependency {
 
     /**
      * Set the value to the given value
+     * 
      * @param data The object to modify
      * @param value the value to add/set
      * @return <code>true</code> if a change was done, <code>false</code> if no change was needed (the value was already present).

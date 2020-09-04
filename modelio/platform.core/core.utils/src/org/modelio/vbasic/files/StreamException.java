@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ public class StreamException extends RuntimeException {
      * Though exception will be anyway re-thrown during first rethrow() call (oh, Java generics...),
      * this way allows to get a strict static definition of possible exceptions
      * (requires to declare them in throws). And no instanceof or something is needed.
+     * 
      * @throws T the original exception type.
      */
     @objid ("f4bf50a1-3854-4718-816d-c24bc11230ef")
@@ -56,6 +57,7 @@ public class StreamException extends RuntimeException {
 
     /**
      * Get the wrapped exception casted to the given type
+     * 
      * @param cls the expected wrapped exception type
      * @return the wrapped exception
      * @throws java.lang.ClassCastException if the wrapped exception does not match the type.

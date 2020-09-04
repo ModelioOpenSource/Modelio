@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class UnmaskLinkToVoidCommand extends Command {
 
     /**
      * C'tor.
+     * 
      * @param link the link element to unmask.
      * @param from the source element
      * @param to the destination element (should usually be the diagram)
@@ -186,6 +187,7 @@ public class UnmaskLinkToVoidCommand extends Command {
 
     /**
      * Get the center of te figure bounds in absolute coordinates.
+     * 
      * @param editPart a figure edit part
      * @return the center of the figure.
      */

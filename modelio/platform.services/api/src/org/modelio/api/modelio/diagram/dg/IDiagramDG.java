@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,6 +41,7 @@ import org.modelio.api.modelio.diagram.IDiagramNode;
 public interface IDiagramDG extends IDiagramNode {
     /**
      * Return the list of children links of this diagram.
+     * 
      * @return A list of links in any case, possibly an empty one. Never returns null
      */
     @objid ("55f668da-6b43-11e0-b0b9-002564c97630")
@@ -50,6 +51,7 @@ public interface IDiagramDG extends IDiagramNode {
      * Get all diagram layers.
      * <p>
      * The returned list is ordered from the background layer to the top layer.
+     * 
      * @return A list of diagram layer .
      * 
      * @since 3.1
@@ -61,6 +63,7 @@ public interface IDiagramDG extends IDiagramNode {
      * Get the diagram layer identified by the provided string.
      * <p>
      * Identifier constants are provided in {@link IDiagramDrawingsLayer} and {@link IDiagramElementsLayer}.
+     * 
      * @param layerIdentifier the layer identifier.
      * @return the matching diagram layer or <code>null</code>.
      * 
@@ -73,6 +76,7 @@ public interface IDiagramDG extends IDiagramNode {
      * Get the diagram drawings layer identified by the provided string.
      * <p>
      * Identifier constants are provided in {@link IDiagramDrawingsLayer}.
+     * 
      * @param layerIdentifier the layer identifier.
      * @return the matching diagram layer or <code>null</code>.
      * 
@@ -85,6 +89,7 @@ public interface IDiagramDG extends IDiagramNode {
      * Get the diagram elements layer identified by the provided string.
      * <p>
      * Identifier constants are provided in {@link IDiagramElementsLayer}.
+     * 
      * @param layerIdentifier the layer identifier.
      * @return the matching diagram layer or <code>null</code>.
      * 

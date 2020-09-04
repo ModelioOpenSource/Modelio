@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ public interface IStyleChangeListener {
      * Called when a property of the style of the element is modified.
      * <p>
      * The element should then update itself from the style change.
+     * 
      * @param property The style property that changed
      * @param newValue The new property value
      */
@@ -41,6 +42,7 @@ public interface IStyleChangeListener {
      * Called when a style completely changed .
      * <p>
      * The element should then update itself completely from the style.
+     * 
      * @param changedStyle The style that changed
      */
     @objid ("8555e8f3-1926-11e2-92d2-001ec947c8cc")

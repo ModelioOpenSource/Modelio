@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ enum ModuleStartAction {
 
     /**
      * Get the action to do on this module on project open.
+     * 
      * @param m the module.
      * @return the action to do.
      */
@@ -71,6 +72,7 @@ enum ModuleStartAction {
 
     /**
      * Set the action to do on this module on project open.
+     * 
      * @param m the module.
      * @param f the action to do.
      */
@@ -81,6 +83,7 @@ enum ModuleStartAction {
 
     /**
      * Remove the action from the module parameters.
+     * 
      * @param m the module.
      */
     @objid ("70079ff7-afa5-46f0-bd9c-ddb31154930c")
@@ -90,6 +93,7 @@ enum ModuleStartAction {
 
     /**
      * Persist this action to do on the module on project open.
+     * 
      * @param m the module.
      */
     @objid ("995a841b-2819-496b-a251-d4a571aae834")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,6 +22,7 @@ package org.modelio.diagram.elements.common.header;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -104,6 +105,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * Initializes a model element header.
+     * 
      * @param diagram the owning diagram.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
@@ -115,6 +117,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * This method can be used to filter the stereotypes that must be actually displayed. Return an empty list when no stereotypes are to be displayed. Return the passed parameter to implement a nop filter.
+     * 
      * @param stereotypes the stereotypes that can be displayed
      * @return the stereotypes to display
      */
@@ -125,6 +128,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
      * This method can be used to filter the tags that must be actually displayed.
      * <p>
      * Return an empty list when no tag are to be displayed. Return the passed parameter to implement a nop filter.
+     * 
      * @param taggedValues the tags that can be displayed. Do <b>not</b> modify this list.
      * @return the tags to display
      */
@@ -160,6 +164,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
      * Get the main label.
      * <p>
      * The main label usually contains the element name with possibly its signature.
+     * 
      * @return The main label.
      */
     @objid ("7e67ab90-1dec-11e2-8cad-001ec947c8cc")
@@ -203,6 +208,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
      * Get the stereotype icons to display.
      * <p>
      * Look for the element stereotypes and filter them by calling {@link #filterStereotypes(List)}.
+     * 
      * @return the stereotype icons to display.
      */
     @objid ("7e654910-1dec-11e2-8cad-001ec947c8cc")
@@ -227,6 +233,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * Get the stereotypes labels.
+     * 
      * @return an array of labels.
      */
     @objid ("87b82c54-94f2-42f1-a82f-2064e2bd786b")
@@ -251,6 +258,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
      * Get all tagged value labels to display.
      * <p>
      * Look for the element tagged values and filter them by calling {@link #filterTags(List)}.
+     * 
      * @return the tagged value labels to display.
      */
     @objid ("7e65491e-1dec-11e2-8cad-001ec947c8cc")
@@ -276,12 +284,30 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
                 if (labels == null) {
                     labels = new ArrayList<>(tablesToDisplay.size());
                 }
+                
+                HashMap<String, Stereotype> mapStereotypes = new HashMap<>();
+                for (Stereotype stereo : element.getExtension()) {
+                    mapStereotypes.put(stereo.getUuid(), stereo);
+                }
         
                 for (PropertyTable propertyTable : tablesToDisplay) {
                     MStatus status = propertyTable.getStatus();
                     if (status.isVisible()) {
+                        String ptName = propertyTable.getName();
+                        Stereotype matchingStereo = mapStereotypes.get(ptName);
+                        PropertyTableDefinition ptd = null;
+                        
+                        if (matchingStereo != null) {
+                            ptd = matchingStereo.getDefinedTable();
+                            
+                        } 
                         for (Entry<Object, Object> entry : propertyTable.toProperties().entrySet()) {
-                            labels.add(GmModelElementHeader.makePropertyTableLabel(propertyTable, entry.getKey().toString(), entry.getValue().toString()));
+                            if (ptd != null && ptd.getOwned(entry.getKey().toString()) != null) {
+                                labels.add(GmModelElementHeader.makePropertyTableLabel(propertyTable, entry.getKey().toString(), ptd.getOwned(entry.getKey().toString()).computeLabel(entry.getValue().toString())));
+                            }
+                            else {
+                                labels.add(GmModelElementHeader.makePropertyTableLabel(propertyTable, entry.getKey().toString(), entry.getValue().toString()));
+                            }
                         }
                     }
                 }
@@ -307,6 +333,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * Tells whether this label must be displayed on one line or many ones.
+     * 
      * @return true to display the label on only one line.
      */
     @objid ("c5307c84-1cc3-49f7-b20e-941bb3f4e612")
@@ -316,6 +343,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * Tells whether the element's name is shown.
+     * 
      * @return true if the element's name is shown.
      */
     @objid ("7e6a0da9-1dec-11e2-8cad-001ec947c8cc")
@@ -325,6 +353,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * Tells whether the metaclass icon is shown.
+     * 
      * @return true if the metaclass icon is shown.
      */
     @objid ("7e65492b-1dec-11e2-8cad-001ec947c8cc")
@@ -335,6 +364,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * Tells whether the metaclass keyword is shown.
+     * 
      * @return true if the metaclass keyword is shown.
      */
     @objid ("7e654930-1dec-11e2-8cad-001ec947c8cc")
@@ -410,6 +440,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * Set whether the element's name must be shown.
+     * 
      * @param value whether the element's name must be shown.
      */
     @objid ("7e6a0dae-1dec-11e2-8cad-001ec947c8cc")
@@ -419,6 +450,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * Set whether the metaclass icon must be shown.
+     * 
      * @param value whether the metaclass icon must be shown.
      */
     @objid ("7e67ab56-1dec-11e2-8cad-001ec947c8cc")
@@ -429,6 +461,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * Set whether the metaclass keyword must be shown .
+     * 
      * @param value whether the metaclass keyword must be shown.
      */
     @objid ("7e67ab5a-1dec-11e2-8cad-001ec947c8cc")
@@ -439,6 +472,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * Set whether all stereotypes must be displayed on a one line label or many stacked labels.
+     * 
      * @param value if true, stereotypes will be displayed one per line. If false all on one line.
      */
     @objid ("7e67ab5e-1dec-11e2-8cad-001ec947c8cc")
@@ -500,6 +534,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
      * The main label is often the element name and the default implementation returns it.
      * <p>
      * This method may be redefined by subclasses.
+     * 
      * @return The main label of the header.
      */
     @objid ("7e67ab67-1dec-11e2-8cad-001ec947c8cc")
@@ -518,6 +553,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
      * To be called from {@link #refreshFromObModel()} or <tt>styleChanged(*)</tt> methods when the label needs to be updated.
      * <p>
      * Fires no property change notification. It is to the caller to decide depending on the returned value and other conditions whether a property change event must be fired.
+     * 
      * @return true if the label was changed, false if it is still the same.
      */
     @objid ("7e67ab6c-1dec-11e2-8cad-001ec947c8cc")
@@ -544,6 +580,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
 
     /**
      * Build the label for a tagged value.
+     * 
      * @param tag a tagged value
      * @return the tag label
      */
@@ -612,6 +649,7 @@ public abstract class GmModelElementHeader extends GmSimpleNode {
      * This method can be used to filter the property tables that must be actually displayed.
      * <p>
      * Return an empty list when no property tables are to be displayed. Return the passed parameter to implement a no-op filter.
+     * 
      * @param tables the property tables that can be displayed. Do <b>not</b> modify this list.
      * @return the property tables to display
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class GmBpmnBehaviorMigrator implements IPersistentMigrator {
      * <li>{@link GmBpmnBehavior} representing a {@link BpmnSharedDefinitions} are handled by {@link #migrateToSharedDefinitions(GmBpmnBehavior)}</li>
      * <li>{@link GmBpmnBehavior} representing a {@link Package} are handled by {@link #migrateToPackage(GmBpmnBehavior)}</li>
      * </ul>
+     * 
      * @param oldGmBehavior the gm being migrated.
      * @return the migrated gm, replacing the given one.
      * @throws org.modelio.diagram.persistence.PersistenceException if the lane do not represents a {@link BpmnLane} nor a {@link BpmnParticipant}.

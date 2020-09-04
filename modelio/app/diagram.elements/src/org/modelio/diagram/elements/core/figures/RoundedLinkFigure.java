@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * Get the radius of the rounded line bends.
+     * 
      * @return The radius
      */
     @objid ("7fb0afda-1dec-11e2-8cad-001ec947c8cc")
@@ -89,6 +90,7 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * If true, bridges are drawn where vertical segments cross horizontal ones.
+     * 
      * @return true if bridges are drawn, else false.
      */
     @objid ("7fb0afdf-1dec-11e2-8cad-001ec947c8cc")
@@ -99,6 +101,7 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * Enable drawing bridges where vertical segments cross horizontal ones.
+     * 
      * @param value true to enable bridges.
      */
     @objid ("7fb0afe4-1dec-11e2-8cad-001ec947c8cc")
@@ -113,6 +116,7 @@ public class RoundedLinkFigure extends LinkFigure {
      * Set the radius of the rounded line corners.
      * <p>
      * Zero disable rounded corners.
+     * 
      * @param radius The new radius.
      */
     @objid ("7fb0afe8-1dec-11e2-8cad-001ec947c8cc")
@@ -138,6 +142,7 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * Get all connection figures in the diagram.
+     * 
      * @return the connection figures.
      */
     @objid ("7fb0aff2-1dec-11e2-8cad-001ec947c8cc")
@@ -152,6 +157,7 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * Draw a line with bridges where other connections are crossing.
+     * 
      * @param g The graphics to draw to.
      * @param pp The source of the line
      * @param p1 The end of the line
@@ -219,6 +225,7 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * Get the root figure
+     * 
      * @return the root figure.
      */
     @objid ("7fb0b017-1dec-11e2-8cad-001ec947c8cc")
@@ -243,6 +250,7 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * Draw the polyline with rounded corners.
+     * 
      * @param g the graphics object
      */
     @objid ("7fb31226-1dec-11e2-8cad-001ec947c8cc")
@@ -331,6 +339,7 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * Draw the outline with straight edges.
+     * 
      * @param g the graphics object
      */
     @objid ("7fb3122c-1dec-11e2-8cad-001ec947c8cc")

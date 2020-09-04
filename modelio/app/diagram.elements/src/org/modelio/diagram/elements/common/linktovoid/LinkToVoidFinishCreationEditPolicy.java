@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -120,6 +120,7 @@ public class LinkToVoidFinishCreationEditPolicy extends AbstractLinkToVoidCreati
      * Create the feed back figure.
      * <p>
      * Should create a ghost node to display where the node will be unmasked.
+     * 
      * @param req The create linked node request
      */
     @objid ("7ed2f54b-1dec-11e2-8cad-001ec947c8cc")
@@ -146,6 +147,7 @@ public class LinkToVoidFinishCreationEditPolicy extends AbstractLinkToVoidCreati
 
     /**
      * Compute the distance between the given figure upper left corner and the given point.
+     * 
      * @param srcFigure The source figure
      * @param absoluteLoc a location in absolute coordinates
      * @return The distance in coordinates relative to the source figure
@@ -195,6 +197,7 @@ public class LinkToVoidFinishCreationEditPolicy extends AbstractLinkToVoidCreati
 
         /**
          * Create the command.
+         * 
          * @param gmLink The link to move.
          * @param newTarget The new target node, should be the diagram.
          */
@@ -239,6 +242,7 @@ public class LinkToVoidFinishCreationEditPolicy extends AbstractLinkToVoidCreati
 
         /**
          * Set the exact source point of the link relative to the new source node location.
+         * 
          * @param ray the source point of the link
          */
         @objid ("7ed557a2-1dec-11e2-8cad-001ec947c8cc")

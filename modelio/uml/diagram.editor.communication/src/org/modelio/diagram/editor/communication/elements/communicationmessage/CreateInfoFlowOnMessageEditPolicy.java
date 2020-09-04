@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -123,6 +123,7 @@ public class CreateInfoFlowOnMessageEditPolicy extends DeferringCreateNodePolicy
 
     /**
      * Look in the given list for a node of the given class relating the given element reference.
+     * 
      * @param nodes the list to search into
      * @param cl the node class
      * @param relatedRef the represented element reference
@@ -150,6 +151,7 @@ public class CreateInfoFlowOnMessageEditPolicy extends DeferringCreateNodePolicy
 
         /**
          * Create a deferred command.
+         * 
          * @param req The creation request.
          * @param sender The edit part sending the request
          */
@@ -210,6 +212,7 @@ public class CreateInfoFlowOnMessageEditPolicy extends DeferringCreateNodePolicy
         /**
          * Get the name space owning both model elements
          * @param aSource
+         * 
          * @param aTarget @return
          */
         @objid ("7a408095-55b6-11e2-877f-002564c97630")

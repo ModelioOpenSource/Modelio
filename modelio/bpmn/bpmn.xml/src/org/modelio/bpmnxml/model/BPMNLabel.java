@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -70,6 +70,7 @@ public class BPMNLabel extends Label {
 
     /**
      * Sets the value of the labelStyle property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class LinkToVoidEndPointHandle extends ConnectionEndpointHandle {
     /**
      * Creates a new LinkToVoidEndPointHandle, sets its owner to <code>owner</code> , and sets its locator to a
      * {@link ConnectionLocator}.
+     * 
      * @param owner the ConnectionEditPart owner
      * @param endPoint one of {@link ConnectionLocator#SOURCE} or {@link ConnectionLocator#TARGET}.
      */
@@ -100,6 +101,7 @@ public class LinkToVoidEndPointHandle extends ConnectionEndpointHandle {
 
     /**
      * Returns the alpha for the outside of the handle.
+     * 
      * @return the alpha for the border
      */
     @objid ("7ed092fd-1dec-11e2-8cad-001ec947c8cc")
@@ -109,6 +111,7 @@ public class LinkToVoidEndPointHandle extends ConnectionEndpointHandle {
 
     /**
      * Returns the alpha for the inside of the handle.
+     * 
      * @return the alpha for the inside
      */
     @objid ("7ed09302-1dec-11e2-8cad-001ec947c8cc")

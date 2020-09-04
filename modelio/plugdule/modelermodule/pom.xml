@@ -2,13 +2,14 @@
     <!--Modelio Studio: This part of the file is generated and automatically updated, do not modify.-->
     <groupId>org.modelio</groupId>
     <artifactId>org.modelio.modelermodule</artifactId>
-    <version>9.0.6</version>
+    <version>9.1.0</version>
+    <description>Standard Modelio UML Modeler extensions.</description>
     <!--Modelio Studio: Beyond this line the file is freely modifiable.-->
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.modelio</groupId>
         <artifactId>modelio-parent</artifactId>
-        <version>3.8.0-SNAPSHOT</version>
+        <version>4.0.0-SNAPSHOT</version>
         <relativePath>../../..</relativePath>
     </parent>
     <packaging>eclipse-plugin</packaging>

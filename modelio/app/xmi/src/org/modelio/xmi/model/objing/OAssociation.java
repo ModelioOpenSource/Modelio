@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,13 +24,13 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.uml.statik.Association;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
 import org.modelio.xmi.util.EcoreModelNavigation;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.NotFoundException;
-import org.modelio.xmi.util.XMIProperties;
 
 /**
  * This class manages the Association elements
@@ -45,16 +45,16 @@ public class OAssociation extends OModelElement {
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
         if (!this.isIsClassAssociation){
-            if (getObjingElement().isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2COMMUNICATIONPATH)){
+            if (getObjingElement().isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2COMMUNICATIONPATH)){
                return UMLFactory.eINSTANCE.createCommunicationPath();
-            }else if (getObjingElement().isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXTENSION)){
+            }else if (getObjingElement().isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXTENSION)){
                 return UMLFactory.eINSTANCE.createExtension();
             }else{
                 return createEcoreAssociation();
             }
         }else
             // The Ecore org.eclipse.uml2.uml.AssociationClass can be created when parsing the
-            // related Ijing ClassAssociation, Class
+            // related Modelio ClassAssociation, Class
             // or current org.eclipse.uml2.uml.Association.
            return getOrCreateEcoreAssociationClass();
     }
@@ -75,6 +75,7 @@ public class OAssociation extends OModelElement {
     /**
      * Constructor of OAssociation.
      * it takes the exported Modelio org.eclipse.uml2.uml.Association as parameter
+     * 
      * @param element : the exported Modelio org.eclipse.uml2.uml.Association
      */
     @objid ("f72568fa-cb09-47d9-bf66-5fbabcf90299")

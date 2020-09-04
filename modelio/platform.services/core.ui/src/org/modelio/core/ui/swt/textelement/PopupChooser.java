@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -106,6 +106,7 @@ public class PopupChooser extends PopupDialog {
 
     /**
      * Constructor initializing a ProposalPopup.
+     * 
      * @param control the swt control displaying the popup.
      * @param elements the elements to display in the popup.
      * @param proposeNullValue indicates whether or not the "null" value must be shown in the
@@ -147,6 +148,7 @@ public class PopupChooser extends PopupDialog {
 
     /**
      * Open a popup to choose elements from.
+     * 
      * @param previousSelectedElt The initial selection
      * @return the element chosen in the popup. Might be <code>null</code>.
      */
@@ -317,6 +319,7 @@ public class PopupChooser extends PopupDialog {
 
     /**
      * Build the element description that is displayed in the info popup
+     * 
      * @param element @return
      */
     @objid ("e0d440de-72f1-4e47-a2dd-b1c855d4950d")

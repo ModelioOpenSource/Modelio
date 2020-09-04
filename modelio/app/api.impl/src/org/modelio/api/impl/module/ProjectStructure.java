@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,13 +21,13 @@
 package org.modelio.api.impl.module;
 
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.context.project.IFragmentStructure;
 import org.modelio.api.module.context.project.IModuleStructure;
 import org.modelio.api.module.context.project.IProjectStructure;
+import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.gproject.fragment.IProjectFragment;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.module.GModule;
@@ -45,7 +45,7 @@ public class ProjectStructure implements IProjectStructure {
     private String remoteLocation = "";
 
     @objid ("e426459b-6d99-4a51-b218-a262c3404407")
-    private Path path = Paths.get("");
+    private ProjectFileStructure pfs;
 
     @objid ("89bde735-9929-4305-b8cb-879ddb752c92")
     private List<IModuleStructure> modules = new ArrayList<>();
@@ -58,14 +58,14 @@ public class ProjectStructure implements IProjectStructure {
         if (project != null) {
             this.name = project.getName();
             this.type = project.getType().toString();
-            this.path = project.getProjectPath();
+            this.pfs = project.getProjectFileStructure();
             this.remoteLocation = project.getRemoteLocation();
         
             // Modules
             for (GModule gm : project.getModules()) {
                 this.modules.add(new ModuleDescriptorImpl(
-                        gm.getName(), 
-                        gm.getVersion(), 
+                        gm.getName(),
+                        gm.getVersion(),
                         String.valueOf(gm.getOriginalArchiveUri())));
             }
         
@@ -91,7 +91,7 @@ public class ProjectStructure implements IProjectStructure {
     @objid ("bf5e56de-d3d0-48f5-8c54-99a8e1e99c93")
     @Override
     public Path getPath() {
-        return this.path;
+        return this.pfs.getProjectPath();
     }
 
     @objid ("539ae479-1906-4df4-a3b9-6dd787d31718")

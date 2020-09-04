@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.mda;
 
@@ -32,40 +32,40 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("0065c782-c4bf-1fd8-97fe-001ec947cd2a")
 public class ModuleComponentData extends AbstractProjectData {
-    @objid ("2360b3fc-1edb-4c2e-9e37-c3eae4fe8752")
+    @objid ("5671f28b-59e4-442f-9009-9df79239b5a7")
      Object mLicenseKey = 0;
 
-    @objid ("7249ea81-e4c2-4955-8551-7efb1f63aba1")
+    @objid ("e604e2b0-a678-4843-9ca0-3c1e6177b219")
      Object mMajVersion = 0;
 
-    @objid ("fba2fe06-6a08-4ac9-a867-245ae2b12c59")
+    @objid ("2bc14ea7-3ffb-4eb4-9e12-2d1df7a7b094")
      Object mMinVersion = 0;
 
-    @objid ("c40a68b7-f675-440f-8af9-21b021886b0f")
+    @objid ("e2f339a4-124a-4fa9-835e-71acae5783d0")
      Object mMinMinVersion = "";
 
-    @objid ("5f687826-cf6f-4ebe-b23c-5e19adb412de")
+    @objid ("7ebf0c62-360d-43cd-a75e-13bf349fbb2e")
      Object mMinBinVersionCompatibility = "";
 
-    @objid ("64dcaa13-d49f-4e8e-b068-cbc712792b86")
+    @objid ("323a2357-e1a8-4f61-8ed9-1f69577f5772")
      Object mJavaClassName = "";
 
-    @objid ("f4dcdb31-fdb1-4dc1-9191-68693cbc83a0")
+    @objid ("e850b77d-adf7-4e05-857a-3ccacd5340df")
      List<SmObjectImpl> mDefinedPropertyType = null;
 
-    @objid ("f605c0db-8680-4822-911e-4634354f18cc")
+    @objid ("4b414730-68a4-4907-ae78-bae4d7575f14")
      List<SmObjectImpl> mOwnedProfile = null;
 
-    @objid ("d70dded5-d087-464f-afe4-fe0e9bc46b0a")
+    @objid ("46cec4b9-5591-46ac-b46c-e05591e3921d")
      List<SmObjectImpl> mModuleParameter = null;
 
-    @objid ("f3c9a6c1-d7bc-42be-b62d-33007e2b71f0")
+    @objid ("44a01450-c6e7-4b1b-918d-b011326e833c")
      List<SmObjectImpl> mDependsOn = null;
 
-    @objid ("0dd5b1ea-f208-4cec-9363-05c756a0d88f")
+    @objid ("82451fc4-6868-47bf-9dce-f4966178852e")
      List<SmObjectImpl> mImpacted = null;
 
-    @objid ("b6cd9fc7-f0c9-42b0-b0be-9a35ab0a710e")
+    @objid ("dbb78097-74f9-4a6d-8c9e-4b02cc0dace8")
     public ModuleComponentData(ModuleComponentSmClass smClass) {
         super(smClass);
     }

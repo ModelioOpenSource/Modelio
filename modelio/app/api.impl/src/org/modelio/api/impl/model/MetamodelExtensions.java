@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class MetamodelExtensions implements IMetamodelExtensions {
 
     /**
      * Default constructor initializing the model service.
+     * 
      * @param modelService the model service used to find mda extensions.
      */
     @objid ("b9ee8668-665f-4fde-8a1e-81da6117d149")

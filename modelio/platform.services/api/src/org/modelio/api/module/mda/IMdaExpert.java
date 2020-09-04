@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,6 +99,7 @@ public interface IMdaExpert {
      * <p>
      * Default value is <code>true</code>.
      * </p>
+     * 
      * @param linkStereotype a Stereotype defined on {@link MethodologicalLink}.
      * @return <code>true</code> if several instances can be used, <code>false</code> otherwise.
      * @since 3.8
@@ -110,6 +111,7 @@ public interface IMdaExpert {
 
     /**
      * Get the possible target metaclasses of a stereotyped link.
+     * 
      * @param linkStereotype a stereotype applicable on a link metaclass. Must not be <code>null</code>.
      * @param sourceMetaclass the source of the link. Must not be <code>null</code>.
      * @return a list of metaclass that can be used as target for the link in this configuration.
@@ -130,6 +132,7 @@ public interface IMdaExpert {
 
     /**
      * Get the possible source metaclasses of a stereotyped link.
+     * 
      * @param linkStereotype a stereotype applicable on a link metaclass. Must not be <code>null</code>.
      * @param targetMetaclass the target of the link. Must not be <code>null</code>.
      * @return a list of metaclass that can be used as source for the link in this configuration.
@@ -150,6 +153,7 @@ public interface IMdaExpert {
 
     /**
      * Get the possible source/target combinations for a stereotyped link.
+     * 
      * @param linkStereotype a stereotype applicable on a link metaclass. Must not be <code>null</code>.
      * @return a map of scopes, where each key is a possible source and its associated values the possible targets.
      * @since 3.8

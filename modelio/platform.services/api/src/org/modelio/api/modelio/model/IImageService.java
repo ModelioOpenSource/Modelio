@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.module.IPeerModule;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
+import org.modelio.ui.swt.QualifiedImage;
+import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -30,7 +32,8 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IImageService {
     /**
      * Get the small icon (16x16 pixels) representing the given metaclass.
-     * @param metaclass A metamodel metaclass.
+     * 
+     * @param metaclass Java interface of a metamodel metaclass.
      * @return The representing icon.
      * @since 3.7.1
      */
@@ -41,6 +44,8 @@ public interface IImageService {
      * Get the standard metamodel icon of an model object (usually 16x16 pixels).
      * <p>
      * This method return the standard icon of the model object ignoring the stereotypes owned by the object.
+     * </p>
+     * 
      * @param element the model object for which the icon must be displayed.
      * @return the icon corresponding to the model element.
      * @since 3.7.1
@@ -58,6 +63,8 @@ public interface IImageService {
      * <li>otherwise, the first stereotype with an icon is used. <br>
      * If no such stereotype is found, the method returns the UML image for this element.</li>
      * </ul>
+     * </p>
+     * 
      * @param element the element for which the image must be returned.
      * @param filter the module to use as filter.
      * @return the image or <code>null</code>.
@@ -67,8 +74,19 @@ public interface IImageService {
     Image getIcon(MObject element, final IPeerModule filter);
 
     /**
-     * Get the image (32x32 pixels) representing the given metaclass.
+     * Get the small icon (16x16 pixels) representing the given metaclass.
+     * 
      * @param metaclass A metamodel metaclass.
+     * @return The representing icon.
+     * @since 4.0
+     */
+    @objid ("4cb87607-1e7c-4918-afab-15e9ac3cf14f")
+    Image getIcon(final MClass metaclass);
+
+    /**
+     * Get the image (32x32 pixels) representing the given metaclass.
+     * 
+     * @param metaclass Java interface of a metamodel metaclass.
      * @return The representing image.
      * @since 3.7.1
      */
@@ -79,6 +97,8 @@ public interface IImageService {
      * Get the standard metamodel image of an model object (usually 32x32 pixels).
      * <p>
      * This method return the standard image of the model object ignoring the stereotypes owned by the object.
+     * </p>
+     * 
      * @param element the model object for which the image must be displayed.
      * @return the image corresponding to the model element.
      * @since 3.7.1
@@ -96,6 +116,8 @@ public interface IImageService {
      * <li>otherwise, the first stereotype with an image is used. <br>
      * If no such stereotype is found, the method returns the UML image for this element.</li>
      * </ul>
+     * </p>
+     * 
      * @param element the element for which the image must be returned.
      * @param filter the module to use as filter.
      * @return the image or <code>null</code>.
@@ -105,8 +127,19 @@ public interface IImageService {
     Image getImage(MObject element, final IPeerModule filter);
 
     /**
-     * Get the small icon (16x16 pixels) representing the given metaclass.
+     * Get the image (32x32 pixels) representing the given metaclass.
+     * 
      * @param metaclass A metamodel metaclass.
+     * @return The representing image.
+     * @since 4.0
+     */
+    @objid ("35c773ad-d25e-4b80-b18c-3e0ba0e6740a")
+    Image getImage(final MClass metaclass);
+
+    /**
+     * Get the small icon (16x16 pixels) representing the given metaclass.
+     * 
+     * @param metaclass Java interface of a metamodel metaclass.
      * @return The representing icon.
      * @deprecated use {@link #getIcon(Class) } instead
      */
@@ -115,6 +148,97 @@ public interface IImageService {
     default Image getMetaclassImage(final Class<? extends MObject> metaclass) {
         return getIcon(metaclass);
     }
+
+    /**
+     * Get the stereotyped icon of an element (usually 16x16 pixels) as a {@link QualifiedImage}
+     * <p>
+     * The returned icon depends on the filter:
+     * <ul>
+     * <li>if filter is not <code>null</code>, the first stereotype belonging to that module having an icon is used. <br>
+     * If no such stereotype is found, the method returns <code>null</code></li>
+     * <li>otherwise, the first stereotype with an icon is used. <br>
+     * If no such stereotype is found, the method returns the UML image for this element.</li>
+     * </ul>
+     * </p>
+     * <p>
+     * Note that the concept of first stereotype depends on the Modelio tool configuration especially the current workbench/expertises.
+     * </p>
+     * 
+     * @param element the element for which the image must be returned.
+     * @param filter the module to use as filter.
+     * @return the image or <code>null</code>.
+     * @since 4.0
+     */
+    @objid ("8a74c0f7-f6cb-4e9b-a414-3b259d80fe00")
+    QualifiedImage getQualifiedIcon(MObject element, IPeerModule filter);
+
+    /**
+     * Get the small icon (16x16 pixels) representing the given metaclass as a {@link QualifiedImage}.
+     * 
+     * @param metaclass A metamodel metaclass.
+     * @return The representing icon.
+     * @since 4.0
+     */
+    @objid ("1b4cc72e-dfb3-4438-a402-f05266487b44")
+    QualifiedImage getQualifiedIcon(final MClass metaclass);
+
+    /**
+     * Get the stereotyped image of an element (usually 32x32 pixels) as a {@link QualifiedImage}.
+     * <p>
+     * The returned image depends on the filter:
+     * <ul>
+     * <li>if filter is not <code>null</code>, the first stereotype belonging to that module having an image is used. <br>
+     * If no such stereotype is found, the method returns <code>null</code></li>
+     * <li>otherwise, the first stereotype with an image is used. <br>
+     * If no such stereotype is found, the method returns the UML image for this element.</li>
+     * </ul>
+     * <p>
+     * Note that the concept of first stereotype depends on the Modelio tool configuration especially the current workbench/expertises.
+     * </p>
+     * 
+     * @param element the element for which the image must be returned.
+     * @param filter the module to use as filter.
+     * @return the image or <code>null</code>.
+     * @since 4.0
+     */
+    @objid ("5cff3348-fce3-4ce2-9a7a-e9cabbc84e33")
+    QualifiedImage getQualifiedImage(MObject element, IPeerModule filter);
+
+    /**
+     * Get the image (32x32 pixels) representing the given metaclass as a {@link QualifiedImage}.
+     * 
+     * @param metaclass A metamodel metaclass.
+     * @return The representing image.
+     * @since 4.0
+     */
+    @objid ("0a047982-ede3-4899-a098-86737056ced4")
+    QualifiedImage getQualifiedImage(final MClass metaclass);
+
+    /**
+     * Get the icon provided by the module for a given stereotype (usually 16x16 pixels).
+     * <p>
+     * The life cycle of the returned image is handled by the owner module and the image should not be disposed.
+     * </p>
+     * 
+     * @param stereotype a stereotype
+     * @return the stereotype image, or <i>null</i> if the module provides none.
+     * @since 3.7.1
+     */
+    @objid ("ee33cab4-02ca-4d5e-8413-b62aa5796e61")
+    Image getStereotypeIcon(Stereotype stereotype);
+
+    /**
+     * Get the image provided by the module for a given stereotype (usually 32x32 pixels).
+     * <p>
+     * The life cycle of the returned image is handled by the owner module and the image should not be disposed.
+     * </p>
+     * 
+     * @param stereotype a stereotype
+     * @return the stereotype image, or <i>null</i> if the module provides none.
+     * @since 3.7.1
+     */
+    @objid ("8de41d3b-1d48-4f27-8960-a3d445146240")
+    Image getStereotypeImage(Stereotype stereotype);
 
     /**
      * Get the stereotyped icon of an element.
@@ -126,6 +250,8 @@ public interface IImageService {
      * <li>otherwise, the first stereotype with an icon is used. <br>
      * If no such stereotype is found, the method returns the UML image for this element.</li>
      * </ul>
+     * </p>
+     * 
      * @param element the element for which the image must be returned.
      * @param filter the module to use as filter.
      * @param useCmsDecoration this parameter is no longer used.
@@ -142,6 +268,8 @@ public interface IImageService {
      * Get the standard metamodel icon of an model object (usually 16x16 pixels).
      * <p>
      * This method return the standard icon of the model object ignoring the stereotypes owned by the object.
+     * </p>
+     * 
      * @param element the model object for which the icon must be displayed.
      * @param useCmsDecoration this parameter is no longer used.
      * @return the icon corresponding to the model element.
@@ -152,27 +280,5 @@ public interface IImageService {
     default Image getUmlImage(MObject element, final boolean useCmsDecoration) {
         return getIcon(element);
     }
-
-    /**
-     * Get the icon provided by the module for a given stereotype (usually 16x16 pixels).
-     * <p>
-     * The life cycle of the returned image is handled by the owner module and the image should not be disposed.
-     * @param stereotype a stereotype
-     * @return the stereotype image, or <i>null</i> if the module provides none.
-     * @since 3.7.1
-     */
-    @objid ("ee33cab4-02ca-4d5e-8413-b62aa5796e61")
-    Image getStereotypeIcon(Stereotype stereotype);
-
-    /**
-     * Get the image provided by the module for a given stereotype (usually 32x32 pixels).
-     * <p>
-     * The life cycle of the returned image is handled by the owner module and the image should not be disposed.
-     * @param stereotype a stereotype
-     * @return the stereotype image, or <i>null</i> if the module provides none.
-     * @since 3.7.1
-     */
-    @objid ("8de41d3b-1d48-4f27-8960-a3d445146240")
-    Image getStereotypeImage(Stereotype stereotype);
 
 }

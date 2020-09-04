@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -131,6 +131,7 @@ public class SimpleModeOwnedElementCreationEditPolicy extends XYLayoutEditPolicy
      * Returns whether this edit policy can handle this metaclass (either through simple or smart behavior). Default
      * behavior is to accept any metaclass that can be child (in the CreationExpert's understanding) of the host's
      * metaclass This method should be overridden by subclasses to add specific the behavior.
+     * 
      * @param metaclass the metaclass to handle.
      * @return true if this policy can handle the metaclass.
      */
@@ -280,6 +281,7 @@ public class SimpleModeOwnedElementCreationEditPolicy extends XYLayoutEditPolicy
 
     /**
      * Return the host edit part if this policy can handle the metaclass involved in the request.
+     * 
      * @param createRequest the request.
      * @return the host editpart if the metaclass involved in the request can be handled by this policy,
      * <code>null</code> otherwise.
@@ -306,6 +308,7 @@ public class SimpleModeOwnedElementCreationEditPolicy extends XYLayoutEditPolicy
 
     /**
      * Return the host edit part if this policy can handle all edit parts involved in the request.
+     * 
      * @param changeBoundsRequest the request, can be CLONE or ADD.
      * @return the host edit part if all edit parts involved in the request can be handled by this policy,
      * <code>null</code> otherwise.
@@ -448,6 +451,7 @@ public class SimpleModeOwnedElementCreationEditPolicy extends XYLayoutEditPolicy
      * If the found model has no edit part, return the host edit part.
      * <p>
      * Copy-pasted from: SimpleModeDeferringCreateNodePolicy.
+     * 
      * @param metaclass The metaclass to create or drop.
      * @return <ul>
      * <li><tt>null</tt> if no suitable child model could be found <li>{@link #getHost()} if the child model is

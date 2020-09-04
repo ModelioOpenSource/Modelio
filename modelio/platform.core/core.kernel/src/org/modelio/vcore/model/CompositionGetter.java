@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CompositionGetter {
     /**
      * Get all composition children of the given objects recursively.
+     * 
      * @param roots the model objects to iterate.
      * @return the set of all composition children.
      */
@@ -49,6 +50,7 @@ public class CompositionGetter {
 
     /**
      * Get all composition children of the given objects recursively.
+     * 
      * @param roots the model objects to iterate.
      * @param filter a filter that can stop the iteration.
      * @return the set of all composition children.
@@ -62,6 +64,7 @@ public class CompositionGetter {
 
     /**
      * Get all composition children of the given objects recursively.
+     * 
      * @param roots the model objects to iterate.
      * @param children a set where all composition children will be added.
      * @param filter a filter that can stop the iteration.
@@ -109,6 +112,7 @@ public class CompositionGetter {
         /**
          * Tells for the given model object whether the iteration continues or it is skipped
          * with its children.
+         * 
          * @param child a model object
          * @return true to continue the iteration, <code>false</code> to skip it and its child nodes.
          */

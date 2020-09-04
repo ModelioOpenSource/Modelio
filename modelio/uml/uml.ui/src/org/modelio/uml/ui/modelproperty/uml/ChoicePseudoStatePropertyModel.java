@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class ChoicePseudoStatePropertyModel extends AbstractPropertyModel<Choice
     /**
      * Create a new <i>ChoicePseudoState</i> data model from an
      * <i>ChoicePseudoState</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("ed0da3b9-dd55-4780-957c-4aab636adf8e")
@@ -60,6 +61,7 @@ public class ChoicePseudoStatePropertyModel extends AbstractPropertyModel<Choice
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("6f719381-a7c8-4cb3-8eed-083ad2f8a224")
@@ -70,6 +72,7 @@ public class ChoicePseudoStatePropertyModel extends AbstractPropertyModel<Choice
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("5a8855de-4602-416c-8cd0-cedf873906df")
@@ -82,6 +85,7 @@ public class ChoicePseudoStatePropertyModel extends AbstractPropertyModel<Choice
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -112,6 +116,7 @@ public class ChoicePseudoStatePropertyModel extends AbstractPropertyModel<Choice
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -140,6 +145,7 @@ public class ChoicePseudoStatePropertyModel extends AbstractPropertyModel<Choice
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

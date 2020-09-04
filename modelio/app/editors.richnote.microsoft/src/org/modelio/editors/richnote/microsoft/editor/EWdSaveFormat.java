@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -152,6 +152,7 @@ enum EWdSaveFormat {
 
     /**
      * Get the matching Word WdSaveFormat value.
+     * 
      * @return the Ms Word matching value.
      */
     @objid ("703c473a-0699-440c-81e8-4bc0f725e681")
@@ -161,6 +162,7 @@ enum EWdSaveFormat {
 
     /**
      * Get the enum value matching the given integer constant.
+     * 
      * @param v a Word WdSaveFormat constant.
      * @return the matching enum.
      */

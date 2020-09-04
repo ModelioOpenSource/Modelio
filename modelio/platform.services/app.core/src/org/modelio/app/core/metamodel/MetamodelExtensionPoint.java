@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public class MetamodelExtensionPoint<S> {
 
     /**
      * Get the service for a model object
+     * 
      * @param obj a model object
      * @return the found service or null.
      */
@@ -90,6 +91,7 @@ public class MetamodelExtensionPoint<S> {
 
     /**
      * Get the service for a metamodel fragment.
+     * 
      * @param mmf a metamodel fragment.
      * @return the found service or null.
      */
@@ -100,6 +102,7 @@ public class MetamodelExtensionPoint<S> {
 
     /**
      * Register a service implementation for a metamodel fragment.
+     * 
      * @param mmName the metamodel fragment name as returned by {@link MMetamodelFragment#getName()}.
      * @param svc the service implementation.
      */
@@ -110,6 +113,7 @@ public class MetamodelExtensionPoint<S> {
 
     /**
      * Unregister a service implementation for a metamodel fragment.
+     * 
      * @param mmName the metamodel fragment name as returned by {@link MMetamodelFragment#getName()}.
      * @param svc the service implementation.
      */
@@ -120,6 +124,7 @@ public class MetamodelExtensionPoint<S> {
 
     /**
      * Register the service implementation for a metamodel fragment.
+     * 
      * @param mmName the metamodel fragment name as returned by {@link MMetamodelFragment#getName()}.
      */
     @objid ("a578c917-c002-40e2-bc86-5c71ba857090")
@@ -134,6 +139,7 @@ public class MetamodelExtensionPoint<S> {
      * <li>a "metamodel" string attribute
      * <li>a "implementation" string attribute representing a java class accessible by the declaring plugin.
      * </ul>
+     * 
      * @param configurationElements the {@link IConfigurationElement} at the root of the matched plugin extensions.
      */
     @objid ("b18453f3-4211-4f5b-8333-7dfaf6b825bf")
@@ -160,6 +166,7 @@ public class MetamodelExtensionPoint<S> {
     /**
      * Unregister the services that were registered with {@link #addExtensionElements(IConfigurationElement[])}.
      * @see #addExtensionElements(IConfigurationElement[])
+     * 
      * @param configurationElements the configuration elements to remove.
      */
     @objid ("f21efb64-b606-44ed-9ca2-bd509f18463c")
@@ -176,6 +183,7 @@ public class MetamodelExtensionPoint<S> {
 
     /**
      * Get all registered services
+     * 
      * @return a collection of services. Might be empty.
      */
     @objid ("5061d878-c883-43e6-a2d6-63ae2b2bad9e")

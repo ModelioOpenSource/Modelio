@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public interface IDependencyContentHook {
      * get the content of a given model dependency.
      * <p>
      * Can modify the content of the dependency.
+     * 
      * @param obj the loading model object
      * @param dep the dependency being loaded.
      * @return the read dependency content or <code>null</code> if nothing.
@@ -44,6 +45,7 @@ public interface IDependencyContentHook {
 
     /**
      * Get the dependencies for which content has to be added.
+     * 
      * @param obj a model object
      * @return dependencies for which content has to be added. Returns an empty list if nothing to return.
      */

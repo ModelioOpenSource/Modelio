@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
 	<extension point="org.eclipse.e4.workbench.model" id="modelContribution">
-		<fragment uri="e4model/xmi.e4xmi"></fragment> 
+		<fragment uri="e4model/xmi.e4xmi"/> 
 	</extension>
  <extension
        point="org.modelio.app.preferencepages">

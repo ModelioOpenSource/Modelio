@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class DefaultUnmaskElementCommand extends Command {
 
     /**
      * Constructor.
+     * 
      * @param parentNode The parent node
      * @param toUnmask the element to unmask
      * @param location the location of the element to unmask.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class CreateSiblingElementHandler {
 
     /**
      * Available only when the selection contains only one modifiable element.
+     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -141,6 +142,7 @@ public class CreateSiblingElementHandler {
 
     /**
      * Cut the currently selected elements.
+     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */
@@ -182,6 +184,7 @@ public class CreateSiblingElementHandler {
 
     /**
      * Tells whether 'child' can be owned by 'parent'.
+     * 
      * @param owner The future parent element
      * @param composed a child element
      * @return true only if parent can contain the child.

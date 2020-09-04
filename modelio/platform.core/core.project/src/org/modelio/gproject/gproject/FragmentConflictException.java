@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class FragmentConflictException extends Exception {
 
     /**
      * Get the fragment that was already in the project.
+     * 
      * @return the original fragment.
      */
     @objid ("84a89b56-4958-47ab-ba2f-e86393b66f7e")
@@ -81,7 +82,7 @@ public class FragmentConflictException extends Exception {
     @objid ("89da7f02-f7ab-411d-b912-9d0e1b315ac1")
     @Override
     public String getMessage() {
-        return CoreProject.getMessage("FragmentConflictException", 
+        return CoreProject.I18N.getMessage("FragmentConflictException", 
                         this.orig.getId(), this.duplicate.getId(), 
                         this.orig.getUri(), this.duplicate.getUri());
     }

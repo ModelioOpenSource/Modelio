@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class SmList<T> extends AbstractList<T> implements EList<T> {
 
     /**
      * Instantiate the SmList.
+     * 
      * @param owner the represented model object
      * @param dep the represented model dependency
      */

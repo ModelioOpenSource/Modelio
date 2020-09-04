@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class ShapedBorderedFigure extends ShapedFigure {
 
     /**
      * Creates the figure.
+     * 
      * @param aShaper The shape of the figure
      */
     @objid ("7fcae9f8-1dec-11e2-8cad-001ec947c8cc")
@@ -106,6 +107,7 @@ public class ShapedBorderedFigure extends ShapedFigure {
      * Copy constructor.
      * <p>
      * Copy the border.
+     * 
      * @param orig the original
      */
     @objid ("8c2d393d-a181-479c-a5f8-ec4e489ac438")

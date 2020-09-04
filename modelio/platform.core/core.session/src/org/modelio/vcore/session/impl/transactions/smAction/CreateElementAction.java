@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class CreateElementAction extends SimpleAction {
      * Constructeur de l'action qui permet de creer un element.
      * <p>
      * L'element cree sera sauvegarde dans l'association "refer".
+     * 
      * @param obj the created element.
      */
     @objid ("006af8a6-8b2d-1f1e-85a5-001ec947cd2a")

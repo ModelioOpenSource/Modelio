@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class GmFlowFinalPrimaryNode extends GmNoStyleSimpleNode implements IImag
 
     /**
      * Create a flow final graphic node.
+     * 
      * @param diagram The diagram
      * @param relatedRef The related element reference, must not be null.
      */
@@ -84,6 +85,7 @@ public class GmFlowFinalPrimaryNode extends GmNoStyleSimpleNode implements IImag
 
     /**
      * Get the parent model representation mode.
+     * 
      * @return the parent representation mode or null if the node has still no parent.
      */
     @objid ("2a79d57e-55b6-11e2-877f-002564c97630")

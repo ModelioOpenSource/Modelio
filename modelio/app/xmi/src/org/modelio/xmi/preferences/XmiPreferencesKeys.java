@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,14 +22,27 @@ package org.modelio.xmi.preferences;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
+/**
+ * Keys for XMI preferences
+ * @author ebrosse
+ */
 @objid ("3bec4ab9-7ed4-416e-8f77-0c3d4bc00d84")
 public interface XmiPreferencesKeys {
+    /**
+     * Key to select the XMI file extension preference
+     */
     @objid ("7558a4a5-52b1-47bc-a767-3e2e4683f715")
     public static final String XMIEXTENSION_PREFKEY = "Xmi.Extension";
 
+    /**
+     * Key to select the XMI format preference
+     */
     @objid ("39987eb3-4e92-44b0-a9bd-5b1891b3cbe1")
     public static final String XMIFORMAT_PREFKEY = "Xmi.Format";
 
+    /**
+     * Key to able/enable the XMI annotation
+     */
     @objid ("96a0fab2-86ac-4a0a-9791-514f90b410d8")
     public static final String XMIANNOTATION_PREFKEY = "Xmi.Annotation";
 

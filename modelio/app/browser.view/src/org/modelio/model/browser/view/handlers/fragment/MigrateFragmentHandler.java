@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,7 +38,6 @@ import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.project.core.services.FragmentsMigrator;
 import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.core.ui.swt.SelectionHelper;
 import org.modelio.gproject.fragment.FragmentMigrationNeededException;
@@ -64,23 +63,25 @@ public class MigrateFragmentHandler {
         IRunnableWithProgress runnable = monitor -> {
             String taskName = BrowserViewActivator.I18N.getMessage("MigrateFragmentHandler.monitor.title", frags.size());
             SubMonitor parentMon = SubMonitor.convert(monitor, taskName, frags.size() * 10);
-            
+        
             String resultMsg = BrowserViewActivator.I18N.getMessage("MigrateFragmentHandler.result.message", frags.size());
             MultiStatus globRes = new MultiStatus(
-                    BrowserViewActivator.PLUGIN_ID, 0, 
-                    resultMsg, 
+                    BrowserViewActivator.PLUGIN_ID, 0,
+                    resultMsg,
                     null);
         
+        
             for (IProjectFragment f : frags) {
-                IStatus res = new FragmentsMigrator(context, projServ.getOpenedProject(), true)
+                IStatus res = projServ
+                        .getFragmentMigrator(context, projServ.getOpenedProject(), true)
                         .migrateFragment(f, parentShell, parentMon, 10);
                 globRes.add(res);
-                
+        
                 if (monitor.isCanceled()) {
                     break;
                 }
             }
-            
+        
             if (globRes.getChildren().length > 1) {
                 result.complete(globRes);
             } else {
@@ -91,21 +92,21 @@ public class MigrateFragmentHandler {
         
         try {
             progressService.run(true, false, runnable);
-            
-            ErrorDialog.openError(parentShell, 
-                    resultTitle, 
-                    null, 
+        
+            ErrorDialog.openError(parentShell,
+                    resultTitle,
+                    null,
                     result.get());
-            
+        
         } catch (InvocationTargetException | ExecutionException e) {
             BrowserViewActivator.LOG.error(e);
             String msg = BrowserViewActivator.I18N.getMessage("MigrateFragmentHandler.error.msg", e.getCause().toString());
-            
-            ErrorDialog.openError(parentShell, 
-                    resultTitle, 
-                    msg, 
+        
+            ErrorDialog.openError(parentShell,
+                    resultTitle,
+                    msg,
                     new Status(IStatus.ERROR, BrowserViewActivator.PLUGIN_ID, e.getCause().toString(), e));
-            
+        
         } catch (InterruptedException e) {
             BrowserViewActivator.LOG.info("Migration cancelled");
             BrowserViewActivator.LOG.debug(e);
@@ -118,6 +119,7 @@ public class MigrateFragmentHandler {
         if (selection == null || selection.isEmpty()) {
             return false;
         }
+        
         for (Object o : selection.toArray()) {
             if (o instanceof IProjectFragment) {
                 IProjectFragment f = (IProjectFragment) o;

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.diagrams;
 
@@ -47,37 +47,49 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("00675638-c4bf-1fd8-97fe-001ec947cd2a")
 public abstract class AbstractDiagramImpl extends ModelElementImpl implements AbstractDiagram {
-    @objid ("e2aa2480-5c48-4dd1-a3b7-27219898143a")
+    @objid ("8ae2528c-105f-40cb-bf7d-6773be793521")
     @Override
     public int getUiDataVersion() {
         return (Integer) getAttVal(((AbstractDiagramSmClass)getClassOf()).getUiDataVersionAtt());
     }
 
-    @objid ("e1059589-1234-4ed4-9af8-b145acdc542c")
+    @objid ("4d07594d-062c-44a6-b44d-3895df31db86")
     @Override
     public void setUiDataVersion(int value) {
         setAttVal(((AbstractDiagramSmClass)getClassOf()).getUiDataVersionAtt(), value);
     }
 
-    @objid ("7ab8ee7c-68be-4f34-9222-a7a6bbefe862")
+    @objid ("8f9cc3bc-ab5a-4f7f-9501-56e73edfe946")
     @Override
     public String getUiData() {
         return (String) getAttVal(((AbstractDiagramSmClass)getClassOf()).getUiDataAtt());
     }
 
-    @objid ("8a93cafd-d896-4c27-8c4c-a4ed504defa0")
+    @objid ("a22edb86-907a-4944-bffd-f0511bd14a5e")
     @Override
     public void setUiData(String value) {
         setAttVal(((AbstractDiagramSmClass)getClassOf()).getUiDataAtt(), value);
     }
 
-    @objid ("13227bdc-6d8e-4e08-b17c-da6f44832286")
+    @objid ("de4e0dce-f801-4579-b33e-eddfd7a29791")
+    @Override
+    public String getPreviewData() {
+        return (String) getAttVal(((AbstractDiagramSmClass)getClassOf()).getPreviewDataAtt());
+    }
+
+    @objid ("7f945032-4615-4fd0-9e38-69f41f079476")
+    @Override
+    public void setPreviewData(String value) {
+        setAttVal(((AbstractDiagramSmClass)getClassOf()).getPreviewDataAtt(), value);
+    }
+
+    @objid ("da80dc5d-b3e8-4057-a7bc-9dd13e61612a")
     @Override
     public EList<Element> getRepresented() {
         return new SmList<>(this, ((AbstractDiagramSmClass)getClassOf()).getRepresentedDep());
     }
 
-    @objid ("4a8ffc32-86a9-46ab-8357-97ad24a0536e")
+    @objid ("4328bb5e-dd4d-412f-801f-df3d4b53851f")
     @Override
     public <T extends Element> List<T> getRepresented(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -92,13 +104,13 @@ public abstract class AbstractDiagramImpl extends ModelElementImpl implements Ab
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("d75bccc0-3c4d-4237-bf72-d21612995cf8")
+    @objid ("5be10f9b-a743-4360-9d18-ab213150a20e")
     @Override
     public EList<DiagramSet> getReferencingSet() {
         return new SmList<>(this, ((AbstractDiagramSmClass)getClassOf()).getReferencingSetDep());
     }
 
-    @objid ("16559544-77c0-4d99-b8aa-40833e3fd042")
+    @objid ("f09c5722-b552-4cef-8d1c-e3cdeac750cf")
     @Override
     public <T extends DiagramSet> List<T> getReferencingSet(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -113,20 +125,20 @@ public abstract class AbstractDiagramImpl extends ModelElementImpl implements Ab
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("ffacd708-5cfd-4965-b446-c55922fbb318")
+    @objid ("6381db55-6466-4455-9e4d-446abbdcace1")
     @Override
     public ModelElement getOrigin() {
         Object obj = getDepVal(((AbstractDiagramSmClass)getClassOf()).getOriginDep());
         return (obj instanceof ModelElement)? (ModelElement)obj : null;
     }
 
-    @objid ("0ea047f2-0639-455c-a696-0a8e511654eb")
+    @objid ("148c41af-07f9-4b3c-955a-a931952844b2")
     @Override
     public void setOrigin(ModelElement value) {
         appendDepVal(((AbstractDiagramSmClass)getClassOf()).getOriginDep(), (SmObjectImpl)value);
     }
 
-    @objid ("1715a041-4aba-4bfc-b2f7-0027d92339a2")
+    @objid ("d6deac0b-9a50-42a2-929b-d2049603dbf9")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -138,7 +150,7 @@ public abstract class AbstractDiagramImpl extends ModelElementImpl implements Ab
         return super.getCompositionOwner();
     }
 
-    @objid ("1fc47cd5-2792-4d8b-aae5-ffdbbac0b36b")
+    @objid ("a7b495d4-cadd-423a-b9de-41f265de96a5")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -153,7 +165,7 @@ public abstract class AbstractDiagramImpl extends ModelElementImpl implements Ab
         return super.getCompositionRelation();
     }
 
-    @objid ("aed3cf9f-c1d5-4983-b78c-8412af94b9bb")
+    @objid ("e13e059d-8790-4410-ae6b-b4c3fc6172f4")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitAbstractDiagram(this);

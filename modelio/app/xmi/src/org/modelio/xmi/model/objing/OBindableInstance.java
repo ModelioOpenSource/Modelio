@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public class OBindableInstance extends OInstance {
 
     /**
      * Constructor of OBindableInstance
+     * 
      * @param param : the exported Modelio BindableInstance
      */
     @objid ("fc43e156-49ad-4e54-ae99-6188ef2db40a")

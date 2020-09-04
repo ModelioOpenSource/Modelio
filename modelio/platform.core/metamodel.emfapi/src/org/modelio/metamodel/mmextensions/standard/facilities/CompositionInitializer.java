@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class CompositionInitializer extends DefaultModelVisitor {
 
     /**
      * Instantiate a composition initializer.
+     * 
      * @param parent the new composition parent where elements will be initialized.
      */
     @objid ("01f40498-0000-7682-0000-000000000000")
@@ -75,6 +76,7 @@ public class CompositionInitializer extends DefaultModelVisitor {
 
     /**
      * Attach the given element to the parent element.
+     * 
      * @param obj the element to attach
      * @param dep optional, the metamodel dependency to use to attach the element.
      * @return <code>true</code> if the object was successfully attached, <code>false</code> if it

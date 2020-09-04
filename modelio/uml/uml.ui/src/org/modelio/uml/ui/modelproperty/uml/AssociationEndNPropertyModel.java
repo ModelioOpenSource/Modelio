@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class AssociationEndNPropertyModel extends AbstractPropertyModel<NaryAsso
     /**
      * Create a new <i>NaryAssociationEnd</i> data model from an
      * <i>NaryAssociationEnd</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("0862cce7-d0fc-4d21-9d8e-ffe3bce0f0c1")

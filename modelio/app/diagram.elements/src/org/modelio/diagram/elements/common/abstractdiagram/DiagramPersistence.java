@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,9 +25,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IDiagramPersister;
+import org.modelio.diagram.elements.core.model.IDiagramPersister;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.persistence.ExtReferenceResolver;
 import org.modelio.diagram.elements.persistence.InstanceFactory;
@@ -53,6 +54,7 @@ public class DiagramPersistence implements IDiagramPersister {
 
     /**
      * C'tor.
+     * 
      * @param gmDiagram the diagram to manage persistence for.
      */
     @objid ("c893559b-26fc-40c7-a044-f72a5f7c5662")
@@ -65,6 +67,7 @@ public class DiagramPersistence implements IDiagramPersister {
      * <p>
      * Resets the diagram before (re)loading it.
      * </p>
+     * 
      * @throws org.modelio.diagram.persistence.PersistenceException on load failure
      */
     @objid ("613b9470-edbd-4d30-90ba-57415ce7b42c")
@@ -95,30 +98,31 @@ public class DiagramPersistence implements IDiagramPersister {
      * Save the {@link GmAbstractDiagram} content in the {@link AbstractDiagram}.
      * <p>
      * A transaction must already be open.
+     * 
      * @param withEmbeddeddiagrams whether or not embedded diagrams should also be saved.
      * @throws org.modelio.diagram.persistence.PersistenceException on save failure
      */
     @objid ("36e1ff90-cbe4-496a-8cc5-5f9a41b6d96f")
-    @Override
     public void save(boolean withEmbeddeddiagrams) throws PersistenceException {
         final IDiagramWriter writer = new XmlDiagramWriter();
         writer.save(this.gmDiagram);
         
         final AbstractDiagram obDiagram = (this.gmDiagram.getRelatedElement());
         if (!obDiagram.isShell() && !obDiagram.isDeleted()) {
-            obDiagram.setUiData(writer.getOutput());
-            obDiagram.setUiDataVersion(obDiagram.getUiDataVersion() + 1);
-        
-            updateDiagramElementRelation(obDiagram);
-        
-            this.gmDiagram.updateLastSaveDate();
+            String newUidata = writer.getOutput();
+            if (!Objects.equals(newUidata, obDiagram.getUiData())) {
+                obDiagram.setUiData(writer.getOutput());
+                obDiagram.setUiDataVersion(obDiagram.getUiDataVersion() + 1);
+                updateDiagramElementRelation(obDiagram);
+                this.gmDiagram.updateLastSaveDate();
+            }
         }
         
         if (withEmbeddeddiagrams) {
             for (IGmDiagram embedded : this.gmDiagram.getEmbeddedDiagrams()) {
                 MObject relatedElement = embedded.getRelatedElement();
                 if (relatedElement != null && relatedElement.getStatus().isModifiable()) {
-                    embedded.getPersister().save(true);
+                    embedded.save(true);
                 }
             }
         }
@@ -127,6 +131,7 @@ public class DiagramPersistence implements IDiagramPersister {
     /**
      * Update the {@link AbstractDiagram#getRepresented()} relation from the diagram graphic model.
      * @param gmDiagram the graphic model
+     * 
      * @param obDiagram the model element
      */
     @objid ("c091670c-4b2e-4a7a-978d-0ae199225bb9")

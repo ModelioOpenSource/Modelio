@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -88,6 +88,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
 
     /**
      * Creates an instance ready to be used.
+     * 
      * @param diagram the diagram where the object will be.
      */
     @objid ("8078f568-1dec-11e2-8cad-001ec947c8cc")
@@ -136,6 +137,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
      * Get the diagram containing this element.
      * <p>
      * May return <i>null</i> if the graphic model is not valid anymore.
+     * 
      * @return the diagram.
      */
     @objid ("8078f577-1dec-11e2-8cad-001ec947c8cc")
@@ -251,6 +253,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
      * Must be redefined to create a style or to return <tt>null<tt/> if
      * {@link #getPersistedStyle()} is redefined to return another style.
      * &#64;param aDiagram the diagram where the object will be
+     * 
      * @return the created style or <tt>null</tt> if the creation is postponed
      */
     @objid ("807b57c0-1dec-11e2-8cad-001ec947c8cc")
@@ -263,6 +266,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
 
     /**
      * Helper to read the graphic model minor version from the {@value #MINOR_VERSION_PROPERTY} property.
+     * 
      * @param in a reader to read the version from.
      * @param prefix the prefix : usually the simple name of java class calling this method + ".".
      * @return the read version, defaults to 0 if not found
@@ -277,6 +281,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
 
     /**
      * Helper method to write the graphic model minor version.
+     * 
      * @param out the writer to use
      * @param prefix the prefix to use. Usually the java simple name of the class calling this method. Use the same as the matching {@link #readMinorVersion(IDiagramReader, String)}.
      * @param theMinorVersion the minor version to write
@@ -308,6 +313,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
      * <p>
      * Defined final to make sure that lazy initialization is used.
      * </p>
+     * 
      * @return the graphical element style.
      */
     @objid ("599433eb-53d0-4c57-8474-9a84537c38c1")
@@ -356,6 +362,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
      * Look by reflection for a java field with the given name typed {@link AbstractStyleKeyProvider}
      * <p>
      * If no field with the given name is found, look for any field typed {@link AbstractStyleKeyProvider}.
+     * 
      * @param name the field name
      * @return the found field value , or any {@link AbstractStyleKeyProvider} field value.
      * @deprecated for 3.6- compatibility only
@@ -390,6 +397,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
      * <p>
      * A graphic model is usable if its diagram field has not been nullified.
      * </p>
+     * 
      * @return <code>true</code> if the graphic model is valid, <code>false</code> otherwise.
      * @since Modelio 3.7
      */
@@ -403,6 +411,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
      * <p>
      * This method should be called only when this graphic model is moved in another diagram. In this case the caller must ensure owned graphic model are moved too.
      * @see #updateDiagram()
+     * 
      * @param newDiagram the diagram.
      */
     @objid ("a8abb3cf-11bf-4538-9f73-456ae00e8a53")

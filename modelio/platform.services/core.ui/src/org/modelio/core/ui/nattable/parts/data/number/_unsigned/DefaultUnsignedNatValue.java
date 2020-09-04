@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.core.ui.nattable.parts.data.DefaultNatValue;
 public class DefaultUnsignedNatValue extends DefaultNatValue implements IUnsignedNatValue {
     /**
      * Creates a new instance.
+     * 
      * @param value the wrapped value.
      */
     @objid ("9b6d05bd-6fba-4faa-9f99-e575c7e284b1")
@@ -40,6 +41,7 @@ public class DefaultUnsignedNatValue extends DefaultNatValue implements IUnsigne
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("d107bad3-bfa8-4ce4-ab4d-23d746b88367")

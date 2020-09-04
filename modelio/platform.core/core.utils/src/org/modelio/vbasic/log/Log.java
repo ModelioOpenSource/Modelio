@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,15 +43,17 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public class Log {
     /**
      * Global flag to enable or disable logging.
+     * DO NOT REMOVE final otherwise we cannot benefit of a "MinLog: A low overhead, lightweight logging system." by Nathan Sweet"
      */
     @objid ("000bddbc-e3a3-1f33-b94f-001ec947cd2a")
-    public static boolean ENABLED = false;
+    public static final boolean ENABLED = false;
 
     @objid ("000d4ed6-e3a3-1f33-b94f-001ec947cd2a")
     private static IBasicLogger logger = new BasicLogger();
 
     /**
      * The logging methods
+     * 
      * @param message the message
      */
     @objid ("000bfba8-e3a3-1f33-b94f-001ec947cd2a")
@@ -70,6 +72,7 @@ public class Log {
 
     /**
      * Log an exception with its stack trace as error.
+     * 
      * @param ex the exception
      */
     @objid ("000c842e-e3a3-1f33-b94f-001ec947cd2a")
@@ -79,6 +82,7 @@ public class Log {
 
     /**
      * Log a warning message.
+     * 
      * @param message the message
      */
     @objid ("000c96e4-e3a3-1f33-b94f-001ec947cd2a")
@@ -97,6 +101,7 @@ public class Log {
 
     /**
      * Log an exception with its stack trace as warning.
+     * 
      * @param ex the exception
      */
     @objid ("000cddca-e3a3-1f33-b94f-001ec947cd2a")
@@ -106,6 +111,7 @@ public class Log {
 
     /**
      * Log a trace message
+     * 
      * @param message the message
      */
     @objid ("000cf198-e3a3-1f33-b94f-001ec947cd2a")
@@ -124,6 +130,7 @@ public class Log {
 
     /**
      * Log an exception with its stack trace as trace.
+     * 
      * @param ex the exception
      */
     @objid ("000d3a9a-e3a3-1f33-b94f-001ec947cd2a")
@@ -137,6 +144,7 @@ public class Log {
 
     /**
      * Set the service used to log messages.
+     * 
      * @param value the logging service.
      */
     @objid ("63967127-59d8-471f-a406-dd9ea8bb6787")

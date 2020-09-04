@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,7 @@ public class StereotypeSpecReader {
      * <li> <i>module regex<b>#</b>stereotype regex</i>
      * </ul>
      * Returns <i>null</i> if the specification is <i>null</i> or the stereotype is not found.
+     * 
      * @param session the modeling session
      * @param metaclass the metaclass to look from
      * @param stereotypeSpec the stereotype specification

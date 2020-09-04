@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class SplittedCornerPainter extends BackgroundPainter {
 
     /**
      * Build a new corner painter.
+     * 
      * @param showBottomImage Flag to configure whether the image on the bottom should be shown or not.
      * @param showRightImage Flag to configure whether the image on the right should be shown or not.
      */

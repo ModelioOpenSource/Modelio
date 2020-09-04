@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,14 +44,14 @@ import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.NaryLink;
 import org.modelio.metamodel.uml.statik.NaryLinkEnd;
 import org.modelio.metamodel.uml.statik.Port;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
 import org.modelio.xmi.util.EcoreModelNavigation;
 import org.modelio.xmi.util.EcoreUMLTypes;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.ObjingEAnnotation;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("b679cdef-61f9-4b20-89be-45cac9ee4046")
 public class ESlot extends EElement {
@@ -98,8 +98,8 @@ public class ESlot extends EElement {
         
                 if ((objFeature instanceof Attribute) || 
                         ((objFeature instanceof List<?>) 
-                                && (((List<Element>) objFeature).size() == 1) 
-                                && (((List<Element>) objFeature).get(0) instanceof Attribute))){
+                                && (((List<?>) objFeature).size() == 1) 
+                                && (((List<?>) objFeature).get(0) instanceof Attribute))){
                     return factory.createAttributeLink();
                 }else if (EcoreModelNavigation.isConnector(ecoreOwner) ){
                     return factory.createConnectorEnd();
@@ -393,7 +393,7 @@ public class ESlot extends EElement {
                         if ((instance instanceof Instance)) {
                             try {
                                 factory.createDependency(
-                                        objingElt, (Instance) instance, XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2INSTANCEVALUE);
+                                        objingElt, (Instance) instance, IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSTANCEVALUE);
                             } catch (ExtensionNotFoundException e) {
                                 Xmi.LOG.warning(e);
                             }
@@ -443,7 +443,7 @@ public class ESlot extends EElement {
             if (objingFeature instanceof Attribute) {
                 objingElt.setBase((Attribute) objingFeature);
             }else if (objingFeature instanceof List<?>){               
-                for (Object elt : ((List<Element>) objingFeature)){
+                for (Object elt : ((List<?>) objingFeature)){
                     if (elt instanceof Attribute) {
                         objingElt.setBase((Attribute) elt);
                         break;
@@ -615,8 +615,8 @@ public class ESlot extends EElement {
         if ((feature != null) && (feature instanceof Property)){ 
             Object mappedFeatures = ReverseProperties.getInstance().getMappedElement(feature);
             if (mappedFeatures instanceof List<?>){
-                List<Element>  features = (List<Element>)  mappedFeatures;     
-                for (Element objFeatures : features){
+                List<?>  features = (List<?>)  mappedFeatures;     
+                for (Object objFeatures : features){
                     if (objFeatures instanceof AssociationEnd){
                         objingElt.setModel((AssociationEnd) objFeatures);
                     }

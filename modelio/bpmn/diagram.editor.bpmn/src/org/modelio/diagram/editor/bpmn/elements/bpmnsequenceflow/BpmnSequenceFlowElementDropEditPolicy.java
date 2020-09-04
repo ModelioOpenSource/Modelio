@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -106,6 +106,7 @@ public class BpmnSequenceFlowElementDropEditPolicy extends DefaultElementDropEdi
 
         /**
          * Constructor to attach a {@link BpmnDataObject} to a {@link BpmnSequenceFlow}.
+         * 
          * @param elementToType the element to type.
          * @param dataObjects the objects to be attached.
          * @param modelFactory the model object factory registry.
@@ -168,6 +169,7 @@ public class BpmnSequenceFlowElementDropEditPolicy extends DefaultElementDropEdi
 
         /**
          * Attach a {@link BpmnDataObject} to a {@link BpmnSequenceFlow}.
+         * 
          * @param dataObject a data object that is not already linked to the edited flow.
          */
         @objid ("1cd6747e-e3e5-49d6-8eb0-bb5bd3aeb4d3")

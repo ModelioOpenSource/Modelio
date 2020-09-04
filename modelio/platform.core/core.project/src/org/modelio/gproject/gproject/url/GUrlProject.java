@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class GUrlProject extends GRemoteProject {
      * <p>
      * The default implementation directly reads the {@link ProjectDescriptor#getRemoteLocation()}
      * and converts it to an URI ending with a '/'.
+     * 
      * @param projectDescriptor a project descriptor.
      * @return the remote project URI.
      * @throws java.io.IOException if the location in the descriptor is invalid.

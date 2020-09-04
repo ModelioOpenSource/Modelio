@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ class FileRepository implements IRichNoteFileRepository {
 
     /**
      * Initialize
+     * 
      * @param project the project to handle
      * @param editorsRegistry the editors registry.
      */

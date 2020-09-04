@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Project conf extensions
 Bundle-SymbolicName: org.modelio.app.project.conf.ext;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Vendor: modelio.org
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
@@ -12,7 +12,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.forms,
  org.modelio.app.project.conf,
  org.eclipse.e4.core.contexts,
- org.eclipse.osgi,
  org.modelio.utils,
  org.modelio.core.project,
  org.eclipse.core.runtime,
@@ -26,7 +25,9 @@ Require-Bundle: org.eclipse.ui,
  org.modelio.core.kernel,
  org.modelio.app.project.core,
  org.modelio.core.project.data,
- org.modelio.core.session
+ org.modelio.core.session,
+ org.modelio.app.update,
+ org.modelio.app.update.repo
 Bundle-ClassPath: .,
  res/
 Bundle-Activator: org.modelio.app.project.conf.plugin.AppProjectConfExt

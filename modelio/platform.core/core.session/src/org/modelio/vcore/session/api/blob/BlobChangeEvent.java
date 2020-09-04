@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public class BlobChangeEvent implements IBlobChangeEvent {
 
     /**
      * Initialize a blob change event.
+     * 
      * @param createdBlobs created blob identifiers.
      * @param deletedBlobs deleted blob identifiers.
      * @param updatedBlobs updated blob identifiers.
@@ -66,6 +67,7 @@ public class BlobChangeEvent implements IBlobChangeEvent {
 
     /**
      * Get the new blobs.
+     * 
      * @return the identifier of created blobs.
      */
     @objid ("d59f724f-7fe4-4bf3-bc90-24eee271d32d")
@@ -76,6 +78,7 @@ public class BlobChangeEvent implements IBlobChangeEvent {
 
     /**
      * Get the deleted blobs.
+     * 
      * @return the identifier of deleted blobs.
      */
     @objid ("c577d88f-9f6a-4a60-b308-c6f2ad58583b")
@@ -86,6 +89,7 @@ public class BlobChangeEvent implements IBlobChangeEvent {
 
     /**
      * Get the modified blobs.
+     * 
      * @return the identifier of modified blobs.
      */
     @objid ("40ab327f-0905-4936-98ca-d804eecad841")
@@ -100,6 +104,7 @@ public class BlobChangeEvent implements IBlobChangeEvent {
      * Called by {@link #BlobChangeEvent(Collection, Collection, Collection)}
      * only when assertions are enabled.
      * May be called by sub classes.
+     * 
      * @return always <code>true</code>.
      */
     @objid ("0173d951-24c6-4e2b-931b-f3aa32d8996c")

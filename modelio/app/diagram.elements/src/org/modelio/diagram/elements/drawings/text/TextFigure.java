@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class TextFigure extends GradientFigure {
 
     /**
      * Set the note text.
+     * 
      * @param contents the note text.
      */
     @objid ("1eba2f53-d756-4b0b-8068-320b37cab86f")
@@ -67,6 +68,7 @@ public class TextFigure extends GradientFigure {
 
     /**
      * Set the text horizontal alignment.
+     * 
      * @param align the text horizontal alignment.
      */
     @objid ("5af96411-fc97-406c-a73e-1377427ba276")

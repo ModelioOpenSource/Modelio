@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class RakeLinkOnTargetCommand extends Command {
 
     /**
      * Initializes the command.
+     * 
      * @param toConnect The link to connect to the rake.
      * @param rakeLink The rake link. This link may already be in rake mode or not.
      * @param loc The rake merge location. Ignored if the main link is already in rake mode.

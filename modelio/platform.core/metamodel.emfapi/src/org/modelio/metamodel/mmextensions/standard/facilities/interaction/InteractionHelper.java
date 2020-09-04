@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class InteractionHelper {
     /**
      * Get all {@link InteractionFragment} of the interaction.
+     * 
      * @return a stream of all {@link InteractionFragment} of the interaction.
      */
     @objid ("752ac436-b047-41d3-b1ac-7ab8ed121440")
@@ -52,6 +53,7 @@ public class InteractionHelper {
 
     /**
      * Get all {@link InteractionFragment} of the interaction.
+     * 
      * @return all {@link InteractionFragment} of the interaction.
      */
     @objid ("3743109f-d40e-4eb1-a156-c6e1a5006a69")
@@ -65,6 +67,7 @@ public class InteractionHelper {
 
     /**
      * Returns the {@link Interaction} enclosing the passed element if any, <code>null</code> otherwise.
+     * 
      * @param el the element which enclosing Interaction is searched.
      * @return the {@link Interaction} enclosing the passed element if any, <code>null</code> otherwise.
      */
@@ -79,6 +82,7 @@ public class InteractionHelper {
 
     /**
      * Get a stream of the given {@link InteractionFragment} and all owned {@link InteractionFragment}.
+     * 
      * @return a Stream on all {@link InteractionFragment} of the element.
      */
     @objid ("71e0ee24-8c0d-4e43-a2ef-08a7d31ad56c")

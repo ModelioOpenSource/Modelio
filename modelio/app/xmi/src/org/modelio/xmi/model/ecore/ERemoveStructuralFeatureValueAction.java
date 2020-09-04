@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,17 +21,13 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.xmi.plugin.Xmi;
+import org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2StructuralFeatureReference;
+import org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RemoveStructuralFeatureAction;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("51bd1ce9-b631-4fa1-b692-72b52341b0c5")
 public class ERemoveStructuralFeatureValueAction extends EActivityNode {
@@ -41,16 +37,7 @@ public class ERemoveStructuralFeatureValueAction extends EActivityNode {
     @objid ("3058ed6d-325a-4116-9b8c-ba07d6c36abc")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
-        OpaqueAction element = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createOpaqueAction();
-        
-        try {
-            element.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REMOVESTRUCTURALFEATUREACTION);
-        } catch (ExtensionNotFoundException e) {
-            Xmi.LOG.warning(e);
-        }
-        return element;
+        return UML2RemoveStructuralFeatureAction.create().getElement();
     }
 
     @objid ("5800b9d0-70ee-403e-bf06-4384972c8b0b")
@@ -68,19 +55,12 @@ public class ERemoveStructuralFeatureValueAction extends EActivityNode {
 
     @objid ("5a6428e6-073a-4ce2-a255-a165bc303339")
     private void setFeature(OpaqueAction objingElt) {
-        org.eclipse.uml2.uml.StructuralFeature feature = this.ecoreElement.getStructuralFeature();
-        IMModelServices mmServices  = ReverseProperties.getInstance().getMModelServices();
-        Dependency dependency = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createDependency();
-        
-        try {
-            dependency.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2STRUCTURALFEATUREREFERENCE);
-        } catch (ExtensionNotFoundException e) {
-            Xmi.LOG.warning(e);
+        Object obBehavior = ReverseProperties.getInstance().getMappedElement(this.ecoreElement.getStructuralFeature());
+        if (obBehavior instanceof ModelElement) {
+            Dependency dependency = UML2StructuralFeatureReference.create().getElement();
+            dependency.setDependsOn((ModelElement) obBehavior);
+            dependency.setImpacted(objingElt);
         }
-        
-        ModelElement obBehavior = (ModelElement)ReverseProperties.getInstance().getMappedElement(feature);
-        dependency.setDependsOn(obBehavior);
-        dependency.setImpacted(objingElt);
     }
 
 }

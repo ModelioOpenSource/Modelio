@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -78,6 +78,7 @@ public class ModuleXmlExtractor {
 
     /**
      * @param datapath the module path : the directory containing module.xml
+     * 
      * @param targetPath the path where to extract the files
      * @param metamodelFragments the metamodel fragments
      */
@@ -94,7 +95,7 @@ public class ModuleXmlExtractor {
             new RamcBuilder(this.metamodelExtensions, loadedModule).createRamc(moduleStaticModelPath, monitor);
         } catch (IOException e) {
             throw new IOException(
-                    CoreProject.getMessage(
+                    CoreProject.I18N.getMessage(
                             "ModuleCacheManager.FailedExtractStaticModel",
                             moduleStaticModelPath.getFileName(), 
                             FileUtils.getLocalizedMessage(e)),
@@ -197,10 +198,10 @@ public class ModuleXmlExtractor {
         
             } else {
                 throw new IOException(
-                        CoreProject.getMessage("ModuleCacheManager.NoModuleFound", this.moduleXmlPath)); //$NON-NLS-1$
+                        CoreProject.I18N.getMessage("ModuleCacheManager.NoModuleFound", this.moduleXmlPath)); //$NON-NLS-1$
             }
         } catch (IOException e) {
-            IOException e2 = new IOException(CoreProject.getMessage("ModuleCacheManager.ErrorReadingModule",
+            IOException e2 = new IOException(CoreProject.I18N.getMessage("ModuleCacheManager.ErrorReadingModule",
                     this.moduleXmlPath, FileUtils.getLocalizedMessage(e)));
             e2.initCause(e);
             throw e2;
@@ -209,6 +210,7 @@ public class ModuleXmlExtractor {
 
     /**
      * Extract the dynamic part of the module model in another file ?
+     * 
      * @param moduleDynamicModelPath path of the file to write
      * @param loadedModule the JAXB module model
      * @param monitor a progress monitor
@@ -246,6 +248,7 @@ public class ModuleXmlExtractor {
 
     /**
      * Get a module handle for a module cache directory containing "moduleInfos.xml".
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user.
      * It is the caller's responsibility to call <code>done()</code> on the given monitor.
      * Accepts <code>null</code>, indicating that no progress should be reported and that
@@ -303,6 +306,7 @@ public class ModuleXmlExtractor {
     private static class HandleFactory {
         /**
          * Get the module handle for a module cache directory containing "moduleInfos.xml"
+         * 
          * @param monitor the progress monitor to use for reporting progress to the user.
          * It is the caller's responsibility to call <code>done()</code> on the given monitor.
          * Accepts <code>null</code>, indicating that no progress should be reported and that
@@ -321,7 +325,7 @@ public class ModuleXmlExtractor {
                 Jxbv2Module moduleFromInfos = JaxbModelPersistence.loadJaxbModel(infosPath);
                 return loadModuleInfos(moduleCachePath, moduleFromInfos, m.newChild(20));
             } catch (IOException e) {
-                IOException e2 = new IOException(CoreProject.getMessage("ModuleCacheManager.ErrorReadingModule",
+                IOException e2 = new IOException(CoreProject.I18N.getMessage("ModuleCacheManager.ErrorReadingModule",
                         moduleCachePath, FileUtils.getLocalizedMessage(e)));
                 e2.initCause(e);
                 throw e2;
@@ -408,7 +412,7 @@ public class ModuleXmlExtractor {
                 return new Version(fragEntry.getVersion());
             } catch (NumberFormatException e) {
                 // invalid version format
-                String msg = CoreProject.getMessage(
+                String msg = CoreProject.I18N.getMessage(
                         "ModuleCacheManager.InvalidMmFragmentVersion", 
                         fragEntry.getId(),
                         fragEntry.getVersion(), 

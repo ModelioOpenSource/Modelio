@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param ref a reference to the represented object node.
      */
@@ -109,6 +110,7 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
 
     /**
      * Get the stereotype image to display.
+     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("2ad87038-55b6-11e2-877f-002564c97630")
@@ -195,6 +197,7 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
 
     /**
      * Migration constructor.
+     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("2ad9f6c6-55b6-11e2-877f-002564c97630")

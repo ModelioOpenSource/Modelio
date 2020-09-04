@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,6 +27,7 @@ import java.nio.file.Path;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.data.project.ProjectDescriptor;
 import org.modelio.gproject.data.project.ProjectDescriptorWriter;
+import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.vbasic.version.Version;
 import org.modelio.version.ModelioVersion;
 
@@ -44,6 +45,7 @@ public class GProjectCreator {
      * <p>
      * The <i>projectPath</i> can then be given to
      * {@link GProjectFactory#openProject GProjectFactory.openProject()} to obtain a {@link GProject}.
+     * 
      * @param projectName the project name.
      * @param projectPath the project path. Must be a directory that should be empty or
      * does not exist yet.
@@ -52,7 +54,6 @@ public class GProjectCreator {
      */
     @objid ("41d51dff-ab36-11e1-8392-001ec947ccaf")
     public static ProjectDescriptor buildEmptyProject(final String projectName, final Path projectPath) throws IOException {
-        
         return buildEmptyProject(projectName, projectPath, ModelioVersion.VERSION);
     }
 
@@ -63,6 +64,7 @@ public class GProjectCreator {
      * <p>
      * The <i>projectPath</i> can then be given to
      * {@link GProjectFactory#openProject GProjectFactory.openProject()} to obtain a {@link GProject}.
+     * 
      * @param projectName the project name.
      * @param projectPath the project path. Must be a directory that should be empty or
      * does not exist yet.
@@ -75,14 +77,14 @@ public class GProjectCreator {
     public static ProjectDescriptor buildEmptyProject(final String projectName, final Path projectPath, Version modelioVersion) throws IOException {
         // Create directory and the 'project.conf' file.
         Files.createDirectories(projectPath);
-        Path confFilePath = projectPath.resolve("project.conf");
         
+        Path confFilePath = new ProjectFileStructure(projectPath).getProjectConfFile();
         if (Files.isRegularFile(confFilePath)) {
             throw new FileAlreadyExistsException(confFilePath.toString(), null, "A project already exists here.");
         }
         
         ProjectDescriptor desc = ProjectDescriptor.createEmpty(projectName, projectPath, modelioVersion);
-        new ProjectDescriptorWriter().write(desc, confFilePath);
+        new ProjectDescriptorWriter().write(desc);
         return desc;
     }
 

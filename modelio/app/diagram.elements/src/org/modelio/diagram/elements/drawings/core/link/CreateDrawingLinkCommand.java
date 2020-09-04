@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class CreateDrawingLinkCommand extends Command {
 
     /**
      * Command constructor
+     * 
      * @param newLinkType the class of the drawing link to create.
      * @param drawingIdentifier the drawing identifier
      */
@@ -106,6 +107,7 @@ public class CreateDrawingLinkCommand extends Command {
 
     /**
      * Set the link source.
+     * 
      * @param sourceNode the link source.
      */
     @objid ("7b809b84-fce0-447e-b1a1-c207b02a4c6b")
@@ -115,6 +117,7 @@ public class CreateDrawingLinkCommand extends Command {
 
     /**
      * Set the link destination.
+     * 
      * @param targetNode the link destination.
      */
     @objid ("c404ec28-2049-4a14-9a97-35d196a17abd")
@@ -124,6 +127,7 @@ public class CreateDrawingLinkCommand extends Command {
 
     /**
      * Set the path of the link.
+     * 
      * @param path the link path.
      */
     @objid ("4fccf952-0bdd-4afc-95f9-9aa0a7be63ff")

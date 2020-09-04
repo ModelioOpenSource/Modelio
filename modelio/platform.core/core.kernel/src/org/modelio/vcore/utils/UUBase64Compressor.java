@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,38 +32,49 @@ import org.eclipse.emf.ecore.xml.type.internal.DataValue.Base64;
 import org.modelio.vbasic.log.Log;
 
 /**
- * Service to compress and uncompress a String into a compressed Base64 UUencoded string.
+ * Services to:
+ * - compress and uncompress a String into a compressed Base64 UUencoded string.
+ * - compress uncompress a byte[] into a compressed Base64 UUencoded string.
  * 
  * @author phv
  */
 @objid ("a307bbeb-0e85-4a66-b4d1-c505dbaf0401")
 public class UUBase64Compressor {
     @objid ("b3e9c2b0-6ce2-4772-9312-08f26a50ebc2")
-    private static final String CHARSET = "UTF-8";
+    public static final String CHARSET = "UTF-8";
 
     /**
      * Compress a string
+     * 
      * @param source a string
      * @return a compressed Base64 UUencoded string.
      */
     @objid ("5c3a47f5-368b-46e9-97d9-9f7b18c9ce80")
     public static String compress(String source) {
         try {
-            byte[] sourceBytes = source.getBytes(UUBase64Compressor.CHARSET);
+            return compressBytes(source.getBytes(UUBase64Compressor.CHARSET));
+        } catch (UnsupportedEncodingException e) {
+            // FIXME : this exception should be thrown !
+            Log.error(e);
+            return null;
+        }
+    }
+
+    /**
+     * Uncompress a Base64 encoded compressed string.
+     * 
+     * @param source the compressed string
+     * @return the string uncompressed.
+     */
+    @objid ("d9ae23e9-0283-4f7b-8337-831e5428f71c")
+    public static String decompress(String source) {
+        // long start = System.currentTimeMillis();
         
-            Deflater compressor = new Deflater();
-            compressor.setInput(sourceBytes);
-            compressor.finish();
+        byte[] bytes = decompressAsBytes(source);
         
-            byte[] output = new byte[sourceBytes.length];
-            int compressedDataLength = compressor.deflate(output, 0, output.length, Deflater.FULL_FLUSH);
-            output = Arrays.copyOf(output, compressedDataLength);
-        
-            compressor.end();
-        
-            String s = Base64.encode(output);
-            return s;
-        
+        // Decode the bytes into a String
+        try {
+            return new String(bytes, 0, bytes.length, UUBase64Compressor.CHARSET);
         } catch (UnsupportedEncodingException e) {
             // FIXME : this exception should be thrown !
             Log.error(e);
@@ -71,17 +82,27 @@ public class UUBase64Compressor {
         return null;
     }
 
-    /**
-     * Uncompress a Base64 encoded compressed string.
-     * @param source the compressed string
-     * @return the string uncompressed.
-     */
-    @objid ("d9ae23e9-0283-4f7b-8337-831e5428f71c")
-    public static String decompress(String source) {
+    @objid ("2c881641-189c-4b00-b6a9-bfafe301f1b7")
+    public static String compressBytes(byte[] sourceBytes) {
+        Deflater compressor = new Deflater();
+        compressor.setInput(sourceBytes);
+        compressor.finish();
+        
+        byte[] output = new byte[sourceBytes.length];
+        int compressedDataLength = compressor.deflate(output, 0, output.length, Deflater.FULL_FLUSH);
+        output = Arrays.copyOf(output, compressedDataLength);
+        compressor.end();
+        
+        String s = Base64.encode(output);
+        return s;
+    }
+
+    @objid ("a7e497e5-6d6b-496f-a8aa-bfbf5d6fb682")
+    public static byte[] decompressAsBytes(String source) {
         // long start = System.currentTimeMillis();
         byte[] sourceBytes = Base64.decode(source);
         if (sourceBytes == null || sourceBytes.length == 0) {
-            return source;
+            return new byte[0];
         }
         
         // Decompress the bytes
@@ -95,10 +116,7 @@ public class UUBase64Compressor {
                 outputStream.write(buffer, 0, count);
             }
             decompressor.end();
-            byte[] output = outputStream.toByteArray();
-        
-            // Decode the bytes into a String
-            return new String(output, 0, output.length, "UTF-8");
+            return outputStream.toByteArray();
         } catch (DataFormatException | IOException e) {
             // FIXME : this exception should be thrown !
             Log.error(e);

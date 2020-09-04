@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public class MContentListIterator implements FeatureListIterator<EObject> {
      * <p>
      * Shell objects are included.
      * @param includeShells true to include shells objects, false to skip them.
+     * 
      * @param obj the object to scan
      * @param deps the dependencies to scan.
      */
@@ -187,6 +188,7 @@ public class MContentListIterator implements FeatureListIterator<EObject> {
 
     /**
      * Initialize the iterator.
+     * 
      * @param obj the object to scan
      * @param deps the dependencies to scan.
      * @param includeShells true to include shells objects, false to skip them.

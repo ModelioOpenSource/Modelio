@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreatePatternFromModelHandler {
     /**
      * Create a new pattern from an existing model.
+     * 
      * @param selection the current modelio selection.
      * @param patternService the pattern service.
      */
@@ -75,6 +76,7 @@ public class CreatePatternFromModelHandler {
 
     /**
      * Available only when the selection contains only a ModelElement that is not a pattern.
+     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */

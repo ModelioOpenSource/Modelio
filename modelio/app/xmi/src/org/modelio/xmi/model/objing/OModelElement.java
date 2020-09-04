@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class OModelElement extends OElement implements IOElement {
 
     /**
      * Constructor
+     * 
      * @param element : the exported Modelio ModelElement
      */
     @objid ("b412f535-b026-4cb7-a420-0ea3c6446564")
@@ -112,13 +113,13 @@ public class OModelElement extends OElement implements IOElement {
             case PROTECTED:
                 ecoreElt.setVisibility(org.eclipse.uml2.uml.VisibilityKind.PROTECTED_LITERAL);
                 break;
+            case PUBLIC:
+                ecoreElt.setVisibility(org.eclipse.uml2.uml.VisibilityKind.PUBLIC_LITERAL);
+                break;
             case VISIBILITYUNDEFINED:
                 ObjingEAnnotation.setIsUndefined(ecoreElt);
                 // No undefined field exist in UML2-Ecore for visibility:
                 // a visibility not setted corresponds to a PUBLIC visibility.
-                break;
-            default:
-                ecoreElt.setVisibility(org.eclipse.uml2.uml.VisibilityKind.PUBLIC_LITERAL);
                 break;
             }
         }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ public interface IElementNamer {
     /**
      * Returns a base name for a new created element of type <code>metaclass</code>
      * @param metaclass
+     * 
      * @return a base name for a new created element of type metaclass
      */
     @objid ("00888cc2-030f-1035-9f91-001ec947cd2a")
@@ -44,6 +45,7 @@ public interface IElementNamer {
      * 
      * This is similar to calling getUniqueName(getBaseName(object, object).
      * @param object
+     * 
      * @return a unique name for element
      */
     @objid ("0088a2f2-030f-1035-9f91-001ec947cd2a")
@@ -54,6 +56,7 @@ public interface IElementNamer {
      * The computed name is build from <code>basename</code>
      * @param basename
      * @param object
+     * 
      * @return a unique name for element starting by basename
      */
     @objid ("0088bce2-030f-1035-9f91-001ec947cd2a")
@@ -62,6 +65,7 @@ public interface IElementNamer {
     /**
      * Returns a base name for a model element.
      * @param object
+     * 
      * @return a base name for <code>object</code>
      */
     @objid ("7f4a595a-b1e9-4639-806f-ef3ef2eddc59")

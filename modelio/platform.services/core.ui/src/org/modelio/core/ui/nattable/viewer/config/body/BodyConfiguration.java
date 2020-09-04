@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -73,6 +73,8 @@ import org.modelio.core.ui.nattable.parts.data.element.multi.IMultiElementNatVal
 import org.modelio.core.ui.nattable.parts.data.element.multi.MultiElementDisplayConverter;
 import org.modelio.core.ui.nattable.parts.data.element.multi.MultiElementPainter;
 import org.modelio.core.ui.nattable.parts.data.element.multi.MultiElementValueEditor;
+import org.modelio.core.ui.nattable.parts.data.element.multirow.IMultiRowElementNatValue;
+import org.modelio.core.ui.nattable.parts.data.element.multirow.MultiRowElementNatValueEditor;
 import org.modelio.core.ui.nattable.parts.data.element.single.ElementDisplayConverter;
 import org.modelio.core.ui.nattable.parts.data.element.single.ElementNatValueEditor;
 import org.modelio.core.ui.nattable.parts.data.element.single.ElementPainter;
@@ -136,6 +138,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
      * @param projectService the project service, to access preferences and model session.
      * @param pickingService the picking service, to manually choose elements in the model.
      * @param activationService the activation service, to open external editors.
+     * 
      * @param dataModel the table's data model.
      * @param elementLabelProvider a label provider for MObject element
      */
@@ -188,6 +191,8 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
                 } else if (type instanceof IJavaEnumNatValue) { // Enum type
                     // declare the enum type in the registry
                     configureRegistryForENUMERATE(configRegistry, ((IJavaEnumNatValue) type).getEnumeration());
+                } else if (type instanceof IMultiRowElementNatValue) {
+                    configureRegistryForMULTIROWELEMENT(configRegistry, ((IMultiRowElementNatValue) type).getTagSuffix());
                 }
             }
         }
@@ -228,8 +233,9 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
                 new CellEditDragMode());
         
         // CTRL ALT left click = select in explorer
-        uiBindingRegistry.registerFirstSingleClickBinding(new CellPainterMouseEventMatcherWithMask(SWT.CTRL | SWT.ALT,
-                GridRegion.BODY, MouseEventMatcher.LEFT_BUTTON, TextIconPainter.class), new SelectInExplorerAction(this.context.getNavigationService()));
+        uiBindingRegistry.registerFirstSingleClickBinding(
+                new CellPainterMouseEventMatcherWithMask(SWT.CTRL | SWT.ALT, GridRegion.BODY, MouseEventMatcher.LEFT_BUTTON, TextIconPainter.class),
+                new SelectInExplorerAction(this.context.getNavigationService()));
     }
 
     /**
@@ -488,6 +494,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
     @objid ("125b5334-4b76-4188-972b-30ed148f8851")
     private void configureRegistryForMULTIELEMENT(IConfigRegistry configRegistry) {
         final String tag = CellTagHelper.getTypeTag(IMultiElementNatValue.class);
+        
         // Style and painter
         Style cellStyle = new Style();
         cellStyle.setAttributeValue(CellStyleAttributes.HORIZONTAL_ALIGNMENT, HorizontalAlignmentEnum.LEFT);
@@ -506,11 +513,10 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         
         // Editor's i18n
         Map<String, Object> editDialogSettings = new HashMap<>();
-        editDialogSettings.put(ICellEditDialog.DIALOG_SHELL_TITLE,
-                CoreUi.I18N.getString("MultiElementEditionDialog.Title"));
-        editDialogSettings.put(ICellEditDialog.DIALOG_MESSAGE,
-                CoreUi.I18N.getString("MultiElementEditionDialog.Message"));
+        editDialogSettings.put(ICellEditDialog.DIALOG_SHELL_TITLE, CoreUi.I18N.getString("MultiElementEditionDialog.Title"));
+        editDialogSettings.put(ICellEditDialog.DIALOG_MESSAGE, CoreUi.I18N.getString("MultiElementEditionDialog.Message"));
         editDialogSettings.put(ICellEditDialog.DIALOG_SHELL_ICON, BodyConfiguration.EDIT_ICON);
+        editDialogSettings.put(ICellEditDialog.DIALOG_SHELL_RESIZABLE, Boolean.TRUE);
         
         configRegistry.registerConfigAttribute(EditConfigAttributes.EDIT_DIALOG_SETTINGS, editDialogSettings,
                 DisplayMode.EDIT, tag);
@@ -715,6 +721,32 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         // Editor
         // final ElementNatValueEditor editor = new ElementNatValueEditor(this.context.getSession(), this.context.getPickingService());
         // configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, editor, DisplayMode.EDIT, tag);
+        
+        // Validator
+    }
+
+    /**
+     * Element field. Used for 'PropertyBaseType.ELEMENT'
+     */
+    @objid ("02d586a2-02ca-4ae2-a5f5-07fc105ab5c1")
+    private void configureRegistryForMULTIROWELEMENT(IConfigRegistry configRegistry, String tagSuffix) {
+        final String tag = CellTagHelper.getTypeTag(IMultiRowElementNatValue.class, tagSuffix);
+        // Style and painter
+        Style cellStyle = new Style();
+        cellStyle.setAttributeValue(CellStyleAttributes.HORIZONTAL_ALIGNMENT, HorizontalAlignmentEnum.LEFT);
+        cellStyle.setAttributeValue(CellStyleAttributes.VERTICAL_ALIGNMENT, BodyConfiguration.DEFAULT_VERTICAL_ALIGNMENT);
+        configRegistry.registerConfigAttribute(CellConfigAttributes.CELL_STYLE, cellStyle, DisplayMode.NORMAL, tag);
+        configRegistry.registerConfigAttribute(CellConfigAttributes.CELL_PAINTER, new ElementPainter(this.elementLabelProvider, false),
+                DisplayMode.NORMAL, tag);
+        
+        // Display converter
+        configRegistry.registerConfigAttribute(CellConfigAttributes.DISPLAY_CONVERTER,
+                new NatValueWrappingDisplayConverter(new ElementDisplayConverter(this.elementLabelProvider)), DisplayMode.NORMAL, tag);
+        
+        // Editor
+        final MultiRowElementNatValueEditor editor = new MultiRowElementNatValueEditor(this.context.getSession());
+        
+        configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, editor, DisplayMode.EDIT, tag);
         
         // Validator
     }

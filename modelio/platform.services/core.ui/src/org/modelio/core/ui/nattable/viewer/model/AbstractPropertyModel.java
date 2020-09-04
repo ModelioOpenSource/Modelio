@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public abstract class AbstractPropertyModel<T extends MObject> implements IPrope
 
     /**
      * Basic implementation of isEditable.
+     * 
      * @param row the row index from the table.
      * @param col the column index from the table.
      * @return <code>false</code> when col = 0 or the edited element is not modifiable.

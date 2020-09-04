@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IGmNodeDrawing extends IGmDrawingLinkable {
     /**
      * Set the parent layer
+     * 
      * @param gmDrawingLayer the parent layer
      */
     @objid ("94f65976-fca6-4882-a180-e45a9914c82d")
@@ -42,6 +43,7 @@ public interface IGmNodeDrawing extends IGmDrawingLinkable {
 
     /**
      * Set the node label
+     * 
      * @param label the node label
      */
     @objid ("6efda563-7876-4368-af17-76a8791f1d24")

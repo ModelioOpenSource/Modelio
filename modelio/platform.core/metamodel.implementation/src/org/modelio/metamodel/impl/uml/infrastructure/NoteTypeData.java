@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -31,25 +31,25 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("008c3692-c4be-1fd8-97fe-001ec947cd2a")
 public class NoteTypeData extends ModelElementData {
-    @objid ("7411c119-88c0-43f9-a75e-2a0d42a5d5e0")
+    @objid ("4c62cf0d-6ad8-4021-943f-ff44a65e8ade")
      Object mIsHidden = false;
 
-    @objid ("795813b4-6010-4ae2-a0cd-651dcedcb415")
+    @objid ("ec8646e5-f3ef-48bc-a193-740801f32017")
      Object mLabelKey = "";
 
-    @objid ("b38d2644-caba-40c6-be21-137c2263e1dc")
+    @objid ("96a80735-c8ec-4dcd-80bf-b3a78627b595")
      Object mMimeType = "";
 
-    @objid ("2510d406-f083-4d58-b2cf-233aaee17695")
+    @objid ("c82094d8-1abf-4c44-b84b-5d354d23052f")
      List<SmObjectImpl> mElement = null;
 
-    @objid ("38d01c4e-797e-4c5f-a16d-a7a8bd176ac0")
+    @objid ("8250de4d-2f36-40d0-9225-202171c83943")
      SmObjectImpl mOwnerStereotype;
 
-    @objid ("c019fb61-3cbb-4395-a09d-05f75c757332")
+    @objid ("4d2d31a7-6967-40eb-b396-69c0da2b92fd")
      SmObjectImpl mOwnerReference;
 
-    @objid ("257d7259-318d-4e63-8fdd-fab44b0815ea")
+    @objid ("5158e781-1c82-4db2-b667-3bca1d553caf")
     public NoteTypeData(NoteTypeSmClass smClass) {
         super(smClass);
     }

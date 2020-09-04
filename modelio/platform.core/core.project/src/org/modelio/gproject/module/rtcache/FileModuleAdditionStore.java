@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ class FileModuleAdditionStore extends FileModuleStore {
 
     /**
      * Instantiate a new FileModuleCatalog.
+     * 
      * @param metamodelFragments the metamodel fragments to use
      * @param cachePath the path to store unzipped .jmdacs into. Needs to be a writable directory.
      */
@@ -83,6 +84,7 @@ class FileModuleAdditionStore extends FileModuleStore {
 
     /**
      * Get the next available index in the store directory for a module.
+     * 
      * @param baseModuleCachePath @return
      */
     @objid ("e99e8d20-018f-4f81-8af6-1f1cb48ab164")

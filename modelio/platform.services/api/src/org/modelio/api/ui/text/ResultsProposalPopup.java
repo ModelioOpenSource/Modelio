@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,6 +65,7 @@ public class ResultsProposalPopup extends PopupDialog {
 
     /**
      * Open a popup to choose elements from.
+     * 
      * @return the element chosen in the popup. Might be <code>null</code>.
      */
     @objid ("5bf1eb55-911c-11e0-9de7-002564c97630")
@@ -172,6 +173,7 @@ public class ResultsProposalPopup extends PopupDialog {
 
     /**
      * Constructor initializing a ResultsProposalPopup.
+     * 
      * @param control the swt control displaying the popup.
      * @param elements the elements to display in the popup.
      * @param acceptNullValue indicates whether or not the "null" value must be shown in the popup.

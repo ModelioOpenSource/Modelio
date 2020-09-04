@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class PortContainerFigure extends Figure implements HandleBounds {
     /**
      * Returns the Rectangle around which handles are to be placed. The Rectangle should be in the same coordinate
      * system as the figure itself.
+     * 
      * @return The rectangle used for handles
      */
     @objid ("7ef6b8af-1dec-11e2-8cad-001ec947c8cc")
@@ -64,6 +65,7 @@ public class PortContainerFigure extends Figure implements HandleBounds {
 
     /**
      * Sets the main node figure.
+     * 
      * @param mainNodeFigure the main node figure.
      */
     @objid ("7ef91ab9-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ public class IsBeforePredicate extends Predicate {
 
     /**
      * C'tor.
+     * 
      * @param before the first variable. Predicate returns <code>true</code> if it is less than (or equal, depending on the value of "strict") <code>after - offset</code>.
      * @param after the second variable. Predicate returns <code>true</code> if it is greater than (or equal, depending on the value of "strict") <code>before + offset</code>.
      * @param offset an offset that may be used to define a minimal spacing between the variables.

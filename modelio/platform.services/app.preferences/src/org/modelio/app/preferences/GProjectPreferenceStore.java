@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.util.SafeRunnable;
 import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.data.project.GProperties.Entry;
+import org.modelio.gproject.data.project.GProperties;
 import org.modelio.gproject.gproject.GProject;
 
 /**
@@ -237,43 +238,43 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
     @Override
     public long getLong(String name) {
         // First, try to get the property 'subset#name'
-           if (!this.subSet.isEmpty()) {
-               String v = this.project.getProperties().getValue(getPrefixedName(name));
-               if (v != null) {
-                   try {
-                       return Long.parseLong(v);
-                   } catch (NumberFormatException e) {
-                       return LONG_DEFAULT_DEFAULT;
-                   }
-               }
-           }
-           
-           // No subset property defined, get the property 'name'
-           String v = this.project.getProperties().getValue(name);
-           if (v == null) {
-               return LONG_DEFAULT_DEFAULT;
-           } else {
-               try {
-                   return Long.parseLong(v);
-               } catch (NumberFormatException e) {
-                   return LONG_DEFAULT_DEFAULT;
-               }
-           }
+        if (!this.subSet.isEmpty()) {
+            String v = this.project.getProperties().getValue(getPrefixedName(name));
+            if (v != null) {
+                try {
+                    return Long.parseLong(v);
+                } catch (NumberFormatException e) {
+                    return LONG_DEFAULT_DEFAULT;
+                }
+            }
+        }
+        
+        // No subset property defined, get the property 'name'
+        String v = this.project.getProperties().getValue(name);
+        if (v == null) {
+            return LONG_DEFAULT_DEFAULT;
+        } else {
+            try {
+                return Long.parseLong(v);
+            } catch (NumberFormatException e) {
+                return LONG_DEFAULT_DEFAULT;
+            }
+        }
     }
 
     @objid ("52cc6607-544b-4a89-8629-4652e93078d6")
     @Override
     public String getString(String name) {
         // First, try to get the property 'subset#name'
-           if (!this.subSet.isEmpty()) {
-               String v = this.project.getProperties().getValue(getPrefixedName(name));
-               if (v != null) {
-                   return v;
-               }
-           }
-           
-           // No subset property defined, get the property 'name'
-           String v = this.project.getProperties().getValue(name);
+        if (!this.subSet.isEmpty()) {
+            String v = this.project.getProperties().getValue(getPrefixedName(name));
+            if (v != null) {
+                return v;
+            }
+        }
+        
+        // No subset property defined, get the property 'name'
+        String v = this.project.getProperties().getValue(name);
         return (v == null) ? STRING_DEFAULT_DEFAULT : v;
     }
 
@@ -353,12 +354,17 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
     @objid ("c5ac4a63-9ce1-4a2b-beab-fc56c91cd31b")
     @Override
     public void setToDefault(String name) {
-        Entry def = this.project.getProperties().getProperty(name + DEFAULT);
-        Entry val = this.project.getProperties().getProperty(name);
+        GProperties properties = this.project.getProperties();
+        Entry def = properties.getProperty(name + DEFAULT);
         if (def != null) {
-            this.project.getProperties().setProperty(name, def.getValue(), def.getScope());
+            Entry val = properties.getProperty(name);
+            Object oldValue = (val != null)? val.getValue() : null;
+            String defaultValue = def.getValue();
+        
+            properties.setProperty(name, defaultValue, def.getScope());
             this.dirty = true;
-            firePropertyChangeEvent(name, (val != null)? val.getValue():null, def.getValue());
+        
+            firePropertyChangeEvent(name, oldValue, defaultValue);
         }
     }
 

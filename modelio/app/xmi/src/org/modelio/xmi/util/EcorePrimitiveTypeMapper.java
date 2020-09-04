@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,7 +72,8 @@ public class EcorePrimitiveTypeMapper {
     private static final String folderName = "EcorePrimitiveTypes";
 
     /**
-     * provide the Modelio org.eclipse.uml2.uml.DataType cooresponding to a given Ecore org.eclipse.uml2.uml.Type
+     * provide the Modelio org.eclipse.uml2.uml.DataType corresponding to a given Ecore org.eclipse.uml2.uml.Type
+     * 
      * @param ecoreType : the given Ecore org.eclipse.uml2.uml.Type
      * @return the corresponding Modelio org.eclipse.uml2.uml.DataType
      */
@@ -152,6 +153,7 @@ public class EcorePrimitiveTypeMapper {
 
     /**
      * Test if a given Ecore org.eclipse.uml2.uml.Type is a Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @param ecoreType : the tested Ecore org.eclipse.uml2.uml.Type
      * @return true if the Ecore org.eclipse.uml2.uml.Type corresponds to a Modelio Predefined org.eclipse.uml2.uml.Type
      */

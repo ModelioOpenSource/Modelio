@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface ISmStorable {
     /**
      * Set the repository handler.
+     * 
      * @param storageHandle the repository handler.
      */
     @objid ("006196e4-b2b0-1f4f-9c13-001ec947cd2a")

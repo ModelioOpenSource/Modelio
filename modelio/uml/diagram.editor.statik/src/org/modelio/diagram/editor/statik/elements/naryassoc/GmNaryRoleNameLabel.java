@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class GmNaryRoleNameLabel extends GmDefaultModelElementLabel {
 
     /**
      * Creates a role name label.
+     * 
      * @param diagram the owning diagram.
      * @param role The represented role, may be null.
      * @param ref the represented role reference, must not be null.

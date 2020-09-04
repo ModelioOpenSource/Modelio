@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,8 +76,8 @@ class StorageSection {
 
     @objid ("a7466091-33f6-11e2-a514-002564c97630")
     private void fillFields() {
-        if (this.displayedProject.getPath() != null) {
-            this.storagePath.setText(this.displayedProject.getPath().toString());
+        if (this.displayedProject.getProjectFileStructure() != null) {
+            this.storagePath.setText(this.displayedProject.getProjectFileStructure().getProjectPath().toString());
             this.storageSize.setText(AppProjectConf.I18N.getString("StorageSection.ComputingSize"));
         
             // Compute storage size in another thread
@@ -89,8 +89,8 @@ class StorageSection {
                     long projectSize = -1;
                     String msg = "?";
                     try {
-                        projectSize = FileUtils.computeSize(StorageSection.this.displayedProject.getPath()) / 1024 / 1024;    //Unit: Megabyte
-                        msg = Long.toString(projectSize)+ " "+ AppProjectConf.I18N.getString("StorageSection.SizeUnit");
+                        projectSize = FileUtils.computeSize(StorageSection.this.displayedProject.getProjectFileStructure().getProjectPath()) / 1024 / 1024;    // Unit: Megabyte
+                        msg = Long.toString(projectSize) + " " + AppProjectConf.I18N.getString("StorageSection.SizeUnit");
                     } catch (FileSystemException e) {
                         AppProjectConf.LOG.warning(e);
                         msg = FileUtils.getLocalizedMessage(e);
@@ -98,14 +98,15 @@ class StorageSection {
                         AppProjectConf.LOG.warning(e);
                         msg = e.getLocalizedMessage();
                     }
-                    
+        
                     final String textContent = msg;
-                        
+        
                     display.asyncExec(new Runnable() {
                         @Override
                         public void run() {
-                            if (lstorageSize.isDisposed())
+                            if (lstorageSize.isDisposed()) {
                                 return;
+                            }
         
                             lstorageSize.setText(textContent);
                         }
@@ -121,7 +122,7 @@ class StorageSection {
         this.storageSize.setEnabled(true);
         
         try {
-            this.projectDate.setText(Files.getLastModifiedTime(this.displayedProject.getPath().resolve("project.conf")).toString()); //$NON-NLS-1$
+            this.projectDate.setText(Files.getLastModifiedTime(this.displayedProject.getProjectFileStructure().getProjectConfFile()).toString());
         } catch (IOException e) {
             this.projectDate.setText(""); //$NON-NLS-1$
         }
@@ -152,30 +153,30 @@ class StorageSection {
         composite.setLayout(layout);
         
         // Storage path
-        Label storageLabel = toolkit.createLabel(composite, AppProjectConf.I18N.getString("StorageSection.Path"), SWT.NULL); //$NON-NLS-1$ 
+        Label storageLabel = toolkit.createLabel(composite, AppProjectConf.I18N.getString("StorageSection.Path"), SWT.NULL); //$NON-NLS-1$
         storageLabel.setLayoutData(new GridData(SWT.RIGHT, SWT.FILL, false, true));
         
-        this.storagePath = toolkit.createText(composite, "", SWT.NULL); //$NON-NLS-1$ 
+        this.storagePath = toolkit.createText(composite, "", SWT.NULL); //$NON-NLS-1$
         this.storagePath.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         this.storagePath.setEditable(false);
         this.storagePath.setForeground(UIColor.LABEL_TIP_FG);
         this.storagePath.setBackground(UIColor.TEXT_READONLY_BG);
         
         // Project date
-        Label dateLabel = toolkit.createLabel(composite, AppProjectConf.I18N.getString("StorageSection.Date"), SWT.NULL); //$NON-NLS-1$ 
+        Label dateLabel = toolkit.createLabel(composite, AppProjectConf.I18N.getString("StorageSection.Date"), SWT.NULL); //$NON-NLS-1$
         dateLabel.setLayoutData(new GridData(SWT.RIGHT, SWT.FILL, false, true));
         
-        this.projectDate = toolkit.createText(composite, "", SWT.NULL); //$NON-NLS-1$ 
+        this.projectDate = toolkit.createText(composite, "", SWT.NULL); //$NON-NLS-1$
         this.projectDate.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         this.projectDate.setEditable(false);
         this.projectDate.setForeground(UIColor.LABEL_TIP_FG);
         this.projectDate.setBackground(UIColor.TEXT_READONLY_BG);
         
         // Project date
-        Label sizeLabel = toolkit.createLabel(composite, AppProjectConf.I18N.getString("StorageSection.Size"), SWT.NULL); //$NON-NLS-1$ 
+        Label sizeLabel = toolkit.createLabel(composite, AppProjectConf.I18N.getString("StorageSection.Size"), SWT.NULL); //$NON-NLS-1$
         sizeLabel.setLayoutData(new GridData(SWT.RIGHT, SWT.FILL, false, true));
         
-        this.storageSize = toolkit.createText(composite, "", SWT.NULL); //$NON-NLS-1$ 
+        this.storageSize = toolkit.createText(composite, "", SWT.NULL); //$NON-NLS-1$
         this.storageSize.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         this.storageSize.setEditable(false);
         this.storageSize.setForeground(UIColor.LABEL_TIP_FG);

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public class OAbstraction extends ODependency {
 
     /**
      * A constructor with the exported org.eclipse.uml2.uml.Abstraction
+     * 
      * @param abstraction The exported org.eclipse.uml2.uml.Abstraction
      */
     @objid ("8bcfee2b-9d02-42f1-a25a-da258e9d3eb5")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public abstract class GmElementLabel extends GmSimpleNode {
 
     /**
      * Creates a label
+     * 
      * @param diagram The diagram
      * @param relatedRef a reference to the element this GmModel is related to.
      */
@@ -77,6 +78,7 @@ public abstract class GmElementLabel extends GmSimpleNode {
      * Get the label to display.
      * <p>
      * If the label is not initialized yet, calls {@link #refreshFromObModel()}.
+     * 
      * @return The label to display.
      */
     @objid ("7e8dd0f8-1dec-11e2-8cad-001ec947c8cc")
@@ -167,6 +169,7 @@ public abstract class GmElementLabel extends GmSimpleNode {
      * Computes the displayed element symbol.
      * <p>
      * This method is called by {@link #refreshFromObModel()}.
+     * 
      * @return the displayed main label.
      */
     @objid ("7e90335c-1dec-11e2-8cad-001ec947c8cc")

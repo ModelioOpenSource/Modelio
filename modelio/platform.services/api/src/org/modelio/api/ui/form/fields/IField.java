@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,6 +56,7 @@ public interface IField {
     /**
      * Add a change listener to this field
      * @see #PROP_VALUE
+     * 
      * @param listener a listener
      * @since Valkyrie 3.8
      */
@@ -94,6 +95,7 @@ public interface IField {
      * <p>
      * Returns null when the value is valid.
      * Tells whether the value may be applied or it is invalid.
+     * 
      * @return null if {@link #apply()} may be called safely, an error message in other cases.
      * @since Valkyrie 3.8
      */
@@ -124,6 +126,7 @@ public interface IField {
 
     /**
      * Remove a change listener
+     * 
      * @param listener the listener to remove.
      * @since Valkyrie 3.8
      */

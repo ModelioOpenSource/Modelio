@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class Macro {
      * Creates a new macro in a catalog.
      * <p>
      * The macro is not added to the catalog, {@link Catalog#addMacro(Macro)} has to be called after.
+     * 
      * @param catalog the catalog that contains the macro.
      */
     @objid ("009323a8-b64c-106a-bf4f-001ec947cd2a")
@@ -84,6 +85,7 @@ public class Macro {
 
     /**
      * Add a metaclass on which the macro can be run.
+     * 
      * @param classname a metaclass name.
      */
     @objid ("0093245c-b64c-106a-bf4f-001ec947cd2a")
@@ -93,6 +95,7 @@ public class Macro {
 
     /**
      * Get the catalog where the macro is stored.
+     * 
      * @return the macro catalog.
      */
     @objid ("009324f2-b64c-106a-bf4f-001ec947cd2a")
@@ -102,6 +105,7 @@ public class Macro {
 
     /**
      * get the macro description
+     * 
      * @return the description
      */
     @objid ("00932588-b64c-106a-bf4f-001ec947cd2a")
@@ -113,6 +117,7 @@ public class Macro {
 
     /**
      * Get the location of the script. The returned Path is an absolute Path.
+     * 
      * @return The location of the script.
      */
     @objid ("00932614-b64c-106a-bf4f-001ec947cd2a")
@@ -122,6 +127,7 @@ public class Macro {
 
     /**
      * Get the metaclasses on which the macro can be run.
+     * 
      * @return the metaclasses set.
      */
     @objid ("00932740-b64c-106a-bf4f-001ec947cd2a")
@@ -131,6 +137,7 @@ public class Macro {
 
     /**
      * Get the macro name.
+     * 
      * @return the macro name.
      */
     @objid ("009327d6-b64c-106a-bf4f-001ec947cd2a")
@@ -142,6 +149,7 @@ public class Macro {
 
     /**
      * Get the location of the script. The returned Path is an absolute Path.
+     * 
      * @return The location of the script.
      */
     @objid ("00932876-b64c-106a-bf4f-001ec947cd2a")
@@ -151,6 +159,7 @@ public class Macro {
 
     /**
      * Tells whether the script can be run on the given elements.
+     * 
      * @param selectedElements a list of elements on which the script will be run
      * @return true if the script is runnable on the selection, false in the other case.
      */
@@ -204,6 +213,7 @@ public class Macro {
 
     /**
      * set the macro description.
+     * 
      * @param string the new description.
      */
     @objid ("00932a24-b64c-106a-bf4f-001ec947cd2a")
@@ -215,6 +225,7 @@ public class Macro {
 
     /**
      * Set the absolute macro icon path.
+     * 
      * @param iconPath The absolute Path to the script icon
      */
     @objid ("00932aba-b64c-106a-bf4f-001ec947cd2a")
@@ -224,6 +235,7 @@ public class Macro {
 
     /**
      * Set the metaclasses on which the macro can be run.
+     * 
      * @param newset the metaclass name set.
      */
     @objid ("00932bdc-b64c-106a-bf4f-001ec947cd2a")
@@ -233,6 +245,7 @@ public class Macro {
 
     /**
      * Set the macro name.
+     * 
      * @param value the new macro name.
      */
     @objid ("00932c72-b64c-106a-bf4f-001ec947cd2a")
@@ -242,6 +255,7 @@ public class Macro {
 
     /**
      * Set the macro absolute path.
+     * 
      * @param scriptPath The absolute Path to the script
      */
     @objid ("00932cfe-b64c-106a-bf4f-001ec947cd2a")
@@ -251,6 +265,7 @@ public class Macro {
 
     /**
      * Set whether the macro is shown in the contextual menu.
+     * 
      * @param showInContextualMenu true to show the macro in the menu, else false.
      */
     @objid ("00932e20-b64c-106a-bf4f-001ec947cd2a")
@@ -260,6 +275,7 @@ public class Macro {
 
     /**
      * Set whether the macro is shown in the tool bar.
+     * 
      * @param showInToolbar true to show the macro in the tool bar, else false.
      */
     @objid ("00932eb6-b64c-106a-bf4f-001ec947cd2a")
@@ -269,6 +285,7 @@ public class Macro {
 
     /**
      * Tells whether the macro is shown in the contextual menu.
+     * 
      * @return the showInContextualMenu
      */
     @objid ("00932f4c-b64c-106a-bf4f-001ec947cd2a")
@@ -278,6 +295,7 @@ public class Macro {
 
     /**
      * Tells whether the macro is shown in the tool bar.
+     * 
      * @return the showInToolbar
      */
     @objid ("00932fd8-b64c-106a-bf4f-001ec947cd2a")
@@ -287,6 +305,7 @@ public class Macro {
 
     /**
      * Move the macro to another catalog. change the script and icon relative paths to point to the same files.
+     * 
      * @param newCatalog the new catalog.
      */
     @objid ("0093306e-b64c-106a-bf4f-001ec947cd2a")

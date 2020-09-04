@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class TFormalExpression extends TExpression {
 
     /**
      * Sets the value of the language property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -98,6 +99,7 @@ public class TFormalExpression extends TExpression {
 
     /**
      * Sets the value of the evaluatesToTypeRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ import org.modelio.vcore.utils.UUBase64Compressor;
 
 /**
  * Migrates references written in the diagram data string.
+ * 
  * @author cma
  * @since 3.6
  */
@@ -104,7 +105,6 @@ class MofDiagramMigrator {
         
         this.logger.printf("    Diagram metaclasses: %s\n", diagramMetaclasses);
         
-        
         // Iterate all diagram instances
         for (MClass diagMc : diagramMetaclasses) {
             if (!diagMc.isAbstract()) {
@@ -121,28 +121,35 @@ class MofDiagramMigrator {
     private void migrateDiagram(MofSmObjectImpl diag) throws MofMigrationException {
         this.logger.printf("     Processing %s ...\n", diag);
         
-        String origCompressedData = (String) diag.getAtt("UiData");
+        String rawData = (String) diag.getAtt("UiData");
         
-        if (origCompressedData==null || origCompressedData.isEmpty()) {
+        if (rawData == null || rawData.isEmpty()) {
             this.logger.printf("       %s has no data.\n", diag);
             return;
         }
         
-        String origData = UUBase64Compressor.decompress(origCompressedData);
-        StringWriter outw = new StringWriter(origData.length());
+        if (!rawData.startsWith("<?xml")) {
+            // compressed format
+            rawData = UUBase64Compressor.decompress(rawData);
+            if (rawData == null) {
+                // Let it fail later
+                rawData = "";
+            }
+        }
+        StringWriter outw = new StringWriter(rawData.length());
         
         boolean changeDone = false;
         try {
-            changeDone = convertDiagramContent(diag, origData, outw);
+            changeDone = convertDiagramContent(diag, rawData, outw);
         } catch (XMLStreamException e) {
-            this.logger.printf("      Failed migrating '%s' at %s: %s\n", diag,toString(e.getLocation()), e.getMessage());
-            this.logger.printf("      '%s' data is :\n%s\n--------\n", diag, origData.replace("\n", "\n      "));
-            throw new MofMigrationException(toString(e.getLocation())+": "+e.getLocalizedMessage(), e);
+            this.logger.printf("      Failed migrating '%s' at %s: %s\n", diag, toString(e.getLocation()), e.getMessage());
+            this.logger.printf("      '%s' data is :\n%s\n--------\n", diag, rawData.replace("\n", "\n      "));
+            throw new MofMigrationException(toString(e.getLocation()) + ": " + e.getLocalizedMessage(), e);
         }
         
         if (changeDone) {
             String newXml = outw.toString();
-            //this.logger.printf("    %s : ui data rewriten to :\n%s\n--------\n", diag, newXml.replace("\n", "\n      "));
+            // this.logger.printf(" %s : ui data rewriten to :\n%s\n--------\n", diag, newXml.replace("\n", "\n "));
             String newDiagData = UUBase64Compressor.compress(newXml);
             diag.setAttVal("UiData", newDiagData);
             this.logger.printf("      %s diagram references migrated.\n", diag);
@@ -157,6 +164,7 @@ class MofDiagramMigrator {
     /**
      * Copied from {@link org.modelio.diagram.persistence.XmlDiagramReader#convertToMRef(String)}
      * @param val
+     * 
      * @return the MRef
      */
     @objid ("d0164a92-3659-407b-b040-aff73983ba52")
@@ -166,6 +174,7 @@ class MofDiagramMigrator {
 
     /**
      * Add an identifier to change to another
+     * 
      * @param orig the original reference.
      * @param newRef the replacement reference .
      */
@@ -187,7 +196,7 @@ class MofDiagramMigrator {
                 XMLEvent event = reader.nextEvent();
                 if (isRewrittenMRefState) {
                     if (event.getEventType() == XMLStreamConstants.ATTRIBUTE) {
-                        // skip all attributes, already handled by START_ELEMENT 
+                        // skip all attributes, already handled by START_ELEMENT
                     } else if (event.getEventType() == XMLStreamConstants.END_ELEMENT) {
                         // exit <Value ...> tag
                         isRewrittenMRefState = false;
@@ -200,7 +209,7 @@ class MofDiagramMigrator {
                         Attribute typeAtt = startElement.getAttributeByName(new QName("type"));
                         Attribute valAtt = startElement.getAttributeByName(new QName("value"));
                         if (typeAtt != null && valAtt != null && "MRef".equals(typeAtt.getValue())) {
-                            // <Value  type='MRef' value='Metaclass uuid'/>
+                            // <Value type='MRef' value='Metaclass uuid'/>
                             String oldValue = valAtt.getValue();
                             String migratedRefVal = getMigratedRefVal(oldValue);
                             if (!Objects.equals(oldValue, migratedRefVal)) {
@@ -209,8 +218,8 @@ class MofDiagramMigrator {
                                 Attribute migratedAtt = this.xEventFactory.createAttribute("value", migratedRefVal);
         
                                 StartElement ev2 = this.xEventFactory.createStartElement(
-                                        startElement.getName(), 
-                                        Arrays.asList(typeAtt, migratedAtt).iterator(), 
+                                        startElement.getName(),
+                                        Arrays.asList(typeAtt, migratedAtt).iterator(),
                                         startElement.getNamespaces());
                                 writer.add(ev2);
                                 isRewrittenMRefState = true;
@@ -226,7 +235,7 @@ class MofDiagramMigrator {
                         }
                     }
                 }
-                if (! isRewrittenMRefState) {
+                if (!isRewrittenMRefState) {
                     writer.add(event);
                 }
             }
@@ -239,7 +248,7 @@ class MofDiagramMigrator {
         if (loc == null) {
             return "";
         } else {
-            return "l"+loc.getLineNumber()+" c"+loc.getColumnNumber();
+            return "l" + loc.getLineNumber() + " c" + loc.getColumnNumber();
         }
     }
 
@@ -251,6 +260,7 @@ class MofDiagramMigrator {
 
     /**
      * {@link AutoCloseable} function to close an {@link XMLEventReader} or {@link XMLEventWriter}.
+     * 
      * @author cma
      * @since 3.7
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 public class GeomUtils {
     /**
      * Get the direction of the given point relative to the given rectangle. Will return one of the Direction.EAST, Direction.WEST, Direction.SOUTH, Direction.NORTH directions. The rectangle diagonals are used as separation between directions.
+     * 
      * @param p the point to evaluate
      * @param rect The rectangle
      * @return the direction or Direction.NONE if the point is the center of the rectangle.
@@ -75,6 +76,7 @@ public class GeomUtils {
 
     /**
      * Get the intersection between the rectangle and the line formed by the 2 given points
+     * 
      * @param p1 first point of the line
      * @param p2 last point of the line. Also used as reference to choose the nearest intersection point.
      * @param r a rectangle
@@ -95,6 +97,7 @@ public class GeomUtils {
 
     /**
      * Get the nearest point from the given one among 2 candidates points.
+     * 
      * @param origin first candidate
      * @param destination second candidate
      * @param p the point to evaluate
@@ -110,6 +113,7 @@ public class GeomUtils {
 
     /**
      * Return the point that is the nearest from the given reference point.
+     * 
      * @param candidates Candidates points
      * @param ref Reference point
      * @return the nearest point or <tt>null</tt> if the collection is empty.
@@ -133,6 +137,7 @@ public class GeomUtils {
 
     /**
      * Get the intersection between the rectangle and the line formed by the 2 given points
+     * 
      * @param p1 first point of the line
      * @param p2 last point of the line. Also used as reference to choose the nearest intersection point.
      * @param r a rectangle
@@ -164,6 +169,7 @@ public class GeomUtils {
     /**
      * Get the intersection between the given lines and the given segment.
      * @param segment
+     * 
      * @param p1 first point of line
      * @param p2 other point of line
      * @return the intersection between the given line and the given segment.
@@ -182,6 +188,7 @@ public class GeomUtils {
 
     /**
      * Get the intersection point between the p1-p2 segment and the p3-p4 segment.
+     * 
      * @param p1 1st segment begin
      * @param p2 1st segment end
      * @param p3 2nd segment begin
@@ -258,6 +265,7 @@ public class GeomUtils {
 
     /**
      * Convert the given direction to horizontal or vertical
+     * 
      * @param anchorRelativeLocation PositionConstants.NORTH, PositionConstants.SOUTH, PositionConstants.EAST or PositionConstants.WEST
      * @return PositionConstants.HORIZONTAL or PositionConstants.VERTICAL.
      */

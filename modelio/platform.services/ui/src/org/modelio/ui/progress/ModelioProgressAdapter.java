@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class ModelioProgressAdapter implements IModelioProgress {
      * 
      * <p>This method should generally be called at the beginning of a method that accepts
      * an IModelioProgress in order to convert the IModelioProgress into a SubProgress.</p>
+     * 
      * @param initialMonitor to convert into a SubProgress instance or null. If given a <code>null</code> argument,
      * the resulting SubProgress will not report its progress anywhere.
      * @param taskName user readable name to pass to monitor.beginTask(). Never <code>null</code>.
@@ -61,6 +62,7 @@ public class ModelioProgressAdapter implements IModelioProgress {
      * 
      * <p>This method should generally be called at the beginning of a method that accepts
      * an IModelioProgress in order to convert the IModelioProgress into a SubProgress.</p>
+     * 
      * @param initialMonitor to convert into a SubProgress instance or null. If given a <code>null</code> argument,
      * the resulting SubProgress will not report its progress anywhere.
      * @param work initial number of ticks to allocate for children of the SubProgress
@@ -73,6 +75,7 @@ public class ModelioProgressAdapter implements IModelioProgress {
 
     /**
      * Initialize a Modelio progress monitor from an Eclipse progress monitor.
+     * 
      * @param wrapped the wrapped Eclipse progress monitor.
      */
     @objid ("1dcca0a3-3a40-490a-921e-45366db1102b")

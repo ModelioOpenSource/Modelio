@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class LaneSymbolProvider {
 
     /**
      * Get the lane label at the following format: "name : type"
+     * 
      * @param elementNamer service that assigns a default name to new model elements.
      * @param lane the lane
      * @return the computed label
@@ -81,6 +82,7 @@ public class LaneSymbolProvider {
 
     /**
      * Get the lane label at the following format: "name : type"
+     * 
      * @param elementNamer service that assigns a default name to new model elements.
      * @param elt the lane or participant
      * @return the computed label

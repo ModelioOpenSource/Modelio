@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class AddChildToGroupCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param parentEditPart The parent editPart
      * @param context Details on the MObject and/or the node to create
      * @param insertAfter The editPart used as reference for insertion at the correct place.

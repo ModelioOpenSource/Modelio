@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,9 +42,9 @@ import org.modelio.diagram.editor.DiagramCommandStack;
 import org.modelio.diagram.editor.DiagramEditorInput;
 import org.modelio.diagram.editor.DiagramEditorInputProvider;
 import org.modelio.diagram.editor.IDiagramEditor;
-import org.modelio.diagram.editor.handlers.ImageBuilder;
 import org.modelio.diagram.editor.plugin.DiagramEditorsManager;
 import org.modelio.diagram.editor.silent.SilentDiagramEditor;
+import org.modelio.diagram.elements.common.abstractdiagram.ImageBuilder;
 import org.modelio.diagram.elements.common.freezone.ILayoutAssistant;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
@@ -90,6 +90,7 @@ public final class DiagramHandle implements IDiagramHandle {
 
     /**
      * Creates and returns a DiagramHandle for the given diagram. It is the caller's responsibility to call {@link #close()} on the handle once it isn't needed anymore.
+     * 
      * @param abstractDiagram the diagram model element.
      * @param manager a diagram model manager
      * @param projectService the project service
@@ -113,6 +114,7 @@ public final class DiagramHandle implements IDiagramHandle {
      * Creates and returns a DiagramHandle for the given diagram editor.
      * <p>
      * It is the caller's responsibility to call {@link #close()} on the handle once it isn't needed anymore.
+     * 
      * @param editor a diagram editor.
      * @param performValidation whether or not to force a validation on the diagram's figure.
      * @return a diagram handle
@@ -161,6 +163,7 @@ public final class DiagramHandle implements IDiagramHandle {
 
     /**
      * Returns the edit part for the passed object.
+     * 
      * @param gmObject the graphic object model
      * @return the edit part
      */
@@ -186,7 +189,7 @@ public final class DiagramHandle implements IDiagramHandle {
     @Override
     public void save() {
         getDiagramEditorInput().getGmDiagram().refreshAllFromObModel();
-        getDiagramEditorInput().getGmDiagram().getPersister().save(true);
+        getDiagramEditorInput().getGmDiagram().save(true);
     }
 
     @objid ("0ac50eb5-b841-4c14-81e2-a213a221030f")
@@ -278,6 +281,7 @@ public final class DiagramHandle implements IDiagramHandle {
      * Tells whether the layout assistant is disabled in the viewer properties.
      * <p>
      * The layout assistant may be disabled temporarily (without modifying the model) by setting {@link ILayoutAssistant#VIEWPROP_ENABLED} property id to <i>false</i>.
+     * 
      * @return whether the layout assistant is disabled in the viewer properties.
      */
     @objid ("1c07a6cb-76a3-46b0-aa14-c0f2eecd2f1b")

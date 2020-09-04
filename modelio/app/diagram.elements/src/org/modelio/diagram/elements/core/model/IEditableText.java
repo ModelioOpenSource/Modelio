@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ public interface IEditableText {
      * Get the text to display in the edit field.
      * <p>
      * This text is usually the element name. It could be the element signature.
+     * 
      * @return the text to display in the edit field.
      */
     @objid ("80801c6f-1dec-11e2-8cad-001ec947c8cc")
@@ -38,6 +39,7 @@ public interface IEditableText {
 
     /**
      * Set the represented model element name or signature.
+     * 
      * @param text the new element name or signature.
      */
     @objid ("80801c72-1dec-11e2-8cad-001ec947c8cc")

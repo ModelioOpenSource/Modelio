@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,9 @@ import org.modelio.vcore.smkernel.mapi.MAttribute;
  */
 @objid ("a5be3576-6aa1-462c-ac90-b20d1e39b9d6")
 public class MAttributeFieldData implements IFormFieldData {
+    @objid ("da7a6bcf-0035-4112-bd1b-4d4b98843908")
+    private final String label;
+
     @objid ("b61be070-73ac-48d9-a47e-e92ed0f48b9c")
     private final ModelElement elt;
 
@@ -40,20 +43,36 @@ public class MAttributeFieldData implements IFormFieldData {
 
     /**
      * Initialize the field.
+     * 
+     * @param session the modeling session to use to modify the model
+     * @param elt the element being edited.
+     * @param mAtt the element's meta-attribute being edited.
+     * @param label the label to be displayed for this field.
+     * @since 4.0
+     */
+    @objid ("12d1963f-f562-4ee4-96b1-a3776d776084")
+    public MAttributeFieldData(final IModelingSession session, ModelElement elt, MAttribute mAtt, String label) {
+        this.elt = elt;
+        this.type = new MAttributeFieldType(session, mAtt);
+        this.label = label;
+    }
+
+    /**
+     * Initialize the field using the meta-attribute's name as a label.
+     * 
      * @param session the modeling session to use to modify the model
      * @param elt the element being edited.
      * @param mAtt the element's meta-attribute being edited.
      */
     @objid ("a756afe9-4853-48c0-879b-c782e9e2ad29")
     public MAttributeFieldData(final IModelingSession session, ModelElement elt, MAttribute mAtt) {
-        this.elt = elt;
-        this.type = new MAttributeFieldType(session, mAtt);
+        this(session, elt, mAtt, mAtt.getName());
     }
 
     @objid ("cac12dca-1b31-4565-9fcd-d5863de30627")
     @Override
     public String getName() {
-        return this.type.getName();
+        return this.label;
     }
 
     @objid ("51ac549a-b374-468e-8d5e-2c7480cc0aec")
@@ -133,6 +152,7 @@ public class MAttributeFieldData implements IFormFieldData {
 
         /**
          * Set the value of the {@link #mAtt} on an element.
+         * 
          * @param elt the element to set a value in.
          * @param value the value to set.
          */
@@ -159,6 +179,7 @@ public class MAttributeFieldData implements IFormFieldData {
 
         /**
          * Get the value of the current {@link #mAtt} on an element.
+         * 
          * @param elt the element to look for a value in.
          * @return the value of the property. Might be <code>null</code>.
          */

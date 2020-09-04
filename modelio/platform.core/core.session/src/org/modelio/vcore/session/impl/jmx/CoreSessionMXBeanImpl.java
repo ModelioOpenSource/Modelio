@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -100,6 +100,7 @@ public class CoreSessionMXBeanImpl implements ICoreSessionMXBean {
      * Get the JMX adapter wrapping the actual {@link ISwap} implementation.
      * <p>
      * The returned wrapper also implements {@link ISwapMXBean}.
+     * 
      * @return the JMX swap adapter.
      */
     @objid ("dca91265-493b-11e2-91c9-001ec947ccaf")

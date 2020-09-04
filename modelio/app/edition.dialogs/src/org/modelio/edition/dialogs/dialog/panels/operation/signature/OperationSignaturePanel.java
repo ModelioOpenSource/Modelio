@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,15 +24,23 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.resource.FontDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
+import org.eclipse.jface.viewers.StyledString.Styler;
+import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyleRange;
+import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.TextStyle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.modelio.core.ui.swt.images.ElementImageService;
 import org.modelio.edition.dialogs.dialog.panels.operation.IOperationPropertyModel;
 import org.modelio.metamodel.uml.statik.Parameter;
+import org.modelio.ui.CoreFontRegistry;
+import org.modelio.ui.UIColor;
 import org.modelio.ui.panel.IPanelProvider;
 
 /**
@@ -43,17 +51,17 @@ import org.modelio.ui.panel.IPanelProvider;
  */
 @objid ("093046bf-e6b1-43f3-b586-0ebfb9763635")
 public class OperationSignaturePanel implements IPanelProvider {
-    @objid ("3cfe2de5-29ab-46ce-8200-bf30d59ee2bb")
-    private IOperationPropertyModel opModel;
-
-    @objid ("fbf7b81c-ea8a-4a03-88e3-bb5935dd25e4")
+    @objid ("7ddf6b52-9524-4d9e-8f9b-836629c16b0d")
     private Composite container;
 
-    @objid ("160748a7-2e1e-4ce0-92d0-de2780afd005")
-    private Label previewLabel;
+    @objid ("963ab53c-0f7b-4a75-bea4-fe09dd2e187a")
+    private StyledText previewLabel;
 
-    @objid ("8676d0f8-9df9-499c-96d4-10f77897c3ac")
+    @objid ("b82541ff-af0b-4f2d-a4b5-3dc95c946283")
      Label previewIcon;
+
+    @objid ("3cfe2de5-29ab-46ce-8200-bf30d59ee2bb")
+    private IOperationPropertyModel opModel;
 
     @objid ("cd5bb156-2e3d-4087-b592-62a0408245a4")
     @Override
@@ -69,9 +77,10 @@ public class OperationSignaturePanel implements IPanelProvider {
         this.previewIcon = new Label(this.container, SWT.NONE);
         this.previewIcon.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
         
-        this.previewLabel = new Label(this.container, SWT.NONE);
-        GridData gd = new GridData(SWT.FILL, SWT.FILL, true, false);
+        this.previewLabel = new StyledText(this.container, SWT.WRAP);
+        GridData gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
         this.previewLabel.setLayoutData(gd);
+        this.previewLabel.setBackground(this.previewLabel.getParent().getBackground());
         return this.container;
     }
 
@@ -86,7 +95,12 @@ public class OperationSignaturePanel implements IPanelProvider {
     public void setInput(Object input) {
         if (input instanceof IOperationPropertyModel) {
             this.opModel = (IOperationPropertyModel) input;
-            this.previewLabel.setText(new OpSignatureBuilder().getSignature(this.opModel));
+        
+            StyledString signature = new OpSignatureBuilder(this.opModel).getSignature();
+            StyleRange[] styleRanges = signature.getStyleRanges();
+        
+            this.previewLabel.setText(signature.getString());
+            this.previewLabel.setStyleRanges(styleRanges);
         
             if (this.opModel.isAbstract()) {
                 LocalResourceManager res = new LocalResourceManager(JFaceResources.getResources(), this.container);
@@ -102,6 +116,8 @@ public class OperationSignaturePanel implements IPanelProvider {
             this.previewLabel.setText("");
             this.previewIcon.setImage(null);
         }
+        // As the label can wrap or unwrap depending on its contents length, fire a layout on the container parent in order to adapt the layout to the new size.
+        this.container.getParent().layout(true, true);
     }
 
     @objid ("56aea30f-f43c-4fa8-a4e1-58ed7122d111")
@@ -130,30 +146,63 @@ public class OperationSignaturePanel implements IPanelProvider {
 
     @objid ("c1557bc0-27ae-4791-acfd-53db6077833c")
     private static class OpSignatureBuilder {
+        @objid ("bdc3f8ef-efac-48dc-8f0a-df9acb80415f")
+        private Styler nameStyler;
+
+        @objid ("9dacf6b9-5fea-4fab-bc2b-51e9a3ec40d4")
+        private Styler syntaxStyler;
+
+        @objid ("9a92b14e-e326-4f6c-83de-5a63dd64205a")
+        private Styler typeStyler;
+
+        @objid ("2e910848-d702-4bed-a57c-40875dae76d2")
+        private Styler returnTypeStyler;
+
+        @objid ("73fa4e9f-c751-421a-b40e-12fe6520ddf2")
+        private static final Font normalFont = CoreFontRegistry.getFont(Display.getCurrent().getSystemFont().getFontData());
+
+        @objid ("c7a8afed-9adc-4dd4-b5ac-3377f66a55ac")
+        private static final Font italicFont = CoreFontRegistry.getModifiedFont(normalFont, SWT.ITALIC, 1.0f);
+
+        @objid ("1a0c307c-c4ff-40b8-8179-49fb626b711e")
+        private static final Font boldFont = CoreFontRegistry.getModifiedFont(normalFont, SWT.BOLD, 1.0f);
+
+        @objid ("c514599d-6a5a-4b65-8bca-6a307dd0a86b")
+        private static final Font italicBoldFont = CoreFontRegistry.getModifiedFont(normalFont, SWT.BOLD | SWT.ITALIC, 1.0f);
+
+        @objid ("9692a6e5-181f-4236-9f69-8e708b975da5")
+        private IOperationPropertyModel opModel;
+
         @objid ("db3601d9-040a-4db3-95c4-1002e6665369")
-        public String getSignature(IOperationPropertyModel opModel) {
-            StringBuilder s = new StringBuilder();
+        public StyledString getSignature() {
+            StyledString ss = new StyledString();
             
-            s.append(getVisibility(opModel));
-            s.append(" ");
-            s.append(opModel.getName());
-            s.append(" (");
+            ss.append(getVisibility(this.opModel), this.syntaxStyler);
+            ss.append(" ");
+            ss.append(this.opModel.getName(), this.nameStyler);
+            ss.append(" (", this.syntaxStyler);
             
-            IOParamSignatureBuilder pb = new IOParamSignatureBuilder();
-            for (int i = 0; i < opModel.getIOParameterSize(); i++) {
-                s.append(pb.getSignature(opModel.getParameter(i)));
-                if (i != opModel.getIOParameterSize() - 1) {
-                    s.append(", ");
+            // StringBuilder s = new StringBuilder();
+            // s.append(getVisibility(opModel));
+            // s.append(" ");
+            // s.append(opModel.getName());
+            // s.append(" (");
+            
+            IOParamSignatureBuilder pb = new IOParamSignatureBuilder(this);
+            for (int i = 0; i < this.opModel.getIOParameterSize(); i++) {
+                ss.append(pb.getSignature(this.opModel.getParameter(i)));
+                if (i != this.opModel.getIOParameterSize() - 1) {
+                    ss.append(", ", this.syntaxStyler);
                 }
             }
             
-            s.append(")");
+            ss.append(")");
             
-            Parameter returnParameter = opModel.getReturnParameter();
+            Parameter returnParameter = this.opModel.getReturnParameter();
             if (returnParameter != null) {
-                s.append(pb.getSignature(returnParameter));
+                ss.append(pb.getSignature(returnParameter));
             }
-            return s.toString();
+            return ss;
         }
 
         @objid ("f73af903-8374-49f9-86b9-aaf6aeb0bfc3")
@@ -174,32 +223,97 @@ public class OperationSignaturePanel implements IPanelProvider {
             }
         }
 
+        @objid ("7cbab773-07d5-4623-b399-10edf4eb4e1c")
+        public OpSignatureBuilder(IOperationPropertyModel opModel) {
+            this.opModel = opModel;
+            
+            this.nameStyler = new Styler() {
+                @Override
+                public void applyStyles(final TextStyle textStyle) {
+                    textStyle.font = opModel.isAbstract() ? italicBoldFont : boldFont;
+                    textStyle.underline = opModel.isClass();
+                    textStyle.foreground = UIColor.BLUE;
+                }
+            };
+            this.syntaxStyler = new Styler() {
+                @Override
+                public void applyStyles(final TextStyle textStyle) {
+                    textStyle.font = opModel.isAbstract() ? italicBoldFont : boldFont;
+                    textStyle.underline = opModel.isClass();
+                    textStyle.foreground = UIColor.GRAY;
+                }
+            };
+            this.typeStyler = new Styler() {
+                @Override
+                public void applyStyles(final TextStyle textStyle) {
+                    textStyle.font = opModel.isAbstract() ? italicBoldFont : boldFont;
+                    textStyle.underline = opModel.isClass();
+                    textStyle.foreground = UIColor.GREEN;
+                }
+            };
+            this.returnTypeStyler = new Styler() {
+                @Override
+                public void applyStyles(final TextStyle textStyle) {
+                    textStyle.font = opModel.isAbstract() ? italicBoldFont : boldFont;
+                    textStyle.underline = opModel.isClass();
+                    textStyle.foreground = UIColor.BROWN;
+                }
+            };
+        }
+
+        @objid ("cb14b989-685c-4c9d-a210-1fd072a19c61")
+        public Styler getNameStyler() {
+            return this.nameStyler;
+        }
+
+        @objid ("4a2c7440-c20d-4bd3-bfcc-0a78f600dd32")
+        public Styler getSyntaxStyler() {
+            return this.syntaxStyler;
+        }
+
+        @objid ("78af6a1a-f8c1-4728-95f0-eac11f6acd2e")
+        public Styler getTypeStyler() {
+            return this.typeStyler;
+        }
+
+        @objid ("c9d520ad-85cd-4c1a-9094-feb33cd43c8b")
+        public Styler getReturnTypeStyler() {
+            return this.returnTypeStyler;
+        }
+
     }
 
     @objid ("5d9c0776-00a6-4d32-9cbc-eed33fdb01b2")
     private static class IOParamSignatureBuilder {
+        @objid ("477dbbc5-982a-4ddd-a10d-d77ec5eac35f")
+        private OpSignatureBuilder opSignatureBuilder;
+
         @objid ("c6f4cf7d-6aea-4f0f-91b7-16412c521933")
-        public String getSignature(Parameter p) {
-            StringBuilder s = new StringBuilder();
+        public StyledString getSignature(Parameter p) {
+            StyledString s = new StyledString();
+            
+            boolean isReturnParameter = (p.getComposed() == null);
+            
             
             // direction name : type multiplicity = default
-            if (p.getComposed() != null) {
+            if (! isReturnParameter) {
                 // name and direction only for IO parameters
-                s.append(p.getName());
-                s.append(" ");
-                s.append(getDirection(p));
-                s.append(" ");
+                s.append(p.getName(), this.opSignatureBuilder.getNameStyler());
+                s.append(" ", this.opSignatureBuilder.getSyntaxStyler());
+                s.append(passingModeAsString(p), this.opSignatureBuilder.getSyntaxStyler());
+                s.append(" ", this.opSignatureBuilder.getSyntaxStyler());
             }
-            s.append(": ");
-            s.append((p.getType() != null) ? p.getType().getName() : "<notype>");
+            s.append(": ", this.opSignatureBuilder.getSyntaxStyler());
+            s.append((p.getType() != null) ? p.getType().getName() : "<notype>",
+                    isReturnParameter ? this.opSignatureBuilder.getReturnTypeStyler():this.opSignatureBuilder.getTypeStyler());
             
             // only show multiplicity if not 1 for both min and max
-            s.append(getMultiplicity(p));
-            return s.toString();
+            s.append(multiplicityAsString(p), this.opSignatureBuilder.getSyntaxStyler());
+            return s;
         }
 
         @objid ("dea7f209-3902-406d-a760-b511bf6ba93f")
-        private String getDirection(Parameter p) {
+        private String passingModeAsString(Parameter p) {
             switch (p.getParameterPassing()) {
             case IN:
                 return "in";
@@ -213,7 +327,7 @@ public class OperationSignaturePanel implements IPanelProvider {
         }
 
         @objid ("e2d24868-488b-4108-b6a7-4fb649240dc8")
-        private String getMultiplicity(Parameter param) {
+        private String multiplicityAsString(Parameter param) {
             StringBuilder multiplicity = new StringBuilder();
             
             String multiplicityMinStr = param.getMultiplicityMin();
@@ -243,6 +357,11 @@ public class OperationSignaturePanel implements IPanelProvider {
                 multiplicity.append("]");
             }
             return multiplicity.toString();
+        }
+
+        @objid ("73d1a55b-44cf-4ab1-855a-40ff24c20767")
+        public IOParamSignatureBuilder(OpSignatureBuilder opSignatureBuilder) {
+            this.opSignatureBuilder = opSignatureBuilder;
         }
 
     }

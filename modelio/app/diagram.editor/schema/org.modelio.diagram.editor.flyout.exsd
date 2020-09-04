@@ -25,21 +25,21 @@ No other plugin is supposed to contribute.
          <attribute name="point" type="string" use="required">
             <annotation>
                <documentation>
-                  
+
                </documentation>
             </annotation>
          </attribute>
          <attribute name="id" type="string">
             <annotation>
                <documentation>
-                  
+
                </documentation>
             </annotation>
          </attribute>
          <attribute name="name" type="string">
             <annotation>
                <documentation>
-                  
+
                </documentation>
                <appinfo>
                   <meta.attribute translatable="true"/>
@@ -54,10 +54,20 @@ No other plugin is supposed to contribute.
          <attribute name="class" type="string" use="required">
             <annotation>
                <documentation>
-                  
+
                </documentation>
                <appinfo>
                   <meta.attribute kind="java" basedOn=":org.modelio.ui.panel.IPanelProvider"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="validator" type="string">
+            <annotation>
+               <documentation>
+
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.core.rcp.extensionpoint.IExtensionPointContribution"/>
                </appinfo>
             </annotation>
          </attribute>

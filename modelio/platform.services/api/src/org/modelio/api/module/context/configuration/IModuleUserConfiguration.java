@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ public interface IModuleUserConfiguration {
     /**
      * Get the value of the parameter identified by the given <code>key</code>.<p>
      * Returns null if the key does not exist
+     * 
      * @param key Key of the parameter
      * @return The value of the <code>key</code> parameter (or null)
      */
@@ -44,6 +45,7 @@ public interface IModuleUserConfiguration {
 
     /**
      * Get all parameter values.
+     * 
      * @return A map representing the parameter name as key and the parameter value as value.
      */
     @objid ("e7981cbc-03e3-11e2-8e1f-001ec947c8cc")
@@ -51,6 +53,7 @@ public interface IModuleUserConfiguration {
 
     /**
      * Set the value of a parameter.
+     * 
      * @param key Key of the parameter
      * @param value Value to define on the parameter
      * @return <code>true</code> if the parameter is only locally defined.
@@ -60,6 +63,7 @@ public interface IModuleUserConfiguration {
 
     /**
      * Update the mdac parameters with the given ones.
+     * 
      * @param parameters The new module parameter values.
      */
     @objid ("e7981cbe-03e3-11e2-8e1f-001ec947c8cc")
@@ -68,6 +72,7 @@ public interface IModuleUserConfiguration {
     /**
      * Get the path where the files packaged with the module were deployed.
      * It allows the module to access its resource files.
+     * 
      * @return the module resources path.
      */
     @objid ("e7981cc1-03e3-11e2-8e1f-001ec947c8cc")
@@ -75,6 +80,7 @@ public interface IModuleUserConfiguration {
 
     /**
      * Returns the documentation path.
+     * 
      * @return the documentation path.
      */
     @objid ("e7981cc2-03e3-11e2-8e1f-001ec947c8cc")
@@ -86,6 +92,7 @@ public interface IModuleUserConfiguration {
     /**
      * Get the lock status of the parameter identified by the given <code>key</code>.<p>
      * A parameter is locked when defined by a Modelio server.
+     * 
      * @param key Key of the parameter
      * @return Whether or not the given parameter is locked.
      */
@@ -94,6 +101,7 @@ public interface IModuleUserConfiguration {
 
     /**
      * Returns the style path.
+     * 
      * @return the style path.
      */
     @objid ("5b1183a7-896e-4f8c-a22a-102913888a2a")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public interface IRichNoteFileRepository {
      * Get the file for a given rich note.
      * <p>
      * Extract it from blob if needed.
+     * 
      * @param doc a rich note
      * @param editor The editor willing to edit the note.
      * It will be fired if the original note is modified externally, by SVN for example. <code>null</code> means no edition.
@@ -47,6 +48,7 @@ public interface IRichNoteFileRepository {
 
     /**
      * Get the file where the firle referred by the artifact can be edited.
+     * 
      * @param art an  artifact
      * @return its file path.
      */
@@ -55,6 +57,7 @@ public interface IRichNoteFileRepository {
 
     /**
      * Get the path where the given rich note should be created.
+     * 
      * @param doc a rich note
      * @param format the rich note format
      * @return the path where the editor should save the rich note.
@@ -64,6 +67,7 @@ public interface IRichNoteFileRepository {
 
     /**
      * Save the rich note.
+     * 
      * @param doc the rich note model object.
      * @param fileToSave the rich note content
      * @throws java.io.IOException in case of failure.
@@ -73,6 +77,7 @@ public interface IRichNoteFileRepository {
 
     /**
      * To call when a rich note file is not used anymore, when the editor is closed.
+     * 
      * @param editor the editor to remove.
      */
     @objid ("077c1d91-07c2-4144-927c-762e7adb33c2")

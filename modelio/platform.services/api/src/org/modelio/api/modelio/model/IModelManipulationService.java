@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IModelManipulationService {
     /**
      * Clone the given element and attach it to the same parent.
+     * 
      * @param element the element to clone
      * @return the cloned element
      */
@@ -39,6 +40,7 @@ public interface IModelManipulationService {
     /**
      * Copy the given elements under another one.
      * The destination may be in the same project or another open project.
+     * 
      * @param elements The elements to copy.
      * @param to The destination element
      * @return The copied element for each element to copy.
@@ -52,6 +54,7 @@ public interface IModelManipulationService {
      * <p>
      * Warning: do not use for elements having several parents like constraint, has it is equivalent to moveTo(elements, to, null).
      * </p>
+     * 
      * @param elements The elements to copy.
      * @param to The destination element
      */
@@ -61,6 +64,7 @@ public interface IModelManipulationService {
     /**
      * Move the given elements under another one.
      * The destination must be in the same project.
+     * 
      * @param elements The elements to copy.
      * @param to The destination element
      * @param oldParentHint the old parent to detach the elements from. <b>Mandatory</b> for elements having several parents (like {@link Constraint}), optional otherwise.

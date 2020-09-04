@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class ChangeLinkRoutingConstraintCommand extends Command {
 
     /**
      * Creates a command that changes the routing constraint of the given connection.
+     * 
      * @param path the new path
      * @param connectionEP the edit part of the connection to modify.
      */
@@ -127,6 +128,7 @@ public class ChangeLinkRoutingConstraintCommand extends Command {
 
     /**
      * Get the anchor owner (handle)bounds in absolute coordinates. If the anchor is not attached to a figure, returns a 1x1 sized rectangle located at the anchor reference point.
+     * 
      * @param anchor The anchor.
      * @return The anchor owner bounds.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
 public interface IMDATextEditor {
     /**
      * Get the file opened in the editor.
+     * 
      * @return a file.
      */
     @objid ("01f410a4-0000-08f1-0000-000000000000")
@@ -55,6 +56,7 @@ public interface IMDATextEditor {
     /**
      * Indicates whether of not the editor's content has been modified.<br>
      * It matches the presence of the little '*' in the editor's header.
+     * 
      * @return <code>true</code> if the content of the editor has been modified.
      */
     @objid ("01f41744-0000-001b-0000-000000000000")
@@ -63,6 +65,7 @@ public interface IMDATextEditor {
     /**
      * Change the editor's editon mode.<br>
      * A read only editor can't be modified.
+     * 
      * @param readOnly <code>true</code> if the editor is read only.
      */
     @objid ("01f41be4-0000-00e1-0000-000000000000")
@@ -71,6 +74,7 @@ public interface IMDATextEditor {
     /**
      * Set the listener who will be notified when a 'save' or 'close' event occurs.
      * @see IMDAEditorListener
+     * 
      * @param listener The listener to attach to the editor.
      */
     @objid ("01f41be4-0000-00e3-0000-000000000000")
@@ -78,6 +82,7 @@ public interface IMDATextEditor {
 
     /**
      * Get the editor's type.
+     * 
      * @return the editor's type.
      */
     @objid ("1520aecb-f9d3-11dd-baf4-001ec947cd2a")
@@ -85,6 +90,7 @@ public interface IMDATextEditor {
 
     /**
      * Get the element corresponding to this editor.
+     * 
      * @return a model element.
      */
     @objid ("a42bb231-0ecc-11e2-96c4-002564c97630")

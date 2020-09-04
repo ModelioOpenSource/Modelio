@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
     /**
      * Create a new <i>DurationConstraint</i> data model from an
      * <i>DurationConstraint</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("27712389-5ad1-483b-bc76-ba49e032b3fc")
@@ -61,6 +62,7 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("4867b9cd-22b9-4dd2-9f7f-e3369032b292")
@@ -71,6 +73,7 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("3d2e64ea-64ee-4ce1-85a8-bd4a0b5ea302")
@@ -83,6 +86,7 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -119,6 +123,7 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -153,6 +158,7 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

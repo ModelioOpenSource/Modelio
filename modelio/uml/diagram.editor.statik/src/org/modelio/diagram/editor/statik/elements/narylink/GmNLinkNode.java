@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class GmNLinkNode extends GmPortContainer {
 
     /**
      * Initialize the n-ary link node.
+     * 
      * @param diagram the diagram in which the n-ary link is unmasked.
      * @param el the unmasked n-ary link.
      * @param ref a reference to the unmasked class.
@@ -165,6 +166,7 @@ public class GmNLinkNode extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -176,6 +178,7 @@ public class GmNLinkNode extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

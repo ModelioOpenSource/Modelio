@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -127,6 +127,7 @@ public class FreeformLayer2 extends Layer implements IFreeformFigure2 {
      * Set a filter to use when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
+     * 
      * @param f an extent filter.
      */
     @objid ("736cc8cb-2880-4357-9d99-59f2a4282e70")
@@ -139,6 +140,7 @@ public class FreeformLayer2 extends Layer implements IFreeformFigure2 {
      * Get the filter used when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
+     * 
      * @return an extent filter.
      */
     @objid ("33bd19e6-aff7-4f03-b10a-cb078913f59e")

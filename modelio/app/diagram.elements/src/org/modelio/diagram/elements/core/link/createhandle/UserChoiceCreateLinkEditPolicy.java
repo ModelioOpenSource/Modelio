@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -415,6 +415,7 @@ public class UserChoiceCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Get or create the updated connection helper for the given connection creation request.
+     * 
      * @param req a bended connection creation request
      * @return the connection helper.
      */

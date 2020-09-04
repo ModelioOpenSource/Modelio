@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class GmTransitionGuardLabel extends GmElementLabel {
 
     /**
      * C'tor.
+     * 
      * @param diagram the diagram.
      * @param relatedRef related element reference, must not be null.
      */
@@ -93,19 +94,19 @@ public class GmTransitionGuardLabel extends GmElementLabel {
     @Override
     public IEditableText getEditableText() {
         return new IEditableText() {
-                                                                        
-                                                                            @Override
-                                                                            public void setText(String text) {
-                                                                                final Transition theTransition = (Transition) getRelatedElement();
-                                                                                theTransition.setGuard(text);
-                                                                            }
-                                                                        
-                                                                            @Override
-                                                                            public String getText() {
-                                                                                final Transition theTransition = (Transition) getRelatedElement();
-                                                                        return theTransition.getGuard();
-                                                                                    }
-                                                                                };
+        
+            @Override
+            public void setText(String text) {
+                final Transition theTransition = (Transition) getRelatedElement();
+                theTransition.setGuard(text);
+            }
+        
+            @Override
+            public String getText() {
+                final Transition theTransition = (Transition) getRelatedElement();
+                return theTransition.getGuard();
+            }
+        };
     }
 
     @objid ("f5ad2e7a-55b6-11e2-877f-002564c97630")

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Diagram Editor
 Bundle-SymbolicName: org.modelio.diagram.editor;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Require-Bundle: org.eclipse.core.expressions,
  org.eclipse.core.runtime,
  org.eclipse.e4.core.contexts,

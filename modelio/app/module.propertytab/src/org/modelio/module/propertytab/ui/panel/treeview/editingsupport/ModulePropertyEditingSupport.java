@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class ModulePropertyEditingSupport extends EditingSupport {
 
     /**
      * Initialize the StylePropertyEditingSupport.
+     * 
      * @param viewer The style viewer.
      */
     @objid ("c8959380-1eba-11e2-9382-bc305ba4815c")

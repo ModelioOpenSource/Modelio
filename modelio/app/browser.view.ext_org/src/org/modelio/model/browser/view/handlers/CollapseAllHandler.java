@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.model.browser.view.panel.ModelBrowserPanelProvider;
 public class CollapseAllHandler {
     /**
      * Collapses all nodes of the BrowserView's tree, starting with the root.
+     * 
      * @param part a {@link BrowserView} part.
      */
     @objid ("7989cee7-43a7-11e2-b513-002564c97630")

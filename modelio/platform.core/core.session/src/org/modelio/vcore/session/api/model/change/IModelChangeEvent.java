@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IModelChangeEvent {
     /**
      * Get the origin of this model change event
+     * 
      * @return the model change event cause.
      */
     @objid ("c756ebb0-76b2-493b-8c4d-549e8f84887d")
@@ -49,6 +50,7 @@ public interface IModelChangeEvent {
      * Get a resume of model object creations.
      * <p>
      * When whole composition trees are created the list only contains the root and CMS node elements .
+     * 
      * @return the created elements.
      */
     @objid ("002a1b1a-d402-1f3b-aafd-001ec947cd2a")
@@ -58,6 +60,7 @@ public interface IModelChangeEvent {
      * Get a resume of model object deletions.
      * <p>
      * When whole composition trees are deleted the list only contains the root and CMS node elements .
+     * 
      * @return model objects deletions
      */
     @objid ("002a590e-d402-1f3b-aafd-001ec947cd2a")
@@ -65,6 +68,7 @@ public interface IModelChangeEvent {
 
     /**
      * Get all model moves.
+     * 
      * @return all model moves.
      */
     @objid ("002a457c-d402-1f3b-aafd-001ec947cd2a")
@@ -74,6 +78,7 @@ public interface IModelChangeEvent {
      * Get all deleted composition root model objects.
      * <p>
      * This list contains all composition tree root that were deleted.
+     * 
      * @return all deleted composition roots.
      * @since 3.6
      */
@@ -85,6 +90,7 @@ public interface IModelChangeEvent {
      * <p>
      * This list does not contain the composition owner of created elements, unless other
      * modification was made on the owner.
+     * 
      * @return all modified model objects.
      */
     @objid ("002a31e0-d402-1f3b-aafd-001ec947cd2a")
@@ -94,6 +100,7 @@ public interface IModelChangeEvent {
      * Test whether the model change event is empty.
      * <p>
      * An empty model change events does not need to be fired.
+     * 
      * @return <code>true</code> if the model change event is empty.
      */
     @objid ("f2ba2ad3-dfb5-4e07-a719-3c3f9c83c695")

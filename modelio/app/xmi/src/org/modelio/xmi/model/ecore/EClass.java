@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -83,27 +83,20 @@ public class EClass extends ENamedElement {
     @Override
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
-        if (ReverseProperties.getInstance().isRoundtripEnabled() 
-                && ObjingEAnnotation.isDestroy(getEcoreElement())){
         
-            objingElt.delete();
+        if (!this.isDeleted && objingElt instanceof Classifier) {
+            ReverseProperties revProp = ReverseProperties.getInstance();
+            Classifier objingClass = (Classifier) objingElt;
         
-        }else{
+            if (objingClass instanceof Class) {
+                setAbstract((Class) objingClass);
+                setLeaf((Class) objingClass);
+                setActive((Class) objingClass);
         
-            if (!this.isDeleted && objingElt instanceof Classifier) {
-                ReverseProperties revProp = ReverseProperties.getInstance();
-                Classifier objingClass = (Classifier) objingElt;
-        
-                if (objingClass instanceof Class) {
-                    setAbstract((Class) objingClass);
-                    setLeaf((Class) objingClass);
-                    setActive((Class) objingClass);
-        
-                    if (revProp.isRoundtripEnabled()) {
-                        setPrimitiveEAnnotation((Class) objingClass);
-                        setMainEAnnotation((Class) objingClass);
-                        setRootEAnnotation((Class) objingClass);
-                    }
+                if (revProp.isRoundtripEnabled()) {
+                    setPrimitiveEAnnotation((Class) objingClass);
+                    setMainEAnnotation((Class) objingClass);
+                    setRootEAnnotation((Class) objingClass);
                 }
             }
         }

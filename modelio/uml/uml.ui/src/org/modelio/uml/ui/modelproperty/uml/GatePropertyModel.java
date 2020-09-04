@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class GatePropertyModel extends AbstractPropertyModel<Gate> {
 
     /**
      * Create a new <i>Gate</i> data model from an <i>Gate</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("adcbbf2c-7ec9-480a-943b-b7f76e3ad5f2")
@@ -61,6 +62,7 @@ public class GatePropertyModel extends AbstractPropertyModel<Gate> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("aa55ac5e-a3c3-4e31-ad49-7ae6af5d19f0")
@@ -71,6 +73,7 @@ public class GatePropertyModel extends AbstractPropertyModel<Gate> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("4b77fc35-aecc-4f98-adb5-377e53063e49")
@@ -83,6 +86,7 @@ public class GatePropertyModel extends AbstractPropertyModel<Gate> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -115,6 +119,7 @@ public class GatePropertyModel extends AbstractPropertyModel<Gate> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -145,6 +150,7 @@ public class GatePropertyModel extends AbstractPropertyModel<Gate> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

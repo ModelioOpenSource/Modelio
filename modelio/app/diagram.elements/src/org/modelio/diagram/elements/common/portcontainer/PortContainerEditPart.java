@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -516,6 +516,7 @@ public class PortContainerEditPart extends AbstractNodeEditPart {
 
         /**
          * Converts an Integer (interpreted as a value from {@link PositionConstants} to a Rectangle.
+         * 
          * @param childFigure the child figure for which to convert the constraint.
          * @param childModel the child model for which to convert the constraint.
          */
@@ -551,6 +552,7 @@ public class PortContainerEditPart extends AbstractNodeEditPart {
 
         /**
          * Converts a {@link Border} to a Rectangle.
+         * 
          * @param container the PortContainerFigure
          * @return the new rectangle constraint.
          */
@@ -580,6 +582,7 @@ public class PortContainerEditPart extends AbstractNodeEditPart {
         /**
          * Computes the initial location of a port based on the bounds of the main node, a placement constraint
          * expressed as a value from {@link Border} and the preferred size of the satellite.
+         * 
          * @param mainNodeBounds the bounds of the main node.
          * @param placement the border on which the port should be.
          * @param childSize the preferred size of the Port
@@ -638,6 +641,7 @@ public class PortContainerEditPart extends AbstractNodeEditPart {
 
         /**
          * Converts an Integer (interpreted as a value from {@link PositionConstants} to a Rectangle.
+         * 
          * @param containerFig the parent port container figure
          * @param childFigure the child figure for which to convert the constraint.
          * @param childModel the child model for which to convert the constraint.
@@ -670,6 +674,7 @@ public class PortContainerEditPart extends AbstractNodeEditPart {
 
         /**
          * Converts an Integer (interpreted as a value from {@link PositionConstants} to a Rectangle.
+         * 
          * @return the new rectangle constraint.
          */
         @objid ("f78f554e-f7cd-4ff4-b193-b7470f7cc907")
@@ -698,6 +703,7 @@ public class PortContainerEditPart extends AbstractNodeEditPart {
         /**
          * Computes the initial location of a satellite based on the bounds of the main node, a placement constraint
          * expressed as a value from {@link PositionConstants} and the preferred size of the satellite.
+         * 
          * @param mainNodeBounds the bounds of the main node.
          * @param placement a placement constraint expressed as a value from {@link PositionConstants}. Can be either
          * {@link PositionConstants#SOUTH_EAST}, {@link PositionConstants#SOUTH},

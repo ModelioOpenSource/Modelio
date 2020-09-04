@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,11 +27,18 @@ import org.modelio.app.core.project.ICurrentProjectService;
 import org.modelio.app.project.core.creation.IProjectCreationData;
 import org.modelio.app.project.core.creation.IProjectCreator;
 import org.modelio.app.project.core.creation.ProjectCreator;
-import org.modelio.app.project.core.services.IProjectCreatorFactory;
+import org.modelio.app.project.core.services.FragmentsMigrator;
 import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.core.services.ProjectService;
+import org.modelio.app.project.core.services.closeproject.IProjectCloser;
+import org.modelio.app.project.core.services.closeproject.ProjectCloser;
+import org.modelio.app.project.core.services.createproject.IProjectCreator2;
+import org.modelio.app.project.core.services.createproject.IProjectCreatorFactory;
+import org.modelio.app.project.core.services.createproject.ProjectCreator2;
 import org.modelio.app.project.core.services.openproject.IProjectOpener;
 import org.modelio.app.project.core.services.openproject.OpenProjectService;
+import org.modelio.app.project.core.services.workspace.IWorkspaceService;
+import org.modelio.app.project.core.services.workspace.WorkspaceService;
 import org.modelio.gproject.gproject.GProjectConfigurer;
 
 /**
@@ -43,13 +50,12 @@ public class ProjectServiceInitializerOrg {
      * Called by E4.
      * 
      * Create, initialize the IProjectService instance and add it to the context.
+     * 
      * @param context the Eclipse context
      */
     @objid ("00022664-dcdb-103c-9961-001ec947cd2a")
     @Execute
     public static void initialize(IEclipseContext context) {
-        GProjectConfigurer synchronizer = new GProjectConfigurer();
-               
         IProjectCreatorFactory creatorFactory = new IProjectCreatorFactory() {
             @Override
             public IProjectCreator getProjectCreator(IProjectCreationData data) {
@@ -57,9 +63,20 @@ public class ProjectServiceInitializerOrg {
             }
         };
         
-        IProjectOpener projectOpener = new OpenProjectService(context, synchronizer);
+        IProjectCreator2 projectCreator = new ProjectCreator2(creatorFactory);
+        GProjectConfigurer synchronizer = new GProjectConfigurer();
+        IProjectOpener projectOpener = new OpenProjectService(synchronizer);
+        IProjectCloser projectCloser = new ProjectCloser();
+        IWorkspaceService workspaceService = new WorkspaceService();
         
-        ProjectService projectService = new ProjectService(context, creatorFactory, projectOpener, synchronizer);
+        ProjectService projectService = new ProjectService(
+                context,
+                projectCreator,
+                projectOpener,
+                synchronizer,
+                projectCloser,
+                workspaceService,
+                (eclipseContext, project, withConfirmation) -> new FragmentsMigrator(eclipseContext, project, withConfirmation));
         context.set(IProjectService.class, projectService);
         context.set(ICurrentProjectService.class, projectService);
     }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class MessageSequencer {
 
     /**
      * Get the sequence number for a message
+     * 
      * @param m a message
      * @return its sequence number.
      * @throws java.lang.IllegalArgumentException if the message is not part of the interaction.
@@ -120,6 +121,7 @@ public class MessageSequencer {
 
     /**
      * Compute the messages sequence number.
+     * 
      * @return the sequence map
      */
     @objid ("0152a228-5771-46cb-a8f4-3f4f59edca86")

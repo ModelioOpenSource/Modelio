@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public class TextEditCommand extends org.eclipse.gef.commands.Command {
 
     /**
      * Creates a rename command.
+     * 
      * @param modelToRename The editable element.
      * @param newName The new name.
      */

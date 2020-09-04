@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,9 +31,9 @@ import org.modelio.metamodel.uml.behavior.interactionModel.MessageEnd;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.statik.Operation;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("b4674bf7-91ae-46fa-a732-cf33045ec2f0")
 public class OMessageEnd extends OOccurrenceSpecification {
@@ -159,12 +159,12 @@ public class OMessageEnd extends OOccurrenceSpecification {
         MessageEnd start = objingMessage.getReceiveEvent();
         
         for (Dependency dep : end.getDependsOnDependency()){
-            if (dep.isStereotyped(XMIProperties.modelerModuleName, "UML2Event"))
+            if (dep.isStereotyped(IModelerModulePeerModule.MODULE_NAME, "UML2Event"))
                 return true;
         }
         
         for (Dependency dep : start.getDependsOnDependency()){
-            if (dep.isStereotyped(XMIProperties.modelerModuleName, "UML2Event"))
+            if (dep.isStereotyped(IModelerModulePeerModule.MODULE_NAME, "UML2Event"))
                 return true;
         }
         return false;

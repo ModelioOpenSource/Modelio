@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.vbasic.progress.IModelioProgress;
 public interface IMaintenanceOperations {
     /**
      * Rebuild the indexes.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done()
      * on the given monitor. Accepts null, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
@@ -41,6 +42,7 @@ public interface IMaintenanceOperations {
 
     /**
      * Compress the indexes.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done()
      * on the given monitor. Accepts null, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
@@ -51,6 +53,7 @@ public interface IMaintenanceOperations {
 
     /**
      * Delete the indexes.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done()
      * on the given monitor. Accepts null, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
@@ -61,6 +64,7 @@ public interface IMaintenanceOperations {
 
     /**
      * Save the repository format versions.
+     * 
      * @throws java.io.IOException on failure.
      */
     @objid ("f6d10f1a-5889-4cbf-8be5-3f80cedbc4fb")
@@ -68,6 +72,7 @@ public interface IMaintenanceOperations {
 
     /**
      * Save the metamodel descriptor.
+     * 
      * @throws java.io.IOException on failure.
      */
     @objid ("a719e924-a65d-4593-ae11-4aafd631e64b")

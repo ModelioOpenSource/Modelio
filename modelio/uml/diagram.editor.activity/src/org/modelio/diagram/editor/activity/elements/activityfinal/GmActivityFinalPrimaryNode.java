@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class GmActivityFinalPrimaryNode extends GmNoStyleSimpleNode implements I
 
     /**
      * Initializes a simple node.
+     * 
      * @param diagram The diagram owning the node.
      * @param relatedRef related element reference, must not be <code>null</code>.
      */

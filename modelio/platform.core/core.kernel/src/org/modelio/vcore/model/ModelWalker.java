@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -89,6 +89,7 @@ public class ModelWalker<A extends MObject> {
 
     /**
      * Add a model element to walk from.
+     * 
      * @param el a model element
      * @return another instance
      */
@@ -103,6 +104,7 @@ public class ModelWalker<A extends MObject> {
      * Applies the transition transitively and return all found elements.
      * <p>
      * The elements are returned in breadth first order.
+     * 
      * @return all found elements.
      */
     @objid ("9c0f5fc5-3500-41a5-a609-e8c92eb7a104")
@@ -122,6 +124,7 @@ public class ModelWalker<A extends MObject> {
      * Add a composite transition to walk.
      * <p>
      * The function is applied to each transition result and gives the real next element.
+     * 
      * @param t1 a transition
      * @param t2 a function applied to each transition result.
      * @return the new walker to use.
@@ -151,6 +154,7 @@ public class ModelWalker<A extends MObject> {
      * Add a composite transition to walk.
      * <p>
      * The second transition is applied to each transition result and gives the real next elements.
+     * 
      * @param t1 a transition
      * @param t2 a second transition applied to each transition result.
      * @return the new walker to use.
@@ -180,6 +184,7 @@ public class ModelWalker<A extends MObject> {
      * Set a filter on the returned result.
      * <p>
      * The filter does not stop iteration on transition.
+     * 
      * @param aFilter a filter on results
      * @return a new instance
      */
@@ -190,6 +195,7 @@ public class ModelWalker<A extends MObject> {
 
     /**
      * Set whether initial model elements added with {@link #from(MObject)} will be included in results.
+     * 
      * @param includesources true to include initial nodes
      * @return the new walker to use.
      */
@@ -200,6 +206,7 @@ public class ModelWalker<A extends MObject> {
 
     /**
      * Add a transition to walk.
+     * 
      * @param transition the transition to walk.
      * @return this instance
      */
@@ -214,6 +221,7 @@ public class ModelWalker<A extends MObject> {
      * Add a {@link MVisitor} as transition.
      * <p>
      * The visitor is expected to return a Collection of A or <i>null</i>.
+     * 
      * @param transitionVisitor a visitor that returns a collection.
      * @return the new walker to use.
      */
@@ -225,6 +233,7 @@ public class ModelWalker<A extends MObject> {
 
     /**
      * Immutable design pattern constructor.
+     * 
      * @param from initial elements
      * @param transitions transitions
      * @param filter result filter
@@ -242,6 +251,7 @@ public class ModelWalker<A extends MObject> {
      * Applies t to each element of <i>from</i> and return the result in a new collection.
      * <p>
      * Equivalent to <code>from.stream().map(t).collect(Collectors.toList())</code> without using streams.
+     * 
      * @param from a source collection
      * @param t the function to apply to each element.
      * @return the result.
@@ -266,6 +276,7 @@ public class ModelWalker<A extends MObject> {
      * Equivalent to:
      * <pre>
      * <code>from.stream().flatMap(a -> t.apply(a).stream()).collect(Collectors.toList())</code></pre> without using streams.
+     * 
      * @param from a source collection
      * @param t the function to apply to each element.
      * @return the result.
@@ -288,6 +299,7 @@ public class ModelWalker<A extends MObject> {
      * <p>
      * The elements are returned in breadth first order.
      * @param filter a filter that can stop the iteration.
+     * 
      * @param roots the model objects to iterate.
      * @param traversed a set where all walked elements will be added.
      * @deprecated reimplemented in {@link #getTraversed(Collection, Set)}

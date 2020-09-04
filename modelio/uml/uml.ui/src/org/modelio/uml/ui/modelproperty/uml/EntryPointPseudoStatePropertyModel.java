@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class EntryPointPseudoStatePropertyModel extends AbstractPropertyModel<En
     /**
      * Create a new <i>EntryPointPseudoState</i> data model from an
      * <i>EntryPointPseudoState</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("c55ae406-5d92-4305-925e-001e7d17a3b6")
@@ -60,6 +61,7 @@ public class EntryPointPseudoStatePropertyModel extends AbstractPropertyModel<En
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("cdc13c1a-6934-4b8e-aa30-7ce5c97e98ca")
@@ -70,6 +72,7 @@ public class EntryPointPseudoStatePropertyModel extends AbstractPropertyModel<En
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("c2ce45f7-5a9d-4a4c-84e6-f407fa750fd7")
@@ -82,6 +85,7 @@ public class EntryPointPseudoStatePropertyModel extends AbstractPropertyModel<En
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -112,6 +116,7 @@ public class EntryPointPseudoStatePropertyModel extends AbstractPropertyModel<En
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -140,6 +145,7 @@ public class EntryPointPseudoStatePropertyModel extends AbstractPropertyModel<En
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

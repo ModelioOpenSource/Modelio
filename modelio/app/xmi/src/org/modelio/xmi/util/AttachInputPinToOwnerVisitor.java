@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,6 +22,8 @@ package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.uml2.uml.util.UMLSwitch;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.plugin.Xmi;
 
@@ -30,11 +32,11 @@ public class AttachInputPinToOwnerVisitor {
     @objid ("f3f1a427-6c22-4c6c-afcf-98790f459d6c")
     private InputPinLinker _linker = null;
 
-    @objid ("248c7af0-bdbc-44b9-b79c-d26408547278")
-     org.eclipse.uml2.uml.InputPin _inputPin = null;
-
     @objid ("bf511ee0-cdaf-4a6f-818a-95cead75d4a5")
      org.modelio.metamodel.uml.behavior.activityModel.InputPin _obInputPin = null;
+
+    @objid ("818c51c6-4b44-49f2-8c07-786b63753768")
+     org.eclipse.uml2.uml.InputPin _inputPin = null;
 
     @objid ("c69b01a5-18de-428e-a477-0e9abde60509")
     public AttachInputPinToOwnerVisitor() {
@@ -70,12 +72,10 @@ public class AttachInputPinToOwnerVisitor {
         @objid ("d11f6ff6-f9f6-42ab-9cda-3c29fcfaa16c")
         @Override
         public Object caseAddStructuralFeatureValueAction(org.eclipse.uml2.uml.AddStructuralFeatureValueAction owner) {
-            if (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2INSERTAT)
+            if (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSERTAT)
                     && (owner.getInsertAt() == null )){ 
-            
                 owner.setInsertAt(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
-            
             }
             return null;
         }
@@ -84,8 +84,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseAddVariableValueAction(org.eclipse.uml2.uml.AddVariableValueAction owner) {
             if ((owner.getInsertAt() == null ) 
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2INSERTAT))){
-            
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSERTAT))){
                 owner.setInsertAt(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -96,8 +95,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseCallOperationAction(org.eclipse.uml2.uml.CallOperationAction owner) {
             if ((owner.getTarget() == null ) 
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2TARGET))){
-            
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TARGET))){
                 owner.setTarget(AttachInputPinToOwnerVisitor.this._inputPin);    
                 return result;
             }
@@ -107,8 +105,7 @@ public class AttachInputPinToOwnerVisitor {
         @objid ("ee64d19e-fa5a-4d17-b9de-bc0ccfff2b48")
         @Override
         public Object caseClearAssociationAction(org.eclipse.uml2.uml.ClearAssociationAction owner) {
-            if ((owner.getObject() == null ) 
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OBJECT))){
+            if (owner.getObject() == null ){
                 owner.setObject(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -118,8 +115,7 @@ public class AttachInputPinToOwnerVisitor {
         @objid ("9575f84b-6b9b-4215-8bdd-a0576e672be9")
         @Override
         public Object caseDestroyObjectAction(org.eclipse.uml2.uml.DestroyObjectAction owner) {
-            if ((owner.getTarget() == null )
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2TARGET))){          
+            if (owner.getTarget() == null ){          
                 owner.setTarget(AttachInputPinToOwnerVisitor.this._inputPin);           
                 return result;
             }
@@ -129,27 +125,21 @@ public class AttachInputPinToOwnerVisitor {
         @objid ("274b623b-39c3-4072-8ff9-618da911bf3f")
         @Override
         public Object caseInvocationAction(org.eclipse.uml2.uml.InvocationAction owner) {
-            if (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ARGUMENT)){      
-                owner.getArguments().add(AttachInputPinToOwnerVisitor.this._inputPin);
-                return result;
-            }
-            return null;
+            owner.getArguments().add(AttachInputPinToOwnerVisitor.this._inputPin);
+            return result;
         }
 
         @objid ("d4984007-6d5e-4c32-b66d-ad21d0ac704e")
         @Override
         public Object caseLinkAction(org.eclipse.uml2.uml.LinkAction owner) {
-            if (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2INPUTVALUE)){   
-                owner.getInputValues().add(AttachInputPinToOwnerVisitor.this._inputPin);
-                return result;
-            }
-            return null;
+            owner.getInputValues().add(AttachInputPinToOwnerVisitor.this._inputPin);
+            return result;
         }
 
         @objid ("615073d1-a498-4b2d-983a-30cbba5b8086")
         @Override
         public Object caseLoopNode(org.eclipse.uml2.uml.LoopNode owner) {
-            if (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2LOOPVARIABLEINPUT)){  
+            if (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2LOOPVARIABLEINPUT)){  
                 owner.getLoopVariableInputs().add(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -166,8 +156,7 @@ public class AttachInputPinToOwnerVisitor {
         @objid ("61ff8af4-81ff-4171-9796-c7872df7dc51")
         @Override
         public Object caseRaiseExceptionAction(org.eclipse.uml2.uml.RaiseExceptionAction owner) {
-            if ((owner.getException() == null ) 
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXCEPTION))){  
+            if (owner.getException() == null ){  
                 owner.setException(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -178,7 +167,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseReadIsClassifiedObjectAction(org.eclipse.uml2.uml.ReadIsClassifiedObjectAction owner) {
             if ((owner.getObject() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OBJECT))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT))){  
                 owner.setObject(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -189,7 +178,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseReadLinkObjectEndAction(org.eclipse.uml2.uml.ReadLinkObjectEndAction owner) {
             if ((owner.getObject() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OBJECT))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT))){  
                 owner.setObject(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -200,7 +189,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseReadLinkObjectEndQualifierAction(org.eclipse.uml2.uml.ReadLinkObjectEndQualifierAction owner) {
             if ((owner.getObject() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OBJECT))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT))){  
                 owner.setObject(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -211,7 +200,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseReclassifyObjectAction(org.eclipse.uml2.uml.ReclassifyObjectAction owner) {
             if ((owner.getObject() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OBJECT))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT))){  
                 owner.setObject(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -222,7 +211,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseReduceAction(org.eclipse.uml2.uml.ReduceAction owner) {
             if ((owner.getCollection() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2COLLECTION))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2COLLECTION))){  
                 owner.setCollection(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -233,7 +222,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseRemoveStructuralFeatureValueAction(org.eclipse.uml2.uml.RemoveStructuralFeatureValueAction owner) {
             if ((owner.getRemoveAt() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REMOVEAT))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REMOVEAT))){  
                 owner.setRemoveAt(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -244,7 +233,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseRemoveVariableValueAction(org.eclipse.uml2.uml.RemoveVariableValueAction owner) {
             if ((owner.getRemoveAt() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REMOVEAT))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REMOVEAT))){  
                 owner.setRemoveAt(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -254,11 +243,11 @@ public class AttachInputPinToOwnerVisitor {
         @objid ("858adfe5-6fee-4d9e-b590-40b91a06cbac")
         @Override
         public Object caseReplyAction(org.eclipse.uml2.uml.ReplyAction owner) {
-            if ( (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REPLYVALUE))){  
+            if ( (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REPLYVALUE))){  
                 owner.getReplyValues().add(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
-            else if ( (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2RETURNINFORMATION)
+            else if ( (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2RETURNINFORMATION)
                     && (owner.getReturnInformation() == null))){  
                 owner.setReturnInformation(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
@@ -270,11 +259,11 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseSendObjectAction(org.eclipse.uml2.uml.SendObjectAction owner) {
             if ((owner.getRequest() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REQUEST))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REQUEST))){  
                 owner.setRequest(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             } else if ((owner.getTarget() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2TARGET))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TARGET))){  
                 owner.setTarget(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -285,7 +274,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseSendSignalAction(org.eclipse.uml2.uml.SendSignalAction owner) {
             if ((owner.getTarget() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2TARGET))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TARGET))){  
                 owner.setTarget(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -296,7 +285,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseStartClassifierBehaviorAction(org.eclipse.uml2.uml.StartClassifierBehaviorAction owner) {
             if ((owner.getObject() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OBJECT))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT))){  
                 owner.setObject(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -307,7 +296,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseStructuralFeatureAction(org.eclipse.uml2.uml.StructuralFeatureAction owner) {
             if ((owner.getObject() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OBJECT))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT))){  
                 owner.setObject(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -317,7 +306,7 @@ public class AttachInputPinToOwnerVisitor {
         @objid ("e76d0729-7654-483d-96fd-8be90dcc783d")
         @Override
         public Object caseStructuredActivityNode(org.eclipse.uml2.uml.StructuredActivityNode owner) {
-            if (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2NODE)){  
+            if (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2NODE)){  
                 owner.getNodes().add(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -327,10 +316,12 @@ public class AttachInputPinToOwnerVisitor {
         @objid ("20e43f64-aa98-484a-af5a-5bbd1af64a4e")
         @Override
         public Object caseTestIdentityAction(org.eclipse.uml2.uml.TestIdentityAction owner) {
-            if (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName,IModelerModuleStereotypes.UML2FIRST)){
+            if ((owner.getFirst() == null) 
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2FIRST))){
                 owner.setFirst(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
-            }else if (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2SECOND)){
+            }else if ((owner.getSecond() == null) 
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2SECOND))){
                 owner.setSecond(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -340,8 +331,7 @@ public class AttachInputPinToOwnerVisitor {
         @objid ("8120533b-b564-4683-ac34-a41c67ca88b4")
         @Override
         public Object caseUnmarshallAction(org.eclipse.uml2.uml.UnmarshallAction owner) {
-            if ((owner.getObject() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OBJECT))){  
+            if (owner.getObject() == null ){  
                 owner.setObject(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -352,7 +342,7 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseWriteStructuralFeatureAction(org.eclipse.uml2.uml.WriteStructuralFeatureAction owner) {
             if ((owner.getValue() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2VALUE))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2VALUE))){  
                 owner.setValue(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -362,8 +352,7 @@ public class AttachInputPinToOwnerVisitor {
         @objid ("f2a212b0-4d26-496c-b7d7-ecaf5ee8b266")
         @Override
         public Object caseWriteVariableAction(org.eclipse.uml2.uml.WriteVariableAction owner) {
-            if ((owner.getValue() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2VALUE))){  
+            if (owner.getValue() == null ){  
                 owner.setValue(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }
@@ -374,7 +363,18 @@ public class AttachInputPinToOwnerVisitor {
         @Override
         public Object caseReadStructuralFeatureAction(org.eclipse.uml2.uml.ReadStructuralFeatureAction owner) {
             if ((owner.getObject() == null )   
-                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OBJECT))){  
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT))){  
+                owner.setObject(AttachInputPinToOwnerVisitor.this._inputPin);
+                return result;
+            }
+            return null;
+        }
+
+        @objid ("186e9d66-578a-43cc-9496-425b888e54c8")
+        @Override
+        public Object caseStartObjectBehaviorAction(org.eclipse.uml2.uml.StartObjectBehaviorAction owner) {
+            if ((owner.getObject() == null )   
+                    && (AttachInputPinToOwnerVisitor.this._obInputPin.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OBJECT))){  
                 owner.setObject(AttachInputPinToOwnerVisitor.this._inputPin);
                 return result;
             }

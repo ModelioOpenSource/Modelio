@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -29,7 +29,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("318f24b2-6d53-4602-b9ed-db2795c37f65")
 public class ResourceData extends AbstractResourceData {
-    @objid ("6e88bdb0-6c7c-413b-8bce-c5234773acbe")
+    @objid ("df34e239-7468-4271-a281-9bbc9c432677")
     public ResourceData(ResourceSmClass smClass) {
         super(smClass);
     }

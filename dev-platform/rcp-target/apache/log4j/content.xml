@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='log4j/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1541610768214'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='1'>
+    <unit id='log4j' version='1.2.17' singleton='false'>
+      <update id='log4j' range='[0.0.0,1.2.17)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Apache Log4j'/>
+        <property name='org.eclipse.equinox.p2.description' value='Apache Log4j 1.2'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Apache Software Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://logging.apache.org/log4j/1.2'/>
+      </properties>
+      <provides size='19'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='log4j' version='1.2.17'/>
+        <provided namespace='osgi.bundle' name='log4j' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.net' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.jmx' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.jdbc' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.config' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.helpers' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.or.jms' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.nt' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.or.sax' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.pattern' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.spi' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.rewrite' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.or' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.xml' version='1.2.17'/>
+        <provided namespace='java.package' name='org.apache.log4j.varia' version='1.2.17'/>
+        <provided namespace='osgi.identity' name='log4j' version='1.2.17'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='10'>
+        <required namespace='java.package' name='javax.jmdns' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.jms' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.mail' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.mail.internet' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.management' range='0.0.0'/>
+        <required namespace='java.package' name='javax.naming' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.parsers' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax' range='0.0.0'/>
+        <required namespace='java.package' name='org.xml.sax.helpers' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='log4j' version='1.2.17'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: log4j&#xA;Bundle-Version: 1.2.17&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class StyleCellLabelProvider extends OwnerDrawLabelProvider {
 
     /**
      * C'tor.
+     * 
      * @param treeViewer the viewer.
      */
     @objid ("85b2e4a5-1926-11e2-92d2-001ec947c8cc")

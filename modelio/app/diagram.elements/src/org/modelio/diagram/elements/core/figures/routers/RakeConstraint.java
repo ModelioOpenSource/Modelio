@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class RakeConstraint implements IPersistent {
      * Copy constructor.
      * <p>
      * The copy references the same anchors as the original.
+     * 
      * @param other The original.
      */
     @objid ("7fb7d714-1dec-11e2-8cad-001ec947c8cc")
@@ -67,6 +68,7 @@ public class RakeConstraint implements IPersistent {
 
     /**
      * Get a copy of this constraint whose anchors are a copy of own anchors.
+     * 
      * @return a copy of this constraint.
      */
     @objid ("7fb7d718-1dec-11e2-8cad-001ec947c8cc")
@@ -88,6 +90,7 @@ public class RakeConstraint implements IPersistent {
 
     /**
      * Set the rake anchor.
+     * 
      * @param rakeAnchor the rake anchor.
      */
     @objid ("7fb7d720-1dec-11e2-8cad-001ec947c8cc")
@@ -105,6 +108,7 @@ public class RakeConstraint implements IPersistent {
 
     /**
      * Set the rake anchor.
+     * 
      * @param rakeAnchor the rake anchor.
      */
     @objid ("7fb7d72d-1dec-11e2-8cad-001ec947c8cc")
@@ -151,6 +155,7 @@ public class RakeConstraint implements IPersistent {
      * Register a connection as listener of this constraint.
      * <p>
      * Called by {@link RakeRouter} to invalidate all connections on the same rake.
+     * 
      * @param connection The connection that is attached to this rake.
      */
     @objid ("7fba3942-1dec-11e2-8cad-001ec947c8cc")
@@ -163,6 +168,7 @@ public class RakeConstraint implements IPersistent {
 
     /**
      * Remove a connection as listener of this constraint.
+     * 
      * @param connection The connection that is detached from this rake.
      */
     @objid ("7fbc9b90-1dec-11e2-8cad-001ec947c8cc")
@@ -175,6 +181,7 @@ public class RakeConstraint implements IPersistent {
 
     /**
      * Get the source side rake position or null if there is no rake on the source side.
+     * 
      * @return the source side rake position in <i>relative</i> coordinates.
      */
     @objid ("7fbc9b96-1dec-11e2-8cad-001ec947c8cc")
@@ -186,6 +193,7 @@ public class RakeConstraint implements IPersistent {
 
     /**
      * Get the target side rake position or null if there is no rake on the source side.
+     * 
      * @return the target side rake position in <i>relative</i> coordinates.
      */
     @objid ("7fbc9b9d-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -81,6 +81,7 @@ public class TComplexGateway extends TGateway {
 
     /**
      * Sets the value of the activationCondition property.
+     * 
      * @param value allowed object is
      * {@link TExpression }
      */
@@ -102,6 +103,7 @@ public class TComplexGateway extends TGateway {
 
     /**
      * Sets the value of the default property.
+     * 
      * @param value allowed object is
      * {@link Object }
      */

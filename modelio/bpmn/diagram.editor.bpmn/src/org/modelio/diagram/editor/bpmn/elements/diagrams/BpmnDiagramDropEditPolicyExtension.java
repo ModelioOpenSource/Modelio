@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -288,6 +288,7 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
 
         /**
          * C'tor.
+         * 
          * @param theBpmnMessage the message to unmask.
          * @param host the edit part of the diagram in which to unmask it.
          * @param initialLayoutData the initial layout data for the node part
@@ -388,6 +389,7 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
 
         /**
          * Initialize the command.
+         * 
          * @param dropLocation The location of the element in the diagram
          * @param type The type to unmask
          * @param editPart The destination edit part that will own the participant.

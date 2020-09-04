@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -28,7 +28,6 @@ import org.modelio.api.modelio.exchange.XmiException;
 import org.modelio.api.modelio.exchange.XmiExportConfiguration;
 import org.modelio.api.modelio.exchange.XmiImportConfiguration;
 import org.modelio.app.core.navigate.IModelioNavigationService;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Profile;
@@ -41,6 +40,9 @@ import org.modelio.xmi.api.IXMIService;
 import org.modelio.xmi.api.ImportConfiguration;
 import org.modelio.xmi.impl.XMIService;
 
+/**
+ * Implementation of {@link IExchangeService}.
+ */
 @objid ("e29dd4a2-f42e-4042-89a9-78d6b1b6db15")
 public class ExchangeService implements IExchangeService {
     @objid ("d1778a13-a444-4989-b88a-ccdf7b28f695")
@@ -55,12 +57,18 @@ public class ExchangeService implements IExchangeService {
     @objid ("3c303e90-0577-4ba7-96ef-82069953a99e")
     private IModelioNavigationService navigationServices;
 
+    /**
+     * C'tor.
+     * 
+     * @param eclipseContext the eclipse context to initialize services from.
+     * @param metamodel the metamodel of the currently opened project.
+     */
     @objid ("d982e768-b426-42c9-8813-7b97f3450322")
-    public ExchangeService(final IEclipseContext eclipseContext) {
+    public ExchangeService(final IEclipseContext eclipseContext, MMetamodel metamodel) {
         this.xmiservice = new XMIService();
         this.modelServices = eclipseContext.get(IMModelServices.class);
-        this.metamodel = eclipseContext.get(IProjectService.class).getSession().getMetamodel();
         this.navigationServices = eclipseContext.get(IModelioNavigationService.class);
+        this.metamodel = metamodel;
     }
 
     @objid ("8fb90118-1c5c-439c-9b53-45ce49a454f9")

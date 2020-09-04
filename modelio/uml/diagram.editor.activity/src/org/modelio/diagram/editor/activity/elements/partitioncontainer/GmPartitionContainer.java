@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -142,6 +142,7 @@ public class GmPartitionContainer extends GmCompositeNode {
 
     /**
      * Returns a list of the contained GmPartition nodes.
+     * 
      * @return a list of the contained GmPartition nodes.
      */
     @objid ("2b24944e-55b6-11e2-877f-002564c97630")
@@ -155,6 +156,7 @@ public class GmPartitionContainer extends GmCompositeNode {
 
     /**
      * Returns whether this container is horizontal.
+     * 
      * @return true if this container is horizontal, false otherwise.
      */
     @objid ("2b24e269-55b6-11e2-877f-002564c97630")
@@ -166,6 +168,7 @@ public class GmPartitionContainer extends GmCompositeNode {
 
     /**
      * Sets the orientation of this container.
+     * 
      * @param value true if this container must be vertical, false otherwise.
      */
     @objid ("2b250979-55b6-11e2-877f-002564c97630")

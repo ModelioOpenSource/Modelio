@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,7 +58,6 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.modelio.api.module.license.ILicenseInfos;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.app.project.conf.dialog.ProjectModel;
@@ -81,6 +80,7 @@ import org.modelio.mda.infra.service.CompatibilityHelper;
 import org.modelio.mda.infra.service.IModuleManagementService;
 import org.modelio.mda.infra.service.IRTModule.ModuleRuntimeState;
 import org.modelio.mda.infra.service.IRTModule;
+import org.modelio.ui.UIImages;
 import org.modelio.ui.progress.IModelioProgressService;
 import org.modelio.vbasic.collections.TopologicalSorter.CyclicDependencyException;
 import org.modelio.vbasic.version.VersionedItem;
@@ -113,16 +113,8 @@ public class ModulesSection {
     @objid ("2bc22157-d1e2-4a26-868d-84b1bd798eef")
     protected Button removeButton;
 
-    @objid ("d9deacb9-e126-4e4f-a807-0da80ac1543b")
-    protected static final Image CHECKED = AbstractUIPlugin
-            .imageDescriptorFromPlugin(AppProjectConfExt.PLUGIN_ID, "icons/checked.png").createImage();
-
-    @objid ("2748cd30-f46a-41b1-adbc-9ad2dbd61d90")
-    protected static final Image UNCHECKED = AbstractUIPlugin
-            .imageDescriptorFromPlugin(AppProjectConfExt.PLUGIN_ID, "icons/unchecked.png").createImage();
-
     @objid ("772998f6-906e-4e99-bb9c-c75025dbbf19")
-    private IModuleStore catalog;
+    private final IModuleStore catalog;
 
     @objid ("0dcf50f3-1c09-49cf-91a8-4c3ae4afbd87")
     protected IProjectService projectService;
@@ -131,7 +123,7 @@ public class ModulesSection {
      * @param application The Eclipse context
      */
     @objid ("b77b7e36-1e37-4f10-a8c0-73134b03c249")
-    public ModulesSection(IEclipseContext applicationContext) {
+    public ModulesSection(final IEclipseContext applicationContext) {
         this.moduleService = applicationContext.get(IModuleManagementService.class);
         this.progressService = applicationContext.get(IModelioProgressService.class);
         this.projectService = applicationContext.get(IProjectService.class);
@@ -142,25 +134,26 @@ public class ModulesSection {
      * @param projectModel the project model
      */
     @objid ("c893266a-36bb-4b78-9ae1-06d0c263d222")
-    public void setInput(ProjectModel projectModel) {
+    public void setInput(final ProjectModel projectModel) {
         this.projectModel = projectModel;
         if (projectModel != null) {
             this.modulesTable.setInput(projectModel.getModules());
             this.addButton.setEnabled(projectModel.isLocalProject());
-            ISelection selection = this.modulesTable.getSelection();
+            final ISelection selection = this.modulesTable.getSelection();
             this.removeButton.setEnabled(!selection.isEmpty() && !"ModelerModule".equals(SelectionHelper.getFirst(selection, GModule.class).getName()) && projectModel.isLocalProject());
         } else {
             this.modulesTable.setInput(new Object[0]);
             this.addButton.setEnabled(false);
             this.removeButton.setEnabled(false);
         }
-        for (TableColumn col : this.modulesTable.getTable().getColumns()) {
+        for (final TableColumn col : this.modulesTable.getTable().getColumns()) {
             col.pack();
         }
     }
 
     /**
      * Build the Eclipse form Section.
+     * 
      * @param toolkit the form toolkit
      * @param parent the parent composite
      * @return the built section.
@@ -175,7 +168,7 @@ public class ModulesSection {
         section.setExpanded(true);
         
         final Composite composite = toolkit.createComposite(section, SWT.WRAP);
-        GridLayout layout = new GridLayout();
+        final GridLayout layout = new GridLayout();
         layout.numColumns = 2;
         composite.setLayout(layout);
         
@@ -183,42 +176,42 @@ public class ModulesSection {
         this.modulesTable = new TableViewer(table);
         table.setHeaderVisible(true);
         
-        GridData gd = new GridData(SWT.FILL, SWT.FILL, true, true);
+        final GridData gd = new GridData(SWT.FILL, SWT.FILL, true, true);
         gd.heightHint = 180;
         gd.minimumWidth = 300;
         table.setLayoutData(gd);
         
         this.modulesTable.setContentProvider(new ArrayContentProvider());
         
-        TableViewerColumn enableColumn = new TableViewerColumn(this.modulesTable, SWT.LEFT);
+        final TableViewerColumn enableColumn = new TableViewerColumn(this.modulesTable, SWT.LEFT);
         enableColumn.getColumn().setText(AppProjectConfExt.I18N.getString("ModulesSection.EnableColumn")); //$NON-NLS-1$
         enableColumn.getColumn().setWidth(30);
         enableColumn.setEditingSupport(new ModuleStateEditingSupport(this.modulesTable, this.moduleService));
         enableColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
+            public String getText(final Object element) {
                 return ""; //$NON-NLS-1$
             }
         
             @Override
-            public Image getImage(Object element) {
+            public Image getImage(final Object element) {
                 if (element instanceof GModule) {
-                    IRTModule iModule = ModulesSection.this.moduleService.getIRTModule((GModule) element);
+                    final IRTModule iModule = ModulesSection.this.moduleService.getIRTModule((GModule) element);
                     if (iModule != null && iModule.getState() == ModuleRuntimeState.Started) {
-                        return ModulesSection.CHECKED;
+                        return UIImages.CHECKED;
                     }
                 }
-                return ModulesSection.UNCHECKED;
+                return UIImages.UNCHECKED;
             }
         });
         
-        TableViewerColumn scopeColumn = new TableViewerColumn(this.modulesTable, SWT.NONE);
+        final TableViewerColumn scopeColumn = new TableViewerColumn(this.modulesTable, SWT.NONE);
         scopeColumn.getColumn().setWidth(120);
         scopeColumn.getColumn().setResizable(true);
         scopeColumn.getColumn().setText(AppProjectConfExt.I18N.getString("ModulesSection.ScopeColumn")); //$NON-NLS-1$
         scopeColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
+            public String getText(final Object element) {
                 if (element instanceof GModule) {
                     return ScopeHelper.getText(((GModule) element).getScope());
                 }
@@ -226,44 +219,44 @@ public class ModulesSection {
             }
         });
         
-        TableViewerColumn labelColumn = new TableViewerColumn(this.modulesTable, SWT.LEFT);
+        final TableViewerColumn labelColumn = new TableViewerColumn(this.modulesTable, SWT.LEFT);
         labelColumn.getColumn().setText(AppProjectConfExt.I18N.getString("ModulesSection.NameColumn")); //$NON-NLS-1$
         labelColumn.getColumn().setWidth(100);
         labelColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
+            public String getText(final Object element) {
                 return ModuleHelper.getLabel(element, ModulesSection.this.moduleService);
             }
         
             @Override
-            public Image getImage(Object element) {
+            public Image getImage(final Object element) {
                 return ModuleHelper.getIcon(element);
             }
         });
         
-        TableViewerColumn versionColumn = new TableViewerColumn(this.modulesTable, SWT.RIGHT);
+        final TableViewerColumn versionColumn = new TableViewerColumn(this.modulesTable, SWT.RIGHT);
         versionColumn.getColumn().setText(AppProjectConfExt.I18N.getString("ModulesSection.VersionColumn")); //$NON-NLS-1$
         versionColumn.getColumn().setWidth(20);
         versionColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
+            public String getText(final Object element) {
                 return ModuleHelper.getVersion(element);
             }
         
             @Override
-            public Image getImage(Object element) {
+            public Image getImage(final Object element) {
                 return null;
             }
         });
         
-        TableViewerColumn statusColumn = new TableViewerColumn(this.modulesTable, SWT.LEFT);
+        final TableViewerColumn statusColumn = new TableViewerColumn(this.modulesTable, SWT.LEFT);
         statusColumn.getColumn().setText(AppProjectConfExt.I18N.getString("ModulesSection.StatusColumn")); //$NON-NLS-1$
         statusColumn.getColumn().setWidth(100);
         statusColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
+            public String getText(final Object element) {
                 if (element instanceof GModule) {
-                    IRTModule iModule = ModulesSection.this.moduleService.getIRTModule((GModule) element);
+                    final IRTModule iModule = ModulesSection.this.moduleService.getIRTModule((GModule) element);
                     if (iModule != null) {
                         String state = AppProjectConfExt.I18N
                                 .getString("$ModulesSection.state." + iModule.getState().name());
@@ -277,11 +270,11 @@ public class ModulesSection {
             }
         
             @Override
-            public String getToolTipText(Object element) {
+            public String getToolTipText(final Object element) {
                 if (element instanceof GModule) {
-                    IRTModule iModule = ModulesSection.this.moduleService.getIRTModule((GModule) element);
+                    final IRTModule iModule = ModulesSection.this.moduleService.getIRTModule((GModule) element);
                     if (iModule != null) {
-                        String state = AppProjectConfExt.I18N.getString("$ModulesSection.state." + iModule.getState().name());
+                        final String state = AppProjectConfExt.I18N.getString("$ModulesSection.state." + iModule.getState().name());
                         if (iModule.getDownError() != null) {
                             return state + ": " + iModule.getDownError().getLocalizedMessage();
                         } else {
@@ -295,25 +288,25 @@ public class ModulesSection {
             }
         
             @Override
-            public Image getImage(Object element) {
+            public Image getImage(final Object element) {
                 return null;
             }
         });
         
-        TableViewerColumn licenseColumn = new TableViewerColumn(this.modulesTable, SWT.LEFT);
+        final TableViewerColumn licenseColumn = new TableViewerColumn(this.modulesTable, SWT.LEFT);
         licenseColumn.getColumn().setText(AppProjectConfExt.I18N.getString("ModulesSection.LicenseColumn")); //$NON-NLS-1$
         licenseColumn.getColumn().setWidth(200);
         licenseColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
+            public String getText(final Object element) {
                 if (element instanceof GModule) {
-                    IRTModule iModule = ModulesSection.this.moduleService.getIRTModule((GModule) element);
+                    final IRTModule iModule = ModulesSection.this.moduleService.getIRTModule((GModule) element);
                     if (iModule != null) {
                         final ILicenseInfos licenseInfos = iModule.getLicenseInfos();
                         if (licenseInfos != null) {
-                            Date date = licenseInfos.getDate();
+                            final Date date = licenseInfos.getDate();
                             if (date != null) {
-                                SimpleDateFormat sdf = new SimpleDateFormat(
+                                final SimpleDateFormat sdf = new SimpleDateFormat(
                                         AppProjectConfExt.I18N.getString("ModulesSection.License.DateFormat"));
                                 return AppProjectConfExt.I18N.getMessage("$ModulesSection.License." + licenseInfos.getStatus().name() + ".limited", sdf.format(date));
                             } else {
@@ -329,19 +322,19 @@ public class ModulesSection {
             }
         
             @Override
-            public Image getImage(Object element) {
+            public Image getImage(final Object element) {
                 return null;
             }
         });
         
-        TableViewerColumn compatibilityColumn = new TableViewerColumn(this.modulesTable, SWT.LEFT);
+        final TableViewerColumn compatibilityColumn = new TableViewerColumn(this.modulesTable, SWT.LEFT);
         compatibilityColumn.getColumn().setText(AppProjectConfExt.I18N.getString("ModulesSection.CompatibilityColumn")); //$NON-NLS-1$
         compatibilityColumn.getColumn().setWidth(200);
         compatibilityColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
-            public String getText(Object element) {
+            public String getText(final Object element) {
                 if (element instanceof GModule) {
-                    IModuleHandle mh = ((GModule) element).getModuleHandle();
+                    final IModuleHandle mh = ((GModule) element).getModuleHandle();
                     switch (CompatibilityHelper.getCompatibilityLevel(mh)) {
                     case COMPATIBLE:
                         return AppProjectConfExt.I18N.getString("ModulesSection.Compatible");
@@ -359,9 +352,9 @@ public class ModulesSection {
             }
         
             @Override
-            public Color getForeground(Object element) {
+            public Color getForeground(final Object element) {
                 if (element instanceof GModule) {
-                    IModuleHandle mh = ((GModule) element).getModuleHandle();
+                    final IModuleHandle mh = ((GModule) element).getModuleHandle();
                     switch (CompatibilityHelper.getCompatibilityLevel(mh)) {
                     case COMPATIBLE:
                         return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
@@ -381,7 +374,7 @@ public class ModulesSection {
         
         this.modulesTable.addSelectionChangedListener(new ISelectionChangedListener() {
             @Override
-            public void selectionChanged(SelectionChangedEvent event) {
+            public void selectionChanged(final SelectionChangedEvent event) {
                 setInput(getProjectAdapter());
             }
         });
@@ -389,8 +382,8 @@ public class ModulesSection {
         ColumnViewerToolTipSupport.enableFor(this.modulesTable);
         
         // The buttons composite
-        Composite btnPanel = toolkit.createComposite(composite, SWT.NONE);
-        GridData gd2 = new GridData(SWT.FILL, SWT.FILL, false, false);
+        final Composite btnPanel = toolkit.createComposite(composite, SWT.NONE);
+        final GridData gd2 = new GridData(SWT.FILL, SWT.FILL, false, false);
         btnPanel.setLayoutData(gd2);
         btnPanel.setLayout(new GridLayout(1, false));
         
@@ -402,7 +395,7 @@ public class ModulesSection {
         this.addButton.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
         this.addButton.addSelectionListener(new SelectionAdapter() {
             @Override
-            public void widgetSelected(SelectionEvent evt) {
+            public void widgetSelected(final SelectionEvent evt) {
                 addSelectedModules(promptUserModuleSeletion());
             }
         });
@@ -415,23 +408,23 @@ public class ModulesSection {
         this.removeButton.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, true));
         this.removeButton.addSelectionListener(new SelectionAdapter() {
             @Override
-            public void widgetSelected(SelectionEvent evt) {
+            public void widgetSelected(final SelectionEvent evt) {
                 AppProjectConfExt.LOG.debug("Remove a module"); //$NON-NLS-1$
         
-                ModuleRemovalConfirmationDialog confirmDlg = new ModuleRemovalConfirmationDialog(
+                final ModuleRemovalConfirmationDialog confirmDlg = new ModuleRemovalConfirmationDialog(
                         ModulesSection.this.removeButton.getShell());
                 confirmDlg.setBlockOnOpen(true);
                 if (confirmDlg.open() == 0) {
-                    for (TableItem item : table.getSelection()) {
+                    for (final TableItem item : table.getSelection()) {
                         final GModule module = (GModule) item.getData();
                         try {
                             ModulesSection.this.moduleService.removeModule(module);
-                        } catch (ModuleException e) {
+                        } catch (final ModuleException e) {
                             MessageDialog.openError(null,
                                     AppProjectConfExt.I18N.getMessage("ModulesSection.UnableToRemoveModule", module.getName()),
                                     e.getLocalizedMessage() + "\n" + (e.getCause() != null ? e.getCause().getLocalizedMessage() : ""));
                             AppProjectConfExt.LOG.debug(e);
-                        } catch (AccessDeniedException e) {
+                        } catch (final AccessDeniedException e) {
                             MessageDialog.openError(null, AppProjectConfExt.I18N.getMessage("ModulesSection.UnableToRemoveModule", module.getName()), e.getLocalizedMessage());
                             AppProjectConfExt.LOG.debug(e);
                         }
@@ -448,10 +441,11 @@ public class ModulesSection {
 
     /**
      * Add a change listener to the modules table
+     * 
      * @param listener the listener.
      */
     @objid ("da615b84-d28c-4781-812b-160d96770d41")
-    public void addSelectionChangedListener(ISelectionChangedListener listener) {
+    public void addSelectionChangedListener(final ISelectionChangedListener listener) {
         this.modulesTable.addSelectionChangedListener(listener);
     }
 
@@ -461,7 +455,7 @@ public class ModulesSection {
     }
 
     @objid ("d84a9b96-1bd5-46ca-baec-b4c1aa6c9871")
-    private void addSelectedModules(List<IModuleHandle> selectedModules) {
+    private void addSelectedModules(final List<IModuleHandle> selectedModules) {
         // Sanity check
         if (!getProjectAdapter().isLocalProject()) {
             return;
@@ -469,8 +463,8 @@ public class ModulesSection {
         
         // Among the selected modules keep only the more recent versions.
         final Map<String, IModuleHandle> modulesToAdd = new HashMap<>();
-        for (IModuleHandle mh : selectedModules) {
-            IModuleHandle moduleToCompare = modulesToAdd.get(mh.getName());
+        for (final IModuleHandle mh : selectedModules) {
+            final IModuleHandle moduleToCompare = modulesToAdd.get(mh.getName());
             if (moduleToCompare == null || mh.getVersion().isNewerThan(moduleToCompare.getVersion())) {
                 modulesToAdd.put(mh.getName(), mh);
             }
@@ -478,15 +472,15 @@ public class ModulesSection {
         
         addMissingDependencies(modulesToAdd);
         
-        IRunnableWithProgress runnable = new IRunnableWithProgress() {
+        final IRunnableWithProgress runnable = new IRunnableWithProgress() {
         
             @Override
-            public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
+            public void run(final IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
         
                 if (AppProjectConfExt.LOG.isDebugEnabled()) {
-                    StringBuilder sb = new StringBuilder();
+                    final StringBuilder sb = new StringBuilder();
                     sb.append("Add module(s):\n");//$NON-NLS-1$
-                    for (IModuleHandle h : selectedModules) {
+                    for (final IModuleHandle h : selectedModules) {
                         sb.append(" - ");
                         sb.append(h.getName());
                         sb.append("  v");
@@ -498,7 +492,7 @@ public class ModulesSection {
                     AppProjectConfExt.LOG.debug(sb.toString());
                 }
         
-                GProject openedProject = ModulesSection.this.projectService.getOpenedProject();
+                final GProject openedProject = ModulesSection.this.projectService.getOpenedProject();
                 AddModuleHelper.run(openedProject, ModulesSection.this.moduleService, modulesToAdd.values(), monitor, getProjectAdapter());
             }
         };
@@ -514,12 +508,12 @@ public class ModulesSection {
      * Analyze the module list and adds all required modules to it by taking the latest version in the catalog.
      */
     @objid ("4a27fdb5-3251-4491-a726-68f26cff85f9")
-    private void addMissingDependencies(Map<String, IModuleHandle> modulesToAdd) {
+    private void addMissingDependencies(final Map<String, IModuleHandle> modulesToAdd) {
         // Compute all missing dependencies
-        List<VersionedItem<?>> dependencies = new ArrayList<>();
+        final List<VersionedItem<?>> dependencies = new ArrayList<>();
         
-        for (IModuleHandle module : modulesToAdd.values()) {
-            for (VersionedItem<?> dep : module.getDependencies()) {
+        for (final IModuleHandle module : modulesToAdd.values()) {
+            for (final VersionedItem<?> dep : module.getDependencies()) {
                 if (!modulesToAdd.containsKey(dep.getName())) {
                     dependencies.add(dep);
                 }
@@ -527,9 +521,9 @@ public class ModulesSection {
         }
         
         if (!dependencies.isEmpty()) {
-            IModuleRTCache cache = this.projectModel.getOpenedProject().getModuleCache();
+            final IModuleRTCache cache = this.projectModel.getOpenedProject().getModuleCache();
             try {
-                for (VersionedItem<?> moduleId : dependencies) {
+                for (final VersionedItem<?> moduleId : dependencies) {
                     final IModuleHandle latestModule = cache.findModule(moduleId.getName(), null, null);
                     if (latestModule != null && !latestModule.getVersion().isOlderThan(moduleId.getVersion())) {
                         modulesToAdd.put(moduleId.getName(), latestModule);
@@ -542,7 +536,7 @@ public class ModulesSection {
         
                 // Make sure the module list is complete
                 addMissingDependencies(modulesToAdd);
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 // log & let the deployment phase pop an error.
                 AppProjectConfExt.LOG.warning(e);
             }
@@ -551,7 +545,7 @@ public class ModulesSection {
 
     @objid ("387905c9-f7e6-4156-9f31-6ea58770247b")
     private List<IModuleHandle> promptUserModuleSeletion() {
-        ModuleSelectDialog dlg = new ModuleSelectDialog(this.addButton.getShell(), this.catalog, this.projectModel.getOpenedProject(), this.progressService);
+        final ModuleSelectDialog dlg = new ModuleSelectDialog(this.addButton.getShell(), this.catalog, this.projectModel.getOpenedProject(), this.progressService);
         dlg.open();
         return dlg.getSelectedModules();
     }
@@ -559,16 +553,16 @@ public class ModulesSection {
     @objid ("6a7f385f-fa3e-4d6c-af88-573cf0bc9c18")
     private static class AddModuleHelper {
         @objid ("1fd29654-21c1-4873-b1c2-60a226d699a3")
-        public static void run(final GProject project, final IModuleManagementService moduleService, Collection<IModuleHandle> modules, IProgressMonitor monitor, ProjectModel projectAdapter) {
+        public static void run(final GProject project, final IModuleManagementService moduleService, final Collection<IModuleHandle> modules, final IProgressMonitor monitor, final ProjectModel projectAdapter) {
             // Sort the module according to their dependencies
             List<IModuleHandle> sortedModules;
             try {
                 sortedModules = ModuleSorter.sortHandles(modules);
             
                 if (AppProjectConfExt.LOG.isDebugEnabled()) {
-                    StringBuilder sb = new StringBuilder();
+                    final StringBuilder sb = new StringBuilder();
                     sb.append("AddModuleHelper: Installing module(s):\n");//$NON-NLS-1$
-                    for (IModuleHandle h : sortedModules) {
+                    for (final IModuleHandle h : sortedModules) {
                         sb.append(" - ");
                         sb.append(h.getName());
                         sb.append("  v");
@@ -580,7 +574,7 @@ public class ModulesSection {
                     AppProjectConfExt.LOG.debug(sb.toString());
                 }
             
-            } catch (CyclicDependencyException e) {
+            } catch (final CyclicDependencyException e) {
                 // Error dialog
                 AppProjectConfExt.LOG.debug(e);
                 MessageDialog.openError(null,
@@ -589,9 +583,9 @@ public class ModulesSection {
                 return;
             }
             
-            int sum = sortedModules.size();
+            final int sum = sortedModules.size();
             monitor.beginTask(AppProjectConfExt.I18N.getString("ModulesSection.AddModulesProgressTitle"), sum);
-            List<String> invalidIds = AddModuleHelper.getExistFragmentIdList(projectAdapter);
+            final List<String> invalidIds = AddModuleHelper.getExistFragmentIdList(projectAdapter);
             for (int i = 0; i < sum; i++) {
                 final IModuleHandle module = sortedModules.get(i);
                 if (invalidIds.contains(module.getName())) {
@@ -608,7 +602,7 @@ public class ModulesSection {
                 try (ITransaction t = project.getSession().getTransactionSupport().createTransaction("install a module")) { //$NON-NLS-1$
                     moduleService.installModule(null, project, module, module.getArchive() != null ? module.getArchive().toUri() : null);
                     t.commit();
-                } catch (ModuleException e) {
+                } catch (final ModuleException e) {
                     // Error dialog
                     AppProjectConfExt.LOG.debug(e);
                     MessageDialog.openError(null,
@@ -621,14 +615,15 @@ public class ModulesSection {
 
         /**
          * get existing model fragment identifiers, excepted MDA ones.
+         * 
          * @param projectAdapter a project
          * @return existing model fragments identifiers
          */
         @objid ("b03e8915-397b-4e81-af86-4450dd811c66")
-        private static List<String> getExistFragmentIdList(ProjectModel projectAdapter) {
-            List<String> fragmentIds = new ArrayList<>();
-            List<IProjectFragment> fragments = projectAdapter.getAllFragments();
-            for (IProjectFragment fragment : fragments) {
+        private static List<String> getExistFragmentIdList(final ProjectModel projectAdapter) {
+            final List<String> fragmentIds = new ArrayList<>();
+            final List<IProjectFragment> fragments = projectAdapter.getAllFragments();
+            for (final IProjectFragment fragment : fragments) {
                 if (fragment.getType() != FragmentType.MDA) {
                     fragmentIds.add(fragment.getId());
                 }

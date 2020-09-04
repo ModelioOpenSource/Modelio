@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -89,6 +89,7 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
 
     /**
      * C'tor.
+     * 
      * @param parentShell the parent SWT shell
      * @param data the dialogs date model.
      */
@@ -96,7 +97,6 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
     public CreateEmbeddedDocumentDialog(Shell parentShell, RichNoteDescriptor data) {
         super(parentShell);
         this.data = data;
-        setShellStyle(SWT.APPLICATION_MODAL | SWT.DIALOG_TRIM | SWT.RESIZE | SWT.MAX);
         data.setCreationMode(CreationMode.EMBEDDED);
     }
 
@@ -141,7 +141,7 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
         });
         
         Group fileGroup = createFileGroup(container);
-        fileGroup.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        fileGroup.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
         return container;
     }
 
@@ -171,7 +171,7 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
         // Check box to choose to provide an inital contents
         Button importCheckbox = new Button(top, SWT.CHECK);
         importCheckbox.setText(EditorsRichNote.I18N.getString("CreateEmbeddedDocumentDialog.contents.importoption.label"));
-        importCheckbox.setLayoutData(GridDataFactory.fillDefaults().grab(true, false).span(3, 1).indent(0, 20).create());
+        importCheckbox.setLayoutData(GridDataFactory.fillDefaults().grab(true, false).span(3, 1).create());
         importCheckbox.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -373,6 +373,14 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
             }
         }
         return null;
+    }
+
+    @objid ("3e53bdf1-ad4f-4b29-ad57-5fdc013dd6ff")
+    @Override
+    protected void configureShell(Shell newShell) {
+        super.configureShell(newShell);
+        setShellStyle(SWT.APPLICATION_MODAL | SWT.DIALOG_TRIM | SWT.RESIZE | SWT.MAX);
+        newShell.setMinimumSize(getInitialSize());
     }
 
 }

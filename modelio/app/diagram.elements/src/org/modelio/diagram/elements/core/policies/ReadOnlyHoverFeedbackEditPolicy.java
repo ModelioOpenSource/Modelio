@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -87,6 +87,7 @@ public class ReadOnlyHoverFeedbackEditPolicy extends GraphicalEditPolicy {
 
     /**
      * Create the hover feedback figure.
+     * 
      * @return the hover feedback figure.
      */
     @objid ("e5852761-aec8-4a9c-a032-691b17a0ff42")

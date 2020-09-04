@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -127,6 +127,7 @@ public abstract class AbstractElementDropEditPolicy extends GraphicalEditPolicy 
      * <p>
      * Subclasses should redefine this method to provide "smart interactions".
      * </p>
+     * 
      * @param request the drop request
      * @return the host if all dropped elements can be unmasked by the Gm,
      * <code>null</code> otherwise.
@@ -136,6 +137,7 @@ public abstract class AbstractElementDropEditPolicy extends GraphicalEditPolicy 
 
     /**
      * Creates the Command to handle a ModelElementDropRequest.
+     * 
      * @param request The drop request.
      * @return the created command.
      */
@@ -147,6 +149,7 @@ public abstract class AbstractElementDropEditPolicy extends GraphicalEditPolicy 
      * <p>
      * Subclasses must redefine this method to provide "smart interactions".
      * </p>
+     * 
      * @param request The drop request.
      * @return the created command, or <code>null</code> when there is no smart interaction for this request.
      */

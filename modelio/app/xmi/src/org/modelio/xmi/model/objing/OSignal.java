@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,7 +27,9 @@ import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
-import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.metamodel.uml.statik.GeneralClass;
+import org.modelio.metamodel.uml.statik.Operation;
+import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.plugin.Xmi;
@@ -86,66 +88,89 @@ public class OSignal extends ONameSpace {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         
-        setBaseEAnnotation( (org.eclipse.uml2.uml.Signal) ecoreElt);
-        setPBaseEAnnotation( (org.eclipse.uml2.uml.Signal) ecoreElt);
-        setOBaseEAnnotation( (org.eclipse.uml2.uml.Signal) ecoreElt);
+        //UML Properties
+        setCBase((org.eclipse.uml2.uml.Signal) ecoreElt);
+        setOBase((org.eclipse.uml2.uml.Signal) ecoreElt);
+        setPBase();
         
+        //Modelio Properties
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             setIsEventEAnnotation( (org.eclipse.uml2.uml.Signal) ecoreElt);
             setIsExceptionEAnnotation( (org.eclipse.uml2.uml.Signal) ecoreElt);
         }
     }
 
-    @objid ("c06a01ba-aa84-42fa-a7df-048fdc90f09c")
-    private void setBase(ModelElement base, final org.eclipse.uml2.uml.Signal ecoreElt) {
-        org.eclipse.uml2.uml.Element ecoreBase = GenerationProperties.getInstance().getMappedElement(base);
+    @objid ("64ca1160-77bd-4b96-9010-351096c1a43a")
+    private void setPBase() {
+        Parameter base = getObjingElement().getPBase();
         
-        if  (ecoreBase != null) {
-        
-            if  (ecoreBase instanceof org.eclipse.uml2.uml.Classifier){
-        
-                ecoreElt.getRedefinedClassifiers().add( (org.eclipse.uml2.uml.Classifier) ecoreBase);
-        
-            }else  if  (ecoreBase instanceof org.eclipse.uml2.uml.Reception){
-        
-                ( (org.eclipse.uml2.uml.Reception) ecoreBase).setSignal(ecoreElt);
-        
-        
-            }else{
-        
-                String ecoreClassName = ecoreBase.getClass().getSimpleName();
-                String message = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType.title", "Base");
-                String description = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType.description",
-                        "Base",
-                        getObjingElement().getName(),
-                        "Classifier or org.eclipse.uml2.uml.Reception",
-                        ecoreClassName.substring(0, ecoreClassName.length() - 4));
-        
-                GenerationProperties.getInstance().addWarning(message, getObjingElement(), description);
-        
-            }
+        if (base != null) {
+            String   message = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType.title", "Base");
+            String   description = Xmi.I18N.getMessage("logFile.warning.unsupportedTypeExport.message");             
+            GenerationProperties.getInstance().addWarning(message, getObjingElement(), description);
         }
     }
 
-    @objid ("64ca1160-77bd-4b96-9010-351096c1a43a")
-    private void setPBaseEAnnotation(final org.eclipse.uml2.uml.Signal ecoreElt) {
-        ModelElement temp = getObjingElement().getPBase();
-        if (temp != null)
-            setBase(temp, ecoreElt);
-    }
-
     @objid ("f7d87123-b60d-473d-b148-83c5c80d306d")
-    private void setOBaseEAnnotation(final org.eclipse.uml2.uml.Signal ecoreElt) {
-        ModelElement temp = getObjingElement().getOBase();
-        if (temp != null)
-            setBase(temp, ecoreElt);
+    private void setOBase(final org.eclipse.uml2.uml.Signal ecoreElt) {
+        Operation base = getObjingElement().getOBase();
+        
+        if (base != null) {
+        
+            org.eclipse.uml2.uml.Element ecoreBase = GenerationProperties.getInstance().getMappedElement(base);
+        
+            if  (ecoreBase != null) {
+                if  (ecoreBase instanceof org.eclipse.uml2.uml.Reception){    
+                    ((org.eclipse.uml2.uml.Reception)ecoreBase).setSignal(ecoreElt);
+                }else{
+                    String ecoreClassName = ecoreBase.getClass().getSimpleName();
+                    String message = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType.title", "Base");
+                    String description = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType.description",
+                            "Base",
+                            getObjingElement().getName(),
+                            "org.eclipse.uml2.uml.Reception",
+                            ecoreClassName.substring(0, ecoreClassName.length() - 4));
+                    GenerationProperties.getInstance().addWarning(message, getObjingElement(), description);
+        
+                }
+            }else {
+                String message = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType.title", "Base");
+                String description = Xmi.I18N.getMessage("logFile.warning.unsupportedTypeExport.message");
+                GenerationProperties.getInstance().addWarning(message, getObjingElement(), description);
+            }
+        
+        }
     }
 
     @objid ("e406a2f3-16aa-4929-8e2f-03bad04d0e14")
-    private void setBaseEAnnotation(final org.eclipse.uml2.uml.Signal ecoreElt) {
-        ModelElement temp = getObjingElement().getBase();
-        if (temp != null)
-            setBase(temp, ecoreElt);
+    private void setCBase(final org.eclipse.uml2.uml.Signal ecoreElt) {
+        GeneralClass base = getObjingElement().getBase();
+        
+        if (base != null) {
+        
+            org.eclipse.uml2.uml.Element ecoreBase = GenerationProperties.getInstance().getMappedElement(base);
+        
+            if  (ecoreBase != null) {
+                if  (ecoreBase instanceof org.eclipse.uml2.uml.Classifier){      
+                    ecoreElt.getRedefinedClassifiers().add((org.eclipse.uml2.uml.Classifier) ecoreBase);      
+                }else{
+                    String ecoreClassName = ecoreBase.getClass().getSimpleName();
+                    String message = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType.title", "Base");
+                    String description = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType.description",
+                            "Base",
+                            getObjingElement().getName(),
+                            "Classifier",
+                            ecoreClassName.substring(0, ecoreClassName.length() - 4));
+                    GenerationProperties.getInstance().addWarning(message, getObjingElement(), description);
+        
+                }
+            }else {
+                String message = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType.title", "Base");
+                String description = Xmi.I18N.getMessage("logFile.warning.unsupportedTypeExport.message");
+                GenerationProperties.getInstance().addWarning(message, getObjingElement(), description);
+            }
+        
+        }
     }
 
     @objid ("106d9024-1ed4-40d0-908a-66e7adb1d859")

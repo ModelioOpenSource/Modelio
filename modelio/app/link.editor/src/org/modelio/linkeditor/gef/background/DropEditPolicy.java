@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -147,6 +147,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Return true if the drop creates a link starting from center node.
+     * 
      * @param request the creation request.
      * @return true if the drop should create a link that is originated from centerNode, false for a link that should target centerNode.
      */
@@ -197,6 +198,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Returns the possible link types for creation.
+     * 
      * @return a list of LinkTypeDescriptor
      */
     @objid ("b21b5287-7aa7-4642-9ce4-f1a12656e688")
@@ -256,6 +258,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
      * <li>are representing a 'link'</li>
      * <li>pass the configuration filter on its meta-class criterion</li>
      * </ul>
+     * 
      * @param metamodel the metamodel.
      * @param filter the selected filter in link editor.
      * @return link metaclasses that are enabled by the filter.
@@ -275,6 +278,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Filter the stereotypes using the {@link ILinkEditorConfiguration} filter
+     * 
      * @param filter the selected filter in link editor.
      * @param mc a metaclass.
      * @param candidatesStereotypes stereotypes compatible with the given metaclass.
@@ -293,6 +297,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Get all the visible stereotypes applicable on 'mc' that are provided by active modules.
+     * 
      * @param mmService the model service to find stereotypes.
      * @param moduleService the module service to find active modules.
      * @param mc a metaclass.
@@ -318,6 +323,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Filter stereotype using the MDA Expert
+     * 
      * @param mdaExpert an mda expert.
      * @param mc a metaclass.
      * @param candidatesStereotypes stereotypes compatible with the given metaclass.

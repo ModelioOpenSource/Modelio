@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public class DefaultShellProvider implements IShellProvider {
 
     /**
      * Returns the most specific modal child from the given list of Shells.
+     * 
      * @param toSearch shells to search for modal children
      * @return the most specific modal child, or null if none
      * 
@@ -69,6 +70,7 @@ public class DefaultShellProvider implements IShellProvider {
 
     /**
      * Get the best parent shell to open a new dialog at the time of the call.
+     * 
      * @return the best parent shell to open a new dialog.
      * @throws org.eclipse.swt.SWTException <ul>
      * <li>ERROR_THREAD_INVALID_ACCESS - if not called from a SWT thread.</li>

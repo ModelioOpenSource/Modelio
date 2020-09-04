@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -135,6 +135,7 @@ public class ModelioImpl extends Modelio {
      * <p>
      * The navigation service allow to force selection in all the view/dialog
      * that are registered has NavigationListener.
+     * 
      * @return the navigation service.
      */
     @objid ("ee682731-1eaf-4ed3-9a1f-25cc0c15f615")
@@ -202,6 +203,7 @@ public class ModelioImpl extends Modelio {
 
     /**
      * Called by E4 injection to initialize the instance
+     * 
      * @param context the eclipse context.
      */
     @objid ("42b90af5-1701-49d6-bb27-315df2f68a70")

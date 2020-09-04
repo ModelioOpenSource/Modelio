@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -103,6 +103,7 @@ public class SymbolViewContentBuilder {
 
     /**
      * Add a symbol view entry at the root level.
+     * 
      * @param item a symbol view entry.
      * @return this instance.
      */
@@ -128,6 +129,7 @@ public class SymbolViewContentBuilder {
 
     /**
      * Change the label
+     * 
      * @param label the label
      * @return this instance.
      */
@@ -139,6 +141,7 @@ public class SymbolViewContentBuilder {
 
     /**
      * Create a filter that test a style key value against the given {@link Predicate}.
+     * 
      * @param key the style key
      * @param valueTest the value test function
      * @return the created filter
@@ -171,6 +174,7 @@ public class SymbolViewContentBuilder {
     /**
      * Create a non configured symbol view entry from a {@link StyleKey}.
      * @param key a {@link StyleKey}.
+     * 
      * @return the created symbol view entry.
      */
     @objid ("dfed236a-5300-4625-a71a-4fe4c7c6b3ff")
@@ -188,6 +192,7 @@ public class SymbolViewContentBuilder {
 
     /**
      * Build a pre configured "Pen & brush" section from all the given style keys.
+     * 
      * @param lineWidth line width style key. Cannot be <i>null</i>.
      * @param lineColor line color style key. Cannot be <i>null</i>.
      * @param fillMode fill mode style key. Cannot be <i>null</i>.
@@ -220,6 +225,7 @@ public class SymbolViewContentBuilder {
 
     /**
      * Create a symbol view entry from a {@link StyleKey}.
+     * 
      * @param key a {@link StyleKey}.
      * @return the created symbol view entry.
      */
@@ -238,6 +244,7 @@ public class SymbolViewContentBuilder {
 
     /**
      * Create a filter that test a style key value against the given value.
+     * 
      * @param key the style key
      * @param requiredValue the accepted value.
      * @return the created filter
@@ -792,6 +799,7 @@ public class SymbolViewContentBuilder {
          * Add an item builder to this item children.
          * <p>
          * If {@link #setNextChildrenFilter(IEntryFilter)} has been called before, the given filter will be put on this child.
+         * 
          * @param item the child item to add
          * @return this instance to chain calls.
          */
@@ -824,6 +832,7 @@ public class SymbolViewContentBuilder {
 
         /**
          * Set a filter that will be applied to next elements added with {@link #add(ItemBuilder)}.
+         * 
          * @param filter a filter to put on next children.
          * @return this instance.
          */
@@ -950,6 +959,7 @@ public class SymbolViewContentBuilder {
 
         /**
          * Convert this {@link ItemBuilder} and all its children to a {@link StyleEntry}.
+         * 
          * @param parent the parent {@link StyleEntry} or null.
          * @return the created {@link StyleEntry}.
          */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public interface IRepositorySupport {
 
     /**
      * Registers a repository change listener.
+     * 
      * @param listener a repository change listener.
      */
     @objid ("59707384-d0fe-4e21-b2f1-89ec83df3847")
@@ -67,6 +68,7 @@ public interface IRepositorySupport {
      * The repository key can then be used to find the repository with {@link #getRepository(String)}.
      * @see #REPOSITORY_KEY_LOCAL
      * @see #REPOSITORY_KEY_SCRATCH
+     * 
      * @param aBase the repository to add.
      * @param key a key used to retrieve the repository.
      * @param accessManager an access manager.
@@ -78,6 +80,7 @@ public interface IRepositorySupport {
 
     /**
      * Connect a repository to this modeling session.
+     * 
      * @param aBase the repository to add.
      * @param accessManager an access manager.
      * @param monitor a progress monitor
@@ -88,6 +91,7 @@ public interface IRepositorySupport {
 
     /**
      * Close and remove the given model repository from the connected repositories.
+     * 
      * @param toRemove the repository to disconnect.
      * @throws java.lang.IllegalArgumentException if the repository is not connected to this session
      */
@@ -96,6 +100,7 @@ public interface IRepositorySupport {
 
     /**
      * Notifies the registered repository change listeners of a repository change.
+     * 
      * @param event the repository change event.
      */
     @objid ("a8ea70bc-d4a2-40ec-a887-b633e43d5e2d")
@@ -109,6 +114,7 @@ public interface IRepositorySupport {
      * <p>
      * The caller should test whether the referenced repositories are still open
      * with {@link IRepository#isOpen()} when iterating the result.
+     * 
      * @return the connected repositories at the moment of call.
      */
     @objid ("0d23c864-4b7e-11e2-91c9-001ec947ccaf")
@@ -118,6 +124,7 @@ public interface IRepositorySupport {
      * Get the repository where the given object is stored.
      * <p>
      * Returns <code>null</code> if the object is not assigned to a repository or the repository does not belong to this session.
+     * 
      * @param anObject an object
      * @return its repository, or <code>null</code>.
      */
@@ -127,6 +134,7 @@ public interface IRepositorySupport {
     /**
      * Get the repository identified by the given key.
      * <p>
+     * 
      * @param key the repository key
      * @return the found repository or null
      */
@@ -135,6 +143,7 @@ public interface IRepositorySupport {
 
     /**
      * Unregisters a repository change listener.
+     * 
      * @param listener a repository change listener.
      */
     @objid ("06a53b06-cc63-4961-8d2c-b192fb46977b")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -198,6 +198,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
     /**
      * Register a link expert.
+     * 
      * @param cls the metaclass
      * @param expert the expert
      */
@@ -208,6 +209,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
     /**
      * Register a meta expert.
+     * 
      * @param cls the metaclass
      * @param expert the expert
      */
@@ -239,6 +241,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
         /**
          * Get the creation expert for the given element.
+         * 
          * @param metaclass a metamodel class.
          * @return the matching creation expert (never returns <code>null</code>)
          */
@@ -254,6 +257,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
         /**
          * This class has no instances.
+         * 
          * @param defaultExpert the default expert
          */
         @objid ("a4e96390-88b2-408e-9634-c6ee24cb2e52")
@@ -264,6 +268,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
         /**
          * Register an expert
+         * 
          * @param cls the metaclass
          * @param expert the expert
          */
@@ -297,6 +302,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
         /**
          * Get the creation expert for the given element.
+         * 
          * @param metaclass a metamodel class.
          * @return the matching creation expert (never returns <code>null</code>)
          */
@@ -321,6 +327,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
         /**
          * Register an expert
+         * 
          * @param cls the metaclass
          * @param expert the expert
          */

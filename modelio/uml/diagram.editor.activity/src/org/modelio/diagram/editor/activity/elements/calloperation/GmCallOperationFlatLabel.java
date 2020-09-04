@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ public final class GmCallOperationFlatLabel extends GmDefaultModelElementLabel {
 
     /**
      * C'tor.
+     * 
      * @param diagram the diagram.
      * @param relatedRef ref to the related CallBehaviorAction
      */

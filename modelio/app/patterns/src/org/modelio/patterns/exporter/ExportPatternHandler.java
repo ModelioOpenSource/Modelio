@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ import org.modelio.vcore.session.impl.CoreSession;
 public class ExportPatternHandler {
     /**
      * Export a jar from an existing pattern.
+     * 
      * @param selection the current modelio selection.
      * @param patternService the pattern service.
      */
@@ -76,6 +77,7 @@ public class ExportPatternHandler {
 
     /**
      * Available only when the selection is a <<Pattern>> Package.
+     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */

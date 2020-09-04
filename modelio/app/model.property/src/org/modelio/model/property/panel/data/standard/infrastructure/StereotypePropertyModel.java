@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class StereotypePropertyModel extends AbstractPropertyModel<Stereotype> {
 
     /**
      * Instantiate the stereotype properties view. element finder structure.
+     * 
      * @param theEditedElement the current stereotype.
      */
     @objid ("5d692088-108a-4d04-aa45-5fd64f86e6b4")

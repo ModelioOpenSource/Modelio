@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class GmInstance extends GmPortContainer {
 
     /**
      * Constructor.
+     * 
      * @param diagram the diagram in which the class is unmasked.
      * @param el the unmasked class.
      * @param ref a reference to the unmasked class.
@@ -220,6 +221,7 @@ public class GmInstance extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -231,6 +233,7 @@ public class GmInstance extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

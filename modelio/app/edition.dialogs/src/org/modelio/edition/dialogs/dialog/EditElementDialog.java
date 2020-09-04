@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ import org.eclipse.swt.events.TraverseListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -75,6 +76,9 @@ import org.modelio.vcore.session.api.model.change.IStatusChangeListener;
  */
 @objid ("61e20035-5087-4ab7-9840-43bcce555ecd")
 public class EditElementDialog extends ModelioDialog implements IModelChangeListener, IStatusChangeListener {
+    @objid ("da10a0a4-9f38-443f-9c4c-4d1aec55349d")
+    private TabFolder tabFolder;
+
     @objid ("07a9e0a7-6a31-4e38-98f1-844b797c5888")
     private ICoreSession coreSession;
 
@@ -86,9 +90,6 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
 
     @objid ("108bc72c-92a3-44bb-8471-baf7ed789b5b")
     private List<PanelDescriptor> panelDescriptors;
-
-    @objid ("69fbd83b-5aee-476e-a638-5b9b1d6ff3c3")
-    private TabFolder tabFolder;
 
     @objid ("12733530-6b5e-4fa4-85ea-7f0df9a3ce2a")
     private List<IPanelProvider> tabbedPanels = new ArrayList<>();
@@ -229,6 +230,7 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
 
     /**
      * Set the edited element.
+     * 
      * @param editedElement the new edited element.
      */
     @objid ("8fa7c869-c068-11e1-8c0a-002564c97630")
@@ -296,9 +298,19 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
     private IPanelProvider createTabbedPanel(TabFolder aTabFolder, IPanelProvider panel, String label) {
         TabItem tabItem = new TabItem(aTabFolder, SWT.NULL);
         tabItem.setText(label);
-        Control top = (Control) panel.createPanel(aTabFolder);
-        tabItem.setControl(top);
         
+        // GTK3 issue (see https://bugs.eclipse.org/bugs/show_bug.cgi?id=534089)
+        // If the panel contains a table using 'composite' cell editors seems that we MUST call tabItem.setControl(c);
+        // BEFORE creating the table
+        // As a workaround use an intermediate Composite between the panel provider control and the tab item. This way the composite can be set to the tab item before creating the panel (ie the table).
+        Composite workaroundComposite = new Composite(aTabFolder, SWT.NONE);
+        workaroundComposite.setLayout(new GridLayout(1, false));
+        // Set the tabItem control immediately
+        tabItem.setControl(workaroundComposite);
+        
+        // Now create the panel possibly using a table with composite cell editors balh blah blah ...
+        Control top = (Control) panel.createPanel(workaroundComposite);
+        top.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         this.tabbedPanels.add(panel);
         return panel;
     }

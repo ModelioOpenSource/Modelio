@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class CompositionRootGetter implements IRepositoryRootGetterService {
 
     /**
      * @param rootGetters the metamodel service provider
+     * 
      * @param proj the project
      */
     @objid ("62093964-a33b-4650-8a39-7b35b1344e9f")

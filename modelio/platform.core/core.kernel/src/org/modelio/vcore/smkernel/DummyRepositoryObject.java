@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -92,6 +92,7 @@ class DummyRepositoryObject extends RepositoryObjectStub {
      * Returns the DummyRepositoryObject singleton in normal run, a {@link DummyDebugRepositoryObject}
      * when assertions are enabled.
      * @param smObjectData
+     * 
      * @return a dummy repository object.
      */
     @objid ("37cd123c-585d-4bc1-bd34-8159d31d4555")

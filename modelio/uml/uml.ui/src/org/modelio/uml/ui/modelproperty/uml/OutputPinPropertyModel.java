@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class OutputPinPropertyModel extends AbstractPropertyModel<OutputPin> {
 
     /**
      * Create a new <i>OutputPin</i> data model from an <i>OutputPin</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("90a64260-94fa-455e-b59d-e0868a720508")
@@ -77,6 +78,7 @@ public class OutputPinPropertyModel extends AbstractPropertyModel<OutputPin> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("d81a4cb3-453f-40ee-84d8-134635422d41")
@@ -87,6 +89,7 @@ public class OutputPinPropertyModel extends AbstractPropertyModel<OutputPin> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("3d466893-097b-49ea-8294-046974910344")
@@ -99,6 +102,7 @@ public class OutputPinPropertyModel extends AbstractPropertyModel<OutputPin> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -143,6 +147,7 @@ public class OutputPinPropertyModel extends AbstractPropertyModel<OutputPin> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -191,6 +196,7 @@ public class OutputPinPropertyModel extends AbstractPropertyModel<OutputPin> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -240,6 +246,7 @@ public class OutputPinPropertyModel extends AbstractPropertyModel<OutputPin> {
 
     /**
      * Returns the element represented by the given instance node.
+     * 
      * @return the represented element
      */
     @objid ("129e93aa-a6e0-4613-929c-ceccf64d5dc8")
@@ -263,6 +270,7 @@ public class OutputPinPropertyModel extends AbstractPropertyModel<OutputPin> {
     /**
      * Set the ObjectNode represented elements. This method set the right
      * dependency and clears the otheEditedElement.
+     * 
      * @param theEditedElement the instance node
      * @param value the new represented element
      */

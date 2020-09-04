@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -129,6 +129,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this node is unmasked.
      * @param ref a reference to the element this GmModel is related to, must not be null.
      */
@@ -353,6 +354,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
 
     /**
      * Get the internal structure.
+     * 
      * @return the internal structure.
      */
     @objid ("3692f38f-55b7-11e2-877f-002564c97630")

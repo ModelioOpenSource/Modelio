@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import org.modelio.vbasic.progress.IModelioProgress;
 public interface IModuleRTCache {
     /**
      * Install a module archive (.jmdac) in the cache.
+     * 
      * @param archive the archive path to install the module from.
      * @param monitor the progress monitor to use for reporting progress to the
      * user. It is the caller's responsibility to call
@@ -43,6 +44,7 @@ public interface IModuleRTCache {
 
     /**
      * Get a module handle from the cache by name and version
+     * 
      * @param moduleName the module to find.
      * @param moduleVersion the version of the module to find. Might be <code>null</code>
      * to indicate the latest available version.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ import org.modelio.vbasic.progress.IModelioProgress;
 public interface IModuleManagementService extends IModelioService {
     /**
      * Activates and starts the given module. This method does NOT activate nor start modules required by the given module.
+     * 
      * @param gModule the module to activate.
      * @throws org.modelio.api.module.lifecycle.ModuleException if an error occurred while trying to activate the module.
      */
@@ -47,6 +48,7 @@ public interface IModuleManagementService extends IModelioService {
 
     /**
      * Stops and deactivates the given module. Modules requiring the given module will be stopped first.
+     * 
      * @param gModule the module to deactivate.
      * @throws org.modelio.api.module.lifecycle.ModuleException if an error occurred while trying to deactivate the module.
      */
@@ -55,6 +57,7 @@ public interface IModuleManagementService extends IModelioService {
 
     /**
      * Returns the started IRTModule matching the passed GModule or <code>null</code> if none is found.
+     * 
      * @param gModule the GModule to search a started IRTModule for.
      * @return the started IRTModule matching to the passed GModule or <code>null</code> if none is found.
      */
@@ -63,6 +66,7 @@ public interface IModuleManagementService extends IModelioService {
 
     /**
      * Returns the ModuleRegistry which contains the list of all loaded IRTModule and the list of all started IRTModule.
+     * 
      * @return the {@link IModuleRegistry}
      */
     @objid ("2bb8a12f-f1ed-11e1-af52-001ec947c8cc")
@@ -73,6 +77,7 @@ public interface IModuleManagementService extends IModelioService {
      * <p>
      * This method needs the concrete interface of a module, to return the loaded instance of this peer module.
      * @param <T> the interface of the searched peer module.
+     * 
      * @param metaclass the interface of the searched peer module.
      * @return the peer module regarding the given metaclass
      * @throws org.modelio.mda.infra.service.UnknownModuleException when the required module is not found.
@@ -84,6 +89,7 @@ public interface IModuleManagementService extends IModelioService {
      * Ensure loading all RT modules of the given project.
      * <p>
      * Only {@link IRTModule} instances are initialized, the modules themselves are not loaded. This allows calling install(...) methods to update existing modules before they are started.
+     * 
      * @param project the project to start all activated modules of.
      */
     @objid ("00105607-a423-4d20-b1e0-bcfa579892f4")
@@ -91,6 +97,7 @@ public interface IModuleManagementService extends IModelioService {
 
     /**
      * Installs, load and start the module contained in the given file in the given project. This method adds (or update) a module in the given GProject, then load and start the corresponding {@link IRTModule}.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done() on the given monitor. Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
      * @param gProject the project to install the module into.
@@ -102,6 +109,7 @@ public interface IModuleManagementService extends IModelioService {
 
     /**
      * Install a module already in a module store. Installs, load and start the module referenced by the handle in the given project. This method adds (or update) a module in the given GProject, then load and start the corresponding {@link IRTModule}.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done() on the given monitor. Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
      * @param gProject the project to deploy the module to
@@ -114,6 +122,7 @@ public interface IModuleManagementService extends IModelioService {
 
     /**
      * Stops, unload and removes a module.
+     * 
      * @param gModule the module to remove.
      * @throws org.modelio.api.module.lifecycle.ModuleException if an error occurred while trying to remove the module.
      */
@@ -122,6 +131,7 @@ public interface IModuleManagementService extends IModelioService {
 
     /**
      * Stops, unload and removes a module.
+     * 
      * @param gModule the module to remove.
      * @param deleteAnnotations if true, delete all annotations typed by extensions provided by the module.
      * @throws org.modelio.api.module.lifecycle.ModuleException if an error occurred while trying to remove the module.
@@ -131,6 +141,7 @@ public interface IModuleManagementService extends IModelioService {
 
     /**
      * Load and Start all activated non started modules of the given project.
+     * 
      * @param project the project to start all activated modules of.
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done() on the given monitor. Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
@@ -140,6 +151,7 @@ public interface IModuleManagementService extends IModelioService {
 
     /**
      * Stop all started modules and unloads all loaded modules of the given project.
+     * 
      * @param project the project to stop all modules of.
      */
     @objid ("2bb63f07-f1ed-11e1-af52-001ec947c8cc")

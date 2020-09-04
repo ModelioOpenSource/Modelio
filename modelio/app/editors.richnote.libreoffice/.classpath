@@ -4,10 +4,10 @@
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry excluding=".svn/" kind="src" path="src"/>
 	<classpathentry kind="src" output="runtime/bin" path="runtime/src"/>
-	<classpathentry kind="lib" path="/lib/libreoffice3.6/juh.jar"/>
-	<classpathentry kind="lib" path="/lib/libreoffice3.6/jurt.jar"/>
-	<classpathentry kind="lib" path="/lib/libreoffice3.6/ridl.jar"/>
-	<classpathentry kind="lib" path="/lib/libreoffice3.6/unoil.jar"/>
-	<classpathentry kind="lib" path="/lib/javadesigner.jar"/>
+	<classpathentry kind="lib" path="/compilation-env/libreoffice3.6/juh.jar"/>
+	<classpathentry kind="lib" path="/compilation-env/libreoffice3.6/jurt.jar"/>
+	<classpathentry kind="lib" path="/compilation-env/libreoffice3.6/ridl.jar"/>
+	<classpathentry kind="lib" path="/compilation-env/libreoffice3.6/unoil.jar"/>
+	<classpathentry kind="lib" path="/compilation-env/javadesigner.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

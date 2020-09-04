@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,11 +37,11 @@ public class AuditSeverityAction extends Action {
     @objid ("8c27deb9-d6d6-4af9-9e42-79fc75b71fb2")
     private String mode;
 
+    @objid ("32b9e1f4-bf0b-45af-a2ba-4b9cf7bdffa7")
+    private Tree tree;
+
     @objid ("4c5e52e9-98eb-4e97-8370-7741aa51aebd")
     private IAuditService auditService;
-
-    @objid ("015d69e8-b03d-4f24-965d-29c089429879")
-    private Tree tree;
 
     @objid ("785f6054-079e-4545-b551-68b2cffb173c")
     public AuditSeverityAction(String mode, IAuditService auditService, Tree tree) {

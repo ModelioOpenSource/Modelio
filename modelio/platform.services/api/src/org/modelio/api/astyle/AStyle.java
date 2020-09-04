@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,6 +54,7 @@ public final class AStyle {
 
     /**
      * Call the AStyleMain function in Artistic Style.
+     * 
      * @param textIn A string containing the source code to be formatted.
      * @param options A string of options to Artistic Style.
      * @return A String containing the formatted source from Artistic Style, or an empty string on error.
@@ -71,6 +72,7 @@ public final class AStyle {
 
     /**
      * Call the AStyleMain function in Artistic Style.
+     * 
      * @param inputFile A file containing the source code to be formatted.
      * @param outputFile The file which will contain the formatted source from Artistic Style, or an empty string on error.
      * @param options A string of options to Artistic Style.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -129,6 +129,7 @@ public class GmAssociation extends GmLink {
 
     /**
      * Creates a GmAssociation.
+     * 
      * @param diagram The diagram
      * @param role The represented association role, may be null
      * @param roleRef The represented association role reference, must not be null
@@ -218,6 +219,7 @@ public class GmAssociation extends GmLink {
      * Get the represented association role.
      * <p>
      * Returns null if the represented role is not in the model.
+     * 
      * @return the represented association role.
      */
     @objid ("33ea68ed-55b7-11e2-877f-002564c97630")
@@ -335,6 +337,7 @@ public class GmAssociation extends GmLink {
 
     /**
      * Get the represented association role reference.
+     * 
      * @return the represented association role reference.
      */
     @objid ("33ebef8f-55b7-11e2-877f-002564c97630")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ class ExmlRepositoryCreator {
 
     /**
      * Create the repository directory structure in the given directory
+     * 
      * @throws java.io.IOException in case of error creating the repository structure.
      */
     @objid ("03fb0397-6132-11e1-a535-001ec947ccaf")
@@ -66,6 +67,7 @@ class ExmlRepositoryCreator {
 
     /**
      * Delete the repository
+     * 
      * @throws java.io.IOException in case of failure
      */
     @objid ("03ffc844-6132-11e1-a535-001ec947ccaf")

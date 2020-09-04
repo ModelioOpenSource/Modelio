@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -152,6 +152,7 @@ public class R1390 extends AbstractUmlRule {
 
         /**
          * If an Attribute is updated and this Attribute is represented in an InputPin, we need to check the rule on this InputPin.
+         * 
          * @param attribute The updated Attribute.
          * @return A list of audit entry for each InputPin representing the Attribute.
          */

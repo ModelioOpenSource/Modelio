@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class GmNameSpaceLabel extends GmDefaultModelElementLabel {
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param el the represented element, may be <i>null</i>.
      * @param ref a reference to the represented element.
@@ -116,6 +117,7 @@ public class GmNameSpaceLabel extends GmDefaultModelElementLabel {
 
     /**
      * Tells whether the represented element is abstract.
+     * 
      * @return <i>true</i> if the namespace is abstract else <i>false</i>.
      */
     @objid ("d66920d8-7265-4669-90d0-3fd8b2e8edf2")

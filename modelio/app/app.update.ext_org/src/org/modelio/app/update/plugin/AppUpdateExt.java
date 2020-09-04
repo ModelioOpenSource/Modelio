@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,7 +24,6 @@ import java.util.ResourceBundle;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.equinox.log.ExtendedLogService;
 import org.eclipse.jface.preference.IPersistentPreferenceStore;
-import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.modelio.app.preferences.AppSharedPreferencesKeys;
@@ -55,13 +54,8 @@ public class AppUpdateExt implements BundleActivator {
         AppUpdateExt.context = bundleContext;
         ServiceReference<ExtendedLogService> ref = bundleContext.getServiceReference(ExtendedLogService.class);
         ExtendedLogService service = bundleContext.getService(ref);
-        AppUpdateExt.LOG = new PluginLogger(service.getLogger(null));
+        AppUpdateExt.LOG = new PluginLogger(service.getLogger((String)null));
         AppUpdateExt.I18N = new BundledMessages(AppUpdateExt.LOG, ResourceBundle.getBundle("appupdate"));
-        
-        // shortcut: Initialize default value here
-        String defaultModelioUpdateSite = AppUpdateExt.I18N.getString("DefaultModelioUpdateSite");
-        IPreferenceStore appPrefs = AppPreferences.getPreferences();
-        appPrefs.setDefault(AppSharedPreferencesKeys.UPDATESITE_PREFKEY, defaultModelioUpdateSite);
     }
 
     @objid ("de96e952-b3f8-40f7-93f9-d5035774d424")
@@ -77,6 +71,7 @@ public class AppUpdateExt implements BundleActivator {
 
     /**
      * Get the image descriptor for an image stored in this plugin.
+     * 
      * @param path a path relative to the plugin
      * @return the image descriptor.
      */

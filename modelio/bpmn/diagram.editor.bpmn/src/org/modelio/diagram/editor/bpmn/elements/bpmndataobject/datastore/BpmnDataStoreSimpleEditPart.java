@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -87,7 +87,7 @@ public class BpmnDataStoreSimpleEditPart extends AbstractNodeEditPart {
         installEditPolicy(EditPolicy.NODE_ROLE, new BpmnCreateLinkEditPolicy());
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
-        installEditPolicy(ModelElementDropRequest.class, new BpmnItemAwareElementElementDropEditPolicy());
+        installEditPolicy(ModelElementDropRequest.TYPE, new BpmnItemAwareElementElementDropEditPolicy());
     }
 
     @objid ("177f8de5-df01-4f4b-a9d0-b0ac6c80da92")

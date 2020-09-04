@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,6 +20,10 @@
 
 package org.modelio.diagram.elements.common.abstractdiagram;
 
+import java.beans.PropertyChangeEvent;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -27,6 +31,7 @@ import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Collection;
 import java.util.List;
 import java.util.ListIterator;
@@ -57,7 +62,11 @@ import org.eclipse.gef.editpolicies.SnapFeedbackPolicy;
 import org.eclipse.gef.requests.DropRequest;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.eclipse.gef.tools.MarqueeDragTracker;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.graphics.ImageLoader;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.diagram.elements.common.linktovoid.LinkToVoidConstants;
 import org.modelio.diagram.elements.common.linktovoid.LinkToVoidFinishCreationEditPolicy;
@@ -69,6 +78,7 @@ import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.diagram.elements.drawings.core.IGmDrawingLayer;
 import org.modelio.diagram.elements.drawings.layer.DrawingLayerEditPart;
 import org.modelio.diagram.styles.core.IStyle;
+import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
 
 /**
@@ -103,8 +113,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     /**
      * Fill image property key.
      * <p>
-     * This may be a file path or an URL.
-     * Relative file paths may be supported if {@link #refreshFromStyle(IFigure, IStyle)} uses {@link #resolvePath(String)}.
+     * This may be a file path or an URL. Relative file paths may be supported if {@link #refreshFromStyle(IFigure, IStyle)} uses {@link #resolvePath(String)}.
      */
     @objid ("90df2c96-1e83-11e2-8cad-001ec947c8cc")
     public static final String PROPERTY_FILL_IMAGE = "AbstractDiagramEditPart.FillImage";
@@ -145,13 +154,11 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     @Override
     public void activate() {
         super.activate();
-        
         runPostLoadActions();
     }
 
     /**
-     * In order to provide snap to grid facility the AbstractEditPart must be adaptable to a SnapToHelper. Here we adapt
-     * to a SnapToGrid only if the style defines SNAPTOGRID = true
+     * In order to provide snap to grid facility the AbstractEditPart must be adaptable to a SnapToHelper. Here we adapt to a SnapToGrid only if the style defines SNAPTOGRID = true
      */
     @objid ("7e05eaf1-1dec-11e2-8cad-001ec947c8cc")
     @Override
@@ -202,8 +209,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     /**
      * Redefined to add {@link DrawingLayerEditPart} layers in the drawing layer pane.
      * <p/>
-     * Subclasses willing to redefine this method must redefine {@link #doAddChildVisual(EditPart, int)} instead,
-     * so that they won't be annoyed by drawing layers.
+     * Subclasses willing to redefine this method must redefine {@link #doAddChildVisual(EditPart, int)} instead, so that they won't be annoyed by drawing layers.
      */
     @objid ("80a29b4a-33d5-4b9f-813d-bb17f88ff7d5")
     @Override
@@ -235,6 +241,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     /**
      * Convert a dimension from inches to pixel
      * @param d
+     * 
      * @return the dimension in pixels
      */
     @objid ("7e05eb15-1dec-11e2-8cad-001ec947c8cc")
@@ -247,6 +254,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
      * Creates the layer pane where drawing layers are put.
      * <p>
      * The layer pane is put on top of the {@link LayerConstants#PRINTABLE_LAYERS} layer.
+     * 
      * @return the drawings layer pane.
      */
     @objid ("a7c40bc5-f7d4-42c6-b604-273fc07d900b")
@@ -256,7 +264,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         
         // Create the drawing layer on top of the diagram layer.
         FreeformLayeredPane drawLayerPane = new FreeformLayeredPane();
-        //getViewer().getEditPartRegistry().put(drawLayerPane, LAYER_PANE_DRAWING);
+        // getViewer().getEditPartRegistry().put(drawLayerPane, LAYER_PANE_DRAWING);
         LayeredPane pane = (LayeredPane) getLayer(LayerConstants.PRINTABLE_LAYERS);
         pane.add(drawLayerPane, DRAWING_LAYER);
         return drawLayerPane;
@@ -316,6 +324,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
 
     /**
      * Get the layer pane where drawing layers are put.
+     * 
      * @return the drawings layer pane.
      */
     @objid ("2b7373ed-b77c-4cd3-bbae-8887dba3c516")
@@ -338,9 +347,9 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         final List<?> modelChildren = super.getModelChildren();
         final Collection<IGmDrawingLayer> drawingLayers = d.getDrawingLayers();
         
-        ArrayList<Object> ret = new ArrayList<>(modelChildren.size()+ drawingLayers.size() + 1);
+        ArrayList<Object> ret = new ArrayList<>(modelChildren.size() + drawingLayers.size() + 1);
         
-        if (d.getBackgroundDrawingLayer()!= null) {
+        if (d.getBackgroundDrawingLayer() != null) {
             ret.add(d.getBackgroundDrawingLayer());
         }
         
@@ -429,6 +438,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
      * Refresh the figure from the given style.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
+     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -479,8 +489,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     }
 
     /**
-     * Redefined to remove DrawingLayerEditPart layers from the drawing layer pane.
-     * <br/>
+     * Redefined to remove DrawingLayerEditPart layers from the drawing layer pane. <br/>
      * Subclasses must redefine {@link #doRemoveChildVisual(EditPart)}.
      */
     @objid ("78c57828-b40b-489b-b4eb-11e103e5eae4")
@@ -498,12 +507,13 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
      * Resolve the given path against the project directory if it is a relative file path or a relative URL.
      * <p>
      * Returns the given string in all other cases.
+     * 
      * @param aPath a path
      * @return the resolved path.
      */
     @objid ("e44af8a3-2dc8-403f-b750-4c8c9bacad07")
     protected final String resolvePath(String aPath) {
-        if (aPath==null || aPath.isEmpty()) {
+        if (aPath == null || aPath.isEmpty()) {
             return null;
         }
         
@@ -522,10 +532,10 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
             // ignore and next try
         }
         
-        // handle path as a file path 
+        // handle path as a file path
         try {
             Path p = Paths.get(path);
-            if (! Files.isRegularFile(p)) {
+            if (!Files.isRegularFile(p)) {
                 // try to resolve against project directory
         
                 p = getModel().getDiagram().getModelManager().getProjectPath().resolve(p);
@@ -547,7 +557,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         GmAbstractDiagram dg = (GmAbstractDiagram) getModel();
         List<IPostLoadAction> postLoadActions = dg.getPostLoadActions();
         
-        if (! postLoadActions.isEmpty()) {
+        if (!postLoadActions.isEmpty()) {
             final EditPartViewer viewer = getViewer();
             for (IPostLoadAction action : postLoadActions) {
                 action.run(viewer);
@@ -556,8 +566,58 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         }
     }
 
+    @objid ("67085f02-7375-4a44-8551-22dd1c7c6e22")
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        switch (evt.getPropertyName()) {
+        case GmAbstractDiagram.PROP_UIDATA_VERSION:
+            updatePreviewData();
+        }
+        super.propertyChange(evt);
+    }
+
+    /**
+     * Update the 'previewData' for the diagram. Currently preview data is a UUBase64Compressor compressed string of the PNG image of the diagram.
+     */
+    @objid ("31e74d9f-a04e-4fe8-bb64-7b9653b19bfb")
+    private void updatePreviewData() {
+        ImageBuilder ib = new ImageBuilder();
+        Image img = ib.makeImage(getRoot());
+        if (img != null) {
+            try {
+                ImageLoader imgLoader = new ImageLoader();
+                imgLoader.data = new ImageData[] { img.getImageData() };
+        
+                ByteArrayOutputStream bos = new ByteArrayOutputStream(img.getImageData().data.length);
+                imgLoader.save(bos, SWT.IMAGE_PNG);
+        
+                StringBuilder pngPreviewString = new StringBuilder("data:image/png;base64,");
+                pngPreviewString.append(Base64.getEncoder().encodeToString(bos.toByteArray()));
+        
+                bos.flush();
+                bos.close();
+        
+                AbstractDiagram diagram = (AbstractDiagram) this.getModel().getRelatedElement();
+                if (diagram != null)
+                    diagram.setPreviewData(pngPreviewString.toString());
+        
+                img.dispose();
+                
+        
+            } catch (UnsupportedEncodingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        
+        }
+    }
+
     /**
      * Edit policy that redirects request to the drawing layers
+     * 
      * @author cmarin
      */
     @objid ("4d6b7bcf-d62e-4126-a0b9-8879a9f841ce")
@@ -572,7 +632,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         public EditPart getTargetEditPart(Request request) {
             List<EditPart> l = getHost().getChildren();
             ListIterator<EditPart> it = l.listIterator(l.size());
-            while(it.hasPrevious()) {
+            while (it.hasPrevious()) {
                 EditPart o = it.previous();
                 if (o instanceof DrawingLayerEditPart) {
                     EditPart target = o.getTargetEditPart(request);

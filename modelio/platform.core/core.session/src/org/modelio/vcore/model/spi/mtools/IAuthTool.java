@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IAuthTool {
     /**
      * Tells whether an element of the given metaclass can be created inside the given parent element.
+     * 
      * @param parentElement the owner element
      * @param metaclass the new element metaclass
      * @return true if a new object can be created
@@ -42,6 +43,7 @@ public interface IAuthTool {
 
     /**
      * Tells whether an element of the given metaclass can be created inside the given parent element.
+     * 
      * @param parentElement the owner element
      * @param metaclass the new element metaclass
      * @return true if a new object can be created
@@ -52,6 +54,7 @@ public interface IAuthTool {
 
     /**
      * Tells whether an element of the given metaclass can be created inside the given parent element.
+     * 
      * @param parentElement the owner element
      * @param metaclass the new element metaclass java interface
      * @return true if a new object can be created

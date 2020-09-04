@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public enum Orientation {
 
     /**
      * return the perpendicular orientation of this orientation.
+     * 
      * @return the perpendicular orientation.
      */
     @objid ("7f8ceca7-1dec-11e2-8cad-001ec947c8cc")

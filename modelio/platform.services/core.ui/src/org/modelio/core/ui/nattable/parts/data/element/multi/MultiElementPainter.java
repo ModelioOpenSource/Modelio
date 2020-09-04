@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,8 +27,10 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.nebula.widgets.nattable.config.CellConfigAttributes;
 import org.eclipse.nebula.widgets.nattable.config.IConfigRegistry;
 import org.eclipse.nebula.widgets.nattable.data.convert.IDisplayConverter;
+import org.eclipse.nebula.widgets.nattable.layer.ILayer;
 import org.eclipse.nebula.widgets.nattable.layer.cell.ILayerCell;
 import org.eclipse.nebula.widgets.nattable.painter.cell.AbstractCellPainter;
+import org.eclipse.nebula.widgets.nattable.resize.command.RowResizeCommand;
 import org.eclipse.nebula.widgets.nattable.style.CellStyleAttributes;
 import org.eclipse.nebula.widgets.nattable.style.CellStyleUtil;
 import org.eclipse.nebula.widgets.nattable.style.HorizontalAlignmentEnum;
@@ -51,9 +53,6 @@ public class MultiElementPainter extends AbstractCellPainter {
     @objid ("b5cb4371-3d97-43be-9b37-5a3ba3684b2a")
     private static final String DOT3 = "...";
 
-    @objid ("f400791f-4ba7-403c-997e-075ecfcb1d53")
-    private boolean calculate = true;
-
     @objid ("bf40b275-7d95-47e1-ad4f-4eddb9e6f95e")
     private boolean underline;
 
@@ -67,6 +66,7 @@ public class MultiElementPainter extends AbstractCellPainter {
 
     /**
      * Create a new painter.
+     * 
      * @param underline whether the painter should underline the cell's contents or not.
      */
     @objid ("a28dad2b-6324-4845-a686-3340563851bd")
@@ -86,7 +86,7 @@ public class MultiElementPainter extends AbstractCellPainter {
                 int imageHeight = image.getBounds().height;
                 height = Math.max(height, imageHeight);
             }
-            
+        
             int textHeight = gc.textExtent(textIcon.getText()).y;
             if (this.underline) {
                 textHeight += (gc.getFontMetrics().getDescent() / 2) + 2;
@@ -137,30 +137,36 @@ public class MultiElementPainter extends AbstractCellPainter {
         final IStyle cellStyle = CellStyleUtil.getCellStyle(cell, configRegistry);
         setupGCFromConfig(gc, cellStyle);
         
-        int lastX = bounds.x;
+        // 'running' variables for the loop
+        int curX = bounds.x; // X cursor position for layout
+        int curY = bounds.y; // Y cursor position for layout
+        int neededRowHeight = bounds.height; // The needed height for the row to display icons and texts
+        
         List<TextIcon> textIcons = convertDataType(cell, configRegistry);
+        
         for (Iterator<TextIcon> iterator = textIcons.iterator(); iterator.hasNext();) {
             TextIcon textIcon = iterator.next();
-            
+        
             String text = textIcon.getText();
             if (iterator.hasNext()) {
                 text += ", ";
             }
             final Image icon = textIcon.getIcon();
-            final Rectangle imageBounds = icon != null ? icon.getBounds() : new Rectangle(0, 0, 0, 0);
+            final Rectangle iconBounds = icon != null ? icon.getBounds() : new Rectangle(0, 0, 0, 0);
         
             // Compute x padding
             String displayedText = text;
         
-            int fontHeight = gc.getFontMetrics().getHeight();
-            int contentHeight = fontHeight * 1 /* one line */;
+            int textHeight = gc.getFontMetrics().getHeight() * 1; // 1 because one line
         
-            if (gc.textExtent(displayedText).x > bounds.width - imageBounds.width) {
-                displayedText = truncateText(text, gc, bounds.width - imageBounds.width);
+            neededRowHeight = Math.max(neededRowHeight, Math.max(textHeight, iconBounds.height));
+        
+            if (gc.textExtent(displayedText).x > bounds.width - iconBounds.width) {
+                displayedText = truncateText(text, gc, bounds.width - iconBounds.width);
             }
         
-            int x = lastX + CellStyleUtil.getHorizontalAlignmentPadding(cellStyle, bounds, imageBounds.width + gc.textExtent(displayedText).x);
-            int y = bounds.y + CellStyleUtil.getVerticalAlignmentPadding(cellStyle, bounds, imageBounds.height);
+            int x = curX + CellStyleUtil.getHorizontalAlignmentPadding(cellStyle, bounds, iconBounds.width + gc.textExtent(displayedText).x);
+            int y = curY + CellStyleUtil.getVerticalAlignmentPadding(cellStyle, bounds, iconBounds.height);
         
             // Paint Icon
             if (icon != null) {
@@ -168,33 +174,36 @@ public class MultiElementPainter extends AbstractCellPainter {
             }
         
             // Paint Text
-            x += imageBounds.width + 3;
-            y = bounds.y + CellStyleUtil.getVerticalAlignmentPadding(cellStyle, bounds, contentHeight);
-            //bounds.width -= imageBounds.width + 1;
+            x += iconBounds.width + 3;
+            y = bounds.y + CellStyleUtil.getVerticalAlignmentPadding(cellStyle, bounds, textHeight);
+            // bounds.width -= imageBounds.width + 1;
         
             gc.drawText(displayedText, x, y, SWT.DRAW_TRANSPARENT | SWT.DRAW_DELIMITER);
             if (this.underline) {
-                // check and draw underline and strikethrough separately so it is
-                // possible to combine both
-                if (this.underline) {
-                    // y = start y of text + font height
-                    // - half of the font descent so the underline is between the
-                    // baseline and the bottom
-                    final int underlineY = y + fontHeight - (gc.getFontMetrics().getDescent() / 2);
-                    gc.drawLine(x, underlineY, x + gc.textExtent(text).x, underlineY);
-                }
+                // y = start y of text + font height
+                // - half of the font descent so the underline is between the
+                // baseline and the bottom
+                final int underlineY = y + textHeight - (gc.getFontMetrics().getDescent() / 2);
+                gc.drawLine(x, underlineY, x + gc.textExtent(text).x, underlineY);
             }
-            
-            lastX = x + gc.textExtent(text).x + 3;
+        
+            curX = x + gc.textExtent(text).x + 3;
+        } // end for
+        
+        // Now consider a row resize
+        if (neededRowHeight > bounds.height) {
+            int contentToCellDiff = (cell.getBounds().height - bounds.height);
+            ILayer layer = cell.getLayer();
+            layer.doCommand(
+                    new RowResizeCommand(layer, cell.getRowPosition(), neededRowHeight + contentToCellDiff));
         }
     }
 
     /**
-     * Convert the data value of the cell using the {@link IDisplayConverter}
-     * from the {@link IConfigRegistry}
+     * Convert the data value of the cell using the {@link IDisplayConverter} from the {@link IConfigRegistry}
      */
     @objid ("ad5f5ce4-b673-4abe-ac42-c918a068bab2")
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ("unchecked")
     protected List<TextIcon> convertDataType(ILayerCell cell, IConfigRegistry configRegistry) {
         Object canonicalValue = cell.getDataValue();
         Object displayValue;
@@ -215,7 +224,7 @@ public class MultiElementPainter extends AbstractCellPainter {
         } else if (displayValue instanceof List) {
             return (List<TextIcon>) displayValue;
         } else {
-            return Collections.singletonList(new TextIcon(String.valueOf(displayValue), null)); //$NON-NLS-1$
+            return Collections.singletonList(new TextIcon(String.valueOf(displayValue), null)); // $NON-NLS-1$
         }
     }
 
@@ -252,15 +261,12 @@ public class MultiElementPainter extends AbstractCellPainter {
     }
 
     /**
-     * Checks if the given text is bigger than the available space. If not the
-     * given text is simply returned without modification. If the text does not
-     * fit into the available space, it will be modified by cutting and adding
-     * three dots.
+     * Checks if the given text is bigger than the available space. If not the given text is simply returned without modification. If the text does not fit into the available space, it will be modified by cutting and adding three dots.
+     * 
      * @param text the text to compute
      * @param gc the current GC
      * @param availableLength the available space
-     * @return the modified text if it is bigger than the available space or the
-     * text as it was given if it fits into the available space
+     * @return the modified text if it is bigger than the available space or the text as it was given if it fits into the available space
      */
     @objid ("9fb4b009-9b96-4b17-8326-df11e7c59056")
     private String truncateText(String text, GC gc, int availableLength) {

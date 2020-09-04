@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -117,14 +117,13 @@ public class ModulePropertyModel implements IModulePropertyTable {
         int row = this.properties.indexOf(property);
         if (this.selectedElements == null) {
             return;
-        } else {
-            try (ITransaction t = this.modelingSession.getTransactionSupport().createTransaction("Set value on " + this.propertyPage.getName())) {
-                this.propertyPage.changeProperty(this.selectedElements, row + 1, String.valueOf(value));
-                t.commit();
-            } catch (final Exception e) {
-                e.printStackTrace();
-            }
+        }
         
+        try (ITransaction t = this.modelingSession.getTransactionSupport().createTransaction("Set value on " + this.propertyPage.getName())) {
+            this.propertyPage.changeProperty(this.selectedElements, row + 1, String.valueOf(value));
+            t.commit();
+        } catch (final RuntimeException e) {
+            this.propertyPage.getModule().getModuleContext().getLogService().error(e);
         }
     }
 

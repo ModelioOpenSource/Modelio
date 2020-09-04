@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -28,13 +28,13 @@ import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
 import org.modelio.metamodel.uml.statik.Parameter;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
 import org.modelio.xmi.util.AttachInputPinToOwnerVisitor;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("7c4d5f92-4131-483d-8df6-7855ff25d3e3")
 public class OInputPin extends OPin {
@@ -44,7 +44,7 @@ public class OInputPin extends OPin {
     @objid ("d0d4a840-50e5-4046-b069-66cae40988e7")
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
-        if (((InputPin)getObjingElement()).isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ACTIONINPUTPIN))
+        if (((InputPin)getObjingElement()).isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ACTIONINPUTPIN))
             return UMLFactory.eINSTANCE.createActionInputPin();
         else{
             return UMLFactory.eINSTANCE.createInputPin();
@@ -102,10 +102,8 @@ public class OInputPin extends OPin {
         org.eclipse.uml2.uml.Element ecoreOwner = GenerationProperties.getInstance().getMappedElement(objingOwner);
         
         if ((ecoreElt instanceof org.eclipse.uml2.uml.ExpansionNode)
-                && (ecoreOwner instanceof org.eclipse.uml2.uml.StructuredActivityNode)){
-        
-                ((org.eclipse.uml2.uml.StructuredActivityNode) ecoreOwner ).getNodes().add((org.eclipse.uml2.uml.ExpansionNode)ecoreElt);
-        
+                && (ecoreOwner instanceof org.eclipse.uml2.uml.StructuredActivityNode)){       
+                ((org.eclipse.uml2.uml.StructuredActivityNode) ecoreOwner ).getNodes().add((org.eclipse.uml2.uml.ExpansionNode)ecoreElt);       
         }else{
         
             if (ecoreOwner != null) {

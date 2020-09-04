@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -93,6 +93,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
 
     /**
      * Build a new PatternData instance from a model element.
+     * 
      * @param modelPattern can be an existing model pattern or any other element.
      */
     @objid ("9ec8fa2d-024f-4796-bec4-43863a731b22")
@@ -107,6 +108,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
 
     /**
      * Build a new PatternData instance from a deployed pattern.
+     * 
      * @param patternPath the file to load the pattern from.
      * @throws javax.xml.bind.JAXBException when the pattern metadata are invalid.
      * @throws java.io.IOException when the pattern file can't be loaded.
@@ -305,6 +307,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
     /**
      * Execute a pattern with the given parameters.
      * @param pattern the pattern to execute.
+     * 
      * @param parameters the parameters for the pattern to run.
      * @throws java.io.IOException when the pattern loading fails.
      */
@@ -391,6 +394,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
 
     /**
      * Load the executable part of a pattern.
+     * 
      * @return a {@link IPattern} ready to use.
      * @throws java.io.IOException when pattern loading fails.
      */
@@ -847,6 +851,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
 
     /**
      * Return the label of parameter 'paramName'
+     * 
      * @param paramName @return
      */
     @objid ("6fa4d075-1790-4340-b714-4e4b9e2a89fb")

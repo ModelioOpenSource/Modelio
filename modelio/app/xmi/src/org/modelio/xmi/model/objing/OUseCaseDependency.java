@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class OUseCaseDependency extends OModelElement {
 
     /**
      * Constructor
+     * 
      * @param param : the exported Modelio UseCaseDependency
      */
     @objid ("66d8233c-78cd-4b16-ae41-762316848c7e")

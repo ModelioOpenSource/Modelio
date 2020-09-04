@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.rcp"
+      label="%featureName"
+      version="4.11.0.v20190307-0500"
+      provider-name="%providerName"
+      plugin="org.eclipse.rcp">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.e4.rcp"
+         version="1.6.400.v20190305-0602"/>
+
+   <plugin
+         id="org.eclipse.help"
+         download-size="263"
+         install-size="675"
+         version="3.8.300.v20190216-1017"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui"
+         download-size="464"
+         install-size="577"
+         version="3.112.0.v20190205-1313"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.workbench"
+         download-size="3649"
+         install-size="7801"
+         version="3.113.0.v20190219-1432"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.configurator"
+         download-size="94"
+         install-size="191"
+         version="3.4.200.v20190218-1148"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rcp"
+         download-size="11"
+         install-size="15"
+         version="4.11.0.v20190307-0500"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.cocoa"
+         os="macosx"
+         ws="cocoa"
+         download-size="9"
+         install-size="13"
+         version="1.2.100.v20180828-0838"
+         fragment="true"
+         unpack="false"/>
+
+</feature>

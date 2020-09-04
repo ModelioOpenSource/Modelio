@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class TextFlow2 extends TextFlow {
     /**
      * Provides a TextLayout that can be used by the Draw2d text package for Bidi. This TextLayout should not be
      * disposed by clients. The provided TextLayout's orientation will be LTR.
+     * 
      * @return an SWT TextLayout that can be used for Bidi
      */
     @objid ("7e7134b6-1dec-11e2-8cad-001ec947c8cc")
@@ -84,6 +85,7 @@ public class TextFlow2 extends TextFlow {
 
     /**
      * Set whether the label is underlined.
+     * 
      * @param val true to underline the label
      */
     @objid ("7e7134ca-1dec-11e2-8cad-001ec947c8cc")
@@ -96,6 +98,7 @@ public class TextFlow2 extends TextFlow {
 
     /**
      * Set whether the label is underlined.
+     * 
      * @param strikeThrough true to strike the label
      */
     @objid ("7e7134cf-1dec-11e2-8cad-001ec947c8cc")

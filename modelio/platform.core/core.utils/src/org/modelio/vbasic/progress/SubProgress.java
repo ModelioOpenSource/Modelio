@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -333,6 +333,7 @@ public final class SubProgress implements IModelioProgress {
     /**
      * Creates a new SubProgress that will report its progress via
      * the given RootInfo.
+     * 
      * @param rootInfo the root of this progress monitor tree
      * @param totalWork total work to perform on the given progress monitor
      * @param availableToChildren number of ticks allocated for this instance's children
@@ -353,6 +354,7 @@ public final class SubProgress implements IModelioProgress {
      * 
      * <p>This method should generally be called at the beginning of a method that accepts
      * an IModelioProgress in order to convert the IModelioProgress into a SubProgress.</p>
+     * 
      * @param monitor monitor to convert to a SubProgress instance or null. Treats null
      * as a new instance of <code>NullProgressMonitor</code>.
      * @return a SubProgress instance that adapts the argument
@@ -370,6 +372,7 @@ public final class SubProgress implements IModelioProgress {
      * 
      * <p>This method should generally be called at the beginning of a method that accepts
      * an IModelioProgress in order to convert the IModelioProgress into a SubProgress.</p>
+     * 
      * @param monitor monitor to convert to a SubProgress instance or null. Treats null
      * as a new instance of <code>NullProgressMonitor</code>.
      * @param work number of ticks that will be available in the resulting monitor
@@ -388,6 +391,7 @@ public final class SubProgress implements IModelioProgress {
      * 
      * <p>This method should generally be called at the beginning of a method that accepts
      * an IModelioProgress in order to convert the IModelioProgress into a SubProgress.</p>
+     * 
      * @param initialMonitor to convert into a SubProgress instance or null. If given a null argument,
      * the resulting SubProgress will not report its progress anywhere.
      * @param taskName user readable name to pass to monitor.beginTask. Never null.
@@ -421,6 +425,7 @@ public final class SubProgress implements IModelioProgress {
      * <p>It doesn't matter how much progress has already been reported with this SubProgress
      * instance. If you call setWorkRemaining(100), you will be able to report 100 more ticks of
      * work before the progress meter reaches 100%.</p>
+     * 
      * @param initialWorkRemaining total number of remaining ticks
      * @return the receiver
      */
@@ -447,6 +452,7 @@ public final class SubProgress implements IModelioProgress {
     /**
      * Consumes the given number of child ticks, given as a double. Must only
      * be called if the monitor is in floating-point mode.
+     * 
      * @param ticks the number of ticks to consume
      * @return ticks the number of ticks to be consumed from parent
      */
@@ -495,6 +501,7 @@ public final class SubProgress implements IModelioProgress {
      * the {@link #SUPPRESS_BEGINTASK} flag is set, this will also be equivalent to calling
      * {@link #setTaskName(String)} on the parent.</p>
      * @see IModelioProgress#beginTask(java.lang.String, int)
+     * 
      * @param name new main task name
      * @param totalWork number of ticks to allocate
      */
@@ -624,6 +631,7 @@ public final class SubProgress implements IModelioProgress {
      * callMethod(progress.newChild(50), someValue);
      * }
      * </pre></code>
+     * 
      * @param totalWork number of ticks to consume from the receiver
      * @return new sub progress monitor that may be used in place of a new SubProgress
      */
@@ -688,6 +696,7 @@ public final class SubProgress implements IModelioProgress {
      * callMethod(progress.newChild(50), someValue);
      * }
      * </pre></code>
+     * 
      * @param totalWork number of ticks to consume from the receiver
      * @return new sub progress monitor that may be used in place of a new SubProgress
      */
@@ -739,6 +748,7 @@ public final class SubProgress implements IModelioProgress {
      * <p>
      * The returned supplier may be used only once is valid until this sub progress finishes
      * or another child progress is created.
+     * 
      * @param totalWork number of ticks to consume from the receiver
      * @param suppressFlags a bitwise combination of the SUPPRESS_* constants
      * @return an optional sub progress monitor.
@@ -768,6 +778,7 @@ public final class SubProgress implements IModelioProgress {
      * <p>
      * The returned supplier may be used only once is valid until this sub progress finishes
      * or another child progress is created.
+     * 
      * @param totalWork number of ticks to consume from the receiver
      * @return an optional sub progress monitor.
      * @since Modelio 3.6
@@ -816,6 +827,7 @@ public final class SubProgress implements IModelioProgress {
         /**
          * Creates a RootInfo struct that delegates to the given progress
          * monitor.
+         * 
          * @param root progress monitor to delegate to
          */
         @objid ("c98f5188-a5a3-11e1-aa98-001ec947ccaf")

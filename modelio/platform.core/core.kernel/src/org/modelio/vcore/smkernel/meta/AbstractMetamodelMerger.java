@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public abstract class AbstractMetamodelMerger {
      * merge a {@link MetamodelDescriptor} into a {@link MofMetamodel}.
      * <p>
      * Missing metamodel fragments, metaclasses and attributes are created.
+     * 
      * @param desc the descriptor to merge
      */
     @objid ("4ecad3a3-80db-48d3-9c58-b0f12eabbc54")
@@ -97,6 +98,7 @@ public abstract class AbstractMetamodelMerger {
 
     /**
      * Add missing attributes/dependencies
+     * 
      * @param md the owner metaclass descriptor
      * @param m the owner metaclass
      */
@@ -156,6 +158,7 @@ public abstract class AbstractMetamodelMerger {
      * The implementation may do something to make metamodels compatible.
      * <p>
      * Default implementation does nothing.
+     * 
      * @param metaclass the metaclass to fix
      * @param parentMetaclass the parent metaclass in the descriptor.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -115,6 +115,7 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this partition will be unmasked.
      * @param theParticipant the unmasked partition (can be null).
      * @param ref a reference to the unmasked partition (cannot be null).

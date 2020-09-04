@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,9 +23,11 @@ package org.modelio.diagram.elements.core.figures.anchors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.AbstractConnectionAnchor;
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.Locator;
 import org.eclipse.draw2d.geometry.Point;
 import org.modelio.diagram.elements.core.link.extensions.FractionalConnectionLocator;
 import org.modelio.diagram.elements.core.link.extensions.GmFractionalConnectionLocator;
+import org.modelio.diagram.elements.core.link.extensions.LocatorFactory;
 
 @objid ("7f5878dc-1dec-11e2-8cad-001ec947c8cc")
 public class LinkAnchor extends AbstractConnectionAnchor {
@@ -41,9 +43,9 @@ public class LinkAnchor extends AbstractConnectionAnchor {
     @objid ("7f5878e9-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public Point getLocation(final Point reference) {
-        FractionalConnectionLocator x = new FractionalConnectionLocator((Connection) this.getOwner(),
-                                                                        this.locator.getFraction());
-        Point ret = x.getLocation(this.getOwner());
+        Locator x = LocatorFactory.getInstance().getLocator((Connection) getOwner(), this.locator);
+        // FIXME was //x = new FractionalConnectionLocator((Connection) this.getOwner(), this.locator.getFraction(), false);
+        Point ret = ((FractionalConnectionLocator) x).getLocation(getOwner());
         getOwner().translateToAbsolute(ret);
         return ret;
     }

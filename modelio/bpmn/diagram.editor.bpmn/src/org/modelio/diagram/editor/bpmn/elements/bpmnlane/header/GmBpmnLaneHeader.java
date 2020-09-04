@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class GmBpmnLaneHeader extends GmDefaultModelElementHeader {
 
     /**
      * C'tor.
+     * 
      * @param diagram the owning diagram.
      */
     @objid ("6129c5eb-55b6-11e2-877f-002564c97630")
@@ -184,6 +185,7 @@ public class GmBpmnLaneHeader extends GmDefaultModelElementHeader {
 
         /**
          * C'tor.
+         * 
          * @param cascadedStyle the style this style should cascade on.
          */
         @objid ("70dc37a2-6215-4109-97ee-edc0be18a6da")

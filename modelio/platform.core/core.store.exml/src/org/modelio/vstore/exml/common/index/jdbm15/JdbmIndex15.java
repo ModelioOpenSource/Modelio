@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -94,6 +94,7 @@ public class JdbmIndex15 implements IIndexDb {
 
     /**
      * Commit pending changes now, and reset internal counter.
+     * 
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of JDBM failure.
      */
     @objid ("c63b68ab-50ec-4144-9cf0-5cae745e4e16")
@@ -152,6 +153,7 @@ public class JdbmIndex15 implements IIndexDb {
 
     /**
      * Read the index format version.
+     * 
      * @return the index format version
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
      */
@@ -216,6 +218,7 @@ public class JdbmIndex15 implements IIndexDb {
 
     /**
      * Save the index format version.
+     * 
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure.
      */
     @objid ("391713d6-b50f-4a72-987a-f3189751880a")
@@ -239,6 +242,7 @@ public class JdbmIndex15 implements IIndexDb {
 
     /**
      * Defragments the index, so it consumes less space. This commits any uncommitted data.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done()
      * on the given monitor. Accepts null, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
@@ -276,15 +280,15 @@ public class JdbmIndex15 implements IIndexDb {
     public void checkIndexFormat() throws IndexException, IndexOutdatedException {
         int storedVersion = getStoredVersion();
         if (storedVersion == 0) {
-            throw new IndexOutdatedException(VStoreExml.getMessage("ExmlIndex.indexMissing", this.resProvider.getName()));
+            throw new IndexOutdatedException(VStoreExml.I18N.getMessage("ExmlIndex.indexMissing", this.resProvider.getName()));
         
         } else if ( INDEX_FORMAT_VERSION > storedVersion) {
-            throw new IndexOutdatedException(VStoreExml.getMessage("ExmlIndex.indexFormatOld",
+            throw new IndexOutdatedException(VStoreExml.I18N.getMessage("ExmlIndex.indexFormatOld",
                     this.resProvider.getName(),
                     storedVersion,
                     INDEX_FORMAT_VERSION));
         } else if ( INDEX_FORMAT_VERSION < storedVersion) {
-            throw new IndexOutdatedException(VStoreExml.getMessage("ExmlIndex.indexFormatNew",
+            throw new IndexOutdatedException(VStoreExml.I18N.getMessage("ExmlIndex.indexFormatNew",
                     this.resProvider.getName(),
                     storedVersion,
                     INDEX_FORMAT_VERSION));

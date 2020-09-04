@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -81,6 +81,7 @@ class DataModel implements ExmlTags {
 
     /**
      * initialize the loader
+     * 
      * @param loadHelper a load helper
      */
     @objid ("2af7926a-3faf-11e2-87cb-001ec947ccaf")
@@ -168,6 +169,7 @@ class DataModel implements ExmlTags {
 
     /**
      * Pop an object model from the stack.
+     * 
      * @return the removed object model.
      */
     @objid ("2af9f4c6-3faf-11e2-87cb-001ec947ccaf")
@@ -265,6 +267,7 @@ class DataModel implements ExmlTags {
 
     /**
      * Initialize the document locator.
+     * 
      * @param aLocator a SAX locator.
      */
     @objid ("2af9f4cd-3faf-11e2-87cb-001ec947ccaf")
@@ -274,6 +277,7 @@ class DataModel implements ExmlTags {
 
     /**
      * initialize the model loader.
+     * 
      * @param modelLoader a model loader.
      */
     @objid ("2af9f4d1-3faf-11e2-87cb-001ec947ccaf")
@@ -283,6 +287,7 @@ class DataModel implements ExmlTags {
 
     /**
      * Set the file format version.
+     * 
      * @param v the file format version.
      */
     @objid ("2af9f4d8-3faf-11e2-87cb-001ec947ccaf")
@@ -292,6 +297,7 @@ class DataModel implements ExmlTags {
 
     /**
      * Set a hook that can modify the content of a dependency.
+     * 
      * @param depContentHook a dependency content hook. May be <code>null</code>.
      */
     @objid ("ddf3cc54-407a-11e2-87cb-001ec947ccaf")

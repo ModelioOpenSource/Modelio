@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,6 +20,7 @@
 
 package org.modelio.patterns.popup;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -38,6 +39,7 @@ import org.eclipse.e4.ui.model.application.ui.menu.MHandledMenuItem;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenu;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenuElement;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenuFactory;
+import org.eclipse.e4.ui.model.application.ui.menu.MMenuSeparator;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.modelio.patterns.api.IPatternService;
@@ -69,29 +71,32 @@ public class PatternsPopupProvider {
     /**
      * Fills a dynamic creation menu with selection-compatible contributions before display. <br/>
      * Called by the rcp platform through injection.
+     * 
      * @param items the item list to fill.
      */
     @objid ("e7b6b372-e14b-41f0-8430-16fecb137cc1")
     @AboutToShow
-    public void aboutToShow(List<MMenuElement> items) {
+    public void aboutToShow(final List<MMenuElement> items) {
         // Fill creation menu with selection-compatible commands
-        items.addAll(createCategoryMenus(this.patternService.getCatalog().getCategories(getSelectedElements())));
+        final String contributorId = getContributorId(Patterns.getContext().getBundle());
+        items.addAll(createCategoryMenus(this.patternService.getCatalog().getCategories(getSelectedElements()), contributorId));
         
         if (!items.isEmpty()) {
-            items.add(MMenuFactory.INSTANCE.createMenuSeparator());
+            final MMenuSeparator separator = MMenuFactory.INSTANCE.createMenuSeparator();
+            separator.setContributorURI(contributorId);
+            items.add(separator);
         }
     }
 
     /**
      * Clean up the dynamic items, as they are not kept between two openings.
-     * @param items
      */
     @objid ("c36931ee-417f-4ede-b5e8-4fe408a944a1")
     @AboutToHide
-    public void aboutToHide(List<MMenuElement> items) {
+    public void aboutToHide(final List<MMenuElement> items) {
         // Clean up contributions...
         if (items != null) {
-            for (MMenuElement item : items) {
+            for (final MMenuElement item : items) {
                 final MElementContainer<MUIElement> parent = item.getParent();
                 if (parent != null) {
                     parent.getChildren().remove(item);
@@ -102,10 +107,11 @@ public class PatternsPopupProvider {
 
     /**
      * Compute a contributor id from a bundle.
+     * 
      * @return a contributor id.
      */
     @objid ("1e4a5d82-e5d7-4117-a29c-f7775e7c5f00")
-    private String getContributorId(Bundle bundle) {
+    private String getContributorId(final Bundle bundle) {
         return "platform:/plugin/" + bundle.getSymbolicName();
     }
 
@@ -116,13 +122,14 @@ public class PatternsPopupProvider {
      * </p>
      * @param entries
      * the category to build menu elements from.
+     * 
      * @return a list of menu elements.
      */
     @objid ("48ec3068-f416-48af-83a6-aae49efcb9b2")
-    private List<MMenuElement> createPatternMenuItems(Collection<RuntimePattern> patterns) {
-        List<MMenuElement> items = new ArrayList<>();
-        for (RuntimePattern pattern : patterns) {
-            items.add(createPatternMenuItem(pattern));
+    private List<MMenuElement> createPatternMenuItems(final Collection<RuntimePattern> patterns, final String contributorId) {
+        final List<MMenuElement> items = new ArrayList<>();
+        for (final RuntimePattern pattern : patterns) {
+            items.add(createPatternMenuItem(pattern, contributorId));
         }
         return items;
     }
@@ -131,15 +138,16 @@ public class PatternsPopupProvider {
      * Create a new handled menu item from a pattern.
      * @param entry
      * the pattern to create the menu item from.
+     * 
      * @return a new menu element.
      */
     @objid ("0fb9d932-3195-4b50-9e5d-e7a0b6996294")
-    private MMenuElement createPatternMenuItem(RuntimePattern pattern) {
+    private MMenuElement createPatternMenuItem(final RuntimePattern pattern, final String contributorId) {
         final Pattern infos = pattern.getInfos();
         
         // create a new handled item
-        MHandledMenuItem item = MMenuFactory.INSTANCE.createHandledMenuItem();
-        MCommand command = getCommand();
+        final MHandledMenuItem item = MMenuFactory.INSTANCE.createHandledMenuItem();
+        final MCommand command = getCommand();
         item.setCommand(command);
         
         // compute the element id
@@ -158,10 +166,11 @@ public class PatternsPopupProvider {
         item.setVisible(true);
         
         // bound the item to the contributing plugin
-        item.setContributorURI(getContributorId(Patterns.getContext().getBundle()));
+        item.setContributorURI(contributorId);
         
         // add file parameter
-        MParameter p = MCommandsFactory.INSTANCE.createParameter();
+        final MParameter p = MCommandsFactory.INSTANCE.createParameter();
+        p.setContributorURI(contributorId);
         p.setName(ApplyPatternHandler.APPLY_PATTERN_NAME);
         p.setValue(infos.getName());
         item.getParameters().add(p);
@@ -172,12 +181,13 @@ public class PatternsPopupProvider {
      * Get the MCommand defined in the application having a specific id.
      * @param commandId
      * the element id of the MCommand to find.
+     * 
      * @return a MCommand, or <code>null</code> if the id is not found.
      */
     @objid ("926b9c84-18ca-4c2a-be4c-63f7586bb9aa")
     private MCommand getCommand() {
         // look into the application commands
-        for (MCommand c : this.application.getCommands()) {
+        for (final MCommand c : this.application.getCommands()) {
             if (ApplyPatternHandler.APPLY_PATTERN.equals(c.getElementId())) {
                 return c;
             }
@@ -187,22 +197,23 @@ public class PatternsPopupProvider {
 
     /**
      * Get the currently selected elements, or an empty collection.
+     * 
      * @return the selected elements.
      */
     @objid ("b551c786-e666-498b-bff0-81cb00778897")
     private Collection<MObject> getSelectedElements() {
-        Collection<MObject> ret = new ArrayList<>();
+        final Collection<MObject> ret = new ArrayList<>();
         
         // Get the active selection from the application, to avoid context-related issues when opening the same diagram several
         // times...
-        IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(
+        final IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(
                 IServiceConstants.ACTIVE_SELECTION);
         if (selection != null) {
-            for (Object obj : selection.toList()) {
+            for (final Object obj : selection.toList()) {
                 if (obj instanceof MObject) {
                     ret.add((MObject) obj);
                 } else if (obj instanceof IAdaptable) {
-                    IAdaptable adaptable = (IAdaptable) obj;
+                    final IAdaptable adaptable = (IAdaptable) obj;
                     final MObject adapter = adaptable.getAdapter(MObject.class);
                     if (adapter != null) {
                         ret.add(adapter);
@@ -218,25 +229,26 @@ public class PatternsPopupProvider {
      * <p>
      * Only categories containing at least one pattern shown in the contextual menu are inserted in the menu.
      * </p>
+     * 
      * @param categories the categories to build menu elements from.
      * @return a list of menu elements.
      */
     @objid ("d1593272-c35c-4c43-ab25-3606d20594dc")
-    private List<MMenuElement> createCategoryMenus(Collection<CategoryData> categories) {
-        List<MMenuElement> items = new ArrayList<>();
-        for (CategoryData category : categories) {
+    private List<MMenuElement> createCategoryMenus(final Collection<CategoryData> categories, final String contributorId) {
+        final List<MMenuElement> items = new ArrayList<>();
+        for (final CategoryData category : categories) {
             if (!category.getPatterns().isEmpty()) {
                 if (!category.getName().isEmpty() && !"Default".equals(category.getName())) {
                     // Create pattern menu items in a category menu
-                    MMenu categoryMenu = createCategoryMenu(category);
+                    final MMenu categoryMenu = createCategoryMenu(category, contributorId);
         
-                    List<MMenuElement> patternItems = createPatternMenuItems(category.getPatterns());
+                    final List<MMenuElement> patternItems = createPatternMenuItems(category.getPatterns(), contributorId);
                     categoryMenu.getChildren().addAll(patternItems);
         
                     items.add(categoryMenu);
                 } else {
                     // Create pattern menu items directly
-                    List<MMenuElement> patternItems = createPatternMenuItems(category.getPatterns());
+                    final List<MMenuElement> patternItems = createPatternMenuItems(category.getPatterns(), contributorId);
                     items.addAll(patternItems);
                 }
             }
@@ -248,20 +260,22 @@ public class PatternsPopupProvider {
      * Create a new menu item from a category.
      * @param entry
      * the pattern to create the menu item from.
+     * 
      * @return a new menu element.
      */
     @objid ("dc954bd1-7149-4e70-a508-5efa871409ab")
-    private MMenu createCategoryMenu(CategoryData category) {
+    private MMenu createCategoryMenu(final CategoryData category, final String contributorId) {
         // create a new handled item
-        MMenu menu = MMenuFactory.INSTANCE.createMenu();
+        final MMenu menu = MMenuFactory.INSTANCE.createMenu();
         
         // compute the element id
         menu.setElementId(category.getName());
         
         // compute label, tooltip and icon
         menu.setLabel(category.getName());
-        if (category.getIconPath() != null) {
-            menu.setIconURI(category.getIconPath().toString());
+        URL catIconUrl = category.getIconUrl();
+        if (catIconUrl != null) {
+            menu.setIconURI(category.getIconUrl().toString());
         }
         
         // make the item visible
@@ -270,7 +284,7 @@ public class PatternsPopupProvider {
         menu.setVisible(true);
         
         // bound the item to the contributing plugin
-        menu.setContributorURI(getContributorId(Patterns.getContext().getBundle()));
+        menu.setContributorURI(contributorId);
         return menu;
     }
 

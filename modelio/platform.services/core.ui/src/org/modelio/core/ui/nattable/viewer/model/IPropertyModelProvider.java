@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,6 +27,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IPropertyModelProvider {
     /**
      * Provides the data model matching a given model element.
+     * 
      * @param element The element to display in the property view.
      * @param context The project context.
      * @return The matching property model.

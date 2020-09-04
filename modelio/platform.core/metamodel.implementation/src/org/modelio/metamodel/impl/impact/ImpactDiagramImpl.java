@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.impact;
 
@@ -43,7 +43,7 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("b4553cb3-9e99-45b0-83dd-cb97293e03a5")
 public class ImpactDiagramImpl extends AbstractDiagramImpl implements ImpactDiagram {
-    @objid ("41092dc3-1909-4b7b-b120-e3cc85ec607a")
+    @objid ("1117402a-1067-4595-ad9a-839856b3a3bd")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -51,7 +51,7 @@ public class ImpactDiagramImpl extends AbstractDiagramImpl implements ImpactDiag
         return super.getCompositionOwner();
     }
 
-    @objid ("23840ec3-0d41-483a-8e28-a1ca985e2fcb")
+    @objid ("97bbdaff-8f5f-4f8c-82d5-9eca174ad9b3")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -61,7 +61,7 @@ public class ImpactDiagramImpl extends AbstractDiagramImpl implements ImpactDiag
         return super.getCompositionRelation();
     }
 
-    @objid ("dc39db7d-2ee3-4d1f-9d35-1bfe485bb0aa")
+    @objid ("e906f0a2-1ba7-4221-86b3-ef9347ced0b2")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitImpactDiagram(this);

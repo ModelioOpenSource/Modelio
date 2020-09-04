@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ class OutputWriter extends Writer {
      * Creates an OutputWriter.
      * <p>
      * The input will be sent in green colour to the styled text.
+     * 
      * @param outputView the styled text to send the input to.
      */
     @objid ("007dd6d8-663d-105c-84ef-001ec947cd2a")
@@ -60,6 +61,7 @@ class OutputWriter extends Writer {
 
     /**
      * Creates an OutputWriter.
+     * 
      * @param outputView the styled text to send the input to.
      * @param style style of the text that will be sent to the styled text.
      */
@@ -99,6 +101,7 @@ class OutputWriter extends Writer {
 
     /**
      * Creates an OutputWriter.
+     * 
      * @param outputView the styled text to send the input to.
      * @param textStyle style of the text that will be sent to the styled text.
      * @param onFlush will be run each time flush() is called.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ class RunMacroButtonListener implements SelectionListener {
 
     /**
      * Creates a listener.
+     * 
      * @param treeviewer The tree viewer where the selected element is to be looked
      * for.
      */

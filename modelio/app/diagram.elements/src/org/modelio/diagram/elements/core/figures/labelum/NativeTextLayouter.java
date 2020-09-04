@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class NativeTextLayouter implements ILabelumTextLayouter {
 
     /**
      * Initialize the word breaking line layouter .
+     * 
      * @param lineEndSymbol the symbol to add at end of broken lines.
      * See {@value #CR_END_SYMB1} or {@value #CR_END_SYMB2}.
      */
@@ -136,6 +137,7 @@ public class NativeTextLayouter implements ILabelumTextLayouter {
 
     /**
      * get the symbol that will be added as line wrapping symbol.
+     * 
      * @return the line wrap symbol.
      */
     @objid ("eea4b592-fa1d-465d-8811-0c421df16013")

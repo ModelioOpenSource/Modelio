@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -384,6 +384,7 @@ public class MModelServices implements IMModelServices {
 
     /**
      * Invalidate the service and prevent further usage.
+     * 
      * @param object a dummy parameter
      */
     @objid ("00913a16-0eae-1035-9f91-001ec947cd2a")
@@ -468,6 +469,7 @@ public class MModelServices implements IMModelServices {
 
     /**
      * Answer to the question: does 'stereotype' or one of its inheritance parent matches the given 'stereotypeName'.
+     * 
      * @param stereotype a stereotype
      * @param stereotypeName the name of a stereotype.
      * @return <code>true</code> if 'stereotype' or one of its inheritance parent matches the given 'stereotypeName'.
@@ -488,6 +490,7 @@ public class MModelServices implements IMModelServices {
 
     /**
      * Answer to the question: does 'metaclass' or one of its inheritance parent matches the given 'metaclassName'.
+     * 
      * @param metaclass a metaclass
      * @param metaclassName the name of a metaclass.
      * @return <code>true</code> if 'metaclass' or one of its inheritance parent matches the given 'metaclassName'.

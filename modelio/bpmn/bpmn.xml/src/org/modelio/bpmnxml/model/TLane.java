@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -98,6 +98,7 @@ public class TLane extends TBaseElement {
 
     /**
      * Sets the value of the partitionElement property.
+     * 
      * @param value allowed object is
      * {@link TBaseElement }
      */
@@ -147,6 +148,7 @@ public class TLane extends TBaseElement {
 
     /**
      * Sets the value of the childLaneSet property.
+     * 
      * @param value allowed object is
      * {@link TLaneSet }
      */
@@ -168,6 +170,7 @@ public class TLane extends TBaseElement {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -189,6 +192,7 @@ public class TLane extends TBaseElement {
 
     /**
      * Sets the value of the partitionElementRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

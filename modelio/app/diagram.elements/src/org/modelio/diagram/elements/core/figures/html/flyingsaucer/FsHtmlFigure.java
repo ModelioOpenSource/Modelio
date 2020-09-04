@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class FsHtmlFigure extends GefFsRenderer {
 
     /**
      * C'tor
+     * 
      * @param swtComposite a SWT composite to allow HTML to add SWT controls, not yet used.
      */
     @objid ("dbd77727-6f8b-4202-95a2-a6a29c80d8dd")
@@ -62,6 +63,7 @@ public class FsHtmlFigure extends GefFsRenderer {
 
     /**
      * Set the HTML content.
+     * 
      * @param htmlText the HTML text
      */
     @objid ("649ea6d6-3583-4546-803c-875c8994d3b1")
@@ -88,6 +90,7 @@ public class FsHtmlFigure extends GefFsRenderer {
 
     /**
      * Tidy and parse the HTML text.
+     * 
      * @param aHtmlText an HTML text
      * @return the parsed DOM tree or null.
      */
@@ -147,6 +150,7 @@ public class FsHtmlFigure extends GefFsRenderer {
 
         /**
          * Creates a CSS style sheet from the {@link FsHtmlFigure#getFont() Figure font}.
+         * 
          * @return the note style sheet.
          */
         @objid ("7e6875d9-2186-4ff2-8f01-599371cea938")

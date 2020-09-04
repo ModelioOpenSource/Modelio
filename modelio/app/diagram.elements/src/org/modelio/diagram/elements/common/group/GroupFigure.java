@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class GroupFigure extends GradientFigure {
 
     /**
      * Creates a group figure.
+     * 
      * @param stretchLastChild true to grab excess space, else false.
      */
     @objid ("7e5bbf8d-1dec-11e2-8cad-001ec947c8cc")
@@ -85,6 +86,7 @@ public class GroupFigure extends GradientFigure {
 
     /**
      * Get the place where child figures must be added.
+     * 
      * @return the place where child figures must be added.
      */
     @objid ("7e5bbf91-1dec-11e2-8cad-001ec947c8cc")
@@ -94,6 +96,7 @@ public class GroupFigure extends GradientFigure {
 
     /**
      * Show or hide the incomplete indicator label.
+     * 
      * @param show true to show the indicator, false to hide it.
      */
     @objid ("7e5bbf98-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,7 +60,6 @@ public class ImportModel {
         
                 if (objingElt != null) {
                     partialCreationMap.put(ecoreElt, objingElt);
-                    
                 }
         
                 if (isNamespace && this.progressBar != null) {
@@ -71,11 +70,9 @@ public class ImportModel {
         
             if (objingElt != null) {
         
-        
                 // Finish creation:
                 setMapping(objingElt, ieelem);
         
-                
                 partialCreationMap.remove(ecoreElt);
                 totalCreationMap.put(ecoreElt, objingElt);
                 if (this.progressBar != null) {
@@ -97,34 +94,17 @@ public class ImportModel {
     @objid ("1b89b0f9-ed18-4fe5-870a-f67296819766")
     private void setMapping(Object objingElt, IEElement ieelem) {
         try {
-            if ((objingElt != null) &&
-                    (objingElt instanceof Element) &&
-                    (((Element) objingElt).getStatus().isModifiable())) {
-                if (this.external) {
-                    if (objingElt instanceof ModelTree) {
-                        ((ModelTree) objingElt).setOwner(ReverseProperties.getInstance()
-                                .getExternalPackage());
-                        this.external = false;
-                    }
-                } else {
-                    ieelem.attach((Element) objingElt);
-                }
-                ieelem.setProperties((Element) objingElt);
-                ieelem.setStereotypes();
-        
+            if (objingElt instanceof Element) {
+                setEltMapping((Element)objingElt, ieelem);
             } else if (objingElt instanceof List<?>) {
-                ieelem.attach((List<Object>) objingElt);
-                for (Element elt : (List<Element>) objingElt) {
-                    if (elt.getStatus().isModifiable()) {
-                        ieelem.setProperties(elt);
-                        ieelem.setStereotypes();
+                for (Object elt : (List<?>) objingElt) {
+                    if (elt instanceof Element) {
+                        setEltMapping((Element) elt, ieelem);
                     }
                 }
             }
-        
         } catch (RuntimeException e) {
-            Xmi.LOG.warning(Xmi.PLUGIN_ID, e);  
-            System.out.println(e.getMessage());
+            Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
         }
     }
 
@@ -141,6 +121,25 @@ public class ImportModel {
     @objid ("2ba13eb0-048f-4946-912f-d6526f401aa5")
     private boolean isMapperOfCurrentElt(String mapperName, org.eclipse.uml2.uml.Element ecoreElement) {
         return (ecoreElement.getClass().getSimpleName().contains(mapperName));
+    }
+
+    @objid ("0426c7f5-aea8-48a2-a12d-e930c65761d0")
+    private void setEltMapping(Element objingElt, IEElement ieelem) {
+        if  (objingElt.getStatus().isModifiable()) {
+        
+            if (this.external) {
+                if (objingElt instanceof ModelTree) {
+                    ((ModelTree) objingElt).setOwner(ReverseProperties.getInstance()
+                            .getExternalPackage());
+                    this.external = false;
+                }
+            } else {
+                ieelem.attach(objingElt);
+            }
+        
+            ieelem.setProperties(objingElt);
+            ieelem.setStereotypes();
+        }
     }
 
 }

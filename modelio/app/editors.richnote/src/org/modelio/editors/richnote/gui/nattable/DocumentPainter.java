@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -200,6 +200,7 @@ public class DocumentPainter extends AbstractCellPainter {
      * given text is simply returned without modification. If the text does not
      * fit into the available space, it will be modified by cutting and adding
      * three dots.
+     * 
      * @param text the text to compute
      * @param gc the current GC
      * @param availableLength the available space
@@ -229,6 +230,7 @@ public class DocumentPainter extends AbstractCellPainter {
 
     /**
      * Build a new painter instance.
+     * 
      * @param session the model session, needed for mref lookup.
      */
     @objid ("1d70afe4-8326-4df2-8573-c14d9497e4d1")

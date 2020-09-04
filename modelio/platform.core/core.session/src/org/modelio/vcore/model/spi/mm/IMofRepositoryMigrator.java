@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public interface IMofRepositoryMigrator extends IMetamodelDependentService {
      * Modify the metamodel so that it can read the {@link #getSourceMetamodel()} repository.
      * <p>
      * The implementation should make an union of the passed target metamodel and the source one.
+     * 
      * @param metamodel the metamodel at the {@link #getTargetMetamodel() target} state.
      * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
      */
@@ -59,6 +60,7 @@ public interface IMofRepositoryMigrator extends IMetamodelDependentService {
 
     /**
      * Migrates the given repository using the given session.
+     * 
      * @param monitor a progress monitor
      * @param migrationSession the migration session
      * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
@@ -83,6 +85,7 @@ public interface IMofRepositoryMigrator extends IMetamodelDependentService {
      * <p>
      * This resume is important because it is needed by some repository implementations
      * to maintain their organization.
+     * 
      * @return a resume of metamodel changes between {@link #getSourceMetamodel()} and {@link #getTargetMetamodel()}.
      */
     @objid ("3def37ca-8fcf-400a-bde1-495ce83e66fa")
@@ -92,6 +95,7 @@ public interface IMofRepositoryMigrator extends IMetamodelDependentService {
      * Allows the migrator to modify the metamodel descriptor that will be written after the migration is complete.
      * <p>
      * Each migrator will be called with this method in order.
+     * 
      * @param desc the final metamodel descriptor.
      * @param reporter a place to log things.
      * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on failure.
@@ -106,6 +110,7 @@ public interface IMofRepositoryMigrator extends IMetamodelDependentService {
      * <p>
      * Most implementations do modify the model. Only {@link NoopMofRepositoryMigrator} is expected to return false.
      * The caller may do some optimizations if no migrators of the chain modify the model.
+     * 
      * @return <i>true</i> if this migrator modifies the model else <i>false</i>.
      */
     @objid ("62476483-a603-4f69-a03b-9bcad09fe6de")

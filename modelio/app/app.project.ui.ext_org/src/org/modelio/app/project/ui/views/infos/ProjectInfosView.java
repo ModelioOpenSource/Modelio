@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -99,6 +99,7 @@ public class ProjectInfosView {
      * Creates the SWT controls.
      * <p>
      * Called by E4 injection.
+     * 
      * @param parent the parent composite.
      */
     @objid ("a2f2df54-85b8-43f2-a193-b8f0e4207630")
@@ -112,6 +113,7 @@ public class ProjectInfosView {
 
     /**
      * Workspace tree selection always comes as ProjectDescriptor.
+     * 
      * @param selection the project selected in the workspace browser
      */
     @objid ("deac0c58-836a-4407-907c-ec280e6bbbd3")

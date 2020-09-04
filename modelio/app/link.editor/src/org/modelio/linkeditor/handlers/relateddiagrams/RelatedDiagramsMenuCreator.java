@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,13 +57,13 @@ public class RelatedDiagramsMenuCreator {
 
     @objid ("841355d0-10b5-44ba-b850-adcb5632ea78")
     @AboutToShow
-    public void aboutToShow(List<MMenuElement> items) {
+    public void aboutToShow(final List<MMenuElement> items) {
         // Get current selection
         final ModelElement selectedElement = getSelectedElement();
         if (selectedElement != null) {
             // Get diagrams to display
-            Collection<AbstractDiagram> related = RelatedDiagramHelper.getRelatedDiagrams(selectedElement);
-            Collection<AbstractDiagram> displaying = new ArrayList<>(selectedElement.getDiagramElement());
+            final Collection<AbstractDiagram> related = RelatedDiagramHelper.getRelatedDiagrams(selectedElement);
+            final Collection<AbstractDiagram> displaying = new ArrayList<>(selectedElement.getDiagramElement());
         
             if (related.isEmpty() && displaying.isEmpty()) {
                 // No diagrams to relate to
@@ -79,14 +79,14 @@ public class RelatedDiagramsMenuCreator {
     }
 
     @objid ("0a6c6dde-a58c-4a76-a788-7d2ffb47295b")
-    public MMenu createMenu(Collection<AbstractDiagram> relatedDiagrams, Collection<AbstractDiagram> displaying) {
+    public MMenu createMenu(final Collection<AbstractDiagram> relatedDiagrams, final Collection<AbstractDiagram> displaying) {
         final String contributorId = "platform:/plugin/" + LinkEditor.PLUGIN_ID;
         
         // Get the relative file name
-        String iconUri = contributorId + "/icons/relateddiagram.png";
+        final String iconUri = contributorId + "/icons/relateddiagram.png";
         
         // create a new menu
-        MMenu elementCreationMenu = MMenuFactory.INSTANCE.createMenu();
+        final MMenu elementCreationMenu = MMenuFactory.INSTANCE.createMenu();
         elementCreationMenu.setLabel(LinkEditor.I18N.getString("RelatedDiagrams.label"));
         elementCreationMenu.setIconURI(iconUri);
         
@@ -98,7 +98,7 @@ public class RelatedDiagramsMenuCreator {
         // bound the menu to the contributing plugin
         elementCreationMenu.setContributorURI(contributorId);
         
-        List<MMenuElement> menuChildren = elementCreationMenu.getChildren();
+        final List<MMenuElement> menuChildren = elementCreationMenu.getChildren();
         
         // add related diagram items
         if (!relatedDiagrams.isEmpty()) {
@@ -108,7 +108,7 @@ public class RelatedDiagramsMenuCreator {
         // add diagrams displaying element
         if (!displaying.isEmpty()) {
             // add separator
-            MMenuSeparator sep = MMenuFactory.INSTANCE.createMenuSeparator();
+            final MMenuSeparator sep = MMenuFactory.INSTANCE.createMenuSeparator();
             sep.setContributorURI(contributorId);
             sep.setToBeRendered(true);
             sep.setVisible(true);
@@ -121,16 +121,16 @@ public class RelatedDiagramsMenuCreator {
     }
 
     @objid ("8771cbb5-46ce-44fe-a891-5fd67cb60e84")
-    private void createDiagramItems(Collection<MMenuElement> menuChildren, Collection<AbstractDiagram> relatedDiagrams, String contributorId) {
-        for (AbstractDiagram diagram : relatedDiagrams) {
+    private void createDiagramItems(final Collection<MMenuElement> menuChildren, final Collection<AbstractDiagram> relatedDiagrams, final String contributorId) {
+        for (final AbstractDiagram diagram : relatedDiagrams) {
             menuChildren.add(createDiagramItems(diagram, contributorId));
         }
     }
 
     @objid ("7a34f9a0-b6b2-4c8d-b6ae-b0d90383d15f")
-    private MMenuElement createDiagramItems(AbstractDiagram diagram, String contributorId) {
+    private MMenuElement createDiagramItems(final AbstractDiagram diagram, final String contributorId) {
         // create a new handled item
-        MHandledMenuItem relatedDiagramItem = MMenuFactory.INSTANCE.createHandledMenuItem();
+        final MHandledMenuItem relatedDiagramItem = MMenuFactory.INSTANCE.createHandledMenuItem();
         relatedDiagramItem.setLabel(diagram.getName());
         relatedDiagramItem.setIconURI(MetamodelImageService.getIconCompletePath(diagram.getMClass()));
         
@@ -143,20 +143,21 @@ public class RelatedDiagramsMenuCreator {
         relatedDiagramItem.setContributorURI(contributorId);
         
         // set the command
-        MCommand command = getCommand("org.modelio.app.ui.command.openrelateddiagram");
+        final MCommand command = getCommand("org.modelio.app.ui.command.openrelateddiagram");
         relatedDiagramItem.setCommand(command);
         
         // add the opened diagram as parameter
-        MParameter p = MCommandsFactory.INSTANCE.createParameter();
+        final MParameter p = MCommandsFactory.INSTANCE.createParameter();
         p.setName("org.modelio.app.ui.command.parameter.related_diagram");
         p.setValue(diagram.getUuid().toString());
         relatedDiagramItem.getParameters().add(p);
+        p.setContributorURI(contributorId);
         return relatedDiagramItem;
     }
 
     @objid ("1ffc42b8-fd57-45e1-851b-4cb44917526d")
-    private MCommand getCommand(String commandId) {
-        for (MCommand c : this.application.getCommands()) {
+    private MCommand getCommand(final String commandId) {
+        for (final MCommand c : this.application.getCommands()) {
             if (commandId.equals(c.getElementId())) {
                 return c;
             }
@@ -166,25 +167,26 @@ public class RelatedDiagramsMenuCreator {
 
     /**
      * Get the currently selected element, or <code>null</code> if the selection size is not equal to one.
+     * 
      * @return the selected element.
      */
     @objid ("e072fa9b-1a39-4c29-b51c-8d6744396018")
     private ModelElement getSelectedElement() {
         // Get the active selection from the application, to avoid context-related issues when opening the same diagram several times...
-        IStructuredSelection selection = getSelection();
+        final IStructuredSelection selection = getSelection();
         if (selection.size() != 1) {
             return null;
         }
         
-        List<?> selectedObjects = selection.toList();
-        for (Object selectedObject : selectedObjects) {
+        final List<?> selectedObjects = selection.toList();
+        for (final Object selectedObject : selectedObjects) {
             if (selectedObject instanceof NodeEditPart) {
-                GraphNode node = ((NodeEditPart) selectedObject).getModel();
+                final GraphNode node = ((NodeEditPart) selectedObject).getModel();
                 if (node.getData() != null) {
                     return (ModelElement) node.getData();
                 }
             } else if (selectedObject instanceof BackgroundEditPart) {
-                GraphNode node = ((BackgroundEditPart) selectedObject).getModel().getCenter();
+                final GraphNode node = ((BackgroundEditPart) selectedObject).getModel().getCenter();
                 if (node.getData() != null) {
                     return (ModelElement) node.getData();
                 }
@@ -195,7 +197,7 @@ public class RelatedDiagramsMenuCreator {
 
     @objid ("e08d20d7-edc4-4dc8-8749-7da83a3c000c")
     private IStructuredSelection getSelection() {
-        IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(IServiceConstants.ACTIVE_SELECTION);
+        final IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(IServiceConstants.ACTIVE_SELECTION);
         return selection;
     }
 

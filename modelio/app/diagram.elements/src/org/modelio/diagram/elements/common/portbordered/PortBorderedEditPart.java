@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public abstract class PortBorderedEditPart extends AbstractNodeEditPart {
 
     /**
      * Creates the primary figure.
+     * 
      * @return the primary figure.
      */
     @objid ("7edc7e85-1dec-11e2-8cad-001ec947c8cc")
@@ -133,6 +134,7 @@ public abstract class PortBorderedEditPart extends AbstractNodeEditPart {
 
     /**
      * Returns the primary figure.
+     * 
      * @return the primary figure.
      */
     @objid ("7edc7ea4-1dec-11e2-8cad-001ec947c8cc")

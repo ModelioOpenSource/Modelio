@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -94,6 +94,7 @@ public class TDataStore extends TRootElement {
 
     /**
      * Sets the value of the dataState property.
+     * 
      * @param value allowed object is
      * {@link TDataState }
      */
@@ -115,6 +116,7 @@ public class TDataStore extends TRootElement {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -136,6 +138,7 @@ public class TDataStore extends TRootElement {
 
     /**
      * Sets the value of the capacity property.
+     * 
      * @param value allowed object is
      * {@link BigInteger }
      */
@@ -161,6 +164,7 @@ public class TDataStore extends TRootElement {
 
     /**
      * Sets the value of the isUnlimited property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -182,6 +186,7 @@ public class TDataStore extends TRootElement {
 
     /**
      * Sets the value of the itemSubjectRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

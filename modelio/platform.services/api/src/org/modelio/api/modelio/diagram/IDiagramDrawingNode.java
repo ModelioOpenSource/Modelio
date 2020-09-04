@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ public interface IDiagramDrawingNode extends IDiagramDrawing, IDiagramNode {
 
     /**
      * Change the label displayed by the drawing.
+     * 
      * @param label the new drawing's label.
      */
     @objid ("7ce1e4d3-c7cb-4023-a5f4-74d477e8ee8f")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IElementConfigurator {
     /**
      * Configure an element.
+     * 
      * @param element the element to configure
      * @param properties properties that can be used to customize the configuration. These properties
      * are implementation dependent.

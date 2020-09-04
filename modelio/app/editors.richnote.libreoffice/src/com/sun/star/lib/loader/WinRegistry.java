@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -109,6 +109,7 @@ public class WinRegistry {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
+     * 
      * @param hkey HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
      * @return the value
      */
@@ -129,6 +130,7 @@ public class WinRegistry {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
+     * 
      * @param hkey HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
      * @return the value name(s) plus the value(s)
      */
@@ -149,6 +151,7 @@ public class WinRegistry {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
+     * 
      * @param hkey HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
      * @return the value name(s)
      */
@@ -169,6 +172,7 @@ public class WinRegistry {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
+     * 
      * @param hkey HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
      */
     @objid ("e6a7e733-e5e1-4bad-a279-4332ef3b09f3")

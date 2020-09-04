@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class UriResourceHandle implements IResourceHandle {
 
     /**
      * Set the authentication data that may be needed to access the resource.
+     * 
      * @param auth the authentication data.
      */
     @objid ("0d03d524-6f8f-44ee-9066-be5eaa13eb58")

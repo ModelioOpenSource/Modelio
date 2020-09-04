@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,8 +62,8 @@ public class EcoreModelNavigation {
     public static void attachAssocToNearestPkg(ModelTree currentElt, Association ecoreAssoc) {
         GenerationProperties genProp = GenerationProperties.getInstance();
         
-        org.modelio.metamodel.uml.statik.Package nearestIjingPkg = AbstractObjingModelNavigation.getNearestPackage(currentElt);
-        org.eclipse.uml2.uml.Namespace nearestEcorePkg = (org.eclipse.uml2.uml.Namespace) genProp.getMappedElement(nearestIjingPkg);
+        org.modelio.metamodel.uml.statik.Package nearestModelioPkg = AbstractObjingModelNavigation.getNearestPackage(currentElt);
+        org.eclipse.uml2.uml.Namespace nearestEcorePkg = (org.eclipse.uml2.uml.Namespace) genProp.getMappedElement(nearestModelioPkg);
         
         if (nearestEcorePkg instanceof Package) {
             ((Package) nearestEcorePkg).getPackagedElements().add(ecoreAssoc);

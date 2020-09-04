@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class TTextAnnotation extends TArtifact {
 
     /**
      * Sets the value of the text property.
+     * 
      * @param value allowed object is
      * {@link TText }
      */
@@ -102,6 +103,7 @@ public class TTextAnnotation extends TArtifact {
 
     /**
      * Sets the value of the textFormat property.
+     * 
      * @param value allowed object is
      * {@link String }
      */

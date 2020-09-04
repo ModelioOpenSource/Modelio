@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class ConnectorEndPropertyModel extends AbstractPropertyModel<ConnectorEn
 
     /**
      * Create a new <i>ConnectorEnd</i> data model from an <i>ConnectorEnd</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("3c7dc97b-0de2-4c1e-9db8-8c542bc075ee")
@@ -65,6 +66,7 @@ public class ConnectorEndPropertyModel extends AbstractPropertyModel<ConnectorEn
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("6b36a86f-5e7f-41c8-888a-454ecffa7286")
@@ -75,6 +77,7 @@ public class ConnectorEndPropertyModel extends AbstractPropertyModel<ConnectorEn
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("44b9e7dd-fa72-4180-999b-d901e40a3a2f")
@@ -87,6 +90,7 @@ public class ConnectorEndPropertyModel extends AbstractPropertyModel<ConnectorEn
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -129,6 +133,7 @@ public class ConnectorEndPropertyModel extends AbstractPropertyModel<ConnectorEn
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -170,6 +175,7 @@ public class ConnectorEndPropertyModel extends AbstractPropertyModel<ConnectorEn
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

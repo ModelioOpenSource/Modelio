@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class ArrowButton extends Button {
 
     /**
      * Creates a new instance
+     * 
      * @param direction the direction the arrow should face (PositionConstants.RIGHT or PositionConstants.LEFT)
      */
     @objid ("21b0b8fd-80cf-4456-8f32-f4cb0e0a125d")
@@ -61,6 +62,7 @@ public class ArrowButton extends Button {
      * Sets the direction the orientable figure will face.
      * <p>
      * Possible values are {@link PositionConstants#NORTH}, {@link PositionConstants#SOUTH}, {@link PositionConstants#EAST} and {@link PositionConstants#WEST}.
+     * 
      * @param direction The direction
      */
     @objid ("d1ab6812-ca1d-4e9c-9b86-29ea1fd5524a")

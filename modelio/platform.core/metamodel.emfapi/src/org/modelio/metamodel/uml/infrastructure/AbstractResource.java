@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -40,19 +40,20 @@ public interface AbstractResource extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("85b0318d-c64c-4b59-aa95-5ca0d1881bb0")
+    @objid ("cd6e89f4-a49d-45c4-83f0-9d43b1a47b43")
     public static final String MNAME = "AbstractResource";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("2d587f33-2d85-4453-b908-744ddab338f8")
+    @objid ("2923908a-f104-42f8-9f77-c91629cb8561")
     public static final String MQNAME = "Infrastructure.AbstractResource";
 
     /**
      * Get access to the represented resource.
      * <p>
      * Returns null if the element is not yet initialized.
+     * 
      * @return an access to the represented resource.
      */
     @objid ("d7140571-f25e-4d08-a546-559779cffcc1")
@@ -62,6 +63,7 @@ public interface AbstractResource extends ModelElement {
      * Initialize the element to embed a resource.
      * <p>
      * Use the returned handle to store the resource content.
+     * 
      * @param fileName a file name that will be used in case of file extraction.
      * @return a handle to write the resource content.
      */
@@ -72,6 +74,7 @@ public interface AbstractResource extends ModelElement {
      * Initialize the element to reference an external resource.
      * <p>
      * Use the returned handle to access the external resource content.
+     * 
      * @param resourceLocation The resource location. Must be either an absolute file path or an {@link java.net.URI}.
      * @return a handle to access the resource content.
      */
@@ -83,6 +86,7 @@ public interface AbstractResource extends ModelElement {
      * <p>
      * Embedded resources are stored with the model and are managed in version if the model is
      * in a SVN repository.
+     * 
      * @return whether the resource is embedded.
      */
     @objid ("81b69c09-0325-435f-a967-967c7ba7128f")
@@ -94,7 +98,7 @@ public interface AbstractResource extends ModelElement {
      * Metamodel description:
      * <i>MIME type of the rich note.</i>
      */
-    @objid ("8fb7d078-1249-406c-9d5e-8dce1a7b3b8e")
+    @objid ("422e5f5a-5c36-4726-ba4a-407cbd7f0076")
     String getMimeType();
 
     /**
@@ -103,7 +107,7 @@ public interface AbstractResource extends ModelElement {
      * Metamodel description:
      * <i>MIME type of the rich note.</i>
      */
-    @objid ("6c103e00-2479-4bd9-bd53-e7be89109746")
+    @objid ("3c2c06f3-04ec-41b6-bd42-7eef7ad4f91f")
     void setMimeType(String value);
 
     /**
@@ -113,7 +117,7 @@ public interface AbstractResource extends ModelElement {
      * <i><p>Internal informations about where the resource is located and/or where it can be extracted.</p>
      * </i>
      */
-    @objid ("e23e2258-7028-4aa0-a20f-0f1c379cf0f1")
+    @objid ("199c6d8c-c760-42f9-a0d1-78c3281a51e2")
     String getStorageInfo();
 
     /**
@@ -123,7 +127,7 @@ public interface AbstractResource extends ModelElement {
      * <i><p>Internal informations about where the resource is located and/or where it can be extracted.</p>
      * </i>
      */
-    @objid ("22acc68e-302a-43ee-b7e2-74048fa9fd30")
+    @objid ("446aa24f-f97b-4247-8950-ac0d781216aa")
     void setStorageInfo(String value);
 
     /**
@@ -132,7 +136,7 @@ public interface AbstractResource extends ModelElement {
      * Metamodel description:
      * <i>Semantic function of the rich note.</i>
      */
-    @objid ("8b95b59a-6032-4d3d-8050-b9146eb41b38")
+    @objid ("85bfb9c6-0060-4710-b3b6-267df8454fbb")
     ResourceType getType();
 
     /**
@@ -141,7 +145,7 @@ public interface AbstractResource extends ModelElement {
      * Metamodel description:
      * <i>Semantic function of the rich note.</i>
      */
-    @objid ("73e97e2a-d718-44e4-8ada-477b605a2622")
+    @objid ("f8bcb203-c521-41ba-a8b7-9094b802b650")
     void setType(ResourceType value);
 
     /**
@@ -150,7 +154,7 @@ public interface AbstractResource extends ModelElement {
      * Metamodel description:
      * <i>Model element owning the rich note.</i>
      */
-    @objid ("9dfd6cfe-c83c-40a4-b9a5-f8754de65293")
+    @objid ("55667236-6342-4a75-ba1e-f94ffa951865")
     ModelElement getSubject();
 
     /**
@@ -159,7 +163,7 @@ public interface AbstractResource extends ModelElement {
      * Metamodel description:
      * <i>Model element owning the rich note.</i>
      */
-    @objid ("fd6c7788-c16a-4b6a-ab42-dfb76d4b0902")
+    @objid ("893518a4-2501-4d0a-b07d-4e2cfef4c1f1")
     void setSubject(ModelElement value);
 
 }

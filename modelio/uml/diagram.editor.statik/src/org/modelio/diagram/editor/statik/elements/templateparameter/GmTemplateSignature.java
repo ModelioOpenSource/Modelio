@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
 
     /**
      * Initializes a model element header.
+     * 
      * @param diagram the owning diagram.
      * @param related the related namespace, may be null.
      * @param relatedRef a reference to the element this GmModel is related to.
@@ -119,6 +120,7 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
 
     /**
      * Compute label of the given template parameter and add it to the given string builder.
+     * 
      * @param t the template parameter
      * @param s the string builder
      */
@@ -183,6 +185,7 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
 
     /**
      * Compute label of the given template parameter and add it to the given string builder.
+     * 
      * @param t the template parameter
      * @param s the string builder
      */

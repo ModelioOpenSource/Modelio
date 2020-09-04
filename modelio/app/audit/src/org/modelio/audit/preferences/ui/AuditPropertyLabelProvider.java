@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,7 +31,7 @@ import org.modelio.audit.preferences.ui.labelproviders.SummaryLabelProvider;
 
 @objid ("fd7afff2-42fb-427d-8f49-f9d0dc2fe03f")
 public class AuditPropertyLabelProvider extends ColumnLabelProvider {
-    @objid ("e115fde7-29de-4f09-89d3-035886ad8693")
+    @objid ("b94f586e-7e28-4807-ae4c-7b3fdef7e2c7")
     private ColumnLabelProvider[] providers;
 
     @objid ("767289e3-e0dc-4edd-b1c4-376aa353b754")

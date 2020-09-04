@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class EcoreUMLTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the String Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'String' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("cdeb33c4-2cd8-45db-b1ec-f9b58c558d82")
@@ -70,6 +71,7 @@ public class EcoreUMLTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the Boolean Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'Boolean' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("89afd048-acf0-4774-983a-d568bb035717")
@@ -82,6 +84,7 @@ public class EcoreUMLTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the Integer Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'Integer' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("95dc1bd0-ef31-45fc-9046-3f7ace9fa5b0")
@@ -94,6 +97,7 @@ public class EcoreUMLTypes {
 
     /**
      * This methods return the Ecore org.eclipse.uml2.uml.PrimitiveType associated to the Unlimited Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @return the 'Unlimited' Ecore org.eclipse.uml2.uml.PrimitiveType
      */
     @objid ("917a075d-c728-43d7-87c7-4f4fcf53ddd3")

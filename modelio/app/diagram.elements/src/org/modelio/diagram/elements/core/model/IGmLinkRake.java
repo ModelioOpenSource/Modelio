@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IGmLinkRake {
     /**
      * Get the node anchor that must be used by all link raked together.
+     * 
      * @return the shared extremity anchor.
      */
     @objid ("80801cb4-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -889,6 +889,7 @@ public class ErrorTranslator {
 
     /**
      * Get the error code label for the given ErrorCodeIOException.
+     * 
      * @param exc The error
      * @return The error label.
      */

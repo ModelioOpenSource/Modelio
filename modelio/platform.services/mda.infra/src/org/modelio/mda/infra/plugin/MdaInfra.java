@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,7 +31,6 @@ import org.modelio.utils.log.writers.PluginLogger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
-import org.osgi.service.log.LogService;
 
 /**
  * MdaInfra plugin singleton class.
@@ -69,6 +68,7 @@ public class MdaInfra implements BundleActivator {
 
     /**
      * Get the image descriptor for an image stored in this plugin.
+     * 
      * @param path a path relative to the plugin
      * @return the image descriptor.
      */
@@ -114,17 +114,13 @@ public class MdaInfra implements BundleActivator {
         @objid ("254ca82c-1628-48b3-8d29-679a89cce128")
         @Override
         public void debug(String format, Object... args) {
-            if (PluginLogger.logLevel >= LogService.LOG_DEBUG) {
-                super.debug(MdaInfraLogger.indent.concat(String.format(format, args)));
-            }
+            super.debug(MdaInfraLogger.indent.concat(format), args);
         }
 
         @objid ("b1237d07-1957-4139-b893-49a2a945264e")
         @Override
         public void debug(String msg) {
-            if (PluginLogger.logLevel >= LogService.LOG_DEBUG) {
-                super.debug(MdaInfraLogger.indent.concat(msg));
-            }
+            super.debug(MdaInfraLogger.indent.concat(msg));
         }
 
         /**
@@ -152,9 +148,7 @@ public class MdaInfra implements BundleActivator {
         @objid ("14d83e87-e147-4fa4-a34b-abb7a00c467b")
         @Override
         public void info(String format, Object... args) {
-            if (PluginLogger.logLevel >= LogService.LOG_INFO) {
-                super.info(MdaInfraLogger.indent.concat(String.format(format, args)));
-            }
+            super.info(MdaInfraLogger.indent.concat(format), args);
         }
 
         @objid ("dc3124b6-b512-457d-8032-1981ed51e4ac")
@@ -166,9 +160,7 @@ public class MdaInfra implements BundleActivator {
         @objid ("321f19c5-c4e5-4b87-a94d-59325763bffb")
         @Override
         public void warning(String format, Object... args) {
-            if (PluginLogger.logLevel >= LogService.LOG_WARNING) {
-                super.warning(MdaInfraLogger.indent.concat(String.format(format, args)));
-            }
+            super.warning(MdaInfraLogger.indent.concat(format), args);
         }
 
     }

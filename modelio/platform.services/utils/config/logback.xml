@@ -3,16 +3,16 @@
   <appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
        <!-- daily rollover -->
-       <fileNamePattern>${user.home}/.modelio/3.8/modelio-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
-      
+       <fileNamePattern>${user.home}/.modelio/4.0/modelio-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+
        <!-- keep 10 days' worth of history -->
-       <maxHistory>10</maxHistory> 
-       
+       <maxHistory>10</maxHistory>
+
       <!-- limit file size to 50MB -->
       <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
           <maxFileSize>50MB</maxFileSize>
       </timeBasedFileNamingAndTriggeringPolicy>
-       
+
     </rollingPolicy>
     <encoder>
       <pattern>%date{ISO8601} %-5level %-16.16logger{16} - %message%n%ex{full}</pattern>

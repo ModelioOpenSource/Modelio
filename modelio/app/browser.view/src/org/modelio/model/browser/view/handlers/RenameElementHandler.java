@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class RenameElementHandler {
 
     /**
      * Available only when the selected elements are modifiable.
+     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -77,6 +78,7 @@ public class RenameElementHandler {
 
     /**
      * Rename the currently selected elements.
+     * 
      * @param selection the current modelio selection.
      */
     @objid ("6c44a544-68f6-41d9-b438-b35b21f158df")

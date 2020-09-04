@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,12 +39,13 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 /**
  * Service to creates the default rich notes content.
  * <p>
- * A default content is found by 2 ways: <ol>
- * <li> Look for a document named "default" under the {@link ExternDocumentType} with the same MIME type.
- * <li> Look in <i>$(project)/data/admin/richnotes</i> for a file named:
+ * A default content is found by 2 ways:
  * <ol>
- * <li> <code>role_name.mime_type.dat</code>  like file
- * <li> <code>role_name.dat</code>  like file.
+ * <li>Look for a document named "default" under the {@link ExternDocumentType} with the same MIME type.
+ * <li>Look in <i>$(project)/data/admin/richnotes</i> for a file named:
+ * <ol>
+ * <li><code>role_name.mime_type.dat</code> like file
+ * <li><code>role_name.dat</code> like file.
  * </ol>
  * All invalid characters for a file name in the document type and MIME type
  * are replaced by '_' when looked for the file.
@@ -52,6 +53,9 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("435ab4e2-5dca-411b-85f9-1b44bc3fcf91")
 public class RichNoteCreator {
+    @objid ("a8fa57d0-80f0-408b-a310-1872f0a8c99d")
+    private static final String RICHNOTES_SUBDIR = "richnotes";
+
     /**
      * No instance.
      */
@@ -62,16 +66,18 @@ public class RichNoteCreator {
     /**
      * Create the default document content for the given document.
      * <p>
-     * A default content is found by 2 ways: <ol>
-     * <li> Look for a document named "default" under the {@link ExternDocumentType} with the same MIME type.
-     * <li> Look in <i>.projectdata/admin/documents</i> for a file named:
+     * A default content is found by 2 ways:
      * <ol>
-     * <li> <code>role_name.mime_type.dat</code>  like file
-     * <li> <code>role_name.dat</code>  like file.
+     * <li>Look for a document named "default" under the {@link ExternDocumentType} with the same MIME type.
+     * <li>Look in <i>.projectdata/admin/documents</i> for a file named:
+     * <ol>
+     * <li><code>role_name.mime_type.dat</code> like file
+     * <li><code>role_name.dat</code> like file.
      * </ol>
      * All invalid characters for a file name in the document type and MIME type
      * are replaced by '_' when looked for the file.
      * </ol>
+     * 
      * @param docToInitialize The document to initialize
      * @throws java.io.IOException in case of error trying to create the file.
      * @throws java.net.UnknownServiceException if no default content could be found.
@@ -81,7 +87,7 @@ public class RichNoteCreator {
         // Look for document format, its editor and ask him to create an empty file.
         RichNoteFormat format = RichNoteFormatRegistry.getInstance().getFormat(docToInitialize);
         if (format == null) {
-            throw new UnknownServiceException("No rich note format found for "+docToInitialize);
+            throw new UnknownServiceException("No rich note format found for " + docToInitialize);
         }
         
         // Use the first declared extension
@@ -97,13 +103,12 @@ public class RichNoteCreator {
         
         IRichNoteEditorProvider editor = format.getEditorProvider();
         if (editor == null) {
-            throw new UnknownServiceException("No editor to support "+format.getLabel()+" files.");
+            throw new UnknownServiceException("No editor to support " + format.getLabel() + " files.");
         }
         
-        if (! editor.isUsable()) {
-            throw new UnknownServiceException(editor.getClass().getSimpleName()+" editor is not supported in this computer");
+        if (!editor.isUsable()) {
+            throw new UnknownServiceException(editor.getClass().getSimpleName() + " editor is not supported in this computer");
         }
-        
         
         editor.createEmptyFile(docToInitialize, format, fileRepo);
     }
@@ -111,16 +116,18 @@ public class RichNoteCreator {
     /**
      * Create the default document content for the given document.
      * <p>
-     * A default content is found by 2 ways: <ol>
-     * <li> Look for a document named "default" under the {@link ResourceType} with the same MIME type.
-     * <li> Look in <i>$project/data/.config/richnotes</i> for a file named:
+     * A default content is found by 2 ways:
      * <ol>
-     * <li> <code>role_name.mime_type.dat</code>  like file
-     * <li> <code>role_name.dat</code>  like file.
+     * <li>Look for a document named "default" under the {@link ResourceType} with the same MIME type.
+     * <li>Look in <i>$project/data/.config/richnotes</i> for a file named:
+     * <ol>
+     * <li><code>role_name.mime_type.dat</code> like file
+     * <li><code>role_name.dat</code> like file.
      * </ol>
      * All invalid characters for a file name in the document type and MIME type
      * are replaced by '_' when looked for the file.
      * </ol>
+     * 
      * @param docToInitialize The document to initialize
      * @param extension the file extension
      * @return <code>true</code> if the file was created, false if no default content could be found.
@@ -128,18 +135,15 @@ public class RichNoteCreator {
      */
     @objid ("2d42e648-4d15-4799-afb6-714f4dfb1fd6")
     private static Path getTemplate(final AbstractResource docToInitialize, final String extension) throws IOException {
-        Path defPath ;
+        Path defPath;
         GProject gproject = GProject.getProject(docToInitialize);
         
         AbstractResource defDoc = getDefaultDocument(docToInitialize);
         if (defDoc != null) {
             defPath = extractDefaultRichNote(defDoc);
         } else {
-            Path dir = gproject.getProjectDataPath()
-                    .resolve(GProject.DATA_SUBDIR)
-                    .resolve(GProject.CONFIG_SUBDIR)
-                    .resolve("richnotes");
-            
+            Path dir = gproject.getProjectFileStructure().getProjectDataConfigPath().resolve(RichNoteCreator.RICHNOTES_SUBDIR);
+        
             defPath = lookForDefaultFile(dir, docToInitialize, extension);
         }
         
@@ -153,12 +157,12 @@ public class RichNoteCreator {
     private static AbstractResource getDefaultDocument(final AbstractResource docToInitialize) {
         ResourceType docType = docToInitialize.getType();
         
-        for (AbstractResource  defDoc: docType.getTypedResource()) {
-            if (defDoc.getMimeType().equals(docToInitialize.getMimeType()) && 
+        for (AbstractResource defDoc : docType.getTypedResource()) {
+            if (defDoc.getMimeType().equals(docToInitialize.getMimeType()) &&
                     defDoc.getName().equals("default")) {
                 return defDoc;
             }
-            
+        
         }
         return null;
     }
@@ -166,11 +170,12 @@ public class RichNoteCreator {
     /**
      * Look in the directory for a file named:
      * <ol>
-     * <li> <code>role-name.mime-type.dat</code>  like file
-     * <li> <code>role-name.dat</code>  like file.
+     * <li><code>role-name.mime-type.dat</code> like file
+     * <li><code>role-name.dat</code> like file.
      * </ol>
      * All invalid characters for a file name in the document type and MIME type
      * are replaced by '_' when looked for the file.
+     * 
      * @param dir the directory to search
      * @param docToInitialize the document to initialize
      * @param extension the file extension
@@ -180,12 +185,12 @@ public class RichNoteCreator {
     private static Path lookForDefaultFile(final Path dir, final AbstractResource docToInitialize, final String extension) {
         String mimeName = sanitizeFilename(docToInitialize.getMimeType());
         String roleName = sanitizeFilename(docToInitialize.getType().getName());
-        Path f = dir.resolve(roleName+"."+mimeName+"."+extension);
+        Path f = dir.resolve(roleName + "." + mimeName + "." + extension);
         if (Files.isRegularFile(f)) {
             return f;
         }
         
-        f = dir.resolve(roleName+"."+extension);
+        f = dir.resolve(roleName + "." + extension);
         if (Files.isRegularFile(f)) {
             return f;
         }
@@ -195,6 +200,7 @@ public class RichNoteCreator {
     /**
      * Replace illegal characters in a filename with "_".<br>
      * Illegal characters : * : \ / * ? | < >
+     * 
      * @param name the file name to sanitize
      * @return the valid file name
      */
@@ -207,22 +213,22 @@ public class RichNoteCreator {
     private static Path extractDefaultRichNote(AbstractResource doc) throws IOException {
         RichNotesSession rsess = RichNotesSession.get(doc);
         IRichNoteEditor editor = new IRichNoteEditor() {
-            
+        
             @Override
             public void onOriginalModified(MObject model) {
-                EditorsRichNote.LOG.error("Unexpected modification of "+model+" template.");
+                EditorsRichNote.LOG.error("Unexpected modification of " + model + " template.");
             }
-            
+        
             @Override
             public void onOriginalDeleted(MObject model) {
-                EditorsRichNote.LOG.error("Unexpected delete of "+model+" template.");
+                EditorsRichNote.LOG.error("Unexpected delete of " + model + " template.");
             }
-            
+        
             @Override
             public MPart getMPart() {
                 return null;
             }
-            
+        
             @Override
             public void disposeResources() {
                 // nothing

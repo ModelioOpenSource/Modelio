@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class OActivity extends OModelElement {
     /**
      * Contructor of the OActivity.
      * It takes the exported Modelio  org.eclipse.uml2.uml.Activity as parameter
+     * 
      * @param element : the exported Modelio  org.eclipse.uml2.uml.Activity
      */
     @objid ("8f3595a6-644b-4b59-932c-1abdae6386d4")

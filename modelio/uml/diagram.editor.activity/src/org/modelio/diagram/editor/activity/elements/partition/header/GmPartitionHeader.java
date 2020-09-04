@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -79,6 +79,7 @@ public class GmPartitionHeader extends GmDefaultModelElementHeader {
 
     /**
      * C'tor.
+     * 
      * @param diagram the owning diagram.
      * @param relatedRef represented element reference, must not be null.
      */
@@ -126,6 +127,7 @@ public class GmPartitionHeader extends GmDefaultModelElementHeader {
 
     /**
      * Set orientation of the header
+     * 
      * @param vertical true for vertical, false for horizontal.
      */
     @objid ("2b076f5a-55b6-11e2-877f-002564c97630")
@@ -211,6 +213,7 @@ public class GmPartitionHeader extends GmDefaultModelElementHeader {
 
         /**
          * C'tor.
+         * 
          * @param cascadedStyle the style this style should cascade on.
          */
         @objid ("2b08a7d9-55b6-11e2-877f-002564c97630")

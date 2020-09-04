@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public abstract class UriConnection {
     /**
      * Same as {@link java.net.URLConnection#getInputStream()}.
      * @throws UnknownServiceException  if the protocol does not support input.
+     * 
      * @return an input stream that writes to this connection.
      * @throws java.io.IOException if an I/O error occurs while creating the input stream.
      */
@@ -55,6 +56,7 @@ public abstract class UriConnection {
      * Same as {@link java.net.URLConnection#getOutputStream()}.
      * @throws UnknownServiceException  if the protocol does not support
      * output.
+     * 
      * @return an output stream that writes to this connection.
      * @throws java.io.IOException if an I/O error occurs while creating the output stream.
      */
@@ -114,6 +116,7 @@ public abstract class UriConnection {
      * the specified timeout. To see the connect timeout set, please
      * call getConnectTimeout().
      * @see #getConnectTimeout()
+     * 
      * @param timeout an <code>int</code> that specifies the connect
      * timeout value in milliseconds
      * @throws java.lang.IllegalArgumentException if the timeout parameter is negative
@@ -127,6 +130,7 @@ public abstract class UriConnection {
      * 0 return implies that the option is disabled
      * (i.e., timeout of infinity).
      * @see #setConnectTimeout(int)
+     * 
      * @return an <code>int</code> that indicates the connect timeout
      * value in milliseconds
      */
@@ -136,6 +140,7 @@ public abstract class UriConnection {
     /**
      * Tells to skip connection if the remote file stamp is the given one.
      * @see URLConnection#setIfModifiedSince(long)
+     * 
      * @param stamp the file stamp
      */
     @objid ("5bfc8e7c-45e8-4c92-b1cb-51aa3d1290ec")
@@ -149,6 +154,7 @@ public abstract class UriConnection {
 
     /**
      * Set the authentication data.
+     * 
      * @param auth the authentication data.
      */
     @objid ("25f65fc8-f013-4193-b9ec-658bcf163d34")
@@ -157,6 +163,7 @@ public abstract class UriConnection {
     /**
      * Same as {@link java.net.URLConnection#getContentType()}.
      * @throws UnknownServiceException  if the protocol does not support input.
+     * 
      * @return the content type of the resource that the URI references, or <i>null</i> if not known..
      * @throws java.io.IOException if an I/O error occurs while creating the input stream.
      */

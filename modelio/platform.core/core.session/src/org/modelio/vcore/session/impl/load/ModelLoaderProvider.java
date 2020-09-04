@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class ModelLoaderProvider implements IModelLoaderProvider {
 
     /**
      * Initialize the model loader provider.
+     * 
      * @param loaderConfig The model loaders configuration.
      */
     @objid ("7dc20091-1c43-11e2-8eb9-001ec947ccaf")

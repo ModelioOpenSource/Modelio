@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -128,6 +128,7 @@ class UrlUriConnection extends UriConnection {
      * <p>
      * Look for user and password in the 'user' and 'pass' parameters.
      * If they are not filled, look at the URL itself.
+     * 
      * @param url the URL to open
      * @param user the user login, may be null
      * @param pass the password, may be null

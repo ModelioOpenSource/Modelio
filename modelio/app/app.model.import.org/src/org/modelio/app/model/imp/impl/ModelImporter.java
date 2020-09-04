@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class ModelImporter implements IRunnableWithProgress {
 
     /**
      * Initialize the model importer
+     * 
      * @param localSession the model to import elements into.
      * @param selection the Eclipse selection
      * @param importedModel the model elements to import. This list must not contain any {@link AbstractProject}.
@@ -168,6 +169,7 @@ public class ModelImporter implements IRunnableWithProgress {
      * If found, return it.
      * In the other case create a new object with same name and metaclass and add it
      * to the default composition dependency of 'into.
+     * 
      * @param into the element that will own the stub, non null.
      * @param src the element to copy
      * @return the created stub.
@@ -223,6 +225,7 @@ public class ModelImporter implements IRunnableWithProgress {
 
     /**
      * Get or create the element in which the given element must be attached to.
+     * 
      * @param sourceEl the element we want a composition parent
      * @return the element in which the given one must be placed.
      */

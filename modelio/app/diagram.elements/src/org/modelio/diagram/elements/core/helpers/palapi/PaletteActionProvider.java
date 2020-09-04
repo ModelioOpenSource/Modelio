@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -92,6 +92,7 @@ public class PaletteActionProvider implements ICreationActionProvider {
 
     /**
      * Convenience method proposed to PaleteActionProvider users to help them building 'filters'.
+     * 
      * @param entry a palette entry
      * @return the metaclass of the object that this entry creates (whatever the tool kind: link or node, excepted module tools) , null otherwise.
      */
@@ -115,6 +116,7 @@ public class PaletteActionProvider implements ICreationActionProvider {
 
     /**
      * Convenience method proposed to PaleteActionProvider users to help them building 'filters'.
+     * 
      * @param entry a palette entry
      * @return the link creation context that this entry uses to create an object, null if the entry does not create a link
      */
@@ -132,6 +134,7 @@ public class PaletteActionProvider implements ICreationActionProvider {
 
     /**
      * Convenience method proposed to PaleteActionProvider users to help them building 'filters'.
+     * 
      * @param entry a palette entry
      * @return the node creation context that this entry uses to create an object, null if the entry does not create a node
      */

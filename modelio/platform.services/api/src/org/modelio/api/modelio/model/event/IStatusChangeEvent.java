@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IStatusChangeEvent {
     /**
      * Get the element whose access rights changed.
+     * 
      * @return element whose access rights changed.
      */
     @objid ("48596c10-ce58-4f71-af1f-765275a52767")
@@ -53,6 +54,7 @@ public interface IStatusChangeEvent {
 
     /**
      * Get all the elements whose status changed.
+     * 
      * @return the changed elements.
      */
     @objid ("1326b059-63d8-4e08-bd3e-53a8a0388521")

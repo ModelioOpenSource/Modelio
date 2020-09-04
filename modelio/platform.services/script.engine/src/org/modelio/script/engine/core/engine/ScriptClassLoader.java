@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,8 +31,8 @@ import java.util.NoSuchElementException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.swt.widgets.Display;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.script.engine.plugin.ScriptEnginePlugin;
 
 /**
@@ -69,9 +69,9 @@ public class ScriptClassLoader extends URLClassLoader {
 
     @objid ("0076d702-bf95-1069-96f6-001ec947cd2a")
     @Override
-    public URL findResource(String name) {
-        for (ClassLoader parent : this.parents) {
-            URL ret = parent.getResource(name);
+    public URL findResource(final String name) {
+        for (final ClassLoader parent : this.parents) {
+            final URL ret = parent.getResource(name);
             if (ret != null) {
                 return ret;
             }
@@ -82,10 +82,10 @@ public class ScriptClassLoader extends URLClassLoader {
     @objid ("0076dda6-bf95-1069-96f6-001ec947cd2a")
     @Override
     @SuppressWarnings("unchecked")
-    public Enumeration<URL> findResources(String name) throws IOException {
-        Enumeration<URL>[] tmp = new Enumeration[this.parents.size() + 1];
+    public Enumeration<URL> findResources(final String name) throws IOException {
+        final Enumeration<URL>[] tmp = new Enumeration[this.parents.size() + 1];
         int i = 0;
-        for (ClassLoader parent : this.parents) {
+        for (final ClassLoader parent : this.parents) {
             tmp[i] = parent.getResources(name);
             i++;
         }
@@ -99,20 +99,21 @@ public class ScriptClassLoader extends URLClassLoader {
      * includes: - the parent class loaders URLs - the original list of URLs
      * specified to the constructor, - along with any URLs subsequently appended
      * by the addURL() method.
+     * 
      * @return the search path of URLs for loading classes and resources.
      */
     @objid ("0076debe-bf95-1069-96f6-001ec947cd2a")
     @Override
     public URL[] getURLs() {
-        List<URL> urls = new LinkedList<>();
-        for (ClassLoader l : this.parents) {
+        final List<URL> urls = new LinkedList<>();
+        for (final ClassLoader l : this.parents) {
             if (l instanceof URLClassLoader) {
-                for (URL u : ((URLClassLoader) l).getURLs()) {
+                for (final URL u : ((URLClassLoader) l).getURLs()) {
                     urls.add(u);
                 }
             }
         }
-        for (URL u : super.getURLs()) {
+        for (final URL u : super.getURLs()) {
             urls.add(u);
         }
         return urls.toArray(new URL[0]);
@@ -123,6 +124,7 @@ public class ScriptClassLoader extends URLClassLoader {
      * path. Any URLs referring to JAR files are loaded and opened as needed
      * until the class is found. Looks for classes first in parents class
      * loaders
+     * 
      * @param name the name of the class
      * @return the resulting class
      * @exception ClassNotFoundException
@@ -130,14 +132,14 @@ public class ScriptClassLoader extends URLClassLoader {
      */
     @objid ("0076dcfc-bf95-1069-96f6-001ec947cd2a")
     @Override
-    protected Class<? extends Object> findClass(String name) throws ClassNotFoundException {
+    protected Class<? extends Object> findClass(final String name) throws ClassNotFoundException {
         // Jython seems to look for non existing classes a lot, this optimization (hack?) should make execution a lot faster...
         // examples : "java.lang.__path__" , "org.modelio.api.modelio.__path__"
         if (name.endsWith("__path__")) {
             throw new ClassNotFoundException(name);
         }
         
-        for (ClassLoader parent : this.parents) {
+        for (final ClassLoader parent : this.parents) {
             try {
                 return parent.loadClass(name);
             } catch (ClassNotFoundException|NoClassDefFoundError e) {
@@ -148,7 +150,7 @@ public class ScriptClassLoader extends URLClassLoader {
     }
 
     @objid ("03b33fe6-0d6f-11e2-a9b2-001ec947ccaf")
-    void add(ClassLoader p) {
+    void add(final ClassLoader p) {
         if (p != null) {
             this.parents.add(p);
         }
@@ -163,18 +165,14 @@ public class ScriptClassLoader extends URLClassLoader {
         Display.getDefault().syncExec(new Runnable() {
             @Override
             public void run() {
-                IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor(CLASSLOADERS_EXTENSION_ID);
-                for (IConfigurationElement elt : config) {
-                    if (elt.getName().equals(JYTHONAPIPROVIDER)) {
-                        try {
-                            Object provider = elt.createExecutableExtension(CLASSLOADERPROVIDER);
-                            if (provider instanceof IClassLoaderProvider) {
-                                add(((IClassLoaderProvider) provider).getClassLoader());
-                            }
-        
-                        } catch (CoreException e) {
-                            ScriptEnginePlugin.LOG.error(e);
+                for (final IConfigurationElement elt : new ExtensionPointContributionManager(CLASSLOADERS_EXTENSION_ID).getExtensions(JYTHONAPIPROVIDER)) {
+                    try {
+                        final Object provider = elt.createExecutableExtension(CLASSLOADERPROVIDER);
+                        if (provider instanceof IClassLoaderProvider) {
+                            add(((IClassLoaderProvider) provider).getClassLoader());
                         }
+                    } catch (final CoreException e) {
+                        ScriptEnginePlugin.LOG.error(e);
                     }
                 }
             }
@@ -196,7 +194,7 @@ public class ScriptClassLoader extends URLClassLoader {
         private final Enumeration<E>[] enums;
 
         @objid ("00770772-bf95-1069-96f6-001ec947cd2a")
-        public CompoundEnumeration(Enumeration<E>[] enums) {
+        public CompoundEnumeration(final Enumeration<E>[] enums) {
             this.enums = enums;
         }
 

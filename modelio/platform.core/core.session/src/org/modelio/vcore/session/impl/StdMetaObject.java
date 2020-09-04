@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class StdMetaObject implements IMetaOf {
 
     /**
      * Initialize the meta object.
+     * 
      * @param storageHandle the storage handle.
      * @param accessHandle the access handle
      * @param actionHandle the transaction handle

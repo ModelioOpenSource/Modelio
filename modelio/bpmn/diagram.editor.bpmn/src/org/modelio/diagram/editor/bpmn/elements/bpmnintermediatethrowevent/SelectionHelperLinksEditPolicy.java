@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public abstract class SelectionHelperLinksEditPolicy extends GraphicalEditPolicy
 
     /**
      * Define this method to return the pairs of edit parts that have to be linked by a highlight link
+     * 
      * @param from : the current edit part for which highlight linbks are to be computed
      * @return a map of edit part lists. Each 'key' edit part will be used a link origin for a set of links towards the edit part listed in the map value for the 'key'.
      */

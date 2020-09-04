@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,8 +23,15 @@ package org.modelio.core.ui.swt.labelprovider;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.graphics.Image;
-import org.modelio.vcore.smkernel.mapi.MObject;
 
+/**
+ * A Typed container for the model browser used to organize the browser contents out of the model composition standard form (ie artificially grouping elements)
+ * 
+ * 
+ * @param <T>
+ * 
+ * @Since 3.8 the returned owner is an <code>java.lang.Object</code> instead of a <code>MObject</code> for more versability of the interface.
+ */
 @objid ("010c8a6a-b90d-4f47-9c30-4540db2a10df")
 public interface IModelContainer<T> {
     @objid ("e7549511-2cf7-45d6-b298-dac29d9d6dfd")
@@ -34,7 +41,7 @@ public interface IModelContainer<T> {
     String getLabel();
 
     @objid ("2bec7305-aa12-4bfa-a9a6-a1c166bd1f8f")
-    MObject getOwner();
+    Object getOwner();
 
     @objid ("c561fed5-8677-4479-a27c-de0840e0064d")
     List<T> getContents();

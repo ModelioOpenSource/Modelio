@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.modelio.vstore.exml.resource.IExmlResourceProvider;
 public interface IIndexDb {
     /**
      * Close all connections and release resources.
+     * 
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
      */
     @objid ("8ffd24ac-aae7-4f71-8e73-c265f5a68885")
@@ -40,6 +41,7 @@ public interface IIndexDb {
 
     /**
      * Commit pending changes now, and reset internal counter.
+     * 
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of JDBM failure.
      */
     @objid ("74f81083-ce49-4b84-ada9-2e905c544d8b")
@@ -47,6 +49,7 @@ public interface IIndexDb {
 
     /**
      * Read the index format version.
+     * 
      * @return the index format version
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
      */
@@ -55,6 +58,7 @@ public interface IIndexDb {
 
     /**
      * Write the index  stamp.
+     * 
      * @param stamp the index  stamp.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
      */
@@ -63,6 +67,7 @@ public interface IIndexDb {
 
     /**
      * Read the index stamp.
+     * 
      * @return the index stamp.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
      */
@@ -71,6 +76,7 @@ public interface IIndexDb {
 
     /**
      * Save the index format version.
+     * 
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure.
      */
     @objid ("1e34a4c3-93fd-4e01-9350-e968747940ed")
@@ -78,6 +84,7 @@ public interface IIndexDb {
 
     /**
      * Defragments the index, so it consumes less space. This commits any uncommitted data.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done()
      * on the given monitor. Accepts null, indicating that no progress should be reported and that the operation cannot
      * be cancelled.

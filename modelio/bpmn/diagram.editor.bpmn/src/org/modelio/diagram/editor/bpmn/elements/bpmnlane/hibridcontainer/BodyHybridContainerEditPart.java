@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -100,6 +100,7 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
 
     /**
      * Updates both the LayoutManager of the Figure and the behavior state of the LayoutEditPolicy.
+     * 
      * @param newBehaviour the new behavior to adopt.
      */
     @objid ("612fe072-55b6-11e2-877f-002564c97630")
@@ -141,6 +142,7 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
 
     /**
      * Computes the behaviour to have based on the model.
+     * 
      * @return the behaviour to adopt.
      */
     @objid ("612fe076-55b6-11e2-877f-002564c97630")

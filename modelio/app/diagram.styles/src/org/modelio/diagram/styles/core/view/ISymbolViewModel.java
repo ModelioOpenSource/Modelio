@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public interface ISymbolViewModel {
 
     /**
      * Get children entry of the given entry.
+     * 
      * @param entry a symbol view item
      * @return the children items, never null.
      */
@@ -48,6 +49,7 @@ public interface ISymbolViewModel {
     /**
      * Get the root symbol items.
      * @param input the current selection
+     * 
      * @return the root items
      */
     @objid ("e3003870-8441-4794-9492-d2e79118df97")
@@ -68,6 +70,7 @@ public interface ISymbolViewModel {
 
     /**
      * Get only visible children entry of the given entry.
+     * 
      * @param entry a symbol view item
      * @return the visible children items, never null.
      */

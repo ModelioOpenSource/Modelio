@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Document;
 import org.modelio.metamodel.uml.infrastructure.Element;
+import org.modelio.metamodel.uml.infrastructure.ExternElement;
 import org.modelio.metamodel.uml.infrastructure.ExternProcessor;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
@@ -66,235 +67,241 @@ import org.modelio.metamodel.uml.infrastructure.properties.TypedPropertyTable;
  */
 @objid ("4219dd4f-4355-4b63-b963-59e96185b0cf")
 public interface IAbstractInfrastructureVisitor extends IInfrastructureVisitor {
-    @objid ("2eb70d8f-e264-4aee-9f60-6a33e04b7fbf")
+    @objid ("e1a42351-58cf-43d1-8c18-1a9b653e846e")
     @Override
     default Object visitAbstractDiagram(AbstractDiagram obj) {
         	return null;
     }
 
-    @objid ("4ac57391-dad2-4d47-92e0-5ff7b9ad1c00")
+    @objid ("86ab2c3d-7b02-46a5-9321-4a22d2bcd8c5")
     @Override
     default Object visitAbstractProject(AbstractProject obj) {
         	return null;
     }
 
-    @objid ("b2ed2aee-858c-4069-a7df-31845b7de86b")
+    @objid ("7e9a8f36-fc98-40d5-b63d-689a4bc4f47a")
     @Override
     default Object visitAbstractResource(AbstractResource obj) {
         	return null;
     }
 
-    @objid ("523b7ae2-c7ce-41fa-b092-7e4ae41d87df")
+    @objid ("5b7b4a92-38a5-47e5-b327-b0a836e57050")
     @Override
     default Object visitDependency(Dependency obj) {
         	return null;
     }
 
-    @objid ("20da533e-4833-4217-82d0-8baabeb517f2")
+    @objid ("aa2fd2ee-c540-440e-84fc-7e6b85d1babf")
     @Override
     default Object visitDiagramSet(DiagramSet obj) {
         	return null;
     }
 
-    @objid ("137989ae-6663-4316-80fd-03a12ffc1b24")
+    @objid ("de2557b1-c440-43a1-a59c-b00884ff76ae")
     @Override
     default Object visitDocument(Document obj) {
         	return null;
     }
 
-    @objid ("c4604658-7279-494e-bdb8-eaf976eb58f5")
+    @objid ("d8fa4d1b-82bb-45aa-85a0-1230b225cb98")
     @Override
     default Object visitDynamicPropertyDefinition(DynamicPropertyDefinition obj) {
         	return null;
     }
 
-    @objid ("168d5c02-2d13-45f7-9529-5ca25834c352")
+    @objid ("1c3ba98b-c302-444c-8968-cb13f65cc821")
     @Override
     default Object visitElement(Element obj) {
         	return null;
     }
 
-    @objid ("2015880d-b6f3-423e-82ed-7abced158470")
+    @objid ("ca4bc09c-8c6e-4e35-8d6b-77af3bd07b3a")
     @Override
     default Object visitEnumeratedPropertyType(EnumeratedPropertyType obj) {
         	return null;
     }
 
-    @objid ("8ac0d9e0-9e79-4f87-bb8c-fdfad398901f")
+    @objid ("28665512-3e98-4803-9c57-bc4139737747")
+    @Override
+    default Object visitExternElement(ExternElement obj) {
+        	return null;
+    }
+
+    @objid ("49b3ebc1-ecf2-472e-a8d8-957589d9c8cd")
     @Override
     default Object visitExternProcessor(ExternProcessor obj) {
         	return null;
     }
 
-    @objid ("be8a0766-5c59-4ea1-8076-652bd97f7f76")
+    @objid ("c2e8165f-2835-4b9b-89e3-6d30cd538fb2")
     @Override
     default Object visitGraphDiagram(GraphDiagram obj) {
         	return null;
     }
 
-    @objid ("06d6ce6b-d2d2-4939-b049-40871b84eb26")
+    @objid ("9622ae0e-8e36-4c21-b753-708f4abec787")
     @Override
     default Object visitImpactDiagram(ImpactDiagram obj) {
         	return null;
     }
 
-    @objid ("39f7dae0-09b3-4177-be48-8115432d712c")
+    @objid ("9778b149-b573-4916-ba63-1506d6d5aacd")
     @Override
     default Object visitImpactLink(ImpactLink obj) {
         	return null;
     }
 
-    @objid ("08aa7af9-6d24-42e2-9b84-d4f5aadbbdef")
+    @objid ("a6599691-61d8-4589-a1c3-9969af7019f6")
     @Override
     default Object visitImpactModel(ImpactModel obj) {
         	return null;
     }
 
-    @objid ("36442f2e-6d5c-4090-882b-362d7b884589")
+    @objid ("c6752383-dbb4-461f-9588-3531721c9de7")
     @Override
     default Object visitImpactProject(ImpactProject obj) {
         	return null;
     }
 
-    @objid ("4d1fa92c-762c-415f-ab96-edad78dc60d5")
+    @objid ("179f1d10-6610-458c-97f5-15a47e9e1471")
     @Override
     default Object visitLocalPropertyTable(LocalPropertyTable obj) {
         	return null;
     }
 
-    @objid ("a82be09c-7693-45b7-8ec7-3bcaf9b41d71")
+    @objid ("2561a805-c697-402d-abd0-ef3614d31a39")
     @Override
     default Object visitMatrixDefinition(MatrixDefinition obj) {
         	return null;
     }
 
-    @objid ("9940725b-58a5-4b67-ac02-b5fe31f9a30f")
+    @objid ("77c84564-d900-4e39-b7e5-448ecf5ccb39")
     @Override
     default Object visitMatrixValueDefinition(MatrixValueDefinition obj) {
         	return null;
     }
 
-    @objid ("29211fdf-5cf4-4ae7-9f38-603b037cb79a")
+    @objid ("351bfa19-319a-48e0-a078-7e7ebd524385")
     @Override
     default Object visitMetaclassReference(MetaclassReference obj) {
         	return null;
     }
 
-    @objid ("3509624f-3f0e-4077-997b-33556081245e")
+    @objid ("45cdb243-dbf1-4fda-9a43-10d685534ed7")
     @Override
     default Object visitMethodologicalLink(MethodologicalLink obj) {
         	return null;
     }
 
-    @objid ("3502d899-e35f-4bbb-999a-f7069f991ecf")
+    @objid ("7f9288c1-dc2d-450f-ba46-d8587c17acbd")
     @Override
     default Object visitModelElement(ModelElement obj) {
         	return null;
     }
 
-    @objid ("1c567dae-689e-429d-be30-18824cc2e0fe")
+    @objid ("3e832be5-b7bd-4dfa-baf5-0d2e659c68a8")
     @Override
     default Object visitModuleComponent(ModuleComponent obj) {
         	return null;
     }
 
-    @objid ("f7322f40-0bf2-4033-87d2-9eb38a06f74e")
+    @objid ("fc8ea279-0312-4bc5-ae59-924514d9984a")
     @Override
     default Object visitModuleParameter(ModuleParameter obj) {
         	return null;
     }
 
-    @objid ("13361a41-4ec0-4e31-9f1e-bf35ba328e21")
+    @objid ("87bc2a09-cb73-41b5-b594-0577136e5a4e")
     @Override
     default Object visitNote(Note obj) {
         	return null;
     }
 
-    @objid ("b6fe6a14-efc1-4c59-b831-d876d4a3d85d")
+    @objid ("63bd8279-a637-4133-80e1-75a3ddce0fcf")
     @Override
     default Object visitNoteType(NoteType obj) {
         	return null;
     }
 
-    @objid ("fd26a5b5-eddf-4d01-b3a9-6ad773554e29")
+    @objid ("22dcd147-db98-46d0-90b0-9f514a0f2afa")
     @Override
     default Object visitProfile(Profile obj) {
         	return null;
     }
 
-    @objid ("fe7362e0-2505-48f4-9b75-4bc94ec790d8")
+    @objid ("030271bc-9f71-4a54-b017-0e091f9a1e93")
     @Override
     default Object visitPropertyDefinition(PropertyDefinition obj) {
         	return null;
     }
 
-    @objid ("8ea8c0d6-6605-43e8-b810-b2e2cbb58ecb")
+    @objid ("76e0c1a0-b03e-4c83-841b-3c5bdc04a360")
     @Override
     default Object visitPropertyEnumerationLitteral(PropertyEnumerationLitteral obj) {
         	return null;
     }
 
-    @objid ("8ea641b9-4806-4fc9-a568-ae8c2f776274")
+    @objid ("b814c1e3-6125-47d8-b10a-73682c7ea6c5")
     @Override
     default Object visitPropertyTable(PropertyTable obj) {
         	return null;
     }
 
-    @objid ("55c5e378-4db1-4fe9-a2de-9e9b937f6e55")
+    @objid ("c0599eeb-272d-4275-8253-3fb4df675ce1")
     @Override
     default Object visitPropertyTableDefinition(PropertyTableDefinition obj) {
         	return null;
     }
 
-    @objid ("d54bbd90-1262-4909-b4ad-fbf847563bcd")
+    @objid ("93998b32-bb8b-445e-8a95-5120a27ef7f8")
     @Override
     default Object visitPropertyType(PropertyType obj) {
         	return null;
     }
 
-    @objid ("04713168-d697-4543-882c-4772cc7ca8f7")
+    @objid ("f456e8dd-5ae0-4013-b811-b01e87a2e35f")
     @Override
     default Object visitQueryDefinition(QueryDefinition obj) {
         	return null;
     }
 
-    @objid ("c62c81cd-fb20-42ce-a29d-af44f3c10adc")
+    @objid ("b07fd925-b20f-45c8-ad2f-b03c448093d2")
     @Override
     default Object visitResource(Resource obj) {
         	return null;
     }
 
-    @objid ("65eb3c8b-5805-4b38-978f-c3294d7b9acb")
+    @objid ("c3e55bab-3fc8-4b74-b4f0-482fe4f1ced5")
     @Override
     default Object visitResourceType(ResourceType obj) {
         	return null;
     }
 
-    @objid ("58321e9a-6dfe-4a54-a4f6-914bd4c945b1")
+    @objid ("004403f1-e605-43e6-bdca-7706cfcfa0cf")
     @Override
     default Object visitStereotype(Stereotype obj) {
         	return null;
     }
 
-    @objid ("6d865971-a49f-4312-af30-677151bbfb8a")
+    @objid ("0bee908d-5d9d-4a5b-8454-a6ee97ea2251")
     @Override
     default Object visitTagParameter(TagParameter obj) {
         	return null;
     }
 
-    @objid ("7e359324-2a7e-42d0-96e4-07ea5aedcf1c")
+    @objid ("b5814189-2393-4a8f-8e31-7fcece7aca40")
     @Override
     default Object visitTagType(TagType obj) {
         	return null;
     }
 
-    @objid ("abb4f105-7677-46e4-b40d-0c40d234c62f")
+    @objid ("44c29705-2e80-4745-ba98-3e6af103c1c9")
     @Override
     default Object visitTaggedValue(TaggedValue obj) {
         	return null;
     }
 
-    @objid ("50fdae9b-399d-42ad-8534-a66220d41026")
+    @objid ("a563d52a-ac35-494b-a347-3fec438e9c22")
     @Override
     default Object visitTypedPropertyTable(TypedPropertyTable obj) {
         	return null;

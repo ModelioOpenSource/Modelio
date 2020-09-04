@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -147,6 +147,7 @@ public class Bounds {
      * given rectangles.
      * </p>
      * @see #add(Rectangle)
+     * 
      * @param rect the rectangle to perform union with
      * @return the union of the receiver and the argument
      * 

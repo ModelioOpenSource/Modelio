@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,8 @@ import org.modelio.gproject.data.project.todo.TodoActionDescriptor;
 import org.modelio.gproject.data.project.todo.UpdateModuleDescriptor;
 import org.modelio.vbasic.auth.IAuthData;
 import org.modelio.vbasic.auth.NoneAuthData;
+import org.modelio.vbasic.auth.ServerUserPassAuthData;
+import org.modelio.vbasic.auth.SshAuthData;
 import org.modelio.vbasic.auth.UserPasswordAuthData;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.log.Log;
@@ -80,6 +82,7 @@ public class ProjectDescriptorReader {
 
     /**
      * Read a project descriptor from an XML input source.
+     * 
      * @param is the XML input source.
      * @param scope the definition scope of the file.
      * If non <code>null</code> all elements will be assumed of the given scope.
@@ -113,6 +116,7 @@ public class ProjectDescriptorReader {
      * <p>
      * Looks for an {@link ProjectDescriptorWriter#CONF_ENCRYPT_FILE} file in the same directory
      * to determine encryption of the file.
+     * 
      * @param confFile The project.conf file path
      * <code>null</code> means the project is in the conf file directory.
      * @param scope the definition scope of the file.
@@ -144,6 +148,7 @@ public class ProjectDescriptorReader {
     /**
      * Set the scope to set to read descriptor elements if no scope is specified either
      * in the source nor in the call to {@link #read(InputSource, DefinitionScope)}.
+     * 
      * @param defaultScope the default scope.
      * @return <code>this</code> for convenience.
      */
@@ -156,6 +161,7 @@ public class ProjectDescriptorReader {
     /**
      * Convert the project descriptor DOM tree to the current version.
      * @see ProjectDescriptor#serialVersionUID
+     * 
      * @param p the project descriptor DOM element
      * @param lversion the read format version
      * @throws java.io.IOException in case of failure
@@ -164,16 +170,16 @@ public class ProjectDescriptorReader {
     @SuppressWarnings("static-method")
     private void convertProject(final Element p, final long lversion) throws IOException {
         if (lversion > ProjectDescriptor.serialVersionUID) {
-            throw new IOException(GProjectData.getMessage("ProjectDescriptorReader.format.newer", lversion, ProjectDescriptor.serialVersionUID));
+            throw new IOException(GProjectData.I18N.getMessage("ProjectDescriptorReader.format.newer", lversion, ProjectDescriptor.serialVersionUID));
         } else if (lversion == 1) {
             p.setAttribute("type", "LOCAL");
         } else if (lversion == 2) {
             // p.setAttribute("modelioVersion", "???");
             // Modelio <= 3.4.0
-        } else if (lversion <= 4) {
+        } else if (lversion <= 5) {
             // compatible: nothing to do here
         } else {
-            throw new IOException(GProjectData.getMessage("ProjectDescriptorReader.format.unsupported", lversion, ProjectDescriptor.serialVersionUID));
+            throw new IOException(GProjectData.I18N.getMessage("ProjectDescriptorReader.format.unsupported", lversion, ProjectDescriptor.serialVersionUID));
         }
     }
 
@@ -271,6 +277,7 @@ public class ProjectDescriptorReader {
 
     /**
      * Reads the &lt;properties> tag and returns its content.
+     * 
      * @param domNode the &lt;properties> DOM element.
      * @return the read properties
      * @throws java.io.IOException in case of parse error
@@ -280,7 +287,7 @@ public class ProjectDescriptorReader {
         GProperties ret = new GProperties();
         for (Element g : DomUtil.getChildren(domNode, "properties")) {
             for (Element p : DomUtil.getChildren(g, "prop")) {
-                ret.setProperty(p.getAttribute("name"), p.getAttribute("value"), decodeScope(p, this.defaultScope));
+                ret.setProperty(p.getAttribute("name"), parseAttOrTextContent(p,"value"), decodeScope(p, this.defaultScope));
             }
         }
         return ret;
@@ -306,7 +313,7 @@ public class ProjectDescriptorReader {
                 md.setArchiveLocation(p.toUri());
             } catch (InvalidPathException e2) {
                 e.addSuppressed(e2);
-                String msg = GProjectData.getMessage("ProjectDescriptorReader.module.invalidUri", md.getName(), archiveLoc, e.getLocalizedMessage());
+                String msg = GProjectData.I18N.getMessage("ProjectDescriptorReader.module.invalidUri", md.getName(), archiveLoc, e.getLocalizedMessage());
                 throw new IOException(msg, e);
             }
         }
@@ -353,7 +360,8 @@ public class ProjectDescriptorReader {
             authDesc.setData(authData);
             if (authData != null) {
                 for (Element p : DomUtil.getChildren(authNode, "prop")) {
-                    authData.getData().put(p.getAttribute("name"), p.getAttribute("value"));
+                    String attVal = parseAttOrTextContent(p,"value");
+                    authData.getData().put(p.getAttribute("name"), attVal);
                 }
             }
         }
@@ -366,6 +374,7 @@ public class ProjectDescriptorReader {
 
     /**
      * Create an authentication data from the given scheme id.
+     * 
      * @return the authentication data
      */
     @objid ("d1767cec-0e77-4445-bfb3-c6ba579105e8")
@@ -388,6 +397,12 @@ public class ProjectDescriptorReader {
         
         case UserPasswordAuthData.USERPASS_SCHEME_ID:
             return new UserPasswordAuthData();
+        
+        case ServerUserPassAuthData.SERVERUSERPASS_SCHEME_ID:
+            return new ServerUserPassAuthData();
+        
+        case SshAuthData.SCHEME_ID:
+            return new SshAuthData();
         
         default:
             return new UnknownAuthData(scheme);
@@ -519,9 +534,27 @@ public class ProjectDescriptorReader {
         try {
             rd.setTimestamp(Long.parseLong(strTime));
         } catch (NumberFormatException e) {
-            throw new IOException(GProjectData.getMessage("ProjectDescriptorReader.resource.invalidTimestamp", rd.getId(), strTime, e.getMessage()));
+            throw new IOException(GProjectData.I18N.getMessage("ProjectDescriptorReader.resource.invalidTimestamp", rd.getId(), strTime, e.getMessage()));
         }
         return rd;
+    }
+
+    /**
+     * Parse a property value style Element that may be serialized either as a DOM attribute or TEXT node.
+     * <p>
+     * Return the DOM attribute value if defined, the TEXT content in other case.
+     * 
+     * @param domNode the DOM element
+     * @param attName the attribute name to look for
+     * @return the content of the attribute or the content of the Text node.
+     * @since 3.8.1 NG
+     */
+    @objid ("e5223d85-3206-49ce-836b-af72039976d1")
+    private String parseAttOrTextContent(final Element domNode, String attName) {
+        String v = domNode.getAttribute(attName);
+        if (v.isEmpty())
+            v = domNode.getTextContent();
+        return v;
     }
 
     /**

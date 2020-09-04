@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class MetamodelSupport implements IMetamodelSupport {
 
     /**
      * Initialize the service.
+     * 
      * @param cacheManager the cache of all loaded objects
      * @param metamodel the metamodel
      */
@@ -61,6 +62,7 @@ public class MetamodelSupport implements IMetamodelSupport {
 
     /**
      * Add a new metamodel fragment.
+     * 
      * @param mmFragment the metamodel fragment to add.
      */
     @objid ("6c407264-83b5-4d15-ab26-b76127434bad")
@@ -80,6 +82,7 @@ public class MetamodelSupport implements IMetamodelSupport {
     /**
      * Remove a metamodel fragment and unload all model objects
      * typed by a metaclass defined by the fragment.
+     * 
      * @param removedMm the metamodel fragment to remove
      */
     @objid ("6ab1ff1b-8e22-4331-bf96-5c2dc39e144e")
@@ -107,6 +110,7 @@ public class MetamodelSupport implements IMetamodelSupport {
 
     /**
      * Unload all instances of the given metaclasses.
+     * 
      * @param mclassesToUnload the metaclasses to unload
      */
     @objid ("7e645dd2-94ec-411a-b5df-5fe316d5117f")
@@ -123,6 +127,7 @@ public class MetamodelSupport implements IMetamodelSupport {
 
     /**
      * <p>Add a listener that will be triggered when a metamodel fragment is added or removed.</p>
+     * 
      * @param listener the metamodel fragment to add.
      */
     @objid ("5d02017f-aff0-4f9e-9562-42c1e8c6900e")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class AuthDescriptor {
      * <p>
      * The given authentication data is retained with all its data and
      * will be returned by {@link #getData()}.
+     * 
      * @param authData the data to serialize.
      * @param scope definition scope
      */
@@ -78,6 +79,7 @@ public class AuthDescriptor {
 
     /**
      * Get the authentication data.
+     * 
      * @return the data
      */
     @objid ("7eec202e-f3e9-47ec-bd08-b8a1b1644d69")
@@ -97,6 +99,7 @@ public class AuthDescriptor {
      * Get the authentication scheme.
      * <p>
      * Returns <code>null</code> if no authentication is defined.
+     * 
      * @return the authentication type.
      */
     @objid ("b4709ef9-4fdc-4951-9aed-7675d5abf270")
@@ -146,6 +149,7 @@ public class AuthDescriptor {
 
     /**
      * Set the authentication properties.
+     * 
      * @param newData the authentication properties.
      */
     @objid ("d7dcaabc-7738-4afa-ad3c-236ad46aab0c")
@@ -166,6 +170,7 @@ public class AuthDescriptor {
      * Tells whether authentication is specified.
      * <p>
      * The authentication is specified if a scheme identifier is set, event to {@link NoneAuthData}
+     * 
      * @return true if there is
      */
     @objid ("0a0957d7-aa24-4a3d-9952-4986f26576a8")

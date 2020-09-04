@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ import org.modelio.mda.infra.service.impl.IRTModuleAccess;
 public class DiagramWizardReader {
     /**
      * read wizard contribution from module.xml
+     * 
      * @param module the module
      * @param wizardDef the JAXB node
      * @param wizardCategory the contribution category

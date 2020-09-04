@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.modelio.xmi.generation.GenerationProperties;
 public class ModelioPrimitiveTypeMapper {
     /**
      * This method returns the Ecore org.eclipse.uml2.uml.Type corresponding to a given Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @param objingPredefinedType : the given Modelio Predefined org.eclipse.uml2.uml.Type
      * @return the matching Ecore org.eclipse.uml2.uml.Type
      */
@@ -76,6 +77,7 @@ public class ModelioPrimitiveTypeMapper {
 
     /**
      * This method types an Ecore org.eclipse.uml2.uml.TypedElement by a given Modelio org.eclipse.uml2.uml.DataType
+     * 
      * @param typed : the Ecore org.eclipse.uml2.uml.TypedElement
      * @param objingPredefinedType : the Modelio org.eclipse.uml2.uml.DataType
      */
@@ -89,6 +91,7 @@ public class ModelioPrimitiveTypeMapper {
 
     /**
      * Test if a given GeneralClass is a Modelio Predefined org.eclipse.uml2.uml.Type
+     * 
      * @param type : the tested GeneralClass
      * @return true if it is a Modelio Predefined org.eclipse.uml2.uml.Type
      */

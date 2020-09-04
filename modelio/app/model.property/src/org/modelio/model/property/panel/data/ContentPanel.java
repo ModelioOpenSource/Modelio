@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class ContentPanel extends Composite {
 
     /**
      * Set the panel input.
+     * 
      * @param newInput the new input
      */
     @objid ("8dfe6d93-c068-11e1-8c0a-002564c97630")

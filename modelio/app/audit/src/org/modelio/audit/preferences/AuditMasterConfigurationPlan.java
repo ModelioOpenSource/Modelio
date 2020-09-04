@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public class AuditMasterConfigurationPlan implements IAuditConfigurationPlan {
 
     /**
      * Constructs a new audit plan, initializing the sub plans.
+     * 
      * @param subPlans all available sub plans.
      */
     @objid ("8329e632-5437-4b44-b224-1fef69d84cc3")

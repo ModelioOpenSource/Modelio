@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -128,6 +128,7 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theCollaboration the represented object node, may be null.
      * @param ref a reference to the represented object node.
@@ -199,6 +200,7 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
 
     /**
      * Get the stereotype image to display.
+     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("34690ebd-55b7-11e2-877f-002564c97630")

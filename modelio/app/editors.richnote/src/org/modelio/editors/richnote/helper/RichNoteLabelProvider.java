@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class RichNoteLabelProvider {
      * <p>
      * The returned image is owned by a registry, may be used elsewhere and must <b>not</b> be disposed.
      * </p>
+     * 
      * @param resource a resource.
      * @return an icon. Might be <code>null</code> if no icon is found for the resource's mime type.
      */
@@ -94,6 +95,7 @@ public class RichNoteLabelProvider {
      * Get the Windows explorer icon descriptor for a file.
      * <p>
      * Return <code>null</code> if the file has no registered extension or is a directory.
+     * 
      * @param aFile a file.
      * @return the icon descriptor or <code>null</code>.
      */
@@ -112,6 +114,7 @@ public class RichNoteLabelProvider {
 
     /**
      * Get the label to display for an extern document.
+     * 
      * @param document a document.
      * @return the label.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -42,13 +42,13 @@ public interface ExternProcessor extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("44a30b41-68a3-4902-9003-bc692c053dda")
+    @objid ("fcca26f6-ed7a-4c39-8ebe-b385d6d7aa49")
     public static final String MNAME = "ExternProcessor";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("f7efe0a3-13a7-46c9-8656-15dfa9c1b0d8")
+    @objid ("79b659a1-be35-4da9-a544-6dcb59f8fed6")
     public static final String MQNAME = "Infrastructure.ExternProcessor";
 
     /**
@@ -58,7 +58,7 @@ public interface ExternProcessor extends ModelElement {
      * <i>Class name of the external processor.
      * Should be a complete Java class name.</i>
      */
-    @objid ("10df33e6-59ba-41c1-b0f2-fc7885c96026")
+    @objid ("21f5bedb-396b-433a-a8b6-a1ed8ab351a2")
     String getClassName();
 
     /**
@@ -68,7 +68,7 @@ public interface ExternProcessor extends ModelElement {
      * <i>Class name of the external processor.
      * Should be a complete Java class name.</i>
      */
-    @objid ("081d60fd-2c49-4118-8916-f6fd6d3ccbb9")
+    @objid ("2592b1db-7c96-43a1-b6bd-9c0400d72fff")
     void setClassName(String value);
 
     /**
@@ -77,7 +77,7 @@ public interface ExternProcessor extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("8210d371-f914-4c04-ad0c-fa165e24b39d")
+    @objid ("2aa6c5f4-b956-4383-856c-65a5c4c363e9")
     QueryDefinition getOwnerQuery();
 
     /**
@@ -86,7 +86,7 @@ public interface ExternProcessor extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("9d6259cd-9f0c-4443-91af-8476371a235a")
+    @objid ("c1d44022-8b6b-4ace-933e-7005c727af5e")
     void setOwnerQuery(QueryDefinition value);
 
     /**
@@ -95,7 +95,7 @@ public interface ExternProcessor extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("c101a805-6a4a-4c86-9fe5-08f576594a41")
+    @objid ("a200c188-40ef-4cae-9b41-65a4ac4859db")
     MatrixValueDefinition getOwnerValDef();
 
     /**
@@ -104,7 +104,7 @@ public interface ExternProcessor extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("9ad53082-baec-4255-9bfa-080cf538e2df")
+    @objid ("185ba874-8710-4d91-85a7-2b78f7f66c3b")
     void setOwnerValDef(MatrixValueDefinition value);
 
 }

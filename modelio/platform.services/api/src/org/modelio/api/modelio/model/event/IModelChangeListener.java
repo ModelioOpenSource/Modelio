@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,6 +58,7 @@ public interface IModelChangeListener {
      * parameter provide the changes made in the model.
      * </p>
      * No model changes must be done in this method.
+     * 
      * @param session The modeling session.
      * @param event Delta between the beginning and the end of the transaction.
      */

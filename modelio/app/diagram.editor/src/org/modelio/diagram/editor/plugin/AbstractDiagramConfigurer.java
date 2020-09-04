@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,7 +22,6 @@ package org.modelio.diagram.editor.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.gef.palette.MarqueeToolEntry;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
@@ -35,6 +34,7 @@ import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gef.tools.AbstractTool;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.diagram.editor.AbstractDiagramEditor;
 import org.modelio.diagram.editor.tools.PanSelectionTool;
 
@@ -53,12 +53,13 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
      */
     @objid ("139596dc-9e9c-4006-8724-40ce62c16b4d")
     @Override
-    public PaletteRoot initPalette(AbstractDiagramEditor diagram, ToolRegistry toolRegistry) {
+    public PaletteRoot initPalette(final AbstractDiagramEditor diagram, final ToolRegistry toolRegistry) {
         return readPaletteFromPlugin(diagram, toolRegistry);
     }
 
     /**
      * Creates a drawings palette group.
+     * 
      * @param toolRegistry the tool registry
      * @return the created drawings palette group.
      */
@@ -77,8 +78,8 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
 
     @objid ("929fcd53-e213-4d8a-8f51-cdfdf946e98d")
     protected static ImageDescriptor getIconDescriptor(final IConfigurationElement element) {
-        String extendingPluginId = element.getDeclaringExtension().getContributor().getName();
-        String iconPath = element.getAttribute("icon");
+        final String extendingPluginId = element.getDeclaringExtension().getContributor().getName();
+        final String iconPath = element.getAttribute("icon");
         if (iconPath != null) {
             return AbstractUIPlugin.imageDescriptorFromPlugin(extendingPluginId, iconPath);
         }
@@ -89,6 +90,7 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
      * Get the identifier of the palette to look for in the plugin.xml .
      * <p>
      * By default it is {@link #getContributionURI()}, may be redefined by sub classes.
+     * 
      * @return the palette identifier.
      */
     @objid ("719927b7-86c6-4758-874f-d70e6c79a310")
@@ -99,20 +101,17 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
     /**
      * Read the palette content from plugin.xml.
      * @param diagram
+     * 
      * @param toolRegistry the tool registry
      * @return the created palette .
      */
     @objid ("b3861798-3002-44fa-ab8f-9c30b23301cf")
-    protected PaletteRoot readPaletteFromPlugin(AbstractDiagramEditor diagram, ToolRegistry toolRegistry) {
+    protected PaletteRoot readPaletteFromPlugin(final AbstractDiagramEditor diagram, final ToolRegistry toolRegistry) {
         PaletteRoot paletteRoot = new PaletteRoot();
         paletteRoot = new PaletteRoot();
         
-        IConfigurationElement[] config = Platform
-                .getExtensionRegistry()
-                .getConfigurationElementsFor(PALETTEEXTENSION_ID);
-        for (IConfigurationElement e : config) {
-            if (e.getName().equals("palette") 
-                    && e.getAttribute("id").equals(getPaletteId())) {
+        for (final IConfigurationElement e : new ExtensionPointContributionManager(PALETTEEXTENSION_ID).getExtensions("palette")) {
+            if (e.getAttribute("id").equals(getPaletteId())) {
                 parsePaletteContainer(paletteRoot, e, toolRegistry, paletteRoot);
             }
         }
@@ -120,20 +119,20 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
     }
 
     @objid ("bdf46987-86c0-4e41-ab48-ee1358e2a48b")
-    private void parsePaletteContainer(PaletteContainer container, IConfigurationElement el, ToolRegistry toolRegistry, PaletteRoot paletteRoot) {
-        for (IConfigurationElement child : el.getChildren()) {
+    private void parsePaletteContainer(final PaletteContainer container, final IConfigurationElement el, final ToolRegistry toolRegistry, final PaletteRoot paletteRoot) {
+        for (final IConfigurationElement child : el.getChildren()) {
             parsePaletteEntry(container, toolRegistry, paletteRoot, child);
         }
     }
 
     @objid ("7a16daeb-e080-4651-84b2-25b7274aaddb")
-    private void parsePaletteEntry(PaletteContainer container, ToolRegistry toolRegistry, PaletteRoot paletteRoot, IConfigurationElement child) {
+    private void parsePaletteEntry(final PaletteContainer container, final ToolRegistry toolRegistry, final PaletteRoot paletteRoot, final IConfigurationElement child) {
         ToolEntry createdToolEntry = null;
         
         switch (child.getName()) {
         case "palette_group":
             if ("false".equalsIgnoreCase(child.getAttribute("collapsible"))) {
-                PaletteGroup group = new PaletteGroup(child.getAttribute("label"));
+                final PaletteGroup group = new PaletteGroup(child.getAttribute("label"));
                 group.setId(child.getAttribute("id"));
                 container.add(group);
                 parsePaletteContainer(group, child, toolRegistry,paletteRoot);
@@ -145,8 +144,8 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
                 group.setId(child.getAttribute("id"));
                 container.add(group);
                 parsePaletteContainer(group, child, toolRegistry,paletteRoot);
-                
-                String initialState = child.getAttribute("initialState");
+        
+                final String initialState = child.getAttribute("initialState");
                 if (initialState == null || initialState.equals("closed")) {
                     group.setInitialState(PaletteDrawer.INITIAL_STATE_CLOSED);
                 } else if ("open".equalsIgnoreCase(initialState)) {
@@ -157,31 +156,31 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
             }
             break;
         case "separator":
-            PaletteSeparator sep = new PaletteSeparator();
+            final PaletteSeparator sep = new PaletteSeparator();
             sep.setId(child.getAttribute("id"));
             sep.setVisible(! Boolean.parseBoolean(child.getAttribute("hidden")));
             container.add(sep);
             break;
         case "creation_tool":
-            String toolid = child.getAttribute("id");
-            ToolEntry tool = toolRegistry.getTool(toolid);
+            final String toolid = child.getAttribute("id");
+            final ToolEntry tool = toolRegistry.getTool(toolid);
             container.add(tool);
             createdToolEntry = tool;
             break;
         case "selection_tool":
-            SelectionToolEntry selectionToolEntry = new SelectionToolEntry();
+            final SelectionToolEntry selectionToolEntry = new SelectionToolEntry();
             selectionToolEntry.setToolClass(PanSelectionTool.class);
             container.add(selectionToolEntry);
             createdToolEntry = selectionToolEntry;
             break;
         case "marquee_tool":
-            MarqueeToolEntry entry = new MarqueeToolEntry();
+            final MarqueeToolEntry entry = new MarqueeToolEntry();
             entry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, true);
             container.add(entry);
             createdToolEntry = entry;
             break;
         case "universal_link_tool":
-            ToolEntry ltool = toolRegistry.getTool(ToolRegistry.TOOL_POPUPMENU_CREATELINK);
+            final ToolEntry ltool = toolRegistry.getTool(ToolRegistry.TOOL_POPUPMENU_CREATELINK);
             container.add(ltool);
             createdToolEntry = ltool;
             break;

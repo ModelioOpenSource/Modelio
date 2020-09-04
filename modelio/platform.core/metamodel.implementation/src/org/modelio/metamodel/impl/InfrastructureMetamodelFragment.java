@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ import org.modelio.metamodel.impl.uml.infrastructure.AbstractResourceSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.DependencySmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.DocumentSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.ElementSmClass;
+import org.modelio.metamodel.impl.uml.infrastructure.ExternElementSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.ExternProcessorSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.MetaclassReferenceSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.MethodologicalLinkSmClass;
@@ -92,7 +93,7 @@ public final class InfrastructureMetamodelFragment extends AbstractMetamodelFrag
         return INSTANCE;
     }
 
-    @objid ("e8bd1939-3f7a-46ff-8880-b4118a58d74d")
+    @objid ("e262a9f5-99b9-40e8-ab21-796e9fd73268")
     @Override
     public Collection<VersionedItem<MMetamodelFragment>> getNeededFragments() {
         Collection<VersionedItem<MMetamodelFragment>> ret = new ArrayList<>(super.getNeededFragments());
@@ -101,64 +102,66 @@ public final class InfrastructureMetamodelFragment extends AbstractMetamodelFrag
         return ret;
     }
 
-    @objid ("57da058c-3190-446f-abb1-d7733899108a")
+    @objid ("d56a063a-d4ff-494c-b3fb-ff78513a9e36")
     public InfrastructureMetamodelFragment() {
-        	super("Infrastructure", new Version("2.1.02"), "Modeliosoft", "3.8.00");
+        	super("Infrastructure", new Version("2.1.03"), "Modeliosoft", "3.8.01");
     }
 
-    @objid ("bc191702-321d-4dec-b6ce-7aa6b83c00a6")
+    @objid ("ecf88662-ae92-4a12-b60b-808eb2b22ee0")
     @Override
     public List<SmClass> createMetaclasses() {
-        	final List<SmClass> metaclasses = new ArrayList<>(41);
+        	final List<SmClass> metaclasses = new ArrayList<>(42);
         	metaclasses.add(new ElementSmClass(this));
+        	metaclasses.add(new MatrixValueDefinitionSmClass(this));
+        	metaclasses.add(new QueryDefinitionSmClass(this));
+        	metaclasses.add(new PropertyTableSmClass(this));
+        	metaclasses.add(new LocalPropertyTableSmClass(this));
+        	metaclasses.add(new TypedPropertyTableSmClass(this));
+        	metaclasses.add(new MetaclassReferenceSmClass(this));
         	metaclasses.add(new ModelElementSmClass(this));
         	metaclasses.add(new AbstractDiagramSmClass(this));
-        	metaclasses.add(new ImpactDiagramSmClass(this));
         	metaclasses.add(new GraphDiagramSmClass(this));
+        	metaclasses.add(new ImpactDiagramSmClass(this));
         	metaclasses.add(new DiagramSetSmClass(this));
-        	metaclasses.add(new AbstractProjectSmClass(this));
-        	metaclasses.add(new ModuleComponentSmClass(this));
-        	metaclasses.add(new ImpactProjectSmClass(this));
-        	metaclasses.add(new AbstractResourceSmClass(this));
-        	metaclasses.add(new ResourceSmClass(this));
-        	metaclasses.add(new DocumentSmClass(this));
-        	metaclasses.add(new PropertyTypeSmClass(this));
-        	metaclasses.add(new EnumeratedPropertyTypeSmClass(this));
-        	metaclasses.add(new PropertyEnumerationLitteralSmClass(this));
-        	metaclasses.add(new PropertyDefinitionSmClass(this));
-        	metaclasses.add(new DynamicPropertyDefinitionSmClass(this));
-        	metaclasses.add(new PropertyTableDefinitionSmClass(this));
-        	metaclasses.add(new ProfileSmClass(this));
-        	metaclasses.add(new TagTypeSmClass(this));
-        	metaclasses.add(new TaggedValueSmClass(this));
-        	metaclasses.add(new StereotypeSmClass(this));
-        	metaclasses.add(new NoteTypeSmClass(this));
-        	metaclasses.add(new NoteSmClass(this));
-        	metaclasses.add(new DependencySmClass(this));
-        	metaclasses.add(new MethodologicalLinkSmClass(this));
-        	metaclasses.add(new ModuleParameterSmClass(this));
-        	metaclasses.add(new ResourceTypeSmClass(this));
         	metaclasses.add(new ImpactLinkSmClass(this));
         	metaclasses.add(new ImpactModelSmClass(this));
+        	metaclasses.add(new ModuleParameterSmClass(this));
         	metaclasses.add(new MatrixDefinitionSmClass(this));
+        	metaclasses.add(new PropertyDefinitionSmClass(this));
+        	metaclasses.add(new DynamicPropertyDefinitionSmClass(this));
+        	metaclasses.add(new PropertyEnumerationLitteralSmClass(this));
+        	metaclasses.add(new PropertyTableDefinitionSmClass(this));
+        	metaclasses.add(new PropertyTypeSmClass(this));
+        	metaclasses.add(new EnumeratedPropertyTypeSmClass(this));
+        	metaclasses.add(new AbstractProjectSmClass(this));
+        	metaclasses.add(new ImpactProjectSmClass(this));
+        	metaclasses.add(new ModuleComponentSmClass(this));
+        	metaclasses.add(new AbstractResourceSmClass(this));
+        	metaclasses.add(new DocumentSmClass(this));
+        	metaclasses.add(new ResourceSmClass(this));
+        	metaclasses.add(new DependencySmClass(this));
+        	metaclasses.add(new MethodologicalLinkSmClass(this));
+        	metaclasses.add(new ExternElementSmClass(this));
         	metaclasses.add(new ExternProcessorSmClass(this));
-        	metaclasses.add(new MetaclassReferenceSmClass(this));
-        	metaclasses.add(new QueryDefinitionSmClass(this));
+        	metaclasses.add(new NoteSmClass(this));
+        	metaclasses.add(new NoteTypeSmClass(this));
+        	metaclasses.add(new ProfileSmClass(this));
+        	metaclasses.add(new ResourceTypeSmClass(this));
+        	metaclasses.add(new StereotypeSmClass(this));
+        	metaclasses.add(new TagTypeSmClass(this));
+        	metaclasses.add(new TaggedValueSmClass(this));
         	metaclasses.add(new TagParameterSmClass(this));
-        	metaclasses.add(new PropertyTableSmClass(this));
-        	metaclasses.add(new TypedPropertyTableSmClass(this));
-        	metaclasses.add(new LocalPropertyTableSmClass(this));
-        	metaclasses.add(new MatrixValueDefinitionSmClass(this));
         
         	 return metaclasses;
     }
 
     /**
      * Create all the model checker classes.
+     * 
      * @param metamodel the metamodel
      * @return the live model checkers.
      */
-    @objid ("4daecaa0-f97e-482a-b91b-eb75b76a3b0b")
+    @objid ("8e87d04a-d343-48e9-97a6-0bcbe9221bb7")
     @Override
     public final Collection<SmDependencyTypeChecker> createDependencyCheckers(SmMetamodel metamodel) {
         // This code is automatically generated from all checker classes found in
@@ -169,7 +172,7 @@ public final class InfrastructureMetamodelFragment extends AbstractMetamodelFrag
         return checkers;
     }
 
-    @objid ("a70e54e0-60d2-4510-8479-19a9650571b8")
+    @objid ("3192ecfe-d843-4b6d-875f-45cd3ce22018")
     @Override
     public final boolean isExtension() {
         return false;
@@ -178,9 +181,10 @@ public final class InfrastructureMetamodelFragment extends AbstractMetamodelFrag
     /**
      * Get the model shield checkers factory.
      * @param metamodel the metamodel
+     * 
      * @return the model shield checkers factory.
      */
-    @objid ("55367511-0fb3-4464-9a51-fc1219407a47")
+    @objid ("56fed41b-70b2-4c4e-9a93-6c6d351271ca")
     @Override
     public ICheckerFactory getModelShieldCheckers() {
         return new InfrastructureCheckerFactory();

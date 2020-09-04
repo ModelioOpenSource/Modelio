@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -18,6 +18,11 @@
  * 
  */
 
+/* WARNING: GENERATED FILE -  DO NOT EDIT
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
+     Generator version: 3.8.00
+     Generated on: Dec 13, 2018
+*/
 package org.modelio.metamodel.uml.infrastructure;
 
 import java.util.List;
@@ -26,6 +31,11 @@ import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.impact.ImpactLink;
 import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
+import org.modelio.metamodel.uml.infrastructure.AbstractResource;
+import org.modelio.metamodel.uml.infrastructure.Dependency;
+import org.modelio.metamodel.uml.infrastructure.Note;
+import org.modelio.metamodel.uml.infrastructure.Stereotype;
+import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.metamodel.uml.infrastructure.matrix.MatrixDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.LocalPropertyTable;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTable;
@@ -35,25 +45,20 @@ import org.modelio.metamodel.uml.infrastructure.properties.TypedPropertyTable;
  * ModelElement v3.6.00
  * 
  * 
- * <p>
- * A ModelElement describes every element that can exist in a model. Only low-level Elements are not ModelElements.&nbsp;
- * </p>
- * <p>
- * ModelElements can be extended by Stereotypes and TaggedValues, can have Notes, can be the origin or target of Dependencies, and can have Constraints.
- * </p>
+ * <p>A ModelElement describes every element that can exist in a model. Only low-level Elements are not ModelElements.&nbsp;</p><p>ModelElements can be extended by Stereotypes and TaggedValues, can have Notes, can be the origin or target of Dependencies, and can have Constraints.</p>
  */
 @objid ("00886f12-c4be-1fd8-97fe-001ec947cd2a")
 public interface ModelElement extends Element {
     /**
      * The metaclass simple name.
      */
-    @objid ("d23ceee5-7e7f-4cf8-a282-5f4ca3dda33c")
+    @objid ("bbaf5609-1ee2-4ee5-a65b-818cbd8d2014")
     public static final String MNAME = "ModelElement";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("c0899c74-900c-4aa6-98c0-e428c656e0cc")
+    @objid ("66839c03-5611-49a2-a15a-ab4e83c73704")
     public static final String MQNAME = "Infrastructure.ModelElement";
 
     /**
@@ -62,6 +67,7 @@ public interface ModelElement extends Element {
      * Does nothing if the stereotype is already present.
      * </p>
      * @since Modelio 3.4
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param stereotypeName The stereotype to find. Cannot be <code>null</code>.
      * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException when the stereotype has not been found.
@@ -70,140 +76,11 @@ public interface ModelElement extends Element {
     void addStereotype(String moduleName, String stereotypeName) throws ExtensionNotFoundException;
 
     /**
-     * Getter for relation 'ModelElement->Attached'
-     * 
-     * Metamodel description: <i>Attached resources</i>
-     */
-    @objid ("a9564807-4ec4-46aa-b441-1da40d9cb371")
-    EList<AbstractResource> getAttached();
-
-    /**
-     * Filtered Getter for relation 'ModelElement->Attached'
-     * 
-     * Metamodel description: <i>Attached resources</i>
-     */
-    @objid ("48ee0fc3-ded8-4a37-9a0f-7a3caec0519f")
-    <T extends AbstractResource> List<T> getAttached(java.lang.Class<T> filterClass);
-
-    /**
-     * Getter for relation 'ModelElement->DependsOnDependency'
-     * 
-     * Metamodel description: <i>Designates a Dependency that relates to a supplier ModelElement.</i>
-     */
-    @objid ("d7152675-70b3-45a5-a92b-bb1322b88a2d")
-    EList<Dependency> getDependsOnDependency();
-
-    /**
-     * Filtered Getter for relation 'ModelElement->DependsOnDependency'
-     * 
-     * Metamodel description: <i>Designates a Dependency that relates to a supplier ModelElement.</i>
-     */
-    @objid ("96742781-e8cb-4612-982c-63fa8074b3b5")
-    <T extends Dependency> List<T> getDependsOnDependency(java.lang.Class<T> filterClass);
-
-    /**
-     * Getter for relation 'ModelElement->Descriptor'
-     * 
-     * Metamodel description: <i>Notes (documentation, code, and so on) describing the ModelElement.</i>
-     */
-    @objid ("e67a4a1d-72ae-4a82-9512-970e406ad9eb")
-    EList<Note> getDescriptor();
-
-    /**
-     * Filtered Getter for relation 'ModelElement->Descriptor'
-     * 
-     * Metamodel description: <i>Notes (documentation, code, and so on) describing the ModelElement.</i>
-     */
-    @objid ("79809e64-78f0-4570-9ec2-0da084e79481")
-    <T extends Note> List<T> getDescriptor(java.lang.Class<T> filterClass);
-
-    /**
-     * Getter for relation 'ModelElement->Extension'
-     * 
-     * Metamodel description: <i>
-     * <p>
-     * Stereotypes metaclassifying the ModelElement.
-     * </p>
-     * </i>
-     */
-    @objid ("e3b3cb47-f606-40df-9ce0-0daef6fb8fe9")
-    EList<Stereotype> getExtension();
-
-    /**
-     * Filtered Getter for relation 'ModelElement->Extension'
-     * 
-     * Metamodel description: <i>
-     * <p>
-     * Stereotypes metaclassifying the ModelElement.
-     * </p>
-     * </i>
-     */
-    @objid ("852176b0-265a-4f89-ba23-47b485ed5f83")
-    <T extends Stereotype> List<T> getExtension(java.lang.Class<T> filterClass);
-
-    /**
-     * Getter for relation 'ModelElement->impactDependsOn'
-     * 
-     * Metamodel description: <i>Impact links from this element. Gives the elements this one depends on.</i>
-     */
-    @objid ("d40684e0-a6fb-4148-9b65-153c5d9ebe10")
-    EList<ImpactLink> getImpactDependsOn();
-
-    /**
-     * Filtered Getter for relation 'ModelElement->impactDependsOn'
-     * 
-     * Metamodel description: <i>Impact links from this element. Gives the elements this one depends on.</i>
-     */
-    @objid ("9ad94c78-a67f-457b-b5ab-9464e18d6fa5")
-    <T extends ImpactLink> List<T> getImpactDependsOn(java.lang.Class<T> filterClass);
-
-    /**
-     * Getter for relation 'ModelElement->impactImpacted'
-     * 
-     * Metamodel description: <i>Impact link targeting this element.</i>
-     */
-    @objid ("22f65ec4-1376-4fe2-be61-20c96cd194b6")
-    EList<ImpactLink> getImpactImpacted();
-
-    /**
-     * Filtered Getter for relation 'ModelElement->impactImpacted'
-     * 
-     * Metamodel description: <i>Impact link targeting this element.</i>
-     */
-    @objid ("68314c17-956f-4fe7-ab8a-51ca2ff9d29f")
-    <T extends ImpactLink> List<T> getImpactImpacted(java.lang.Class<T> filterClass);
-
-    /**
-     * Getter for relation 'ModelElement->ImpactedDependency'
-     * 
-     * Metamodel description: <i>Dependencies whose source depend on this element.</i>
-     */
-    @objid ("a7e12cb2-e7fd-4278-9901-402231f67751")
-    EList<Dependency> getImpactedDependency();
-
-    /**
-     * Filtered Getter for relation 'ModelElement->ImpactedDependency'
-     * 
-     * Metamodel description: <i>Dependencies whose source depend on this element.</i>
-     */
-    @objid ("4aa79fd4-b8cd-4fab-a76e-66484394c5fb")
-    <T extends Dependency> List<T> getImpactedDependency(java.lang.Class<T> filterClass);
-
-    /**
-     * Getter for relation 'ModelElement->LocalProperties'
-     * 
-     * Metamodel description: <i>The local property table.
-     * 
-     * This table is not copied with the element. This table is not versioned with the element on SVN managed models, it is local to the working copy.</i>
-     */
-    @objid ("621eb6f3-ea7e-4194-8efc-8f8ba913988c")
-    LocalPropertyTable getLocalProperties();
-
-    /**
      * Get a local property value.
      * <p>
      * Return <code>null</code> if no {@link LocalPropertyTable} with the given name exists or it does not contain the given property.
      * </p>
+     * 
      * @param key a property name
      * @return The property value or <code>null</code>.
      */
@@ -211,32 +88,8 @@ public interface ModelElement extends Element {
     String getLocalProperty(String key);
 
     /**
-     * Getter for relation 'ModelElement->Matrix'
-     * 
-     * Metamodel description: <i>Owned matrices.</i>
-     */
-    @objid ("e9399e7a-9135-412a-8c8a-c41ae7cbc81e")
-    EList<MatrixDefinition> getMatrix();
-
-    /**
-     * Filtered Getter for relation 'ModelElement->Matrix'
-     * 
-     * Metamodel description: <i>Owned matrices.</i>
-     */
-    @objid ("6e6319f5-e143-4e09-ab97-630a8afb3659")
-    <T extends MatrixDefinition> List<T> getMatrix(java.lang.Class<T> filterClass);
-
-    /**
-     * Getter for attribute 'ModelElement.Name'
-     * 
-     * Metamodel description: <i>Name of the element.</i>
-     */
-    @objid ("d9a3a564-e1fe-4849-a75e-e889baff86c7")
-    @Override
-    String getName();
-
-    /**
      * This operation returns the first note of the type indicated by the (moduleName, noteTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
      * @return The note or <code>null</code> if the note can't be found.
@@ -248,6 +101,7 @@ public interface ModelElement extends Element {
 
     /**
      * This operation returns the first note of the type indicated by the (moduleName, noteTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. If <code>null</code>, only types owned by a {@link MetaclassReference} are considered.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
@@ -259,6 +113,7 @@ public interface ModelElement extends Element {
 
     /**
      * Get the first note of the given type.
+     * 
      * @param noteType a note type
      * @return the first matching note or <i>null</i>.
      * @since 3.8
@@ -268,6 +123,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the content of the first note of the type indicated by the (moduleName, noteTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
      * @return The note or <code>null</code> if the note can't be found.
@@ -279,6 +135,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the content of the first note of the type indicated by the (moduleName, noteTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
@@ -291,6 +148,7 @@ public interface ModelElement extends Element {
     /**
      * This method returns the content of the first note of the given type.
      * @since 3.8
+     * 
      * @param noteType the note type.
      * @return The note or <code>null</code> if the note can't be found.
      */
@@ -298,23 +156,8 @@ public interface ModelElement extends Element {
     String getNoteContent(NoteType noteType);
 
     /**
-     * Getter for relation 'ModelElement->Product'
-     * 
-     * Metamodel description: <i>null</i>
-     */
-    @objid ("bd76a5d3-c643-4226-b5e2-d0e25fe64d12")
-    EList<AbstractDiagram> getProduct();
-
-    /**
-     * Filtered Getter for relation 'ModelElement->Product'
-     * 
-     * Metamodel description: <i>null</i>
-     */
-    @objid ("ebf999ea-0ca8-4444-9583-bc07b66888f2")
-    <T extends AbstractDiagram> List<T> getProduct(java.lang.Class<T> filterClass);
-
-    /**
      * Get the first found {@link PropertyTable} that has the given name.
+     * 
      * @param name a property table name
      * @return the found table or <code>null</code>.
      */
@@ -322,35 +165,11 @@ public interface ModelElement extends Element {
     PropertyTable getProperties(String name);
 
     /**
-     * Getter for relation 'ModelElement->Properties'
-     * 
-     * Metamodel description: <i>Owned property tables.</i>
-     */
-    @objid ("68e72a3c-a1d9-48f7-b27d-2b999d0860a7")
-    EList<PropertyTable> getProperties();
-
-    /**
-     * Filtered Getter for relation 'ModelElement->Properties'
-     * 
-     * Metamodel description: <i>Owned property tables.</i>
-     */
-    @objid ("a1583d00-037f-484f-83f4-a7f064310c4d")
-    <T extends PropertyTable> List<T> getProperties(java.lang.Class<T> filterClass);
-
-    /**
-     * Get the property table for the properties defined by the given stereotype.
-     * @since 3.8
-     * @param stereotype a stereotype, must not be <code>null</code>.
-     * @return the found property table or <code>null</code>.
-     */
-    @objid ("67d0e07c-b242-484f-8696-beb6eb818c1b")
-    TypedPropertyTable getProperties(Stereotype stereotype);
-
-    /**
      * Get a property value.
      * <p>
      * Return <code>null</code> if no {@link PropertyTable} with the given name exists or it does not contain the given property.
      * </p>
+     * 
      * @param tableName The table name. The table may not exist.
      * @param key a property name
      * @return The property value or <code>null</code>.
@@ -363,6 +182,7 @@ public interface ModelElement extends Element {
      * <p>
      * Return <code>null</code> if no {@link TypedPropertyTable} for the stereotype exists or it does not contain the given property.
      * </p>
+     * 
      * @param moduleName the name of the module providing stereotype. Cannot be <code>null</code>.
      * @param stereotypeName the name of the stereotype providing the table type. Cannot be <code>null</code>.
      * @param key a property name
@@ -374,22 +194,10 @@ public interface ModelElement extends Element {
     String getProperty(String moduleName, String stereotypeName, String key) throws ExtensionNotFoundException;
 
     /**
-     * Get the value of a property defined by a {@link Stereotype}.
-     * <p>
-     * Return <code>null</code> if no {@link TypedPropertyTable} for the stereotype exists or it does not contain the given property.
-     * </p>
-     * @param stereotype the stereotype providing the table type. Cannot be <code>null</code>.
-     * @param key a property name
-     * @return The property value or <code>null</code>.
-     * @since Modelio 3.8
-     */
-    @objid ("b56da8d3-2494-4b69-8f03-752a223aab13")
-    String getProperty(Stereotype stereotype, String key);
-
-    /**
      * Get the first stereotype applied to this element that matches the (moduleName, stereotypeName) pair from this model element.
      * <p>
      * The returned stereotype may be a sub stereotype that derives from the given specification.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param stereotypeName The stereotype to find. Cannot be <code>null</code>.
      * @return the specified stereotype or <code>null</code>.
@@ -399,6 +207,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the (first) tagged value of the type indicated by the (moduleName, tagTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @return The tag or <code>null</code> if it can't be found
@@ -410,6 +219,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the (first) tagged value of the type indicated by the (moduleName, tagTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -420,24 +230,9 @@ public interface ModelElement extends Element {
     TaggedValue getTag(String moduleName, String ownerName, String tagTypeName);
 
     /**
-     * Getter for relation 'ModelElement->Tag'
-     * 
-     * Metamodel description: <i>TaggedValues annotating the ModelElement.</i>
-     */
-    @objid ("68c6dd3b-65b9-43ca-86b1-94269e6b9815")
-    EList<TaggedValue> getTag();
-
-    /**
-     * Filtered Getter for relation 'ModelElement->Tag'
-     * 
-     * Metamodel description: <i>TaggedValues annotating the ModelElement.</i>
-     */
-    @objid ("f54f8fe3-dbf6-4670-8c11-784b09e40a1d")
-    <T extends TaggedValue> List<T> getTag(java.lang.Class<T> filterClass);
-
-    /**
      * This method returns the first tagged value of the given type.
      * @since 3.8
+     * 
      * @param tagType a tag type
      * @return The tag or <code>null</code> if it can't be found.
      */
@@ -446,6 +241,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the first parameter value of the first tagged value of the type indicated by the (moduleName, tagTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @return <code>null</code> if no tag can be found or there are no parameters, otherwise the first parameter value.
@@ -457,6 +253,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the first parameter value of the first tagged value of the type indicated by the (moduleName, tagTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -469,6 +266,7 @@ public interface ModelElement extends Element {
     /**
      * This method returns the first parameter value of the first tagged value of the given type.
      * @since 3.8
+     * 
      * @param tagType a tag type
      * @return <code>null</code> if no tag can be found or there are no parameters, otherwise the first parameter value.
      */
@@ -477,6 +275,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the parameter values of the first tagged value of the type indicated by the (moduleName, tagTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @return <code>null</code> if no tag can be found otherwise the (possibly empty) parameter list
@@ -488,6 +287,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the parameter values of the first tagged value of the type indicated by the (moduleName, tagTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -500,6 +300,7 @@ public interface ModelElement extends Element {
     /**
      * This method returns the parameter values of the first tagged value of the given type.
      * @since 3.8
+     * 
      * @param tagType a tag type
      * @return <code>null</code> if no tag can be found otherwise the (possibly empty) parameter list.
      */
@@ -511,6 +312,7 @@ public interface ModelElement extends Element {
 
     /**
      * Checks if a model element has the stereotype specified by the (moduleName, stereotypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param stereotypeName The stereotype to find. Cannot be <code>null</code>.
      * @return true if the element has the given stereotype or a stereotype derived from the given one.
@@ -520,6 +322,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns <code>true</code> if the element has a tagged value of the type indicated by the (moduleName, tagTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @return <code>true</code> if the element has a tagged value with the corresponding type.
@@ -531,6 +334,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns <code>true</code> if the element has a tagged value of the type indicated by the (moduleName, tagTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -543,6 +347,7 @@ public interface ModelElement extends Element {
     /**
      * This method returns <code>true</code> if the element has a tagged value of the given type.
      * @since 3.8
+     * 
      * @param tagType a tag type
      * @return <code>true</code> if the element has a tagged value with the corresponding type.
      */
@@ -554,6 +359,7 @@ public interface ModelElement extends Element {
      * <p>
      * If no note with the given type is found, one is created.
      * </p>
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
      * @param content the note content
@@ -569,6 +375,7 @@ public interface ModelElement extends Element {
      * <p>
      * If no note with the given type is found, one is created.
      * </p>
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
@@ -585,6 +392,7 @@ public interface ModelElement extends Element {
      * If no note with the given type is found, one is created.
      * </p>
      * @since 3.8
+     * 
      * @param noteType a note type
      * @param content the note content
      */
@@ -600,6 +408,7 @@ public interface ModelElement extends Element {
      * <p>
      * If value is <code>null</code> the existing tag is deleted.
      * </p>
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @param value the values to store on the tag parameters. If value is <code>null</code> the tag is deleted.
@@ -619,6 +428,7 @@ public interface ModelElement extends Element {
      * <p>
      * If value is <code>null</code> the existing tag is deleted.
      * </p>
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -639,6 +449,7 @@ public interface ModelElement extends Element {
      * If value is <code>null</code> the existing tag is deleted.
      * </p>
      * @since 3.8
+     * 
      * @param tagType a tag type
      * @param value the value to store on the tag parameter. If value is <code>null</code> the tag is deleted.
      */
@@ -654,6 +465,7 @@ public interface ModelElement extends Element {
      * <p>
      * If values is <code>null</code> or empty list, the existing tag is deleted.
      * </p>
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @param values the values to store on the tag parameters. If value is <code>null</code> or empty list, the tag is deleted.
@@ -673,6 +485,7 @@ public interface ModelElement extends Element {
      * <p>
      * If values is <code>null</code> or empty list, the existing tag is deleted.
      * </p>
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -693,6 +506,7 @@ public interface ModelElement extends Element {
      * If values is <code>null</code> or empty list, the existing tag is deleted.
      * </p>
      * @since 3.8
+     * 
      * @param tagType a tag type
      * @param values the new tag parameters
      */
@@ -701,6 +515,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the notes having this noteType of the type indicated by the (moduleName, noteTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
      * @deprecated since Modelio 3.8, it is recommended to use {@link #removeNotes(String, String, String)} instead.
@@ -711,6 +526,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the notes having this noteType of the type indicated by the (moduleName, noteTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
@@ -721,6 +537,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the notes having this note Type .
+     * 
      * @param noteType the type of the notes to delete.
      */
     @objid ("9d0d3b40-b4be-4187-b2d9-fa9ce2d5a787")
@@ -732,6 +549,7 @@ public interface ModelElement extends Element {
      * If several instances of the stereotype are present, they are all removed.
      * </p>
      * @since Modelio 3.4
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param stereotypeName The stereotype to find. Cannot be <code>null</code>.
      */
@@ -740,6 +558,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the tagged values of the type indicated by the (moduleName, tagTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @deprecated since Modelio 3.8, it is recommended to use {@link #removeTags(String, String, String)} instead.
@@ -750,6 +569,7 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the tagged values of the type indicated by the (moduleName, tagTypeName) pair.
+     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -760,20 +580,11 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the tagged values of given type .
+     * 
      * @param tagType a tag type
      */
     @objid ("1aeee99e-cdea-4eac-b02a-02d4b382c961")
     void removeTags(TagType tagType);
-
-    /**
-     * Setter for relation 'ModelElement->LocalProperties'
-     * 
-     * Metamodel description: <i>The local property table.
-     * 
-     * This table is not copied with the element. This table is not versioned with the element on SVN managed models, it is local to the working copy.</i>
-     */
-    @objid ("7cf1fd84-1496-4b81-bb31-f69a43d6a898")
-    void setLocalProperties(LocalPropertyTable value);
 
     /**
      * Set a local property value.
@@ -782,6 +593,7 @@ public interface ModelElement extends Element {
      * </p>
      * <p>
      * Warning: local property tables are only part of the local project, and are never shared with other users.
+     * 
      * @param key a property name
      * @param value the property value.
      */
@@ -789,19 +601,11 @@ public interface ModelElement extends Element {
     void setLocalProperty(String key, String value);
 
     /**
-     * Setter for attribute 'ModelElement.Name'
-     * 
-     * Metamodel description: <i>Name of the element.</i>
-     */
-    @objid ("8d6ef054-42df-4d99-bcd6-5f1d69d9c83d")
-    @Override
-    void setName(String value);
-
-    /**
      * Set a property value.
      * <p>
      * Update the value of a property in a stereotype's {@link TypedPropertyTable}. If missing, the table itself is created.
      * </p>
+     * 
      * @param moduleName the name of the module providing stereotype. Cannot be <code>null</code>.
      * @param stereotypeName the name of the stereotype providing the table type. Cannot be <code>null</code>.
      * @param key a property name
@@ -817,6 +621,7 @@ public interface ModelElement extends Element {
      * <p>
      * Update the value of a property in a {@link PropertyTable}. If missing, the table itself is created.
      * </p>
+     * 
      * @param tableName The table name. The table may not exist.
      * @param key a property name
      * @param value the property value.
@@ -826,16 +631,323 @@ public interface ModelElement extends Element {
     void setProperty(String tableName, String key, String value);
 
     /**
+     * Get the property table for the properties defined by the given stereotype.
+     * @since 3.8
+     * 
+     * @param stereotype a stereotype, must not be <code>null</code>.
+     * @return the found property table or <code>null</code>.
+     */
+    @objid ("7987ae45-db7d-4213-9509-0620dd6a1d8f")
+    TypedPropertyTable getProperties(Stereotype stereotype);
+
+    /**
+     * Get the value of a property defined by a {@link Stereotype}.
+     * <p>
+     * Return <code>null</code> if no {@link TypedPropertyTable} for the stereotype exists or it does not contain the given property.
+     * </p>
+     * 
+     * @param stereotype the stereotype providing the table type. Cannot be <code>null</code>.
+     * @param key a property name
+     * @return The property value or <code>null</code>.
+     * @since Modelio 3.8
+     */
+    @objid ("fd3a245d-1f02-40f2-9d23-036a0a197b7b")
+    String getProperty(Stereotype stereotype, String key);
+
+    /**
      * Set a property value.
      * <p>
      * Update the value of a property in a stereotype's {@link TypedPropertyTable}. If missing, the table itself is created.
      * </p>
-     * @param stereotypeName the stereotype providing the table type. Cannot be <code>null</code>.
+     * 
+     * @param stereotype the stereotype providing the table type. Cannot be <code>null</code>.
      * @param key a property name
      * @param value the property value.
      * @since Modelio 3.8
      */
-    @objid ("9295a084-7a27-4647-8321-915efeccb93e")
+    @objid ("26e5f0dc-44f4-48df-87f4-d4f2ec75c678")
     void setProperty(Stereotype stereotype, String key, String value);
+
+    /**
+     * Get the property table for the properties defined by the given metaclass reference.
+     * @since 3.8.1
+     * 
+     * @param ref the metaclass reference providing the table type. Cannot be <code>null</code>.
+     * @return the found property table or <code>null</code>.
+     */
+    @objid ("d3333f65-27b0-4639-8d12-c18e46067a9c")
+    TypedPropertyTable getProperties(MetaclassReference ref);
+
+    /**
+     * Set a property value.
+     * <p>
+     * Update the value of a property in a metaclass reference's {@link TypedPropertyTable}. If missing, the table itself is created.
+     * </p>
+     * @since 3.8.1
+     * 
+     * @param ref the metaclass reference providing the table type. Cannot be <code>null</code>.
+     * @param key a property name
+     * @param value the property value.
+     * @since Modelio 3.8
+     */
+    @objid ("0bcfac07-5090-425f-9892-18b3766f9735")
+    void setProperty(MetaclassReference ref, String key, String value);
+
+    /**
+     * Get the value of a property defined by a {@link MetaclassReference}.
+     * <p>
+     * Return <code>null</code> if no {@link TypedPropertyTable} for the metaclass reference exists or it does not contain the given property.
+     * </p>
+     * @since 3.8.1
+     * 
+     * @param ref the metaclass reference providing the table type. Cannot be <code>null</code>.
+     * @param key a property name
+     * @return The property value or <code>null</code>.
+     * @since Modelio 3.8
+     */
+    @objid ("3400a599-984f-4339-a0a0-fcce1b7155ee")
+    String getProperty(MetaclassReference ref, String key);
+
+    /**
+     * Getter for attribute 'ModelElement.Name'
+     * 
+     * Metamodel description:
+     * <i>Name of the element.</i>
+     */
+    @objid ("4124e79d-464f-4499-856b-b699923bf476")
+    String getName();
+
+    /**
+     * Setter for attribute 'ModelElement.Name'
+     * 
+     * Metamodel description:
+     * <i>Name of the element.</i>
+     */
+    @objid ("f674c278-1a5e-4e5e-b810-6119261ad04e")
+    void setName(String value);
+
+    /**
+     * Getter for relation 'ModelElement->LocalProperties'
+     * 
+     * Metamodel description:
+     * <i>The local property table.
+     * 
+     * This table is not copied with the element.
+     * This table is not versioned with the element on SVN managed models, it is local to the working copy.</i>
+     */
+    @objid ("139b94d9-809a-48d6-9c36-f13c5f568a03")
+    LocalPropertyTable getLocalProperties();
+
+    /**
+     * Setter for relation 'ModelElement->LocalProperties'
+     * 
+     * Metamodel description:
+     * <i>The local property table.
+     * 
+     * This table is not copied with the element.
+     * This table is not versioned with the element on SVN managed models, it is local to the working copy.</i>
+     */
+    @objid ("2583104a-e8f8-466c-a9de-deea1e8ff7d3")
+    void setLocalProperties(LocalPropertyTable value);
+
+    /**
+     * Getter for relation 'ModelElement->Extension'
+     * 
+     * Metamodel description:
+     * <i><p>Stereotypes metaclassifying the ModelElement.</p>
+     * </i>
+     */
+    @objid ("2eb38312-fdea-440c-ae57-37a4b5dcf14d")
+    EList<Stereotype> getExtension();
+
+    /**
+     * Filtered Getter for relation 'ModelElement->Extension'
+     * 
+     * Metamodel description:
+     * <i><p>Stereotypes metaclassifying the ModelElement.</p>
+     * </i>
+     */
+    @objid ("45f1da17-6b50-488c-b1ac-1ad6023dc927")
+    <T extends Stereotype> List<T> getExtension(java.lang.Class<T> filterClass);
+
+    /**
+     * Getter for relation 'ModelElement->DependsOnDependency'
+     * 
+     * Metamodel description:
+     * <i>Designates a Dependency that relates to a supplier ModelElement.</i>
+     */
+    @objid ("e4e06517-4f51-4598-8573-d195ba46020b")
+    EList<Dependency> getDependsOnDependency();
+
+    /**
+     * Filtered Getter for relation 'ModelElement->DependsOnDependency'
+     * 
+     * Metamodel description:
+     * <i>Designates a Dependency that relates to a supplier ModelElement.</i>
+     */
+    @objid ("4da29aff-ba78-41be-a37b-d2d7a0b1ebea")
+    <T extends Dependency> List<T> getDependsOnDependency(java.lang.Class<T> filterClass);
+
+    /**
+     * Getter for relation 'ModelElement->Tag'
+     * 
+     * Metamodel description:
+     * <i>TaggedValues annotating the ModelElement.</i>
+     */
+    @objid ("82287c6b-85d1-4136-b64a-bfa0249ebc99")
+    EList<TaggedValue> getTag();
+
+    /**
+     * Filtered Getter for relation 'ModelElement->Tag'
+     * 
+     * Metamodel description:
+     * <i>TaggedValues annotating the ModelElement.</i>
+     */
+    @objid ("b7b66961-419f-42fa-8a4b-8cc8b4125510")
+    <T extends TaggedValue> List<T> getTag(java.lang.Class<T> filterClass);
+
+    /**
+     * Getter for relation 'ModelElement->ImpactedDependency'
+     * 
+     * Metamodel description:
+     * <i>Dependencies whose source depend on this element.</i>
+     */
+    @objid ("4dd54cf1-351d-4869-b402-c77a8136f746")
+    EList<Dependency> getImpactedDependency();
+
+    /**
+     * Filtered Getter for relation 'ModelElement->ImpactedDependency'
+     * 
+     * Metamodel description:
+     * <i>Dependencies whose source depend on this element.</i>
+     */
+    @objid ("93857f42-8ac1-48a8-ab4c-f2b307b23c99")
+    <T extends Dependency> List<T> getImpactedDependency(java.lang.Class<T> filterClass);
+
+    /**
+     * Getter for relation 'ModelElement->Properties'
+     * 
+     * Metamodel description:
+     * <i>Owned property tables.</i>
+     */
+    @objid ("00a4b840-b272-4a7d-869c-a462b7be54da")
+    EList<PropertyTable> getProperties();
+
+    /**
+     * Filtered Getter for relation 'ModelElement->Properties'
+     * 
+     * Metamodel description:
+     * <i>Owned property tables.</i>
+     */
+    @objid ("470db812-dfcf-4222-a671-7f8df02beb81")
+    <T extends PropertyTable> List<T> getProperties(java.lang.Class<T> filterClass);
+
+    /**
+     * Getter for relation 'ModelElement->Product'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     */
+    @objid ("7535aa0f-3fe1-4bff-b924-d26ff70494de")
+    EList<AbstractDiagram> getProduct();
+
+    /**
+     * Filtered Getter for relation 'ModelElement->Product'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     */
+    @objid ("b95ffdb2-846f-4dad-b156-456d46271d5e")
+    <T extends AbstractDiagram> List<T> getProduct(java.lang.Class<T> filterClass);
+
+    /**
+     * Getter for relation 'ModelElement->Descriptor'
+     * 
+     * Metamodel description:
+     * <i>Notes (documentation, code, and so on) describing the ModelElement.</i>
+     */
+    @objid ("10420350-313a-4987-ac62-b6b8883684f3")
+    EList<Note> getDescriptor();
+
+    /**
+     * Filtered Getter for relation 'ModelElement->Descriptor'
+     * 
+     * Metamodel description:
+     * <i>Notes (documentation, code, and so on) describing the ModelElement.</i>
+     */
+    @objid ("0348ea52-8218-42f5-9ee8-df9418233998")
+    <T extends Note> List<T> getDescriptor(java.lang.Class<T> filterClass);
+
+    /**
+     * Getter for relation 'ModelElement->Matrix'
+     * 
+     * Metamodel description:
+     * <i>Owned matrices.</i>
+     */
+    @objid ("e7d51296-caca-491f-bca2-58af7ba9569d")
+    EList<MatrixDefinition> getMatrix();
+
+    /**
+     * Filtered Getter for relation 'ModelElement->Matrix'
+     * 
+     * Metamodel description:
+     * <i>Owned matrices.</i>
+     */
+    @objid ("20281702-c0a3-484f-844c-732d2e5b86be")
+    <T extends MatrixDefinition> List<T> getMatrix(java.lang.Class<T> filterClass);
+
+    /**
+     * Getter for relation 'ModelElement->impactImpacted'
+     * 
+     * Metamodel description:
+     * <i>Impact link targeting this element.</i>
+     */
+    @objid ("dd2d4138-0617-4911-bd8b-4e8d61e025dd")
+    EList<ImpactLink> getImpactImpacted();
+
+    /**
+     * Filtered Getter for relation 'ModelElement->impactImpacted'
+     * 
+     * Metamodel description:
+     * <i>Impact link targeting this element.</i>
+     */
+    @objid ("2e999508-2c6e-4320-adeb-3f2668b1488c")
+    <T extends ImpactLink> List<T> getImpactImpacted(java.lang.Class<T> filterClass);
+
+    /**
+     * Getter for relation 'ModelElement->impactDependsOn'
+     * 
+     * Metamodel description:
+     * <i>Impact links from this element. Gives the elements this one depends on.</i>
+     */
+    @objid ("337adfd7-a746-419c-8242-d7a976ad72be")
+    EList<ImpactLink> getImpactDependsOn();
+
+    /**
+     * Filtered Getter for relation 'ModelElement->impactDependsOn'
+     * 
+     * Metamodel description:
+     * <i>Impact links from this element. Gives the elements this one depends on.</i>
+     */
+    @objid ("6ec8f548-b1c3-436e-83cf-d05747fa3705")
+    <T extends ImpactLink> List<T> getImpactDependsOn(java.lang.Class<T> filterClass);
+
+    /**
+     * Getter for relation 'ModelElement->Attached'
+     * 
+     * Metamodel description:
+     * <i>Attached resources</i>
+     */
+    @objid ("bcd32e59-fd43-46b1-85b3-33614edc6d6d")
+    EList<AbstractResource> getAttached();
+
+    /**
+     * Filtered Getter for relation 'ModelElement->Attached'
+     * 
+     * Metamodel description:
+     * <i>Attached resources</i>
+     */
+    @objid ("a12efbd1-2bcd-447f-b641-438129474970")
+    <T extends AbstractResource> List<T> getAttached(java.lang.Class<T> filterClass);
 
 }

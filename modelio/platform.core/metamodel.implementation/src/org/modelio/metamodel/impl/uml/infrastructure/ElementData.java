@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -32,16 +32,16 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("0086e58e-c4be-1fd8-97fe-001ec947cd2a")
 public abstract class ElementData extends SmObjectData {
-    @objid ("4138a423-8540-4f41-be06-0e4db32df010")
+    @objid ("dad0833d-ed91-4997-b1e9-747e458bec25")
      List<SmObjectImpl> mDiagramElement = null;
 
-    @objid ("16142263-c945-4a32-98fc-769c0f0683bb")
+    @objid ("733fd795-66ac-41f5-b77c-decbbbd73761")
      List<SmObjectImpl> mAddedToQuery = null;
 
-    @objid ("6a05d705-77de-4f20-837e-4e7b863d5ace")
+    @objid ("ab6bd510-c09a-4142-8548-1e4be3c1e811")
      List<SmObjectImpl> mCausedImpact = null;
 
-    @objid ("faa14fac-2aed-4cdd-a470-380925ad4bb4")
+    @objid ("b9206fa6-82d2-4d12-84e1-ba4708c9e306")
     public ElementData(ElementSmClass smClass) {
         super(smClass);
     }

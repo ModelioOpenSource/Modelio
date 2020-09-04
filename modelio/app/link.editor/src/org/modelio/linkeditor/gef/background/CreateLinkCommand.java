@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public class CreateLinkCommand extends Command {
 
     /**
      * C'tor. the type(s) of the link to create, can be any mix of {@link AssociationEnd}.class, {@link ElementImport} .class, {@link Generalization}.class, {@link Dependency}.class and Stereotype(s) that can be applied to a dependency;
+     * 
      * @param refElement the center element in the link editor.
      * @param droppedElements the dropped elements.
      * @param isFrom whether the refElement should be a source or a target for the new link.

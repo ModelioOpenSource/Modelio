@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -134,6 +134,7 @@ public abstract class TActivity extends TFlowNode {
 
     /**
      * Sets the value of the ioSpecification property.
+     * 
      * @param value allowed object is
      * {@link TInputOutputSpecification }
      */
@@ -272,6 +273,7 @@ public abstract class TActivity extends TFlowNode {
 
     /**
      * Sets the value of the loopCharacteristics property.
+     * 
      * @param value allowed object is
      * {@link JAXBElement }{@code <}{@link TStandardLoopCharacteristics }{@code >}
      * {@link JAXBElement }{@code <}{@link TMultiInstanceLoopCharacteristics }{@code >}
@@ -299,6 +301,7 @@ public abstract class TActivity extends TFlowNode {
 
     /**
      * Sets the value of the isForCompensation property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -324,6 +327,7 @@ public abstract class TActivity extends TFlowNode {
 
     /**
      * Sets the value of the startQuantity property.
+     * 
      * @param value allowed object is
      * {@link BigInteger }
      */
@@ -349,6 +353,7 @@ public abstract class TActivity extends TFlowNode {
 
     /**
      * Sets the value of the completionQuantity property.
+     * 
      * @param value allowed object is
      * {@link BigInteger }
      */
@@ -370,6 +375,7 @@ public abstract class TActivity extends TFlowNode {
 
     /**
      * Sets the value of the default property.
+     * 
      * @param value allowed object is
      * {@link Object }
      */

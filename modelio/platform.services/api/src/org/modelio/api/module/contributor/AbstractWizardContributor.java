@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -210,6 +210,7 @@ public abstract class AbstractWizardContributor implements IWizardContributor {
      * </ul>
      * Returns <i>null</i> if the specification is <i>null</i> or the stereotype
      * is not found.
+     * 
      * @param metaclass the metaclass to look from
      * @param stereotypeSpec the stereotype specification
      * @return the found stereotype or <i>null</i>.

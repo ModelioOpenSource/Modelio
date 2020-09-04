@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class JdbmIndex {
     /**
      * Initialize the index.
      * @param symbolTable
+     * 
      * @param db the JDBM database storing the index.
      * @throws java.io.IOException in case of I/O error
      */
@@ -80,6 +81,7 @@ public class JdbmIndex {
 
     /**
      * Get all instances of a metaclass.
+     * 
      * @param cls a metaclass
      * @return all stored instances references.
      * @throws java.io.IOError in case of I/O error
@@ -91,6 +93,7 @@ public class JdbmIndex {
 
     /**
      * Remove the given object from main indexes.
+     * 
      * @param id the reference to remove
      * @throws java.io.IOError in case of I/O failure
      */
@@ -101,6 +104,7 @@ public class JdbmIndex {
 
     /**
      * Get local objects referring to the given local or foreign object.
+     * 
      * @param depName the dependency name
      * @param objRef a local or foreign object
      * @return all referred local objects.
@@ -113,6 +117,7 @@ public class JdbmIndex {
 
     /**
      * Index the given model object.
+     * 
      * @param obj a model object to index
      * @throws java.io.IOError in case of I/O failure
      */
@@ -127,6 +132,7 @@ public class JdbmIndex {
      * Add the given model object to cross references indexes.
      * <p>
      * Caller must remove existing references first if the object was already in the index.
+     * 
      * @param obj a model object to index
      * @throws java.io.IOException in case of I/O failure
      */
@@ -155,6 +161,7 @@ public class JdbmIndex {
 
     /**
      * Get the object index for the given metaclass.
+     * 
      * @param mClass a metaclass
      * @return the class objects index
      */
@@ -166,6 +173,7 @@ public class JdbmIndex {
 
     /**
      * Get the object index for the given metaclass.
+     * 
      * @param className a metaclass name
      * @return the class objects index
      */
@@ -182,6 +190,7 @@ public class JdbmIndex {
 
     /**
      * Add the given reference to the main index
+     * 
      * @param mClass the metaclass
      * @param uuid the UUID
      */

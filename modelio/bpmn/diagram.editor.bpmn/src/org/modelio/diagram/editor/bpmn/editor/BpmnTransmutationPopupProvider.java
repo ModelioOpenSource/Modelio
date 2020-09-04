@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,7 +67,7 @@ public class BpmnTransmutationPopupProvider {
      * A local MCommand cache, to minimize navigation in the e4 model.
      */
     @objid ("ccd61890-576b-4ed4-95f6-a2c2d9129529")
-    private Map<String , MCommand> commandCache = new HashMap<>();
+    private final Map<String , MCommand> commandCache = new HashMap<>();
 
     @objid ("6715f0ce-b289-4d7b-a4f6-7e7e9f05e5fc")
     protected String getMenuIconPath() {
@@ -82,14 +82,15 @@ public class BpmnTransmutationPopupProvider {
     /**
      * Fills a dynamic creation menu with selection-compatible contributions before display. <br/>
      * Called by the rcp platform through injection.
+     * 
      * @param items the item list to fill.
      */
     @objid ("68c430ea-7812-4c4d-99f5-e374c0243a59")
     @AboutToShow
-    public void aboutToShow(List<MMenuElement> items) {
+    public void aboutToShow(final List<MMenuElement> items) {
         // Add the creation menu with selection-compatible commands
-        ISelection applicationSelection = getApplicationSelection();
-        List<ModelTransformerCommand> entries = TransformerRegistry.getInstance(this.context).getTransformers(getEditedDiagram(applicationSelection), applicationSelection);
+        final ISelection applicationSelection = getApplicationSelection();
+        final List<ModelTransformerCommand> entries = TransformerRegistry.getInstance(this.context).getTransformers(getEditedDiagram(applicationSelection), applicationSelection);
         if (!entries.isEmpty()) {
             // add menu items
             items.add(createMenu(entries));
@@ -98,15 +99,15 @@ public class BpmnTransmutationPopupProvider {
 
     @objid ("16659ef9-a5df-4b3e-8cf2-5ac225aab786")
     @AboutToHide
-    public void aboutToHide(@SuppressWarnings ("unused") List<MMenuElement> items) {
+    public void aboutToHide(@SuppressWarnings ("unused") final List<MMenuElement> items) {
         // Here, we could dispose things and so on...
     }
 
     @objid ("62e2b705-c1bd-45da-97c9-a553f25faa28")
-    protected AbstractDiagram getEditedDiagram(ISelection selection) {
-        EditPart ep = SelectionHelper.getFirst(selection, EditPart.class);
+    protected AbstractDiagram getEditedDiagram(final ISelection selection) {
+        final EditPart ep = SelectionHelper.getFirst(selection, EditPart.class);
         if (ep != null) {
-            Object model = ep.getModel();
+            final Object model = ep.getModel();
             if (model instanceof GmModel) {
                 return ((GmModel) model).getDiagram().getRelatedElement();
             }
@@ -125,32 +126,34 @@ public class BpmnTransmutationPopupProvider {
 
     /**
      * Compute a contributor id from a bundle.
+     * 
      * @return a contributor id.
      */
     @objid ("45137d19-a403-49cf-b33e-d0cde257a113")
-    private String getContributorId(Bundle bundle) {
+    private String getContributorId(final Bundle bundle) {
         return "platform:/plugin/" + bundle.getSymbolicName();
     }
 
     /**
      * Create a new handled menu item from a popup entry descriptor.
+     * 
      * @param entry the descriptor to convert.
      * @return a new menu elements.
      */
     @objid ("e581fdf3-89cb-4d13-af3d-912126023fe0")
-    private MHandledMenuItem createMenuItem(ModelTransformerCommand entry) {
+    private MHandledMenuItem createMenuItem(final ModelTransformerCommand entry, final String contributorId) {
         // create a new handled item
-        MHandledMenuItem item = MMenuFactory.INSTANCE.createHandledMenuItem();
-        MCommand command = getCommand(entry);
+        final MHandledMenuItem item = MMenuFactory.INSTANCE.createHandledMenuItem();
+        final MCommand command = getCommand(entry);
         item.setCommand(command);
         item.setElementId(entry.i18nKey);
         
         // compute label, tooltip and icon
-        BundledMessages i18nBundle = DiagramEditorBpmn.I18N;
+        final BundledMessages i18nBundle = DiagramEditorBpmn.I18N;
         item.setLabel(i18nBundle.getString(entry.i18nKey + ".label"));
         item.setTooltip(i18nBundle.getString(entry.i18nKey + ".tooltip"));
         
-        String baseIcon = i18nBundle.getString(entry.i18nKey + ".icon");
+        final String baseIcon = i18nBundle.getString(entry.i18nKey + ".icon");
         if (!baseIcon.contains("!")) {
             item.setIconURI(MetamodelImageService.getIconCompletePath(baseIcon));
         }
@@ -161,9 +164,10 @@ public class BpmnTransmutationPopupProvider {
         item.setVisible(true);
         
         // bind the item to the contributing plugin
-        item.setContributorURI(getContributorId(DiagramEditorBpmn.getContext().getBundle()));
+        item.setContributorURI(contributorId);
         
-        MParameter p = MCommandsFactory.INSTANCE.createParameter();
+        final MParameter p = MCommandsFactory.INSTANCE.createParameter();
+        p.setContributorURI(contributorId);
         p.setName("transformerindex");
         p.setValue(Integer.toString(entry.index));
         item.getParameters().add(p);
@@ -173,16 +177,17 @@ public class BpmnTransmutationPopupProvider {
     /**
      * Get the MCommand defined in the application having a specific id.
      * @param commandId the element id of the MCommand to find.
+     * 
      * @return a MCommand, or <code>null</code> if the id is not found.
      */
     @objid ("e5863e77-4084-4d68-a845-51daa7f87e91")
-    private MCommand getCommand(ModelTransformerCommand entry) {
-        String commandId = entry.e4CmdId;
+    private MCommand getCommand(final ModelTransformerCommand entry) {
+        final String commandId = entry.e4CmdId;
         // Try the cache first...
         MCommand command = this.commandCache.get(commandId);
         if (command == null) {
             // Not in the cache, look into the application commands
-            for (MCommand c : this.application.getCommands()) {
+            for (final MCommand c : this.application.getCommands()) {
                 if (commandId.equals(c.getElementId())) {
                     // Match, keep it in the cache...
                     command = c;
@@ -195,11 +200,11 @@ public class BpmnTransmutationPopupProvider {
     }
 
     @objid ("fa05d584-3e7e-4747-90ca-e25ce21787e9")
-    private MMenu createMenu(List<ModelTransformerCommand> commands) {
-        final String contributorId = "platform:/plugin/" + DiagramEditorBpmn.PLUGIN_ID;
+    private MMenu createMenu(final List<ModelTransformerCommand> commands) {
+        final String contributorId = getContributorId(DiagramEditorBpmn.getContext().getBundle());
         
         // create a new menu
-        MMenu elementCreationMenu = MMenuFactory.INSTANCE.createMenu();
+        final MMenu elementCreationMenu = MMenuFactory.INSTANCE.createMenu();
         elementCreationMenu.setLabel(DiagramEditorBpmn.I18N.getString("TransformWizard.label"));
         elementCreationMenu.setTooltip(DiagramEditorBpmn.I18N.getString("TransformWizard.tooltip"));
         
@@ -211,11 +216,11 @@ public class BpmnTransmutationPopupProvider {
         // bound the menu to the contributing plugin
         elementCreationMenu.setContributorURI(contributorId);
         
-        List<MMenuElement> menuChildren = elementCreationMenu.getChildren();
+        final List<MMenuElement> menuChildren = elementCreationMenu.getChildren();
         
         // add transform commands
-        for (ModelTransformerCommand command : commands) {
-            menuChildren.add(createMenuItem(command));
+        for (final ModelTransformerCommand command : commands) {
+            menuChildren.add(createMenuItem(command, contributorId));
         }
         return elementCreationMenu;
     }

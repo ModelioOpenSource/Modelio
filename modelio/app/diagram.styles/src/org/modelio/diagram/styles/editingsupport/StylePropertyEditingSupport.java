@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class StylePropertyEditingSupport extends EditingSupport {
 
     /**
      * Initialize the StylePropertyEditingSupport.
+     * 
      * @param treeViewer The style viewer.
      */
     @objid ("85b2e4b6-1926-11e2-92d2-001ec947c8cc")

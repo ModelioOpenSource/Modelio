@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='commons-compress/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1561028327089'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='1'>
+    <unit id='org.apache.commons.commons-compress' version='1.18.0' singleton='false' generation='2'>
+      <update id='org.apache.commons.commons-compress' range='[0.0.0,1.18.0)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Apache Commons Compress'/>
+        <property name='org.eclipse.equinox.p2.description' value='Apache Commons Compress software defines an API for working withcompression and archive formats.  These include: bzip2, gzip, pack200,lzma, xz, Snappy, traditional Unix Compress, DEFLATE, DEFLATE64, LZ4,Brotli, Zstandard and ar, cpio, jar, tar, zip, dump, 7z, arj.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Apache Software Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://commons.apache.org/proper/commons-compress/'/>
+      </properties>
+      <provides size='33'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.commons.commons-compress' version='1.18.0'/>
+        <provided namespace='osgi.bundle' name='org.apache.commons.commons-compress' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.ar' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.arj' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.cpio' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.dump' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.examples' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.jar' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.sevenz' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.tar' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.zip' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.changes' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.brotli' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.bzip2' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.deflate' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.deflate64' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.gzip' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.lz4' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.lz77support' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.lzma' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.lzw' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.pack200' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.snappy' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.xz' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.z' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.zstandard' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.parallel' version='1.18.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.utils' version='1.18.0'/>
+        <provided namespace='osgi.identity' name='org.apache.commons.commons-compress' version='1.18.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='java.package' name='org.tukaani.xz' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.brotli.dec' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='com.github.luben.zstd' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.crypto' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.crypto.spec' range='0.0.0' optional='true' greedy='false'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.7))'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.commons.commons-compress' version='1.18.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.apache.commons.commons-compress&#xA;Bundle-Version: 1.18.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

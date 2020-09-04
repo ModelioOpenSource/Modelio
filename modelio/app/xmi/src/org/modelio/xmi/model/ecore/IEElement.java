@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,7 +20,6 @@
 
 package org.modelio.xmi.model.ecore;
 
-import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.uml.infrastructure.Element;
 
@@ -41,7 +40,7 @@ public interface IEElement {
     @objid ("0b48a653-8cfe-4d0e-9331-4784f17d48b3")
     void setStereotypes();
 
-    @objid ("47434085-dda3-443b-bede-510a3498c9a3")
-    void attach(final List<Object> objingElts);
 
+//    @objid ("47434085-dda3-443b-bede-510a3498c9a3")
+//    void attach(final List<Object> objingElts);
 }

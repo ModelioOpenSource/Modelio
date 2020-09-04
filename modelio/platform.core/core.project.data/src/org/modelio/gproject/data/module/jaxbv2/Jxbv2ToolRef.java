@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class Jxbv2ToolRef {
 
     /**
      * Sets the value of the refid property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -96,6 +97,7 @@ public class Jxbv2ToolRef {
 
     /**
      * Sets the value of the group property.
+     * 
      * @param value allowed object is
      * {@link String }
      */

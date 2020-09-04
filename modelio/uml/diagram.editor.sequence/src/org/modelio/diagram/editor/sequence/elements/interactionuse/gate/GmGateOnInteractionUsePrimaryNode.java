@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class GmGateOnInteractionUsePrimaryNode extends GmNoStyleSimpleNode imple
 
     /**
      * C'tor.
+     * 
      * @param diagram diagram in which this gm is created.
      * @param relatedRef a ref of the gate.
      */

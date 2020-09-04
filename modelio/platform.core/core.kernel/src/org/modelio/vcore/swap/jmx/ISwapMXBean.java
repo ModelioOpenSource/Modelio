@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import org.modelio.vcore.smkernel.ISwap;
 public interface ISwapMXBean {
     /**
      * Get the commit to swap frequency.
+     * 
      * @return the commit to swap frequency
      */
     @objid ("dcbe874b-493b-11e2-91c9-001ec947ccaf")
@@ -43,6 +44,7 @@ public interface ISwapMXBean {
 
     /**
      * Get the count of calls to {@link ISwap#swap(org.modelio.vcore.smkernel.SmObjectData)}
+     * 
      * @return the swap count
      */
     @objid ("dcbe8751-493b-11e2-91c9-001ec947ccaf")
@@ -50,6 +52,7 @@ public interface ISwapMXBean {
 
     /**
      * Get the count of calls to {@link ISwap#restore(java.util.UUID)}
+     * 
      * @return the restore count.
      */
     @objid ("dcbe8754-493b-11e2-91c9-001ec947ccaf")

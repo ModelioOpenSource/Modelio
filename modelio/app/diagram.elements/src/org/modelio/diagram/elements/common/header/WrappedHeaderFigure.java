@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -124,6 +124,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Set the icons displayed on the upper left corner.
+     * 
      * @param icons The left icons
      */
     @objid ("7e7abe1d-1dec-11e2-8cad-001ec947c8cc")
@@ -142,6 +143,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Set the icons displayed on the upper right corner.
+     * 
      * @param icons The right icons
      */
     @objid ("7e7abe23-1dec-11e2-8cad-001ec947c8cc")
@@ -160,6 +162,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Set the keyword label.
+     * 
      * @param text the keyword label.
      */
     @objid ("7e7abe29-1dec-11e2-8cad-001ec947c8cc")
@@ -175,6 +178,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Set the labels displayed on top of the main label.
+     * 
      * @param text the top labels.
      */
     @objid ("7e7abe2d-1dec-11e2-8cad-001ec947c8cc")
@@ -186,6 +190,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Set the main label.
+     * 
      * @param s the main label.
      */
     @objid ("7e7abe33-1dec-11e2-8cad-001ec947c8cc")
@@ -206,6 +211,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Set the labels displayed below the main label.
+     * 
      * @param bottomLabels the bottom labels.
      */
     @objid ("7e7abe37-1dec-11e2-8cad-001ec947c8cc")
@@ -305,6 +311,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Set whether the main label is underlined.
+     * 
      * @param underline true to underline the main label
      */
     @objid ("7e7d2082-1dec-11e2-8cad-001ec947c8cc")
@@ -315,6 +322,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Set whether the main label is stroked through.
+     * 
      * @param strikeThrough true to strike the label
      */
     @objid ("7e7d2087-1dec-11e2-8cad-001ec947c8cc")
@@ -325,6 +333,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Get the main label figure.
+     * 
      * @return the main label figure.
      */
     @objid ("7e7abe3d-1dec-11e2-8cad-001ec947c8cc")
@@ -423,6 +432,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
      * <LI>{@link PositionConstants#ALWAYS_RIGHT} - Right, irrespective of
      * orientation</LI>
      * </UL>
+     * 
      * @param value the alignment
      */
     @objid ("0f194a3d-86e7-492a-9811-d1928c2bf940")
@@ -436,6 +446,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
      * This method will never return {@link PositionConstants#NONE}. If the value is none, it will return the
      * inherited alignment. If no alignment was inherited, it will return the
      * default alignment ({@link PositionConstants#LEFT}).
+     * 
      * @return the effective alignment
      */
     @objid ("7c2231e4-9c9b-4dd6-8bfb-b6bf1cf05d9f")

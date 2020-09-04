@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ import org.eclipse.gef.GraphicalEditPart;
 public class ChildFigureLineSeparator {
     /**
      * Update the separation line between visible children of the given figure.
+     * 
      * @param layoutedFigure The parent figure.
      * @param separationBorder The border to set
      */
@@ -74,6 +75,7 @@ public class ChildFigureLineSeparator {
 
     /**
      * Update the separation line between visible children figures of the given edit parts.
+     * 
      * @param layoutedEditPart The parent edit part.
      * @param separationBorder The border to set
      */

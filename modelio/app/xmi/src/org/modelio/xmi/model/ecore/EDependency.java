@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,11 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.Substitution;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Artifact;
@@ -43,11 +41,9 @@ import org.modelio.metamodel.uml.statik.NaryConnector;
 import org.modelio.metamodel.uml.statik.Port;
 import org.modelio.metamodel.uml.statik.ProvidedInterface;
 import org.modelio.metamodel.uml.statik.RequiredInterface;
-import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
 import org.modelio.xmi.util.EcoreModelNavigation;
 import org.modelio.xmi.util.ObjingEAnnotation;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("b49fce4d-2101-4013-8b3e-e6dcfb12bb10")
 public class EDependency extends ENamedElement {
@@ -56,8 +52,15 @@ public class EDependency extends ENamedElement {
 
     @objid ("fac4958e-916c-434e-904e-8e0a027b2c54")
     @Override
-    public List<UmlModelElement> createObjingElt() {
-        return new ArrayList<>();
+    public List<Element> createObjingElt() {
+        Boolean roundtrip = ReverseProperties.getInstance().isRoundtripEnabled();
+        
+        if (roundtrip && ObjingEAnnotation.isProvidedInterface(this.ecoreElement)){ 
+            return createProvidedInterface();
+        }else if (roundtrip && ObjingEAnnotation.isRequiredInterface(this.ecoreElement)){
+            return createRequiredInterface();    
+        }
+        return createDependency();
     }
 
     @objid ("3733e05b-5b41-4ebd-8d38-193ab250cdff")
@@ -70,33 +73,27 @@ public class EDependency extends ENamedElement {
     @Override
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
-        if (ObjingEAnnotation.isDestroy(this.ecoreElement) 
-                || ObjingEAnnotation.isDeleted(this.ecoreElement)){
+        
+        if (ObjingEAnnotation.isDeleted(this.ecoreElement)){
             objingElt.delete();
-        }else{
-            setFlow((UmlModelElement) objingElt);
         }
     }
 
     @objid ("794e01cb-6a2c-42c5-93c0-dd54613499ab")
     @Override
-    public void attach(List<Object> objingElts) {
-        if (ReverseProperties.getInstance().isRoundtripEnabled() && ObjingEAnnotation.isProvidedInterface(this.ecoreElement)){ 
-            attachProvidedInterface(objingElts);
-        }else if (ReverseProperties.getInstance().isRoundtripEnabled() && ObjingEAnnotation.isRequiredInterface(this.ecoreElement)){
-            attachRequiredInterface(objingElts);    
-        }else{
-            attachDependency(objingElts);
-        }
+    public void attach(Element objingElts) {
+        //Done during creation
     }
 
     @objid ("0272af99-530e-4196-a5c4-f8d950b7b80b")
-    private void attachDependency(List<Object> objingElt) {
+    private List<Element> createDependency() {
+        List<Element> objingElts =  new ArrayList<>();
         EList<?> clientList = this.ecoreElement.getClients();
         EList<?> supplierList = this.ecoreElement.getSuppliers();
         
         for (Object eClient : clientList) {
             if (eClient instanceof org.eclipse.uml2.uml.NamedElement) {
+                
                 org.eclipse.uml2.uml.NamedElement ecoreClient = (org.eclipse.uml2.uml.NamedElement) eClient;
         
                 UmlModelElement objingClient = getObjingEltFromMap(ecoreClient);
@@ -104,30 +101,32 @@ public class EDependency extends ENamedElement {
                 if (objingClient != null) {
                     for (Object eSupplier : supplierList) {
                         if (eSupplier instanceof org.eclipse.uml2.uml.NamedElement) {
-                            org.eclipse.uml2.uml.NamedElement ecoreSupplier = (org.eclipse.uml2.uml.NamedElement) eSupplier;
-        
+                            
+                            org.eclipse.uml2.uml.NamedElement ecoreSupplier = (org.eclipse.uml2.uml.NamedElement) eSupplier;       
                             UmlModelElement objingSupplier = getObjingEltFromMap(ecoreSupplier);
         
                             if (objingSupplier != null) {
-                                // Warning : unlike in UML2, in Ijing,
+                                // Warning : unlike in UML2, in Modelio,
                                 // org.eclipse.uml2.uml.Manifestation does no inherit from org.eclipse.uml2.uml.Dependency
                                 Element objingTypeOfDependency = createTypeOfDependency(
                                         objingClient, objingSupplier);
         
                                 if (objingTypeOfDependency != null
-                                        && !objingElt.contains(objingTypeOfDependency))
+                                        && !objingElts.contains(objingTypeOfDependency))
         
-                                    objingElt.add(objingTypeOfDependency);
+                                    objingElts.add(objingTypeOfDependency);
                             }
                         }
                     }
                 }
             }
         }
+        return objingElts;
     }
 
     @objid ("1f55bee9-bc4f-4d0c-a544-233c395797d4")
-    private void attachProvidedInterface(List<Object> objingElt) {
+    private List<Element> createProvidedInterface() {
+        List<Element> objingElts =  new ArrayList<>();
         EList<?> clientList = this.ecoreElement.getClients();
         EList<?> supplierList = this.ecoreElement.getSuppliers();
         
@@ -153,16 +152,17 @@ public class EDependency extends ENamedElement {
                         }
                     }
         
-                    ProvidedInterface provided = createProvidedInterface(objingClient, objingSuppliers);
-        
-                    objingElt.add(provided);
+                    ProvidedInterface provided = createProvidedInterface(objingClient, objingSuppliers);    
+                    objingElts.add(provided);
                 }
             }
         }
+        return objingElts;
     }
 
     @objid ("1d915a99-3657-488d-9e98-1359b4b5c914")
-    private void attachRequiredInterface(List<Object> objingElt) {
+    private List<Element> createRequiredInterface() {
+        List<Element> objingElts =  new ArrayList<>();
         EList<?> clientList = this.ecoreElement.getClients();
         EList<?> supplierList = this.ecoreElement.getSuppliers();
         
@@ -190,10 +190,11 @@ public class EDependency extends ENamedElement {
         
                     RequiredInterface required = createRequiredInterface(objingClients, objingSupplier);
         
-                    objingElt.add(required);
+                    objingElts.add(required);
                 }
             }
         }
+        return objingElts;
     }
 
     @objid ("adcaa553-d00d-4035-9521-5b0e3f41a0a9")
@@ -225,8 +226,8 @@ public class EDependency extends ENamedElement {
         for (Object client : this.ecoreElement.getClients()){
             Object objClient = ReverseProperties.getInstance().getMappedElement((org.eclipse.uml2.uml.Element)client);
         
-            if ((objClient instanceof List<?>) && ((List<Element>) objClient).size() >0){
-                objClient = ((List<Element>)objClient).get(0);
+            if ((objClient instanceof List<?>) && ((List<?>) objClient).size() > 0){
+                objClient = ((List<?>)objClient).get(0);
             }
         
             if (objClient instanceof ConnectorEnd){
@@ -241,12 +242,13 @@ public class EDependency extends ENamedElement {
         for(Object supplier : this.ecoreElement.getSuppliers()){
             Object objSupplier =  ReverseProperties.getInstance().getMappedElement((org.eclipse.uml2.uml.Element)supplier);
         
-            if ((objSupplier instanceof List<?>) && ((List<Element>) objSupplier).size() >0){
-                objSupplier = ((List<Element>)objSupplier).get(0);
+            if ((objSupplier instanceof List<?>) && ((List<?>) objSupplier).size() >0){
+                objSupplier = ((List<?>)objSupplier).get(0);
             }
         
-            if (objSupplier instanceof UmlModelElement)
+            if (objSupplier instanceof UmlModelElement) {
                 objElement.setRepresentedFeature(objingSupplier);
+            }
         }
         return objElement;
     }
@@ -326,9 +328,9 @@ public class EDependency extends ENamedElement {
         Object objClient = revProp.getMappedElement(ecoreClient);
         
         // Case of the client is itself a dependency => list of objing elts
-        if (objClient instanceof ArrayList
-                && ((ArrayList<?>) objClient).size() > 0) {
-            objClient = ((ArrayList<Object>) objClient).get(0);
+        if (objClient instanceof List
+                && ((List<?>) objClient).size() > 0) {
+            objClient = ((List<?>) objClient).get(0);
         }
         
         // not else -> objClient may have changed
@@ -336,22 +338,6 @@ public class EDependency extends ENamedElement {
             objingClient = (UmlModelElement) objClient;
         }
         return objingClient;
-    }
-
-    @objid ("b4deadb6-4e7a-461c-847a-41ff2207e2b4")
-    private void setFlow(UmlModelElement objingElt) {
-        if (ObjingEAnnotation.isFlow(this.ecoreElement)){
-        
-            try {
-                Stereotype ster = ReverseProperties.getInstance().getMModelServices().getStereotype(XMIProperties.modelerModuleName, "flow", objingElt.getMClass());
-        
-                if (!objingElt.isStereotyped(XMIProperties.modelerModuleName, "flow"))
-                    objingElt.getExtension().add(ster);
-            } catch (ElementNotUniqueException e) {
-                Xmi.LOG.warning(e);
-            }
-        
-        }
     }
 
     @objid ("986f7593-6d83-450b-82d4-05e0167f20af")

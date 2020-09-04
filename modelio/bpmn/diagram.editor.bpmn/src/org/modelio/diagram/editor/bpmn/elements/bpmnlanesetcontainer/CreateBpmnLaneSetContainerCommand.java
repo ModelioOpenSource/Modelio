@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class CreateBpmnLaneSetContainerCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param parentElement the element that lead to this command.
      * @param parentNode The parent editPart
      * @param context Details on the MObject and/or the node to create

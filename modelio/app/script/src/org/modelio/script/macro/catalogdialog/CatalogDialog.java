@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -84,6 +84,7 @@ public class CatalogDialog extends ModelioDialog {
 
     /**
      * C'tor initializing the dialog.
+     * 
      * @param parentShell the parent shell to attach the dialog to.
      * @param macroService the macro service, to execute macros.
      * @param selectedElements the current selection.

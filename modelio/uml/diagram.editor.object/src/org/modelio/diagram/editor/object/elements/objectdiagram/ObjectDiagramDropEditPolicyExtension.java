@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -26,13 +26,16 @@ import java.util.Deque;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.CreateRequest;
+import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramElementDropEditPolicyExtension;
 import org.modelio.diagram.elements.common.abstractdiagram.DiagramElementDropEditPolicy;
+import org.modelio.diagram.elements.common.abstractdiagram.UnmaskConstraintCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.helpers.UnmaskHelper;
 import org.modelio.diagram.elements.core.model.GmModel;
@@ -41,6 +44,7 @@ import org.modelio.metamodel.StandardMetamodel;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.ObjectDiagram;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
+import org.modelio.metamodel.uml.infrastructure.Constraint;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Classifier;
@@ -48,8 +52,10 @@ import org.modelio.metamodel.uml.statik.Collaboration;
 import org.modelio.metamodel.uml.statik.GeneralClass;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.NameSpace;
+import org.modelio.metamodel.uml.statik.NaryLink;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.metamodel.uml.statik.Port;
+import org.modelio.metamodel.visitors.DefaultModelVisitor;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.smkernel.mapi.MDependency;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
@@ -77,7 +83,8 @@ public class ObjectDiagramDropEditPolicyExtension extends AbstractDiagramElement
         } else if (droppedElement != null) {
             // TODO improve check for an "object diagram" element
             if (droppedElement.getMClass().getOrigin().getName().equals(StandardMetamodel.NAME)) {
-                return super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
+                Command cmd = (Command) droppedElement.accept(new StandardVisitorImpl(dropPolicy, dropLocation));
+                return cmd != null ? cmd : super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
             }
         }
         return null;
@@ -114,7 +121,8 @@ public class ObjectDiagramDropEditPolicyExtension extends AbstractDiagramElement
         boolean isCurrentCollaboration = lastInHierarchy instanceof Collaboration;
         boolean isCurrentInstance = lastInHierarchy.getMClass().getQualifiedName().equals(Instance.MQNAME);
         boolean isCurrentBindableInstance = lastInHierarchy.getMClass().getQualifiedName().equals(BindableInstance.MQNAME);
-        return !isCurrentCollaboration && !isCurrentInstance && !isCurrentBindableInstance;
+        boolean isNary =  lastInHierarchy instanceof NaryLink;
+        return !isCurrentCollaboration && !isCurrentInstance && !isCurrentBindableInstance && !isNary;
     }
 
     /**
@@ -227,6 +235,7 @@ public class ObjectDiagramDropEditPolicyExtension extends AbstractDiagramElement
 
         /**
          * Copy the Ports of the base class to the instance.
+         * 
          * @param part the part where Ports are to be added.
          * @return the created ports.
          */
@@ -261,6 +270,28 @@ public class ObjectDiagramDropEditPolicyExtension extends AbstractDiagramElement
             if (cmd != null && cmd.canExecute()) {
                 cmd.execute();
             }
+        }
+
+    }
+
+    @objid ("44cf43b6-c326-448f-8039-874ae0b7c6d1")
+    private static class StandardVisitorImpl extends DefaultModelVisitor {
+        @objid ("8775a191-2c31-4f50-95b7-38713cd7c481")
+        private Point dropLocation;
+
+        @objid ("37033a7f-f1a6-4ab6-9937-189c87392f6a")
+        private DiagramElementDropEditPolicy dropPolicy;
+
+        @objid ("b1e48ca2-014c-4741-adda-f75c331b4493")
+        public StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
+            this.dropPolicy = dropPolicy;
+            this.dropLocation = dropLocation;
+        }
+
+        @objid ("3f9c6f63-7dc4-4a83-9b36-21992ea8405f")
+        @Override
+        public Object visitConstraint(final Constraint theConstraint) {
+            return new UnmaskConstraintCommand(theConstraint, (AbstractDiagramEditPart) this.dropPolicy.getHost(), new Rectangle(this.dropLocation, new Dimension(-1, -1)));
         }
 
     }

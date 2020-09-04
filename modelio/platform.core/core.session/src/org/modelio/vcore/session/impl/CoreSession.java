@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -175,6 +175,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Initialize the core session.
+     * 
      * @throws java.io.IOException if the swap failed to initialize.
      */
     @objid ("0005fa6e-6ebe-1f22-8c06-001ec947cd2a")
@@ -186,6 +187,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Initialize the core session.
+     * 
      * @param aMetamodel the metamodel to use. It is stored by reference, no copy is done.
      * @throws java.io.IOException if the swap failed to initialize.
      * @deprecated since 3.6 use {@link CoreSessionBuilder}
@@ -198,6 +200,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Initialize the core session.
+     * 
      * @param swapPath An empty directory where the swap can be stored.
      * @throws java.io.IOException if the swap failed to initialize.
      * @deprecated since 3.6 use {@link CoreSessionBuilder}
@@ -278,6 +281,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Connect a repository to this modeling session.
+     * 
      * @param aBase the repository to add.
      * @param accessManager the access rights manager that will set access rights on loaded objects.
      * @throws java.io.IOException in case of failure.
@@ -331,6 +335,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Close and remove the given model repository from the connected repositories.
+     * 
      * @param toRemove the repository to disconnect.
      * @throws java.lang.IllegalArgumentException if the repository is not connected to this session
      */
@@ -392,6 +397,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Get the default meta object to attach to model objects.
+     * 
      * @return the meta object.
      */
     @objid ("0061abc0-fd1a-1f27-a7da-001ec947cd2a")
@@ -401,6 +407,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Get the session metamodel.
+     * 
      * @return the session metamodel.
      */
     @objid ("26dd1014-d9f6-466e-90a0-7ad7093939b6")
@@ -429,6 +436,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      * <p>
      * This object manages model and status change listeners. It is used to add and remove listeners and to fire model change
      * events.
+     * 
      * @return the model change support.
      */
     @objid ("7dc92792-1c43-11e2-8eb9-001ec947ccaf")
@@ -448,6 +456,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      * Get the repository where the given object is stored.
      * <p>
      * Returns <code>null</code> if the object is not assigned to a repository or the repository does not belong to this session.
+     * 
      * @param anObject an object
      * @return its repository, or <code>null</code>.
      */
@@ -492,6 +501,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Get the core session owning the given model object.
+     * 
      * @param obj a model object.
      * @return its core session.
      */
@@ -504,6 +514,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Get the repository where unresolved references are located until they are resolved.
+     * 
      * @return the shell objects repository.
      */
     @objid ("bda036e0-92d7-11e1-81e9-001ec947ccaf")
@@ -513,6 +524,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Get the low level model object factory.
+     * 
      * @return the model object factory.
      */
     @objid ("006d6884-6ebd-1f22-8c06-001ec947cd2a")
@@ -553,6 +565,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Save the model.
+     * 
      * @throws java.io.IOException if a repository failed to save.
      */
     @objid ("006d69b0-6ebd-1f22-8c06-001ec947cd2a")
@@ -595,6 +608,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Set the session access manager.
+     * 
      * @param sessionAccessManager Set the session access manager.
      */
     @objid ("273d99d3-ac46-49b4-86d8-b0503b0d7785")
@@ -613,6 +627,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Get the session access manager if one defined.
+     * 
      * @return the session access manager or <code>null</code>.
      */
     @objid ("648db53a-49f3-4125-89e1-e730894ca936")
@@ -629,6 +644,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Initialize the session.
+     * 
      * @throws java.io.IOException if the swap failed to initialize.
      */
     @objid ("006188c0-fd1a-1f27-a7da-001ec947cd2a")
@@ -708,6 +724,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      * Create and empties the swap directory.
      * @throws java.io.IOError
      * in case of failure
+     * 
      * @return the swap directory path
      */
     @objid ("3f1d5b36-7e46-11e1-bee3-001ec947ccaf")
@@ -724,6 +741,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      * <li>scratch repository that may be used to create objects
      * <li>shell repository : stores unresolved references.
      * </ul>
+     * 
      * @throws java.io.IOException in case of failure.
      */
     @objid ("bda036dd-92d7-11e1-81e9-001ec947ccaf")
@@ -740,6 +758,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Initialize the scheduled executor service.
+     * 
      * @return the scheduled executor service.
      */
     @objid ("8e065238-1de9-4a5f-a00a-7288ed0a787b")
@@ -784,6 +803,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      * Create a CoreSession from a builder.
      * <p>
      * To be called only internally of from {@link CoreSessionBuilder#build()}.
+     * 
      * @param builder the session descriptor.
      * @throws java.io.IOException on failure.
      * @since 3.6

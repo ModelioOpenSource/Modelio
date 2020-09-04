@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class BendPointMoveHandle extends ConnectionHandle {
 
     /**
      * C'tor.
+     * 
      * @param owner the owning connection edit part.
      * @param index the index of the associated bendpoint.
      */
@@ -81,6 +82,7 @@ public class BendPointMoveHandle extends ConnectionHandle {
 
     /**
      * Revalidates this handle when the connection's points change.
+     * 
      * @param event the event that caused the points change
      */
     @objid ("80316ec8-1dec-11e2-8cad-001ec947c8cc")
@@ -99,6 +101,7 @@ public class BendPointMoveHandle extends ConnectionHandle {
 
     /**
      * C'tor.
+     * 
      * @param owner the owning connection edit part.
      * @param index the index of the associated bendpoint.
      * @param orientationOfPreviousSegment the orientation of the segment preceding the associated bendpoint.

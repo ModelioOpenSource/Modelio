@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class LibreOfficeLoader {
      * <p>
      * This loader will find LibreOffice installation and can load OOoBean.
      * Returns <code>null</code> if LibreOffice or OpenOffice is not installed.
+     * 
      * @return the LibreOffice class loader or <code>null</code>.
      * @throws java.io.IOException if the LibreOffice/OpenOffice installation is broken or incomplete.
      */
@@ -194,6 +195,7 @@ public class LibreOfficeLoader {
      * <li>file:/usr/lib/libreoffice/program/../basis-link/program/classes/unoil.jar,
      * <li>file:/usr/lib/libreoffice/program/
      * </ul>
+     * 
      * @param urls The directory URLS to search
      * @return the found library path.
      * @throws java.io.FileNotFoundException if the library was not found.
@@ -226,6 +228,7 @@ public class LibreOfficeLoader {
      * <li>file:/usr/lib/libreoffice/program/../basis-link/program/classes/unoil.jar,
      * <li>file:/usr/lib/libreoffice/program/
      * </ul>
+     * 
      * @param ooClassPath The directory URLS to search
      * @return the found library path or NULL.
      */
@@ -326,6 +329,7 @@ public class LibreOfficeLoader {
      * <li>file:/usr/lib/libreoffice/program/../basis-link/program/classes/unoil.jar,
      * <li>file:/usr/lib/libreoffice/program/
      * </ul>
+     * 
      * @param urls The directory URLS to search
      * @return the found library path or <code>null</code>.
      */
@@ -363,6 +367,7 @@ public class LibreOfficeLoader {
     /**
      * Get the {@link IEditedDocumentViewer} implementation class in the
      * OpenOffice class loader space.
+     * 
      * @return the {@link IEditedDocumentViewer} implementation class.
      * @throws java.io.IOException if the LibreOffice/OpenOffice installation is broken or incomplete.
      */

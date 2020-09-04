@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class BpmnSubProcessTransmuter extends BpmnActivityTransmuter {
     /**
      * Public constructor required by the {@link TransformerRegistry}.
+     * 
      * @param targetMetaclass target metaclass of the transmutation
      */
     @objid ("9f1752da-2de5-475b-94e3-c77156f16316")

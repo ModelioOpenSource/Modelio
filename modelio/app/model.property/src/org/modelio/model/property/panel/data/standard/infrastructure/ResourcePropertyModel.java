@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class ResourcePropertyModel extends AbstractPropertyModel<Resource> {
 
     /**
      * Instantiate the externResource type properties view.
+     * 
      * @param theEditedElement the current externResource type.
      */
     @objid ("914c027a-2e29-482b-a9ff-8e4fc9051813")

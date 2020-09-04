@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -130,6 +130,7 @@ public class ExternDocumentFigure extends ShapedFigure {
 
     /**
      * Get the external document content figure.
+     * 
      * @return The figure where the document content is displayed.
      */
     @objid ("8151eb56-1dec-11e2-8cad-001ec947c8cc")
@@ -139,6 +140,7 @@ public class ExternDocumentFigure extends ShapedFigure {
 
     /**
      * Get the external document name figure.
+     * 
      * @return The figure where the document name is displayed.
      */
     @objid ("8151eb5d-1dec-11e2-8cad-001ec947c8cc")
@@ -148,6 +150,7 @@ public class ExternDocumentFigure extends ShapedFigure {
 
     /**
      * Get the external document type figure.
+     * 
      * @return The figure where the document type is displayed.
      */
     @objid ("8151eb64-1dec-11e2-8cad-001ec947c8cc")
@@ -183,6 +186,7 @@ public class ExternDocumentFigure extends ShapedFigure {
 
     /**
      * set the displayed document name.
+     * 
      * @param name the document name.
      */
     @objid ("8151eb7c-1dec-11e2-8cad-001ec947c8cc")
@@ -193,6 +197,7 @@ public class ExternDocumentFigure extends ShapedFigure {
 
     /**
      * set the displayed document mimeType.
+     * 
      * @param mimeType the document mimeType.
      */
     @objid ("8151eb81-1dec-11e2-8cad-001ec947c8cc")
@@ -203,6 +208,7 @@ public class ExternDocumentFigure extends ShapedFigure {
 
     /**
      * Set the document text.
+     * 
      * @param contents the document text.
      */
     @objid ("8151eb86-1dec-11e2-8cad-001ec947c8cc")
@@ -213,6 +219,7 @@ public class ExternDocumentFigure extends ShapedFigure {
 
     /**
      * Set the displayed document type.
+     * 
      * @param type the document type.
      */
     @objid ("8151eb8b-1dec-11e2-8cad-001ec947c8cc")
@@ -267,6 +274,7 @@ public class ExternDocumentFigure extends ShapedFigure {
 
         /**
          * Calculate the minimum size a document should be.
+         * 
          * @param container the document figure
          * @param wHint the width hint (the desired width of the container)
          * @param hHint the height hint (the desired height of the container)
@@ -295,6 +303,7 @@ public class ExternDocumentFigure extends ShapedFigure {
 
         /**
          * Compute the ideal size of the document.
+         * 
          * @param container the document figure
          * @param wHint the width hint (the desired width of the container)
          * @param hHint the height hint (the desired height of the container)
@@ -380,6 +389,7 @@ public class ExternDocumentFigure extends ShapedFigure {
          * 5----------4
          * </pre>
          * @param p an array of 6 points. If null a new array with 6 points will be allocated.
+         * 
          * @param r the bounding box rectangle
          * @return the passed array or a new one
          */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,7 +24,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.app.project.core.update.UpdateDescriptor;
+import org.modelio.app.update.repo.UpdateDescriptor;
 
 @objid ("06c7bfc6-beb7-4270-b84c-97bf0c6cef66")
 public class UpdatePanelDataModel {

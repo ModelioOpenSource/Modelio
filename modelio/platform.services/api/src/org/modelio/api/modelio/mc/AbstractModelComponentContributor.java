@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ public abstract class AbstractModelComponentContributor implements IModelCompone
 
     /**
      * Constructor initializing the module.
+     * 
      * @param module the module this contributor is about.
      */
     @objid ("f7ec83e0-ee0c-11dd-bb8c-0014222a9f79")
@@ -40,6 +41,7 @@ public abstract class AbstractModelComponentContributor implements IModelCompone
 
     /**
      * Get the module attached to this contributor.
+     * 
      * @return a IModule.
      */
     @objid ("f7eee633-ee0c-11dd-bb8c-0014222a9f79")

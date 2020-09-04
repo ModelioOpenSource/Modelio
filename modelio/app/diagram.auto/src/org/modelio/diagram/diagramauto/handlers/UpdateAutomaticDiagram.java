@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -104,7 +104,7 @@ public class UpdateAutomaticDiagram {
         
         DependencyCreator dc = new DependencyCreator(modelServices);
         mainElement = dc.getMainElement(existingdiagramauto);
-        if (existingdiagramauto.equals(dc.getExistingAutoDiagram(mainElement))) {
+        if (mainElement != null && existingdiagramauto.equals(dc.getExistingAutoDiagram(mainElement))) {
             return dc;
         }
         

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -191,6 +191,7 @@ class ModelExporter {
 
     /**
      * Compute and return the stub objects to export. Register the found roots in metadatas.
+     * 
      * @param metadatas @return
      */
     @objid ("c2e03fee-a5b8-11e1-aa98-001ec947ccaf")
@@ -441,6 +442,7 @@ class ModelExporter {
 
         /**
          * Get the metamodel relation to use as composition for a given object.
+         * 
          * @param srcObject an object
          * @return the relations to use as composition.
          */
@@ -464,6 +466,7 @@ class ModelExporter {
 
         /**
          * Get the metamodel relation to use as reference for a given object.
+         * 
          * @param srcObject an object
          * @return the relations to use as reference.
          */

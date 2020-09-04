@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ class DeleteHelper {
 
     /**
      * Delete the given model object
+     * 
      * @param objToDelete the object to delete.
      */
     @objid ("bdae8007-cb6b-11e1-87f1-001ec947ccaf")

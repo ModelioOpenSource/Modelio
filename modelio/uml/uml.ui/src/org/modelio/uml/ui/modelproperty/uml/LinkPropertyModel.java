@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class LinkPropertyModel extends AbstractPropertyModel<Link> {
 
     /**
      * Create a new <i>Link</i> data model from an <i>Link</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("a8bcd74b-d622-4bf5-9257-4757e61a90bd")
@@ -58,6 +59,7 @@ public class LinkPropertyModel extends AbstractPropertyModel<Link> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("0b5226d1-e063-425d-8435-e40fc28bd8a8")
@@ -68,6 +70,7 @@ public class LinkPropertyModel extends AbstractPropertyModel<Link> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("9dc78648-21d4-4b93-b0b9-95ff1a1fc6e0")
@@ -80,6 +83,7 @@ public class LinkPropertyModel extends AbstractPropertyModel<Link> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -110,6 +114,7 @@ public class LinkPropertyModel extends AbstractPropertyModel<Link> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -138,6 +143,7 @@ public class LinkPropertyModel extends AbstractPropertyModel<Link> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

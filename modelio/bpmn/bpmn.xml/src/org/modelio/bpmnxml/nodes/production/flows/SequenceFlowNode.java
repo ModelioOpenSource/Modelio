@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -86,11 +86,13 @@ public class SequenceFlowNode implements IProductionNode<BpmnSequenceFlow,TSeque
     @objid ("e3c7371c-8da1-4bf7-a0bf-c24f61af389d")
     @Override
     public BpmnSequenceFlow updateUMLElement(MObject context, BpmnSequenceFlow modelioElement, TSequenceFlow jaxbElement) {
-        Object from = this.elementsMap.get(((TBaseElement) jaxbElement.getSourceRef()).getId());
-        Object to = this.elementsMap.get(((TBaseElement) jaxbElement.getTargetRef()).getId());
-        if (from != null && to != null) {
-            modelioElement.setSourceRef((BpmnFlowNode) from);
-            modelioElement.setTargetRef((BpmnFlowNode) to);
+        if(jaxbElement.getSourceRef() != null && jaxbElement.getTargetRef() != null ){
+            Object from = this.elementsMap.get(((TBaseElement) jaxbElement.getSourceRef()).getId());
+            Object to = this.elementsMap.get(((TBaseElement) jaxbElement.getTargetRef()).getId());
+            if (from != null && to != null) {
+                modelioElement.setSourceRef((BpmnFlowNode) from);
+                modelioElement.setTargetRef((BpmnFlowNode) to);
+            }
         }
         
         if (jaxbElement.getName() != null) {

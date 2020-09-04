@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class MoveKeyHandler extends KeyHandler {
 
     /**
      * Creates a MoveKeyHandler that will handle arrow keys as request to translate the selected edit parts.
+     * 
      * @param viewer the viewer to act on.
      */
     @objid ("666c0f8d-33f7-11e2-95fe-001ec947c8cc")

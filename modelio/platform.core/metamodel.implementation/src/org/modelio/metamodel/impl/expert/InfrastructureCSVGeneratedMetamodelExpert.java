@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Document;
 import org.modelio.metamodel.uml.infrastructure.Element;
+import org.modelio.metamodel.uml.infrastructure.ExternElement;
 import org.modelio.metamodel.uml.infrastructure.ExternProcessor;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
@@ -76,9 +77,10 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
      * Constructor.
      * <p>
      * You need to call {@link #register()} next.
+     * 
      * @param mm The metamodel.
      */
-    @objid ("475201a1-752c-444f-bfbb-c6809f19932c")
+    @objid ("28e91033-f344-493d-9ee1-d2bff4891a15")
     public InfrastructureCSVGeneratedMetamodelExpert(MMetamodel mm) {
         super(mm);
     }
@@ -86,7 +88,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
     /**
      * Initializes this expert.
      */
-    @objid ("d818e4e6-ed28-40e4-b549-5ccc5bd72efd")
+    @objid ("dc2315ba-6716-4497-9cd3-222398b66175")
     public void register() {
         registerLinkExpertForImpactLink();
         registerLinkExpertForDependency();
@@ -103,6 +105,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         registerMetaExpertForMethodologicalLink();
         registerMetaExpertForMetaclassReference();
         registerMetaExpertForExternProcessor();
+        registerMetaExpertForExternElement();
         registerMetaExpertForDocument();
         registerMetaExpertForDependency();
         registerMetaExpertForAbstractResource();
@@ -132,7 +135,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         registerMetaExpertForElement();
     }
 
-    @objid ("3a0f9fd9-2c9f-4a48-94e6-a7f6e1b50464")
+    @objid ("aceccc6c-8533-4dcf-88fa-3b9ef8a567ae")
     protected void registerLinkExpertForImpactLink() {
         // Infrastructure.ImpactLink
         // -----------
@@ -147,7 +150,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         // Infrastructure.ImpactLink rules:
     }
 
-    @objid ("1a43a632-0647-4db3-bdf4-e1b092e00810")
+    @objid ("7723f61f-36c1-4318-ae6c-b68281dd5c40")
     protected void registerLinkExpertForDependency() {
         // Infrastructure.Dependency
         // -----------
@@ -162,7 +165,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         // Infrastructure.Dependency rules:
     }
 
-    @objid ("a412958d-2d4f-4ed0-839d-da569dbcf847")
+    @objid ("4d31b33d-ae71-441f-b54b-5e828adb1d27")
     protected void registerLinkExpertForMethodologicalLink() {
         // Infrastructure.MethodologicalLink
         // -----------
@@ -177,7 +180,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         // Infrastructure.MethodologicalLink rules:
     }
 
-    @objid ("c22e684e-7065-4514-8fd5-91254988fe29")
+    @objid ("5b67751a-a074-4221-a152-f09b73bef4ac")
     protected void registerMetaExpertForTaggedValue() {
         // Infrastructure.TaggedValue
         // -----------
@@ -192,19 +195,19 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(TaggedValue.class, null, "Definition");
     }
 
-    @objid ("1b2b4c49-8639-4bf8-8f28-1ee82bf51aad")
+    @objid ("18f355b7-3ad3-45c2-a71c-958d8bdf07a9")
     protected void registerMetaExpertForTagType() {
         // Infrastructure.TagType
         // -----------
     }
 
-    @objid ("0a4adc3d-1edf-4e5c-b169-bfcc6edc19fc")
+    @objid ("4eef0223-f45a-4f11-a135-bf34e71fba25")
     protected void registerMetaExpertForTagParameter() {
         // Infrastructure.TagParameter
         // -----------
     }
 
-    @objid ("2e01eb9f-9030-4971-b349-067c10067832")
+    @objid ("588362b0-4163-46f8-880f-8d8c30592a75")
     protected void registerMetaExpertForStereotype() {
         // Infrastructure.Stereotype
         // -----------
@@ -225,19 +228,19 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(Stereotype.class, null, "DefinedNoteType");
     }
 
-    @objid ("3e9c1509-71d2-469b-81d0-c85f1b7f7c4e")
+    @objid ("5bb3d962-8a65-47c4-94d8-cb274b467a27")
     protected void registerMetaExpertForResourceType() {
         // Infrastructure.ResourceType
         // -----------
     }
 
-    @objid ("f29d5960-2feb-4e2a-9499-6e0640b2e98e")
+    @objid ("1ab68ecc-47fa-441c-8b6c-cb143a82f000")
     protected void registerMetaExpertForResource() {
         // Infrastructure.Resource
         // -----------
     }
 
-    @objid ("5aa3e341-dc4f-45ba-ada7-72a6575cc44b")
+    @objid ("4ac6c957-1811-4307-a67f-513b62a98034")
     protected void registerMetaExpertForProfile() {
         // Infrastructure.Profile
         // -----------
@@ -252,13 +255,13 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(Profile.class, null, "DefinedType");
     }
 
-    @objid ("a999654d-52fc-41f5-a8e5-e8e2c50df619")
+    @objid ("6b5394d9-e8ac-4bbc-91f4-66543571f03b")
     protected void registerMetaExpertForNoteType() {
         // Infrastructure.NoteType
         // -----------
     }
 
-    @objid ("98d2b82e-f546-4815-8b42-cbf4ab43e873")
+    @objid ("6a252608-a0e4-4772-aadc-5bc891c7d4c6")
     protected void registerMetaExpertForNote() {
         // Infrastructure.Note
         // -----------
@@ -267,13 +270,16 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(Note.class, null, "Model");
     }
 
-    @objid ("20649f12-d859-4ae6-98e9-df3fdddc3f93")
+    @objid ("55253099-e954-4e90-8843-3090a69cf491")
     protected void registerMetaExpertForMethodologicalLink() {
         // Infrastructure.MethodologicalLink
         // -----------
+        
+        // no constraint on MethodologicalLink.ExternElement : ExternElement from Infrastructure.MethodologicalLink to Infrastructure.ExternElement
+        this.ruleMetaExpert.addDependencyRule(MethodologicalLink.class, null, "ExternElement");
     }
 
-    @objid ("f7e26143-1de7-467c-ae72-16ca8d0b899f")
+    @objid ("e8b8df62-1de7-49b8-b0ce-01cc41ad60e0")
     protected void registerMetaExpertForMetaclassReference() {
         // Infrastructure.MetaclassReference
         // -----------
@@ -291,19 +297,25 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(MetaclassReference.class, null, "DefinedTagType");
     }
 
-    @objid ("934e1e92-4d64-46af-a8dd-c8758e4f1444")
+    @objid ("1e20da5e-a04f-45ac-bf7f-f2f54f064ff2")
     protected void registerMetaExpertForExternProcessor() {
         // Infrastructure.ExternProcessor
         // -----------
     }
 
-    @objid ("23719f26-559b-4527-a440-08835e70af4c")
+    @objid ("7b85cf2e-5e52-4e30-88ce-3c1877870c70")
+    protected void registerMetaExpertForExternElement() {
+        // Infrastructure.ExternElement
+        // -----------
+    }
+
+    @objid ("6a90b048-a924-49b3-afec-31fdd3d084b3")
     protected void registerMetaExpertForDocument() {
         // Infrastructure.Document
         // -----------
     }
 
-    @objid ("a189c17f-5177-434b-9789-4a983d13e5fe")
+    @objid ("5c24b9ca-38a4-483e-8fd0-581b0c501b36")
     protected void registerMetaExpertForDependency() {
         // Infrastructure.Dependency
         // -----------
@@ -313,7 +325,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(MethodologicalLink.class, null, "DependsOn");
     }
 
-    @objid ("b32d2a10-9eca-4f94-ad80-f4d455a4dd3f")
+    @objid ("d3ae9055-3c4b-4495-928c-039f98583d71")
     protected void registerMetaExpertForAbstractResource() {
         // Infrastructure.AbstractResource
         // -----------
@@ -324,7 +336,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(Resource.class, null, "Type");
     }
 
-    @objid ("c894fa4e-418f-4bc2-9c58-614b4e39ef22")
+    @objid ("a934561b-fa3b-4472-9ce4-f97f21ec449d")
     protected void registerMetaExpertForTypedPropertyTable() {
         // Infrastructure.TypedPropertyTable
         // -----------
@@ -333,7 +345,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(TypedPropertyTable.class, null, "Type");
     }
 
-    @objid ("ed7903ff-1e89-40b5-ab7d-bc95e3a42c86")
+    @objid ("a80c1867-7554-4f42-be82-1cf3f6cbc999")
     protected void registerMetaExpertForPropertyTableDefinition() {
         // Infrastructure.PropertyTableDefinition
         // -----------
@@ -342,13 +354,13 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(PropertyTableDefinition.class, null, "Owned");
     }
 
-    @objid ("1aafbea3-4f18-4918-815b-d6d2cf768721")
+    @objid ("4f868fbe-8120-4001-bc75-6dc2c722c0ab")
     protected void registerMetaExpertForPropertyEnumerationLitteral() {
         // Infrastructure.PropertyEnumerationLitteral
         // -----------
     }
 
-    @objid ("5b5b9055-d503-41c9-b2eb-c08e6c6ad9f0")
+    @objid ("dcfa7df0-46c7-46cb-a8fa-514fdb324747")
     protected void registerMetaExpertForLocalPropertyTable() {
         // Infrastructure.LocalPropertyTable
         // -----------
@@ -357,13 +369,13 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(LocalPropertyTable.class, null, "LocalAnnoted");
     }
 
-    @objid ("e072148a-d65c-483e-b963-232f8d64dd51")
+    @objid ("ea6fdef1-3a3c-4ce9-a58a-0d32d8c595a4")
     protected void registerMetaExpertForPropertyTable() {
         // Infrastructure.PropertyTable
         // -----------
     }
 
-    @objid ("dbc30d79-6cf8-4e58-b727-75ce60897590")
+    @objid ("49438791-b499-41be-8343-2e6eb90ddef8")
     protected void registerMetaExpertForEnumeratedPropertyType() {
         // Infrastructure.EnumeratedPropertyType
         // -----------
@@ -372,19 +384,19 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Litteral");
     }
 
-    @objid ("06922dc3-0bdb-42b3-b8ce-07462bdf91f3")
+    @objid ("5a052959-2d8e-4dc4-9cc6-12cdce5072de")
     protected void registerMetaExpertForPropertyType() {
         // Infrastructure.PropertyType
         // -----------
     }
 
-    @objid ("2b5b9555-f0ca-4227-a9c6-51d5668b2f92")
+    @objid ("72391515-77c0-4710-91f8-b2387f7c9084")
     protected void registerMetaExpertForDynamicPropertyDefinition() {
         // Infrastructure.DynamicPropertyDefinition
         // -----------
     }
 
-    @objid ("7f849c9d-0819-4d6f-8eae-773f7b70bae1")
+    @objid ("e753ff37-b136-4903-99b1-1c3f24f24e73")
     protected void registerMetaExpertForPropertyDefinition() {
         // Infrastructure.PropertyDefinition
         // -----------
@@ -394,7 +406,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(PropertyDefinition.class, null, "Type");
     }
 
-    @objid ("f13fecbf-2d1e-44c7-94e5-12c8a83a145b")
+    @objid ("f9f10959-b4e2-4f98-9292-907f5282bd37")
     protected void registerMetaExpertForQueryDefinition() {
         // Infrastructure.QueryDefinition
         // -----------
@@ -409,7 +421,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(QueryDefinition.class, null, "Parameters");
     }
 
-    @objid ("c991b0e4-9779-464c-a71c-359c033db6ed")
+    @objid ("40d44528-2e3f-43e6-9404-71fe25874e1d")
     protected void registerMetaExpertForMatrixValueDefinition() {
         // Infrastructure.MatrixValueDefinition
         // -----------
@@ -421,7 +433,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(MatrixValueDefinition.class, null, "Parameters");
     }
 
-    @objid ("f6195ac0-06f9-4a94-a9e2-d379f11c37e9")
+    @objid ("cf62eed8-ddbd-4f2c-b700-4b77bc333432")
     protected void registerMetaExpertForMatrixDefinition() {
         // Infrastructure.MatrixDefinition
         // -----------
@@ -439,7 +451,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(MatrixDefinition.class, null, "DepthDefinition");
     }
 
-    @objid ("c7eafa03-dc3f-457e-9c5d-7a462b2cb815")
+    @objid ("75f64849-08e1-450e-92e4-3d662d81e2fd")
     protected void registerMetaExpertForModuleParameter() {
         // Infrastructure.ModuleParameter
         // -----------
@@ -448,7 +460,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(ModuleParameter.class, null, "EnumType");
     }
 
-    @objid ("6027497d-a1a6-4532-93bc-d40d48bd43e0")
+    @objid ("59b4a5e0-172a-44f2-9678-c1b50b459b7c")
     protected void registerMetaExpertForModuleComponent() {
         // Infrastructure.ModuleComponent
         // -----------
@@ -466,7 +478,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(ModuleComponent.class, null, "DependsOn");
     }
 
-    @objid ("e13e98a8-84f8-4c07-a79d-1bbf8bf4c313")
+    @objid ("509e5c66-2cd0-4492-b238-97f0154973b4")
     protected void registerMetaExpertForImpactProject() {
         // Infrastructure.ImpactProject
         // -----------
@@ -475,7 +487,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(ImpactProject.class, null, "model");
     }
 
-    @objid ("42433ed7-d3f6-4700-ac25-fb0df53eb8c8")
+    @objid ("eb071fdd-cd53-479f-b7a5-8e691877880d")
     protected void registerMetaExpertForAbstractProject() {
         // Infrastructure.AbstractProject is abstract
         
@@ -487,7 +499,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(ModuleComponent.class, null, "DiagramRoot");
     }
 
-    @objid ("b8cee0f3-e9a6-4402-a06a-115779756c1c")
+    @objid ("a08ab437-7d27-424b-bbcf-22582c2ce623")
     protected void registerMetaExpertForImpactModel() {
         // Infrastructure.ImpactModel
         // -----------
@@ -496,7 +508,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(ImpactModel.class, ImpactDiagram.class, "Product");
     }
 
-    @objid ("c4045322-923b-4d09-92cc-6e0be12f3e8b")
+    @objid ("f9c1f58b-87f6-4a69-89d3-8f5812009351")
     protected void registerMetaExpertForImpactLink() {
         // Infrastructure.ImpactLink
         // -----------
@@ -514,19 +526,19 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(ImpactLink.class, null, "owner");
     }
 
-    @objid ("44e9b2b3-c203-4a09-8743-49af13781454")
+    @objid ("680b44ad-c092-45ea-9a93-e0a69b973996")
     protected void registerMetaExpertForImpactDiagram() {
         // Infrastructure.ImpactDiagram
         // -----------
     }
 
-    @objid ("3d6f1f66-69ff-4a09-ba56-55106fc45806")
+    @objid ("b3b9759c-53b6-4b02-87dc-8d2c71cf3a4a")
     protected void registerMetaExpertForGraphDiagram() {
         // Infrastructure.GraphDiagram
         // -----------
     }
 
-    @objid ("86b7a17f-15ca-422d-9fa0-ea925e9e828f")
+    @objid ("9f432854-515b-4950-bffb-188559eb113c")
     protected void registerMetaExpertForDiagramSet() {
         // Infrastructure.DiagramSet
         // -----------
@@ -538,7 +550,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(DiagramSet.class, null, "ReferencedDiagram");
     }
 
-    @objid ("da8e29ca-a089-4e0b-8f8d-fb6e42113f7e")
+    @objid ("20f0a7ac-8d2a-4031-a92b-7495fdd1a035")
     protected void registerMetaExpertForAbstractDiagram() {
         // Infrastructure.AbstractDiagram is abstract
         
@@ -555,7 +567,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Origin");
     }
 
-    @objid ("d31cf558-ddff-4250-a216-ec6ce30812fa")
+    @objid ("e82090e0-88cb-470e-a870-d1189d3b1392")
     protected void registerMetaExpertForModelElement() {
         // Infrastructure.ModelElement is abstract
         
@@ -570,6 +582,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Extension");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Extension");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Extension");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Extension");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Extension");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Extension");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Extension");
@@ -603,6 +616,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "DependsOnDependency");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "DependsOnDependency");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "DependsOnDependency");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "DependsOnDependency");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "DependsOnDependency");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "DependsOnDependency");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "DependsOnDependency");
@@ -636,6 +650,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Tag");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Tag");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Tag");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Tag");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Tag");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Tag");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Tag");
@@ -669,6 +684,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Properties");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Properties");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Properties");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Properties");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Properties");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Properties");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Properties");
@@ -702,6 +718,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Descriptor");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Descriptor");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Descriptor");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Descriptor");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Descriptor");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Descriptor");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Descriptor");
@@ -735,6 +752,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Matrix");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Matrix");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Matrix");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Matrix");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Matrix");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Matrix");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Matrix");
@@ -768,6 +786,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(Document.class, null, "Attached");
         this.ruleMetaExpert.addDependencyRule(DynamicPropertyDefinition.class, null, "Attached");
         this.ruleMetaExpert.addDependencyRule(EnumeratedPropertyType.class, null, "Attached");
+        this.ruleMetaExpert.addDependencyRule(ExternElement.class, null, "Attached");
         this.ruleMetaExpert.addDependencyRule(ExternProcessor.class, null, "Attached");
         this.ruleMetaExpert.addDependencyRule(GraphDiagram.class, null, "Attached");
         this.ruleMetaExpert.addDependencyRule(ImpactDiagram.class, null, "Attached");
@@ -793,7 +812,7 @@ public class InfrastructureCSVGeneratedMetamodelExpert extends CompositeMetamode
         this.ruleMetaExpert.addDependencyRule(TaggedValue.class, null, "Attached");
     }
 
-    @objid ("82bd7b18-57cc-4a8d-97e7-f1b7d33818a4")
+    @objid ("0575256a-71b9-4b3a-8640-15de75833fc3")
     protected void registerMetaExpertForElement() {
         // Infrastructure.Element is abstract
         

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -317,6 +317,7 @@ public class Layouter {
      * @param targetRow
      * @param targetCol
      * @param targetAnchor
+     * 
      * @return true if a corner route could be defined for the link. The link has been configured (kind and anchors) with proper values.
      */
     @objid ("cf32cf32-f6f2-4daa-93de-c39584b8238e")

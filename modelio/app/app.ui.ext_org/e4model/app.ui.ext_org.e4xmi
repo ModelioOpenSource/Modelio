@@ -1,2 +1,35 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_HPXAgIkeEeWbO4MnNK7ogg"/>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_HPXAgIkeEeWbO4MnNK7ogg">
+  <imports xsi:type="commands:Command" xmi:id="_VM6wkHCkEemE1admPNY03g" elementId="org.modelio.app.ui.command.newproject"/>
+  <imports xsi:type="commands:Command" xmi:id="_V6NUYHCkEemE1admPNY03g" elementId="org.eclipse.ui.file.save"/>
+  <imports xsi:type="commands:Command" xmi:id="_WIRlkHCkEemE1admPNY03g" elementId="org.modelio.app.ui.command.closeproject"/>
+  <imports xsi:type="commands:Command" xmi:id="_WX4H0HCkEemE1admPNY03g" elementId="org.modelio.app.ui.command.importproject"/>
+  <imports xsi:type="commands:Command" xmi:id="_WoR7UHCkEemE1admPNY03g" elementId="org.modelio.app.ui.command.switchworkspace"/>
+  <imports xsi:type="commands:Command" xmi:id="_W2O3wHCkEemE1admPNY03g" elementId="org.eclipse.ui.file.exit"/>
+  <imports xsi:type="commands:Command" xmi:id="_mhmvgJQGEemuXYl-eu3GPg" elementId="org.modelio.app.ui.command.openprojectconfigurator"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_7udOoHCiEemE1admPNY03g" featurename="children" parentElementId="org.modelio.app.ui.menu.file" positionInList="">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_7udOoXCiEemE1admPNY03g" elementId="org.modelio.app.ui.menu.file.create" label="%NewProject.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/newproject.png" tooltip="%NewProject.tooltip" command="_VM6wkHCkEemE1admPNY03g"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_7udOonCiEemE1admPNY03g" elementId="org.modelio.app.ui.menu.file.save" label="%SaveProject.label" iconURI="platform:/plugin/org.modelio.app.project.ui/icons/save.png" tooltip="%SaveProject.tooltip" command="_V6NUYHCkEemE1admPNY03g"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_7udOo3CiEemE1admPNY03g" elementId="org.modelio.app.ui.menu.file.close" label="%CloseProject.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/closedproject.png" tooltip="%CloseProject.tooltip" command="_WIRlkHCkEemE1admPNY03g"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_7udOpHCiEemE1admPNY03g" elementId="org.modelio.app.ui.menu.file.1"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_7udOpXCiEemE1admPNY03g" elementId="org.modelio.app.ui.menu.file.importproject" label="%ImportProject.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/importproject.png" tooltip="%ImportProject.tooltip" command="_WX4H0HCkEemE1admPNY03g"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_7udOpnCiEemE1admPNY03g" elementId="org.modelio.app.ui.menu.file.2"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_7udOp3CiEemE1admPNY03g" elementId="org.modelio.app.ui.menu.file.switchworkspace" label="%SwitchWorkspace.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/switchworkspace.png" tooltip="%SwitchWorkspace.tooltip" command="_WoR7UHCkEemE1admPNY03g"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_7udOqHCiEemE1admPNY03g" elementId="org.modelio.app.ui.menu.file.3"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_7udOqXCiEemE1admPNY03g" elementId="org.modelio.app.ui.menu.file.exit" label="%Quit.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/exit.png" tooltip="%Quit.tooltip" command="_W2O3wHCkEemE1admPNY03g"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ahyHgJQGEemuXYl-eu3GPg" featurename="children" parentElementId="org.modelio.app.ui.menu.configuration" positionInList="first">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_falpgJQGEemuXYl-eu3GPg" elementId="org.modelio.app.ui.menu.configuration.audit" label="%ManageAudit.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/audit.png" tooltip="%ManageAudit.tooltip" command="_mhmvgJQGEemuXYl-eu3GPg">
+      <parameters xmi:id="_falpgZQGEemuXYl-eu3GPg" elementId="folder" name="folder" value="AUDIT"/>
+    </elements>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_falpgpQGEemuXYl-eu3GPg" elementId="org.modelio.app.ui.menu.configuration.modules" label="%ManageModules.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/module.png" tooltip="%ManageModules.tooltip" command="_mhmvgJQGEemuXYl-eu3GPg">
+      <parameters xmi:id="_falpg5QGEemuXYl-eu3GPg" elementId="folder" name="folder" value="MODULES"/>
+    </elements>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_falphJQGEemuXYl-eu3GPg" elementId="org.modelio.app.ui.menu.configuration.libraries" label="%ManageLibraries.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/libraries.png" tooltip="%ManageLibraries.tooltip" command="_mhmvgJQGEemuXYl-eu3GPg">
+      <parameters xmi:id="_falphZQGEemuXYl-eu3GPg" elementId="folder" name="folder" value="LIBRARIES"/>
+    </elements>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_falphpQGEemuXYl-eu3GPg" elementId="org.modelio.app.ui.menu.configuration.workmodel" label="%ManageModels.label" iconURI="platform:/plugin/org.modelio.app.ui/icons/workmodels.png" tooltip="%ManageModels.tooltip" command="_mhmvgJQGEemuXYl-eu3GPg">
+      <parameters xmi:id="_falph5QGEemuXYl-eu3GPg" elementId="folder" name="folder" value="WORK_MODEL"/>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,7 +49,7 @@ public class Script implements BundleActivator {
         context = bundleContext;
         ServiceReference<ExtendedLogService> ref = bundleContext.getServiceReference(ExtendedLogService.class);
         ExtendedLogService service = bundleContext.getService(ref);
-        LOG = new PluginLogger(service.getLogger(null));
+        LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("script"));
     }
 

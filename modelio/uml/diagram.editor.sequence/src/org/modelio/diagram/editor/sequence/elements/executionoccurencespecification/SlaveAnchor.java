@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ class SlaveAnchor extends AbstractConnectionAnchor implements AnchorListener {
 
     /**
      * C'tor.
+     * 
      * @param masterAnchor the anchor this anchor is a slave of.
      * @param owner the owner figure on which bounds this anchor will be placed.
      */

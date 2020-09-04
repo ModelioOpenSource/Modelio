@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -186,6 +186,7 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Return the host edit part if this policy can handle all edit parts involved in the request.
+     * 
      * @param changeBoundsRequest the request, can be CLONE or ADD.
      * @return the host editpart if all editparts involved in the request can be handled by this policy, <code>null</code> otherwise.
      */
@@ -213,6 +214,7 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
     /**
      * Returns whether this edit policy can handle this metaclass (either through simple or smart behavior). Default behavior is to accept any metaclass that can be child (in the CreationExpert's understanding) of the host's metaclass This method should be
      * overridden by subclasses to add specific the behavior.
+     * 
      * @param metaclass the metaclass to handle.
      * @return true if this policy can handle the metaclass.
      */
@@ -333,6 +335,7 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Lazily creates and returns a <code>Polyline</code> Figure for use as feedback.
+     * 
      * @return a Polyline figure
      */
     @objid ("613d9c0f-55b6-11e2-877f-002564c97630")
@@ -549,6 +552,7 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
     /**
      * Overridden to prevent sizes from becoming too small, and to prevent preferred sizes from getting lost. If the Request is a MOVE, the existing width and height are preserved. During RESIZE, the new width and height have a lower bound determined by
      * {@link #getMinimumSizeFor(GraphicalEditPart)}.
+     * 
      * @param request the ChangeBoundsRequest.
      * @param child the child EditPart for which the constraint should be generated.
      * @return the rectangle being the desired bounds of the child.
@@ -592,6 +596,7 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * Determines the <em>minimum</em> size that the specified child can be resized to.
      * Called from {@link #getBoundsFor(ChangeBoundsRequest, GraphicalEditPart)}.
      * By default, a small <code>Dimension</code> is returned.
+     * 
      * @param child the child
      * @return the minimum size
      */
@@ -716,6 +721,7 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * Generates a draw2d constraint for the given <code>CreateRequest</code>.
      * <P>
      * The CreateRequest's location is relative the Viewer.
+     * 
      * @param request the CreateRequest
      * @return a draw2d constraint
      */
@@ -768,6 +774,7 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * Creates the EditPartListener for observing when children are added to the host.
      * <p>
      * Redefined to auto expand on child edit part addition.
+     * 
      * @return EditPartListener
      */
     @objid ("ed74ae20-6170-4be6-91dd-cf7706b0ab3b")
@@ -785,6 +792,7 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * Called by an edit part listener when a child edit part is added.
      * <p>
      * Try to expand the container to fit all children.
+     * 
      * @param child the added edit part
      */
     @objid ("de5b0fc9-e442-4548-baa7-0828abe02209")
@@ -831,6 +839,7 @@ class BpmnLaneSetContainerLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
         /**
          * C'tor.
+         * 
          * @param container the container in which children will be moved.
          * @param childToMove the child to move.
          * @param reference the reference: moved child will be moved just before this reference. If it is null, child will be moved at the end of the container.

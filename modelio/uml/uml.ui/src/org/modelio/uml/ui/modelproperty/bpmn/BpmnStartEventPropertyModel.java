@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class BpmnStartEventPropertyModel extends AbstractPropertyModel<BpmnStart
 
     /**
      * Create a new <i>BpmnStartEvent</i> data model from an <i>BpmnStartEvent</i>.
+     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      * @param umlPropertyModelVisitor the property model visitor, needed for the event definition.

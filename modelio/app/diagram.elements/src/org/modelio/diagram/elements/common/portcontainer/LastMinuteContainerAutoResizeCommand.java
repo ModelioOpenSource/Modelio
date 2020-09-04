@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ class LastMinuteContainerAutoResizeCommand extends Command {
 
     /**
      * C'tor.
+     * 
      * @param host the host on which to apply the autoresize.
      */
     @objid ("02137fbd-ff50-47f1-825b-0a68aa02375b")

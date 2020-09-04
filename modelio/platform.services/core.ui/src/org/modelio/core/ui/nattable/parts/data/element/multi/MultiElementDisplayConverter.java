@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class MultiElementDisplayConverter extends DisplayConverter {
 
     /**
      * Create a new MultiElementDisplayConverter.
+     * 
      * @param labelProvider the label provider to use when converting to display.
      */
     @objid ("cc2242af-4b79-4ee8-8094-c789a01b7b26")

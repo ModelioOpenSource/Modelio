@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,8 +55,11 @@ class ProjectPreferencesPage extends PreferencePage {
     @objid ("c3bbf9f1-9d56-472a-9acd-a089e2e47ec5")
     private static final String INDENT = "    ";
 
+    /**
+     * Path relative to project data path
+     */
     @objid ("ff9bd012-1971-451e-abef-397d3d01f381")
-    private static final String PROJECT_STYLE_SUBDIR = "data/.config/styles";
+    private static final String PROJECT_STYLE_SUBDIR = ".config/styles";
 
     @objid ("a9fe1297-596c-4dea-b37a-80657e88e804")
     private static final String THEME_FILE_EXTENSION = ".theme";
@@ -76,25 +79,25 @@ class ProjectPreferencesPage extends PreferencePage {
     @objid ("a96c621e-99b0-4892-879b-b2bcb0e17b42")
     private String[][] visibilityValues;
 
-    @objid ("b5617bf4-d474-4d94-be5b-175aa4ad97f9")
+    @objid ("18ea8f80-a2e1-4a11-b3c3-78734d1f5f14")
     private ComboFieldEditor attDefaultType;
 
-    @objid ("75842ba5-32ae-4c35-97a4-99a7b7c34223")
+    @objid ("cdd1caa8-29ae-4d24-98aa-8cc2cd4516e0")
     private ComboFieldEditor attdefaultVisibility;
 
-    @objid ("a11eed16-2a57-44f3-9e00-e9c71f5c5b95")
+    @objid ("5d577011-5a5f-4f2b-bf7e-6bb5bd1a776f")
     private ComboFieldEditor diagramDefaultTheme;
 
-    @objid ("511b8ac2-436c-4d4d-9206-11aabbf06503")
+    @objid ("d60a28a9-d1a8-45be-91a1-107765821645")
     private ComboFieldEditor noteDefaultMimeType;
 
-    @objid ("2f7d0606-93ef-43c4-acca-77c1b293dfa5")
+    @objid ("28d3dea9-ec70-4f49-b4c3-bd667d85afa9")
     private ComboFieldEditor parameterDefaultType;
 
-    @objid ("a4cc62c4-2fa2-4bad-a1c7-9274d937c793")
+    @objid ("f7e09339-cf8b-4bb5-8bf2-f5c0a9d5e957")
     private ComboFieldEditor returnDefaultType;
 
-    @objid ("7f0b870c-5fbf-47cf-b26d-6e8c2287d94f")
+    @objid ("fec95530-60b1-4734-80bf-81ddf84b2334")
     private ComboFieldEditor richNoteDefaultType;
 
     @objid ("4732c860-11df-4aff-812b-e8574636748c")
@@ -304,7 +307,7 @@ class ProjectPreferencesPage extends PreferencePage {
         
         if (getPreferenceStore() == null) {
             // no currently opened project => no store, page not visible
-            this.setVisible(false);
+            setVisible(false);
         }
     }
 
@@ -328,7 +331,7 @@ class ProjectPreferencesPage extends PreferencePage {
             // no currently opened project => no store, page not visible
             setPreferenceStore(null);
             if (isControlCreated()) {
-                this.setVisible(false);
+                setVisible(false);
             }
             noDefaultAndApplyButton();
             return;
@@ -369,7 +372,7 @@ class ProjectPreferencesPage extends PreferencePage {
         
         // Load themes from the configuration directory
         List<String[]> themes = new ArrayList<>();
-        Path stylesDir = projectService.getOpenedProject().getProjectDataPath().resolve(ProjectPreferencesPage.PROJECT_STYLE_SUBDIR);
+        Path stylesDir = projectService.getOpenedProject().getProjectFileStructure().getProjectDataPath().resolve(ProjectPreferencesPage.PROJECT_STYLE_SUBDIR);
         try (DirectoryStream<Path> styleFiles = Files.newDirectoryStream(stylesDir, "*" + ProjectPreferencesPage.THEME_FILE_EXTENSION)) {
             for (final Path f : styleFiles) {
                 try (InputStreamReader reader = new InputStreamReader(f.toUri().toURL().openStream())) {

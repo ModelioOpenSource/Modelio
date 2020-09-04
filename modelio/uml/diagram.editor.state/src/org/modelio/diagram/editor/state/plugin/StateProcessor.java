@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ import org.modelio.diagram.elements.core.model.factory.DiagramFactoryRegistry;
 import org.modelio.diagram.styles.core.FactoryStyle;
 import org.modelio.diagram.styles.core.StyleLoader;
 import org.modelio.metamodel.diagrams.StateMachineDiagram;
+import org.modelio.metamodel.diagrams.StaticDiagram;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -68,6 +69,8 @@ public class StateProcessor extends AbstractDiagramInitializationProcessor {
     @Override
     protected void declareFactories(DiagramFactoryRegistry factoryRegistry) {
         factoryRegistry.registerDiagramFactories(StateMachineDiagram.MNAME, new StateGmNodeFactory(), new StateGmLinkFactory(), new StateEditPartFactory());
+        
+        factoryRegistry.registerExtensions(StaticDiagram.MNAME, StateMachineDiagram.MNAME);
     }
 
     @objid ("ca1f656f-0421-48bf-bb03-d12780242178")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class DeleteElementAction extends SimpleAction {
      * Constructeur de l'action des desctruction d'un objet,
      * 
      * sauvegarde l'objet detruit dans l'association "refered".
+     * 
      * @param obj the deleted object
      */
     @objid ("006d3382-0d1e-1f20-85a5-001ec947cd2a")

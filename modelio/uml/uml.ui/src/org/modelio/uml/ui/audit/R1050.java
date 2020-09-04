@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -137,6 +137,7 @@ public class R1050 extends AbstractUmlRule {
     private static class CheckR1050 extends AbstractControl {
         /**
          * C'tor.
+         * 
          * @param rule the rule to check.
          */
         @objid ("d35fd839-fc2d-4c31-a39d-e42220302090")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public class DefaultElementChoiceNatValue extends DefaultElementNatValue impleme
 
     /**
      * Creates a new instance.
+     * 
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
      * @param allowedClasses list of the accepted metaclasses for the value.
@@ -52,6 +53,7 @@ public class DefaultElementChoiceNatValue extends DefaultElementNatValue impleme
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("595b3952-a7fe-4bf0-9af9-337b79d9ffa5")

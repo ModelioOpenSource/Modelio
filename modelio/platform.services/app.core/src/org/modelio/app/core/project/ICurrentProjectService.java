@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 public interface ICurrentProjectService extends IModelioService {
     /**
      * Gets the currently opened project.
+     * 
      * @return the currently opened project or null if none.
      */
     @objid ("00832174-acc2-103b-a520-001ec947cd2a")
@@ -60,6 +61,7 @@ public interface ICurrentProjectService extends IModelioService {
     /**
      * The application state preference store can be used to store the application state on project closing and restore the state at project opening. Application state refers to any information about the application state: opened views, view configuration
      * options, current selection ... Do not mix this concept with project preferences.
+     * 
      * @return the application state preference store.
      */
     @objid ("2f97cf67-46e6-4f46-a18e-903269a31ff2")
@@ -67,6 +69,7 @@ public interface ICurrentProjectService extends IModelioService {
 
     /**
      * Gets the current workspace path.
+     * 
      * @return the current workspace path or null if none.
      */
     @objid ("008329e4-acc2-103b-a520-001ec947cd2a")
@@ -74,6 +77,7 @@ public interface ICurrentProjectService extends IModelioService {
 
     /**
      * Tells whether the session or the project preferences needs to be saved.
+     * 
      * @return <code>true</code> if the session or the project preferences needs to be saved, <code>false</code> otherwise.
      */
     @objid ("38cdfb9d-8aaf-4b8a-b00c-55319d7ec41c")

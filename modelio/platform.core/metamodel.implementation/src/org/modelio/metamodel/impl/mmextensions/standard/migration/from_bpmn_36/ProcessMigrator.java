@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -88,6 +88,7 @@ class ProcessMigrator {
 
     /**
      * Get FlowElement referenced by the Lane and all its sub lanes hierarchy.
+     * 
      * @param lane a BPMN Lane
      * @return all referenced flow elements
      */
@@ -105,6 +106,7 @@ class ProcessMigrator {
 
     /**
      * Get a MDependency content then empty it.
+     * 
      * @param obj the dep source
      * @param depName the dep name
      * @return the dependency content.
@@ -121,6 +123,7 @@ class ProcessMigrator {
      * Get a BpmnLaneSet different than the given one.
      * <p>
      * Create a new BpmnLaneSet if no satisfying one found.
+     * 
      * @param aProcess a BPMN Process
      * @param origRootPools BpmnLaneSets to avoid
      * @return the found or created BpmnLaneSet
@@ -183,6 +186,7 @@ class ProcessMigrator {
     /**
      * Move child LaneSet into the owning Process.
      * @param collaboration the BPMN Collaboration. If not null, a Participant for the Process should be created.
+     * 
      * @param logger the log reporter
      * @param origPool the pool to move, is a LaneSet
      * @param process the BPMN Process
@@ -247,6 +251,7 @@ class ProcessMigrator {
 
     /**
      * Move child LaneSet into the owning Process.
+     * 
      * @param logger the log reporter
      * @param origPool the pool to move, is a LaneSet
      * @param process the BPMN Process
@@ -471,6 +476,7 @@ class ProcessMigrator {
      * <p>
      * When this method returns 'lane' is empty.
      * @param targetProcess the Process to move things into
+     * 
      * @param lane the Pool/Lane to migrate
      */
     @objid ("2d364ff8-acaf-4d7e-9655-ab05c4519d17")
@@ -508,6 +514,7 @@ class ProcessMigrator {
 
     /**
      * Move the Pool content to a new Process.
+     * 
      * @param logger the logger
      * @param origPool the Pool (BpmnLaneSet) to migrate
      * @param process the origin BPMN Process
@@ -627,6 +634,7 @@ class ProcessMigrator {
 
     /**
      * Tells whether BpmnMessageFlows go from or to one of the BPMN Process nodes.
+     * 
      * @param process a BPMN Process
      * @return true if the Process / sub Process has message flows
      */
@@ -654,6 +662,7 @@ class ProcessMigrator {
 
     /**
      * Tells whether a BPMN Process has BPMN nodes at root, eg not in a Lane.
+     * 
      * @param process a BPMN Process
      * @return whether the BPMN Process has BPMN nodes at root.
      */
@@ -673,6 +682,7 @@ class ProcessMigrator {
 
     /**
      * Transmute all elements in the list whose metaclass is exactly the given one.
+     * 
      * @param dep the elements to transmute
      * @param srcClass the metaclass the element must have to be transmuted
      * @param targetClass the target metaclass

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -292,6 +292,7 @@ public abstract class DiagramDG extends DiagramNode implements IDiagramDG, IDiag
     /**
      * Computes the minimum bounds of a diagram figure. The returned rectangle is the smallest rectangle enclosing all the diagram nodes (note: the computation take links into account which are laid in the Connection layer)
      * @param figure
+     * 
      * @return the enclosing rectangle. Never returns null but an empty rectangle instead..
      */
     @objid ("87ff319d-0b0d-46a0-b61f-57c0f65cd82b")
@@ -322,6 +323,7 @@ public abstract class DiagramDG extends DiagramNode implements IDiagramDG, IDiag
      * Compute the minimum contents size of the diagram. This size is defined as the union of the smallest bounding rectangle that encloses both all the nodes and all the links
      * @param layer
      * the diagram figure layer
+     * 
      * @param connectionLayer the connection layer
      * @param drawingLayers the drawing layers pane
      * @return the bounds to export

@@ -3,7 +3,7 @@ Bundle-Localization: plugin
 Bundle-ManifestVersion: 2
 Bundle-Name: Browser View
 Bundle-SymbolicName: org.modelio.model.browser.view;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Vendor: Modeliosoft
 Require-Bundle: org.eclipse.e4.ui.model.workbench,
  org.eclipse.ui.workbench,

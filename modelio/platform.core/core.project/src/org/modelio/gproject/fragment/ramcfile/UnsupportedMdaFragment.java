@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.data.project.FragmentType;
 import org.modelio.gproject.data.project.GAuthConf;
 import org.modelio.gproject.data.project.GProperties;
+import org.modelio.gproject.data.project.IFragmentInfos;
 import org.modelio.gproject.fragment.AbstractFragment;
 import org.modelio.gproject.fragment.FragmentAuthenticationException;
 import org.modelio.vbasic.progress.IModelioProgress;
@@ -44,19 +45,20 @@ import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
 public class UnsupportedMdaFragment extends AbstractFragment {
     /**
      * Initialize the MDA fragment
+     * 
      * @param id the fragment ID
      * @param definitionScope the definition scope
      * @param properties the properties
      * @param authConf the authentication data
      */
     @objid ("08d11feb-2dc9-4fb7-be22-73c5f2af387c")
-    public UnsupportedMdaFragment(String id, DefinitionScope definitionScope, GProperties properties, GAuthConf authConf) {
+    public UnsupportedMdaFragment(final String id, final DefinitionScope definitionScope, final GProperties properties, final GAuthConf authConf) {
         super(id, definitionScope, properties, authConf);
     }
 
     @objid ("60d70967-302c-4016-803a-5852b020f60f")
     @Override
-    protected IRepository doMountInitRepository(IModelioProgress aMonitor) throws FragmentAuthenticationException, IOException {
+    protected IRepository doMountInitRepository(final IModelioProgress aMonitor) throws FragmentAuthenticationException, IOException {
         throw new IOException(getId() + " is a broken repository");
     }
 
@@ -94,6 +96,12 @@ public class UnsupportedMdaFragment extends AbstractFragment {
     @Override
     protected IAccessManager doInitAccessManager() {
         return null;
+    }
+
+    @objid ("a8a99299-1e4b-4806-87a0-1af80afd4fa3")
+    @Override
+    public IFragmentInfos getInformations() throws IOException {
+        throw new IOException(getId() + " is a broken repository");
     }
 
 }

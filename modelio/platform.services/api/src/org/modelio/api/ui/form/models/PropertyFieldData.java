@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,6 +106,7 @@ public class PropertyFieldData implements IFormFieldData {
 
         /**
          * Get the value of the current {@link PropertyDefinition} on an element.
+         * 
          * @param elt the element to look for a value in.
          * @return the value of the property. Might be <code>null</code>.
          */
@@ -122,6 +123,7 @@ public class PropertyFieldData implements IFormFieldData {
          * Set the value of the {@link PropertyDefinition} on an element.
          * <p/>
          * If no {@link TypedPropertyTable} exists for that property, a new one is created.
+         * 
          * @param elt the element to set a value in.
          * @param value the value to set in the element's properties.
          */
@@ -218,6 +220,7 @@ public class PropertyFieldData implements IFormFieldData {
 
         /**
          * Get the {@link TypedPropertyTable} typed by {@link #pdef}'s owner {@link PropertyTableDefinition}.
+         * 
          * @param elt the element to look for a {@link TypedPropertyTable} in.
          * @return a {@link TypedPropertyTable} or <code>null</code>.
          */
@@ -252,6 +255,7 @@ public class PropertyFieldData implements IFormFieldData {
          * public isStereoyped() method
          * @param stereotypeName
          * the name of another stereotype.
+         * 
          * @param stereotype a stereotype
          * @return <code>true</code> if 'stereotype' a child of the stereotype named by 'stereotypeName' else <code>false</code>.
          */

@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.modelio</groupId>
+		<artifactId>modelio-parent</artifactId>
+		<version>4.0.0-SNAPSHOT</version>
+		<relativePath>../../maven/modelio-parent</relativePath>
+	</parent>
+
+	<groupId>org.modelio</groupId>
+	<artifactId>rcp</artifactId>
+	<packaging>eclipse-target-definition</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>target-platform-validation-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+					<phase>validate</phase>
+					<goals>
+						<goal>validate-target-platform</goal>
+					</goals>
+					<configuration>
+						<targetFiles>
+							<param>rcp.target</param>
+						</targetFiles>
+						<failOnError>true</failOnError>
+					</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

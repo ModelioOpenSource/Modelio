@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -118,6 +118,7 @@ public class BindingPropertyModel extends AbstractPropertyModel<Binding> {
 
     /**
      * Create a new <i>Binding</i> data model from an <i>Binding</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("7cd13029-2b04-42ab-b919-c5a9577a83a5")
@@ -127,6 +128,7 @@ public class BindingPropertyModel extends AbstractPropertyModel<Binding> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("d0107a3e-6106-45a8-852e-e791cd71acd5")
@@ -137,6 +139,7 @@ public class BindingPropertyModel extends AbstractPropertyModel<Binding> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("5a4dd633-a520-4e45-b67f-07ebee91d6f5")
@@ -149,6 +152,7 @@ public class BindingPropertyModel extends AbstractPropertyModel<Binding> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -181,6 +185,7 @@ public class BindingPropertyModel extends AbstractPropertyModel<Binding> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -222,6 +227,7 @@ public class BindingPropertyModel extends AbstractPropertyModel<Binding> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

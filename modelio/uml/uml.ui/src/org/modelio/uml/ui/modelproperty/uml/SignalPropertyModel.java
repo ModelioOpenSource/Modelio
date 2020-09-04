@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class SignalPropertyModel extends AbstractPropertyModel<Signal> {
 
     /**
      * Create a new <i>Signal</i> data model from an <i>Signal</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("771033d7-5881-4b8b-b887-9d4e738a38c5")
@@ -67,6 +68,7 @@ public class SignalPropertyModel extends AbstractPropertyModel<Signal> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("0bda0fef-612d-4e6e-9807-b257e256b49e")
@@ -77,6 +79,7 @@ public class SignalPropertyModel extends AbstractPropertyModel<Signal> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("9f244586-ae00-4a31-a81f-0516e8edab92")
@@ -89,6 +92,7 @@ public class SignalPropertyModel extends AbstractPropertyModel<Signal> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -125,6 +129,7 @@ public class SignalPropertyModel extends AbstractPropertyModel<Signal> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -160,6 +165,7 @@ public class SignalPropertyModel extends AbstractPropertyModel<Signal> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -197,6 +203,7 @@ public class SignalPropertyModel extends AbstractPropertyModel<Signal> {
 
     /**
      * Returns the element represented by the given instance node.
+     * 
      * @return the represented element
      */
     @objid ("26bc2a6e-ab32-42af-bd70-5208a6272824")
@@ -218,6 +225,7 @@ public class SignalPropertyModel extends AbstractPropertyModel<Signal> {
     /**
      * Set the ObjectNode represented elements. This method set the right
      * dependency and clears the otheEditedElement.
+     * 
      * @param theEditedElement the instance node
      * @param value the new represented element
      */

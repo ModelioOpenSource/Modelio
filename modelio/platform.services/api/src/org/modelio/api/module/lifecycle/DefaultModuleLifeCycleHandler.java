@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ public class DefaultModuleLifeCycleHandler implements IModuleLifeCycleHandler {
 
     /**
      * Accepts the installation by default.
+     * 
      * @param modelioPath the path of modelio application
      * @param installPath the path where the module archive contents have been expanded.
      * @return true if the module accepts to be installed false otherwise.
@@ -80,6 +81,7 @@ public class DefaultModuleLifeCycleHandler implements IModuleLifeCycleHandler {
 
     /**
      * C'tor initializing the module.
+     * 
      * @param module the module being constructed.
      */
     @objid ("53dce8bc-1100-4612-b48b-7fa77a21e7a4")

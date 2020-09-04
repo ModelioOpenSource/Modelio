@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,8 +54,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.diagram.editor.handlers.ImageBuilder;
 import org.modelio.diagram.editor.plugin.DiagramEditor;
+import org.modelio.diagram.elements.common.abstractdiagram.ImageBuilder;
 
 /**
  * @author apedro Dialog box for print setup with preview image

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class AutoExpandHelper {
      * <p>
      * Does nothing if request is null.
      * Logs a warning if no command could be obtained or if the command is not executable (if debug level is enabled).
+     * 
      * @param req the request. May be null.
      * @param target the edit part that should run the request.
      * @return true if resizing was done else false.
@@ -73,6 +74,7 @@ public class AutoExpandHelper {
 
     /**
      * Compute an auto expand command from a child edit part move/resize request.
+     * 
      * @param request a resize/move request for container children
      * @param containerEditPart the container edit part
      * @param layoutContainer the container figure directly containing child edit part figures.
@@ -118,6 +120,7 @@ public class AutoExpandHelper {
 
     /**
      * Compute an auto fit to preferred size command from a child edit part move/resize request.
+     * 
      * @param request a resize/move request for container children
      * @param containerEditPart the container edit part
      * @param layoutContainer the container figure directly containing child edit part figures.
@@ -150,6 +153,7 @@ public class AutoExpandHelper {
      * Compute an auto expand request for a child edit part addition.
      * <p>
      * The child edit part must already be owned by the parent one.
+     * 
      * @param containerEditPart the parent edit part.
      * @param newChild the new child edit part
      * @param layoutContainer the container figure that directly own the children edit part figures.
@@ -272,6 +276,7 @@ public class AutoExpandHelper {
 
         /**
          * constructor.
+         * 
          * @param old the old layout manager
          * @param prefSize the preferred size to force.
          */

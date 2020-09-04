@@ -2,9 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension id="diagram.communication" point="org.eclipse.e4.workbench.model">
-      <fragment
-            uri="e4model/diagram_communication_editor.e4xmi">
-      </fragment>
+      <fragment uri="e4model/diagram_communication_editor.e4xmi"/>
       <processor beforefragment="true" class="org.modelio.diagram.editor.communication.plugin.CommunicationProcessor"/>
    </extension>
 
@@ -12,36 +10,19 @@
       <inputprovider class="org.modelio.diagram.editor.communication.editor.CommunicationDiagramEditorInputProvider"/>
    </extension>
 
-   <extension point="org.modelio.diagram.editor.toolregistry">
-      <creationtool
-            id="CREATE_COMMUNICATIONNODE"
-            interactor="node"
-            label="%CommunicationNode.label"
-            tooltip="%CommunicationNode.tooltip">
-         <context
-               metaclass="Standard.CommunicationNode">
-         </context>
-      </creationtool>
-      <creationtool
-            id="CREATE_COMMUNICATIONCHANNEL"
-            interactor="link"
-            label="%CommunicationChannel.label"
-            tooltip="%CommunicationChannel.tooltip">
-         <context
-               metaclass="Standard.CommunicationChannel"
-               router="COMMUNICATIONCHANNEL_ROUTINGMODE">
-         </context>
-      </creationtool>
-      <creationtool
-            id="CREATE_COMMUNICATIONMESSAGE"
-            interactor="node"
-            label="%CommunicationMessage.label"
-            tooltip="%CommunicationMessage.tooltip">
-         <context
-               metaclass="Standard.CommunicationMessage">
-         </context>
-      </creationtool>
-   </extension>
+	<extension point="org.modelio.diagram.editor.toolregistry">
+		<tools>
+			<creationtool id="CREATE_COMMUNICATIONNODE" interactor="node" label="%CommunicationNode.label" tooltip="%CommunicationNode.tooltip">
+				<context metaclass="Standard.CommunicationNode"/>
+			</creationtool>
+			<creationtool id="CREATE_COMMUNICATIONCHANNEL" interactor="link" label="%CommunicationChannel.label" tooltip="%CommunicationChannel.tooltip">
+				<context metaclass="Standard.CommunicationChannel" router="COMMUNICATIONCHANNEL_ROUTINGMODE"/>
+			</creationtool>
+			<creationtool id="CREATE_COMMUNICATIONMESSAGE" interactor="node" label="%CommunicationMessage.label" tooltip="%CommunicationMessage.tooltip">
+				<context metaclass="Standard.CommunicationMessage"/>
+			</creationtool>
+		</tools>
+	</extension>
 
    	<extension point="org.modelio.creation.wizard.contributor">
 		<creation
@@ -57,7 +38,7 @@
     		<scope editorId="org.modelio.diagram.editor.communication.CommunicationDiagramEditorID"/>
     	</droppolicyextension>
     </extension>
-    
+
     <extension
           point="org.modelio.diagram.editor.palette">
        <palette
@@ -96,5 +77,5 @@
           </palette_group>
        </palette>
     </extension>
-    
+
 </plugin>

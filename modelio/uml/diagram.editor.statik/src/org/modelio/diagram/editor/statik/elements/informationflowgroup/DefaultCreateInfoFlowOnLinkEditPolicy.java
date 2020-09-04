@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -102,6 +102,7 @@ public class DefaultCreateInfoFlowOnLinkEditPolicy extends DeferringCreateNodePo
      * Looks for and return the first {@link GmInfoFlowsGroup} extension on the link.
      * <p>
      * Subclasses may override this method.
+     * 
      * @param gmLink The model link
      * @param location The mouse location
      * @return The composite node where the label must be added.
@@ -155,6 +156,7 @@ public class DefaultCreateInfoFlowOnLinkEditPolicy extends DeferringCreateNodePo
 
         /**
          * Create a deferred command.
+         * 
          * @param req The creation request.
          * @param sender The edit part sending the request
          */

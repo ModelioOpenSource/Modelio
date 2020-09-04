@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -31,46 +31,46 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("0088dbfa-c4be-1fd8-97fe-001ec947cd2a")
 public abstract class ModelElementData extends ElementData {
-    @objid ("c5715e2a-3489-479d-9494-d44f7f59ea68")
+    @objid ("9b5035dc-8921-46e2-97f4-abbe3513746f")
      Object mName = "";
 
-    @objid ("5a20fa8f-2a9f-4120-bc44-2be81b57c5a8")
+    @objid ("0fa82135-5feb-4e7b-8361-50d11a5be121")
      SmObjectImpl mLocalProperties;
 
-    @objid ("fedbf4c8-2c79-41ab-9e26-1bed54f60103")
+    @objid ("03bf815b-4f24-48db-9975-d62fae943ced")
      List<SmObjectImpl> mExtension = null;
 
-    @objid ("bca70623-c49b-4356-b50b-1bfa0ecf96c8")
+    @objid ("edc5484a-b495-4b0e-b37e-8dcd86712118")
      List<SmObjectImpl> mDependsOnDependency = null;
 
-    @objid ("efe3134d-39d4-45f8-9164-22ba34ec9e0e")
+    @objid ("de83e280-ff19-415d-9ad7-ac14be09e35f")
      List<SmObjectImpl> mTag = null;
 
-    @objid ("70c060ba-9567-465c-a0c8-41d8f2ba0c89")
+    @objid ("96dfc3a3-28fd-4dd1-9784-4e7b577a6d97")
      List<SmObjectImpl> mImpactedDependency = null;
 
-    @objid ("eb9c70dc-77f1-4120-8ab8-39a02c395010")
+    @objid ("be466afc-d2db-440d-a335-8b4158c8d7ec")
      List<SmObjectImpl> mProperties = null;
 
-    @objid ("2a1495b0-23e7-4361-a092-59bf119d5ce6")
+    @objid ("a13c7148-5c0d-4fd9-92a8-24d18d41818b")
      List<SmObjectImpl> mProduct = null;
 
-    @objid ("6d029ff0-e6c8-4343-9f4e-d7e50624f3d6")
+    @objid ("3a0e6231-133d-45ad-b7e0-6c51153503a3")
      List<SmObjectImpl> mDescriptor = null;
 
-    @objid ("7d39b41a-43c3-4894-9d2a-36be101349fd")
+    @objid ("decd710f-29c2-4d8d-a68a-9be40ec92fbf")
      List<SmObjectImpl> mMatrix = null;
 
-    @objid ("9a684ceb-405a-4c9e-9446-5037580a1ad1")
+    @objid ("8699eda3-a13b-4cba-b618-7fdfcbd4c2ff")
      List<SmObjectImpl> mImpactImpacted = null;
 
-    @objid ("329447db-237f-4978-ab44-5cb019901c95")
+    @objid ("0b173e6e-a0f1-4177-9a36-b0d631bfdd38")
      List<SmObjectImpl> mImpactDependsOn = null;
 
-    @objid ("d5aad24f-ba1e-4f30-bf99-efc8299604a9")
+    @objid ("5794d192-3862-4c7f-a8d9-69d652cc4ec2")
      List<SmObjectImpl> mAttached = null;
 
-    @objid ("692cb3aa-d2b8-4aab-b5eb-be11476a772d")
+    @objid ("01da5172-6bbc-4f19-ba90-1c822b308758")
     public ModelElementData(ModelElementSmClass smClass) {
         super(smClass);
     }

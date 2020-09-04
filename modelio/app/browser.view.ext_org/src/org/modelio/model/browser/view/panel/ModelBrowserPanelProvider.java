@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,8 +29,11 @@ import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.EContextService;
 import org.eclipse.e4.ui.services.EMenuService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ColumnViewerEditor;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
@@ -145,8 +148,19 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
     @objid ("41feb58f-bc4b-4562-9f3d-4f925541588a")
     private BrowserPickingManager pickingManager;
 
+    @objid ("23ed581b-c8b7-43bd-a5d5-b3d7de6e4cdf")
+    @Inject
+    @Optional
+    private EPartService partService;
+
+    @objid ("0749e97a-43e1-450d-b89d-d17b8032cc1b")
+    @Inject
+    @Optional
+    private MPart mpart;
+
     /**
      * Makes this view editable. <code>modelingSession</code> is mandatory otherwise edition cannot be supported. To deactivate edition, call <code>activateEdition(null)</code>
+     * 
      * @param newModelingSession the current edited modeling session.
      */
     @objid ("1fc49987-1de3-11e2-bcbe-002564c97630")
@@ -186,6 +200,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
 
     /**
      * Called to create the view and initialize it.
+     * 
      * @return the browser tree viewer.
      */
     @objid ("57ccc2d7-d023-11e1-9020-002564c97630")
@@ -216,6 +231,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
 
     /**
      * Get the current element displayed by the view.
+     * 
      * @return the model element whose content is listed in the model tree. May be null.
      */
     @objid ("57ccc2e3-d023-11e1-9020-002564c97630")
@@ -253,6 +269,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
 
     /**
      * Set the current element displayed by the view.
+     * 
      * @param input the model element whose content is listed in the model tree panel. May be null.
      */
     @objid ("57ccc2e9-d023-11e1-9020-002564c97630")
@@ -305,6 +322,11 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
             this.treeViewer.setSelection(new StructuredSelection(req2));
             requestedSel = req2;
             obtainedSel = SelectionHelper.toList(this.treeViewer.getStructuredSelection(), Object.class);
+        }
+        
+        if (this.partService != null) {
+            // Make the browser view active to trigger its "selection provider"
+            this.partService.showPart(this.mpart, PartState.ACTIVATE);
         }
     }
 
@@ -489,7 +511,6 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
 
     /**
      * Called when the selection change in the tree viewer => propagates selection to application
-     * @param selection
      */
     @objid ("c0082f8b-c3a5-4836-b4f3-7b6d8db7c4c6")
     private void onSelectionChanged(ISelection selection) {
@@ -512,7 +533,6 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
 
     /**
      * Called when the user double-click an element in the tree viewer => fire an 'activate Modelio event' to the application
-     * @param selection
      */
     @objid ("2bb1baf2-d4d7-4792-a890-4385531fa7c9")
     private void onDoubleClickActivation(ISelection selection) {

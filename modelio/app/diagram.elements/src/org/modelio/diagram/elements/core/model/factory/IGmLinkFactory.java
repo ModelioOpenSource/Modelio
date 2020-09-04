@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IGmLinkFactory {
     /**
      * Creates a graphic link representing the given link element.
+     * 
      * @param diagram the diagram in which the gm is to be created
      * @param linkElement The model element to display
      * @return the created graphic link
@@ -46,6 +47,7 @@ public interface IGmLinkFactory {
      * <p>
      * Implementers should use this method when a Gm class is moved or renamed in order for the diagram persistence to properly instantiate persisted objects.
      * </p>
+     * 
      * @param namespace The class name
      * @return The matching class or <i>null</i> if none was found.
      */
@@ -57,6 +59,7 @@ public interface IGmLinkFactory {
      * <p>
      * Implementers should use this method when a Gm class is moved or renamed in order for the diagram persistence to properly instantiate these objects.
      * </p>
+     * 
      * @param namespace The class name
      * @return The matching class or <i>null</i> if none was found.
      */
@@ -68,6 +71,7 @@ public interface IGmLinkFactory {
      * <p>
      * Implementers should use this method when an enumeration class is moved or renamed in order for the diagram persistence to properly instantiate these objects.
      * </p>
+     * 
      * @param namespace The class name
      * @return The matching class or <i>null</i> if none was found.
      */

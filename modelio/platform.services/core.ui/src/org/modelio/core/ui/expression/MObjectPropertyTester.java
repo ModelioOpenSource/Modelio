@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -143,6 +143,7 @@ public class MObjectPropertyTester extends PropertyTester {
      * Call a boolean method on the given java object and test its return value.
      * <p>
      * The method name may begin with "!", the result is then negated.
+     * 
      * @param receiver the object to test
      * @param methodName the method name to call. If the method name begins with "!", the result is negated.
      * @return the test result

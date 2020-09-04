@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,9 +23,9 @@ package org.modelio.model.search.dialog;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.swt.custom.BusyIndicator;
 import org.eclipse.swt.widgets.Display;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.core.ui.panels.search.ISearchController;
 import org.modelio.core.ui.panels.search.ISearchPanel;
 import org.modelio.model.search.engine.ISearchEngine;
@@ -44,19 +44,15 @@ class SearchController implements ISearchController {
     private final ICoreSession session;
 
     @objid ("6d7dc2e8-ee06-4d4c-b215-d7e0d7f2c08f")
-    public SearchController(ICoreSession session, final SearchDialog searchDialog) {
+    public SearchController(final ICoreSession session, final SearchDialog searchDialog) {
         this.session = session;
         this.searchDialog = searchDialog;
         
         Display.getDefault().asyncExec(new Runnable() {
             @Override
             public void run() {
-                IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor(SEARCHTOOL_EXTENSION_ID);
-                for (IConfigurationElement e : config) {
-                    if (e.getName().equals("searchtool")) {
-                        parseSearchTool(searchDialog, e);
-                    }
-        
+                for (final IConfigurationElement e : new ExtensionPointContributionManager(SEARCHTOOL_EXTENSION_ID).getExtensions("searchtool")) {
+                    parseSearchTool(searchDialog, e);
                 }
             }
         });
@@ -98,8 +94,8 @@ class SearchController implements ISearchController {
     }
 
     @objid ("0514ffd1-b119-4c78-9958-98fa4b396bff")
-    protected void parseSearchTool(SearchDialog dlg, IConfigurationElement elt) {
-        String label  = elt.getAttribute("label");
+    protected void parseSearchTool(final SearchDialog dlg, final IConfigurationElement elt) {
+        final String label  = elt.getAttribute("label");
         
         Object panel;
         Object engine;
@@ -111,9 +107,9 @@ class SearchController implements ISearchController {
                 dlg.registerSearchTool(label, (ISearchPanel)panel, (ISearchEngine)engine);
             }
         
-            } catch (CoreException e) {
-                ModelSearch.LOG.error(e);
-            }
+        } catch (final CoreException e) {
+            ModelSearch.LOG.error(e);
+        }
     }
 
 }

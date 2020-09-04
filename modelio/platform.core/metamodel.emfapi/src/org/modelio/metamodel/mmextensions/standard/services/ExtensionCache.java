@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ class ExtensionCache {
 
     /**
      * Add a note type to the cache
+     * 
      * @param moduleName the module name
      * @param metaclass the metaclass to register. Might be <code>null</code>.
      * @param element the note type
@@ -79,6 +80,7 @@ class ExtensionCache {
 
     /**
      * Add a tag type to the cache
+     * 
      * @param moduleName the module name
      * @param metaclass the metaclass to register. Might be <code>null</code>.
      * @param element the tag type
@@ -91,6 +93,7 @@ class ExtensionCache {
 
     /**
      * Add a stereotype to the cache
+     * 
      * @param moduleName the module name
      * @param metaclass the metaclass to register.
      * @param element the stereotype
@@ -103,6 +106,7 @@ class ExtensionCache {
 
     /**
      * Find a note type.
+     * 
      * @param moduleName the module name
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type.
      * @param noteTypeName the note type name
@@ -129,6 +133,7 @@ class ExtensionCache {
 
     /**
      * Find a stereotype.
+     * 
      * @param moduleName the module name
      * @param name the note type name
      * @param metaclass the metaclass
@@ -155,6 +160,7 @@ class ExtensionCache {
 
     /**
      * Find a tag type.
+     * 
      * @param moduleName the module name
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type.
      * @param tagTypeName the note type name
@@ -196,6 +202,7 @@ class ExtensionCache {
 
     /**
      * Compute a hash key.
+     * 
      * @param moduleName a module spec
      * @param ownerName name of the extension's composition owner
      * @param extensionName the note/tag/stereotype name
@@ -215,6 +222,7 @@ class ExtensionCache {
 
     /**
      * Add a resource type to the cache
+     * 
      * @param moduleName the module name
      * @param metaclass the metaclass to register. Might be <code>null</code>.
      * @param element the resource type
@@ -227,6 +235,7 @@ class ExtensionCache {
 
     /**
      * Find a resource type.
+     * 
      * @param moduleName the module name
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type.
      * @param resourceTypeName the resource type name

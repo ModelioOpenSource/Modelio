@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ class CreatePartDecompositionCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param interaction The parent MObject of the MObject to create
      * @param parentNode The parent node
      * @param context Details on the MObject and/or the node to create

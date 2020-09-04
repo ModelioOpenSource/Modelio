@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ public interface ISymbolViewItem {
 
     /**
      * Get a more detailed description to display in a tooltip or a wider widget.
+     * 
      * @return a detailed description.
      */
     @objid ("72077239-e08c-428e-b056-7c18a80580bc")
@@ -56,6 +57,7 @@ public interface ISymbolViewItem {
      * Get the possible values for an enumerated property.
      * <p>
      * Returns an empty collection if the property is not enumerated.
+     * 
      * @return the possible values.
      */
     @objid ("4be457ba-d77e-44e2-bf6c-32803e3bd5ce")
@@ -65,6 +67,7 @@ public interface ISymbolViewItem {
      * Get the edited {@link StyleKey}.
      * <p>
      * If null it means it represents just a label.
+     * 
      * @return the represented field.
      */
     @objid ("75288660-b218-4a98-bb5a-56c52c69bed4")
@@ -74,6 +77,7 @@ public interface ISymbolViewItem {
      * Get the type of the editable field.
      * <p>
      * If null it means it represents just a label.
+     * 
      * @return The type of the editable field.
      */
     @objid ("b2d389a6-e8cf-4f44-940e-34c026997ad3")
@@ -81,6 +85,7 @@ public interface ISymbolViewItem {
 
     /**
      * Get the value of this field from the given style.
+     * 
      * @param input a style
      * @return the filed value.
      */
@@ -89,6 +94,7 @@ public interface ISymbolViewItem {
 
     /**
      * Tells whether this item is modifiable in the given style.
+     * 
      * @param style the edited style
      * @return true only if the item is modifiable.
      */
@@ -104,6 +110,7 @@ public interface ISymbolViewItem {
 
     /**
      * Save the new value in the given style.
+     * 
      * @param input the edited style
      * @param newValue the new value.
      */

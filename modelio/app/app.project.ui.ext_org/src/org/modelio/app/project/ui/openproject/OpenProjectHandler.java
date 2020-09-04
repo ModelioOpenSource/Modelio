@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -195,6 +195,7 @@ public class OpenProjectHandler {
 
     /**
      * Check authentication data on the project and all fragments before the project is opened.
+     * 
      * @param shell a SWT shell
      * @param projectToOpen a project descriptor
      * @return the project authentication data on success, <i>null</i> if the user aborts open.
@@ -239,6 +240,7 @@ public class OpenProjectHandler {
      * Check authentication status on the project and all its fragments.
      * <p>
      * Ask the user for authentication data if needed and possible. Try to mount again fragments after the user changed authentication data.
+     * 
      * @param monitor a progress monitor, may be null.
      * @param shell a SWT shell
      * @param openedProject the opened project
@@ -352,6 +354,7 @@ public class OpenProjectHandler {
 
     /**
      * A fragment needs authentication prompting if it is down with a {@link FragmentAuthenticationException} or a {@link AccessDeniedException}.
+     * 
      * @param f the module to check
      * @return true if authentication needs to be prompted
      */
@@ -368,6 +371,7 @@ public class OpenProjectHandler {
 
     /**
      * A module needs authentication prompting if its model component fragment is down with a {@link FragmentAuthenticationException} or a {@link AccessDeniedException}.
+     * 
      * @param f the module to check
      * @return true if authentication needs to be prompted
      */

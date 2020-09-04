@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -92,6 +92,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     /**
      * Returns a Rectangle at the given Point with width and height of -1. Layout uses width or height equal to '-1' to mean use the
      * figure's preferred size.
+     * 
      * @param p the input Point
      * @return a Rectangle
      */
@@ -128,6 +129,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * Returns whether this edit policy can handle this metaclass (either through simple or smart behavior). Default behavior is to
      * accept any metaclass that can be child (in the CreationExpert's understanding) of the host's metaclass This method should be
      * overridden by subclasses to add specific the behavior.
+     * 
      * @param metaclass the metaclass to handle.
      * @return true if this policy can handle the metaclass.
      */
@@ -180,6 +182,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * Creates the EditPartListener for observing when children are added to the host.
      * <p>
      * Redefined to auto expand on child edit part addition.
+     * 
      * @return EditPartListener
      */
     @objid ("8e90c3cf-7bf6-42a5-9466-378ecdcbae5b")
@@ -242,6 +245,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * If the Request is a MOVE, the existing width and height are preserved.<br>
      * During RESIZE, the new width and height have a lower bound determined by
      * {@link #getMinimumSizeFor(GraphicalEditPart)}.
+     * 
      * @param request the ChangeBoundsRequest.
      * @param child the child EditPart for which the constraint should be generated.
      * @return the rectangle being the desired bounds of the child.
@@ -293,6 +297,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * <P>
      * The CreateRequest's location is relative the Viewer. The location is made layout-relative before calling one of the methods
      * mentioned above.
+     * 
      * @param request the CreateRequest
      * @return a draw2d constraint
      */
@@ -345,6 +350,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Retrieves the child's current constraint from the <code>LayoutManager</code>.
+     * 
      * @param child the child
      * @return the current constraint
      */
@@ -459,6 +465,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Lazily creates and returns a <code>Polyline</code> Figure for use as feedback.
+     * 
      * @return a Polyline figure
      */
     @objid ("7f1354b4-1dec-11e2-8cad-001ec947c8cc")
@@ -480,6 +487,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     /**
      * Determines the <em>minimum</em> size that the specified child can be resized to. Called from
      * {@link #getConstraintFor(ChangeBoundsRequest, GraphicalEditPart)}. By default, a small <code>Dimension</code> is returned.
+     * 
      * @param child the child
      * @return the minimum size
      */
@@ -645,6 +653,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * Called by the edit part listener created by {@link #createListener()} when a child edit part is added.
      * <p>
      * Try to expand the container to fit all children.
+     * 
      * @param child the added edit part
      */
     @objid ("99bc7c31-bf9a-4c48-9d74-2ac6407f3f52")
@@ -688,6 +697,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     /**
      * Tells whether the given list contains the first or the last child.
      * @param resizedEditParts
+     * 
      * @param topBorder if true look for fist child else for last child
      * @return whether the given list contains the first or the last child.
      */
@@ -780,6 +790,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Return the host edit part if this policy can handle the metaclass involved in the request.
+     * 
      * @param createRequest the request.
      * @return the host editpart if the metaclass involved in the request can be handled by this policy, <code>null</code>
      * otherwise.
@@ -805,6 +816,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Return the host edit part if this policy can handle all edit parts involved in the request.
+     * 
      * @param changeBoundsRequest the request, can be CLONE or ADD.
      * @return the host editpart if all editparts involved in the request can be handled by this policy, <code>null</code>
      * otherwise.
@@ -921,6 +933,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * @param askedEnd last index
+     * 
      * @param start start index
      * @param newConstraints the constraints map to fill
      * @param askedShrink the requested shrink (values must be positive)

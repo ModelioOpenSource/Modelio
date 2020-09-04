@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -449,7 +449,6 @@ public class OperationModel implements IOperationPropertyModel {
 
     /**
      * MUST be called within a Transaction
-     * @param p
      */
     @objid ("998601e9-5574-4065-a67a-ff159d28fe9b")
     private boolean moveOneParameterDown(Parameter p) {
@@ -484,7 +483,6 @@ public class OperationModel implements IOperationPropertyModel {
 
     /**
      * MUST be called within a Transaction
-     * @param p
      */
     @objid ("3f0cfc34-395a-48c4-8776-29bbeeca1e1e")
     private boolean moveOneParameterUp(Parameter p) {

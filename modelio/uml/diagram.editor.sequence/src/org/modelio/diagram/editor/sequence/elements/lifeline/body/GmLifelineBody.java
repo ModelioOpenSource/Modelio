@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class GmLifelineBody extends GmNoStyleCompositeNode {
 
     /**
      * Default c'tor.
+     * 
      * @param diagram the diagram into which this gm is created.
      * @param relatedRef a reference to the element this gm is related to.
      */

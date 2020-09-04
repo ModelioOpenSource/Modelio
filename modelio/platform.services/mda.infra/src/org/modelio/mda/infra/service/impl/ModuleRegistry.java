@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Get the started modules.
+     * 
      * @return The started modules.
      */
     @objid ("1e683a96-edc3-11e1-88ee-001ec947c8cc")
@@ -64,6 +65,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Get the started {@link IRTModule} corresponding to the given {@link ModuleComponent}.
+     * 
      * @param model the module model.
      * @return the matching started module or <i>null</i> if no started module matches the <i>IRTModule</i>
      */
@@ -76,6 +78,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Adds a module to the list of started modules
+     * 
      * @param module the started module.
      */
     @objid ("1e683aa5-edc3-11e1-88ee-001ec947c8cc")
@@ -93,6 +96,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Remove a module from the list of started modules.
+     * 
      * @param module the stopped module.
      */
     @objid ("1e6a9ceb-edc3-11e1-88ee-001ec947c8cc")
@@ -105,6 +109,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Adds a module to the list of loaded modules
+     * 
      * @param module the loaded module.
      */
     @objid ("1e6a9cf0-edc3-11e1-88ee-001ec947c8cc")
@@ -120,6 +125,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Get the loaded {@link IRTModule} corresponding to the given {@link ModuleComponent}.
+     * 
      * @param model the module model.
      * @return the matching loaded module or <i>null</i> if no loaded module matches the <i>IRTModule</i>
      */
@@ -155,6 +161,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Get the started {@link IRTModule} which name correspond to the given {@link ModuleId} name and which version is newer or equal to the given version.
+     * 
      * @param moduleId the Id of the searched module.
      * @return the matching started module or <code>null</code> if no started module matches the ModuleId.
      */
@@ -218,6 +225,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Check the registry is in the right state before using it.
+     * 
      * @throws java.lang.IllegalStateException if the registry is not yet open or is disposed.
      */
     @objid ("5e5db267-fef5-417b-a51e-d5325d43f3d1")

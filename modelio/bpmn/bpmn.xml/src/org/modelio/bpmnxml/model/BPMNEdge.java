@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -95,6 +95,7 @@ public class BPMNEdge extends LabeledEdge {
 
     /**
      * Sets the value of the bpmnLabel property.
+     * 
      * @param value allowed object is
      * {@link BPMNLabel }
      */
@@ -116,6 +117,7 @@ public class BPMNEdge extends LabeledEdge {
 
     /**
      * Sets the value of the bpmnElement property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -137,6 +139,7 @@ public class BPMNEdge extends LabeledEdge {
 
     /**
      * Sets the value of the sourceElement property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -158,6 +161,7 @@ public class BPMNEdge extends LabeledEdge {
 
     /**
      * Sets the value of the targetElement property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -179,6 +183,7 @@ public class BPMNEdge extends LabeledEdge {
 
     /**
      * Sets the value of the messageVisibleKind property.
+     * 
      * @param value allowed object is
      * {@link MessageVisibleKind }
      */

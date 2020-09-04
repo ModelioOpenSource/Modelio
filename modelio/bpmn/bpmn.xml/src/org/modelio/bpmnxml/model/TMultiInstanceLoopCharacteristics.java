@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -125,6 +125,7 @@ public class TMultiInstanceLoopCharacteristics extends TLoopCharacteristics {
 
     /**
      * Sets the value of the loopCardinality property.
+     * 
      * @param value allowed object is
      * {@link TExpression }
      */
@@ -146,6 +147,7 @@ public class TMultiInstanceLoopCharacteristics extends TLoopCharacteristics {
 
     /**
      * Sets the value of the loopDataInputRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -167,6 +169,7 @@ public class TMultiInstanceLoopCharacteristics extends TLoopCharacteristics {
 
     /**
      * Sets the value of the loopDataOutputRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -188,6 +191,7 @@ public class TMultiInstanceLoopCharacteristics extends TLoopCharacteristics {
 
     /**
      * Sets the value of the inputDataItem property.
+     * 
      * @param value allowed object is
      * {@link TDataInput }
      */
@@ -209,6 +213,7 @@ public class TMultiInstanceLoopCharacteristics extends TLoopCharacteristics {
 
     /**
      * Sets the value of the outputDataItem property.
+     * 
      * @param value allowed object is
      * {@link TDataOutput }
      */
@@ -258,6 +263,7 @@ public class TMultiInstanceLoopCharacteristics extends TLoopCharacteristics {
 
     /**
      * Sets the value of the completionCondition property.
+     * 
      * @param value allowed object is
      * {@link TExpression }
      */
@@ -283,6 +289,7 @@ public class TMultiInstanceLoopCharacteristics extends TLoopCharacteristics {
 
     /**
      * Sets the value of the isSequential property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -308,6 +315,7 @@ public class TMultiInstanceLoopCharacteristics extends TLoopCharacteristics {
 
     /**
      * Sets the value of the behavior property.
+     * 
      * @param value allowed object is
      * {@link TMultiInstanceFlowCondition }
      */
@@ -329,6 +337,7 @@ public class TMultiInstanceLoopCharacteristics extends TLoopCharacteristics {
 
     /**
      * Sets the value of the oneBehaviorEventRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -350,6 +359,7 @@ public class TMultiInstanceLoopCharacteristics extends TLoopCharacteristics {
 
     /**
      * Sets the value of the noneBehaviorEventRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

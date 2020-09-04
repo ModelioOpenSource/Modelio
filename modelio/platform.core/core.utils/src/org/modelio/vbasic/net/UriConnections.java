@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class UriConnections {
 
     /**
      * Same as {@link URL#openStream()}
+     * 
      * @param uri an URI
      * @return an input stream for reading from the URI connection.
      * @throws java.net.MalformedURLException if the URI is not supported
@@ -67,6 +68,7 @@ public class UriConnections {
 
     /**
      * Same as {@link URL#openConnection()}.
+     * 
      * @param uri an URI
      * @return a UriConnection linking to the URI.
      * @throws java.net.MalformedURLException if the URI is not supported or not absolute.
@@ -89,6 +91,7 @@ public class UriConnections {
      * Add an URI connection handler.
      * <p>
      * The added handler takes priority from existing handlers.
+     * 
      * @param handler a new URI handler.
      */
     @objid ("73150088-8f5d-4529-82ef-13515c6c4802")
@@ -98,6 +101,7 @@ public class UriConnections {
 
     /**
      * Same as {@link URL#openStream()}
+     * 
      * @param uri an URI
      * @param authData authentication data.
      * @return an input stream for reading from the URI connection.

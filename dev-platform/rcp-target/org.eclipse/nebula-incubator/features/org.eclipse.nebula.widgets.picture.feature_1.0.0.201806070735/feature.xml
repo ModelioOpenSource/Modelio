@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.picture.feature"
+      label="%featureName"
+      version="1.0.0.201806070735"
+      provider-name="%provider">
+
+   <description url="%featureDescriptionURL">
+      %featureDescriptionText
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.picture"
+         download-size="36"
+         install-size="68"
+         version="1.0.0.201806070735"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.picture.source"
+         download-size="33"
+         install-size="125"
+         version="1.0.0.201806070735"
+         unpack="false"/>
+
+</feature>

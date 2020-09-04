@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class ConnectLollipopsCommand extends Command {
 
     /**
      * Initialize the command.
+     * 
      * @param reqEditPart the required interface
      * @param provEditPart the provided interface
      * @param location the junction location

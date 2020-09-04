@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IRepositoryErrorListener {
     /**
      * Called when a recoverable error occurs.
+     * 
      * @param repository the repository where the error occured
      * @param e the error
      */
@@ -37,6 +38,7 @@ public interface IRepositoryErrorListener {
 
     /**
      * Called when an error prevents the repository from working.
+     * 
      * @param repository the repository where the error occured
      * @param e the error
      */

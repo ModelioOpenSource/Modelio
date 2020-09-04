@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class PasteElementHandler {
 
     /**
      * Available only when the selection contains only one modifiable element.
+     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the current SWT display
      * @return true if the handler can be executed.
@@ -96,14 +97,9 @@ public class PasteElementHandler {
         MExpert expert = metamodel.getMExpert();
         
         final List<TransferItem> items = pastedObject.getTransferedItems();
-        final List<TransferItem> pastedStereotypeItems = PasteElementHandler.getStereotypesItemsToCopy(items);
-        final List<MObject> pastedElements = PasteElementHandler.getElementsToCopy(items, session);
         
         MObject destElement = selectedElements.get(0);
-        if (!destElement.getStatus().isModifiable()) { // cannot paste to the unmodifiable element
-            return false;
-        }
-        for (MObject pasted : pastedElements) {
+        for (MObject pasted : PasteElementHandler.getElementsToCopy(items, session)) {
             switch (pastedObject.getPasteType()) {
             case CUT:
                 if (!MTools.getAuthTool().canAddTo(pasted, destElement)) {
@@ -124,7 +120,7 @@ public class PasteElementHandler {
                 break;
             }
         }
-        for (TransferItem item : pastedStereotypeItems) {
+        for (TransferItem item : PasteElementHandler.getStereotypesItemsToCopy(items)) {
             Stereotype stereotype = (Stereotype) this.projectService.getSession().getModel().findByRef(item.getTransferedElementRef(), IModel.NODELETED);
             if (((ModelElement) destElement).getExtension().contains(stereotype)) {
                 return false;
@@ -159,6 +155,7 @@ public class PasteElementHandler {
 
     /**
      * Cut the currently selected elements.
+     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */
@@ -318,7 +315,7 @@ public class PasteElementHandler {
 
     /**
      * Tells whether 'child' can be owned by 'parent'.
-     * @param expert
+     * 
      * @param owner The future parent element
      * @param composed a child element
      * @return true only if parent can contain the child.

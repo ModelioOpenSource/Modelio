@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -152,6 +152,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
 
     /**
      * Erases connection move feedback. This method is called when a ReconnectRequest is received.
+     * 
      * @param request the reconnect request.
      */
     @objid ("d966b7b6-55b6-11e2-877f-002564c97630")
@@ -169,6 +170,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
 
     /**
      * Convenience method for obtaining the host's <code>Connection</code> figure.
+     * 
      * @return the Connection figure
      */
     @objid ("d966b7bb-55b6-11e2-877f-002564c97630")
@@ -178,6 +180,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
 
     /**
      * Lazily creates and returns the feedback helper for the given request. The helper will be configured as either moving the source or target end of the connection.
+     * 
      * @param request the reconnect request
      * @return the feedback helper
      */
@@ -207,6 +210,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
 
     /**
      * Shows or updates connection move feedback. Called whenever a show feedback request is received for reconnection.
+     * 
      * @param request the reconnect request
      */
     @objid ("d966b7cb-55b6-11e2-877f-002564c97630")
@@ -245,6 +249,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
 
     /**
      * Shows or updates feedback for a change bounds request.
+     * 
      * @param originalRequest the request
      */
     @objid ("d966b7d3-55b6-11e2-877f-002564c97630")
@@ -419,6 +424,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
 
     /**
      * Update variables for execution rectangle.
+     * 
      * @param executionSpecification the execution rectangle
      * @param shift the vertical move delta
      * @param sizeDelta the vertical size delta

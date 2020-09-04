@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,16 +24,16 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.uml.behavior.activityModel.SendSignalAction;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.generation.GenerationProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("a0560fda-cda9-4908-b2e5-d2e437e9bd70")
 public class OSendSignalAction extends OActivityNode {
     @objid ("2184cea3-a920-4277-8169-8f027e6ce025")
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
-        if (getObjingElement().isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2BROADCASTSIGNALACTION))
+        if (getObjingElement().isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2BROADCASTSIGNALACTION))
             return UMLFactory.eINSTANCE.createBroadcastSignalAction();
         else
             return UMLFactory.eINSTANCE.createSendSignalAction();

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public class ExpansionNodePropertyModel extends AbstractPropertyModel<ExpansionN
     /**
      * Create a new <i>ExpansionNode</i> data model from an <i>ExpansionNode</i>
      * .
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("1f76f15f-e30b-404f-9e04-e7862da8897e")
@@ -78,6 +79,7 @@ public class ExpansionNodePropertyModel extends AbstractPropertyModel<ExpansionN
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("77839605-2a23-4111-b0d4-f99a2231cf20")
@@ -88,6 +90,7 @@ public class ExpansionNodePropertyModel extends AbstractPropertyModel<ExpansionN
 
     /**
      * Returns the element represented by the given instance node.
+     * 
      * @return the represented element
      */
     @objid ("58c22615-604e-4299-b5df-1a4decd46beb")
@@ -114,6 +117,7 @@ public class ExpansionNodePropertyModel extends AbstractPropertyModel<ExpansionN
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("a89b4928-036e-417e-b4ba-be1f44190bc4")
@@ -126,6 +130,7 @@ public class ExpansionNodePropertyModel extends AbstractPropertyModel<ExpansionN
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -168,6 +173,7 @@ public class ExpansionNodePropertyModel extends AbstractPropertyModel<ExpansionN
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -211,6 +217,7 @@ public class ExpansionNodePropertyModel extends AbstractPropertyModel<ExpansionN
     /**
      * Set the InstanceNode represented elements. This method set the right
      * dependency and clears the otheEditedElement.
+     * 
      * @param theEditedElement the instance node
      * @param value the new represented element
      */
@@ -277,6 +284,7 @@ public class ExpansionNodePropertyModel extends AbstractPropertyModel<ExpansionN
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -126,6 +126,7 @@ public class GmPath implements IGmPath {
 
     /**
      * Copy constructor.
+     * 
      * @param path the path to copy.
      */
     @objid ("8027e5a3-1dec-11e2-8cad-001ec947c8cc")
@@ -140,6 +141,7 @@ public class GmPath implements IGmPath {
 
     /**
      * Get the link connection routing mode.
+     * 
      * @return The link connection routing mode.
      */
     @objid ("802a47bb-1dec-11e2-8cad-001ec947c8cc")
@@ -151,6 +153,7 @@ public class GmPath implements IGmPath {
 
     /**
      * Set the link connection routing mode.
+     * 
      * @param routerKind The new link connection routing mode.
      */
     @objid ("802a47c1-1dec-11e2-8cad-001ec947c8cc")
@@ -163,6 +166,7 @@ public class GmPath implements IGmPath {
 
     /**
      * Get the target side rake if the link is raked.
+     * 
      * @return the target side rake or <code>null</code>.
      */
     @objid ("802a47c7-1dec-11e2-8cad-001ec947c8cc")
@@ -181,6 +185,7 @@ public class GmPath implements IGmPath {
 
     /**
      * Get the source side rake if the link is raked on its source side.
+     * 
      * @return the source side rake or <code>null</code>.
      */
     @objid ("802a47d2-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public abstract class SmObjectData implements ISmObjectData {
 
     /**
      * To be called before using the object.
+     * 
      * @param uuid the identifier
      * @param liveId identifier for the object in memory.
      */
@@ -147,6 +148,7 @@ public abstract class SmObjectData implements ISmObjectData {
 
     /**
      * Set the given persistent flags state.
+     * 
      * @param flags a combination of flags. Use the constants defined in {@link IRStatus}.
      * @param state the flags state
      */
@@ -220,6 +222,7 @@ public abstract class SmObjectData implements ISmObjectData {
 
     /**
      * Mandatory constructor
+     * 
      * @param classof the object metaclass
      */
     @objid ("a9cc60f6-dbc2-43c6-94ab-069a4d0a3af4")

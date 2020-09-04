@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -157,6 +157,7 @@ public class R1110 extends AbstractUmlRule {
 
         /**
          * UML 2.3, CallBehaviorAction, Constraints [1] & [2]
+         * 
          * @param callBehaviorAction The CallBehaviorAction to check.
          * @return An audit entry.
          */
@@ -255,6 +256,7 @@ public class R1110 extends AbstractUmlRule {
 
         /**
          * A Pin was either created, moved or updated, we need to check if this Pin belong to a CallBehaviorAction and check it if it does.
+         * 
          * @param pin The Pin to check.
          * @return An audit entry.
          */
@@ -269,6 +271,7 @@ public class R1110 extends AbstractUmlRule {
 
         /**
          * A BehaviorParameter was either created, moved, or updated, wee need to check the Behavior it belongs to.
+         * 
          * @param parameter The parameter to check.
          * @return A list of audit entries.
          */
@@ -279,6 +282,7 @@ public class R1110 extends AbstractUmlRule {
 
         /**
          * A Behavior was updated, we need to check if it has registered callers and check the rule on these CallBehaviorAction.
+         * 
          * @param behavior The Behavior to check.
          * @return A list of audit entries.
          */

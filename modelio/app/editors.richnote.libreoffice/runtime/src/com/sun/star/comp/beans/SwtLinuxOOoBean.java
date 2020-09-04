@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -131,6 +131,7 @@ public class SwtLinuxOOoBean extends Composite {
 
     /**
      * debugging method
+     * 
      * @param aMessage message to print
      */
     @objid ("6c919523-361c-49dc-a38c-b8463dbdec9d")
@@ -150,6 +151,7 @@ public class SwtLinuxOOoBean extends Composite {
      * @see SWT#EMBEDDED
      * @see SWT#DOUBLE_BUFFERED
      * @see Widget#getStyle
+     * 
      * @param parent a widget which will be the parent of the new instance (cannot be null)
      * @param style the style of widget to construct
      * 
@@ -196,6 +198,7 @@ public class SwtLinuxOOoBean extends Composite {
      * Sets the timeout for methods which launch OOo in milli seconds.
      * 
      * This method does not need a connection to an OOo instance.
+     * 
      * @param nMilliSecs the timeout
      */
     @objid ("74356d01-cabe-4772-9a72-988e05396438")
@@ -207,6 +210,7 @@ public class SwtLinuxOOoBean extends Composite {
      * Sets the timeout for normal OOO methods calls in milli seconds.
      * 
      * This method does not need a connection to an OOo instance.
+     * 
      * @param nMilliSecs the timeout
      */
     @objid ("d089e006-7360-492e-9387-dc11bfedd672")
@@ -218,6 +222,7 @@ public class SwtLinuxOOoBean extends Composite {
      * Sets the period length in milli seconds to check the OOo connection.
      * 
      * This method does not need a connection to an OOo instance.
+     * 
      * @param nMilliSecs the timeout
      */
     @objid ("a30ebf1b-208a-47d8-968f-74212ef1b514")
@@ -306,6 +311,7 @@ public class SwtLinuxOOoBean extends Composite {
      * when calling {@link #stopOOoConnection()} or other API methods. If other instances share the same
      * connection then they will stop function properly, because they loose their connection as well. <br/>
      * The recommended way to end the connection is calling {@link #stopOOoConnection()}.
+     * 
      * @return a connection to an OOo instance.
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection can be established
      * @requirement FUNC.CON.STOP/0.4 (via XComponent.dispose())
@@ -325,6 +331,7 @@ public class SwtLinuxOOoBean extends Composite {
 
     /**
      * Returns the service factory used by this OOoBean instance.
+     * 
      * @return the service factory used by this OOoBean instance.
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established and no default connection can be established.
      */
@@ -358,6 +365,7 @@ public class SwtLinuxOOoBean extends Composite {
 
     /**
      * Returns the XDesktop interface of the OOo instance used by this OOoBean.
+     * 
      * @return the XDesktop interface
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established and no default connection can be established.
      */
@@ -436,6 +444,7 @@ public class SwtLinuxOOoBean extends Composite {
      * @throws com.sun.star.util.CloseVetoException
      * if the currently displayed document cannot be closed because it is still be used, for example it is
      * printed.
+     * 
      * @param aURL document URL
      * @param aArguments loading arguments
      * @throws java.io.IOException if an IO error occurs reading the resource specified by the URL.
@@ -572,6 +581,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * See loadFromURL() for further information.
      * @throws com.sun.star.util.CloseVetoException if the open document refused to close.
+     * 
      * @param iInStream input stream containing the document.
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
      * @throws java.io.IOException if an IO error occurs reading the resource.
@@ -622,6 +632,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * See loadFromURL() for further information.
      * @throws com.sun.star.util.CloseVetoException if the open document refused to close.
+     * 
      * @param aInBuffer the buffer containing the document.
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
      * @throws java.io.IOException if an IO error occurs reading the resource.
@@ -659,6 +670,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * It is planned to offer a way of specifying startup options in a future version. The property can be used until
      * then. When using this property only one option can be provided.
+     * 
      * @param aURL the destination
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
      * @throws java.lang.IllegalArgumentException if either of the arguments is out of the specified range.
@@ -693,6 +705,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * See {@link #storeToURL storeToURL} for further information.
      * @see #storeToURL storeToURL
+     * 
      * @param aOutStream the destination stream.
      * @param aArguments arguments
      * @return the same output stream.
@@ -732,6 +745,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * See {@link #storeToURL storeToURL} for further information.
      * @see #storeToURL storeToURL
+     * 
      * @param aOutBuffer the byte array.
      * @param aArguments some arguments
      * @return the buffer containing the saved document, should be 'aOutBuffer'.
@@ -770,6 +784,7 @@ public class SwtLinuxOOoBean extends Composite {
      * @requirement FUNC.BEAN.PROG/0.5
      * @requirement API.SIM.SEAP/0.2
      * returns the <type scope="com::sun::star::frame">Frame</a> of the bean.
+     * 
      * @return a Java class which implements all interfaces which the service <type
      * scope="com::sun::star::frame">Frame</a> implements. Thus, methods can be called directly without
      * queryInterface. This feature might be implemented by UNO or explicitely coded.
@@ -787,6 +802,7 @@ public class SwtLinuxOOoBean extends Composite {
      * @requirement FUNC.BEAN.PROG/0.5
      * @requirement API.SIM.SEAP/0.2
      * returns the <type scope="com::sun::star::frame::Controller"> of the bean.
+     * 
      * @return a Java class which implements all interfaces which the service &lt;type
      * scope="com::sun::star::frame">Controller&lt;/a> implements. Thus, methods can be called directly without
      * queryInterface. This feature might be implemented by UNO or explicitly coded.
@@ -809,6 +825,7 @@ public class SwtLinuxOOoBean extends Composite {
      * @requirement FUNC.BEAN.PRNT/0.4
      * @requirement API.SIM.SEAP/0.2
      * returns the <type scope="com::sun::star::document::OfficeDocument"> of the bean.
+     * 
      * @return a Java class which implements all interfaces which the service <type
      * scope="com::sun::star::document">OfficeDocument</a> implements. Thus, methods can be called directly
      * without queryInterface. This feature might be implemented by UNO or explicitely coded.
@@ -833,6 +850,7 @@ public class SwtLinuxOOoBean extends Composite {
      * <p>
      * If no connection is established or no document is loaded, the setting is memorized until a document is loaded.
      * Same is valid when the connection dies within this function call.
+     * 
      * @param bVisible the toolbars visibility
      * 
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
@@ -876,6 +894,7 @@ public class SwtLinuxOOoBean extends Composite {
 
     /**
      * Helper method to set tool bar visibility.
+     * 
      * @param aResourceURL property owner
      * @param bOldValue old visibility ?
      * @param bNewValue If false, the tool bar is disabled, If true, the tool bar is visible.
@@ -944,6 +963,7 @@ public class SwtLinuxOOoBean extends Composite {
      * <p>
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
+     * 
      * @param bVisible If false, the menu bar is disabled, If true, the menu bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -965,6 +985,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * This method works independently from a connetion or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
+     * 
      * @return True if the menu bar is visible, false if the menu bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -982,6 +1003,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
+     * 
      * @param bVisible If false, the main function bar is disabled, If true, the main function bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1003,6 +1025,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * This method works independently from a connetion or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
+     * 
      * @return True if the main function bar is visible, false if the main function bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1020,6 +1043,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
+     * 
      * @param bVisible If false, the tool function bar is disabled, If true, the tool function bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1041,6 +1065,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * This method works independently from a connection or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
+     * 
      * @return True if the tool function bar is visible, false if the tool function bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1058,6 +1083,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
+     * 
      * @param bVisible If false, the status function bar is disabled, If true, the status function bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1079,6 +1105,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * This method works independently from a connetion or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
+     * 
      * @return True if the status function bar is visible, false if the status function bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1142,6 +1169,7 @@ public class SwtLinuxOOoBean extends Composite {
     /**
      * Creating a correct File URL that OpenOffice can handle. This is
      * necessary to be platform independent.
+     * 
      * @param newfile a file path
      * @return the OpenOffice compatible URL.
      * @throws com.sun.star.comp.beans.NoConnectionException if not connected to OpenOffice
@@ -1193,6 +1221,7 @@ public class SwtLinuxOOoBean extends Composite {
      * 
      * It is planned to offer a way of specifying startup options in a future version. The property can be used until
      * then. When using this property only one option can be provided.
+     * 
      * @param aURL the destination
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
      * @throws java.lang.IllegalArgumentException if either of the arguments is out of the specified range.
@@ -1227,6 +1256,7 @@ public class SwtLinuxOOoBean extends Composite {
 
     /**
      * Get the interaction handler able to handle some problems.
+     * 
      * @return the interaction handler
      * @throws com.sun.star.comp.beans.NoConnectionException if the specified connection cannot be established
      */
@@ -1253,6 +1283,7 @@ public class SwtLinuxOOoBean extends Composite {
 
     /**
      * Store the currently edited document.
+     * 
      * @throws java.lang.IllegalArgumentException if either of the arguments is out of the specified range.
      * @throws java.io.IOException if an IO error occurs reading the resource specified by the URL.
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established.
@@ -1294,6 +1325,7 @@ public class SwtLinuxOOoBean extends Composite {
      * <p>
      * Another scenario is that a SwtOOoBean contains a document and is removed from a Java container and later added
      * again. Then <code>aquireSystemWindow</code> needs to be called after the container window is displayed.
+     * 
      * @throws com.sun.star.comp.beans.SystemWindowException if no system window can be aquired.
      * @throws com.sun.star.comp.beans.NoConnectionException if the connection is not established.
      */
@@ -1346,6 +1378,7 @@ public class SwtLinuxOOoBean extends Composite {
 
     /**
      * Close the document.
+     * 
      * @throws java.io.IOException in case of failure.
      */
     @objid ("26c4ff57-428e-4fd2-8d5f-9a757faa4740")
@@ -1416,6 +1449,7 @@ public class SwtLinuxOOoBean extends Composite {
     /**
      * Create the OOO XFrame.
      * @throws com.sun.star.uno.Exception if com.sun.star.frame.Frame couldn't be instantiated
+     * 
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection
      */
     @objid ("54742821-d680-47ee-a340-6152ea5dbecc")
@@ -1445,6 +1479,7 @@ public class SwtLinuxOOoBean extends Composite {
 
     /**
      * Initialize the SWTOfficeWindow.
+     * 
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established and no default connection can be established.
      */
     @objid ("11496fa0-bd5c-415d-8c16-7d0c423c8854")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,19 +58,19 @@ public class AuditPreferenceUi {
     @objid ("b4f2427c-a1ef-4a7f-ac1a-f5ebb76b07d8")
     private static final String AUDIT_CONF_EXT = ".xml";
 
-    @objid ("5b697db6-2d8e-452c-bd31-448d4a5940e3")
+    @objid ("71bcea35-bf45-4a19-908b-7a219fbc7e13")
     private Button exportToFile;
 
-    @objid ("6a8eab62-89f0-4510-840e-fe26f4afaf0b")
+    @objid ("f4026253-b933-4400-9370-29a7c5b5ba79")
     private Button importFromFile;
 
-    @objid ("974124ca-0adc-4508-8e3a-51a7a799015a")
+    @objid ("e736f01d-6b49-4e76-b3ad-2162174a6ca6")
     private Button factory;
 
-    @objid ("231da431-be9a-40c6-a0ed-54120b7595fa")
+    @objid ("142dcbce-2af9-4651-9031-0db06244673a")
     private Button save;
 
-    @objid ("7e70e13b-29f7-429e-8712-0d3441dc0659")
+    @objid ("613c998e-ac0d-4808-aea5-d3de782c4d49")
     private TreeViewer treeViewer;
 
     @objid ("c2c1e386-680a-40cf-829c-81072dded501")
@@ -81,6 +81,7 @@ public class AuditPreferenceUi {
 
     /**
      * Initialize the preference editor.
+     * 
      * @param auditService the audit service
      */
     @objid ("b20b8808-ba8a-46d9-8367-6fe4544fd982")
@@ -91,6 +92,7 @@ public class AuditPreferenceUi {
 
     /**
      * Create the GUI
+     * 
      * @param parent the parent composite where the content must be created.
      * @return the created root composite
      */

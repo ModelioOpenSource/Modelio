@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,10 +62,10 @@ import org.modelio.vcore.smkernel.mapi.MMetamodel;
 import org.modelio.vcore.smkernel.mapi.MMetamodelFragment;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
-import org.modelio.vcore.smkernel.meta.ISmMetamodelFragment;
 import org.modelio.vcore.smkernel.meta.MetamodelWriter;
 import org.modelio.vcore.smkernel.meta.SmClass;
 import org.modelio.vcore.smkernel.meta.SmDependency;
+import org.modelio.vcore.smkernel.meta.SmMetamodel;
 import org.modelio.vcore.smkernel.meta.descriptor.MetamodelDescriptor;
 import org.modelio.vcore.smkernel.meta.descriptor.MetamodelDescriptorReader;
 import org.modelio.vcore.smkernel.meta.descriptor.MetamodelDescriptorWriter;
@@ -197,6 +197,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
      * initialize the EXML repository.
      * <p>
      * The repository needs to be {@link #open( IModelLoaderProvider, IModelioProgress) opened} before being used.
+     * 
      * @param resProvider an EXML resource provider.
      */
     @objid ("cf20c950-03e4-11e2-b5bf-001ec947ccaf")
@@ -212,6 +213,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
      * initialize the EXML repository.
      * <p>
      * The repository needs to be {@link #open(IModelLoaderProvider, IModelioProgress) opened} before being used.
+     * 
      * @param path the repository data path.
      * @param runtimePath the repository runtime path. This path contains the EXML indexes.
      * @param name a name for this repository. Used in exception messages.
@@ -310,6 +312,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Create an empty repository.
+     * 
      * @param mMetamodel the initial metamodel
      * @throws java.io.IOException in case of failure.
      */
@@ -317,6 +320,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
     public void create(MMetamodel mMetamodel) throws IOException {
         this.resProvider.createRepository(mMetamodel);
         saveRepositoryVersion(mMetamodel);
+        saveMetamodelDescriptor(mMetamodel);
     }
 
     @objid ("fd21f54c-5986-11e1-991a-001ec947ccaf")
@@ -398,6 +402,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Find an object from its ID in the repository.
+     * 
      * @param id an object ID.
      * @param modelLoader the model loader to use to load the model object
      * @return the found model object or <code>null</code>.
@@ -486,6 +491,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Get an access to the EXML indexes.
+     * 
      * @param monitor a progress monitor used when the indexes need to be rebuilt.
      * @return the EXML indexes.
      * @throws org.modelio.vstore.exml.common.index.CannotOpenIndexException if the index cannot be open nor rebuilt.
@@ -515,6 +521,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Gives access to available maintenance operations on an EXML repository.
+     * 
      * @return the maintenance operations.
      */
     @objid ("d79ead26-1aa7-453d-ab62-b8462e95022c")
@@ -534,6 +541,9 @@ public abstract class AbstractExmlRepository implements IExmlBase {
     @objid ("df2704f4-1c43-11e2-8eb9-001ec947ccaf")
     @Override
     public final IModelLoaderProvider getModelLoaderProvider() {
+        if (this.modelLoaderProvider == null) {
+            throw new IllegalStateException("The '"+getURI()+"' repository is not open.");
+        }
         return this.modelLoaderProvider;
     }
 
@@ -545,6 +555,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Get the EXML resources provider.
+     * 
      * @return the EXML resources provider.
      */
     @objid ("9788fc2f-12de-11e2-816a-001ec947ccaf")
@@ -554,6 +565,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Get the location of the repository as an URI.
+     * 
      * @return the location of the repository.
      */
     @objid ("cf258dfd-03e4-11e2-b5bf-001ec947ccaf")
@@ -788,14 +800,17 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Reload the given CMS node objects from repository.
+     * 
      * @param toReload the CMS node objects to reload.
      * @param toDelete the CMS node objects to explicitly delete
      * @param toRestore the deleted CMS nodes to undelete
      */
     @objid ("615f95ca-5eff-11e2-b557-001ec947ccaf")
     public void refreshModel(Collection<MObject> toReload, Collection<MObject> toDelete, Collection<MRef> toRestore) {
-        try (IModelRefresher refresher= getModelLoaderProvider().beginRefreshSession()) {
+        IModelLoaderProvider loaderProv = getModelLoaderProvider();
+        try (IModelRefresher refresher= loaderProv.beginRefreshSession()) {
             if (toRestore != null) {
+                SmMetamodel metamodel = loaderProv.getMetamodel();
                 for (MRef ref : toRestore) {
                     // forget detached objects are create new ones
                     synchronized(this.detachedObjects) {
@@ -803,7 +818,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
                         this.deletedNodes.remove(ref.uuid);
                     }
         
-                    ObjId id = new ObjId(getModelLoaderProvider().getMetamodel().getMClass(ref.mc), ref.uuid);
+                    ObjId id = new ObjId(metamodel.getMClass(ref.mc), ref.uuid);
                     
                     loadCmsNode(id, refresher, true);
                 }
@@ -920,12 +935,12 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         String repositoryName = getResourceProvider().getName();
         int nbDirty = dirty.size();
         SubProgress mon = SubProgress.convert(monitor, nbDirty * 20);
-        mon.subTask(VStoreExml.getMessage("AbstractExmlRepository.save.begin", repositoryName));
+        mon.subTask(VStoreExml.I18N.getMessage("AbstractExmlRepository.save.begin", repositoryName));
         try {
         
             if (! this.deletedNodes.isEmpty()) {
                 // TODO backup files to roll back save on failure
-                mon.subTask(VStoreExml.getMessage("AbstractExmlRepository.save.deleting", repositoryName, this.deletedNodes.size()));
+                mon.subTask(VStoreExml.I18N.getMessage("AbstractExmlRepository.save.deleting", repositoryName, this.deletedNodes.size()));
                 deleteCmsNodes(this.deletedNodes.values(), mon.newChild(this.deletedNodes.size()));
             }
         
@@ -943,7 +958,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
                     handler.setDirty(false);
                 } catch (IOException e) {
                     // Report save error and try to continue
-                    String message = VStoreExml.getMessage("AbstractExmlRepository.saveNodeFailed",
+                    String message = VStoreExml.I18N.getMessage("AbstractExmlRepository.saveNodeFailed",
                             handler.getCmsNodeId(),
                             FileUtils.getLocalizedMessage(e),
                             getResourceProvider().getName());
@@ -953,7 +968,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         
                 mon.worked(1);
                 if (++i % 5 == 0) {
-                    mon.subTask(VStoreExml.getMessage("AbstractExmlRepository.save.progress", repositoryName, i, nbDirty));
+                    mon.subTask(VStoreExml.I18N.getMessage("AbstractExmlRepository.save.progress", repositoryName, i, nbDirty));
                 }
         
             }
@@ -975,31 +990,26 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         }
         
         // Now update the indexes
-        mon.subTask(VStoreExml.getMessage("AbstractExmlRepository.save.indexes", repositoryName));
+        mon.subTask(VStoreExml.I18N.getMessage("AbstractExmlRepository.save.indexes", repositoryName));
         mon.setWorkRemaining(100);
         updateIndexes(dirty, mon);
-        mon.subTask(VStoreExml.getMessage("AbstractExmlRepository.save.done", repositoryName));
+        mon.subTask(VStoreExml.I18N.getMessage("AbstractExmlRepository.save.done", repositoryName));
     }
 
     /**
      * Save a descriptor of the current metamodel.
+     * <p>
+     * Precondition : {@link #open(IModelLoaderProvider, IModelioProgress)} must have been called.
+     * 
      * @throws java.io.IOException on index broken.
      * @since 3.6
      */
     @objid ("10185993-792d-428c-b7a1-37bb8ddbec76")
     public final void saveMetamodelDescriptor() throws IOException {
-        ExmlResource mmDescRes = getResourceProvider().getMetamodelDescriptorResource();
-        try (OutputStream out = mmDescRes.bufferedWrite()){
-            // TODO :write only the used metamodel fragments and handle changes on SVN repositories.
-            MetamodelDescriptor desc = new MetamodelWriter()
-            //.withFragmentFilter(mmf -> isMetamodelFragmentUsed(mmf))
-            .run(this.modelLoaderProvider.getMetamodel());
+        SmMetamodel metamodel = getModelLoaderProvider().getMetamodel();
         
-            new MetamodelDescriptorWriter().write(desc, out);
-            this.storedMetamodelDescriptor = Optional.of(desc);
-        } catch (StreamException e) {
-            throw new IOException(e.getCause().getLocalizedMessage(), e);
-        }
+        MetamodelDescriptor desc = saveMetamodelDescriptor(metamodel);
+        this.storedMetamodelDescriptor = Optional.of(desc);
     }
 
     @objid ("d5c6ab7f-6231-11e1-b31a-001ec947ccaf")
@@ -1008,14 +1018,14 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         if (! this.needRebuildIndexes) {
             String m1 = e.getLocalizedMessage();
             String reposName = this.resProvider.getName();
-            String msg = VStoreExml.getMessage("AbstractExmlRepository.setIndexDamaged",reposName, m1);
+            String msg = VStoreExml.I18N.getMessage("AbstractExmlRepository.setIndexDamaged",reposName, m1);
             getErrorSupport().fireWarning(new StorageException(this, msg, e));
         
             if (this.indexes != null) {
                 try {
                     this.indexes.close();
                 } catch (IndexException e1) {
-                    msg = VStoreExml.getMessage("AbstractExmlRepository.setIndexDamaged.closeFailed", reposName, e1.getLocalizedMessage());
+                    msg = VStoreExml.I18N.getMessage("AbstractExmlRepository.setIndexDamaged.closeFailed", reposName, e1.getLocalizedMessage());
                     getErrorSupport().fireWarning(new StorageException(this, msg, e1));
                 }
             }
@@ -1046,6 +1056,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
      * Update indexes from the modified CMS nodes.
      * <p>
      * Called by the CMS drivers after having updated the working copy.
+     * 
      * @param createdRefs created CMS nodes
      * @param updatedRefs modified CMS nodes
      * @param deletedRefs deleted CMS nodes
@@ -1068,7 +1079,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
             // Update indexes
             ExmlIndex index = getIndexes(monitor.newChild(10));
         
-            monitor.subTask(VStoreExml.getMessage("AbstractExmlRepository.mon.updatingIndexes", this.resProvider.getName() ));
+            monitor.subTask(VStoreExml.I18N.getMessage("AbstractExmlRepository.mon.updatingIndexes", this.resProvider.getName() ));
             ObjId nodeId ;
         
             for (MRef r : deletedRefs) {
@@ -1114,6 +1125,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
      * <p>
      * It may be redefined to have another behavior, then it should call the parent behavior.
      * @throws CannotOpenIndexException if indexes are broken and not repairable.
+     * 
      * @param toDelete the deleted CMS nodes handlers.
      */
     @objid ("f7844d44-296d-450c-8e2d-f4ba59b57b08")
@@ -1186,6 +1198,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
      * Instantiate a new storage handler for the given CMS node.
      * <p>
      * May be redefined in sub classes.
+     * 
      * @param cmsNode a CMS node
      * @param isNodeLoaded <code>true</code> to set the node as loaded, else <code>false</code>.
      * @return the new storage handler.
@@ -1198,6 +1211,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Tells whether the repository is read/write or read only.
+     * 
      * @return <code>true</code> if the repository is read/write, <code>false</code> if it is read only.
      * @throws java.lang.IllegalStateException if the repository is not open.
      */
@@ -1214,6 +1228,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Save the repository format versions.
+     * 
      * @throws java.io.IOException in case of I/O failure
      */
     @objid ("12142941-df53-4a59-958c-4222e7ca32d7")
@@ -1241,21 +1256,23 @@ public abstract class AbstractExmlRepository implements IExmlBase {
     private void checkVersions() throws IOException {
         this.repositoryFormatVersion = getResourceProvider().readRepositoryVersion();
         
+        SmMetamodel metamodel = getModelLoaderProvider().getMetamodel();
         if (this.repositoryFormatVersion == null) {
             // Initialize 
-            this.repositoryFormatVersion = new RepositoryVersions(getModelLoaderProvider().getMetamodel());
+            this.repositoryFormatVersion = new RepositoryVersions(metamodel);
         
             if (this.writeable == Boolean.TRUE) {
                 // Compute and store repository version
                 // This code is to be removed on future versions, this case must not be allowed
                 // and the repository must then be migrated.
                 Log.trace("No version file for '%s' repository. Creating one", getURI());
-                saveRepositoryVersion(getModelLoaderProvider().getMetamodel());
+                saveRepositoryVersion(metamodel);
+                saveMetamodelDescriptor(metamodel);
             } else {
-                Log.trace("No version file for read only '%s' repository.", getURI());
+                Log.warning("No version file for read only '%s' repository.", getURI());
             }
         } else {
-            this.repositoryFormatVersion.checkCompatible(getModelLoaderProvider().getMetamodel());
+            this.repositoryFormatVersion.checkCompatible(metamodel);
         }
     }
 
@@ -1298,6 +1315,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
      * <p>
      * In this case return the concurrently loaded object.
      * Wait for the object to finish initialization in LoadHelper.createStubObject(...) for 10*10ms
+     * 
      * @param id the object ID
      * @return the found object or <i>null</i>.
      */
@@ -1339,6 +1357,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
      * <p>
      * The indexes will be opened on first access.
      * They will be rebuilt if they are missing or damaged.
+     * 
      * @return the EXML indexes.
      * @throws org.modelio.vstore.exml.common.index.CannotOpenIndexException if the indexes cannot be opened nor rebuilt.
      */
@@ -1396,6 +1415,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Load all the instances of the given metaclass with its sub classes if asked.
+     * 
      * @param cls a metamodel class
      * @param recursive <code>true</code> to load all sub classes too.
      * @throws org.modelio.vcore.model.DuplicateObjectException when adding to the cache an object with the same identifier as another one.
@@ -1435,6 +1455,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Open the indexes and rebuild them if necessary.
+     * 
      * @param aMonitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done()
      * on the given monitor. Accepts null, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
@@ -1468,7 +1489,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         if (this.resProvider.isBrowsable() && this.resProvider.getIndexAccessPath().canWrite()) {
             // The indexes can be rebuilt if needed.
             try {
-                this.indexes.open(aMonitor, this.modelLoaderProvider.getMetamodel());
+                this.indexes.open(aMonitor, getModelLoaderProvider().getMetamodel());
         
                 this.indexes.checkUptodate();
             } catch (IndexException e) {
@@ -1492,21 +1513,21 @@ public abstract class AbstractExmlRepository implements IExmlBase {
                     // Workaround 'stamp.dat' versioned and got from fresh svn checkout: rewrite it always
                     this.resProvider.writeStamp();
             
-                    mon.subTask( VStoreExml.getMessage("AbstractExmlRepository.mon.deletingIndexes",this.resProvider.getName()));
+                    mon.subTask( VStoreExml.I18N.getMessage("AbstractExmlRepository.mon.deletingIndexes",this.resProvider.getName()));
                     this.indexes.deleteIndexes();
                     this.indexes.open(mon.newChild(10), this.modelLoaderProvider.getMetamodel());
             
-                    mon.subTask( VStoreExml.getMessage("AbstractExmlRepository.mon.buildingIndexes",this.resProvider.getName()));
+                    mon.subTask( VStoreExml.I18N.getMessage("AbstractExmlRepository.mon.buildingIndexes",this.resProvider.getName()));
                     this.indexes.buildIndexes(mon.newChild(90));
             
                     shield.success();
                     this.needRebuildIndexes = false;
                     indexesRebuilt = true;
                 } catch (IOException e1) {
-                    String msg = VStoreExml.getMessage("AbstractExmlRepository.RebuildIndexFailed", this.resProvider.getName(), FileUtils.getLocalizedMessage(e1));
+                    String msg = VStoreExml.I18N.getMessage("AbstractExmlRepository.RebuildIndexFailed", this.resProvider.getName(), FileUtils.getLocalizedMessage(e1));
                     throw new CannotOpenIndexException(msg, e1);
                 } catch (IndexException e1) {
-                    String msg = VStoreExml.getMessage("AbstractExmlRepository.RebuildIndexFailed", this.resProvider.getName(), e1.getLocalizedMessage());
+                    String msg = VStoreExml.I18N.getMessage("AbstractExmlRepository.RebuildIndexFailed", this.resProvider.getName(), e1.getLocalizedMessage());
                     throw new CannotOpenIndexException(msg, e1);
                 }
             }
@@ -1517,20 +1538,20 @@ public abstract class AbstractExmlRepository implements IExmlBase {
         
                 this.indexes.checkUptodate();
             } catch (RuntimeException e) {
-                String msg = VStoreExml.getMessage("AbstractExmlRepository.RoIndexesDamaged",
+                String msg = VStoreExml.I18N.getMessage("AbstractExmlRepository.RoIndexesDamaged",
                         this.resProvider.getName(), e.toString());
                 throw new CannotOpenIndexException(msg, e);
             } catch (IndexOutdatedException e) {
-                String msg = VStoreExml.getMessage("AbstractExmlRepository.RoIndexesOutdated",
+                String msg = VStoreExml.I18N.getMessage("AbstractExmlRepository.RoIndexesOutdated",
                         this.resProvider.getName(), e.getLocalizedMessage());
                 throw new CannotOpenIndexException(msg, e);
             } catch (IndexException e) {
-                String msg = VStoreExml.getMessage("AbstractExmlRepository.RoIndexesDamaged",
+                String msg = VStoreExml.I18N.getMessage("AbstractExmlRepository.RoIndexesDamaged",
                         this.resProvider.getName(), e.getLocalizedMessage());
                 throw new CannotOpenIndexException(msg, e);
             } catch (IOException e) {
                 // the stamp has a problem
-                String msg = VStoreExml.getMessage("AbstractExmlRepository.RoIndexesDamaged",
+                String msg = VStoreExml.I18N.getMessage("AbstractExmlRepository.RoIndexesDamaged",
                         this.resProvider.getName(), FileUtils.getLocalizedMessage(e));
                 throw new CannotOpenIndexException(msg, e);
         
@@ -1541,6 +1562,7 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Update indexes from the modified CMS nodes.
+     * 
      * @param dirty the dirty CMS nodes.
      * @param progress a progress monitor.
      */
@@ -1568,14 +1590,16 @@ public abstract class AbstractExmlRepository implements IExmlBase {
 
     /**
      * Tells whether the repository contain any CMS node of a metaclass of the given metamodel fragment.
+     * 
+     * @param metamodel the metamodel
      * @param mmf a metamodel fragment
      * @return true only if this metamodel fragment is used in this repository.
      * @throws org.modelio.vbasic.files.StreamException wraps a {@link IndexException} or a {@link CannotOpenIndexException} .
      * @since 3.8
      */
     @objid ("b76ab6c2-cdb2-4ced-8331-7251e5293ebe")
-    private boolean isMetamodelFragmentUsed(MMetamodelFragment mmf) throws StreamException {
-        for(SmClass mc : this.modelLoaderProvider.getMetamodel().getRegisteredMClasses((ISmMetamodelFragment) mmf)) {
+    private boolean isMetamodelFragmentUsed(SmMetamodel metamodel, MMetamodelFragment mmf) throws StreamException {
+        for(SmClass mc : metamodel.getRegisteredMClasses(mmf)) {
             try {
                 if (mc.isCmsNode() &&
                         getIndexes().getCmsNodeIndex().idByMClass(mc).findAny().isPresent()) {
@@ -1589,6 +1613,22 @@ public abstract class AbstractExmlRepository implements IExmlBase {
             }
         }
         return false;
+    }
+
+    @objid ("96e6ec31-8487-4044-a5d8-2bb57216f663")
+    private MetamodelDescriptor saveMetamodelDescriptor(MMetamodel metamodel) throws IOException {
+        ExmlResource mmDescRes = getResourceProvider().getMetamodelDescriptorResource();
+        try (OutputStream out = mmDescRes.bufferedWrite()){
+            // TODO :write only the used metamodel fragments and handle changes on each SVN commit.
+            MetamodelDescriptor desc = new MetamodelWriter()
+            //.withFragmentFilter(mmf -> isMetamodelFragmentUsed(metamodel, mmf)) // write only the used metamodel fragments
+            .run(metamodel);
+        
+            new MetamodelDescriptorWriter().write(desc, out);
+            return desc;
+        } catch (StreamException e) {
+            throw new IOException(e.getCause().getLocalizedMessage(), e);
+        }
     }
 
 }

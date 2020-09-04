@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public class DefaultDocumentNatValue extends DefaultElementNatValue implements I
 
     /**
      * Creates a new instance.
+     * 
      * @param owner the owner of the {@link Document}.
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
@@ -48,6 +49,7 @@ public class DefaultDocumentNatValue extends DefaultElementNatValue implements I
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("24e93b21-d8c3-4a9f-8689-ec795eadc4e1")

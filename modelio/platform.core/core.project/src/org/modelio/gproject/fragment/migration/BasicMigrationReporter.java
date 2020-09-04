@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,7 +64,7 @@ public class BasicMigrationReporter implements IMigrationReporter, Closeable {
         this.fileWriter = Files.newBufferedWriter(reportFile);
         this.logger = new PrintWriter(this.fileWriter);
         
-        this.resultWriter.println(CoreProject.getMessage("BasicMigrationReporter.logFileWritten", reportFile));
+        this.resultWriter.println(CoreProject.I18N.getMessage("BasicMigrationReporter.logFileWritten", reportFile));
     }
 
     @objid ("c9ea383a-4e55-4ed9-ac91-c6b3d63e3499")

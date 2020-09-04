@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Creation Wizard
 Bundle-SymbolicName: org.modelio.creation.wizard;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: org.modelio.creation.wizard.plugin.CreationWizard
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
@@ -26,7 +26,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.ui.model.workbench,
  org.modelio.model.browser.view,
  org.eclipse.e4.core.di.extensions,
- org.eclipse.e4.core.commands
+ org.eclipse.e4.core.commands,
+ org.modelio.core.rcp
 Bundle-ClassPath: res/,
  .
 Import-Package: javax.annotation;version="1.1.0",

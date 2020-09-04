@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -114,6 +114,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
 
     /**
      * Create a serializable anchor model from the given anchor.
+     * 
      * @param anchor a figure anchor
      * @return an anchor model.
      */
@@ -135,6 +136,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
      * <p>
      * Extends {@link AbstractGraphicalEditPart#getAdapter(Class)} to support {@link MObject}, {@link IGmObject}, {@link GmModel} and their subclasses.
      * @see IAdaptable#getAdapter(Class)
+     * 
      * @param adapter the adapter class to look up
      * @return a object castable to the given class, or <code>null</code> if this object does not have an adapter for the given class
      */
@@ -171,6 +173,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
      * <p>
      * If this node has no specific needs, it can return <code>null</code> which indicates to the parent that the default behavior should be used.
      * </p>
+     * 
      * @param requestType the type of request the returned policy must handle.
      * @return a policy able to handle the passed type of request or <code>null</code>.
      */
@@ -281,6 +284,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
 
     /**
      * Changes the current {@link IDragTrackerProvider} used by this edit part.
+     * 
      * @param value the new {@link IDragTrackerProvider} to be used by this edit part.
      */
     @objid ("80932f66-1dec-11e2-8cad-001ec947c8cc")
@@ -341,6 +345,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
 
     /**
      * Convenience method to retrieve the model style.
+     * 
      * @return the model style.
      */
     @objid ("8095919b-1dec-11e2-8cad-001ec947c8cc")
@@ -358,6 +363,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
      * Refresh the figure from the given style. This implementation updates pen and brush properties if applicable. StyleKey are looked up by MetaKey.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
+     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -417,6 +423,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
      * <p>
      * It switches the representation by removing and adding again the gm element from its parent.<br>
      * Doing this makes the EditPart killing itself and call the {@link StandardEditPartFactory}.
+     * 
      * @return true if the representation was swapped, false if it didn't change.
      */
     @objid ("809591ad-1dec-11e2-8cad-001ec947c8cc")
@@ -477,6 +484,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
 
     /**
      * Launches a {@link FitToMinSizeCommand} after a {@link RepresentationMode} switch.
+     * 
      * @param newEditPart the new edit part being created.
      */
     @objid ("809591ba-1dec-11e2-8cad-001ec947c8cc")
@@ -507,6 +515,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
 
     /**
      * Tells whether the figure of the given edit part contains the given point.
+     * 
      * @param editPart A graphic edit part
      * @param aPoint a point in absolute coordinates
      * @return <i>true</i> if the edit part figure contains the point, else <i>false</i>
@@ -552,6 +561,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
      * Get the bounds that may be used by the parent container layouter.
      * <p>
      * Returns usually the figure {@link IFigure#getBounds()}. May be redefined by subclasses to return a different (smaller) rectangle that may make the layout have a better look.
+     * 
      * @return the figure trimmed bounds.
      * @since 3.4.1
      */
@@ -562,6 +572,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
 
     /**
      * Tells whether this edit part has a related model element and whether it is valid: non shell, non deleted.
+     * 
      * @return true if this edit part is related to a valid living modele element.
      */
     @objid ("fb1df387-e1fa-42a7-a2af-931230c9c671")
@@ -579,6 +590,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
 
     /**
      * Tells whether the representation mode needs to be switched.
+     * 
      * @return true if the representation mode needs to be switched.
      */
     @objid ("c7362413-5291-4fab-9135-558992283ff1")
@@ -597,6 +609,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
      * Implementation of {@link #isSelectable()} that makes the node selectable only if one of its parent node is already selected.
      * <p>
      * To be called from {@link #isSelectable()}.
+     * 
      * @return true if the parent node or this node is already selected else false.
      */
     @objid ("ed497043-f62d-4b0d-b68a-1324bf1dab76")
@@ -619,6 +632,7 @@ public abstract class AbstractNodeEditPart extends AbstractGraphicalEditPart imp
 
     /**
      * Tells whether this node is owned directly or indirectly by a {@link ConnectionEditPart} (a link).
+     * 
      * @return <i>true</i> if this node is owned by a link else <i>false</i>.
      */
     @objid ("63c6c6d3-3101-4af6-91a9-e40e1958eda0")

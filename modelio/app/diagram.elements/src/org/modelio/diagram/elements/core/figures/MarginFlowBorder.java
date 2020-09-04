@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public final class MarginFlowBorder extends AbstractFlowBorder {
 
     /**
      * Constructor.
+     * 
      * @param inset the insets.
      */
     @objid ("c39432a8-08eb-414a-9537-e4e7d2aa0bae")

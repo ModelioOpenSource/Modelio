@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class CreateElementCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param parentNode The parent node
      * @param context Details on the MObject and/or the node to create
      * @param constraint The initial constraint of the created node.
@@ -75,6 +76,7 @@ public class CreateElementCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param parentElement The parent MObject of the MObject to create
      * @param parentNode The parent node
      * @param context Details on the MObject and/or the node to create
@@ -157,6 +159,7 @@ public class CreateElementCommand extends Command {
 
     /**
      * Get the creation context (parent element, parent dependency, stereotype).
+     * 
      * @return the creation context.
      */
     @objid ("36175b12-55b7-11e2-877f-002564c97630")
@@ -166,6 +169,7 @@ public class CreateElementCommand extends Command {
 
     /**
      * Get the initial layout constraint.
+     * 
      * @return the initial layout constraint.
      */
     @objid ("3618e17a-55b7-11e2-877f-002564c97630")
@@ -175,6 +179,7 @@ public class CreateElementCommand extends Command {
 
     /**
      * Get the parent model element.
+     * 
      * @return the parent model element.
      */
     @objid ("3618e17f-55b7-11e2-877f-002564c97630")
@@ -184,6 +189,7 @@ public class CreateElementCommand extends Command {
 
     /**
      * Get the parent graphic node.
+     * 
      * @return the parent graphic node.
      */
     @objid ("3618e186-55b7-11e2-877f-002564c97630")

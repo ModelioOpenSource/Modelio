@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -116,6 +116,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
 
     /**
      * Construct the GefFsRenderer.
+     * 
      * @param swtComposite a SWT control to allow placing SWT controls inside, not yet used.
      */
     @objid ("447bd77a-cb4a-4e2e-940f-0cc1cab7b89b")
@@ -125,6 +126,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
 
     /**
      * Construct the GefFsRenderer.
+     * 
      * @param swtComposite a SWT control to allow placing SWT controls inside, not yet used.
      * @param uac user agent using the panel.
      */
@@ -435,6 +437,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
 
     /**
      * Only our layout manager is allowed.
+     * 
      * @param manager our SfLayoutManager.
      */
     @objid ("09499821-8e1d-4597-b6b4-44059d7faf81")
@@ -477,6 +480,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
      * Calculates the preferred size of the figure, using width and height hints.
      * <p>
      * Called by the figure layout manager.
+     * 
      * @param wHint The width hint
      * @param hHint The height hint
      * @return the preferred size
@@ -658,6 +662,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
 
     /**
      * @param gc the draw2d GC
+     * 
      * @return a new {@link RenderingContext}
      */
     @objid ("f1ebe230-0a61-4422-9068-daf514dee18d")
@@ -743,6 +748,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
      * Sets the new current document, where the new document is located
      * relative, e.g using a relative URL.
      * @throws MalformedURLException
+     * 
      * @param filename The new document to load
      */
     @objid ("621f42a6-c71f-4dfc-9dd7-47ac612a8ad9")

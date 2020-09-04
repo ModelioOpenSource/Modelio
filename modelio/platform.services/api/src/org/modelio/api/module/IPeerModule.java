@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,7 @@ public interface IPeerModule {
      * <p><p>
      * The mdac name corresponds to the name of the MDA Component, as defined in the
      * <i>MDA Modeler</i> tool.
+     * 
      * @return The mda component name
      */
     @objid ("01f40414-0000-32ed-0000-000000000000")
@@ -49,6 +50,7 @@ public interface IPeerModule {
 
     /**
      * Used to return the mdac description.
+     * 
      * @return The mda component description
      */
     @objid ("01f40414-0000-32f1-0000-000000000000")
@@ -56,6 +58,7 @@ public interface IPeerModule {
 
     /**
      * Used to return the mdac version.
+     * 
      * @return The mda component version
      */
     @objid ("01f40414-0000-32f5-0000-000000000000")
@@ -66,6 +69,7 @@ public interface IPeerModule {
      * <p><p>
      * The mdac configuration permits to access certain information
      * such as parameters, resource path, etc.
+     * 
      * @return The module configuration
      */
     @objid ("01f40414-0000-32f9-0000-000000000000")

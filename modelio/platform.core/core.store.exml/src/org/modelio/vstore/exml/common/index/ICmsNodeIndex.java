@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ import org.modelio.vstore.exml.common.model.ObjIdName;
 public interface ICmsNodeIndex {
     /**
      * Add a known CMS node.
+     * 
      * @param id a CMS node ID.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O error.
      */
@@ -49,6 +50,7 @@ public interface ICmsNodeIndex {
 
     /**
      * Register an object contained by a CMS node.
+     * 
      * @param cmsNodeId ID of the CMS node containing the model object
      * @param objectId the contained object ID.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O error
@@ -60,6 +62,7 @@ public interface ICmsNodeIndex {
      * Get all model objects of the given metaclass.
      * <p>
      * Does not return child metaclasses nodes.
+     * 
      * @param cls a metaclass.
      * @return all CMS node IDs.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O error
@@ -71,6 +74,7 @@ public interface ICmsNodeIndex {
      * Get the CMS node containing the object.
      * <p>
      * If the object is a stored CMS node, return itself.
+     * 
      * @param id the object to find
      * @return the CMS node ID.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O error
@@ -80,6 +84,7 @@ public interface ICmsNodeIndex {
 
     /**
      * Get the name of the given model object.
+     * 
      * @param id the model object identifier.
      * @return the object name.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O error
@@ -89,6 +94,7 @@ public interface ICmsNodeIndex {
 
     /**
      * Get the parent CMS node of the given CMS node.
+     * 
      * @param id a CMS node
      * @return its parent CMS node.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O error.
@@ -105,6 +111,7 @@ public interface ICmsNodeIndex {
 
     /**
      * Tells whether the given model object is stored in the repository.
+     * 
      * @param id a model object ID.
      * @return <code>true</code> if the object is in the repository else false.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O error
@@ -116,6 +123,7 @@ public interface ICmsNodeIndex {
      * Remove the given object from all indexes.
      * <p>
      * If the object is a CMS node removes all its content too.
+     * 
      * @param id the object id
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of error updating the indexes.
      */
@@ -124,6 +132,7 @@ public interface ICmsNodeIndex {
 
     /**
      * Registers 2 CMS nodes parent relationship.
+     * 
      * @param cmsNodeId the child CMS node.
      * @param parentId the parent CMS node.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O error.
@@ -135,6 +144,7 @@ public interface ICmsNodeIndex {
      * Get all model objects identifiers with their name for the given metaclass.
      * <p>
      * Does not return child metaclasses nodes.
+     * 
      * @param cls a metaclass.
      * @return all CMS node IDs.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O error
@@ -145,6 +155,7 @@ public interface ICmsNodeIndex {
 
     /**
      * Get all objects contained by a CMS node
+     * 
      * @param cmsNodeId the CMS node id
      * @return its content
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O error

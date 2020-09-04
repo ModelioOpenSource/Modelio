@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -122,6 +122,7 @@ public class ElementFormPanel implements IPanelProvider {
      * Build a new instance of {@link ElementFormPanel}.
      * <p>
      * The fields will apply their value immediately on leaving.
+     * 
      * @param moduleContext a module context to get modelio services and sessuin from.
      * @param fieldFactory the factory to create form fields with.
      * @since 3.8 : a module context is now needed.
@@ -158,6 +159,7 @@ public class ElementFormPanel implements IPanelProvider {
 
     /**
      * Tells whether {@link #apply()} may be called safely.
+     * 
      * @return true only if all fields have valid values.
      * @since 3.8 Valkyrie
      */
@@ -213,6 +215,7 @@ public class ElementFormPanel implements IPanelProvider {
     /**
      * Get the first element in the selection that matches the given type
      * @param <T> the required type
+     * 
      * @param selection the selection object
      * @param cls the required type class
      * @return the first matching element or null.
@@ -244,6 +247,7 @@ public class ElementFormPanel implements IPanelProvider {
 
     /**
      * @since 3.7.1
+     * 
      * @return whether the form header is displayed.
      */
     @objid ("3d73403e-0e2d-484a-a1db-5ba064247c88")
@@ -267,6 +271,7 @@ public class ElementFormPanel implements IPanelProvider {
      * Set whether the field will apply their value when leaving it.
      * <p>
      * If called with false {@link #apply()} must be called in order to apply the field values.
+     * 
      * @param autoApply true to apply values immediately, false to manually apply them.
      * @return this instance
      */
@@ -278,6 +283,7 @@ public class ElementFormPanel implements IPanelProvider {
 
     /**
      * Display or hide the form header to display the edited element name or gain place.
+     * 
      * @param headerVisible whether the form header is displayed.
      * @since 3.7.1
      */
@@ -289,10 +295,11 @@ public class ElementFormPanel implements IPanelProvider {
     /**
      * Set the panel input.
      * <p>
-     * Supported inputs are: <ul>
-     * <li> a {@link ModelElement}
-     * <li> a {@link Collection} containing one {@link ModelElement}
-     * <li> a {@link IStructuredSelection} containing one {@link ModelElement}
+     * Supported inputs are:
+     * <ul>
+     * <li>a {@link ModelElement}
+     * <li>a {@link Collection} containing one {@link ModelElement}
+     * <li>a {@link IStructuredSelection} containing one {@link ModelElement}
      * </ul>
      * If the model element is not valid (deleted) or not {@link #isRelevantFor(Object) relevant} for the field provider the panel is emptied.
      * <p>
@@ -303,7 +310,7 @@ public class ElementFormPanel implements IPanelProvider {
     public final void setInput(Object input) {
         // Bad input cases: clear all
         ModelElement newInput = null;
-        if (input instanceof ModelElement ) {
+        if (input instanceof ModelElement) {
             // Input is a single model element
             newInput = (ModelElement) input;
         } else if (input instanceof Collection) {
@@ -316,7 +323,7 @@ public class ElementFormPanel implements IPanelProvider {
             IStructuredSelection selection = (IStructuredSelection) input;
             ModelElement first = SelectionHelper.getFirst(selection, ModelElement.class);
         
-            if (selection.size() == 1 && first != null ) {
+            if (selection.size() == 1 && first != null) {
                 newInput = first;
             }
         } else if (input != null) {
@@ -328,22 +335,29 @@ public class ElementFormPanel implements IPanelProvider {
             // Input is not valid
             newInput = null;
         }
-           
+        
         // Delay for update if not visible because it
         // is really expensive and slows GUI.
         // Exception: force update the first time because SWT.Show event is not fired and
         // we are not notified at all when the form become visible.
-        if (this.scrolledForm.isVisible() || this.fields.isEmpty()) {
-            updateFormFromInput(newInput);
-        } else {
-            delayUpdateForm(newInput);
-        }
+        final ModelElement effectiveInput = newInput;
+        this.scrolledForm.getDisplay().asyncExec(() -> {
+            if (this.scrolledForm.isDisposed())
+                return;
+        
+            if (this.scrolledForm.isVisible() || this.fields.isEmpty()) {
+                updateFormFromInput(effectiveInput);
+            } else {
+                delayUpdateForm(effectiveInput);
+            }
+        });
     }
 
     /**
      * Create a complete form for an element.
      * <p/>
      * Fields should be filled after calling this method.
+     * 
      * @param parent a widget which will be the parent of the new field instance (cannot be null)
      * @param formInput the element to build the form for.
      */
@@ -395,6 +409,7 @@ public class ElementFormPanel implements IPanelProvider {
 
     /**
      * Ensure the {@link IField field} has a {@link GridData} as layout data, creating one in the orher case.
+     * 
      * @param aField a form field
      */
     @objid ("6cb323a0-5622-4e99-bee6-2a9b7e8ef304")
@@ -413,21 +428,22 @@ public class ElementFormPanel implements IPanelProvider {
      * {@link IModelChangeListener} callback called on model change event.
      * <p>
      * Refresh and reset fields from the model. This method could be redefined by sub classes.
+     * 
      * @param session the modeling session
      * @param event the event.
      */
     @objid ("2f2af85f-57b9-4b50-a7d2-7504154bb0b9")
     protected void onModelChanged(IModelingSession session, IModelChangeEvent event) {
         final ScrolledForm localScrolledForm = this.scrolledForm;
-        if (localScrolledForm != null && ! localScrolledForm.isDisposed()) {
+        if (localScrolledForm != null && !localScrolledForm.isDisposed()) {
             try {
                 localScrolledForm.getDisplay().asyncExec(() -> {
                     updateFormFromInput(this.input);
                 });
             } catch (SWTException e) {
                 // Note : this method may be called by a concurrent thread even while the panel is being disposed
-                // so any test already made may be obsolete 
-                if (e.code == SWT.ERROR_DEVICE_DISPOSED || e.code==SWT.ERROR_WIDGET_DISPOSED) {
+                // so any test already made may be obsolete
+                if (e.code == SWT.ERROR_DEVICE_DISPOSED || e.code == SWT.ERROR_WIDGET_DISPOSED) {
                     return;
                 }
         
@@ -438,6 +454,7 @@ public class ElementFormPanel implements IPanelProvider {
 
     /**
      * Add a listener on the property page updating its content as soon as the {@link SWT#Show} event is triggered.
+     * 
      * @param formInput the element to use as input for the form.
      */
     @objid ("6f41848a-92a5-4800-9a9d-d23c44f77d6d")
@@ -507,6 +524,7 @@ public class ElementFormPanel implements IPanelProvider {
 
     /**
      * Update the form's contents.
+     * 
      * @param formInput the element to use as input for the form.
      */
     @objid ("1650ca22-065a-4869-9cb8-59a1c2ea5c3d")

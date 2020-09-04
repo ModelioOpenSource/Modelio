@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.modelio.api.module.IPeerModule;
 public interface IModuleService {
     /**
      * Returns the list of deployed peer module.
+     * 
      * @return the collection of deployed peer modules.
      */
     @objid ("00d00158-0001-a8c7-0000-000000000000")
@@ -53,6 +54,7 @@ public interface IModuleService {
      * The returned peer module can be casted without risk to the right desired module, but only if
      * a dependency exists between the returned module, and the one requesting the peer.
      * @param <T> The peer module type.
+     * 
      * @param peerClass The peer module class.
      * @return the peer module regarding the given metaclass. Might be {@link NullPointerException} if no such module is loaded.
      */
@@ -65,6 +67,7 @@ public interface IModuleService {
      * <p>
      * The returned peer module can be casted without risk to the right desired module, but only if
      * a dependency exists between the returned module, and the one requesting the peer.
+     * 
      * @param moduleName The module name.
      * @return the peer module regarding the given metaclass. Might be {@link NullPointerException} if no such module is loaded.
      * @since 2.2

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -237,6 +237,7 @@ public class IModuleLoadedFeature extends AbstractFeature {
 
     /**
      * fire listeners on dependent modules first then on the given module.
+     * 
      * @param amodule the module being unloaded
      */
     @objid ("82dd199d-ee41-49c5-91f7-8af2ab849bb1")
@@ -260,6 +261,7 @@ public class IModuleLoadedFeature extends AbstractFeature {
 
     /**
      * fire listeners on dependent modules first then on the given module.
+     * 
      * @param amodule the module being unloaded
      */
     @objid ("e77b9bd4-3154-416c-8f3c-bd750fbd8183")

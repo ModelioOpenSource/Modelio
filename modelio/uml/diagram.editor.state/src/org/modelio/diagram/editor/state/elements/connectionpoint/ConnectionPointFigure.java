@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class ConnectionPointFigure extends EllipseFigure {
 
     /**
      * Sets the exact type of decoration to use.
+     * 
      * @param reference the type of decoration to use.
      */
     @objid ("f4faa76f-55b6-11e2-877f-002564c97630")

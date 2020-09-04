@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public class DeadObjectException extends IllegalStateException {
 
     /**
      * Initialize the exception.
+     * 
      * @param obj the shell object.
      */
     @objid ("fef179cc-98c9-48c6-8677-26df71317e59")
@@ -52,6 +53,7 @@ public class DeadObjectException extends IllegalStateException {
      * <p>
      * Only its UUID and metaclass can be retrieved. Any other action will throw
      * another DeadObjectException.
+     * 
      * @return the unresolved reference.
      */
     @objid ("5838de6b-4059-46f6-9e0c-de1aff22729d")

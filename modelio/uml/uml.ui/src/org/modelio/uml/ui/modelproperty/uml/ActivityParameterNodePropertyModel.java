@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
     /**
      * Create a new <i>ActivityParameterNode</i> data model from an
      * <i>ActivityParameterNode</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("19255586-b5ea-4f6e-84ee-3c7b23a9b2e0")
@@ -77,6 +78,7 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("54099655-4b6d-4cf9-a0c7-30e510a14062")
@@ -87,6 +89,7 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
 
     /**
      * Returns the element represented by the given instance node.
+     * 
      * @return the represented element
      */
     @objid ("37fb8b38-10b0-45ec-857f-849f6bbdedfe")
@@ -109,6 +112,7 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("d30ad5e5-5c42-4e9f-bd3a-96e440ef3023")
@@ -121,6 +125,7 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -165,6 +170,7 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -212,6 +218,7 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
     /**
      * Set the InstanceNode represented elements. This method set the right
      * dependency and clears the otheEditedElement.
+     * 
      * @param theEditedElement the instance node
      * @param value the new represented element
      */
@@ -268,6 +275,7 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

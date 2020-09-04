@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class DeferredUnmaskCommand extends Command {
 
     /**
      * C'tor.
+     * 
      * @param parent the parent in which to unmask.
      * @param child the child to unmask.
      * @param dropLocation the point where the child should be unmasked.
@@ -88,6 +89,7 @@ public class DeferredUnmaskCommand extends Command {
 
     /**
      * Create the real command.
+     * 
      * @return the real command.
      */
     @objid ("7e0f745b-1dec-11e2-8cad-001ec947c8cc")

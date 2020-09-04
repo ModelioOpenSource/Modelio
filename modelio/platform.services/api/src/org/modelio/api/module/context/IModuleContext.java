@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +43,7 @@ public interface IModuleContext {
      * Get the "user" configuration associated to this module, meant to be accessed by the module itself.
      * Module configuration provide access to the module parameters and resource paths.
      * @see IModuleUserConfiguration
+     * 
      * @return the module configuration.
      */
     @objid ("f08e7922-c0f9-4f8c-96d6-420b53378970")
@@ -58,6 +59,7 @@ public interface IModuleContext {
      * <li>{@link ClassLoader} CLASSLOADER : the class loader of the module</li>
      * </ul>
      * @see <a href="http://www.jython.org" > The Jython project homepage</a>
+     * 
      * @return The Jython scripting engine.
      */
     @objid ("96ff4204-96a1-4883-b9bd-811be4787358")
@@ -65,6 +67,7 @@ public interface IModuleContext {
 
     /**
      * Returns the {@link ModuleComponent} model associated with this module.
+     * 
      * @return the {@link ModuleComponent} model associated with this module.
      */
     @objid ("dc74eb7b-23c8-4090-82fa-6ce0618827f9")
@@ -73,6 +76,7 @@ public interface IModuleContext {
     /**
      * Get the current modelinSession, ie the modeling session bound to the
      * project currently opened in Modelio
+     * 
      * @return the {@link IModelingSession} session bound to the project
      * currently opened in Modelio
      */
@@ -81,6 +85,7 @@ public interface IModuleContext {
 
     /**
      * Get information about the Modelio application itself
+     * 
      * @return a {@link IModelioContext} instance.
      */
     @objid ("16fec824-6ed1-4a5c-bf91-5d45100a0153")
@@ -89,6 +94,7 @@ public interface IModuleContext {
     /**
      * Get the application level services provided by Modelio for module
      * development.
+     * 
      * @return a {@link IModelioServices} instance.
      */
     @objid ("bfdbf529-9fd8-4556-91bd-22446f7adf9a")
@@ -96,6 +102,7 @@ public interface IModuleContext {
 
     /**
      * Get the structure of the currently opened project.
+     * 
      * @return a {@link IProjectStructure} instance.
      */
     @objid ("17e19385-059e-4556-8467-d36780bb2065")
@@ -103,6 +110,7 @@ public interface IModuleContext {
 
     /**
      * Get the i18n service for a module.
+     * 
      * @return the i18n service.
      */
     @objid ("5371a976-1110-43b6-83b4-b33efbb5fb3a")
@@ -110,6 +118,7 @@ public interface IModuleContext {
 
     /**
      * Get the log service for a module.
+     * 
      * @return the log service.
      */
     @objid ("2d09dd05-9681-4d53-b9c2-a0cf84c27ba3")
@@ -120,6 +129,7 @@ public interface IModuleContext {
      * Module configuration provide access to the module parameters and resource
      * paths
      * @see IModuleAPIConfiguration
+     * 
      * @return the module configuration.
      */
     @objid ("715f2571-2f43-401c-845a-583f5b5eea2b")
@@ -127,6 +137,7 @@ public interface IModuleContext {
 
     /**
      * Initialize the module instance this context was built for.
+     * 
      * @param iModule a module.
      */
     @objid ("eb320d46-f17f-4786-9356-23b819aa233a")

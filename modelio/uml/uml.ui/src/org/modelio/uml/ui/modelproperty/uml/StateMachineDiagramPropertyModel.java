@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class StateMachineDiagramPropertyModel extends AbstractPropertyModel<Stat
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("c89462b1-3e64-4cde-823c-4238cfa41afe")
@@ -68,6 +69,7 @@ public class StateMachineDiagramPropertyModel extends AbstractPropertyModel<Stat
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("83bc8097-6d4a-4141-a0cc-e42c70e0389e")
@@ -80,6 +82,7 @@ public class StateMachineDiagramPropertyModel extends AbstractPropertyModel<Stat
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -110,6 +113,7 @@ public class StateMachineDiagramPropertyModel extends AbstractPropertyModel<Stat
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -138,6 +142,7 @@ public class StateMachineDiagramPropertyModel extends AbstractPropertyModel<Stat
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

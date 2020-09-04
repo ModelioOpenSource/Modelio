@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
 
     /**
      * Create a new <i>BpmnCallActivity</i> data model from an <i>BpmnCallActivity</i>.
+     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      * @param mdaExpert the MDA expert to handle Methodological links.
@@ -78,6 +79,7 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("be69a53f-6382-4426-ba3e-78a7f0821f7f")
@@ -88,6 +90,7 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("618869a4-6868-4a62-a8e3-ff795fe28672")
@@ -102,6 +105,7 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -165,6 +169,7 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -261,6 +266,7 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

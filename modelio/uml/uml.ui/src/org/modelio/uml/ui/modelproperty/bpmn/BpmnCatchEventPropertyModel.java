@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
     /**
      * Create a new <i>BpmnCatchEvent</i> data model from an
      * <i>BpmnCatchEvent</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("d43459af-8087-469b-b58f-1eb29a891c65")
@@ -62,6 +63,7 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("6745749b-79ca-46d5-a3cd-a6d76166d56b")
@@ -72,6 +74,7 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("0330039d-b276-407b-99f1-03014a074bd4")
@@ -84,6 +87,7 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -116,6 +120,7 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -146,6 +151,7 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

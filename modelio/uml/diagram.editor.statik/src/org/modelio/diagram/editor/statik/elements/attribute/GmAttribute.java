@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class GmAttribute extends GmDefaultModelElementLabel {
 
     /**
      * Create an attribute representation.
+     * 
      * @param diagram The diagram
      * @param el The represented attribute, may be null.
      * @param ref The represented attribute reference, may not be null.
@@ -177,6 +178,7 @@ public class GmAttribute extends GmDefaultModelElementLabel {
 
     /**
      * Compute the multiplicity symbol of the attribute and append it to the given buffer.
+     * 
      * @param theAttribute the attribute to compute the visibility.
      * @param output the output buffer
      * @return

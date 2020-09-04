@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -109,7 +109,7 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
     public CreateLinkHandleEditPolicy(GraphicalEditPart connsource) {
         this.connSource = connsource;
         if (connsource instanceof ConnectionEditPart) {
-            this.handleLocator = new FractionalConnectionLocator((Connection) connsource.getFigure(), 0.6);
+            this.handleLocator = new FractionalConnectionLocator((Connection) connsource.getFigure(), 0.6, false);
         } else if (connsource instanceof NodeEditPart) {
             NodeEditPart nep = (NodeEditPart) connsource;
             this.feedBackReq = new CreateConnectionRequest();
@@ -171,6 +171,7 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
 
     /**
      * Set the create link handle locator.
+     * 
      * @param handleLocator the create link handle locator.
      * @return this instance.
      */

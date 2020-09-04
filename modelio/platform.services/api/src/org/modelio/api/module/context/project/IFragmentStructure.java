@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.modelio.metamodel.uml.infrastructure.Element;
 public interface IFragmentStructure {
     /**
      * Get the fragment name.
+     * 
      * @return a name.
      */
     @objid ("526cd01a-a515-40ff-94cc-5d7a1c9eb902")
@@ -40,6 +41,7 @@ public interface IFragmentStructure {
      * <p>
      * Might be <b>EXML</b>, <b>EXML_URL</b>, <b>EXML_SVN</b>, <b>RAMC</b> or <b>MDA</b>.
      * </p>
+     * 
      * @return the fragment type.
      */
     @objid ("ab059b4c-4adc-4319-8a07-17676841a19f")
@@ -47,6 +49,7 @@ public interface IFragmentStructure {
 
     /**
      * Get the fragment's URI in the opened project.
+     * 
      * @return the mounted URI or <code>null</code> if the fragment is not mounted.
      */
     @objid ("69df667e-ddf3-4987-bcaa-51c6dbbfe569")
@@ -57,6 +60,7 @@ public interface IFragmentStructure {
      * <p>
      * Should be <b>UP_FULL</b>, <b>UP_LIGHT</b> or <b>DOWN</b>.
      * </p>
+     * 
      * @return the fragment state.
      */
     @objid ("4ef123cf-9fbf-432b-83e8-b1e18ecfa735")
@@ -64,6 +68,7 @@ public interface IFragmentStructure {
 
     /**
      * Get the root elements of the fragment.
+     * 
      * @return the root elements of the fragment.
      */
     @objid ("b06ac3fa-1915-4837-b13e-b9327c0b9787")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class GmCombinedFragment extends GmPortContainer {
 
     /**
      * C'tor.
+     * 
      * @param diagram diagram in which this gm is created.
      * @param combinedFragment the represented CombinedFragment
      * @param relatedRef a reference to the represented element.
@@ -153,6 +154,7 @@ public class GmCombinedFragment extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -164,6 +166,7 @@ public class GmCombinedFragment extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -83,6 +83,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Constructs a new ConnectionEndpointTracker for the given ConnectionEditPart.
+     * 
      * @param cep the ConnectionEditPart
      */
     @objid ("d95c0945-55b6-11e2-877f-002564c97630")
@@ -118,6 +119,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Sets the command name.
+     * 
      * @param newCommandName the new command name
      */
     @objid ("d95c0952-55b6-11e2-877f-002564c97630")
@@ -127,6 +129,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Sets the connection edit part that is being reconnected.
+     * 
      * @param cep the connection edit part
      */
     @objid ("d95c0957-55b6-11e2-877f-002564c97630")
@@ -136,6 +139,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Returns a custom "plug" cursor if this tool is in the initial, drag or accessible drag state. Otherwise defers to <code>super</code>.
+     * 
      * @return the cursor
      */
     @objid ("d95c0962-55b6-11e2-877f-002564c97630")
@@ -162,6 +166,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Creates the target request, a {@link ChangeBoundsRequest}.
+     * 
      * @return the target request
      */
     @objid ("d95c0970-55b6-11e2-877f-002564c97630")
@@ -220,6 +225,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Returns the ConnectionEditPart's figure.
+     * 
      * @return the connection
      */
     @objid ("d95d8fea-55b6-11e2-877f-002564c97630")
@@ -229,6 +235,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Returns the ConnectionEditPart.
+     * 
      * @return the ConnectionEditPart
      */
     @objid ("d95d8fef-55b6-11e2-877f-002564c97630")
@@ -269,6 +276,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Updates the request and the mouse target, asks to show feedback, and gets the current command.
+     * 
      * @return <code>true</code>
      */
     @objid ("d95d9008-55b6-11e2-877f-002564c97630")

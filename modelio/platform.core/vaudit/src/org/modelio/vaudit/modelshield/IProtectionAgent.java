@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public interface IProtectionAgent {
 
     /**
      * Check a transaction.
+     * 
      * @param theTransaction the transaction to check
      * @param report the check report.
      * @return the check status.
@@ -54,6 +55,7 @@ public interface IProtectionAgent {
 
     /**
      * Check a model object and its composition graph.
+     * 
      * @param obj the root object to check.
      * @param report the check report to fill.
      * @return the check status.
@@ -71,6 +73,7 @@ public interface IProtectionAgent {
      * Get the agent check plan.
      * <p>
      * The plan is used to know which rules must be checked for an object and a modification.
+     * 
      * @return the check plan.
      */
     @objid ("00114d7e-0abf-1f62-8473-001ec947cd2a")

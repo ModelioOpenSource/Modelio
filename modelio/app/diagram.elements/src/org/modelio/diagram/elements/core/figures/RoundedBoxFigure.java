@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
 
     /**
      * Get the radius value adjusted so that it is not too big for the given rectangle.
+     * 
      * @param rect The rectangle the radius must be adjusted to.
      * @return the adjusted radius.
      */
@@ -190,6 +191,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
 
     /**
      * Set the new radius.
+     * 
      * @param value the new radius
      */
     @objid ("7fae4d81-1dec-11e2-8cad-001ec947c8cc")
@@ -326,6 +328,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
 
         /**
          * Constructs a RoundedRectangleBorder with the specified color and of the specified width.
+         * 
          * @param color The color of the border.
          * @param width The width of the border in pixels.
          * @since 2.0
@@ -355,6 +358,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
 
         /**
          * Returns the space used by the border for the figure provided as input. In this border all sides always have equal width.
+         * 
          * @param figure The figure this border belongs to
          * @return This border's insets
          */

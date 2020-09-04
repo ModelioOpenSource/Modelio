@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class DefaultLabelProvider extends AbstractModelioElementLabelProvider {
 
     /**
      * Default constructor, initializing the view.
+     * 
      * @param browserView The diagram browser view.
      */
     @objid ("0037bc7a-0d4f-10c6-842f-001ec947cd2a")
@@ -157,6 +158,7 @@ public class DefaultLabelProvider extends AbstractModelioElementLabelProvider {
 
     /**
      * Get the background color for the given element in the given state
+     * 
      * @param obj the element
      * @return its background color
      */
@@ -173,6 +175,7 @@ public class DefaultLabelProvider extends AbstractModelioElementLabelProvider {
      * <li>Incomplete model elements font color is light red #FF8080.</li>
      * <li>Ramc model elements font color is modified yellow #A0A000.</li>
      * </ul>
+     * 
      * @return a Color.
      */
     @objid ("28592520-4ab5-11e2-a4d3-002564c97630")

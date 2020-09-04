@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public class GmLifeline extends GmCompositeNode {
 
     /**
      * C'tor.
+     * 
      * @param diagram the diagram in which this gm is created.
      * @param obLifeline the represented lifeline
      * @param ref a reference to the represented lifeline.

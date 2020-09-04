@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,15 +37,32 @@ import org.modelio.xmi.plugin.Xmi;
  */
 @objid ("e5cb73bb-449f-4642-a161-3e2fd421b118")
 public class XmiPreferencesPage extends FieldEditorPreferencePage {
-    @objid ("8be08937-7372-4932-9d70-198ba440f1d7")
+    @objid ("ee647b9c-996f-4fdc-b0c0-06eb080c0c7e")
     private ComboFieldEditor formatField;
 
-    @objid ("0d6718db-a41a-4eca-b15c-cdbccc6945c0")
+    @objid ("bda69dd4-01e5-4efb-8661-92b6c8a5be4b")
     private ComboFieldEditor extensionField;
 
-    @objid ("6c036ed5-3e1d-40f0-96bd-501aaddd35c9")
+    @objid ("59b8e4f0-888b-4741-8335-9f7ad53fbab2")
     private BooleanFieldEditor compatibilityField;
 
+    /**
+     * XMI preferences page.
+     * <p>
+     * This class represents a preference page that
+     * is contributed to the Preferences dialog. By
+     * subclassing <samp>FieldEditorPreferencePage</samp>, we
+     * can use the field support built into JFace that allows
+     * us to create a page that is small and knows how to
+     * save, restore and apply itself.
+     * <p>
+     * This page is used to modify preferences only. They
+     * are stored in the preference store that belongs to
+     * the main plug-in class. That way, preferences can
+     * be accessed directly via the preference store.
+     * 
+     * @param projectService : the Modelio project service used for project management
+     */
     @objid ("50d88f00-a8e7-4e21-a996-f6e9fd2e13cd")
     @Inject
     public XmiPreferencesPage(IProjectService projectService) {
@@ -83,18 +100,22 @@ public class XmiPreferencesPage extends FieldEditorPreferencePage {
 
     @objid ("36bfd509-9405-43d4-948b-23efed3a68be")
     private void init(IProjectService projectService) {
+        this.setDescription(Xmi.I18N.getString("preferences.description"));
+        
         if ((projectService == null) || (projectService.getOpenedProject() == null)) {
+        
             setPreferenceStore(null);
             if (isControlCreated()) {
                 setVisible(false);
             }
             noDefaultAndApplyButton();
+        
         } else {
             // use project store
             IPreferenceStore preferenceStore = projectService.getProjectPreferences(Xmi.PLUGIN_ID);
             setPreferenceStore(preferenceStore);
         
-            preferenceStore.setDefault(XmiPreferencesKeys.XMIANNOTATION_PREFKEY, true);
+            preferenceStore.setDefault(XmiPreferencesKeys.XMIANNOTATION_PREFKEY, false);
             preferenceStore.setDefault(XmiPreferencesKeys.XMIEXTENSION_PREFKEY, XMIExtension.XMI.toString());
             preferenceStore.setDefault(XmiPreferencesKeys.XMIFORMAT_PREFKEY, FormatExport.EMF300.toString());
         

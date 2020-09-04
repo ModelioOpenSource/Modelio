@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -98,6 +98,7 @@ public class ModelImportHandler {
      * <li>the selection may contain only one element of each metaclass.
      * <li>all elements must be in the same fragment
      * </ul>
+     * 
      * @param projectService the project service
      * @param selection the Eclipse selection
      * @return whether the command is available.

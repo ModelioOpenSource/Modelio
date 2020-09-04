@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,6 +25,7 @@ import org.eclipse.uml2.uml.Property;
 import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.xmi.generation.GenerationProperties;
@@ -57,7 +58,7 @@ public class SysMLProfileUtils {
         
         try {
             Stereotype obStereotype = GenerationProperties.getInstance().getMModelServices()
-                    .getStereotype(XMIProperties.modelerModuleName, "verify", metamodel.getMClass(Dependency.class));
+                    .getStereotype(IModelerModulePeerModule.MODULE_NAME, "verify", metamodel.getMClass(Dependency.class));
         
             TotalExportMap.getInstance().put(obStereotype.getUuid().toString(), stereotype);
         } catch (IllegalArgumentException | ElementNotUniqueException e) {
@@ -71,7 +72,7 @@ public class SysMLProfileUtils {
         ProfileUtils.addReference(stereotype, "Abstraction");
         try {
             Stereotype obStereotype = GenerationProperties.getInstance().getMModelServices()
-                    .getStereotype(XMIProperties.modelerModuleName, "satisfy",  metamodel.getMClass(Dependency.class));
+                    .getStereotype(IModelerModulePeerModule.MODULE_NAME, "satisfy",  metamodel.getMClass(Dependency.class));
             TotalExportMap.getInstance().put(obStereotype.getUuid().toString(), stereotype);
         } catch (IllegalArgumentException | ElementNotUniqueException e) {
             Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -84,7 +85,7 @@ public class SysMLProfileUtils {
         ProfileUtils.addReference(stereotype, "Abstraction");
         try {
             Stereotype obStereotype = GenerationProperties.getInstance().getMModelServices()
-                    .getStereotype(XMIProperties.modelerModuleName, "derive",  metamodel.getMClass(Dependency.class));
+                    .getStereotype(IModelerModulePeerModule.MODULE_NAME, "derive",  metamodel.getMClass(Dependency.class));
             TotalExportMap.getInstance().put(obStereotype.getUuid().toString(), stereotype);
         } catch (IllegalArgumentException | ElementNotUniqueException e) {
             Xmi.LOG.warning(Xmi.PLUGIN_ID, e);

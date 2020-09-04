@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,13 +25,10 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.patterns.model.information.Category;
 import org.modelio.patterns.plugin.Patterns;
 import org.modelio.patterns.utils.ImageRegistry;
-import org.osgi.framework.Bundle;
 
 @objid ("37d0b927-5499-4ffa-9578-29e64b7eb1b4")
 public class CategoryData implements Comparable<CategoryData> {
@@ -39,7 +36,7 @@ public class CategoryData implements Comparable<CategoryData> {
      * Category metadatas, loaded with Jaxb.
      */
     @objid ("b02f7c71-40be-47a6-a48a-32954dde77aa")
-    private Category infos;
+    private final Category infos;
 
     /**
      * Patterns in this category
@@ -86,23 +83,20 @@ public class CategoryData implements Comparable<CategoryData> {
         return true;
     }
 
+    /**
+     * @return the category icon image
+     */
     @objid ("37e0fee2-1458-41e2-bad6-fb290dd4b30f")
     public Image getIcon() {
         return ImageRegistry.getImage("icons/directory.png");
     }
 
+    /**
+     * @return the category icon URL
+     */
     @objid ("25dec2d7-3799-425d-a36b-316e078c89c4")
-    public String getIconPath() {
-        Bundle bundle = Platform.getBundle(Patterns.PLUGIN_ID);
-        String s = "platform:/plugin/" + bundle.getSymbolicName() + "/" + "icons/directory.png";
-        URL url = null;
-        try {
-            url = new URL(s);
-            return FileLocator.toFileURL(url).toURI().toString();
-        } catch (Exception e) {
-            Patterns.LOG.debug(e);
-        }
-        return null;
+    public URL getIconUrl() {
+        return Patterns.getContext().getBundle().getEntry("/icons/directory.png");
     }
 
     @objid ("6a5eb856-480c-4dbe-86e4-15c409d931d6")

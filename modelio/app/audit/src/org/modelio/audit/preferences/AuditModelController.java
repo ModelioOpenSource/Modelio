@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,7 +34,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.InvalidRegistryObjectException;
-import org.eclipse.core.runtime.Platform;
 import org.modelio.audit.engine.core.IAuditExecutionPlan;
 import org.modelio.audit.engine.core.IRule;
 import org.modelio.audit.extension.IAuditConfigurationPlan;
@@ -43,6 +42,7 @@ import org.modelio.audit.plugin.Audit;
 import org.modelio.audit.preferences.model.AuditConfigurationModel;
 import org.modelio.audit.preferences.model.AuditRule;
 import org.modelio.audit.service.AuditSeverity;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 
 /**
  * Audit model controller.
@@ -73,10 +73,11 @@ public class AuditModelController {
 
     /**
      * Creates a new controller that handles an existing model.
+     * 
      * @param model the model to handle.
      */
     @objid ("3dc46443-0cf9-4c55-a673-a59a8f2215fc")
-    public AuditModelController(AuditConfigurationModel model) {
+    public AuditModelController(final AuditConfigurationModel model) {
         this.auditExtensions = loadAuditExtensions();
         this.model = model;
         this.defaultConf = new Properties();
@@ -84,6 +85,7 @@ public class AuditModelController {
 
     /**
      * Get the controlled audit model.
+     * 
      * @return the audit model.
      */
     @objid ("d60d9e45-6cbc-45b8-aaad-8120a90adf9b")
@@ -96,13 +98,14 @@ public class AuditModelController {
      * <p>
      * If the given properties default already contain the same configuration for a rule,
      * the given properties are not updated.
+     * 
      * @param ret rules configuration.
      */
     @objid ("ff208ef8-0091-4256-bef9-dbfa30a090df")
-    private void writeConfiguration(Properties ret) {
-        for (AuditRule ruleEntry : this.model.getRules()) {
+    private void writeConfiguration(final Properties ret) {
+        for (final AuditRule ruleEntry : this.model.getRules()) {
             if (ruleEntry.getImplClass() != null && ruleEntry.getSeverity() != null) {
-                String sstatus = ruleEntry.isEnabled() ? "enabled" : "disabled";
+                final String sstatus = ruleEntry.isEnabled() ? "enabled" : "disabled";
                 final String value = sstatus + "," + ruleEntry.getSeverity().identifier();
                 if (this.defaultConf == null || !value.equals(this.defaultConf.getProperty(ruleEntry.getId()))) {
                     ret.setProperty(ruleEntry.getId(), value);
@@ -114,7 +117,7 @@ public class AuditModelController {
     }
 
     @objid ("4e1956b2-07e6-414a-ac21-85717e4fb848")
-    private void load(File f, Properties ret) throws IOException {
+    private void load(final File f, final Properties ret) throws IOException {
         try (final BufferedInputStream is = new BufferedInputStream(new FileInputStream(f));) {
             ret.load(is);
         }
@@ -124,12 +127,13 @@ public class AuditModelController {
      * Writes the audit model configuration in the configuration file.
      * <p>
      * Rules that have the default configuration are not written in the file.
+     * 
      * @param file the configuration file.
      * @throws java.io.IOException in case of I/O error.
      */
     @objid ("c811d837-5e37-4f7e-b6a0-aa830c69569f")
-    public void writeConfiguration(File file) throws IOException {
-        Properties ret = new Properties(this.defaultConf);
+    public void writeConfiguration(final File file) throws IOException {
+        final Properties ret = new Properties(this.defaultConf);
         
         writeConfiguration(ret);
         
@@ -150,13 +154,14 @@ public class AuditModelController {
      * <pre>
      * ruleid = enabled|disabled|obsolete,tip|warning|error
      * </pre>
+     * 
      * @param conf the configuration
      */
     @objid ("a356e9ef-97f4-46f4-b600-1eb4d9e39b31")
-    private void applyAuditConfiguration(Properties conf) {
-        for (Entry<Object, Object> entry : conf.entrySet()) {
-            String ruleId = (String) entry.getKey();
-            String[] v = ((String) entry.getValue()).split(",");
+    private void applyAuditConfiguration(final Properties conf) {
+        for (final Entry<Object, Object> entry : conf.entrySet()) {
+            final String ruleId = (String) entry.getKey();
+            final String[] v = ((String) entry.getValue()).split(",");
         
             if (v.length == 2) {
                 AuditRule rule = this.model.get(ruleId);
@@ -166,11 +171,11 @@ public class AuditModelController {
                 }
         
                 try {
-                    String sstate = v[0];
-                    String sseverity = v[1];
+                    final String sstate = v[0];
+                    final String sseverity = v[1];
                     rule.setEnabled("enabled".equals(sstate));
                     rule.setSeverity(AuditSeverity.fromIdentifier(sseverity));
-                } catch (IllegalArgumentException e) {
+                } catch (final IllegalArgumentException e) {
                     Audit.LOG.warning("Invalid rule configuration:" + entry.toString());
                 }
             } else {
@@ -185,11 +190,12 @@ public class AuditModelController {
      * <p>
      * The default configuration is used on save to avoid writing the default configuration
      * in the target file.
+     * 
      * @param defaultConfFile the default configuration file.
      * @throws java.io.IOException in case of I/O error
      */
     @objid ("696d0438-bd9e-4aaf-ad78-e71abc9adcd3")
-    public void addDefaultConf(File defaultConfFile) throws IOException {
+    public void addDefaultConf(final File defaultConfFile) throws IOException {
         load(defaultConfFile, this.defaultConf);
         applyAuditConfiguration(this.defaultConf);
     }
@@ -200,12 +206,13 @@ public class AuditModelController {
      * <p>
      * Rules present in the given configuration and absent in this configuration are added to this configuration.
      * Rules absent in the given configuration are kept as is.
+     * 
      * @param auditConfiguration the configuration to apply.
      */
     @objid ("8c9154eb-2c0e-43c8-92e2-7e0e9a7bdff9")
-    public void applyAuditConfiguration(AuditConfigurationModel auditConfiguration) {
-        for (AuditRule r : auditConfiguration.getRules()) {
-            AuditRule target = this.model.get(r.getId());
+    public void applyAuditConfiguration(final AuditConfigurationModel auditConfiguration) {
+        for (final AuditRule r : auditConfiguration.getRules()) {
+            final AuditRule target = this.model.get(r.getId());
             if (target == null) {
                 this.model.add(new AuditRule(r));
             } else {
@@ -217,12 +224,13 @@ public class AuditModelController {
 
     /**
      * Applies the given audit configuration file.
+     * 
      * @param file an audit configuration file.
      * @throws java.io.IOException in case of I/O error
      */
     @objid ("b03d9780-932c-452e-b03e-350e2dd09a16")
-    public void applyAuditConfiguration(File file) throws IOException {
-        Properties props = new Properties();
+    public void applyAuditConfiguration(final File file) throws IOException {
+        final Properties props = new Properties();
         load(file, props);
         
         applyAuditConfiguration(props);
@@ -231,12 +239,12 @@ public class AuditModelController {
     @objid ("ed65ce4a-f49c-4ddf-89f4-e636511f42ea")
     public IAuditExecutionPlan createPlan() {
         // Always build a new plan
-        AuditMasterExecutionPlan masterPlan = new AuditMasterExecutionPlan(getSubExecutionPlans());
+        final AuditMasterExecutionPlan masterPlan = new AuditMasterExecutionPlan(getSubExecutionPlans());
         
         // Update severity on runtime rules
         // FIXME this is awful...
-        for (IRule rule : masterPlan.getAllRules()) {
-            AuditRule ruleConfiguration = this.model.get(rule.getRuleId());
+        for (final IRule rule : masterPlan.getAllRules()) {
+            final AuditRule ruleConfiguration = this.model.get(rule.getRuleId());
             if (ruleConfiguration != null && ruleConfiguration.isEnabled()) {
                 rule.setSeverity(ruleConfiguration.getSeverity());
             } else {
@@ -260,16 +268,13 @@ public class AuditModelController {
      */
     @objid ("d210608e-dd31-47e7-aa6c-f6c93ed29ead")
     private List<IAuditExtension> loadAuditExtensions() {
-        List<IAuditExtension> result = new ArrayList<>();
-        IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor(AuditModelController.AUDIT_EXTENSION_ID);
-        for (IConfigurationElement e : config) {
-            if (e.getName().equals("audit")) {
-                try {
-                    result.add((IAuditExtension) e.createExecutableExtension("clazz"));
-                } catch (CoreException | InvalidRegistryObjectException ex) {
-                    Audit.LOG.error("Unable to register audit plan declared by " + e.getContributor().getName());
-                    Audit.LOG.debug(ex);
-                }
+        final List<IAuditExtension> result = new ArrayList<>();
+        for (final IConfigurationElement e : new ExtensionPointContributionManager(AuditModelController.AUDIT_EXTENSION_ID).getExtensions("audit")) {
+            try {
+                result.add((IAuditExtension) e.createExecutableExtension("clazz"));
+            } catch (CoreException | InvalidRegistryObjectException ex) {
+                Audit.LOG.error("Unable to register audit plan declared by " + e.getContributor().getName());
+                Audit.LOG.debug(ex);
             }
         }
         return result;
@@ -277,8 +282,8 @@ public class AuditModelController {
 
     @objid ("eea75260-53d0-4781-89fb-beef13b2b45b")
     private List<IAuditExecutionPlan> getSubExecutionPlans() {
-        List<IAuditExecutionPlan> ret = new ArrayList<>();
-        for (IAuditExtension extension : this.auditExtensions) {
+        final List<IAuditExecutionPlan> ret = new ArrayList<>();
+        for (final IAuditExtension extension : this.auditExtensions) {
             ret.add(extension.getExecutionPlan());
         }
         return ret;
@@ -286,8 +291,8 @@ public class AuditModelController {
 
     @objid ("76f22828-a602-4ab5-8e71-fbf8459d41ab")
     private List<IAuditConfigurationPlan> getSubConfigurationPlans() {
-        List<IAuditConfigurationPlan> ret = new ArrayList<>();
-        for (IAuditExtension extension : this.auditExtensions) {
+        final List<IAuditConfigurationPlan> ret = new ArrayList<>();
+        for (final IAuditExtension extension : this.auditExtensions) {
             ret.add(extension.getConfigurationPlan());
         }
         return ret;

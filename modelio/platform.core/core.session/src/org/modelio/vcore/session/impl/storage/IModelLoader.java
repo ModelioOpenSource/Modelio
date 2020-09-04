@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 public interface IModelLoader extends AutoCloseable {
     /**
      * Create a model object that is being loaded.
+     * 
      * @param classof The metaclass
      * @param id The identifier
      * @return the object ready to be to loaded
@@ -55,6 +56,7 @@ public interface IModelLoader extends AutoCloseable {
      * <p>
      * If the model object is found in a repository, return it. In the other case create
      * a shell model object and return it.
+     * 
      * @param classof The metaclass
      * @param id The identifier
      * @param name The shell object name.
@@ -65,6 +67,7 @@ public interface IModelLoader extends AutoCloseable {
 
     /**
      * Load a dependency content.
+     * 
      * @param obj The object to load
      * @param dep the dependency to load
      * @param newContent the new dependency content.
@@ -74,6 +77,7 @@ public interface IModelLoader extends AutoCloseable {
 
     /**
      * Load an attribute value.
+     * 
      * @param obj The object to load
      * @param att the attribute to load.
      * @param newValue the attribute value.
@@ -89,6 +93,7 @@ public interface IModelLoader extends AutoCloseable {
 
     /**
      * Create a loaded model object from the given object data.
+     * 
      * @param cls the object class
      * @param uuid the object String
      * @param d the object data
@@ -102,6 +107,7 @@ public interface IModelLoader extends AutoCloseable {
      * Create, initialize and set a new model object data for the given model object.
      * <p>
      * To be called when recovering a garbage collected model object data .
+     * 
      * @param obj the model object to recover.
      * @return the new model object data.
      */
@@ -115,6 +121,7 @@ public interface IModelLoader extends AutoCloseable {
      * <p>
      * Use the constants defined in {@link IRStatus}.
      * No delete flag must be undefined, in the other case Modelio behavior is undefined.
+     * 
      * @param obj the object to initialize
      * @param trueFlags a combination of flags to set.
      * @param falseFlags a combination of flags to unset.
@@ -130,6 +137,7 @@ public interface IModelLoader extends AutoCloseable {
      * <p>
      * Use the constants defined in {@link IPStatus}.
      * No delete flag must be undefined, in the other case Modelio behavior is undefined.
+     * 
      * @param obj the object to initialize
      * @param trueFlags a combination of flags to set.
      * @param falseFlags a combination of flags to unset.

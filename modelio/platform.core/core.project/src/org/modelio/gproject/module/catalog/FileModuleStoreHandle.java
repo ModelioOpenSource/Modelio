@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class FileModuleStoreHandle implements IModuleHandle, Comparable<Object> 
      * Public constructor.
      * <p>
      * This object takes ownership of all passed collections.
+     * 
      * @param moduleCachePath the module cache path
      * @param name the module name
      * @param version the moduel version
@@ -196,6 +197,7 @@ public class FileModuleStoreHandle implements IModuleHandle, Comparable<Object> 
      * Get the root path where all module files are extracted or created.
      * <p>
      * This directory can be copied then a new handle can be created on the directory copy.
+     * 
      * @return the module root path.
      */
     @objid ("44c6c46d-615b-470e-bead-2176e0d438fb")

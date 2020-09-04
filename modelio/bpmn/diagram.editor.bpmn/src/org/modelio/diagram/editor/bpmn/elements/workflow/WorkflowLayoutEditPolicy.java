@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.commands.NodeChangeLayoutCommand;
 import org.modelio.diagram.elements.core.link.LinkEditPart;
+import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
@@ -121,6 +122,7 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
     @objid ("637686f1-cd06-4dfd-9a23-0ca769f30d07")
     @Override
     public EditPart getTargetEditPart(Request request) {
+        GmWorkflow hostCompositeNode = getHostCompositeNode();
         if (RequestConstants.REQ_CREATE.equals(request.getType())) {
             CreateRequest createRequest = (CreateRequest) request;
             return getTargetEditPartForCreate(createRequest);
@@ -145,11 +147,25 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
                 }
             }
         
+            // Ignore resize requests on elements that are not part of the workflow
+            for (Object ep : ((ChangeBoundsRequest) request).getEditParts()) {
+                EditPart editPart = (EditPart) ep;
+                Object model = editPart.getModel();
+                if (model instanceof GmModel) {
+                    MObject elt = ((GmModel) model).getRelatedElement();
+                    if (!hostCompositeNode.isInWorkflow(elt)) {
+                        return null;
+                    }
+                } else {
+                    return null;
+                }
+            }
+        
             // No lane in the workflow, the workflow will handle the request
             return host;
         }
         
-        if (getHostCompositeNode().isUserEditable()) {
+        if (hostCompositeNode.isUserEditable()) {
             return super.getTargetEditPart(request);
         } else {
             return null;
@@ -417,6 +433,7 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
      * Returns the transitive child edit part set of the given parent <code>GraphicalEditPart</code>.
      * 
      * Prunes embedded diagram edit parts from the result.
+     * 
      * @param parentEditPart the parent graphical edit part for which to retrieve the transitive child edit part set.
      * @return the transitive child edit part set
      */

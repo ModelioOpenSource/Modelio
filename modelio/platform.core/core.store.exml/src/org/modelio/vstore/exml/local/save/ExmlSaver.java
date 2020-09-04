@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class ExmlSaver implements ExmlTags {
      * Get the parent CMS node of the given object.
      * <p>
      * If the object is itself a CMS node returns the composition owner CMS node.
+     * 
      * @param object a model object
      * @return its parent CMS node.
      */
@@ -78,6 +79,7 @@ public class ExmlSaver implements ExmlTags {
 
     /**
      * Save the given CMS node in an output stream.
+     * 
      * @param object the CMS node to save
      * @param os an output stream.
      * @throws java.io.IOException in case of failure.
@@ -189,6 +191,7 @@ public class ExmlSaver implements ExmlTags {
 
     /**
      * Write the object SmDependencies.
+     * 
      * @param object the CMS node
      * @param recursionContext to avoid cycles
      * @throws javax.xml.stream.XMLStreamException in case of XML error
@@ -271,6 +274,7 @@ public class ExmlSaver implements ExmlTags {
 
     /**
      * Write the file header.
+     * 
      * @param object the main CMS node
      * @throws javax.xml.stream.XMLStreamException in case of write error.
      */
@@ -332,6 +336,7 @@ public class ExmlSaver implements ExmlTags {
      * <p><code>
      * "&#x5d; &#x5d;&gt;" <b>---></b> "]"(1) <b>+</b> "&#x5d; &#x5d;&gt;&lt;![CDATA[" <b>+</b> "]&gt;"(2)
      * </code>
+     * 
      * @param aString a future CDATA string
      * @return a CDATA ready string
      */

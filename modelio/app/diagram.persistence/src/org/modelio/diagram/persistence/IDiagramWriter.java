@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 public interface IDiagramWriter {
     /**
      * Get the serialized string.
+     * 
      * @return the serialized string.
      */
     @objid ("cb6b8529-186f-11e2-92d2-001ec947c8cc")
@@ -45,6 +46,7 @@ public interface IDiagramWriter {
 
     /**
      * Save a root persistent element and all its relations.
+     * 
      * @param diagram the element to save
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
@@ -95,6 +97,7 @@ public interface IDiagramWriter {
      * Write a string attribute.
      * @param attName
      * @param value
+     * 
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
     @objid ("cb6de75a-186f-11e2-92d2-001ec947c8cc")
@@ -104,6 +107,7 @@ public interface IDiagramWriter {
      * Write an integer attribute.
      * @param attName
      * @param value
+     * 
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
     @objid ("cb6de75e-186f-11e2-92d2-001ec947c8cc")
@@ -114,6 +118,7 @@ public interface IDiagramWriter {
      * @param attName
      * @param value
      * @see Rectangle
+     * 
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
     @objid ("cb6de762-186f-11e2-92d2-001ec947c8cc")
@@ -124,6 +129,7 @@ public interface IDiagramWriter {
      * @param attName
      * @param value
      * @see Point
+     * 
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
     @objid ("cb6de768-186f-11e2-92d2-001ec947c8cc")
@@ -137,6 +143,7 @@ public interface IDiagramWriter {
      * The map key type. Supported types are IPersistent and all supported primitive types
      * @param <V>
      * The map value type.
+     * 
      * @param mapName The map name
      * @param map The map
      */
@@ -145,6 +152,7 @@ public interface IDiagramWriter {
 
     /**
      * Write a single object relation
+     * 
      * @param relation a relation name to be fetched by readObject().
      * @param object the object to write.
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
@@ -158,6 +166,7 @@ public interface IDiagramWriter {
      * Only types for which a writeAtt() method is available are supported.
      * @param attName
      * @param value
+     * 
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
     @objid ("cb6de77b-186f-11e2-92d2-001ec947c8cc")
@@ -168,6 +177,7 @@ public interface IDiagramWriter {
      * <p>
      * An external element is an element that is not stored in this stream but in another one. The provided ids must
      * help the diagram reader to retrieve the data where is stored the external element.
+     * 
      * @param extObj The external element to reference.
      * @param dbId A "database" id that can be used to retrieve the location where the element is stored
      * @param refId An identifier for the external element
@@ -180,6 +190,7 @@ public interface IDiagramWriter {
      * Get the root element of this writer.
      * <p>
      * The root element is the element that was passed to {@link #save(IPersistent)}.
+     * 
      * @return the root element.
      */
     @objid ("cb6de784-186f-11e2-92d2-001ec947c8cc")
@@ -188,6 +199,7 @@ public interface IDiagramWriter {
     /**
      * Write an {@link MRef} attribute.
      * @param attName
+     * 
      * @param mRef a model element reference
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
@@ -200,6 +212,7 @@ public interface IDiagramWriter {
      * Supported types are IPersistent and all supported primitive types
      * @param <T>
      * The map value type. Supported types are IPersistent and all supported primitive types
+     * 
      * @param listName The list name
      * @param list The list
      */
@@ -211,6 +224,7 @@ public interface IDiagramWriter {
      * @param attName
      * @param value
      * @see AbsoluteBendpoint
+     * 
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
     @objid ("cb6de792-186f-11e2-92d2-001ec947c8cc")
@@ -221,6 +235,7 @@ public interface IDiagramWriter {
      * @param attName
      * @param value
      * @see Dimension
+     * 
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
      */
     @objid ("cb6de798-186f-11e2-92d2-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class GmInformationItemHeader extends GmDefaultModelElementHeader {
 
     /**
      * Initialize a classifier header
+     * 
      * @param diagram the owning diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
@@ -154,6 +155,7 @@ public class GmInformationItemHeader extends GmDefaultModelElementHeader {
 
     /**
      * Tells whether the given element is the root package a the project.
+     * 
      * @param el the element to test
      * @return true if the given element is the root package a the project, else false.
      */

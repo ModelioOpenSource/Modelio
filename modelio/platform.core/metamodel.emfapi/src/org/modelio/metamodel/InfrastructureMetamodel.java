@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,13 +25,13 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("d56c4b9c-81de-402d-a5bf-ddec9c20f3bf")
 public final class InfrastructureMetamodel {
-    @objid ("595c7bb5-e9d7-4ffc-ab80-057c13787e8d")
+    @objid ("aec1b5bb-203f-456b-9df3-24667414624e")
     public static String NAME = "Infrastructure";
 
-    @objid ("34637838-fca9-4ea6-bf5a-abef0da4ebe3")
+    @objid ("936a7bf2-efa0-47db-9dce-d1a15a12fead")
     public static String PROVIDER = "Modeliosoft";
 
-    @objid ("9b6e703a-a03d-49be-bb6c-feef0fc2e411")
-    public static String VERSION = "2.1.02";
+    @objid ("88fdd568-729e-4d1c-ac6d-32b3befdcee6")
+    public static String VERSION = "2.1.03";
 
 }

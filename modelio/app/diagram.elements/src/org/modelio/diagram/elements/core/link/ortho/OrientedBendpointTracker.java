@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public class OrientedBendpointTracker extends ConnectionBendpointTracker {
 
     /**
      * Sets the orientation of the segment preceding the reference bendpoint.
+     * 
      * @param orientation the orientation of the segment preceding the reference bendpoint.
      */
     @objid ("803895d7-1dec-11e2-8cad-001ec947c8cc")
@@ -47,6 +48,7 @@ public class OrientedBendpointTracker extends ConnectionBendpointTracker {
 
     /**
      * C'tor.
+     * 
      * @param orientation the orientation of the segment preceding the reference bendpoint.
      */
     @objid ("803895dc-1dec-11e2-8cad-001ec947c8cc")
@@ -57,6 +59,7 @@ public class OrientedBendpointTracker extends ConnectionBendpointTracker {
 
     /**
      * C'tor.
+     * 
      * @param editpart the connection
      * @param i the index of the bendpoint
      * @param orientation the orientation of the segment preceding the reference bendpoint.

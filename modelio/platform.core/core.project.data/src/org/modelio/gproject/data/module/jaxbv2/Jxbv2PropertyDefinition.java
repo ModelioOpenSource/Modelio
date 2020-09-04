@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -123,6 +123,7 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the typeRef property.
+     * 
      * @param value allowed object is
      * {@link PropertyDefinition.TypeRef }
      */
@@ -144,6 +145,7 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the id property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -165,6 +167,7 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the label property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -186,6 +189,7 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the defaultValue property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -211,6 +215,7 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the isEditable property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -232,6 +237,7 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the uid property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -253,6 +259,7 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the description property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -325,6 +332,7 @@ public class Jxbv2PropertyDefinition {
 
         /**
          * Sets the value of the id property.
+         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -376,6 +384,7 @@ public class Jxbv2PropertyDefinition {
 
         /**
          * Sets the value of the name property.
+         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -397,6 +406,7 @@ public class Jxbv2PropertyDefinition {
 
         /**
          * Sets the value of the value property.
+         * 
          * @param value allowed object is
          * {@link String }
          */

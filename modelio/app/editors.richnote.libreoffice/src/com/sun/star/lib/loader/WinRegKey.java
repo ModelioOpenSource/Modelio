@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ final class WinRegKey {
 
     /**
      * Constructs a <code>WinRegKey</code>.
+     * 
      * @param rootKeyName The root key name.
      * @param subKeyName The key path.
      */
@@ -82,6 +83,7 @@ final class WinRegKey {
 
     /**
      * Reads a string value for the specified value name.
+     * 
      * @param valueName the value name to read
      * @return the value
      * @throws com.sun.star.lib.loader.WinRegKeyException in case of failure.

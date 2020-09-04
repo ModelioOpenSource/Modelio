@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -115,6 +115,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Constructor for the transaction manager.
+     * 
      * @param changeSupport the model change support.
      */
     @objid ("006ec4b8-0d1e-1f20-85a5-001ec947cd2a")
@@ -126,6 +127,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
     /**
      * Add an action to the active transaction. The 'undone' stack is also emptied. Action creation is triggered by methods on
      * 'semantic' objects such as "set_", "append_" and "erase_").
+     * 
      * @throws org.modelio.vcore.session.impl.transactions.smAction.AddActionNoActiveTransactionException when no active transaction exists.
      */
     @objid ("006ecce2-0d1e-1f20-85a5-001ec947cd2a")
@@ -140,7 +142,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
                 Transaction currentTransaction = this.activeTransactions.peek();
                 currentTransaction.addAction(action);
             } else {
-                String msg = VCoreSession.getMessage("NoActiveTransactionException", action);
+                String msg = VCoreSession.I18N.getMessage("NoActiveTransactionException", action);
                 throw new AddActionNoActiveTransactionException(msg);
             }
         }
@@ -148,6 +150,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Check transaction recording is enabled.
+     * 
      * @return <code>true</code> only if transaction recording is enabled.
      */
     @objid ("006ecf3a-0d1e-1f20-85a5-001ec947cd2a")
@@ -168,6 +171,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
      * therefore let stack the closed transaction in
      * the "undo" stack (only if it is 'undoable' otherwise just delete it).
      * <p>
+     * 
      * @param toCommit the transaction to commit.
      * @throws org.modelio.vcore.session.api.transactions.EndTransactionBadIdException if the transaction being committed is not the currently active one (Sequence error)
      * @throws org.modelio.vcore.session.api.transactions.EndTransactionNoActiveTransactionException if there is no currently active transaction.
@@ -184,14 +188,14 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
         
             // commit when no active transaction => error
             if (this.activeTransactions.isEmpty()) {
-                String msg = VCoreSession.getMessage("NoActiveTransactionException", toCommit.getName());
+                String msg = VCoreSession.I18N.getMessage("NoActiveTransactionException", toCommit.getName());
         
                 throw new EndTransactionNoActiveTransactionException(msg);
             }
         
             // if committing a transaction which is not the current top => Error
             if (this.activeTransactions.peek() != toCommit) {
-                String msg = VCoreSession.getMessage("EndTransactionBadIdException", toCommit.getName(), this.activeTransactions.peek().getName());
+                String msg = VCoreSession.I18N.getMessage("EndTransactionBadIdException", toCommit.getName(), this.activeTransactions.peek().getName());
                 throw new EndTransactionBadIdException(msg);
             }
         
@@ -284,7 +288,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
             Transaction newTransaction = null;
         
             if (this.transactionsForbidden) {
-                String message = VCoreSession.getMessage("TransactionForbiddenException");
+                String message = VCoreSession.I18N.getMessage("TransactionForbiddenException");
                 throw new TransactionForbiddenException(message);
         
             } else if (this.actionsRecorded) {
@@ -330,6 +334,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Get the currently opened transaction.
+     * 
      * @return a transaction. Might be <code>null</code>.
      */
     @objid ("006ed318-0d1e-1f20-85a5-001ec947cd2a")
@@ -339,6 +344,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Returns the name of the first transaction available for a 'redo' or <code>null</code> if none.
+     * 
      * @return the name of the transaction.
      */
     @objid ("006ed3ae-0d1e-1f20-85a5-001ec947cd2a")
@@ -348,6 +354,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Returns the name of the first transaction available for a 'undo' or <code>null</code> if none.
+     * 
      * @return the name of the transaction.
      */
     @objid ("006ed4f8-0d1e-1f20-85a5-001ec947cd2a")
@@ -365,6 +372,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Return <code>true</code> if there is a transaction currently active.
+     * 
      * @return whether or not a transaction is active.
      */
     @objid ("006ed5a2-0d1e-1f20-85a5-001ec947cd2a")
@@ -375,6 +383,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Return <code>true</code> if a 'redo' transaction is available.
+     * 
      * @return whether or not the 'redo' is active.
      */
     @objid ("006ed64c-0d1e-1f20-85a5-001ec947cd2a")
@@ -391,6 +400,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
      * <li>the last recorder action is a closed transaction (no pending opened transaction) or the active transaction stack is empty
      * and the undo stack is not empty.</li>
      * </ul>
+     * 
      * @return <code>true</code> if 'undo' is possible.
      */
     @objid ("006ed6e2-0d1e-1f20-85a5-001ec947cd2a")
@@ -409,6 +419,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
      * Run a 'Redo' on the top transaction of the 'undone' stack.
      * <p>
      * Remove it from the 'undone' stack.
+     * 
      * @throws org.modelio.vcore.session.api.transactions.RedoNoUndoneTransactionException if the undone stack is empty, or a transaction is in progress.
      */
     @objid ("006ed80e-0d1e-1f20-85a5-001ec947cd2a")
@@ -422,12 +433,12 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
             }
         
             if (this.undoneTransactions.isEmpty()) {
-                String message = VCoreSession.getMessage("RedoNoUndoneTransactionException");
+                String message = VCoreSession.I18N.getMessage("RedoNoUndoneTransactionException");
                 throw new RedoNoUndoneTransactionException(message);
             }
         
             if (!this.activeTransactions.isEmpty()) {
-                String message = VCoreSession.getMessage("RedoWhileInTransactionException");
+                String message = VCoreSession.I18N.getMessage("RedoWhileInTransactionException");
                 throw new RedoNoUndoneTransactionException(message);
             }
         
@@ -471,6 +482,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
      * Rollback the currently active transaction.
      * <p>
      * The actions of the currently active transaction are undo and the transaction removed from he active stack
+     * 
      * @param toRollback whether or not this transaction can be undone.
      * @throws org.modelio.vcore.session.api.transactions.EndTransactionBadIdException the transaction to rollback is not the currently active one
      * @throws org.modelio.vcore.session.api.transactions.EndTransactionNoActiveTransactionException if there is no active transaction
@@ -484,12 +496,12 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
             }
         
             if (this.activeTransactions.isEmpty()) {
-                String message = VCoreSession.getMessage("RollbackTransactionNoActiveTransaction",toRollback.getName());
+                String message = VCoreSession.I18N.getMessage("RollbackTransactionNoActiveTransaction",toRollback.getName());
                 throw new EndTransactionNoActiveTransactionException(message);
             }
         
             if (this.activeTransactions.peek() != toRollback) {
-                String message = VCoreSession.getMessage("RollbackTransactionWrongTransaction",toRollback.getName(), this.activeTransactions.peek().getName());
+                String message = VCoreSession.I18N.getMessage("RollbackTransactionWrongTransaction",toRollback.getName(), this.activeTransactions.peek().getName());
                 throw new EndTransactionBadIdException(message);
             }
         
@@ -519,6 +531,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Disable/Enable transaction recording.
+     * 
      * @param value the new status of transaction recording.
      * @return the old status of transaction recording.
      */
@@ -542,6 +555,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Set a {@link ITransactionValidator} to check transaction contents before committing.
+     * 
      * @param value the transaction validator.
      */
     @objid ("009408cc-841a-1033-9188-001ec947cd2a")
@@ -562,6 +576,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
      * the undo stack if some.
      * <p>
      * The undone transaction is stacked on the redo stack.
+     * 
      * @throws org.modelio.vcore.session.api.transactions.UndoNoDoneTransactionException if there is no transaction to undo.
      * @throws org.modelio.vcore.session.api.transactions.UndoActiveTransactionException if no active transaction exists.
      */
@@ -572,12 +587,12 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
         try {
             if (this.actionsRecorded) {
                 if (!this.activeTransactions.isEmpty()) {
-                    String message = VCoreSession.getMessage("UndoActiveTransactionException");
+                    String message = VCoreSession.I18N.getMessage("UndoActiveTransactionException");
                     throw new UndoActiveTransactionException(message);
                 }
         
                 if (this.doneTransactions.isEmpty()) {
-                    String message = VCoreSession.getMessage("UndoNoDoneTransactionException");
+                    String message = VCoreSession.I18N.getMessage("UndoNoDoneTransactionException");
                     throw new UndoNoDoneTransactionException(message);
                 }
         
@@ -609,6 +624,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
      * Fires model and status change listeners.
      * <p>
      * Transactions are forbidden for model change listeners, ie model change listeners are not allowed to modify the model
+     * 
      * @param evFact the factory to use to create the model change events.
      */
     @objid ("00938c12-702b-1f21-85a5-001ec947cd2a")
@@ -667,7 +683,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
                     throw new ConcurrentTransactionException(trName, lastTransaction, lastTransaction.getCreatorThread(), lastTransaction.getCreationTrace(), timeout, unit);
                 } else {
                     // This case should not occur
-                    String msg = VCoreSession.getMessage("TransactionManager.locked.noTransaction", 
+                    String msg = VCoreSession.I18N.getMessage("TransactionManager.locked.noTransaction", 
                             trName, 
                             timeout, 
                             unit,
@@ -684,7 +700,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
                 e2 =  new ConcurrentTransactionException(trName, lastTransaction, lastTransaction.getCreatorThread(), lastTransaction.getCreationTrace(), timeout, unit);
             } else {
                 // This case should not occur
-                String msg = VCoreSession.getMessage("TransactionManager.locked.noTransaction.interrupted", 
+                String msg = VCoreSession.I18N.getMessage("TransactionManager.locked.noTransaction.interrupted", 
                         trName, 
                         timeout, 
                         unit,
@@ -709,7 +725,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
                 if (lastTransaction != null) {
                     throw new ConcurrentTransactionException(trName, lastTransaction, lastTransaction.getCreatorThread(), lastTransaction.getCreationTrace(), timeout, unit);
                 } else {
-                    String msg = VCoreSession.getMessage("TransactionManager.locked.global", 
+                    String msg = VCoreSession.I18N.getMessage("TransactionManager.locked.global", 
                             trName, 
                             timeout, 
                             unit,
@@ -721,7 +737,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
                 }
             }
         } catch (InterruptedException e) {
-            String msg = VCoreSession.getMessage("TransactionManager.locked.global.interrupted", 
+            String msg = VCoreSession.I18N.getMessage("TransactionManager.locked.global.interrupted", 
                     trName, 
                     timeout, 
                     unit,
@@ -814,6 +830,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
          * <p>
          * No transaction will be open until the runnable has finished execution.
          * The given runnable should execute as quickly as possible in order to not clock Modelio.
+         * 
          * @param runnable a runnable
          */
         @objid ("d8bfc9a8-5e52-4c6b-9f14-3eec54eb6ebf")

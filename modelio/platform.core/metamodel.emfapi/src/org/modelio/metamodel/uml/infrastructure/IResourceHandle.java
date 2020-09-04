@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ public interface IResourceHandle {
      * Open a read stream.
      * <p>
      * The caller has to close the stream, usually with a try-with-resource statement.
+     * 
      * @return the read stream.
      * @throws java.io.IOException on I/O failure.
      */
@@ -47,6 +48,7 @@ public interface IResourceHandle {
      * Open a write stream on the resource.
      * <p>
      * The caller has to close the stream, usually with a try-with-resource statement.
+     * 
      * @return the writing stream.
      * @throws java.io.IOException on I/O failure.
      */
@@ -55,6 +57,7 @@ public interface IResourceHandle {
 
     /**
      * Set the authentication data that may be needed to access the resource.
+     * 
      * @param auth the authentication data.
      */
     @objid ("7bea46b3-ae84-422f-b0e5-9e7cf4855209")
@@ -62,6 +65,7 @@ public interface IResourceHandle {
 
     /**
      * Copy the resource in a file in the given directory.
+     * 
      * @param dir the target directory.
      * @return the file containing the resource.
      * @throws java.io.IOException the created file.
@@ -74,6 +78,7 @@ public interface IResourceHandle {
      * <p>
      * Beware the target resource content will be overwritten, even if it
      * the resource was an external reference.
+     * 
      * @param src the source resource handle.
      * @param target the target resource handle.
      * @throws java.io.IOException on I/O failure
@@ -95,6 +100,7 @@ public interface IResourceHandle {
      * Get the location of the resource.
      * <p>
      * Returns null for an embedded resource.
+     * 
      * @return the location of the resource.
      */
     @objid ("dbb373fa-e595-41bc-8a98-51897dbe96d7")

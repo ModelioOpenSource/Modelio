@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class GmLinkRake implements IPersistent, IGmLinkRake {
 
     /**
      * Add a link to the rake.
+     * 
      * @param gmLink the link to add
      */
     @objid ("8025832d-1dec-11e2-8cad-001ec947c8cc")
@@ -80,6 +81,7 @@ public class GmLinkRake implements IPersistent, IGmLinkRake {
 
     /**
      * set the shared anchor.
+     * 
      * @param anchor the shared anchor.
      */
     @objid ("80258346-1dec-11e2-8cad-001ec947c8cc")

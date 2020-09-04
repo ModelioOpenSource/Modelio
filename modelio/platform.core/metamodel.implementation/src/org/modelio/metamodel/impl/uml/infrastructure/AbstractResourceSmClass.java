@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -47,54 +47,54 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("2ad1e566-e1c4-46c9-918b-88a4c27fbaba")
 public class AbstractResourceSmClass extends ModelElementSmClass {
-    @objid ("2ae85527-d990-4f3f-8c09-1cbe5755caaf")
+    @objid ("3b257398-050b-482a-b7e9-f0a1018ea63d")
     private SmAttribute mimeTypeAtt;
 
-    @objid ("75e25af5-1fc6-4e72-a943-00e61324140c")
+    @objid ("6546c6ff-de21-41c5-8f09-b0c3fa53956b")
     private SmAttribute storageInfoAtt;
 
-    @objid ("8bb7cdf8-cb12-442d-a3a2-fedbb380bd95")
+    @objid ("90b92b7e-c971-4a1c-99d0-11661df06758")
     private SmDependency typeDep;
 
-    @objid ("0bd1cc47-a069-43cd-b310-5a4deba9f08d")
+    @objid ("bb238404-be24-485d-ada5-7368632727d9")
     private SmDependency subjectDep;
 
-    @objid ("c1bf33dc-dfd7-43b9-994b-fa89b0fb4176")
+    @objid ("7a075438-5b74-42e8-ae1c-2b35abbe3545")
     public AbstractResourceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("5ab27034-4349-4325-a26d-c54416e33a62")
+    @objid ("2c9a0753-aef6-46b7-8c1d-ca626d07399f")
     @Override
     public String getName() {
         return "AbstractResource";
     }
 
-    @objid ("01b64331-8f7a-4d21-a71e-650938f60386")
+    @objid ("ff28cafa-95f4-4221-8118-3631b085c12b")
     @Override
     public Version getVersion() {
         return new Version("2.1.00");
     }
 
-    @objid ("5674668c-8071-4704-aff4-8fa315bf5b34")
+    @objid ("67f32338-498a-4166-96a2-152d6cfbccf2")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return AbstractResource.class;
     }
 
-    @objid ("416f2a82-a73f-4489-b6ce-45b0cd5bb520")
+    @objid ("4461b460-05aa-4910-af09-d291fdb3815b")
     @Override
     public boolean isCmsNode() {
         return false;
     }
 
-    @objid ("fe26d0b5-5683-4e59-a963-c7c1806fad83")
+    @objid ("1509a57f-f0f8-4352-9fb7-96a6bcdb875c")
     @Override
     public boolean isAbstract() {
         return false;
     }
 
-    @objid ("129effab-ffb8-42a4-919d-f80ccab96ba9")
+    @objid ("cd7d79d0-a05b-45ef-9f6e-b2c13855aae2")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(ModelElement.MQNAME);
@@ -121,7 +121,7 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
         registerDependency(this.subjectDep);
     }
 
-    @objid ("b4b2fcd4-051e-4be7-bf0c-94e8b9863239")
+    @objid ("9a9d456e-e64b-4696-a202-1748d8623018")
     public SmAttribute getMimeTypeAtt() {
         if (this.mimeTypeAtt == null) {
         	this.mimeTypeAtt = this.getAttributeDef("MimeType");
@@ -129,7 +129,7 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
         return this.mimeTypeAtt;
     }
 
-    @objid ("79379e72-92a2-49e7-ae45-ca18df0535b6")
+    @objid ("76d79be1-7ec9-4d2c-93fa-0ca88bd6d350")
     public SmAttribute getStorageInfoAtt() {
         if (this.storageInfoAtt == null) {
         	this.storageInfoAtt = this.getAttributeDef("StorageInfo");
@@ -137,7 +137,7 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
         return this.storageInfoAtt;
     }
 
-    @objid ("51c2e26c-604f-4933-b818-78c83a510dbc")
+    @objid ("1a5d235b-7fb1-4286-bfe7-375bdd0d913f")
     public SmDependency getTypeDep() {
         if (this.typeDep == null) {
         	this.typeDep = this.getDependencyDef("Type");
@@ -145,7 +145,7 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
         return this.typeDep;
     }
 
-    @objid ("464b61ef-11a4-446e-875f-6fa2a08b87e7")
+    @objid ("c56eddb8-a295-420a-831c-6c684ea3d46f")
     public SmDependency getSubjectDep() {
         if (this.subjectDep == null) {
         	this.subjectDep = this.getDependencyDef("Subject");
@@ -155,21 +155,21 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
 
     @objid ("534c467f-e591-40a6-ad60-770e701418b5")
     private static class AbstractResourceObjectFactory implements ISmObjectFactory {
-        @objid ("add34a86-7b15-4d86-a185-490c3248041d")
+        @objid ("bf37cde0-5660-4d46-bcc2-a96902f6fb7e")
         private AbstractResourceSmClass smClass;
 
-        @objid ("67e3b991-4cec-43c2-9884-5228bea7d309")
+        @objid ("d1638009-b5b4-410e-93da-edb060459610")
         public AbstractResourceObjectFactory(AbstractResourceSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("15ee04ab-7e88-4e44-bf4d-4e992d599e6a")
+        @objid ("5ac851ac-d088-4383-9ce9-4e9eaaf9d4d8")
         @Override
         public ISmObjectData createData() {
             return new AbstractResourceData(this.smClass);
         }
 
-        @objid ("a262053e-4403-49d7-8201-4f65d5a6190d")
+        @objid ("dd9838ec-936d-45b8-a9e9-ca9eb1ba5a2e")
         @Override
         public SmObjectImpl createImpl() {
             return new AbstractResourceImpl();
@@ -179,12 +179,12 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
 
     @objid ("56f5b283-13ce-4ee2-b224-240dc6002dce")
     public static class MimeTypeSmAttribute extends SmAttribute {
-        @objid ("aceb84e3-1598-48a7-8b32-2d5c31f22572")
+        @objid ("62799816-8d54-4e58-970b-55fae6a9d703")
         public Object getValue(ISmObjectData data) {
             return ((AbstractResourceData) data).mMimeType;
         }
 
-        @objid ("9bce5aaf-75a9-4e50-8448-66d86b2530b9")
+        @objid ("f81c73dc-f3a8-481f-986c-a9c627517258")
         public void setValue(ISmObjectData data, Object value) {
             ((AbstractResourceData) data).mMimeType = value;
         }
@@ -193,22 +193,22 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
 
     @objid ("b104e3fb-7ba5-4031-873e-1e94d427afff")
     public static class TypeSmDependency extends SmSingleDependency {
-        @objid ("cbe90382-81b7-4c36-b3d5-e950e7e46751")
+        @objid ("a17fd1b0-d61e-4e0f-962c-6117b840315d")
         private SmDependency symetricDep;
 
-        @objid ("2dbabc82-7ef9-4b0f-be1f-d54cc3ba7dd9")
+        @objid ("b0f4f2f4-3cf0-4a65-aebf-563a6bc1406c")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((AbstractResourceData) data).mType;
         }
 
-        @objid ("675510ae-8a97-4413-8798-3d772029bdb9")
+        @objid ("7a9c52ff-fce9-4e81-9290-32b688f44bbb")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((AbstractResourceData) data).mType = value;
         }
 
-        @objid ("a4b0463b-b02b-4e19-9c8b-f98ebfca1b4b")
+        @objid ("3cf46952-01aa-49ba-85d7-fb96d76725b6")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -221,22 +221,22 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
 
     @objid ("24f11f89-2160-4c0a-95f0-7fc1cbf68185")
     public static class SubjectSmDependency extends SmSingleDependency {
-        @objid ("ce88c3fb-975b-4bd0-99b1-f84ad5889331")
+        @objid ("26539eb2-2bc4-4aa0-8d1c-58f8bc07ebc8")
         private SmDependency symetricDep;
 
-        @objid ("54ea6b93-1b94-46be-ac8b-ca3a59b9751a")
+        @objid ("dea0b801-1219-4fe0-ae0e-3447b9b990cc")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((AbstractResourceData) data).mSubject;
         }
 
-        @objid ("60322579-0141-433b-97b9-123b54f70150")
+        @objid ("557a043a-cfe1-4755-9af3-d587e8040488")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((AbstractResourceData) data).mSubject = value;
         }
 
-        @objid ("2223297c-0fb3-4e4b-80db-741554bf8f64")
+        @objid ("af6ffb3f-9b60-438b-a6be-4d943d0d5e87")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -249,12 +249,12 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
 
     @objid ("ba01ab1b-5d45-401b-8f6b-abe1243f518c")
     public static class StorageInfoSmAttribute extends SmAttribute {
-        @objid ("59623278-4d76-4f17-8726-79a0da18f6d1")
+        @objid ("d1b7f121-05ad-478c-bdc2-9df9563d6e1f")
         public Object getValue(ISmObjectData data) {
             return ((AbstractResourceData) data).mStorageInfo;
         }
 
-        @objid ("1af83c87-2a6e-4a71-87c5-d2f6c8d9dc6a")
+        @objid ("4f6cb12c-38ec-4bea-9af0-e611841d2c45")
         public void setValue(ISmObjectData data, Object value) {
             ((AbstractResourceData) data).mStorageInfo = value;
         }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ public interface IModuleFeature {
     /**
      * Returns normally if the state can be changed,
      * throws ModuleException if state change must be aborted.
+     * 
      * @throws org.modelio.api.module.lifecycle.ModuleException on error
      */
     @objid ("5d10a286-c53f-49bd-bb7e-e67e397d822a")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -82,6 +82,7 @@ public final class InstallationFinder {
     /**
      * do not instantiate
      * Gets the path of a UNO installation.
+     * 
      * @return the installation path or <code>null</code>, if no installation
      * was specified or found, or if an error occurred
      */
@@ -132,6 +133,7 @@ public final class InstallationFinder {
      * The Java system property can be passed into the application by using
      * the -D flag, e.g.
      * java -D<property name>=<installation path> -jar application.jar.</p>
+     * 
      * @return the installation path or <code>null</code>, if no installation
      * was specified in the Java system property or if an error occurred
      */
@@ -154,6 +156,7 @@ public final class InstallationFinder {
      * Note, that in Java 1.3.1 and Java 1.4 System.getenv() throws
      * java.lang.Error and therefore this method returns null for those
      * Java versions.</p>
+     * 
      * @return the installation path or <code>null</code>, if no installation
      * was specified in the environment variable or if an error occurred
      */
@@ -176,6 +179,7 @@ public final class InstallationFinder {
      * Gets the installation path from the Windows Registry.
      * 
      * <p>This method is called on the Windows platform only.</p>
+     * 
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred
      */
@@ -200,6 +204,7 @@ public final class InstallationFinder {
      * Note, that in Java 1.3.1 and Java 1.4 System.getenv() throws
      * java.lang.Error and therefore this method returns null for those
      * Java versions.</p>
+     * 
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred
      */
@@ -257,6 +262,7 @@ public final class InstallationFinder {
      * <p>This method is called on Unix/Linux platforms only.
      * An installation is found, if the executable 'soffice' or a symbolic link
      * is in one of the directories listed in the PATH environment variable.</p>
+     * 
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred
      */
@@ -341,6 +347,7 @@ public final class InstallationFinder {
      * <p>This method is called on Unix/Linux platforms only.
      * The .sversionrc file is written during setup and will be omitted for
      * OOo 2.0.</p>
+     * 
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred
      */
@@ -397,6 +404,7 @@ public final class InstallationFinder {
     /**
      * Translates an OOo-internal absolute file URL reference (encoded using
      * UTF-8) into a Java canonical pathname.
+     * 
      * @param oooUrl any URL reference; any fragment part is ignored
      * @return if the given URL is a valid absolute, local (that is, the host
      * part is empty or equal to "localhost", ignoring case) file URL, it is
@@ -506,6 +514,7 @@ public final class InstallationFinder {
      * Gets the installation path from a Windows Registry key path.
      * 
      * <p>This method is called on the Windows platform only.</p>
+     * 
      * @param subKeyName The key path where the installation path is stored.
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred
@@ -546,6 +555,7 @@ public final class InstallationFinder {
     /**
      * Tells whether the given directory is a valid OpenOffice
      * or LibreOffice installation directory.
+     * 
      * @param installDir A directory.
      * @return true for a valid installation directory, false in all other cases.
      */
@@ -559,6 +569,7 @@ public final class InstallationFinder {
      * or LibreOffice program directory.
      * <p>
      * The directory is valid if it contains the OpenOffice executable.
+     * 
      * @param programDir A directory.
      * @return true for a valid program directory, false in all other cases.
      */
@@ -585,6 +596,7 @@ public final class InstallationFinder {
      * Gets the installation path from a Windows Registry key path.
      * 
      * <p>This method is called on the Windows platform only.</p>
+     * 
      * @param subKeyName The key path where the installation path is stored.
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred

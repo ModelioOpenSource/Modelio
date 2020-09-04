@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class GmConnectionLocator extends GmAbstractLocator {
 
     /**
      * Returns the alignment of ConnectionLocator.
+     * 
      * @return The alignment
      */
     @objid ("80042226-1dec-11e2-8cad-001ec947c8cc")
@@ -76,6 +77,7 @@ public class GmConnectionLocator extends GmAbstractLocator {
 
     /**
      * Returns the number of pixels to leave between the figure being located and the reference point.
+     * 
      * @return The gap
      */
     @objid ("8004222b-1dec-11e2-8cad-001ec947c8cc")
@@ -87,6 +89,7 @@ public class GmConnectionLocator extends GmAbstractLocator {
      * Returns the position of the figure with respect to the center point. Possible values can be found in
      * {@link PositionConstants} and include CENTER, NORTH, SOUTH, EAST, WEST, NORTH_EAST, NORTH_WEST, SOUTH_EAST, or
      * SOUTH_WEST.
+     * 
      * @return An int constant representing the relative position
      */
     @objid ("80042230-1dec-11e2-8cad-001ec947c8cc")
@@ -108,6 +111,7 @@ public class GmConnectionLocator extends GmAbstractLocator {
      * Sets the alignment. Possible values are {@link org.eclipse.draw2d.ConnectionLocator#SOURCE SOURCE},
      * {@link org.eclipse.draw2d.ConnectionLocator#MIDDLE MIDDLE}, and
      * {@link org.eclipse.draw2d.ConnectionLocator#TARGET TARGET}.
+     * 
      * @param align The alignment
      */
     @objid ("8004223f-1dec-11e2-8cad-001ec947c8cc")
@@ -120,6 +124,7 @@ public class GmConnectionLocator extends GmAbstractLocator {
      * <p>
      * Only used if {@link #getRelativePosition()} returns
      * something other than {@link PositionConstants#CENTER}.
+     * 
      * @param i The gap
      */
     @objid ("80042243-1dec-11e2-8cad-001ec947c8cc")
@@ -131,6 +136,7 @@ public class GmConnectionLocator extends GmAbstractLocator {
      * Sets the position of the figure with respect to the center point. Possible values can be found in
      * {@link PositionConstants} and include CENTER, NORTH, SOUTH, EAST, WEST, NORTH_EAST, NORTH_WEST, SOUTH_EAST, or
      * SOUTH_WEST.
+     * 
      * @param pos The relative position
      */
     @objid ("80042247-1dec-11e2-8cad-001ec947c8cc")
@@ -164,6 +170,7 @@ public class GmConnectionLocator extends GmAbstractLocator {
 
     /**
      * Copy constructor.
+     * 
      * @param src the object to copy.
      */
     @objid ("fe2ae304-5ee7-43a2-8b1b-db18eed6ab77")

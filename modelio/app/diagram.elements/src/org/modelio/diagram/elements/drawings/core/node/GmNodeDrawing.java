@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -117,6 +117,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
 
     /**
      * Default constructor.
+     * 
      * @param diagram the owner diagram.
      * @param identifier the drawing identifier, must be unique in the diagram.
      */
@@ -151,6 +152,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
 
     /**
      * Set the parent layer
+     * 
      * @param gmDrawingLayer the parent layer
      */
     @objid ("f01a67cd-6b1d-4c60-b03c-ef849d7695e3")
@@ -196,6 +198,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
 
     /**
      * Add a link going to this element.
+     * 
      * @param link the ongoing link.
      */
     @objid ("046a51f5-1ccc-4578-849f-3e893ec5cc7c")
@@ -208,6 +211,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
 
     /**
      * Add a link starting from this node.
+     * 
      * @param link The starting link.
      */
     @objid ("1429c94b-660a-43c2-a6f9-2670a496ddb3")
@@ -220,6 +224,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
 
     /**
      * Get the links going to this node.
+     * 
      * @return the ongoing links.
      */
     @objid ("54626cda-7325-4988-84cb-41e98c0f34bb")
@@ -232,6 +237,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
 
     /**
      * Remove a link going to this node.
+     * 
      * @param gmLink the link to remove.
      */
     @objid ("f075e689-6b7b-4e5b-bc3f-861c937ce3cc")
@@ -244,6 +250,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
 
     /**
      * Remove a link starting from this node.
+     * 
      * @param gmLink the link to remove.
      */
     @objid ("d833688f-b721-461c-8d98-8d068d76a471")

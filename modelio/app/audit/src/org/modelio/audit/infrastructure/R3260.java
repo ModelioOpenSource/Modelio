@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -109,6 +109,7 @@ public class R3260 extends AbstractInfrastructureRule {
     private static class CheckR3260 extends AbstractControl {
         /**
          * C'tor.
+         * 
          * @param rule the rule to check.
          */
         @objid ("d73162ec-61a7-4325-bbcf-14256db7a5fd")

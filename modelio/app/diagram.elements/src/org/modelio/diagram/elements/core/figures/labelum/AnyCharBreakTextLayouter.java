@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class AnyCharBreakTextLayouter extends AbstractBreakTextLayouter {
     /**
      * Find a return the line break range.
      * The returned range will be replaced by a line return.
+     * 
      * @param text the text to search
      * @param beforeIndex the offset to start back from
      * @return the text range to replace by a line break

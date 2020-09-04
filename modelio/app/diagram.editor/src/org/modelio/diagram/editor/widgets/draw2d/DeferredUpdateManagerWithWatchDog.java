@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,6 +25,7 @@ import java.util.HashSet;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.DeferredUpdateManager;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.swt.graphics.GC;
 import org.modelio.diagram.editor.plugin.DiagramEditor;
 import org.modelio.diagram.elements.core.figures.FigureDumper;
 
@@ -81,6 +82,12 @@ public class DeferredUpdateManagerWithWatchDog extends DeferredUpdateManager {
             this.nbAdded = 0;
             this.localQueue.clear();
         }
+    }
+
+    @objid ("edb9fe28-6037-4066-bdc2-a15c5b5e9c4b")
+    @Override
+    protected void paint(GC gc) {
+        super.paint(gc);
     }
 
 }

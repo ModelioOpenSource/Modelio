@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -105,6 +105,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
     /**
      * Activates and starts the given module. This method does NOT activate nor start modules required by the given module.
      * @param module the module to activate.
+     * 
      * @throws org.modelio.api.module.lifecycle.ModuleException if an error occurred while trying to activate the module.
      */
     @objid ("2bb63eee-f1ed-11e1-af52-001ec947c8cc")
@@ -118,6 +119,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
     /**
      * Stops and deactivates the given module. Modules requiring the given module will be stopped first.
      * @param module the module to deactivate.
+     * 
      * @throws org.modelio.api.module.lifecycle.ModuleException if an error occurred while trying to deactivate the module.
      */
     @objid ("2bb63ef2-f1ed-11e1-af52-001ec947c8cc")
@@ -130,6 +132,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
 
     /**
      * Returns the started IRTModule matching the passed GModule or <code>null</code> if none is found.
+     * 
      * @param gModule the GModule to search a started IRTModule for.
      * @return the started IRTModule matching to the passed GModule or <code>null</code> if none is found.
      */
@@ -147,6 +150,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
 
     /**
      * Returns the ModuleRegistry which contains the list of all loaded IRTModule and the list of all started IRTModule.
+     * 
      * @return the {@link IModuleRegistry}
      */
     @objid ("2bb63ef6-f1ed-11e1-af52-001ec947c8cc")
@@ -193,6 +197,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
      * Ensure loading all RT modules of the given project.
      * <p>
      * Only {@link IRTModule} instances are initialized, the modules themselves are not loaded. This allows calling install(...) methods to update existing modules before they are started.
+     * 
      * @param project the project to start all activated modules of.
      */
     @objid ("897a9375-b523-40b1-af56-2927f71ab07c")
@@ -211,6 +216,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
 
     /**
      * Installs, load and start the module contained in the given file in the given project. This method adds (or update) a module in the given GProject, then load and start the corresponding {@link IRTModule}.
+     * 
      * @param gProject the project to install the module into.
      * @param moduleUri the path to the file of the module.
      * @param authData authentication data to access the URI. May be <i>null</i>.
@@ -231,6 +237,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
 
     /**
      * Stops, unload and removes a module.
+     * 
      * @param gModule the module to remove.
      * @throws org.modelio.api.module.lifecycle.ModuleException if an error occurred while trying to remove the module.
      */
@@ -242,6 +249,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
 
     /**
      * Stops, unload and removes a module.
+     * 
      * @param gModule the module to remove.
      * @param deleteAnnotations if true, delete all annotations typed by extensions provided by the module.
      * @throws org.modelio.api.module.lifecycle.ModuleException if an error occurred while trying to remove the module.
@@ -254,6 +262,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
 
     /**
      * Load and Start all activated non started modules of the given project.
+     * 
      * @param project the project to start all activated modules of.
      * @param aMonitor optional progress monitor, may be <code>null</code>
      */
@@ -306,6 +315,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
 
     /**
      * Stop all started modules and unloads all loaded modules of the given project.
+     * 
      * @param project the project to stop all modules of.
      */
     @objid ("2bb63ee1-f1ed-11e1-af52-001ec947c8cc")
@@ -352,6 +362,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
 
     /**
      * Unload definitively a module beginning by modules depending on him.
+     * 
      * @param module the module to unload.
      */
     @objid ("050708da-7140-4e40-b847-497d6a674dda")
@@ -374,6 +385,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
 
     /**
      * Sort the module list by start order.
+     * 
      * @param gModules a module list
      * @return the sorted list
      */
@@ -418,6 +430,7 @@ public class ModuleManagementService implements IModuleManagementService, IModul
 
     /**
      * Installs, load and start the module contained in the given file in the given project. This method adds (or update) a module in the given GProject, then load and start the corresponding {@link IRTModule}.
+     * 
      * @param gProject the project to install the module into.
      * @param moduleFilePath the path to the file of the module.
      * @throws org.modelio.api.module.lifecycle.ModuleException if an error occurred while trying to install the module.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,15 +30,14 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
 import org.modelio.metamodel.uml.behavior.usecaseModel.Actor;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
-import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.statik.Operation;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.NotFoundException;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("f4b8a21b-124a-4f0d-aaa9-c96fa4d384c5")
 public class OOperation extends OFeature {
@@ -49,7 +48,10 @@ public class OOperation extends OFeature {
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
         MObject objingOwner = this.objingElement.getCompositionOwner();
-        if (((ModelElement) getObjingElement()).isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2RECEPTION)){
+        
+        if (this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2RECEPTION)
+                && (this.objingElement.getSRepresentation() != null)){
+            
             if (objingOwner instanceof Actor
                     || objingOwner instanceof UseCase
                     || objingOwner instanceof Signal) {
@@ -60,9 +62,9 @@ public class OOperation extends OFeature {
         
             }
             return UMLFactory.eINSTANCE.createReception();
-        }else if (((ModelElement) getObjingElement()).isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REDEFINABLETEMPLATESIGNATURE)){
+        }else if (this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REDEFINABLETEMPLATESIGNATURE)){
             return UMLFactory.eINSTANCE.createRedefinableTemplateSignature();
-        }else if (((ModelElement) getObjingElement()).isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2TEMPLATESIGNATURE)){
+        }else if (this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TEMPLATESIGNATURE)){
             return UMLFactory.eINSTANCE.createTemplateSignature();
         }else{
         
@@ -154,7 +156,7 @@ public class OOperation extends OFeature {
 
     @objid ("b8a36dac-82ea-4389-9d4f-6607ee6e1777")
     private void setConcurrency(org.eclipse.uml2.uml.BehavioralFeature ecoreElt) {
-        // Since concurrency is represented as a boolean in Ijing, the mapping
+        // Since concurrency is represented as a boolean in Modelio, the mapping
         // is true for the
         // CONCURRENT value, and false else (SEQUENTIAL by default):
         if (this.objingElement.isConcurrency())
@@ -166,7 +168,7 @@ public class OOperation extends OFeature {
     @objid ("7a3ec367-89fc-4c51-adcc-2b19223fe02f")
     private void setMethod(org.eclipse.uml2.uml.BehavioralFeature ecoreElt) {
         for (Dependency depend : this.objingElement.getDependsOnDependency()){
-            if (depend.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2METHODREFERENCE)){
+            if (depend.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2METHODREFERENCE)){
                 org.eclipse.uml2.uml.Element behavior = GenerationProperties.getInstance().getMappedElement(depend.getDependsOn());
                 if ((behavior != null) && (behavior instanceof org.eclipse.uml2.uml. Behavior)){
                     ecoreElt.getMethods().add((org.eclipse.uml2.uml.Behavior) behavior);

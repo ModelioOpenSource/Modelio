@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,6 +46,7 @@ public interface IModuleCommandHandler {
      * <p>
      * 
      * The module that is passed as parameter corresponds to the owner of the command.
+     * 
      * @param selectedElements Current selection
      * @param module Owner of the command
      */
@@ -64,6 +65,7 @@ public interface IModuleCommandHandler {
      * <p>
      * 
      * This method is invoked only if all the default filters are passed (if the kind of metaclass is valid)
+     * 
      * @param selectedElements Current selection
      * @param module Owner of the command
      * @return true if the command is valid for all the elements, false otherwise.
@@ -83,6 +85,7 @@ public interface IModuleCommandHandler {
      * 
      * This method is invoked only if all the default filters are passed (depending on the read only status of the tool and the
      * objects)
+     * 
      * @param selectedElements Current selection
      * @param module Owner of the command
      * @return false if the command has to be grayed, false otherwise.

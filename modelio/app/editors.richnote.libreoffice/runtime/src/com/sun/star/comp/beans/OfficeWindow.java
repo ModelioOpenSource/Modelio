@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import com.sun.star.awt.XWindowPeer;
 public interface OfficeWindow {
     /**
      * Retrieves an AWT component object associated with the OfficeWindow.
+     * 
      * @return The AWT component object associated with the OfficeWindow.
      */
     @objid ("016cb1d3-4d57-4ecc-a206-802c5ea9b9aa")
@@ -42,6 +43,7 @@ public interface OfficeWindow {
 
     /**
      * Retrieves an UNO XWindowPeer object associated with the OfficeWindow.
+     * 
      * @return The UNO XWindowPeer object associated with the OfficeWindow.
      */
     @objid ("a63d173a-42a5-4f2c-b3f9-f8e0f212bd7e")

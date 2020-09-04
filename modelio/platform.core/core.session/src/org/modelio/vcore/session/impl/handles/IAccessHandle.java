@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public interface IAccessHandle {
      * Check the given dependency on the given object can be modified. Also checks the symmetric dependency.
      * <p>
      * Throw an exception if the dependency modification is denied.
+     * 
      * @param obj the object to modify
      * @param dep the dependency to modify
      * @param val the object to append or remove to the dependency
@@ -46,6 +47,7 @@ public interface IAccessHandle {
     /**
      * Check the given object is modifiable.
      * Throws an {@link IllegalStateException} if the object is not modifiable.
+     * 
      * @param obj the object  to check.
      * @throws org.modelio.vcore.smkernel.AccessDeniedException if the object is not modifiable.
      */
@@ -56,6 +58,7 @@ public interface IAccessHandle {
      * Check the given attribute on the given object can be modified.
      * <p>
      * Throw an exception if the attribute modification is denied.
+     * 
      * @param obj the object to modify
      * @param att the attribute to modify
      * @param val the object to append or remove to the dependency

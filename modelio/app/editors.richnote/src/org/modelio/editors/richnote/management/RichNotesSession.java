@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class RichNotesSession implements IBlobChangeListener {
      * Initialize a new rich note modeling session.
      * <p>
      * Called by {@link RichNoteEditorsManager#onProjectOpen(GProject)}.
+     * 
      * @param project the project to handle.
      */
     @objid ("a491b067-18bd-4f2a-88a3-252b110a3fde")
@@ -124,6 +125,7 @@ public class RichNotesSession implements IBlobChangeListener {
 
     /**
      * Get the rich note session matching a project.
+     * 
      * @param openedProject a registered project.
      * @return the matching rich note session.
      */
@@ -134,6 +136,7 @@ public class RichNotesSession implements IBlobChangeListener {
 
     /**
      * Get the rich note session handling a model object.
+     * 
      * @param obj a model object.
      * @return the matching rich note session.
      */

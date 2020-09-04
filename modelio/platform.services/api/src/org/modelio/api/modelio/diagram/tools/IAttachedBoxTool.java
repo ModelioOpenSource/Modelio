@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,6 +67,7 @@ public interface IAttachedBoxTool extends IDiagramTool {
      * If the interaction is not allowed the method <code>return new InteractionStatus(false, "Tooltip message");</code>
      * . In this case the mouse pointer is changed to a "forbiden" icon and the tooltip message is displayed in a
      * tooltip near the mouse pointer<br>
+     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param targetNode the graphic that is below the mouse pointer.
      * @return an InteractionStatus that represents the result of the acceptElement method.
@@ -87,6 +88,7 @@ public interface IAttachedBoxTool extends IDiagramTool {
      * The rect argument is the rectangle that result from the user interaction with the diagram. This rect should be
      * used to manage the unmasking of the model element in the diagram.
      * @see IDiagramHandle#unmask(MObject, int, int)
+     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param originNode the graphic parent where the user has clicked.
      * @param routerType the router type that is currently defined to compute the path of the link.
@@ -106,6 +108,7 @@ public interface IAttachedBoxTool extends IDiagramTool {
      * The rect argument is the rectangle that result from the user interaction with the diagram background. This rect
      * should be used to manage the unmasking of the model element in the diagram.
      * @see IDiagramHandle#unmask(MObject, int, int)
+     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param rect the rectangle of the object to create.
      */

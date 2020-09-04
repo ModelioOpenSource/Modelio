@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class StateInvariantPropertyModel extends AbstractPropertyModel<StateInva
     /**
      * Create a new <i>StateInvariant</i> data model from an
      * <i>StateInvariant</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("7868ffdf-8a5d-47b2-ac96-ffb295ddf308")
@@ -60,6 +61,7 @@ public class StateInvariantPropertyModel extends AbstractPropertyModel<StateInva
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("c8e9c155-2aaf-41ef-8ce2-8633a65faee8")
@@ -70,6 +72,7 @@ public class StateInvariantPropertyModel extends AbstractPropertyModel<StateInva
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("b5aa3fdd-d824-4a63-8ab0-401a48b3309a")
@@ -82,6 +85,7 @@ public class StateInvariantPropertyModel extends AbstractPropertyModel<StateInva
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -112,6 +116,7 @@ public class StateInvariantPropertyModel extends AbstractPropertyModel<StateInva
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -140,6 +145,7 @@ public class StateInvariantPropertyModel extends AbstractPropertyModel<StateInva
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

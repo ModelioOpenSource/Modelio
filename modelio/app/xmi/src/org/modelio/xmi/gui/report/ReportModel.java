@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -74,6 +74,7 @@ public class ReportModel implements IReportWriter {
 
     /**
      * This method returns the list of error message
+     * 
      * @return set of error message
      */
     @objid ("44585a10-dfe9-43e4-ab22-505d5f6a5e4e")
@@ -83,6 +84,7 @@ public class ReportModel implements IReportWriter {
 
     /**
      * This method returns the list of warning message
+     * 
      * @return set of warning message
      */
     @objid ("faaa4657-d9f2-4d5c-9f1d-5b4584289edf")
@@ -131,6 +133,7 @@ public class ReportModel implements IReportWriter {
 //    }
     /**
      * This method returns the list of info message
+     * 
      * @return set of info message
      */
     @objid ("b4d67140-a469-433f-b63b-9ba90004e017")

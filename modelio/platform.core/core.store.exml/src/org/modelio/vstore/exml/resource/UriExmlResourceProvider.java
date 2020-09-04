@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -81,6 +81,7 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
 
     /**
      * Initialize the resource provider.
+     * 
      * @param url the URL of the repository.
      * @param localDir a local directory to store the index.
      * @param auth user/password (optional)
@@ -219,6 +220,7 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
      * Set the repository name.
      * <p>
      * This name will be used in error messages to tell the user the error location.
+     * 
      * @param name the repository name.
      */
     @objid ("044a315e-5be8-466d-92e9-996b2d3b42aa")
@@ -308,6 +310,7 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
 
         /**
          * Returns an output stream that writes to this resource.
+         * 
          * @return an output stream that writes to this resource.
          * @exception  IOException              if an I/O error occurs while
          * creating the output stream.

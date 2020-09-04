@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ class FragmentsSection {
 
     /**
      * Update() is called by the project infos view when the project to be displayed changes or need contents refresh
+     * 
      * @param selectedProject the project selected in the workspace tree view
      */
     @objid ("a7459d41-33f6-11e2-a514-002564c97630")

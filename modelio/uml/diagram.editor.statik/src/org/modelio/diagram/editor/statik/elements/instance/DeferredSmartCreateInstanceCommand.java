@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ import org.modelio.metamodel.uml.statik.BindableInstance;
 class DeferredSmartCreateInstanceCommand extends DeferredCreateCommand {
     /**
      * Create a deferred command.
+     * 
      * @param req The creation request. The request must be a smart instance creation request.
      * @param sender The edit part sending the request
      */

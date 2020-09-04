@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
 
     /**
      * Constructor.
+     * 
      * @param diagram the diagram in which the BpmnReceiveTask is unmasked.
      * @param element the unmasked BpmnReceiveTask.
      * @param ref a reference to the unmasked callOperation.
@@ -184,6 +185,7 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -195,6 +197,7 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -247,6 +250,7 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
 
     /**
      * Get the diagram model embedded in this participant.
+     * 
      * @return the embedded diagram for an expanded participant, else <i>null</i>.
      */
     @objid ("f351db08-e2ff-4c1a-adc1-4d4e9f7cc63c")
@@ -262,6 +266,7 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
 
     /**
      * Get the {@link GmWorkflow} embedded in this participant.
+     * 
      * @return the embedded {@link GmWorkflow} for an expanded participant, else <i>null</i>.
      */
     @objid ("bf07b7c7-b460-4b23-99bb-b22b67105c4d")

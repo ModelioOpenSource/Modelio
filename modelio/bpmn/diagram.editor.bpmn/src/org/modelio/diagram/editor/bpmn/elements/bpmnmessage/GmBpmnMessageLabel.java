@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class GmBpmnMessageLabel extends GmDefaultModelElementLabel {
 
     /**
      * Create a model element label
+     * 
      * @param diagram the diagram.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
@@ -133,6 +134,7 @@ public class GmBpmnMessageLabel extends GmDefaultModelElementLabel {
 
     /**
      * Elaborate a name for the 'referenced' element of the Message. May return null;
+     * 
      * @param element @return
      */
     @objid ("0eb83089-491e-4993-83fb-554e079279e3")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -96,6 +96,12 @@ public class TXTEditor implements IDocumentEditor {
             this.viewer.getControl().setBackground(UIColor.TEXT_WRITABLE_BG);
             this.editor.setIconURI("platform:/plugin/org.modelio.editors.texteditors/icons/texteditor_rw.png");
         }
+    }
+
+    @objid ("74029d59-2e6e-472a-98e1-0db4fda233d8")
+    @Override
+    public TextViewer getViewer() {
+        return this.viewer;
     }
 
 }

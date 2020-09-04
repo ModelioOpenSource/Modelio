@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,9 +22,10 @@ package org.modelio.editors.richnote.libreoffice.plugin;
 
 import java.util.ResourceBundle;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.equinox.log.ExtendedLogService;
 import org.eclipse.jface.preference.IPersistentPreferenceStore;
-import org.modelio.app.preferences.plugin.AppPreferences;
+import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.modelio.utils.i18n.BundledMessages;
 import org.modelio.utils.log.writers.PluginLogger;
 import org.osgi.framework.BundleActivator;
@@ -75,7 +76,8 @@ public class LibreOfficeEditors implements BundleActivator {
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("richnotes_libreoffice"));
         
-        PREFERENCES = AppPreferences.getPreferences();
+        // Since 4.0 use our own preference node instead of 'app.preferences' one.
+        PREFERENCES = new ScopedPreferenceStore(InstanceScope.INSTANCE, PLUGIN_ID);
     }
 
     @objid ("f38e7cd8-6672-4f28-bb06-b412857c3dc4")

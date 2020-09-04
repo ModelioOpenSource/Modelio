@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -96,6 +96,7 @@ public abstract class AbstractBreakTextLayouter implements ILabelumTextLayouter 
 
     /**
      * Indentation is applied to all lines except the first.
+     * 
      * @return the indentation.
      */
     @objid ("3e9d3ff4-526b-4016-8ea5-8a7c7c698b19")
@@ -105,6 +106,7 @@ public abstract class AbstractBreakTextLayouter implements ILabelumTextLayouter 
 
     /**
      * get the symbol that will be added as line wrapping symbol.
+     * 
      * @return the line wrap symbol.
      */
     @objid ("6d03cb89-f697-47d6-ba84-8814182f4166")
@@ -114,6 +116,7 @@ public abstract class AbstractBreakTextLayouter implements ILabelumTextLayouter 
 
     /**
      * If true and wrapping is needed, break the string at all locations given by {@link #findBreak(String, int)}.
+     * 
      * @return whether the string is broken anywhere.
      */
     @objid ("e40e9089-8458-4c4f-b47d-49b4211536f2")
@@ -123,6 +126,7 @@ public abstract class AbstractBreakTextLayouter implements ILabelumTextLayouter 
 
     /**
      * If true and wrapping is needed, break the string at all locations given by {@link #findBreak(String, int)}.
+     * 
      * @param breakAll true to break the string everywhere.
      */
     @objid ("9faebf9a-ee09-40e3-8fbc-1f17573059e0")
@@ -132,6 +136,7 @@ public abstract class AbstractBreakTextLayouter implements ILabelumTextLayouter 
 
     /**
      * Indentation is applied to all lines except the first.
+     * 
      * @param indent the indentation
      */
     @objid ("35148099-2afa-4927-8f8f-93b386017e6d")
@@ -142,6 +147,7 @@ public abstract class AbstractBreakTextLayouter implements ILabelumTextLayouter 
     /**
      * Set the line ending symbol.
      * See {@value #CR_END_SYMB1} or {@value #CR_END_SYMB2}.
+     * 
      * @param lineEndSymbol the symbol to add at end of broken lines.
      */
     @objid ("9e222342-b22b-4225-b886-1553bbb7b63b")
@@ -151,6 +157,7 @@ public abstract class AbstractBreakTextLayouter implements ILabelumTextLayouter 
 
     /**
      * Set whether to strip white spaces when breaking line.
+     * 
      * @param stripWhiteSpaces Whether to strip white spaces when breaking line.
      */
     @objid ("6d8496be-4026-4da2-b119-bb9a4a4b164e")
@@ -168,6 +175,7 @@ public abstract class AbstractBreakTextLayouter implements ILabelumTextLayouter 
 
     /**
      * Break the string at every locations given by {@link #findBreak(String, int)}.
+     * 
      * @param origText the original string
      * @return all lines.
      */
@@ -193,6 +201,7 @@ public abstract class AbstractBreakTextLayouter implements ILabelumTextLayouter 
     /**
      * Find a return the line break range.
      * The returned range will be replaced by a line return.
+     * 
      * @param text the text to search
      * @param beforeIndex the offset to start back from
      * @return the index where line must be broken
@@ -368,6 +377,7 @@ public abstract class AbstractBreakTextLayouter implements ILabelumTextLayouter 
 
     /**
      * If true, white spaces are stripped when breaking lines.
+     * 
      * @return whether to strip white spaces on line break.
      */
     @objid ("25577076-d65b-42e7-bd00-745f5ab8cf6a")

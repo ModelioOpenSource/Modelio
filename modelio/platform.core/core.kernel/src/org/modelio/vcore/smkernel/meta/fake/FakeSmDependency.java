@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class FakeSmDependency extends SmMultipleDependency {
     /**
      * Get or create a fake dependency from a dependency that existed on the metaclass before it was discarded.
      * <p>
+     * 
      * @param srcClass the source fake metaclass
      * @param orig a dependency that existed on the metaclass before it becomes fake.
      */

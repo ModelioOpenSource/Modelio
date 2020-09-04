@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,17 +21,12 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.statik.Collaboration;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
-import org.modelio.xmi.plugin.Xmi;
+import org.modelio.module.modelermodule.api.xmi.standard.templateparameter.UML2ClassifierTemplateParameter;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("91361f3c-fce3-4cd8-9317-d7818ab0b38d")
 public class EClassifierTemplateParameter extends EElement {
@@ -41,17 +36,7 @@ public class EClassifierTemplateParameter extends EElement {
     @objid ("a4b4f148-2607-4336-8938-d878f2b59369")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmService = ReverseProperties.getInstance().getMModelServices();
-        
-        TemplateParameter result = mmService.getModelFactory().getFactory(IStandardModelFactory.class).createTemplateParameter();
-        
-        try {
-            result.getExtension().add(ReverseProperties.getInstance().getMModelServices().getStereotype(
-                    XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLASSIFIERTEMPLATEPARAMETER, result.getMClass()));
-        } catch (ElementNotUniqueException e) {
-           Xmi.LOG.warning(e);
-        }
-        return result;
+        return UML2ClassifierTemplateParameter.create().getElement();
     }
 
     @objid ("02ffe9ab-f6e9-4df7-bf6b-fc6cf465fd34")

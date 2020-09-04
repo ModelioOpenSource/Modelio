@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -108,6 +108,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
      * the tool to propose the request to the host's parent edit part, meaning the host is "transparent".</li>
      * </ul>
      * </p>
+     * 
      * @param isOpaque determines the behavior of this policy on request where the creation expert doesn't allow. See Note.
      */
     @objid ("80eb6656-1dec-11e2-8cad-001ec947c8cc")
@@ -216,6 +217,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
 
     /**
      * Returns a connection to be used as feeback during creates.
+     * 
      * @param req the operation being performed
      * @param source the object for which the feedback is created.
      * @return a connection to use as feedback
@@ -227,6 +229,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
 
     /**
      * Erases connection feedback if necessary. Frees unused fields.
+     * 
      * @param request the CreateMultiPointRequest
      */
     @objid ("80edc8b5-1dec-11e2-8cad-001ec947c8cc")
@@ -242,6 +245,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
 
     /**
      * Override to erase target feedback. Does nothing by default.
+     * 
      * @param request the CreateMultiPointRequest
      */
     @objid ("80edc8ba-1dec-11e2-8cad-001ec947c8cc")
@@ -262,6 +266,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
 
     /**
      * Utility method to get the metaclass to create.
+     * 
      * @param request the creation request
      * @return The requested metamodel metaclass
      */
@@ -278,6 +283,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
 
     /**
      * Returns the ConnectionRouter for the creation feedback's connection.
+     * 
      * @param request the create request
      * @param source the object for which the feedback is created.
      * @return a connection router
@@ -290,6 +296,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
     /**
      * Returns the FeedbackHelpers that are ready to use. The feedback helper must be configured with the connection that will be
      * used to display feedback, and that connection must be added to the appropriate layer in the diagram.
+     * 
      * @param request the CreateMultiPointRequest
      * @return a list of FeedbackHelpers for all previous nodes
      */
@@ -317,6 +324,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
      * node EditPart. The target node may do anything necessary to create a Command that represents the entire creation.
      * @see #getMultiPointFirstCommand(CreateMultiPointRequest)
      * @see #getMultiPointFinalCommand(CreateMultiPointRequest)
+     * 
      * @param request the CreateMultiPointRequest
      * @return a Command representing the additional step of creation.
      */
@@ -327,6 +335,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
      * Returns the Command for the complete creation for this MultiPoint interaction.
      * @see #getMultiPointFirstCommand(CreateMultiPointRequest)
      * @see #getMultiPointAdditionalCommand(CreateMultiPointRequest)
+     * 
      * @param request the CreateMultiPointRequest
      * @return a Command for the complete creation.
      */
@@ -338,6 +347,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
      * target node may do anything necessary to create a Command that represents the entire creation.
      * @see #getMultiPointAdditionalCommand(CreateMultiPointRequest)
      * @see #getMultiPointFinalCommand(CreateMultiPointRequest)
+     * 
      * @param request the CreateMultiPointRequest
      * @return a Command representing the first step of creation.
      */
@@ -346,6 +356,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
 
     /**
      * Called during the display of creation feedback to snap the feedback to the nearest source ConnectionAnchor.
+     * 
      * @param request CreateMultiPointRequest
      * @param source the object for which the feedback is created.
      * @return <code>null</code> or the nearest source ConnectionAnchor
@@ -357,6 +368,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
 
     /**
      * Called during the display of creation feedback to snap the feedback to the nearest target ConnectionAnchor.
+     * 
      * @param request CreateConnectionRequest
      * @return <code>null</code> or the nearest target ConnectionAnchor
      */
@@ -374,6 +386,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
      * <p>
      * Default implementation returns host. Subclasses may override to adapt behaviour.
      * </p>
+     * 
      * @param request the CreateMultiPointRequest
      * @return the target edit part for this request, or <code>null</code>.
      */
@@ -390,6 +403,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
      * <p>
      * Default implementation returns host. Subclasses may override to adapt behaviour.
      * </p>
+     * 
      * @param request the CreateMultiPointRequest
      * @return the target edit part for this request, or <code>null</code>.
      */
@@ -406,6 +420,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
      * <p>
      * Default implementation returns host. Subclasses may override to adapt behaviour.
      * </p>
+     * 
      * @param request the CreateMultiPointRequest
      * @return the target edit part for this request, or <code>null</code>.
      */
@@ -416,6 +431,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
 
     /**
      * Utility method to test the metaclass of the creation request.
+     * 
      * @param request the creation request
      * @param c a metaclass to test.
      * @return <code>true</code> if the request asks to create an element of type <code>c</code>, else <code>false</code>.
@@ -428,6 +444,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
 
     /**
      * Shows feedback during a creation.
+     * 
      * @param request CreateConnectionRequest
      */
     @objid ("80f02b32-1dec-11e2-8cad-001ec947c8cc")
@@ -440,6 +457,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
 
     /**
      * Override to show target connection feedback. Does nothing by default.
+     * 
      * @param request the CreateMultiPointRequest
      */
     @objid ("80f02b37-1dec-11e2-8cad-001ec947c8cc")
@@ -474,6 +492,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
     /**
      * Builds a compound command of all commands given along the interaction by the first and additional edit parts, and add the
      * command issued by the final edit part (== the host of this policy) at the end.
+     * 
      * @param multiPointRequest @return
      */
     @objid ("80f28d41-1dec-11e2-8cad-001ec947c8cc")
@@ -492,6 +511,7 @@ public abstract class MultiPointCreationEditPolicy extends GraphicalEditPolicy {
      * Utility method to get the type of the object to create.
      * <p>
      * Returns a metamodel class or the GmDrawing class.
+     * 
      * @param request the creation request
      * @return The requested metamodel class or the GmDrawing class.
      */

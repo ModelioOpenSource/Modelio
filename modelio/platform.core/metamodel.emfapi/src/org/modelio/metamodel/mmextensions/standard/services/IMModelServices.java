@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public interface IMModelServices {
      * <p>
      * If <code>Element</code> is given, every elements in the model will be checked.
      * </p>
+     * 
      * @param metaclass the metaclass to look for.
      * @param att the name of the meta attribute to check the value in.
      * @param value the value to look for in the attribute.
@@ -60,6 +61,7 @@ public interface IMModelServices {
 
     /**
      * Get all elements in the model from their metaclass.
+     * 
      * @param metaclass the metaclass to look for.
      * @return A list of all model elements, or null if no match is found.
      */
@@ -68,6 +70,7 @@ public interface IMModelServices {
 
     /**
      * Get an element in the model from its id and metaclass.
+     * 
      * @param metaclass the java interface of the metaclass to look for.
      * @param id the id to look for.
      * @return A model element, or null if no match is found.
@@ -77,6 +80,7 @@ public interface IMModelServices {
 
     /**
      * Get an element in the model from an {@link org.modelio.vcore.smkernel.mapi.MRef}.<br>
+     * 
      * @param ref a model object reference.
      * @return A model element, or null if no match is found.
      * @throws org.modelio.vcore.session.UnknownMetaclassException when the reference's metaclass can't be resolved as a {@link MClass}
@@ -98,6 +102,7 @@ public interface IMModelServices {
 
     /**
      * Get the model object creation factory.
+     * 
      * @return the model factory.
      */
     @objid ("0083559a-030f-1035-9f91-001ec947cd2a")
@@ -105,6 +110,7 @@ public interface IMModelServices {
 
     /**
      * Find a note type by name and metaclass.
+     * 
      * @param moduleName the name of the module owing the note type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any note type.
@@ -117,6 +123,7 @@ public interface IMModelServices {
 
     /**
      * Find note types by name and metaclass
+     * 
      * @param moduleName the name of the module owing the note type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any note type.
@@ -128,6 +135,7 @@ public interface IMModelServices {
 
     /**
      * Find a resource type by name and metaclass.
+     * 
      * @param moduleName the name of the module owing the resource type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param resourceTypeName the resource type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any resource type.
@@ -140,6 +148,7 @@ public interface IMModelServices {
 
     /**
      * Find resource types by name and metaclass
+     * 
      * @param moduleName the name of the module owing the resource type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param externDocumentTypeName the resource type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any resource type.
@@ -151,6 +160,7 @@ public interface IMModelServices {
 
     /**
      * Find a stereotype by name and metaclass.
+     * 
      * @param moduleName the name of the module owing the stereotype, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass a metaclass the stereotype must be applicable to.
@@ -162,6 +172,7 @@ public interface IMModelServices {
 
     /**
      * Find a stereotype by name and metaclass.
+     * 
      * @param moduleName the name of the module owing the stereotype, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass a metaclass the stereotype must be applicable to.
@@ -175,6 +186,7 @@ public interface IMModelServices {
 
     /**
      * Find stereotypes by name and metaclass
+     * 
      * @param moduleName the name of the module owing the stereotype, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass the metaclass .
@@ -185,6 +197,7 @@ public interface IMModelServices {
 
     /**
      * Find stereotypes by name and metaclass
+     * 
      * @param moduleName the name of the module owing the stereotype, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass the metaclass name. Using a qualified name is strongly recommended.
@@ -197,6 +210,7 @@ public interface IMModelServices {
 
     /**
      * Find a tag type by name and metaclass.
+     * 
      * @param moduleName the name of the module owing the tag type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName the tag type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any tag type.
@@ -209,6 +223,7 @@ public interface IMModelServices {
 
     /**
      * Find tag types by name and metaclass
+     * 
      * @param moduleName the name of the module owing the tag type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName the tag type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any tag type.

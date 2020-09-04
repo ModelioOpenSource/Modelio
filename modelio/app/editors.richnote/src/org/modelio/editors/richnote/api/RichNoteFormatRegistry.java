@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.program.Program;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.editors.richnote.plugin.EditorsRichNote;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.osgi.framework.Bundle;
@@ -77,7 +78,7 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
         try {
             return (IRichNoteEditorProvider) providerEl.createExecutableExtension("class");
         
-        } catch (CoreException e) {
+        } catch (final CoreException e) {
             EditorsRichNote.LOG.error(e);
         }
         return null;
@@ -94,6 +95,7 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
 
     /**
      * Get the format registry.
+     * 
      * @return the format registry.
      */
     @objid ("baad7816-e378-44b2-b196-03e4ff36c1dc")
@@ -136,7 +138,7 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
         final String extension = path.substring(path.lastIndexOf(".") + 1);
         
         RichNoteFormat ret = null;
-        for (RichNoteFormat f : getAllFormats()) {
+        for (final RichNoteFormat f : getAllFormats()) {
             if (f.getFileExtensions().contains(extension)) {
                 ret = f;
                 if (ret.getSupportLevel() == SupportLevel.Primary) {
@@ -187,6 +189,7 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
 
     /**
      * Tells whether the first given format is better than the second.
+     * 
      * @param a the first format
      * @param b the second format
      * @return <code>true</code> if <i>a</i> is the best format else <code>false</code>
@@ -199,7 +202,7 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
         if (b.isUsable() && !a.isUsable()) {
             return false;
         }
-        return (a.getSupportLevel() == SupportLevel.Primary);
+        return a.getSupportLevel() == SupportLevel.Primary;
     }
 
     @objid ("5131595b-d1ec-4dc3-8a33-c0813694e138")
@@ -208,28 +211,25 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
         this.bestEditableFormats = new HashMap<>();
         
         // process registered listeners (RCP extensions)
-        IConfigurationElement[] config = Platform.getExtensionRegistry()
-                                                 .getConfigurationElementsFor(DOCFORMATPROVIDER_EXTENSION_ID);
-        
-        for (IConfigurationElement  providerEl: config) {
-            IRichNoteEditorProvider docProvider = loadDocumentProvider(providerEl);
+        for (final IConfigurationElement  providerEl: new ExtensionPointContributionManager(DOCFORMATPROVIDER_EXTENSION_ID).getExtensions("provider")) {
+            final IRichNoteEditorProvider docProvider = loadDocumentProvider(providerEl);
         
             if (docProvider != null) {
                 final boolean providerUsable = docProvider.isUsable();
-                for (IConfigurationElement  docEl: providerEl.getChildren("format")) {
+                for (final IConfigurationElement  docEl: providerEl.getChildren("format")) {
                     final String mimeType = docEl.getAttribute("mime");
                     final String label = docEl.getAttribute("label");
                     final String data = docEl.getAttribute("data");
                     final String extensions = docEl.getAttribute("extensions");
-                    final boolean isAlternate = ("alternate".equals(docEl.getAttribute("support")));
-                    
-                    RichNoteFormat f = new RichNoteFormat(mimeType, extensions, isAlternate ? SupportLevel.Alternate : SupportLevel.Primary);
+                    final boolean isAlternate = "alternate".equals(docEl.getAttribute("support"));
+        
+                    final RichNoteFormat f = new RichNoteFormat(mimeType, extensions, isAlternate ? SupportLevel.Alternate : SupportLevel.Primary);
                     f.setLabel(label);
                     f.setEditorProvider(docProvider);
                     f.setData(data);
                     f.setIcon(getIcon(docEl, f));
-                    
-                    RichNoteFormat existing = this.bestFormats.get(f.getMimeType());
+        
+                    final RichNoteFormat existing = this.bestFormats.get(f.getMimeType());
                     if (existing==null || isFirstBest(f, existing)){
                         this.bestFormats.put(f.getMimeType(), f);
                         if (providerUsable) {
@@ -243,10 +243,10 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
 
     @objid ("98c52623-9922-4d89-bd48-e17db463f373")
     private ImageDescriptor loadSystemIcon(final RichNoteFormat f) {
-        for (String ext : f.getFileExtensions()) {
-            Program program = Program.findProgram(ext);
+        for (final String ext : f.getFileExtensions()) {
+            final Program program = Program.findProgram(ext);
             if (program != null) {
-                ImageData data = program.getImageData();
+                final ImageData data = program.getImageData();
                 if (data != null) {
                     return ImageDescriptor.createFromImageData(data);
                 }
@@ -257,6 +257,7 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
 
     /**
      * Get an icon for the given rich note format.
+     * 
      * @param docEl the format declaration in plugin.xml
      * @param f the rich note format
      * @return The rich note format icon descriptor
@@ -264,15 +265,15 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
      */
     @objid ("7d6ce023-196f-438e-8f5d-9564dfff8a61")
     private ImageDescriptor getIcon(final IConfigurationElement docEl, final RichNoteFormat f) throws InvalidRegistryObjectException {
-        String          iconPath = docEl.getAttribute("icon");
+        final String          iconPath = docEl.getAttribute("icon");
         ImageDescriptor desc     = null;
         
         if (iconPath!=null && !iconPath.trim().isEmpty()) {
-            Bundle b = Platform.getBundle(docEl.getContributor().getName());
-            URL iconUrl = FileLocator.find(b, new Path(iconPath), null);
+            final Bundle b = Platform.getBundle(docEl.getContributor().getName());
+            final URL iconUrl = FileLocator.find(b, new Path(iconPath), null);
             if (iconUrl != null) {
                 desc = ImageDescriptor.createFromURL(iconUrl);
-            } 
+            }
         }
         if (desc == null){
             desc = loadSystemIcon(f);

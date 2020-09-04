@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class JxbNotetype {
 
     /**
      * Sets the value of the isHidden property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -98,6 +99,7 @@ public class JxbNotetype {
 
     /**
      * Sets the value of the label property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -119,6 +121,7 @@ public class JxbNotetype {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -140,6 +143,7 @@ public class JxbNotetype {
 
     /**
      * Sets the value of the uid property.
+     * 
      * @param value allowed object is
      * {@link String }
      */

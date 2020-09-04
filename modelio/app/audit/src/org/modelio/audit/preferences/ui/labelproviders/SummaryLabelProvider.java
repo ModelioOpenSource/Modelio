@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,7 +35,7 @@ import org.modelio.ui.UIColor;
  */
 @objid ("98886db9-d2e7-4cec-ad45-8f908f6ba9b4")
 public class SummaryLabelProvider extends ColumnLabelProvider {
-    @objid ("4099b556-1cf7-4997-85d9-1c699ed91ad7")
+    @objid ("b5d59104-bd43-44ba-9cba-77a61153db98")
     private static final Color DISABLED_COLOR = new Color(Display.getCurrent(), 160, 160, 160);
 
     @objid ("fd3f3f5c-72ab-4de7-9328-030046bcc070")

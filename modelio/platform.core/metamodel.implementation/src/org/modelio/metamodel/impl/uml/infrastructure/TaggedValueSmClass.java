@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -50,54 +50,54 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("ca86e242-965e-4c2a-b06e-2c12ee7543f8")
 public class TaggedValueSmClass extends ModelElementSmClass {
-    @objid ("62fb00f1-8039-4a47-945c-c3ead688303b")
+    @objid ("ba7b4373-a0d2-406f-bc28-3665e905c001")
     private SmDependency actualDep;
 
-    @objid ("e06aa53b-570e-47b2-a927-201917797e25")
+    @objid ("297bace4-cc40-493c-a148-c07dbfdebd1a")
     private SmDependency qualifierDep;
 
-    @objid ("09069e3b-f0dd-4b6a-bab6-b4f6a0569a86")
+    @objid ("708d2b1f-c7fd-4cc6-b645-f3510df1eab6")
     private SmDependency definitionDep;
 
-    @objid ("b356f4d3-9046-4fbf-ae27-849f9ceb33aa")
+    @objid ("8ea5a849-ade2-426d-ab1c-ce0cb63e6722")
     private SmDependency annotedDep;
 
-    @objid ("ff77d1af-2887-4a9d-8e24-cc89168c7fcd")
+    @objid ("00ccd356-b0a3-4a07-b1fd-fba18578ca08")
     public TaggedValueSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("6ed68056-fc6a-4be3-be70-e512681d8f9a")
+    @objid ("b3293dcd-3ad5-4bd8-a34d-e26929e3af66")
     @Override
     public String getName() {
         return "TaggedValue";
     }
 
-    @objid ("9a61e86b-f295-404b-a65e-56a0010525d3")
+    @objid ("01159109-db8e-4e24-aa09-ea3070555dbd")
     @Override
     public Version getVersion() {
         return new Version("0.0.9054");
     }
 
-    @objid ("a2b85695-55a6-41bd-95d7-a0f956d25126")
+    @objid ("1fdfb18b-15f7-4f87-bf24-2fedb256bf27")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return TaggedValue.class;
     }
 
-    @objid ("b62f9d8d-9182-470a-9a68-6cdfd6cf8487")
+    @objid ("6d6d770a-1634-4185-8928-74e84a8f9633")
     @Override
     public boolean isCmsNode() {
         return false;
     }
 
-    @objid ("a0755e94-f609-4b71-b693-9e8756887dbe")
+    @objid ("e809dcb7-35ae-4c43-a596-4eee1ea0b7a7")
     @Override
     public boolean isAbstract() {
         return false;
     }
 
-    @objid ("546b10fd-6463-4814-8b51-4368b22fdab0")
+    @objid ("6aef3595-6842-4311-9149-a50f79a4dfec")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(ModelElement.MQNAME);
@@ -124,7 +124,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
         registerDependency(this.annotedDep);
     }
 
-    @objid ("416a5d8e-5357-41b5-be70-9e2f7afecbf3")
+    @objid ("2a07e55e-beec-4d2d-b8fc-b5d26c3cfe10")
     public SmDependency getActualDep() {
         if (this.actualDep == null) {
         	this.actualDep = this.getDependencyDef("Actual");
@@ -132,7 +132,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
         return this.actualDep;
     }
 
-    @objid ("eaebcd31-9e79-469c-9ef0-08e7c5271222")
+    @objid ("3c6392fa-ba47-4090-bb12-66e67daa02d5")
     public SmDependency getQualifierDep() {
         if (this.qualifierDep == null) {
         	this.qualifierDep = this.getDependencyDef("Qualifier");
@@ -140,7 +140,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
         return this.qualifierDep;
     }
 
-    @objid ("1e9858b4-9521-4878-b887-2d8f3b074f8f")
+    @objid ("50c368dc-a658-4195-8080-17ead219b8dc")
     public SmDependency getDefinitionDep() {
         if (this.definitionDep == null) {
         	this.definitionDep = this.getDependencyDef("Definition");
@@ -148,7 +148,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
         return this.definitionDep;
     }
 
-    @objid ("2bf7e691-8861-4ba0-b807-768860883cc8")
+    @objid ("f69f881f-de0b-444d-8018-a535c2e4b93e")
     public SmDependency getAnnotedDep() {
         if (this.annotedDep == null) {
         	this.annotedDep = this.getDependencyDef("Annoted");
@@ -158,21 +158,21 @@ public class TaggedValueSmClass extends ModelElementSmClass {
 
     @objid ("e1a9d137-513a-48a2-89f4-0a7147e327e5")
     private static class TaggedValueObjectFactory implements ISmObjectFactory {
-        @objid ("9e6fc176-1b5d-4a47-a620-3bd5dc0b0db3")
+        @objid ("66ee1230-b55d-472b-8290-9b482e6d4008")
         private TaggedValueSmClass smClass;
 
-        @objid ("bb2baf48-720b-42b3-a086-10486804c62e")
+        @objid ("63471103-309c-4492-809c-ddce4c8813e2")
         public TaggedValueObjectFactory(TaggedValueSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("526f7b48-c25b-4905-b6b2-6f6b81f4e093")
+        @objid ("d1e2f39d-4053-4f9c-bd83-b4a56f32dfbc")
         @Override
         public ISmObjectData createData() {
             return new TaggedValueData(this.smClass);
         }
 
-        @objid ("8b9f54b9-9daf-4162-9205-b89dcaea8249")
+        @objid ("c7470e07-6aee-4307-931b-116fe197f66b")
         @Override
         public SmObjectImpl createImpl() {
             return new TaggedValueImpl();
@@ -182,22 +182,22 @@ public class TaggedValueSmClass extends ModelElementSmClass {
 
     @objid ("6d16912f-38e7-47a4-828b-9be58b4acf04")
     public static class AnnotedSmDependency extends SmSingleDependency {
-        @objid ("04df32d4-48ef-4aeb-bfc3-141f71ebcc3d")
+        @objid ("34dc45fb-572b-47e3-8d23-6a82fe0640d9")
         private SmDependency symetricDep;
 
-        @objid ("862568d1-6ec0-4ce8-b57a-48388ab1a399")
+        @objid ("8939b4ff-515f-43cc-a0ef-c1f3ad7f85b7")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((TaggedValueData) data).mAnnoted;
         }
 
-        @objid ("b9ab021b-6c57-4c62-98ff-8851a7125aaf")
+        @objid ("420913d0-481f-4ed1-a5de-84f80edc0980")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((TaggedValueData) data).mAnnoted = value;
         }
 
-        @objid ("57edb7c0-24b6-4b39-b30a-1e757993aa30")
+        @objid ("b17941eb-8867-4ded-a19e-8a556ef2e34b")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -210,22 +210,22 @@ public class TaggedValueSmClass extends ModelElementSmClass {
 
     @objid ("06b8778e-28f9-446c-8214-a2ca481d375c")
     public static class ActualSmDependency extends SmMultipleDependency {
-        @objid ("37fe6dd9-faa5-439b-a587-cf8aeb23116b")
+        @objid ("b8fdd308-5e1d-4894-9a50-f60ef1fd56dd")
         private SmDependency symetricDep;
 
-        @objid ("247b5edc-01e2-4117-86c7-f7f76609376c")
+        @objid ("3947ba8d-bc16-415f-9325-d64b54e1cd9a")
         @Override
         public List<SmObjectImpl> getValueList(ISmObjectData data) {
             return (((TaggedValueData)data).mActual != null)? ((TaggedValueData)data).mActual:SmMultipleDependency.EMPTY;
         }
 
-        @objid ("9a718ab7-9c70-4d76-b5f8-268840493495")
+        @objid ("b4777487-d868-44a6-9b55-43129311c681")
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((TaggedValueData) data).mActual = values;
         }
 
-        @objid ("585f555a-bbd0-416c-acff-1e4bf39d8678")
+        @objid ("93e0e48c-6f2a-4116-b298-b88fbaa75d22")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -238,22 +238,22 @@ public class TaggedValueSmClass extends ModelElementSmClass {
 
     @objid ("d07f8927-3f48-40c8-ab90-a874ea788489")
     public static class QualifierSmDependency extends SmSingleDependency {
-        @objid ("590bf095-b180-4140-be19-d88677c0a16f")
+        @objid ("3f6c1cb6-af5f-476d-a4f4-4142c0fb1ddf")
         private SmDependency symetricDep;
 
-        @objid ("f73dd023-074f-428a-8e44-2ba0f4ef553e")
+        @objid ("1a62132c-75d4-43fe-8b9a-62b88acc3517")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((TaggedValueData) data).mQualifier;
         }
 
-        @objid ("ba1f5033-0b55-41fa-bf83-a5356e81945f")
+        @objid ("90aa147d-12dd-41e0-a1c3-5c3b356849e7")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((TaggedValueData) data).mQualifier = value;
         }
 
-        @objid ("aceb541e-df4e-4b59-821a-1d1282ef24cf")
+        @objid ("7e98049e-dff2-4891-b870-65594344ba32")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -266,22 +266,22 @@ public class TaggedValueSmClass extends ModelElementSmClass {
 
     @objid ("a99b11c4-7b6a-4998-b18b-235e88a7d675")
     public static class DefinitionSmDependency extends SmSingleDependency {
-        @objid ("6f718a92-f9f9-4f4d-95d8-9233c9640da8")
+        @objid ("994c4a47-2a97-4283-9bf0-cc5ee27e90f2")
         private SmDependency symetricDep;
 
-        @objid ("50a26fe9-32f7-4562-a980-37c56934f028")
+        @objid ("dbc67a92-e7b9-407a-8477-6971c2c96016")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((TaggedValueData) data).mDefinition;
         }
 
-        @objid ("322a336b-339f-417a-8a8d-99e9379b82a1")
+        @objid ("b4ae70dd-cf2f-4e59-b7ce-68a03fd49945")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((TaggedValueData) data).mDefinition = value;
         }
 
-        @objid ("8c0fb3fe-76b2-4f6a-8f10-0e281d82bed2")
+        @objid ("d88acdde-7fdc-4995-83d9-19754e2d661d")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

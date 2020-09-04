@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -388,9 +388,6 @@ public class ModuleCatalogPanel implements IPanelProvider {
         @objid ("b127bf2b-afed-4911-a4f4-67592d1a2bf4")
         public void init() {
             this.prefs = AppPreferences.getPreferences();
-            
-            this.prefs.setDefault(CatalogUpdatePreferencesPage.CATALOG_SHOW_COMPATIBLE, true);
-            this.prefs.setDefault(CatalogUpdatePreferencesPage.CATALOG_SHOW_LATEST, true);
             
             this.compatibleOnly = this.prefs.getBoolean(CatalogUpdatePreferencesPage.CATALOG_SHOW_COMPATIBLE);
             this.lastestOnly = this.prefs.getBoolean(CatalogUpdatePreferencesPage.CATALOG_SHOW_LATEST);

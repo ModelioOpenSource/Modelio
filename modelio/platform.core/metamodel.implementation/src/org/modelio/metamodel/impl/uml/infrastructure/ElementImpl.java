@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -53,13 +53,13 @@ public abstract class ElementImpl extends SmObjectImpl implements Element {
         // do nothing. Element has no name
     }
 
-    @objid ("0c688947-c3e3-4375-9906-55f4513c4964")
+    @objid ("963131e0-bb91-48a0-b26d-c7e0ffcc6d64")
     @Override
     public EList<AbstractDiagram> getDiagramElement() {
         return new SmList<>(this, ((ElementSmClass)getClassOf()).getDiagramElementDep());
     }
 
-    @objid ("4200a6dd-3000-4395-a48c-51130e68ec75")
+    @objid ("68f1c61c-1550-4327-acfa-1b8b31440e4e")
     @Override
     public <T extends AbstractDiagram> List<T> getDiagramElement(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -74,13 +74,13 @@ public abstract class ElementImpl extends SmObjectImpl implements Element {
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("876ef5c8-0e47-4102-a3f1-b3769eb1d71e")
+    @objid ("25d2b1b6-a82a-4cda-8e90-9b21022b9fd5")
     @Override
     public EList<QueryDefinition> getAddedToQuery() {
         return new SmList<>(this, ((ElementSmClass)getClassOf()).getAddedToQueryDep());
     }
 
-    @objid ("ebc3fb67-5463-42b3-a558-db0b7821dc21")
+    @objid ("78627b50-4d0c-4225-8f33-71c496b4f5ca")
     @Override
     public <T extends QueryDefinition> List<T> getAddedToQuery(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -95,13 +95,13 @@ public abstract class ElementImpl extends SmObjectImpl implements Element {
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("6f3d1667-9735-436a-b3b2-122a1eb51ca4")
+    @objid ("0fce0aaf-d818-4d0b-8929-f8f6032952bd")
     @Override
     public EList<ImpactLink> getCausedImpact() {
         return new SmList<>(this, ((ElementSmClass)getClassOf()).getCausedImpactDep());
     }
 
-    @objid ("e61235b4-c72c-4b4e-9710-ba6cfacb1531")
+    @objid ("9d21a858-17f2-4260-9d8a-4b4de0a3288a")
     @Override
     public <T extends ImpactLink> List<T> getCausedImpact(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -116,7 +116,7 @@ public abstract class ElementImpl extends SmObjectImpl implements Element {
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("2c0a9b5d-862c-4d40-99a9-929412435a25")
+    @objid ("43ca1280-50e8-4d58-8dd4-759c6d3ca0a6")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -124,7 +124,7 @@ public abstract class ElementImpl extends SmObjectImpl implements Element {
         return null;
     }
 
-    @objid ("9cf9eb34-e38f-4ff1-a0b3-b734056e9c87")
+    @objid ("fc29f270-a942-42a6-ad5d-1875cae9d199")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -134,7 +134,7 @@ public abstract class ElementImpl extends SmObjectImpl implements Element {
         return null;
     }
 
-    @objid ("f1a05d6e-2608-4c00-9608-3e0d997921a2")
+    @objid ("4c1e0363-4fad-40c0-bc46-92cf90ea0018")
     @Override
     public Object accept(MVisitor v) {
         if (v instanceof IInfrastructureVisitor)
@@ -143,7 +143,7 @@ public abstract class ElementImpl extends SmObjectImpl implements Element {
           return null;
     }
 
-    @objid ("38fb74c9-ecff-44ad-b123-5cd8b01f8d27")
+    @objid ("653d78bc-5d14-4ee3-b72d-394f259c44b0")
     public Object accept(IInfrastructureVisitor v) {
         return v.visitElement(this);
     }

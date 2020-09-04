@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ public class RevealEditPartCommand extends Command {
 
     /**
      * C'tor.
+     * 
      * @param editPartToSelect the {@link EditPart} to select.
      */
     @objid ("80d5f12b-1dec-11e2-8cad-001ec947c8cc")

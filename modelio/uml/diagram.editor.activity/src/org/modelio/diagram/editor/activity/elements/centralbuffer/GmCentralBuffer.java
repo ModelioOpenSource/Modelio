@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,6 +72,7 @@ public class GmCentralBuffer extends GmPortContainer {
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theCentralBuffer the represented central buffer, may be null.
      * @param ref a reference to the represented central buffer.
@@ -218,6 +219,7 @@ public class GmCentralBuffer extends GmPortContainer {
 
     /**
      * Migration constructor from major version 0, should only be called by migrator.
+     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("29e44c34-55b6-11e2-877f-002564c97630")

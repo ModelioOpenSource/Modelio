@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class InputPinPropertyModel extends AbstractPropertyModel<InputPin> {
 
     /**
      * Create a new <i>InputPin</i> data model from an <i>InputPin</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("07cd7818-953a-45ae-b482-955726c4b761")
@@ -77,6 +78,7 @@ public class InputPinPropertyModel extends AbstractPropertyModel<InputPin> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("b89a2db3-fd59-4c95-bea4-77acc747c22e")
@@ -87,6 +89,7 @@ public class InputPinPropertyModel extends AbstractPropertyModel<InputPin> {
 
     /**
      * Returns the element represented by the given instance node.
+     * 
      * @return the represented element
      */
     @objid ("7e516a16-97e6-4287-89f7-e985d58b2790")
@@ -109,6 +112,7 @@ public class InputPinPropertyModel extends AbstractPropertyModel<InputPin> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("7481d339-15a0-4abe-947f-8b46fc5a7dbd")
@@ -121,6 +125,7 @@ public class InputPinPropertyModel extends AbstractPropertyModel<InputPin> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -167,6 +172,7 @@ public class InputPinPropertyModel extends AbstractPropertyModel<InputPin> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -216,6 +222,7 @@ public class InputPinPropertyModel extends AbstractPropertyModel<InputPin> {
     /**
      * Set the InstanceNode represented elements. This method set the right
      * dependency and clears the otheEditedElement.
+     * 
      * @param theEditedElement the instance node
      * @param value the new represented element
      */
@@ -272,6 +279,7 @@ public class InputPinPropertyModel extends AbstractPropertyModel<InputPin> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

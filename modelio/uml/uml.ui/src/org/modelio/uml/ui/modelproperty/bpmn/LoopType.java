@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ enum LoopType {
 
     /**
      * Get Loop Characteristics of an activity.
+     * 
      * @param activity the edited activity.
      * @return a LoopType.
      */
@@ -63,6 +64,7 @@ enum LoopType {
     /**
      * Update Loop Characteristics
      * @param modelService model services, to create elements.
+     * 
      * @param type type
      * @param activity activity
      */

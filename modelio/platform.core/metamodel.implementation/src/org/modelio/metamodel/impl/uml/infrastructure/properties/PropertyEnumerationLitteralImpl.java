@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
@@ -52,20 +52,20 @@ public class PropertyEnumerationLitteralImpl extends ModelElementImpl implements
         return Integer.compare(literals.indexOf(l), literals.indexOf(this));
     }
 
-    @objid ("64b463eb-4465-4a88-935e-a8b5009fa9ed")
+    @objid ("ecbee17b-24d7-4d10-9677-759645ac4f9f")
     @Override
     public EnumeratedPropertyType getOwner() {
         Object obj = getDepVal(((PropertyEnumerationLitteralSmClass)getClassOf()).getOwnerDep());
         return (obj instanceof EnumeratedPropertyType)? (EnumeratedPropertyType)obj : null;
     }
 
-    @objid ("a9fb82f4-ceeb-45e4-b4d8-da4215d077d6")
+    @objid ("277fcca7-b4d5-4f0b-a58f-1f06a4e8e389")
     @Override
     public void setOwner(EnumeratedPropertyType value) {
         appendDepVal(((PropertyEnumerationLitteralSmClass)getClassOf()).getOwnerDep(), (SmObjectImpl)value);
     }
 
-    @objid ("629043b1-f2d2-4e7d-bad4-3d83ab2b0f73")
+    @objid ("94d883b7-ee75-413a-8a57-f163c4e365bb")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -77,7 +77,7 @@ public class PropertyEnumerationLitteralImpl extends ModelElementImpl implements
         return super.getCompositionOwner();
     }
 
-    @objid ("53b684e2-a26e-44c5-94dc-43d856a1899d")
+    @objid ("c4b9e76a-0a4a-475b-9807-81a2684e87e5")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -92,7 +92,7 @@ public class PropertyEnumerationLitteralImpl extends ModelElementImpl implements
         return super.getCompositionRelation();
     }
 
-    @objid ("0cd0f573-6d6e-4e45-b7a8-5112c4aecb83")
+    @objid ("b1cddef5-7887-44ab-8906-355548eae0e4")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitPropertyEnumerationLitteral(this);

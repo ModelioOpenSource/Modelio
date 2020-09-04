@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -135,6 +135,7 @@ public abstract class RepositoryObjectStub implements IRepositoryObject {
      * Called by each loadXxxx(...) method.
      * <p>
      * Does nothing by default. May be redefined to do anything including throwing a runtime exception.
+     * 
      * @param obj the loaded object
      */
     @objid ("de7d5747-9da3-44b1-a74c-30f58ad74973")
@@ -146,6 +147,7 @@ public abstract class RepositoryObjectStub implements IRepositoryObject {
      * Called by each isXxxLoaded(...) method.
      * <p>
      * Does nothing by default. May be redefined to do anything including throwing a runtime exception.
+     * 
      * @param obj the loaded object
      */
     @objid ("f40d1eac-b67f-4f55-815c-ec8ad595b4db")

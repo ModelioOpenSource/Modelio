@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -87,6 +87,7 @@ public class LinkPositionSet {
 
     /**
      * Constructor building the position set from a root element.
+     * 
      * @param theRoot The element to compute the links from.
      * @param unmaskStructuringLink Whether or not the computed links must be structural.
      * @param unmaskedElements Each computed link must start or target an element from this list. A <code>null</code>value indicates no restrictions: all links related to theRoot are accepted.

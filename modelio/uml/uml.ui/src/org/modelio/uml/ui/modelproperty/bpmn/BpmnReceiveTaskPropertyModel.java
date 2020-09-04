@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,7 +41,7 @@ import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
 import org.modelio.metamodel.bpmn.flows.BpmnMessage;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
-import org.modelio.metamodel.uml.statik.Operation;
+import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Called;
 import org.modelio.vcore.session.api.model.IMObjectFilter;
 import org.modelio.vcore.smkernel.mapi.MClass;
@@ -65,6 +65,7 @@ public class BpmnReceiveTaskPropertyModel extends AbstractPropertyModel<BpmnRece
 
     /**
      * Create a new <i>BpmnReceiveTask</i> data model from an <i>BpmnReceiveTask</i>.
+     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      * @param mdaExpert the MDA expert to handle Methodological links.
@@ -79,6 +80,7 @@ public class BpmnReceiveTaskPropertyModel extends AbstractPropertyModel<BpmnRece
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("1c0b1c05-262a-4afb-a874-482695bd38ab")
@@ -89,6 +91,7 @@ public class BpmnReceiveTaskPropertyModel extends AbstractPropertyModel<BpmnRece
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("90b7491e-1a64-4b89-8c7f-1ff86b4c38f3")
@@ -103,6 +106,7 @@ public class BpmnReceiveTaskPropertyModel extends AbstractPropertyModel<BpmnRece
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -174,6 +178,7 @@ public class BpmnReceiveTaskPropertyModel extends AbstractPropertyModel<BpmnRece
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -282,6 +287,7 @@ public class BpmnReceiveTaskPropertyModel extends AbstractPropertyModel<BpmnRece
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -313,7 +319,7 @@ public class BpmnReceiveTaskPropertyModel extends AbstractPropertyModel<BpmnRece
             } else if (row == 7) {
                 this.theEditedElement.setInstanciate((Boolean) value);
             } else if (row == 8) {
-                Called.setTarget(this.theEditedElement, (Operation) value);
+                Called.setTarget(this.theEditedElement, (ModelElement) value);
             } else if (row == 9) {
                 this.theEditedElement.setMessageRef((BpmnMessage) value);
             } else if (row == 10) {

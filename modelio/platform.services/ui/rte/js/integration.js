@@ -3,16 +3,16 @@
  * program and the accompanying materials are made available under the terms of
  * the Eclipse Public License v1.0 which accompanies this distribution, and is
  * available at http://www.eclipse.org/legal/epl-v10.html
- * 
- * 
+ *
+ *
  * Contributors: Tom Seidel - initial API and implementation
  ******************************************************************************/
 
 function EclipseIntegration() {
-	this.eclipseRunning = false;
+	this.eclipseRunning = (typeof _eclipse_running !== 'undefined');
+	this.delegateInitCalled = false;
 	this.pollingInterval = 250;
 	this.format = new EclipseStyles();
-	this.pendingCommandIdentifier = "";
 }
 
 EclipseIntegration.prototype.init = function(editor) {
@@ -29,27 +29,41 @@ EclipseIntegration.prototype.init = function(editor) {
 	editor.on('selectionChange', function(ev) {
 		thisInstance.selectionChanged(ev)
 	});
-	
+
 	editor.on('focus', function(ev) {
 		thisInstance.focusGained(ev)
 	});
-	
+
 	editor.on('blur', function(ev) {
 		thisInstance.focusLost(ev)
 	});
-	
+
 	this.timerModifications();
-	
+
 	// Warn the Java side that initialization on the Browser side is done
 	if (this.eclipseRunning) {
-		_delegate_init();
+		this.callDelegateInit();
 	}
-	
+
 }
+
+/*
+ * Warn the Java side that initialization on the Browser side is done
+ */
+EclipseIntegration.prototype.callDelegateInit = function() {
+	if (this.delegateInitCalled) {
+		return;
+	}
+	this.delegateInitCalled = true;
+	setTimeout(function() {
+    	_delegate_init();
+	}, 100);
+}
+
 EclipseIntegration.prototype.checkModifications = function() {
 	if (this.data != this.editor.getData()) {
 		if (this.eclipseRunning) {
-			_delegate_modified(this.pendingCommandIdentifier);
+			_delegate_modified();
 		}
 		this.data = this.editor.getData();
 	}
@@ -66,7 +80,7 @@ EclipseIntegration.prototype.timerModifications = function() {
 EclipseIntegration.prototype.modified = function(event) {
 	this.currentModifiedEvent = event;
 	if (this.eclipseRunning) {
-		_delegate_modified(this.pendingCommandIdentifier);
+		_delegate_modified();
 	}
 }
 EclipseIntegration.prototype.focusGained = function(event) {

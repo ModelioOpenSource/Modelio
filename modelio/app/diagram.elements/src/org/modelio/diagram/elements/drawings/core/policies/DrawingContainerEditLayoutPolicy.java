@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -140,6 +140,7 @@ public class DrawingContainerEditLayoutPolicy extends XYLayoutEditPolicy {
      * move it to the specified child's
      * constraint. The constraint has been converted from a draw2d constraint to
      * an object suitable for the model.
+     * 
      * @param request the ChangeBoundsRequest
      * @param child the EditPart of the child being changed
      * @param modelConstraint the new constraint, after being

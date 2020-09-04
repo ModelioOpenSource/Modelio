@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class UnmaskManager {
     /**
      * Unmask child generalizations and realizations.<br>
      * The represented element must be at least an NameSpace.
+     * 
      * @param viewer the viewer to unmask the elements on.
      * @param gmModel the gmModel representing the model element to work from.
      */
@@ -108,6 +109,7 @@ public class UnmaskManager {
     /**
      * Unmask all constraints in a column, next to the given element, on the right.<br>
      * The represented element must be an ModelElement.
+     * 
      * @param viewer the viewer to unmask the elements on.
      * @param gmModel the gmModel representing the model element to work from.
      */
@@ -135,6 +137,7 @@ public class UnmaskManager {
 
     /**
      * Unmask all non structuring links around the element.
+     * 
      * @param viewer The viewer to unmask elements into.
      * @param gmModel the gmModel representing the model element to work from.
      * @param unmaskNewNodes indicates if new nodes could be unmasked.
@@ -158,6 +161,7 @@ public class UnmaskManager {
     /**
      * Unmask all notes in a column, next to the given element, on the left.<br>
      * The represented element must be an ModelElement.
+     * 
      * @param viewer the viewer to unmask the elements on.
      * @param gmModel the gmModel representing the model element to work from.
      */
@@ -185,6 +189,7 @@ public class UnmaskManager {
     /**
      * Unmask parent generalizations and realizations.<br>
      * The represented element must be an NameSpace.
+     * 
      * @param viewer the viewer to unmask the elements on.
      * @param gmModel the gmModel representing the model element to work from.
      */
@@ -222,6 +227,7 @@ public class UnmaskManager {
 
     /**
      * Unmask all structuring links around the element.
+     * 
      * @param viewer The viewer to unmask elements into.
      * @param gmModel the gmModel representing the model element to work from.
      * @param unmaskNewNodes indicates if new nodes could be unmasked.
@@ -244,6 +250,7 @@ public class UnmaskManager {
 
     /**
      * Return the element location and size as a Rectangle.
+     * 
      * @return the element bounds.
      */
     @objid ("665b5f45-33f7-11e2-95fe-001ec947c8cc")
@@ -274,6 +281,7 @@ public class UnmaskManager {
 
     /**
      * Unmasks all elements in a line.
+     * 
      * @param initialPosition The upper left corner of the unmask zone.
      * @param viewer The viewer to unmask elements into.
      * @param toUnmask List of all elements to unmask.
@@ -295,6 +303,7 @@ public class UnmaskManager {
 
     /**
      * Unmask all elements in a column.
+     * 
      * @param initialPosition The upper left corner of the unmask zone.
      * @param viewer The viewer to unmask elements into.
      * @param toUnmask List of all elements to unmask.
@@ -315,6 +324,7 @@ public class UnmaskManager {
     /**
      * Unmask an element in this viewer at the given coordinates.<br>
      * Uses a ModelElementDropRequest, to emulate a standard drag & drop of the element.
+     * 
      * @param viewer the viewer to unmask the element on.
      * @param element the element to unmask.
      * @param x the x coordinate for the unmasking location.

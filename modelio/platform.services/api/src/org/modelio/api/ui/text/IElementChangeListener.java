@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IElementChangeListener {
     /**
      * Called when the selected element changes.
+     * 
      * @param oldElement previously selected element. May be null.
      * @param newElement newly selected element. May be null.
      */

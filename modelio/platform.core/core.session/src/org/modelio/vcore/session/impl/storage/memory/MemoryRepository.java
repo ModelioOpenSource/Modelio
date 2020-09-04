@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -336,6 +336,7 @@ public class MemoryRepository implements IRepository, IRepositoryObject {
 
     /**
      * Get a metaclass from its name.
+     * 
      * @param name a metaclass name.
      * @return the metaclass.
      */

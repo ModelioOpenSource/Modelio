@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class CreateCallBehaviorCommand extends Command {
 
     /**
      * Initialize the command.
+     * 
      * @param dropLocation The location of the element in the diagram
      * @param toUnmask The operation to unmask
      * @param editPart The destination edit part that will own the call operation.
@@ -105,6 +106,7 @@ public class CreateCallBehaviorCommand extends Command {
 
     /**
      * Unmask the given element in the destination edit part.
+     * 
      * @param el The element to unmask
      */
     @objid ("2a0bf89e-55b6-11e2-877f-002564c97630")

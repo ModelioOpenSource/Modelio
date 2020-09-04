@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,7 +20,6 @@
 
 package org.modelio.vbasic.files;
 
-import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.FileVisitResult;
@@ -35,23 +34,26 @@ import java.text.Normalizer;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
-import java.util.zip.Adler32;
-import java.util.zip.CheckedOutputStream;
-import java.util.zip.Deflater;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.apache.commons.compress.archivers.ArchiveException;
+import org.apache.commons.compress.archivers.ArchiveOutputStream;
+import org.apache.commons.compress.archivers.ArchiveStreamFactory;
+import org.apache.commons.compress.compressors.CompressorException;
+import org.apache.commons.compress.compressors.CompressorStreamFactory;
 import org.modelio.vbasic.plugin.CoreUtils;
 import org.modelio.vbasic.progress.IModelioProgress;
 import org.modelio.vbasic.progress.SubProgress;
 
 /**
- * Service class to compress one or more directories into one .zip file.
+ * Service class to compress one or more directories into one archive file.
  * <p>
- * One instance is configured to produce one unique zip archive.
- * The zip archive is build by calling one
- * of the compress methods. Each time a compress method is called the
+ * One instance is configured to produce one unique archive.
+ * </p>
+ * <p>
+ * The archive is build by calling one of the compress methods. Each time a compress method is called the
  * complete archive contents are replaced.
+ * </p>
  */
 @objid ("c98a8cd5-a5a3-11e1-aa98-001ec947ccaf")
 public class Zipper {
@@ -64,11 +66,17 @@ public class Zipper {
     @objid ("13194160-7498-4003-bb34-7b444e29b17a")
     private int nTotal;
 
+    @objid ("c9bed07a-2485-4e2c-8c3d-f014d734759e")
+    private final String archiverName;
+
+    @objid ("0416820c-9335-44a1-a2a9-1b57c0a239cc")
+    private final String compressorName;
+
     @objid ("c98a8cd9-a5a3-11e1-aa98-001ec947ccaf")
     private Path archive;
 
     @objid ("c98cef11-a5a3-11e1-aa98-001ec947ccaf")
-     ZipOutputStream out;
+    private ArchiveOutputStream out;
 
     /**
      * Matches non ASCII characters
@@ -80,23 +88,45 @@ public class Zipper {
     private final MessageFormat progressLabel;
 
     /**
-     * Construct a Zipper instance.
+     * Construct a Zipper instance with a specific archiver and compressor.
      * <p>
      * Note that the instance is configured to
-     * produce one unique zip archive. The zip archive is build by calling one
+     * produce one unique archive. The archive is build by calling one
      * of the compress methods. Each time a compress method is called the
      * complete archive contents are replaced.
-     * @param archive the full pathname of the archive to be produced by this
-     * zipper.
+     * </p>
+     * 
+     * @param archive the full pathname of the archive to be produced by this class.
+     * @param archiverName the archive name, i.e. "ar", "arj", "zip", "tar", "jar", "cpio", "dump" or "7z".
+     * @param compressorName the compressor name, i.e. "gz", "bzip2", "xz", "lzma", "pack200", "snappy-raw", "snappy-framed", "z", "lz4-block", "lz4-framed", "zstd", "deflate64" or "deflate". Might also be <code>null</code>.
+     */
+    @objid ("e9ea54de-3a54-4761-bea2-10e2d42ade90")
+    public Zipper(final Path archive, final String archiverName, final String compressorName) {
+        this.archive = archive;
+        this.progressLabel = new MessageFormat(CoreUtils.I18N.getString("Zipper.progressLabel"));
+        this.archiverName = archiverName;
+        this.compressorName = compressorName;
+    }
+
+    /**
+     * Construct a Zipper instance with a ZIP archiver and no compressor.
+     * <p>
+     * Note that the instance is configured to
+     * produce one unique archive. The archive is build by calling one
+     * of the compress methods. Each time a compress method is called the
+     * complete archive contents are replaced.
+     * </p>
+     * 
+     * @param archive the full pathname of the archive to be produced by this class.
      */
     @objid ("c98cef12-a5a3-11e1-aa98-001ec947ccaf")
     public Zipper(final Path archive) {
-        this.archive = archive;
-        this.progressLabel = new MessageFormat(CoreUtils.I18N.getString("Zipper.progressLabel"));
+        this(archive, ArchiveStreamFactory.ZIP, null);
     }
 
     /**
      * Compress the directory or file given by 'path'.
+     * 
      * @param path the pathname of the directory or file to compress
      * @param monitor an IModelioProgress object to report compression progression. Can be null.
      * @param title the title displayed for the compression task. Requires a 'monitor' instance. Can be null.
@@ -109,6 +139,7 @@ public class Zipper {
 
     /**
      * Compress the directory or file given by 'path'.
+     * 
      * @param path the pathname of the directory or file to compress
      * @param skipDirectoryMatchers matchers to skip directories and their content
      * @param skipFileMatchers matchers to skip files
@@ -123,6 +154,7 @@ public class Zipper {
 
     /**
      * Compress the contents of the directories list 'paths'.
+     * 
      * @param pathes a list of directories or files (full paths)
      * @param skipDirectoryMatchers matchers to skip directories and their content
      * @param skipFileMatchers matchers to skip files
@@ -138,8 +170,7 @@ public class Zipper {
         
         this.aborted = false;
         
-        try (ZipOutputStream zipOutput = openZip(this.archive)) {
-        
+        try (ArchiveOutputStream archiveOutput = openZip(this.archive)) {
             for (Path path : pathes) {
                 compressContent(path, path.getFileName().toString(), skipDirectoryMatchers, skipFileMatchers, monitor);
             }
@@ -152,6 +183,7 @@ public class Zipper {
 
     /**
      * Compress the directory content or file given by 'path'.
+     * 
      * @param path the pathname of the directory or file to compress
      * @param monitor an IModelioProgress object to report compression progression. Can be null.
      * @param title the title displayed for the compression task. Requires a 'monitor' instance. Can be null.
@@ -164,6 +196,7 @@ public class Zipper {
 
     /**
      * Compress the contents of the directories list 'pathes' in the same zip directory.
+     * 
      * @param pathes a list of directories or files (full pathes)
      * @param progressMonitor an IModelioProgress object to report compression progression. Can be null.
      * @param title the title displayed for the compression task. Requires a 'monitor' instance. Can be null.
@@ -176,8 +209,7 @@ public class Zipper {
         monitor.setWorkRemaining(this.nTotal);
         this.aborted = false;
         
-        try (ZipOutputStream zipOutput = openZip(this.archive)) {
-        
+        try (ArchiveOutputStream archiveOutput = openZip(this.archive)) {
             for (Path path : pathes) {
                 compressContent(path, null, null, null, monitor);
             }
@@ -188,31 +220,21 @@ public class Zipper {
         }
     }
 
-    @objid ("c98cef4c-a5a3-11e1-aa98-001ec947ccaf")
-    public Path getArchive() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.archive;
-    }
-
-    @objid ("c98cef50-a5a3-11e1-aa98-001ec947ccaf")
-    public boolean isAborted() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.aborted;
-    }
-
     @objid ("c98cef42-a5a3-11e1-aa98-001ec947ccaf")
-    protected ZipOutputStream openZip(final Path archivePath) throws IOException {
-        OutputStream dest = Files.newOutputStream(archivePath);
-        CheckedOutputStream checksum = new CheckedOutputStream(dest, new Adler32());
-        BufferedOutputStream buff = new BufferedOutputStream(checksum);
-        this.out = new ZipOutputStream(buff);
-        this.out.setMethod(ZipOutputStream.DEFLATED);
-        this.out.setLevel(Deflater.BEST_COMPRESSION);
+    protected ArchiveOutputStream openZip(final Path archivePath) throws IOException {
+        //        OutputStream dest = Files.newOutputStream(archivePath);
+        //        CheckedOutputStream checksum = new CheckedOutputStream(dest, new Adler32());
+        //        BufferedOutputStream buff = new BufferedOutputStream(checksum);
+        //        this.out = new ArchiveOutputStream(buff);
+        //        this.out.setMethod(ArchiveOutputStream.DEFLATED);
+        //        this.out.setLevel(Deflater.BEST_COMPRESSION);
+                this.out = createOutputStream(archivePath);
         return this.out;
     }
 
     /**
-     * {@linkplain Normalizer Normalize} to {@link Normalizer.Form#NFC} and remove all non ASCII characters from the given string.
+     * {@linkplain Normalizer Normalize} to {@link java.text.Normalizer.Form#NFC} and remove all non ASCII characters from the given string.
+     * 
      * @param s the string to clean
      * @return a cleaned string
      */
@@ -227,7 +249,7 @@ public class Zipper {
      * 
      * The path directory itself will not be part of the compressed file.
      * Only the files and directories that it contains will be compressed.
-     * @param title the title displayed for the compression task. Requires a 'monitor' instance. Can be null.
+     * 
      * @param srcPath the pathname of the directory or file to compress
      * @param intoDir the destination directory inside the zip file.
      * @param skipDirectoryMatchers the list of PathMatchers to use to skip some directories to compress.
@@ -251,9 +273,9 @@ public class Zipper {
                         }
                     }
                 }
-                compressFile(Zipper.this.out, file, monitor);
+                compressFile(Zipper.this.out, file);
                 monitor.worked(1);
-                
+        
                 if (++this.count % 17 == 0) {
                     monitor.subTask( computeProgressLabel(this.count, Zipper.this.nTotal));
                 }
@@ -293,11 +315,11 @@ public class Zipper {
                 zipPath = zipPath + "/";
         
                 // Create zip entry
-                ZipEntry entry = new ZipEntry(unAccent(zipPath));
-                entry.setTime(Files.getLastModifiedTime(dir).toMillis());
-                //java8:entry.setLastModifiedTime(Files.getLastModifiedTime(dir));
+                ArchiveEntry entry = Zipper.this.out.createArchiveEntry(dir.toFile(), unAccent(zipPath));
         
-                Zipper.this.out.putNextEntry(entry);
+                Zipper.this.out.putArchiveEntry(entry);
+        
+                Zipper.this.out.closeArchiveEntry();
             }
         
             /**
@@ -331,23 +353,20 @@ public class Zipper {
                 return super.postVisitDirectory(dir, exc);
             }
         
-            private void compressFile(ZipOutputStream zipOutput, Path f, IModelioProgress mon) throws IOException {
-                //mon.subTask(f.toString());
-        
+            private void compressFile(ArchiveOutputStream archiveOutput, Path f) throws IOException {
                 // Compute directory path in the zip archive
                 String zipPath = computeZipPath(f);
         
                 // Create zip entry
-                ZipEntry entry = new ZipEntry(unAccent(zipPath));
-                entry.setTime(Files.getLastModifiedTime(f).toMillis());
-                //java 8: entry.setLastModifiedTime(Files.getLastModifiedTime(f));
-                zipOutput.putNextEntry(entry);
+                ArchiveEntry entry = Zipper.this.out.createArchiveEntry(f.toFile(), unAccent(zipPath));
+        
+                Zipper.this.out.putArchiveEntry(entry);
         
                 // write file data in the zip stream
-                Files.copy(f, zipOutput);
+                Files.copy(f, archiveOutput);
         
                 // Close the current entry
-                zipOutput.closeEntry();
+                archiveOutput.closeArchiveEntry();
             }
         };
         
@@ -368,7 +387,7 @@ public class Zipper {
                 public FileVisitResult visitFile(Path file,
                         BasicFileAttributes attrs) throws IOException {
                     ret[0]++;
-                    
+        
                     if (ret[0] % 17 == 0) {
                         monitor.subTask(computeProgressLabel(0, ret[0]));
                     }
@@ -404,6 +423,22 @@ public class Zipper {
     @objid ("0adde6a3-e1fe-4a48-8307-b7f68b67395b")
     private String computeProgressLabel(int count, int total) {
         return this.progressLabel.format(new Object[] {this.archive.getFileName(), count, total}, new StringBuffer(), null).toString();
+    }
+
+    @objid ("0577f643-67da-4346-bf3e-15ae16efe9e1")
+    @SuppressWarnings ("resource")
+    private ArchiveOutputStream createOutputStream(final Path archivePath) throws IOException {
+        try {
+            final OutputStream os = Files.newOutputStream(archivePath);
+        
+            if (this.compressorName != null) {
+                return new ArchiveStreamFactory().createArchiveOutputStream(this.archiverName, new CompressorStreamFactory().createCompressorOutputStream(this.compressorName, os));
+            } else {
+                return new ArchiveStreamFactory().createArchiveOutputStream(this.archiverName, os);
+            }
+        } catch (ArchiveException | CompressorException e) {
+            throw new IOException(e);
+        }
     }
 
 }

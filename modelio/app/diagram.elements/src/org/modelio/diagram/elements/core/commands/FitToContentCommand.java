@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class FitToContentCommand extends Command {
      * Initialize the command.
      * @param fitHorizontal
      * @param fitVertical
+     * 
      * @param editPart The graphic edit part to resize.
      */
     @objid ("7f40a179-1dec-11e2-8cad-001ec947c8cc")
@@ -73,6 +74,7 @@ public class FitToContentCommand extends Command {
 
     /**
      * Ask for the command that will resize the node to its preferred size.
+     * 
      * @return The resize command. May return <tt>null</tt>.
      */
     @objid ("7f40a183-1dec-11e2-8cad-001ec947c8cc")

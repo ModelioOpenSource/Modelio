@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class MObjectList extends ArrayList<SmObjectImpl> {
 
     /**
      * Constructs an empty list with the specified initial capacity.
+     * 
      * @param initialCapacity the initial capacity of the list
      */
     @objid ("d10b0263-eb17-41ee-92f6-409aec61f627")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -140,6 +140,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
 
     /**
      * Default constructor.
+     * 
      * @param parentShell the parent shell.
      * @param dataModel the data model.
      * @param projectService project manipulation service
@@ -221,6 +222,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
      * <li>invalidate == true -> text will be red.</li>
      * <li>invalidate == false -> text will be green.</li>
      * </ul>
+     * 
      * @param invalidate whether or not the note type name filed will be invalidated
      */
     @objid ("f4569d15-0c00-4ff1-9ae5-8d301d19b0a8")
@@ -667,6 +669,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
 
     /**
      * Get the metaclass displayed in the metaclass field.
+     * 
      * @return the displayed metaclass .
      */
     @objid ("ead828f1-3e3d-4a84-a311-1cc55204ccf4")

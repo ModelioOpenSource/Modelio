@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class VersionedExmlSaver implements ExmlTags {
 
     /**
      * Constructor.
+     * 
      * @param errSupport to report errors.
      */
     @objid ("3de290ff-121a-11e2-816a-001ec947ccaf")
@@ -85,6 +86,7 @@ public class VersionedExmlSaver implements ExmlTags {
 
     /**
      * Save the given CMS node.
+     * 
      * @param object a CMS node
      * @param os an output stream for the versioned part
      * @param localResource an output stream for the non versioned part
@@ -227,6 +229,7 @@ public class VersionedExmlSaver implements ExmlTags {
 
     /**
      * Write the object SmDependencies.
+     * 
      * @param object the CMS node
      * @param recursionContext to avoid cycles.
      * @throws javax.xml.stream.XMLStreamException in case of XML writing error.
@@ -255,6 +258,7 @@ public class VersionedExmlSaver implements ExmlTags {
 
     /**
      * Write the root {@link ExmlTags#TAG_EXT} node.
+     * 
      * @param object the CMS node
      * @throws javax.xml.stream.XMLStreamException on failure
      */
@@ -340,6 +344,7 @@ public class VersionedExmlSaver implements ExmlTags {
      * <p><code>
      * "&#x5d; &#x5d;&gt;" <b>---></b> "]"(1) <b>+</b> "&#x5d; &#x5d;&gt;&lt;![CDATA[" <b>+</b> "]&gt;"(2)
      * </code>
+     * 
      * @param aString a future CDATA string
      * @return a CDATA ready string
      */
@@ -362,6 +367,7 @@ public class VersionedExmlSaver implements ExmlTags {
 
     /**
      * Write the COMP tag begin if not already done.
+     * 
      * @param written whether the tag has already been written.
      * @param dep the dependency
      * @return always <code>true</code>

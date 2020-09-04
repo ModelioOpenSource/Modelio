@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class CutElementHandler {
 
     /**
      * Available only when the selected elements are modifiable.
+     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -84,6 +85,7 @@ public class CutElementHandler {
 
     /**
      * Cut the currently selected elements.
+     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */

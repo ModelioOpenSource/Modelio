@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public interface IMemoryEventListener {
 
     /**
      * Called when the memory manager ends swapping model objects.
+     * 
      * @param swappedObjects the count of model objects that were freed.
      */
     @objid ("6b917eca-57b6-465e-b027-c492047a6f10")

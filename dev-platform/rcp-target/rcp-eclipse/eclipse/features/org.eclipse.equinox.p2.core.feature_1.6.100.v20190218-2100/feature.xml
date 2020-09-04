@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.equinox.p2.core.feature"
+      label="%featureName"
+      version="1.6.100.v20190218-2100"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.ecf.core.feature" version="1.4.0" match="compatible"/>
+      <import feature="org.eclipse.ecf.core.ssl.feature" version="1.1.0" match="compatible"/>
+      <import feature="org.eclipse.ecf.filetransfer.feature" version="3.13.7" match="compatible"/>
+      <import feature="org.eclipse.ecf.filetransfer.httpclient4.feature" version="3.13.7" match="compatible"/>
+      <import feature="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature" version="1.1.0" match="compatible"/>
+      <import feature="org.eclipse.ecf.filetransfer.ssl.feature" version="1.1.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.equinox.p2.artifact.repository"
+         download-size="153"
+         install-size="333"
+         version="1.3.0.v20190212-1235"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.console"
+         download-size="27"
+         install-size="62"
+         version="1.1.100.v20180822-1258"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.core"
+         download-size="74"
+         install-size="138"
+         version="2.6.0.v20190215-2242"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.director"
+         download-size="106"
+         install-size="247"
+         version="2.4.300.v20190215-2242"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.engine"
+         download-size="209"
+         install-size="467"
+         version="2.6.200.v20190215-2242"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.garbagecollector"
+         download-size="25"
+         install-size="45"
+         version="1.1.100.v20180822-1302"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.metadata"
+         download-size="351"
+         install-size="782"
+         version="2.4.300.v20190215-2242"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.metadata.repository"
+         download-size="130"
+         install-size="286"
+         version="1.3.100.v20180822-1302"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.repository"
+         download-size="138"
+         install-size="279"
+         version="2.4.300.v20190215-2242"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.touchpoint.eclipse"
+         download-size="128"
+         install-size="278"
+         version="2.2.300.v20190215-2242"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.touchpoint.natives"
+         download-size="77"
+         install-size="154"
+         version="1.3.200.v20180921-1019"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.simpleconfigurator.manipulator"
+         download-size="26"
+         install-size="48"
+         version="2.1.200.v20181123-1405"
+         unpack="false"/>
+
+   <plugin
+         id="org.sat4j.core"
+         download-size="354"
+         install-size="682"
+         version="2.3.5.v201308161310"
+         unpack="false"/>
+
+   <plugin
+         id="org.sat4j.pb"
+         download-size="236"
+         install-size="491"
+         version="2.3.5.v201404071733"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.frameworkadmin"
+         download-size="36"
+         install-size="67"
+         version="2.1.200.v20190215-2242"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.frameworkadmin.equinox"
+         download-size="65"
+         install-size="139"
+         version="1.1.100.v20180822-1258"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.preferences"
+         download-size="130"
+         install-size="265"
+         version="3.7.300.v20190218-2100"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.security"
+         download-size="110"
+         install-size="230"
+         version="1.3.100.v20190215-2139"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.jarprocessor"
+         download-size="71"
+         install-size="122"
+         version="1.1.200.v20180921-1009"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.transport.ecf"
+         download-size="43"
+         install-size="89"
+         version="1.2.100.v20180822-1354"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.p2.operations"
+         download-size="74"
+         install-size="173"
+         version="2.5.300.v20190202-1801"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.security.macosx"
+         os="macosx"
+         download-size="17"
+         install-size="58"
+         version="1.101.100.v20180827-1235"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.security.linux.x86_64"
+         os="linux"
+         arch="x86_64"
+         download-size="16"
+         install-size="31"
+         version="1.1.200.v20181106-0957"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.security.win32.x86_64"
+         os="win32"
+         arch="x86_64"
+         download-size="35"
+         install-size="65"
+         version="1.1.100.v20180827-1235"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.tukaani.xz"
+         download-size="125"
+         install-size="202"
+         version="1.8.0.v20180207-1613"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.concurrent"
+         download-size="25"
+         install-size="45"
+         version="1.1.200.v20180827-1235"
+         unpack="false"/>
+
+</feature>

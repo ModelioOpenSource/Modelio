@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ public class JavaEnumNatValueDisplayConverter extends DisplayConverter {
 
     /**
      * Default constructor for this converter.
+     * 
      * @param enumType the enum type to be converted.
      */
     @objid ("f855ddd0-d4d8-4741-b5a5-a3da6e47c165")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -341,6 +341,7 @@ public class VTabFolder extends Composite {
      * @see SWT#SINGLE
      * @see SWT#MULTI
      * @see #getStyle()
+     * 
      * @param parent a widget which will be the parent of the new instance (cannot
      * be null)
      * @param style the style of widget to construct
@@ -493,6 +494,7 @@ public class VTabFolder extends Composite {
      * @see #removeVTabFolder2Listener(VTabFolder2Listener)
      * 
      * @since 3.0
+     * 
      * @param listener the listener which should be notified
      * 
      * @exception IllegalArgumentException
@@ -531,6 +533,7 @@ public class VTabFolder extends Composite {
      * @see SelectionListener
      * @see #removeSelectionListener
      * @see SelectionEvent
+     * 
      * @param listener the listener which should be notified when the user changes
      * the receiver's selection
      * 
@@ -897,6 +900,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Returns <code>true</code> if the receiver's border is visible.
+     * 
      * @return the receiver's border visibility state
      * 
      * @exception SWTException
@@ -934,6 +938,7 @@ public class VTabFolder extends Composite {
     /**
      * Returns <code>true</code> if the chevron button is visible when
      * necessary.
+     * 
      * @return the visibility of the chevron button
      * 
      * @exception SWTException
@@ -972,6 +977,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Return the tab that is located at the specified index.
+     * 
      * @param index the index of the tab item
      * @return the item at the specified index
      * 
@@ -998,6 +1004,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Gets the item at a point in the widget.
+     * 
      * @param pt the point in coordinates relative to the VTabFolder
      * @return the item at a point or null
      * 
@@ -1030,6 +1037,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Return the number of tabs in the folder.
+     * 
      * @return the number of tabs in the folder
      * 
      * @exception SWTException
@@ -1048,6 +1056,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Return the tab items.
+     * 
      * @return the tab items
      * 
      * @exception SWTException
@@ -1126,6 +1135,7 @@ public class VTabFolder extends Composite {
     /**
      * Returns the number of characters that will appear in a fully compressed
      * tab.
+     * 
      * @return number of characters that will appear in a fully compressed tab
      * 
      * @since 3.0
@@ -1155,6 +1165,7 @@ public class VTabFolder extends Composite {
      * index order). If MRU visibility is enabled, the two visible tabs will be
      * "Tab 1" and "Tab 3" (in that order from left to right).
      * </p>
+     * 
      * @return the receiver's header's visibility state
      * 
      * @exception SWTException
@@ -1179,6 +1190,7 @@ public class VTabFolder extends Composite {
      * @see VTabFolderRenderer
      * 
      * @since 3.6
+     * 
      * @return the receiver's renderer
      * 
      * @exception SWTException
@@ -1216,6 +1228,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Return the selected tab item, or null if there is no selection.
+     * 
      * @return the selected tab item, or null if none has been selected
      * 
      * @exception SWTException
@@ -1236,6 +1249,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Returns the receiver's selection background color.
+     * 
      * @return the selection background color of the receiver
      * 
      * @exception SWTException
@@ -1256,6 +1270,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Returns the receiver's selection foreground color.
+     * 
      * @return the selection foreground color of the receiver
      * 
      * @exception SWTException
@@ -1277,6 +1292,7 @@ public class VTabFolder extends Composite {
     /**
      * Return the index of the selected tab item, or -1 if there is no
      * selection.
+     * 
      * @return the index of the selected tab item or -1
      * 
      * @exception SWTException
@@ -1296,6 +1312,7 @@ public class VTabFolder extends Composite {
     /**
      * Returns <code>true</code> if the VTabFolder is rendered with a simple,
      * traditional shape.
+     * 
      * @return <code>true</code> if the VTabFolder is rendered with a simple
      * shape
      * 
@@ -1310,6 +1327,7 @@ public class VTabFolder extends Composite {
     /**
      * Returns <code>true</code> if the VTabFolder only displays the selected
      * tab and <code>false</code> if the VTabFolder displays multiple tabs.
+     * 
      * @return <code>true</code> if the VTabFolder only displays the selected
      * tab and <code>false</code> if the VTabFolder displays multiple
      * tabs
@@ -1338,6 +1356,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Returns the height of the tab
+     * 
      * @return the height of the tab
      * 
      * @exception SWTException
@@ -1361,6 +1380,7 @@ public class VTabFolder extends Composite {
     /**
      * Returns the position of the tab. Possible values are SWT.LEFT or
      * SWT.RIGHT.
+     * 
      * @return the position of the tab
      * 
      * @exception SWTException
@@ -1380,6 +1400,7 @@ public class VTabFolder extends Composite {
     /**
      * Returns the control in the top right corner of the tab folder. Typically
      * this is a close button or a composite with a menu and close button.
+     * 
      * @return the control in the top right corner of the tab folder or null
      * 
      * @exception SWTException
@@ -1400,6 +1421,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Returns the alignment of the top right control.
+     * 
      * @return the alignment of the top right control which is either
      * <code>SWT.RIGHT</code> or <code>SWT.FILL</code>
      * 
@@ -1421,6 +1443,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Returns <code>true</code> if an image appears in unselected tabs.
+     * 
      * @return <code>true</code> if an image appears in unselected tabs
      * 
      * @since 3.0
@@ -1434,6 +1457,7 @@ public class VTabFolder extends Composite {
     /**
      * Return the index of the specified tab or -1 if the tab is not in the
      * receiver.
+     * 
      * @param item the tab item for which the index is required
      * @return the index of the specified tab item or -1
      * 
@@ -2350,6 +2374,7 @@ public class VTabFolder extends Composite {
      * @see #addVTabFolder2Listener(VTabFolder2Listener)
      * 
      * @since 3.0
+     * 
      * @param listener the listener which should no longer be notified
      * 
      * @exception IllegalArgumentException
@@ -2397,6 +2422,7 @@ public class VTabFolder extends Composite {
      * notified when the user changes the receiver's selection.
      * @see SelectionListener
      * @see #addSelectionListener
+     * 
      * @param listener the listener which should no longer be notified
      * 
      * @exception IllegalArgumentException
@@ -2448,6 +2474,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Toggle the visibility of the border
+     * 
      * @param show true if the border should be displayed
      * 
      * @exception SWTException
@@ -2600,6 +2627,7 @@ public class VTabFolder extends Composite {
      * Display an insert marker before or after the specified tab item.
      * 
      * A value of null will clear the mark.
+     * 
      * @param item the item with which the mark is associated or null
      * @param after true if the mark should be displayed after the specified item
      * 
@@ -2620,6 +2648,7 @@ public class VTabFolder extends Composite {
      * Display an insert marker before or after the specified tab item.
      * 
      * A value of -1 will clear the mark.
+     * 
      * @param index the index of the item with which the mark is associated or -1
      * @param after true if the mark should be displayed after the specified item
      * 
@@ -2716,6 +2745,7 @@ public class VTabFolder extends Composite {
 /* public */
     /**
      * Reorder the items of the receiver.
+     * 
      * @param indices an array containing the new indices for all items
      * 
      * @exception IllegalArgumentException
@@ -2894,6 +2924,7 @@ public class VTabFolder extends Composite {
      * Note: No Layout can be set on this Control because it already manages the
      * size and position of its children.
      * </p>
+     * 
      * @param layout the receiver's new layout or null
      * 
      * @exception SWTException
@@ -2914,6 +2945,7 @@ public class VTabFolder extends Composite {
     /**
      * Sets the minimum number of characters that will be displayed in a fully
      * compressed tab.
+     * 
      * @param count the minimum number of characters that will be displayed in a
      * fully compressed tab
      * 
@@ -2956,6 +2988,7 @@ public class VTabFolder extends Composite {
      * index order). If MRU visibility is enabled, the two visible tabs will be
      * "Tab 1" and "Tab 3" (in that order from left to right).
      * </p>
+     * 
      * @param show the new visibility state
      * 
      * @exception SWTException
@@ -2996,6 +3029,7 @@ public class VTabFolder extends Composite {
      * @see VTabFolderRenderer
      * 
      * @since 3.6
+     * 
      * @param renderer a new renderer
      * 
      * @exception SWTException
@@ -3022,6 +3056,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Set the selection to the tab at the specified item.
+     * 
      * @param item the tab item to be selected
      * 
      * @exception IllegalArgumentException
@@ -3048,6 +3083,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Set the selection to the tab at the specified index.
+     * 
      * @param index the index of the tab item to be selected
      * 
      * @exception SWTException
@@ -3113,6 +3149,7 @@ public class VTabFolder extends Composite {
      * Sets the receiver's selection background color to the color specified by
      * the argument, or to the default system color for the control if the
      * argument is null.
+     * 
      * @param color the new color (or null)
      * 
      * @exception IllegalArgumentException
@@ -3149,6 +3186,7 @@ public class VTabFolder extends Composite {
     /**
      * Set the image to be drawn in the background of the selected tab. Image is
      * stretched or compressed to cover entire selection tab area.
+     * 
      * @param image the image to be drawn in the background
      * 
      * @exception SWTException
@@ -3174,6 +3212,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Set the foreground color of the selected tab.
+     * 
      * @param color the color of the text displayed in the selected tab
      * 
      * @exception SWTException
@@ -3198,6 +3237,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Sets the shape that the VTabFolder will use to render itself.
+     * 
      * @param simple <code>true</code> if the VTabFolder should render itself in a
      * simple, traditional style
      * 
@@ -3222,6 +3262,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Sets the number of tabs that the VTabFolder should display
+     * 
      * @param single <code>true</code> if only the selected tab should be displayed
      * otherwise, multiple tabs will be shown.
      * 
@@ -3287,6 +3328,7 @@ public class VTabFolder extends Composite {
     /**
      * Specify whether the tabs should appear along the top of the folder or
      * along the bottom of the folder.
+     * 
      * @param position <code>SWT.TOP</code> for tabs along the top or
      * <code>SWT.BOTTOM</code> for tabs along the bottom
      * 
@@ -3319,6 +3361,7 @@ public class VTabFolder extends Composite {
      * Typically this is a close button or a composite with a Menu and close
      * button. The topRight control is optional. Setting the top right control
      * to null will remove it from the tab folder.
+     * 
      * @param control the control to be displayed in the top right corner or null
      * 
      * @exception SWTException
@@ -3353,6 +3396,7 @@ public class VTabFolder extends Composite {
      * the control to wrap below the tabs if there is not enough available space
      * to the right of the last tab.
      * </p>
+     * 
      * @param control the control to be displayed in the top right corner or null
      * @param alignment <code>SWT.RIGHT</code> or <code>SWT.FILL</code> or
      * <code>SWT.RIGHT | SWT.WRAP</code>
@@ -3392,6 +3436,7 @@ public class VTabFolder extends Composite {
 
     /**
      * Specify whether the image appears on unselected tabs.
+     * 
      * @param visible <code>true</code> makes the image appear
      * 
      * @exception SWTException
@@ -3421,6 +3466,7 @@ public class VTabFolder extends Composite {
      * @see VTabFolder#showSelection()
      * 
      * @since 2.0
+     * 
      * @param item the item to be shown
      * 
      * @exception IllegalArgumentException
@@ -3777,6 +3823,7 @@ public class VTabFolder extends Composite {
      * to wrap if there is not enough space to display it in its
      * entirety.
      * </p>
+     * 
      * @param control the control to be displayed in the top right corner or
      * null
      * @param flags valid combinations are:
@@ -3863,6 +3910,7 @@ public class VTabFolder extends Composite {
 /* public */
     /**
      * Removes the control from the list of tab controls.
+     * 
      * @param control the control to be removed
      * 
      * @exception SWTException

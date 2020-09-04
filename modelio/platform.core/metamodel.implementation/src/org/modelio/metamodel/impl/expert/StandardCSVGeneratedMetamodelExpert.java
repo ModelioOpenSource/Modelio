@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -280,6 +280,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
      * Constructor.
      * <p>
      * You need to call {@link #register()} next.
+     * 
      * @param mm The metamodel.
      */
     @objid ("6af6247c-0090-4e35-b61e-f2159ab54a90")

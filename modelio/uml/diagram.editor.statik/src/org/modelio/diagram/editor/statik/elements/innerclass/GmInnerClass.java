@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
 
     /**
      * Creates an inner classes group.
+     * 
      * @param gmDiagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
@@ -86,7 +87,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         
         this.innerZone = new GmInnerClassesZone(gmDiagram, relatedRef);
         this.innerZone.setRoleInComposition(ZONE);
-        // Register as a property change listener for content synchronization in MANUAL unmask mode. 
+        // Register as a property change listener for content synchronization in MANUAL unmask mode.
         this.innerZone.addPropertyChangeListener(this);
         
         this.innerGroup = new GmInnerClassGroup(gmDiagram, relatedRef);
@@ -100,6 +101,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
 
     /**
      * Creates an inner classes group from existing zone & group.
+     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      * @param zone an existing InnerClass zone.
@@ -118,7 +120,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         super.addChild(this.innerGroup);
         super.addChild(this.innerZone);
         
-        // Register as a property change listener for content synchronization. 
+        // Register as a property change listener for content synchronization.
         this.innerZone.addPropertyChangeListener(this);
         this.innerGroup.addPropertyChangeListener(this);
     }
@@ -237,6 +239,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
      * Synchronize target's children according to the source's children.
      * Unwanted children are all masked.
      * Missing children are unmasked.
+     * 
      * @param source the gm having the right children.
      * @param target the gm that might have unwanted/missing children.
      */
@@ -316,7 +319,8 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
     @objid ("35233716-55b7-11e2-877f-002564c97630")
     @Override
     public boolean isVisible() {
-        if (getParent() != null && getParent().getRepresentationMode() == RepresentationMode.STRUCTURED) {
+        GmCompositeNode parentNode = getParentNode();
+        if (parentNode != null && parentNode.isVisible() && parentNode.getRepresentationMode() == RepresentationMode.STRUCTURED) {
             StyleKey viewModeStyleKey = getViewModeStyleKey();
             if (viewModeStyleKey == null) {
                 return false;

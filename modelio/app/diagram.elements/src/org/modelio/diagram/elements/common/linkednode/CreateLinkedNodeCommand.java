@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -88,6 +88,7 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param context Details on the MObject and/or the node to create
      */
     @objid ("7eb658f4-1dec-11e2-8cad-001ec947c8cc")
@@ -140,6 +141,7 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * Set the node inside which the node will be created.
+     * 
      * @param destNode The node in which the node will be created.
      */
     @objid ("7eb658fb-1dec-11e2-8cad-001ec947c8cc")
@@ -149,6 +151,7 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * Set the node location.
+     * 
      * @param location The location in absolute coordinates.
      */
     @objid ("7eb658ff-1dec-11e2-8cad-001ec947c8cc")
@@ -158,6 +161,7 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * set the node size.
+     * 
      * @param size The size of the node to create
      */
     @objid ("7eb8bb3e-1dec-11e2-8cad-001ec947c8cc")
@@ -167,6 +171,7 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * Set the parent element independently from the parent node.
+     * 
      * @param parentElement the parent element.
      */
     @objid ("7eb8bb44-1dec-11e2-8cad-001ec947c8cc")
@@ -178,6 +183,7 @@ public class CreateLinkedNodeCommand extends Command {
      * Set the node on which the created node will be linked.
      * <p>
      * Set the parent element to be the represented element of the source node.
+     * 
      * @param source the source edit part.
      */
     @objid ("7eb8bb48-1dec-11e2-8cad-001ec947c8cc")
@@ -189,6 +195,7 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * Create and initialize the model element.
+     * 
      * @param modelFactory the model factory.
      * @return the created model element.
      */
@@ -243,6 +250,7 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * Set the source anchor model where the link starts.
+     * 
      * @param sourceAnchorModel the source anchor model.
      */
     @objid ("7eb8bb5a-1dec-11e2-8cad-001ec947c8cc")
@@ -280,6 +288,7 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * Find in the viewer the right edit part to anchor the connection to.
+     * 
      * @param request a connection creation request
      * @return the edit part to which the node link must be anchored to.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ import org.modelio.metamodel.uml.statik.NaryLink;
 import org.modelio.metamodel.uml.statik.ProvidedInterface;
 import org.modelio.metamodel.uml.statik.RequiredInterface;
 import org.modelio.metamodel.visitors.DefaultModelVisitor;
+import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -91,7 +92,8 @@ public class StaticDiagramDropEditPolicyExtension extends AbstractDiagramElement
     @objid ("c9bcff3a-a107-4372-a124-5def992abeb4")
     @Override
     public boolean isToBeAddedToHierarchy(IGmDiagram context, Deque<MObject> hierarchy, MObject candidate) {
-        boolean isUML = candidate.getMClass().getOrigin().getName().equals(StandardMetamodel.NAME);
+        MClass mClass = candidate.getMClass();
+        boolean isUML = mClass.getOrigin().getName().equals(StandardMetamodel.NAME) && !mClass.getName().startsWith("Bpmn");
         boolean isSuperOk = super.isToBeAddedToHierarchy(context, hierarchy, candidate);
         
         final MObject lastInHierarchy = hierarchy.peek();

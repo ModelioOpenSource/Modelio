@@ -1,0 +1,2 @@
+org.eclipse.platform-4.11.zip
+org.eclipse.rcp.source-4.11.zip

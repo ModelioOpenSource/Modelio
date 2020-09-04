@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -193,6 +193,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
 
     /**
      * Get the OpenOffice control.
+     * 
      * @return the OpenOffice control.
      */
     @objid ("fd2d7f2b-5927-4fcd-bc54-17a488fa889c")
@@ -351,6 +352,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
 
     /**
      * closes the bean viewer and tries to terminate OOo.
+     * 
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established.
      */
     @objid ("55c7e8e2-65b9-402e-83e5-bcdadbaca812")
@@ -367,6 +369,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
     /**
      * Creating a correct File URL that OpenOffice can handle. This is
      * necessary to be platform independent.
+     * 
      * @param newfile a file path
      * @return the OpenOffice compatible URL.
      * @throws com.sun.star.comp.beans.NoConnectionException if not connected to OpenOffice
@@ -410,6 +413,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
      * <p>
      * The filter name depends on the document type.
      * Returns <code>null</code> if the document cannot be exported to HTML.
+     * 
      * @return the HTML export filter name, or <code>null</code>.
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection to LibreOffice is established.
      */

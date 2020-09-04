@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class CommunicationDiagramPropertyModel extends AbstractPropertyModel<Com
     /**
      * Create a new <i>CommunicationDiagram</i> data model from an
      * <i>CommunicationDiagram</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("9b7a604f-8648-475d-86fc-cd657502a2ba")
@@ -60,6 +61,7 @@ public class CommunicationDiagramPropertyModel extends AbstractPropertyModel<Com
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("5a19ea7b-646d-4071-b0d3-a18029ad6767")
@@ -70,6 +72,7 @@ public class CommunicationDiagramPropertyModel extends AbstractPropertyModel<Com
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("24b0e69c-815e-430d-b25f-01921907d1c2")
@@ -82,6 +85,7 @@ public class CommunicationDiagramPropertyModel extends AbstractPropertyModel<Com
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -112,6 +116,7 @@ public class CommunicationDiagramPropertyModel extends AbstractPropertyModel<Com
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -140,6 +145,7 @@ public class CommunicationDiagramPropertyModel extends AbstractPropertyModel<Com
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

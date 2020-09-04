@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
 
     /**
      * Creates the node model.
+     * 
      * @param diagram The diagram owning this element.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
@@ -101,6 +102,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
 
     /**
      * Add a link going to this element.
+     * 
      * @param link the ongoing link.
      */
     @objid ("8097f3fe-1dec-11e2-8cad-001ec947c8cc")
@@ -113,6 +115,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
 
     /**
      * Add a link starting from this node.
+     * 
      * @param link The starting link.
      */
     @objid ("8097f403-1dec-11e2-8cad-001ec947c8cc")
@@ -153,6 +156,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
 
     /**
      * Get the links going to this node.
+     * 
      * @return the ongoing links.
      */
     @objid ("8097f40c-1dec-11e2-8cad-001ec947c8cc")
@@ -175,6 +179,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
      * Get the GmModel owning this node.
      * <p>
      * The owner may be a {@link GmCompositeNode} or a {@link GmLink}.
+     * 
      * @return the GmModel owning this node.
      */
     @objid ("8097f41e-1dec-11e2-8cad-001ec947c8cc")
@@ -189,6 +194,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
 
     /**
      * Get the GmLink owning this node or <i>null</i> if the node is not owned by a GmLink.
+     * 
      * @return the GmLink owning this node or <i>null</i> if the node is not owned by a GmLink.
      */
     @objid ("8097f414-1dec-11e2-8cad-001ec947c8cc")
@@ -198,6 +204,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
 
     /**
      * Get the node owning this node.
+     * 
      * @return the owner node.
      */
     @objid ("8097f419-1dec-11e2-8cad-001ec947c8cc")
@@ -209,6 +216,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
      * Get the role played by this node in the parent node.
      * <p>
      * Never returns <tt>null</tt>.
+     * 
      * @return the role played by this node in the parent node.
      */
     @objid ("8097f423-1dec-11e2-8cad-001ec947c8cc")
@@ -228,6 +236,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
 
     /**
      * Same as {@link #getStyleKey(MetaKey)} but throws an exception if the style key is not found.
+     * 
      * @param metakey The meta key of the style key to find.
      * @return The matching style key
      * @throws java.lang.IllegalStateException If no matching style key has been found.
@@ -260,6 +269,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
      * The default implementation returns true.
      * <p>
      * Subclasses may redefine this method. In this case they should redefine {@link #setVisible(boolean)} too.
+     * 
      * @return true if the node and its parent are visible, false in the other cases.
      */
     @objid ("8097f42e-1dec-11e2-8cad-001ec947c8cc")
@@ -292,6 +302,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
 
     /**
      * Remove a link going to this node.
+     * 
      * @param gmLink the link to remove.
      */
     @objid ("809a563f-1dec-11e2-8cad-001ec947c8cc")
@@ -304,6 +315,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
 
     /**
      * Remove a link starting from this node.
+     * 
      * @param gmLink the link to remove.
      */
     @objid ("809a5644-1dec-11e2-8cad-001ec947c8cc")
@@ -319,6 +331,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
      * <p>
      * This node must not have a parent node. This method should be called only by
      * {@link GmLink#getExtension().add(String, GmNodeModel)}.
+     * 
      * @param parentLink The GmLink owning this node.
      * @throws java.lang.IllegalStateException if the node has a parent node.
      */
@@ -334,6 +347,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
 
     /**
      * Set the GmCompositeNode owning this node.
+     * 
      * @param parentNode The GmCompositeNode owning this node.
      */
     @objid ("809a5673-1dec-11e2-8cad-001ec947c8cc")
@@ -345,6 +359,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
 
     /**
      * Set the role played by this node in the parent node.
+     * 
      * @param value the role played by this node in the parent node. Must not be <tt>null</tt>.
      */
     @objid ("809a564d-1dec-11e2-8cad-001ec947c8cc")
@@ -357,6 +372,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
      * Sets whether the node is visible or not and fire listeners.
      * <p>
      * Subclasses should redefine {@link #doSetVisible(boolean)} if {@link #isVisible()} is redefined.
+     * 
      * @param visible whether the node must be visible
      */
     @objid ("809a5651-1dec-11e2-8cad-001ec947c8cc")
@@ -382,6 +398,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
      * <p>
      * The default implementation does nothing, nodes are always visible. Subclasses should redefine this method if
      * {@link #isVisible()} is redefined.
+     * 
      * @param visible whether the node must be visible
      */
     @objid ("809a5659-1dec-11e2-8cad-001ec947c8cc")
@@ -411,6 +428,7 @@ public abstract class GmNodeModel extends GmModel implements IGmNode {
      * Set the node owning this node.
      * <p>
      * This node must not have a parent link.
+     * 
      * @param parent The node owning this node
      * @throws java.lang.IllegalStateException if the node already has a parent link.
      */

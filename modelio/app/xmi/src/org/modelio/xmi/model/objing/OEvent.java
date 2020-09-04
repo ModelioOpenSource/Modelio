@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -28,10 +28,10 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.EventType;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.Package;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("81806c76-d9a2-4ce0-85de-683203b9b685")
 public class OEvent extends OModelElement {
@@ -55,11 +55,11 @@ public class OEvent extends OModelElement {
             }
         }
         
-        if (getObjingElement().isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CREATIONEVENT)){
+        if (getObjingElement().isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CREATIONEVENT)){
             return UMLFactory.eINSTANCE.createCreationEvent();
-        }else if (getObjingElement().isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DESTRUCTIONEVENT)){
+        }else if (getObjingElement().isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DESTRUCTIONEVENT)){
             return UMLFactory.eINSTANCE.createDestructionEvent();
-        }else if (getObjingElement().isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXECUTIONEVENT)){
+        }else if (getObjingElement().isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXECUTIONEVENT)){
             return UMLFactory.eINSTANCE.createExecutionEvent();
         }
         return null;

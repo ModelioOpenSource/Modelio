@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -90,6 +90,7 @@ public class ImageFigure extends Label implements IPenOptionsSupport {
 
     /**
      * Set the image.
+     * 
      * @param img the image.
      */
     @objid ("7e86aa13-1dec-11e2-8cad-001ec947c8cc")

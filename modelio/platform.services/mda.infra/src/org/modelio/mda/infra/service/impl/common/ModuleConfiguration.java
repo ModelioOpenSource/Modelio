@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,18 +39,12 @@ import org.modelio.metamodel.mda.ModuleParameter;
 /**
  * This class represents the means of reading and writing module parameters.
  * <p>
- * Each module owns parameters that can be read and writen. The current class is
- * used to give the opportunity to change or get the specific module parameters.
+ * Each module owns parameters that can be read and written. The current class is used to give the opportunity to change or get the specific module parameters.
  * <p>
- * The parameters can be defined using a specific string key. The returned value
- * is always typed by a String, meaning that needed conversion should be managed
- * by the developer.
+ * The parameters can be defined using a specific string key. The returned value is always typed by a String, meaning that needed conversion should be managed by the developer.
  */
 @objid ("9709e79f-f374-11e1-9458-001ec947c8cc")
 public final class ModuleConfiguration implements IModuleUserConfiguration {
-    @objid ("9709e799-f374-11e1-9458-001ec947c8cc")
-    private Path projectSpacePath;
-
     @objid ("9709e797-f374-11e1-9458-001ec947c8cc")
     private Path deploymentPath;
 
@@ -66,8 +60,7 @@ public final class ModuleConfiguration implements IModuleUserConfiguration {
     /**
      * Map of all defined diagram named styles provided by the module.
      * <p>
-     * The key is the style name and the value the path of the style configuration file
-     * relative to the module resources path.
+     * The key is the style name and the value the path of the style configuration file relative to the module resources path.
      */
     @objid ("ecdff23f-9c3b-401f-b9c2-a10aa69ec899")
     private Map<String, Path> stylepath;
@@ -75,18 +68,16 @@ public final class ModuleConfiguration implements IModuleUserConfiguration {
     /**
      * Unique constructor of a parameter manager.
      * <p>
-     * This constructor needs the id of the module on which the parameter manager
-     * is connected.
+     * This constructor needs the id of the module on which the parameter manager is connected.
+     * 
      * @param module the module this configuration is build for.
-     * @param projectSpacePath The project space path.
      * @param deploymentPath The module deployment path
      * @param docpath list of all files that should be loaded for documentation.
      * @param map Map of all defined diagram named styles provided by the module.
      */
     @objid ("9709e7a4-f374-11e1-9458-001ec947c8cc")
-    public ModuleConfiguration(GModule module, Path projectSpacePath, Path deploymentPath, final List<Path> docpath, final Map<String, Path> map) {
+    public ModuleConfiguration(GModule module, Path deploymentPath, final List<Path> docpath, final Map<String, Path> map) {
         this.module = module;
-        this.projectSpacePath = projectSpacePath;
         this.deploymentPath = deploymentPath;
         this.docpath = docpath;
         this.stylepath = map;
@@ -111,14 +102,15 @@ public final class ModuleConfiguration implements IModuleUserConfiguration {
     @Override
     public Map<String, String> getParameters() {
         Map<String, String> results = new HashMap<>();
+        
+        GProperties gProperties = this.module.getParameters();
         ModuleComponent moduleElement = this.module.getModuleElement();
         if (moduleElement != null) {
             EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
         
-            GProperties parameters = this.module.getParameters();
             for (ModuleParameter configParam : configParams) {
                 if (configParam.isIsUserRead()) {
-                    results.put(configParam.getName(), parameters.getValue(configParam.getName(), ""));
+                    results.put(configParam.getName(), gProperties.getValue(configParam.getName(), ""));
                 }
             }
         }
@@ -133,9 +125,15 @@ public final class ModuleConfiguration implements IModuleUserConfiguration {
             EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
             for (ModuleParameter configParam : configParams) {
                 if (configParam.getName().equals(key) && configParam.isIsUserWrite()) {
-                    GProperties parameters = this.module.getParameters();
-                    parameters.setProperty(key, value, DefinitionScope.LOCAL);
-                    return parameters.getProperty(key).getScope() == DefinitionScope.LOCAL;
+                    GProperties gProperties = this.module.getParameters();
+                    Entry gProperty = gProperties.getProperty(key);
+                    if (gProperty == null || gProperty.getScope() == DefinitionScope.LOCAL) {
+                        // Update property value
+                        gProperties.setProperty(key, value, DefinitionScope.LOCAL);
+                        return true;
+                    }
+                    // This property can't be edited
+                    return false;
                 }
             }
         }
@@ -147,12 +145,15 @@ public final class ModuleConfiguration implements IModuleUserConfiguration {
     public void updateFrom(Map<String, String> parameters) {
         ModuleComponent moduleElement = this.module.getModuleElement();
         if (moduleElement != null) {
-            EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
-            for (ModuleParameter configParam : configParams) {
-                String parameterName = configParam.getName();
-                if (parameters.containsKey(parameterName)
-                        && configParam.isIsUserWrite()) {
-                    this.module.getParameters().setProperty(parameterName, parameters.get(parameterName), DefinitionScope.LOCAL);
+            GProperties gProperties = this.module.getParameters();
+            for (ModuleParameter configParam : moduleElement.getModuleParameter()) {
+                String key = configParam.getName();
+                if (parameters.containsKey(key) && configParam.isIsUserWrite()) {
+                    Entry gProperty = gProperties.getProperty(key);
+                    if (gProperty == null || gProperty.getScope() == DefinitionScope.LOCAL) {
+                        // Update property value
+                        gProperties.setProperty(key, parameters.get(key), DefinitionScope.LOCAL);
+                    }
                 }
             }
         }
@@ -169,7 +170,7 @@ public final class ModuleConfiguration implements IModuleUserConfiguration {
     public List<Path> getDocpath() {
         List<Path> realpath = new ArrayList<>();
         
-        for(Path path : this.docpath){
+        for (Path path : this.docpath) {
             realpath.add(getModuleResourcesPath().resolve(path));
         }
         return realpath;
@@ -210,7 +211,7 @@ public final class ModuleConfiguration implements IModuleUserConfiguration {
     public Map<String, Path> getStylePath() {
         Map<String, Path> realpath = new HashMap<>();
         
-        for(Map.Entry<String, Path> entry : this.stylepath.entrySet()){
+        for (Map.Entry<String, Path> entry : this.stylepath.entrySet()) {
             realpath.put(entry.getKey(), getModuleResourcesPath().resolve(entry.getValue()));
         }
         return realpath;

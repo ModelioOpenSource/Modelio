@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -118,6 +118,7 @@ public class LinkEditorPanelProvider implements ILinkEditor {
 
     /**
      * Build a controller with injected fields.
+     * 
      * @param context an Eclipse 4 context
      */
     @objid ("ea3c6550-e3f9-470d-9980-90f6db6616fb")
@@ -154,6 +155,7 @@ public class LinkEditorPanelProvider implements ILinkEditor {
 
     /**
      * Get the configurator for this link editor
+     * 
      * @return the configurator for this link editor
      */
     @objid ("4c11f62e-6cab-47fc-b8ef-15a7a8c2d1a5")

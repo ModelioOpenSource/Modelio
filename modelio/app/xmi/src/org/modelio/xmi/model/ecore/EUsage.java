@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,17 +20,16 @@
 
 package org.modelio.xmi.model.ecore;
 
-import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
+import org.modelio.metamodel.uml.infrastructure.Element;
 
 @objid ("d37085e7-8de3-44d2-9891-306f268e82ad")
 public class EUsage extends EDependency {
     @objid ("6fbbce2b-09c1-4c44-8025-db39b7ec7754")
     @Override
-    public List<UmlModelElement> createObjingElt() {
-        return new ArrayList<>();
+    public List<Element> createObjingElt() {
+        return super.createObjingElt();
     }
 
     @objid ("cae944c9-6288-4573-a786-00ee39ffd6c4")

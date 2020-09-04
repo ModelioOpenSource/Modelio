@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,6 +106,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
 
     /**
      * C'tor.
+     * 
      * @param parent parent control.
      * @param initialElement initial value.
      * @param acceptNullValue whether the null value should be accepted or not.
@@ -502,6 +503,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
 
         /**
          * Constructor.
+         * 
          * @param session the session in which to search the elements.
          */
         @objid ("5bf65842-911c-11e0-9de7-002564c97630")
@@ -511,6 +513,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
 
         /**
          * Search model elements by their name.
+         * 
          * @param metaclasses metaclasses of the searched elements
          * @param nameValue name of the searched elements
          * @param filter a filter that allow to restrict the result scope. can be null.
@@ -540,6 +543,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
 
         /**
          * Search model elements by their name accordingly to a regular exception..
+         * 
          * @param metaclasses metaclasses of the searched elements
          * @param regexp a regular expression that will be matched with name of the searched elements
          * @param filter a filter that allow to restrict the result scope. Can be null.

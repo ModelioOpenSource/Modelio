@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class ToolbarLayoutWithGrab extends ToolbarLayout {
     /**
      * Constructs a ToolbarLayoutWithGrab with a specified orientation. Default values are: child spacing 0 pixels,
      * matchWidth <code>false</code>, and {@link #ALIGN_TOPLEFT} alignment.
+     * 
      * @param isHorizontal whether the children are oriented horizontally
      */
     @objid ("7fcd4c32-1dec-11e2-8cad-001ec947c8cc")
@@ -177,6 +178,7 @@ public class ToolbarLayoutWithGrab extends ToolbarLayout {
 
     /**
      * Activate or disable last child grabbing the remaining space.
+     * 
      * @param grab whether last child grabs the remaining space.
      * @return this for convenience.
      */

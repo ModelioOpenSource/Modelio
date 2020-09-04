@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class MetaclassReferencePropertyModel extends AbstractPropertyModel<Metac
 
     /**
      * Instantiate the profile properties view.
+     * 
      * @param theEditedElement the current profile.
      */
     @objid ("4726e9e1-e1d5-41e9-b74a-0f28bedee2fc")

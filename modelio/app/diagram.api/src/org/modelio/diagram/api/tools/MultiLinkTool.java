@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -168,6 +168,7 @@ public class MultiLinkTool extends MultiPointCreationTool {
      * With a REQ_MULTIPOINT_FIRST request: if (acceptFirst) return true, else return acceptLast.<br>
      * With a REQ_MULTIPOINT_ADDITIONAL request: if (acceptAdditional) return true, else return acceptLast.<br>
      * When acceptLast returns true, switches the current request to REQ_MULTIPOINT_LAST.
+     * 
      * @param editpart The edit part to check.
      * @return true if the request is accepted.
      */

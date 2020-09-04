@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,7 +46,7 @@ public class UI implements BundleActivator {
         UI.context = bundleContext;
         ServiceReference<ExtendedLogService> ref = bundleContext.getServiceReference(ExtendedLogService.class);
         ExtendedLogService service = bundleContext.getService(ref);
-        UI.LOG = new PluginLogger(service.getLogger(null));
+        UI.LOG = new PluginLogger(service.getLogger((String)null));
     }
 
     @objid ("a393ff8f-271e-4975-96b6-da7cfc7055cd")
@@ -62,6 +62,7 @@ public class UI implements BundleActivator {
 
     /**
      * Returns an image descriptor for the image file at the given plug-in relative path
+     * 
      * @param path the path
      * @return the image descriptor
      */

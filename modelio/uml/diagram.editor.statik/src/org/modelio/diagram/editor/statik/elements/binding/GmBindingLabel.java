@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class GmBindingLabel extends GmDefaultModelElementLabel {
 
     /**
      * Create an attribute representation.
+     * 
      * @param diagram The diagram
      * @param el The represented attribute, may be null.
      * @param ref The represented attribute reference, may not be null.
@@ -149,6 +150,7 @@ public class GmBindingLabel extends GmDefaultModelElementLabel {
 
     /**
      * Get the collaboration role the given binding binds.
+     * 
      * @param el a collaboration use binding
      * @return The bound collaboration role.
      */

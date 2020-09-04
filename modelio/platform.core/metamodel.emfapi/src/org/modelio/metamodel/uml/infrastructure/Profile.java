@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -41,13 +41,13 @@ public interface Profile extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("be88fb1d-4586-493a-9274-03dff2b200fe")
+    @objid ("1061a008-77fe-4829-8327-e8e92018d8ed")
     public static final String MNAME = "Profile";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("2d2a5ef1-0acb-47dc-b6b6-a77733061546")
+    @objid ("ad52dba1-8536-4f3f-b081-0b7c08871f0e")
     public static final String MQNAME = "Infrastructure.Profile";
 
     /**
@@ -56,7 +56,7 @@ public interface Profile extends ModelElement {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("581517ec-d7e2-4779-8abf-61cc40014742")
+    @objid ("9e91d3c5-2925-4fe8-9716-155cfb8c37ba")
     EList<Stereotype> getDefinedStereotype();
 
     /**
@@ -65,7 +65,7 @@ public interface Profile extends ModelElement {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("8b5815f4-9428-4cff-8acf-f6c765d53a8e")
+    @objid ("9724e26c-1d2d-4cc8-8544-cca65b413fdb")
     <T extends Stereotype> List<T> getDefinedStereotype(java.lang.Class<T> filterClass);
 
     /**
@@ -74,7 +74,7 @@ public interface Profile extends ModelElement {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("aa355f2e-0162-4a76-94f7-10bd59415e1e")
+    @objid ("46ed1e26-1889-4db1-afc0-44569a788348")
     EList<MetaclassReference> getOwnedReference();
 
     /**
@@ -83,7 +83,7 @@ public interface Profile extends ModelElement {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("3acc5596-b394-4b6f-8378-2e2b7d29f573")
+    @objid ("57dc8cb3-7252-4989-b1f6-d45f9af62b60")
     <T extends MetaclassReference> List<T> getOwnedReference(java.lang.Class<T> filterClass);
 
     /**
@@ -92,7 +92,7 @@ public interface Profile extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("33d36c59-c244-4ee9-b768-89926033f8ea")
+    @objid ("75611bcb-1779-4a3d-b270-27b99396e231")
     ModuleComponent getOwnerModule();
 
     /**
@@ -101,7 +101,7 @@ public interface Profile extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("69175e95-bcf0-492b-afdf-3c4cc017d490")
+    @objid ("7bd651e5-f2c6-476f-959d-8e14e52d384c")
     void setOwnerModule(ModuleComponent value);
 
     /**
@@ -110,7 +110,7 @@ public interface Profile extends ModelElement {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("10b59cd5-6344-4dcf-847e-fcd187c07114")
+    @objid ("7ff8622a-5471-4b36-8a91-7cba16ea0b6a")
     EList<PropertyType> getDefinedType();
 
     /**
@@ -119,7 +119,7 @@ public interface Profile extends ModelElement {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("ee31bc52-973c-4588-bc37-28c24ec6e58c")
+    @objid ("a430cc91-d487-42f6-9d24-26388723d79d")
     <T extends PropertyType> List<T> getDefinedType(java.lang.Class<T> filterClass);
 
 }

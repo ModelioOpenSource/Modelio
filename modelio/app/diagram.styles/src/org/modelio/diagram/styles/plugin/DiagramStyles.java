@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,7 +41,7 @@ public class DiagramStyles implements BundleActivator {
     public static final String PLUGIN_ID = "org.modelio.diagram.styles";
 
     @objid ("866f3e6a-1926-11e2-92d2-001ec947c8cc")
-    public static final String PROJECT_STYLE_SUBDIR = "data/.config/styles";
+    public static final String PROJECT_STYLE_SUBDIR = ".config/styles";
 
     @objid ("866f3e6f-1926-11e2-92d2-001ec947c8cc")
     public static final String STYLE_FILE_EXTENSION = ".style";

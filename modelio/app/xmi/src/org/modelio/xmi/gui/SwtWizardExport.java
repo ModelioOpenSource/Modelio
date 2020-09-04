@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,23 +23,18 @@ package org.modelio.xmi.gui;
 import java.io.File;
 import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.progress.IProgressService;
 import org.modelio.app.project.core.services.IProjectService;
-import org.modelio.xmi.api.XMIExtension;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.plugin.Xmi;
-import org.modelio.xmi.preferences.XmiPreferencesKeys;
-import org.modelio.xmi.reverse.ReverseProperties;
 
 /**
  * This class provides the XMI export dialog
  * @author ebrosse
  */
 @objid ("f91e2337-fef4-4e6e-b382-cb9fb518f9b2")
-public class SwtWizardExport extends AbstractSwtWizardWindow {
+public class SwtWizardExport extends AbstractSwtWizardExport {
     @objid ("4e2d6edc-3ccc-4cba-ad1f-15d93e376374")
     @Override
     public void setLabels() {
@@ -81,63 +76,13 @@ public class SwtWizardExport extends AbstractSwtWizardWindow {
         }
     }
 
-    @objid ("fdbbd9fa-c792-4c27-b1e3-f95ee6a8cd9c")
-    @Override
-    public void setPath() {
-        ReverseProperties revProp = ReverseProperties.getInstance();
-        revProp.setRootElement(this.selectedElt);
-        
-        if (this.path.equals(""))
-            this.path = revProp.getProjectRoot() + java.io.File.separator + "XMI";
-             
-        IPreferenceStore prefs = this.projectService.getProjectPreferences(Xmi.PLUGIN_ID);
-        String extension = prefs.getString(XmiPreferencesKeys.XMIEXTENSION_PREFKEY);
-        
-        if (extension.equals(XMIExtension.UML.toString())){
-            extension = ".uml";
-        }else{
-            extension = ".xmi";
-        }
-        
-        this.fileChooserComposite.getDialog().setFilterPath(this.path);
-        this.fileChooserComposite.getDialog().setFileName(this.selectedElt.getName() + extension);
-        this.path = checkAndReplaceEndPath(this.path);
-        this.fileChooserComposite.setText(this.path + java.io.File.separator + this.selectedElt.getName() + extension);
-    }
-
     /**
      * @param parent : the parent shell
      */
     @objid ("b527bb98-fe64-46c8-959a-18f4cff6e4a4")
     @Inject
     public SwtWizardExport(final Shell parent, IProgressService progressService, IProjectService projectService) {
-        super(parent, SWT.NONE);
-        setSelectedType(SWT.SAVE);
-        this.shell = parent;
-        this.exportWindows = true;
-        this.progressService = progressService;
-        this.projectService = projectService;
-    }
-
-    @objid ("063e9bd5-0823-4284-be39-aca4a7fb2a8c")
-    @Override
-    public void setDefaultDialog() {
-        this.fileChooserComposite.getDialog().setFilterNames(new String[] { "XMI Files", "UML Files" });
-        this.fileChooserComposite.getDialog().setFilterExtensions(new String[] { "*.xmi", "*.uml" });
-        
-        IPreferenceStore prefs = this.projectService.getProjectPreferences(Xmi.PLUGIN_ID);
-        String extension = prefs.getString(XmiPreferencesKeys.XMIEXTENSION_PREFKEY);
-        
-        if (extension.equals(XMIExtension.UML.toString()))
-            this.fileChooserComposite.getDialog().setFilterIndex(1);
-                  
-        setPath();
-    }
-
-    @objid ("0e8a95ca-668d-48d4-9398-7073f31daa4b")
-    @Override
-    public void setOptionComposite(Shell shell, IProjectService projectService) {
-        this.optionComposite = new OptionComposite(shell, SWT.NONE,  SWT.OPEN, projectService);
+        super(parent, progressService, projectService);
     }
 
 }

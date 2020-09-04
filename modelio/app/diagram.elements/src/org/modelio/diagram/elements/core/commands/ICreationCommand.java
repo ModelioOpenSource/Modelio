@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public interface ICreationCommand<T extends IGmLinkable> {
      * <p>
      * This method should be called only once the command has been executed.
      * in the other case the result is not specified.
+     * 
      * @return the created graphic model.
      */
     @objid ("3dbaba78-e52e-450b-8b0f-b6dd15fb4b86")

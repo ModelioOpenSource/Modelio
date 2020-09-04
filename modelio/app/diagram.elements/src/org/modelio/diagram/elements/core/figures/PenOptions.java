@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class PenOptions {
 
     /**
      * Copy constructor.
+     * 
      * @param other the original
      */
     @objid ("c7e70a28-24aa-4fb6-bf86-cdbcad34b2ba")

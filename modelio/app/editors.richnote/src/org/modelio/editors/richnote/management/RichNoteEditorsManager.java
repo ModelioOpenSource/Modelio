@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -96,6 +96,7 @@ public class RichNoteEditorsManager {
 
     /**
      * Close all editors
+     * 
      * @param project the closed project
      * @param partService Eclipse parts service
      */

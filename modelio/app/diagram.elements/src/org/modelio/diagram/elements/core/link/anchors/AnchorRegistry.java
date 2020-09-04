@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class AnchorRegistry {
 
     /**
      * Register an anchor model and figure.
+     * 
      * @param gmAnchor the anchor model.
      * @param figAnchor the draw2d anchor.
      */
@@ -53,6 +54,7 @@ public class AnchorRegistry {
 
     /**
      * Get the model of a given draw2d anchor.
+     * 
      * @param figAnchor a draw2d anchor.
      * @return the anchor model, or <code>null</code> if the anchor is not registered.
      */
@@ -67,6 +69,7 @@ public class AnchorRegistry {
 
     /**
      * Get the draw2d anchor for a given model anchor.
+     * 
      * @param gmAnchor an anchor model.
      * @return the draw2d anchor, or <code>null</code> if the model is not registered.
      */

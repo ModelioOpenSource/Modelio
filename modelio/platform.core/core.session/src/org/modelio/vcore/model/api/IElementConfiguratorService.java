@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public interface IElementConfiguratorService extends IElementConfigurator {
      * Get the metamodel extensions point.
      * <p>
      * Use it to register metamodel extensions to this service.
+     * 
      * @return the metamodel extensions point.
      */
     @objid ("564eac89-c172-46c9-9a6c-7f13df106278")

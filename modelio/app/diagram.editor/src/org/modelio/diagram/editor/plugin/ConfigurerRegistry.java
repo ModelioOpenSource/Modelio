@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class ConfigurerRegistry implements IDiagramConfigurerRegistry {
 
     /**
      * Unregisters a {@link IDiagramConfigurer} for the given metaclass and stereotype.
+     * 
      * @param metaclassName the name of the diagram metaclass the given IDiagramConfigurer is bound to. Must not be <code>null</code> nor
      * empty.
      * @param stereotype the stereotype the given IDiagramConfigurer is bound to. May be <code>null</code> or empty.

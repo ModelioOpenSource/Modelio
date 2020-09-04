@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
      * Creates the EditPartListener for observing when children are added to the host.
      * <p>
      * Redefined to auto expand on child edit part addition.
+     * 
      * @return EditPartListener
      */
     @objid ("cc404576-6efc-401b-a682-39c42add3cbc")
@@ -119,6 +120,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
     /**
      * Get a auto expand container command for a collection of move/resize requests relating container child edit parts.
      * @param request children edit parts move/resize requests
+     * 
      * @param bpRequests connection bend points to move
      * @return the auto expand command
      */
@@ -143,6 +145,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
      * <p>
      * The container will take into account connection bend points that were initially in the container.
      * @param request children edit parts move/resize requests
+     * 
      * @param bpRequests connection bend points to move
      * @return the auto expand command
      */
@@ -245,6 +248,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
 
     /**
      * Calls {@link BaseFreeZoneLayoutEditPolicy#getAddCommand(Request)}.
+     * 
      * @param generic a REQ_ADD request.
      * @return the command
      */
@@ -281,6 +285,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
      * Called by the edit part listener created by {@link #createListener()} when a child edit part is added.
      * <p>
      * Try to expand the container to fit all children.
+     * 
      * @param child the added edit part
      */
     @objid ("56630146-8851-4e0c-932d-92ddd099784a")
@@ -306,6 +311,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
      * <p>
      * Defers the other commands creation until the container is expanded and new container bounds are computed by layout. This is needed because when the container expands toward top/left the constraint coordinates origin changes after the new constraints
      * would be computed. They would then become invalid regarding the wanted result.
+     * 
      * @param request the initial move/resize children request
      * @return the final command.
      */
@@ -370,6 +376,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
      * <p>
      * Defers the other commands creation until the container is expanded and new container bounds are computed by layout. This is needed because when the container expands toward top/left the constraint coordinates origin changes after the new constraints
      * would be computed. They would then become invalid regarding the wanted result.
+     * 
      * @param request the initial move/resize children request
      * @return the final command.
      */

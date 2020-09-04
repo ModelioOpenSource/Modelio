@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class GmOperation extends GmDefaultModelElementHeader {
 
     /**
      * Creates a GmMethod.
+     * 
      * @param diagram the owning diagram
      * @param op the represented operation, may be <tt>null</tt>.
      * @param ref the represented operation reference, may not be <tt>null</tt>.
@@ -242,6 +243,7 @@ public class GmOperation extends GmDefaultModelElementHeader {
 
     /**
      * Compute the operation signature and append it to the given string builder.
+     * 
      * @param op the operation
      * @param s the string builder
      */
@@ -268,6 +270,7 @@ public class GmOperation extends GmDefaultModelElementHeader {
      * Compute and return the visibility symbol of the operation.
      * <p>
      * Returns empty string if visibility display is disabled.
+     * 
      * @param op an operation
      * @return the visibility symbol
      */

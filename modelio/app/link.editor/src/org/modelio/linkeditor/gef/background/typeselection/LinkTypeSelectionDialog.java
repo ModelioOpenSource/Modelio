@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class LinkTypeSelectionDialog extends ModelioDialog {
 
     /**
      * C'tor.
+     * 
      * @param shell The shell to use to create this dialog.
      * @param model The model to use for this popup.
      */
@@ -95,8 +96,6 @@ public class LinkTypeSelectionDialog extends ModelioDialog {
                     if (stereotype != null) {
                         return ModuleI18NService.getPriority(stereotype.getModule());
                     }
-                } else {
-                    System.out.println(element);
                 }
                 return Integer.MAX_VALUE;
             }

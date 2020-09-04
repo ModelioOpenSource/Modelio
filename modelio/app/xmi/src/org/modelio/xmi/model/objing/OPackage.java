@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -73,6 +73,7 @@ public class OPackage extends ONameSpace {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         
+        //Modelio Properties
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             this.setLeafEAnnotation((org.eclipse.uml2.uml.Package) ecoreElt); 
             this.setRootEAnnotation((org.eclipse.uml2.uml.Package) ecoreElt);

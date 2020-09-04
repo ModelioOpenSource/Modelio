@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -139,6 +139,7 @@ public class Splash {
 
     /**
      * Set a progress message in the splash screen.
+     * 
      * @param message the message to display.
      */
     @objid ("5cef6e5a-cebe-4874-b06d-798afa0b1ed2")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 public abstract class PortContainerDG extends DiagramNode {
     /**
      * Creates a PortContainerDG.
+     * 
      * @param diagramHandle The diagram manipulation class.
      * @param gmNode The gm node represented by this class.
      */
@@ -116,6 +117,7 @@ public abstract class PortContainerDG extends DiagramNode {
      * <p>
      * E.g for a model class, returns the represented attributes, operations, instances
      * and inner classes.
+     * 
      * @return the represented elements diagram nodes in this node.
      */
     @objid ("c928f5d8-5493-4f17-9df3-aac9cad80df6")
@@ -155,6 +157,7 @@ public abstract class PortContainerDG extends DiagramNode {
 
     /**
      * Get the satellite nodes.
+     * 
      * @return the satellite nodes.
      */
     @objid ("23b3b18b-9c0f-48ba-a5e6-a04911b9de02")
@@ -171,6 +174,7 @@ public abstract class PortContainerDG extends DiagramNode {
 
     /**
      * Get the child nodes layouted as port.
+     * 
      * @return the port nodes.
      */
     @objid ("50573743-95c2-4c14-8051-6de0609b49dd")

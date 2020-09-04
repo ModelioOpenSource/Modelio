@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,9 +21,7 @@
 package org.modelio.ui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.resource.FontDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
-import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 
@@ -32,37 +30,57 @@ import org.eclipse.swt.graphics.FontData;
  * <p>
  * Usage of this class is discouraged because it "leaks" Font resources.
  * <p>
- * You are encouraged to instantiate {@link LocalResourceManager} using
- * {@link LocalResourceManager#LocalResourceManager(org.eclipse.jface.resource.ResourceManager, org.eclipse.swt.widgets.Control)
- * new LocalResourceManager(JFaceResources.getResources(), aSwtControl)} that will dispose resources automatically with the SWT widget.
- * 
- * <pre><code>
- * LocalResourceManager res = new LocalResourceManager(JFaceResources.getResources(), aControl);
- * res.createFont(FontDescriptor.createFrom(aControl.getFont()).withStyle(SWT.BOLD));
- * </code></pre>
+ * You are encouraged to use {@link LocalFontRegistry} instead that will dispose resources automatically with a SWT widget.
  */
 @objid ("2f28a6ed-186d-11e2-92d2-001ec947c8cc")
 public class CoreFontRegistry {
+    @objid ("aab6dc1b-3dcf-4576-856d-4cf35e603518")
+    private static LocalFontRegistry globalReg;
+
     /**
      * Get a font given a device and font data which describes the desired font's appearance.
      * <p>
      * {@link #getFont(FontData[])} should better be used to be fully compatible on Unix.
+     * 
      * @param fontdata describes the desired font (must not be null)
      * @return the matching font
+     * @deprecated Consider using {@link LocalFontRegistry}, or call {@link #getGlobal()} than this same method on the returned registry.
      */
     @objid ("3bc99bad-186d-11e2-92d2-001ec947c8cc")
+    @Deprecated
     public static Font getFont(FontData fontdata) {
-        return (Font) JFaceResources.getResources().get(FontDescriptor.createFrom(fontdata));
+        return getGlobal().getFont(fontdata);
     }
 
     /**
      * Get a font given an array of font data which describes the desired font's appearance.
+     * 
      * @param fontdatas the array of FontData that describes the desired font (must not be null)
      * @return the matching font
+     * @deprecated Consider using {@link LocalFontRegistry}, or call {@link #getGlobal()} than this same method on the returned registry.
      */
     @objid ("3bc99bae-186d-11e2-92d2-001ec947c8cc")
+    @Deprecated
     public static Font getFont(final FontData[] fontdatas) {
-        return (Font) JFaceResources.getResources().get(FontDescriptor.createFrom(fontdatas));
+        return getGlobal().getFont(fontdatas);
+    }
+
+    /**
+     * Get the global font registry.
+     * <p>
+     * Usage of this class is discouraged because it "leaks" Font resources.
+     * It should be used only to allocate fonts used in the whole application.
+     * <p>
+     * You are encouraged to use {@link LocalFontRegistry} instead
+     * 
+     * @return the global font registry.
+     */
+    @objid ("d73cb578-4ad7-4e06-99b5-a6174c383ceb")
+    public static LocalFontRegistry getGlobal() {
+        if (globalReg == null) {
+            globalReg = new LocalFontRegistry(JFaceResources.getResources());
+        }
+        return globalReg;
     }
 
     /**
@@ -72,38 +90,17 @@ public class CoreFontRegistry {
      * <li>the font height scaled by 'scaleFactor' (use {@link UIFont} constants and {@link UIFont#NORMAL_SIZE} for no size change)</li>
      * </ul>
      * @deprecated This methods tends to "leak" Font resources .
-     * You are encouraged to use: <ul>
-     * <li> {@link FontDescriptor#createFrom(Font)}
-     * <li> {@link FontDescriptor#increaseHeight(int)} or {@link FontDescriptor#setHeight(int)}
-     * <li> {@link LocalResourceManager#createFont(FontDescriptor)} and {@link FontDescriptor#withStyle(int)}
-     * </ul>
+     * You are encouraged to use: {@link LocalFontRegistry#from(Font)} that returns a font builder with fluent API.
      * Example:
      * <pre><code>
-     * LocalResourceManager res = new LocalResourceManager(JFaceResources.getResources(), aControl);
-     * res.createFont(FontDescriptor.createFrom(aControl.getFont()).withStyle(SWT.BOLD));
+     * LocalFontRegistry res = LocalFontRegistry.create(aSwtControl); // or CoreFontRegistry.getGlobal()
+     * Font newFont = res.builder(aControl.getFont()).addStyle(styleToAdd).scale(scaleFactor).build;
      * </code></pre>
      */
     @objid ("a2a65da6-9dd0-4d14-a74e-e4f7f4b4c310")
     @Deprecated
     public static Font getModifiedFont(final Font font, final int styleToAdd, float scaleFactor) {
-        FontData[] fontdatas = font.getFontData();
-        modify(fontdatas, styleToAdd, scaleFactor);
-        return getFont(fontdatas);
-    }
-
-    /**
-     * Modify the given font datas by :
-     * <ul>
-     * <li>adding the given style flags (use SWT.NONE for no flags change)</li>
-     * <li>scaling the font height by 'scaleFactor' (use {@link UIFont} constants and {@link UIFont#NORMAL_SIZE} for no size change)</li>
-     * </ul>
-     */
-    @objid ("182ba202-35e6-40a5-9c9c-7f25bbd657b6")
-    private static void modify(final FontData[] fontdatas, final int styleToAdd, float scaleFactor) {
-        for (FontData d : fontdatas) {
-            d.setStyle(d.getStyle() | styleToAdd);
-            d.setHeight((int) (d.getHeight() * scaleFactor));
-        }
+        return getGlobal().builder(font).addStyle(styleToAdd).scale(scaleFactor).build();
     }
 
 }

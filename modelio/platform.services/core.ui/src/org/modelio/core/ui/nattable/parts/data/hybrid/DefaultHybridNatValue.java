@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class DefaultHybridNatValue extends DefaultNatValue implements IHybridNat
 
     /**
      * Creates a new instance.
+     * 
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
      * @param allowedClasses list of the accepted metaclasses for the value.
@@ -57,6 +58,7 @@ public class DefaultHybridNatValue extends DefaultNatValue implements IHybridNat
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("50803805-813a-4877-b810-6646abcbfddf")

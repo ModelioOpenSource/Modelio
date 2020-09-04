@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ import org.modelio.vcore.smkernel.meta.mof.MofSmObjectImpl;
 public interface IMofSession {
     /**
      * Create a new object
+     * 
      * @param newMetaclass the new object metaclass
      * @return the created object.
      */
@@ -54,6 +55,7 @@ public interface IMofSession {
     /**
      * Create a new model object.
      * @throws MetaclassNotFoundException
+     * 
      * @param metaclassName the metaclass name, qualified by preference.
      * @param name the new object name
      * @return the created object
@@ -63,6 +65,7 @@ public interface IMofSession {
 
     /**
      * Find elements by metaclass and attribute value.
+     * 
      * @param metaclass the metaclass
      * @param withSubClasses look into sub metaclass hierarchy
      * @param attName the attribute name
@@ -79,6 +82,7 @@ public interface IMofSession {
      * by other objects inside the migrated fragment.
      * If you also need them use {@link #getAllForeignReferences(MClass, boolean)}.
      * @see #getAllForeignReferences(MClass, boolean)
+     * 
      * @param metaclass a metaclass
      * @param withSubclasses look into sub-metaclasses hierarchy.
      * @return all objects of the metaclass.
@@ -94,6 +98,7 @@ public interface IMofSession {
      * If you also need them use {@link #getAllForeignReferences(MClass, boolean)}.
      * @see #getAllForeignReferences(MClass, boolean)
      * @throws MetaclassNotFoundException
+     * 
      * @param clsName a metaclass name
      * @param withSubClasses look into sub-metaclasses hierarchy.
      * @return all objects of the metaclass.
@@ -107,6 +112,7 @@ public interface IMofSession {
      * If you need this object to reference it from another one you should better use {@link #getObjectReference(MRef)}
      * that will return a usable shell object if the referenced object is not in the migrated fragment.
      * @see #getObjectReference(MRef)
+     * 
      * @param ref an element reference
      * @return the found element or <i>null</i>.
      */
@@ -144,6 +150,7 @@ public interface IMofSession {
      * e.g : you want to stereotype an object, the stereotype probably comes from a foreign module
      * that is not loaded in the migration session.
      * @throws MetaclassNotFoundException
+     * 
      * @param ref an object reference
      * @return the found object or an unresolved reference shell object.
      */
@@ -153,6 +160,7 @@ public interface IMofSession {
     /**
      * Look for an object by scanning a dependency. Create the element if not found.
      * @throws MetaclassNotFoundException
+     * 
      * @param from the source element to scan
      * @param depName the dependency name
      * @param clsName the target metaclass name, preferably qualified
@@ -188,6 +196,7 @@ public interface IMofSession {
      * from the original one.
      * The original object is deleted in the process.
      * The transmuted object will be re-identified at the end of the migration.
+     * 
      * @param toTransmute the object to transmute.
      * @param newMetaclass the new metaclass
      * @return the new object.
@@ -197,6 +206,7 @@ public interface IMofSession {
 
     /**
      * Create a new model object.
+     * 
      * @param mc the metaclass .
      * @param name the new object name
      * @return the created object

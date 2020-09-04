@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,11 +24,14 @@ import java.util.Deque;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.CreateRequest;
+import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramElementDropEditPolicyExtension;
 import org.modelio.diagram.elements.common.abstractdiagram.DiagramElementDropEditPolicy;
+import org.modelio.diagram.elements.common.abstractdiagram.UnmaskConstraintCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
@@ -41,7 +44,9 @@ import org.modelio.metamodel.uml.behavior.stateMachineModel.ExitPointPseudoState
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
+import org.modelio.metamodel.uml.infrastructure.Constraint;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.metamodel.visitors.DefaultModelVisitor;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -63,7 +68,9 @@ public class StateDiagramDropEditPolicyExtension extends AbstractDiagramElementD
         } else if (droppedElement != null) {
             // TODO improve check for a "state diagram" element
             if (droppedElement.getMClass().getOrigin().getName().equals(StandardMetamodel.NAME)) {
-                return super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
+                Command cmd = (Command) droppedElement.accept(new StandardVisitorImpl(dropPolicy, dropLocation));
+                return cmd != null ? cmd : super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
+                //return super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
             }
         }
         return null;
@@ -123,6 +130,7 @@ public class StateDiagramDropEditPolicyExtension extends AbstractDiagramElementD
 
         /**
          * Initialize the command.
+         * 
          * @param dropLocation The location of the element in the diagram
          * @param toUnmask The operation to unmask
          * @param editPart The destination edit part that will own the call operation.
@@ -175,6 +183,7 @@ public class StateDiagramDropEditPolicyExtension extends AbstractDiagramElementD
 
         /**
          * Unmask the given element in the destination edit part.
+         * 
          * @param el The element to unmask
          */
         @objid ("f58d2362-55b6-11e2-877f-002564c97630")
@@ -196,6 +205,28 @@ public class StateDiagramDropEditPolicyExtension extends AbstractDiagramElementD
         @Override
         public boolean canExecute() {
             return this.parentElement != null && this.parentElement.isValid() && this.parentElement.isModifiable();
+        }
+
+    }
+
+    @objid ("415b24cd-7c7c-4009-a831-8e66225984bd")
+    private static class StandardVisitorImpl extends DefaultModelVisitor {
+        @objid ("11d7e68a-6f90-4f15-9a57-948dfa0684a6")
+        private Point dropLocation;
+
+        @objid ("373d9b03-61e6-4568-9dfa-a5de0c175900")
+        private DiagramElementDropEditPolicy dropPolicy;
+
+        @objid ("290576bd-624f-4179-b503-f2ae9c37381f")
+        public StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
+            this.dropPolicy = dropPolicy;
+            this.dropLocation = dropLocation;
+        }
+
+        @objid ("902b8fb6-a3ed-4e1b-9320-69c52d16b2ac")
+        @Override
+        public Object visitConstraint(final Constraint theConstraint) {
+            return new UnmaskConstraintCommand(theConstraint, (AbstractDiagramEditPart) this.dropPolicy.getHost(), new Rectangle(this.dropLocation, new Dimension(-1, -1)));
         }
 
     }

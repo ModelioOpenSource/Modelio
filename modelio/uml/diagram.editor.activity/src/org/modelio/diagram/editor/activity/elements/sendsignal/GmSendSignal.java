@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -79,6 +79,7 @@ public class GmSendSignal extends GmPinContainer {
 
     /**
      * Constructor.
+     * 
      * @param diagram the diagram in which the sendSignal is unmasked.
      * @param el the unmasked element, can be <i>null</i>.
      * @param ref the unmasked element reference, must not be <i>null</i>..
@@ -254,6 +255,7 @@ public class GmSendSignal extends GmPinContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -267,6 +269,7 @@ public class GmSendSignal extends GmPinContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

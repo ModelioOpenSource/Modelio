@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.modelio.application.ui"
+         label="Application UI"
+         version="4.0.0.qualifier"
+         provider-name="modelio.org">
+
+<copyright>
+      Copyright 2019 Modeliosoft
+
+This file is part of Modelio.
+Modelio is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Modelio is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Modelio.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+
+</copyright>
+
+<license url="">
+GPL
+</license>
+
+<url>
+  <discovery label="modelio.org" url="https://www.modelio.org"/>
+</url>
+<requires>
+</requires>
+
+<plugin id="org.modelio.api"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        unpack="false"/>
+<plugin id="org.modelio.app.ui"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        unpack="false"/>
+<plugin id="org.modelio.app.ui.ext"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        unpack="false"/>
+<plugin id="org.modelio.core.ui"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        unpack="false"/>
+<plugin id="org.modelio.ui"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        unpack="false"/>
+<plugin id="org.modelio.version"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        unpack="false"/>
+
+</feature>

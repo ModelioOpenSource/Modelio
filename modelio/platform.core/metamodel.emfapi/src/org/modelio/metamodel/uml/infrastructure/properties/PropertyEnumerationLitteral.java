@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure.properties;
 
@@ -40,19 +40,20 @@ public interface PropertyEnumerationLitteral extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("b1c98b82-48e1-4d6d-9a6e-0d34df69f707")
+    @objid ("a25c63ff-d184-41c9-aab6-a29cca85f42d")
     public static final String MNAME = "PropertyEnumerationLitteral";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("de542762-e4cd-40ac-aaab-a557ee6f66df")
+    @objid ("0200e80e-4f6c-4663-bb20-6b3c4ecca88a")
     public static final String MQNAME = "Infrastructure.PropertyEnumerationLitteral";
 
     /**
      * Compare 'this' literal with 'v' based on the ordering of the literals in
      * the EnumeratedPropertyType owning 'this' literal.
      * If 'l' does not belong to 'this' owner, the method returns -1 (meaning l < this by convention)
+     * 
      * @param l @return
      */
     @objid ("3f7c4c9d-6307-4688-9ae7-6d02f373cc0f")
@@ -64,7 +65,7 @@ public interface PropertyEnumerationLitteral extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("8292f0dc-6183-4d4f-a54f-3b88eceece10")
+    @objid ("00280604-7678-440b-9ac7-958206b7b120")
     EnumeratedPropertyType getOwner();
 
     /**
@@ -73,7 +74,7 @@ public interface PropertyEnumerationLitteral extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("354c461f-ff50-4f96-8bd9-b7d527f401c4")
+    @objid ("43155574-367a-4713-bae7-0d8841d954df")
     void setOwner(EnumeratedPropertyType value);
 
 }

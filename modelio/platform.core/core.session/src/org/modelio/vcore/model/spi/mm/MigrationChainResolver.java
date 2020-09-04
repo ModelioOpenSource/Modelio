@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class MigrationChainResolver {
 
     /**
      * Look for a chain of migrators .
+     * 
      * @return the migration chain, never <i>null</i>.
      */
     @objid ("ab036867-2ddd-4e17-997f-d59e45ea1d95")
@@ -124,6 +125,7 @@ public class MigrationChainResolver {
 
     /**
      * Look for a chain of migrator from a source toward a target metamodel.
+     * 
      * @param from the source metamodel
      * @param to the target metamodel
      * @param candidates Candidate migration tools.

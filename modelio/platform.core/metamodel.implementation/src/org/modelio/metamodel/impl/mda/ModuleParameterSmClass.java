@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.mda;
 
@@ -50,69 +50,69 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("a382e42b-581e-446d-9e3d-9c08d36d8d98")
 public class ModuleParameterSmClass extends ModelElementSmClass {
-    @objid ("5d07f76a-34c5-4127-9998-68cc48f85d45")
+    @objid ("75e0f315-c74f-435d-938b-c00823880006")
     private SmAttribute groupNameAtt;
 
-    @objid ("1e1e7b99-e61d-4634-8608-5b00776c975d")
+    @objid ("792e3116-0431-4d97-bff8-740a7fe91cdd")
     private SmAttribute typeAtt;
 
-    @objid ("95982939-c5df-4651-a401-80177db9d78b")
+    @objid ("22a1a834-a4c0-45a4-9100-29c8e3077628")
     private SmAttribute isUserReadAtt;
 
-    @objid ("efb01754-c1a5-401c-b979-4a271af731ae")
+    @objid ("110fdb8f-7fee-4a55-a024-5bb379bea845")
     private SmAttribute isUserWriteAtt;
 
-    @objid ("2e651b54-38f7-4f21-876b-0e0ee2fac503")
+    @objid ("cfe0ed96-a8b1-45d0-a84c-e2c7324be043")
     private SmAttribute isApiReadAtt;
 
-    @objid ("7fe295d0-3c7b-431a-8de4-0247b26e750b")
+    @objid ("3a6865d4-c657-4400-a084-c9fcd05a79d0")
     private SmAttribute isApiWriteAtt;
 
-    @objid ("525b9c01-8621-468f-ac33-423462828aa0")
+    @objid ("a89d6f00-b3f1-4007-ab1d-604ffd61bd66")
     private SmAttribute defaultValueAtt;
 
-    @objid ("82329f0d-56c3-475e-876b-2a4b23f55789")
+    @objid ("8243326e-c0e9-453b-b22a-2d912bcd150c")
     private SmDependency ownerDep;
 
-    @objid ("96cf1eb5-dbd5-427d-a670-0462a896dd30")
+    @objid ("b9114192-0890-430f-8a6c-f6d8d9c820ce")
     private SmDependency enumTypeDep;
 
-    @objid ("5992748a-c9a8-49a9-ae55-2fc757916450")
+    @objid ("840d4acf-573c-442c-b4b2-45ab8e0717d3")
     public ModuleParameterSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("12aed95c-1cd4-46e2-84d1-1eb4e516fb4b")
+    @objid ("eb935853-2cce-4946-8f83-297ea71c9eee")
     @Override
     public String getName() {
         return "ModuleParameter";
     }
 
-    @objid ("94d962c2-476d-4425-b343-4ac9f7f2d49a")
+    @objid ("f60f27dc-8d88-4007-a82f-55434c4ab5b1")
     @Override
     public Version getVersion() {
         return new Version("0.0.9054");
     }
 
-    @objid ("5a8086a1-1102-46f7-a0e8-1bb8925ba346")
+    @objid ("486dfbc3-0f5a-471f-b0c0-7adb2a0aee6c")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ModuleParameter.class;
     }
 
-    @objid ("f8f1fbf8-0bee-4055-92ec-e71571608bbd")
+    @objid ("45193d48-ee9e-44a8-ae94-bae897fb1f2b")
     @Override
     public boolean isCmsNode() {
         return false;
     }
 
-    @objid ("479238a9-8d7f-481d-ab85-90f2e7826b94")
+    @objid ("5a8c8be9-d6ca-4aa3-9371-630cf7304535")
     @Override
     public boolean isAbstract() {
         return false;
     }
 
-    @objid ("8b100dfc-6ba6-4176-9508-d81f635e98e9")
+    @objid ("3cf8b09b-0ac6-4967-9677-aefefcd42976")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(ModelElement.MQNAME);
@@ -159,7 +159,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
         registerDependency(this.enumTypeDep);
     }
 
-    @objid ("570d773e-8be0-4f59-8ab3-12ac8d83408d")
+    @objid ("39600bb9-5cb8-4fcc-bae0-8e9f7197f6a3")
     public SmAttribute getGroupNameAtt() {
         if (this.groupNameAtt == null) {
         	this.groupNameAtt = this.getAttributeDef("GroupName");
@@ -167,7 +167,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
         return this.groupNameAtt;
     }
 
-    @objid ("b44b0703-91fe-46af-b624-7a354696e7f5")
+    @objid ("7a04498a-b164-43c5-bcb3-d2481c8c4f2f")
     public SmAttribute getTypeAtt() {
         if (this.typeAtt == null) {
         	this.typeAtt = this.getAttributeDef("Type");
@@ -175,7 +175,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
         return this.typeAtt;
     }
 
-    @objid ("50029d84-6600-4c7b-a8b3-edc61c2606b0")
+    @objid ("47043a7c-a775-4086-a683-fe16b1f5128f")
     public SmAttribute getIsUserReadAtt() {
         if (this.isUserReadAtt == null) {
         	this.isUserReadAtt = this.getAttributeDef("IsUserRead");
@@ -183,7 +183,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
         return this.isUserReadAtt;
     }
 
-    @objid ("4a0c6b4d-0b75-47ac-9f39-c8ecdee5a75e")
+    @objid ("0b245400-a268-4ecd-b8ed-2e7c74df07db")
     public SmAttribute getIsUserWriteAtt() {
         if (this.isUserWriteAtt == null) {
         	this.isUserWriteAtt = this.getAttributeDef("IsUserWrite");
@@ -191,7 +191,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
         return this.isUserWriteAtt;
     }
 
-    @objid ("180241f3-4c8f-406c-a555-f3147b5f8277")
+    @objid ("57ca6762-8cc6-4f02-b745-0c8199b0151a")
     public SmAttribute getIsApiReadAtt() {
         if (this.isApiReadAtt == null) {
         	this.isApiReadAtt = this.getAttributeDef("IsApiRead");
@@ -199,7 +199,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
         return this.isApiReadAtt;
     }
 
-    @objid ("cffae76b-1d88-487c-bdac-30980484485e")
+    @objid ("5abc000c-2d62-4059-adbe-5360531b8a9d")
     public SmAttribute getIsApiWriteAtt() {
         if (this.isApiWriteAtt == null) {
         	this.isApiWriteAtt = this.getAttributeDef("IsApiWrite");
@@ -207,7 +207,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
         return this.isApiWriteAtt;
     }
 
-    @objid ("623df36f-1167-40ec-a1e0-429ea7b60a92")
+    @objid ("b951ad06-0975-4e4f-8419-58f144febddb")
     public SmAttribute getDefaultValueAtt() {
         if (this.defaultValueAtt == null) {
         	this.defaultValueAtt = this.getAttributeDef("DefaultValue");
@@ -215,7 +215,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
         return this.defaultValueAtt;
     }
 
-    @objid ("f2d59f7a-cc8b-414a-91da-be042d69d912")
+    @objid ("55cd0de3-d67c-421d-90d7-67f2e9d54895")
     public SmDependency getOwnerDep() {
         if (this.ownerDep == null) {
         	this.ownerDep = this.getDependencyDef("Owner");
@@ -223,7 +223,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
         return this.ownerDep;
     }
 
-    @objid ("53fc39e5-1501-4230-8165-58af415b3562")
+    @objid ("57032f00-f8ae-4846-99e3-2154ec4c3f48")
     public SmDependency getEnumTypeDep() {
         if (this.enumTypeDep == null) {
         	this.enumTypeDep = this.getDependencyDef("EnumType");
@@ -233,21 +233,21 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
 
     @objid ("77d1f397-47d4-426c-a707-e8996b2c6692")
     private static class ModuleParameterObjectFactory implements ISmObjectFactory {
-        @objid ("1268ae3b-2d9e-4ab6-b4d1-171dba9c43ac")
+        @objid ("4c278277-fd14-42bd-81c3-74dfc795ea30")
         private ModuleParameterSmClass smClass;
 
-        @objid ("4f699ce3-6228-41d4-a95d-7dad3581b540")
+        @objid ("47a3e654-ce29-455d-8601-297ee76344ed")
         public ModuleParameterObjectFactory(ModuleParameterSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("6fdc3ade-80cd-471b-b546-63ad0d30e966")
+        @objid ("ae134deb-d80d-492d-8e74-40d3c326f4e3")
         @Override
         public ISmObjectData createData() {
             return new ModuleParameterData(this.smClass);
         }
 
-        @objid ("4276a182-0259-4b24-8db7-f2c88d5817a5")
+        @objid ("c1ad7cad-d4d9-402b-8b33-464679c58092")
         @Override
         public SmObjectImpl createImpl() {
             return new ModuleParameterImpl();
@@ -257,12 +257,12 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
 
     @objid ("e823d7f5-0a56-4b47-a8b1-ac93c83d35eb")
     public static class GroupNameSmAttribute extends SmAttribute {
-        @objid ("c9d2617a-52b5-4701-beae-70adac0cdc00")
+        @objid ("539073af-5520-4648-9b91-544b4480d208")
         public Object getValue(ISmObjectData data) {
             return ((ModuleParameterData) data).mGroupName;
         }
 
-        @objid ("1fac94fd-27c2-436c-acca-c1dcda26bbba")
+        @objid ("e6f1f649-cefd-425f-9439-8d7891afa125")
         public void setValue(ISmObjectData data, Object value) {
             ((ModuleParameterData) data).mGroupName = value;
         }
@@ -271,12 +271,12 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
 
     @objid ("741f3a56-0a6d-4594-ab43-0b0fbb3597ef")
     public static class TypeSmAttribute extends SmAttribute {
-        @objid ("1f07f803-dbc1-45dd-85a4-b08dc27dc2eb")
+        @objid ("fa8f936d-3da0-4dd1-a6be-4517ca5b8fe5")
         public Object getValue(ISmObjectData data) {
             return ((ModuleParameterData) data).mType;
         }
 
-        @objid ("94b977a4-5346-4db4-9c7f-4b54de79d344")
+        @objid ("2d67a505-e5fc-4fcf-9e1e-40ba7f04cf26")
         public void setValue(ISmObjectData data, Object value) {
             ((ModuleParameterData) data).mType = value;
         }
@@ -285,12 +285,12 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
 
     @objid ("05bc0644-a2a5-4803-98ab-78adc874fa16")
     public static class IsUserReadSmAttribute extends SmAttribute {
-        @objid ("e7526eba-a33d-40d0-b1c9-891f9ebf1bf3")
+        @objid ("0e2e25be-8223-4075-97b6-68d2e34c378a")
         public Object getValue(ISmObjectData data) {
             return ((ModuleParameterData) data).mIsUserRead;
         }
 
-        @objid ("4e9def84-476f-462d-8112-7c39e1260089")
+        @objid ("de04a652-ec55-40ad-a614-cdc0ee6ddfa9")
         public void setValue(ISmObjectData data, Object value) {
             ((ModuleParameterData) data).mIsUserRead = value;
         }
@@ -299,12 +299,12 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
 
     @objid ("737751c7-6836-456c-bd45-97fda468d965")
     public static class IsUserWriteSmAttribute extends SmAttribute {
-        @objid ("e3736a4d-9a90-4edb-a32a-13181895c872")
+        @objid ("ac1276bf-fc34-4b49-9c2b-8262a84c872a")
         public Object getValue(ISmObjectData data) {
             return ((ModuleParameterData) data).mIsUserWrite;
         }
 
-        @objid ("bdcf549d-1626-4356-bd6a-03013416c747")
+        @objid ("bac230fc-7f62-488b-81d8-b78b293cbf02")
         public void setValue(ISmObjectData data, Object value) {
             ((ModuleParameterData) data).mIsUserWrite = value;
         }
@@ -313,12 +313,12 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
 
     @objid ("97a34c69-8835-4896-b20c-c9d6c4c19d24")
     public static class IsApiReadSmAttribute extends SmAttribute {
-        @objid ("590c455c-7eec-4cc6-81b8-632772427e34")
+        @objid ("a38fb8c2-6d80-43ab-bd24-0d4d3498fedc")
         public Object getValue(ISmObjectData data) {
             return ((ModuleParameterData) data).mIsApiRead;
         }
 
-        @objid ("1146b203-0c5e-4534-97fe-015db03ad582")
+        @objid ("2254b706-f8a8-4a9a-92b4-d5edc0c17f5f")
         public void setValue(ISmObjectData data, Object value) {
             ((ModuleParameterData) data).mIsApiRead = value;
         }
@@ -327,12 +327,12 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
 
     @objid ("e2c26f19-39dd-4079-a626-e11b88adcb12")
     public static class IsApiWriteSmAttribute extends SmAttribute {
-        @objid ("e5f2619a-a76d-44f8-a37d-4ee048604bab")
+        @objid ("7aede161-9750-44ec-8775-383ad6822373")
         public Object getValue(ISmObjectData data) {
             return ((ModuleParameterData) data).mIsApiWrite;
         }
 
-        @objid ("aada8076-a982-4540-a67b-c898793b5105")
+        @objid ("9b1e957c-dfaf-42b3-9d90-7c8d8ba0bfb7")
         public void setValue(ISmObjectData data, Object value) {
             ((ModuleParameterData) data).mIsApiWrite = value;
         }
@@ -341,12 +341,12 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
 
     @objid ("584167ce-487b-4cbf-95fa-0ad187324913")
     public static class DefaultValueSmAttribute extends SmAttribute {
-        @objid ("03fed848-2205-48ea-887f-f9de891a7ad9")
+        @objid ("65227a0c-4a3f-45c6-a034-00410de27f5c")
         public Object getValue(ISmObjectData data) {
             return ((ModuleParameterData) data).mDefaultValue;
         }
 
-        @objid ("bd2a3675-0c84-4473-82a9-69b7d8ee1803")
+        @objid ("5cc0330d-7fd0-45f6-bea1-80c628f33553")
         public void setValue(ISmObjectData data, Object value) {
             ((ModuleParameterData) data).mDefaultValue = value;
         }
@@ -355,22 +355,22 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
 
     @objid ("533ba30c-57bf-494c-8128-b27361a28b6e")
     public static class OwnerSmDependency extends SmSingleDependency {
-        @objid ("9c33957c-3cc4-4a5e-bbfb-713aad67bb4d")
+        @objid ("471fe009-9c2b-4d4a-92ce-aa115f2502b2")
         private SmDependency symetricDep;
 
-        @objid ("136f292f-0418-4894-bdc1-9b2d9e82d95f")
+        @objid ("5b719fa8-65fc-4723-b102-3d3915edd77e")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((ModuleParameterData) data).mOwner;
         }
 
-        @objid ("86b013fb-757c-492f-891f-8e7829c9d308")
+        @objid ("33f52e14-6e17-47ea-b28e-4b8fcf7c9ac6")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((ModuleParameterData) data).mOwner = value;
         }
 
-        @objid ("17ef3d4a-b191-4fc7-b9b5-9f41544368fd")
+        @objid ("6b1a185f-da6f-4576-867a-dc5f72d47b40")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -383,22 +383,22 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
 
     @objid ("93cc8c63-c9cf-40eb-8dab-d95355f79dfc")
     public static class EnumTypeSmDependency extends SmSingleDependency {
-        @objid ("fa8ca3b8-8e1e-4114-8841-36e6645a856f")
+        @objid ("6fb4e3d8-242a-4ea6-96c9-402ad15ce0b1")
         private SmDependency symetricDep;
 
-        @objid ("7c61fe64-4bbd-48d3-b9ee-afab97945a93")
+        @objid ("ce6ed3a6-1b20-4c3e-b79f-065893d2af0a")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((ModuleParameterData) data).mEnumType;
         }
 
-        @objid ("f259b5f9-2980-40e8-95da-30662e667663")
+        @objid ("9b0aa203-b6a3-45d3-bb68-85b7f3849975")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((ModuleParameterData) data).mEnumType = value;
         }
 
-        @objid ("52032c25-7045-4584-a0f5-eaadcddec0eb")
+        @objid ("14ec69d5-e061-44d6-9cce-cf1ad7d5644c")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public class RTDamageRepairer implements IPresentationDamager, IPresentationRepa
      * Returns the end offset of the line that contains the specified offset or
      * if the offset is inside a line delimiter, the end offset of the next
      * line.
+     * 
      * @param offset the offset whose line end offset must be computed
      * @return the line end offset for the given offset
      * @exception BadLocationException
@@ -132,6 +133,7 @@ public class RTDamageRepairer implements IPresentationDamager, IPresentationRepa
 
     /**
      * Adds style information to the given text presentation.
+     * 
      * @param presentation the text presentation to be extended
      * @param offset the offset of the range to be styled
      * @param length the length of the range to be styled

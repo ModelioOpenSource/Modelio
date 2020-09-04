@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_kPAGcFutEem6HpljeXJIXA">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_A2LRUFulEem6HpljeXJIXA" featurename="children" parentElementId="org.modelio.app.ui.trimmed">
+    <elements xsi:type="basic:PartStack" xmi:id="_ko2DEMk6EeKxb-L244Rupg" elementId="org.modelio.app.ui.welcome.view">
+      <children xsi:type="basic:Part" xmi:id="_epz9AMbCEeK8yIoiqNn7ow" elementId="org.modelio.app.ui.welcome.part" contributionURI="bundleclass://org.modelio.app.ui.welcome/org.modelio.app.ui.welcome.impl.WelcomeView" label="%Welcome.label" closeable="true"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_BrPFgFuvEem6HpljeXJIXA" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_EV1DgFuvEem6HpljeXJIXA" elementId="org.modelio.app.ui.command.showwelcome" commandName="%Welcome.name" description="%Welcome.description"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_gu2HgFuvEem6HpljeXJIXA" featurename="handlers" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Handler" xmi:id="_jEUKEFuvEem6HpljeXJIXA" elementId="org.modelio.app.ui.handler.welcome" contributionURI="bundleclass://org.modelio.app.ui.welcome/org.modelio.app.ui.welcome.impl.WelcomeHandler" command="_EV1DgFuvEem6HpljeXJIXA"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_uxVnUFuuEem6HpljeXJIXA" featurename="children" parentElementId="org.modelio.app.ui.menu.help" positionInList="after:app.ui.menuseparator.2">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_v93E0FuuEem6HpljeXJIXA" elementId="app.ui.handledmenuitem.3" label="%Welcome.label" iconURI="platform:/plugin/org.modelio.app.ui.welcome/icons/welcome.png" tooltip="%Welcome.tooltip" command="_EV1DgFuvEem6HpljeXJIXA"/>
+  </fragments>
+</fragment:ModelFragments>

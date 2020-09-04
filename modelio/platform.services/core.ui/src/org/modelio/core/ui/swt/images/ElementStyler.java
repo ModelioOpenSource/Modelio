@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -111,6 +111,7 @@ public class ElementStyler extends Styler {
      * <li>Incomplete model elements font color is light red #FF8080.</li>
      * <li>Ramc model elements font color is modified yellow #A0A000.</li>
      * </ul>
+     * 
      * @return a Color.
      */
     @objid ("b39b363e-d878-4ff1-a17c-b8efd05263ea")
@@ -134,6 +135,7 @@ public class ElementStyler extends Styler {
 
     /**
      * Get the background color for the given element in the given state.
+     * 
      * @param e the element
      * @return its background color
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public class GmRaySlidableAnchor implements IPersistent {
 
     /**
      * Read the element properties from a serialized form.
+     * 
      * @param in a reader to build the graphic model from.
      */
     @objid ("7fe05f10-1dec-11e2-8cad-001ec947c8cc")
@@ -52,6 +53,7 @@ public class GmRaySlidableAnchor implements IPersistent {
      * <p>
      * In the other case it can call any {@link IDiagramWriter IDiagramWriter.writeXxxx(...)} method except
      * <tt>writeExtRef(...)</tt>.
+     * 
      * @param out a writer to save the model to.
      */
     @objid ("7fe05f14-1dec-11e2-8cad-001ec947c8cc")
@@ -67,6 +69,7 @@ public class GmRaySlidableAnchor implements IPersistent {
      * <p>
      * If this is the case, {@link #write(IDiagramWriter)} will be called, which will have to call
      * {@link IDiagramWriter#writeExtRef(IPersistent, String, String)} only.
+     * 
      * @param out the writer where the model is saved.
      * @return true if this element is external, false if the element is to be saved in this writer.
      */
@@ -85,6 +88,7 @@ public class GmRaySlidableAnchor implements IPersistent {
 
     /**
      * Constructor
+     * 
      * @param difference the difference to the figure's top left corner.
      */
     @objid ("7fe2c131-1dec-11e2-8cad-001ec947c8cc")

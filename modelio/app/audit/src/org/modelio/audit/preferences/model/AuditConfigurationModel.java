@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,7 +61,6 @@ public class AuditConfigurationModel {
 
     /**
      * Get known categories.
-     * @return categories
      */
     @objid ("9b534d19-86a7-49fc-9ccb-84e55dbaf9c5")
     public Collection<AuditCategory> getCategories() {
@@ -70,6 +69,7 @@ public class AuditConfigurationModel {
 
     /**
      * Get all registered audit rules.
+     * 
      * @return audit rules
      */
     @objid ("bd3cb4ed-cee1-418a-b89f-1dbb1d952f79")
@@ -79,6 +79,7 @@ public class AuditConfigurationModel {
 
     /**
      * Find a rule from its identifier.
+     * 
      * @param ruleId a rule identifier.
      * @return the found rule or <code>null</code>.
      */
@@ -91,6 +92,7 @@ public class AuditConfigurationModel {
      * Creates a deep copy of the given audit model.
      * <p>
      * All rules are copied to this model.
+     * 
      * @param anotherConfig the audit model to copy.
      */
     @objid ("dd5d2e1b-aac7-4165-bd88-c9d53d488d71")

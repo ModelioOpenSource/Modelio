@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,7 +27,7 @@ import org.modelio.diagram.editor.bpmn.elements.bpmnactivity.BpmnPortContainerEd
 import org.modelio.diagram.editor.bpmn.elements.bpmnadhocsubprocess.BpmnAdHocSubProcessEditPart;
 import org.modelio.diagram.editor.bpmn.elements.bpmnadhocsubprocess.GmBpmnAdHocSubProcess;
 import org.modelio.diagram.editor.bpmn.elements.bpmnadhocsubprocess.GmBpmnAdHocSubProcessPrimaryNode;
-import org.modelio.diagram.editor.bpmn.elements.bpmnboundaryevent.BpmnBoundaryEventEditPart;
+import org.modelio.diagram.editor.bpmn.elements.bpmnboundaryevent.BpmnBoundaryEventPrimaryNodeEditPart;
 import org.modelio.diagram.editor.bpmn.elements.bpmnboundaryevent.GmBpmnBoundaryEvent;
 import org.modelio.diagram.editor.bpmn.elements.bpmnboundaryevent.GmBpmnBoundaryEventPrimaryNode;
 import org.modelio.diagram.editor.bpmn.elements.bpmnbusinessruletask.BpmnBusinessRuleTaskEditPart;
@@ -59,7 +59,7 @@ import org.modelio.diagram.editor.bpmn.elements.bpmndataobject.datastore.BpmnDat
 import org.modelio.diagram.editor.bpmn.elements.bpmndataobject.datastore.BpmnDataStoreSimpleEditPart;
 import org.modelio.diagram.editor.bpmn.elements.bpmndataobject.datastore.GmBpmnDataStore;
 import org.modelio.diagram.editor.bpmn.elements.bpmndataobject.datastore.GmBpmnDataStorePrimaryNode;
-import org.modelio.diagram.editor.bpmn.elements.bpmnendevent.BpmnEndEventEditPart;
+import org.modelio.diagram.editor.bpmn.elements.bpmnendevent.BpmnEndEventPrimaryNodeEditPart;
 import org.modelio.diagram.editor.bpmn.elements.bpmnendevent.GmBpmnEndEvent;
 import org.modelio.diagram.editor.bpmn.elements.bpmnendevent.GmBpmnEndEventPrimaryNode;
 import org.modelio.diagram.editor.bpmn.elements.bpmneventbasedgateway.BpmnEventBasedGatewayEditPart;
@@ -72,11 +72,11 @@ import org.modelio.diagram.editor.bpmn.elements.bpmninclusivegateway.BpmnInclusi
 import org.modelio.diagram.editor.bpmn.elements.bpmninclusivegateway.GmBpmnInclusiveGateway;
 import org.modelio.diagram.editor.bpmn.elements.bpmninclusivegateway.GmBpmnInclusiveGatewayPrimaryNode;
 import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatecatchevent.BpmnIntermediateCatchEventEditPart;
-import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatecatchevent.BpmnIntermediateCatchEventPrimaryEditPart;
+import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatecatchevent.BpmnIntermediateCatchEventPrimaryNodeEditPart;
 import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatecatchevent.GmBpmnIntermediateCatchEvent;
 import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatecatchevent.GmBpmnIntermediateCatchEventPrimaryNode;
 import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatethrowevent.BpmnIntermediateThrowEventEditPart;
-import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatethrowevent.BpmnIntermediateThrowEventPrimaryEditPart;
+import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatethrowevent.BpmnIntermediateThrowEventPrimaryNodeEditPart;
 import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatethrowevent.GmBpmnIntermediateThrowEvent;
 import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatethrowevent.GmBpmnIntermediateThrowEventPrimaryNode;
 import org.modelio.diagram.editor.bpmn.elements.bpmnlane.BpmnLaneEditPart;
@@ -124,7 +124,7 @@ import org.modelio.diagram.editor.bpmn.elements.bpmnservicetask.GmBpmnServiceTas
 import org.modelio.diagram.editor.bpmn.elements.bpmnsripttask.BpmnScriptTaskEditPart;
 import org.modelio.diagram.editor.bpmn.elements.bpmnsripttask.GmBpmnScriptTask;
 import org.modelio.diagram.editor.bpmn.elements.bpmnsripttask.GmBpmnScriptTaskPrimaryNode;
-import org.modelio.diagram.editor.bpmn.elements.bpmnstartevent.BpmnStartEventEditPart;
+import org.modelio.diagram.editor.bpmn.elements.bpmnstartevent.BpmnStartEventPrimaryNodeEditPart;
 import org.modelio.diagram.editor.bpmn.elements.bpmnstartevent.GmBpmnStartEvent;
 import org.modelio.diagram.editor.bpmn.elements.bpmnstartevent.GmBpmnStartEventPrimaryNode;
 import org.modelio.diagram.editor.bpmn.elements.bpmnsubprocess.BpmnSubProcessEditPart;
@@ -431,31 +431,31 @@ public class BpmnEditPartFactory implements EditPartFactory {
             }
             
             if (modelClass == GmBpmnStartEventPrimaryNode.class) {
-                editPart = new BpmnStartEventEditPart();
+                editPart = new BpmnStartEventPrimaryNodeEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnBoundaryEventPrimaryNode.class) {
-                editPart = new BpmnBoundaryEventEditPart();
+                editPart = new BpmnBoundaryEventPrimaryNodeEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnIntermediateCatchEventPrimaryNode.class) {
-                editPart = new BpmnIntermediateCatchEventPrimaryEditPart();
+                editPart = new BpmnIntermediateCatchEventPrimaryNodeEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnEndEventPrimaryNode.class) {
-                editPart = new BpmnEndEventEditPart();
+                editPart = new BpmnEndEventPrimaryNodeEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnIntermediateThrowEventPrimaryNode.class) {
-                editPart = new BpmnIntermediateThrowEventPrimaryEditPart();
+                editPart = new BpmnIntermediateThrowEventPrimaryNodeEditPart();
                 editPart.setModel(model);
                 return editPart;
             }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class ChangeExtensionLocationCommand extends Command {
 
     /**
      * Set the constraint that will be the new layoutData.
+     * 
      * @param constraint the new constraint.
      */
     @objid ("7ff5d407-1dec-11e2-8cad-001ec947c8cc")
@@ -56,6 +57,7 @@ public class ChangeExtensionLocationCommand extends Command {
 
     /**
      * Set the model that will be updated.
+     * 
      * @param model the model to update. Must be a {@link GmNodeModel}
      */
     @objid ("7ff5d40b-1dec-11e2-8cad-001ec947c8cc")

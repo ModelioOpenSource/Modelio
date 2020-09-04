@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,6 +59,7 @@ public class NoteFieldData implements IFormFieldData {
      * Creates a note field data.
      * <p>
      * Notes will be created as HTML if the note type MIME type is HTML, plain text in all other cases.
+     * 
      * @param modelingSession the Modeling session, needed since 3.8 .
      * @param me the edited element
      * @param moduleName the note type module

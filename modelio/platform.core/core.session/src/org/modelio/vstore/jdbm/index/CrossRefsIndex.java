@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ class CrossRefsIndex {
 
     /**
      * Initialize the index.
+     * 
      * @param db the JDBM database.
      * @param symbolTable the string symbols table
      * @throws java.io.IOException if the index is broken

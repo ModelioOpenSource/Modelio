@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public class BendpointCreationInvisibleHandle extends BendpointCreationHandle {
     /**
      * Creates a new BendpointCreationHandle, sets its owner to <code>owner</code> and its index to <code>index</code>,
      * and sets its locator to a new {@link org.eclipse.draw2d.MidpointLocator}.
+     * 
      * @param owner a connection edit part
      * @param index the index of the segment to make moveable.
      */
@@ -50,6 +51,7 @@ public class BendpointCreationInvisibleHandle extends BendpointCreationHandle {
     /**
      * Draws the handle with fill color and outline color dependent on the primary selection status of the owner edit
      * part.
+     * 
      * @param g The graphics used to paint the figure.
      */
     @objid ("80579467-1dec-11e2-8cad-001ec947c8cc")

@@ -37,7 +37,7 @@
          <attribute name="name" type="string">
             <annotation>
                <documentation>
-                  
+
                </documentation>
                <appinfo>
                   <meta.attribute translatable="true"/>
@@ -74,7 +74,7 @@
          <attribute name="label" type="string">
             <annotation>
                <documentation>
-                  The panel label to display as the tab label. 
+                  The panel label to display as the tab label.
 Providing a TRANSLATED label is STRONGLY encouraged.
                </documentation>
                <appinfo>
@@ -85,7 +85,7 @@ Providing a TRANSLATED label is STRONGLY encouraged.
          <attribute name="icon" type="string">
             <annotation>
                <documentation>
-                  
+
                </documentation>
                <appinfo>
                   <meta.attribute kind="resource"/>
@@ -97,6 +97,16 @@ Providing a TRANSLATED label is STRONGLY encouraged.
                <documentation>
                   If true the panel will be displayed before the standard UML panels.
                </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="validator" type="string">
+            <annotation>
+               <documentation>
+
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.core.rcp.extensionpoint.IExtensionPointContribution"/>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>
@@ -116,12 +126,12 @@ Providing a TRANSLATED label is STRONGLY encouraged.
          <meta.section type="examples"/>
       </appinfo>
       <documentation>
-         The following is an example for the preference extension point: 
+         The following is an example for the preference extension point:
 
 &lt;pre&gt;
-   &lt;extension point=&quot;org.modelio.edition.dialogs.panels&quot;&gt; 
-      &lt;panel id=&quot;com.xyz.panel1&quot;  label=&quot;Label1&quot;   class=&quot;com.xyz....Panel1&quot; /&gt; 
-      &lt;panel id=&quot;com.xyz.panel2&quot;  label=&quot;Label2&quot;   class=&quot;com.xyz....Panel2&quot; /&gt; 
+   &lt;extension point=&quot;org.modelio.edition.dialogs.panels&quot;&gt;
+      &lt;panel id=&quot;com.xyz.panel1&quot;  label=&quot;Label1&quot;   class=&quot;com.xyz....Panel1&quot; /&gt;
+      &lt;panel id=&quot;com.xyz.panel2&quot;  label=&quot;Label2&quot;   class=&quot;com.xyz....Panel2&quot; /&gt;
    &lt;/extension&gt;
 
 &lt;/pre&gt;

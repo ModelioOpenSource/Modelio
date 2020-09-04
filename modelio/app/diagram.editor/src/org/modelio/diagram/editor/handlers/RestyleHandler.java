@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,65 +20,51 @@
 
 package org.modelio.diagram.editor.handlers;
 
-import java.util.List;
 import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
-import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
+import org.eclipse.gef.GraphicalViewer;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
+import org.modelio.core.ui.swt.SelectionHelper;
+import org.modelio.diagram.editor.AbstractDiagramEditor;
 import org.modelio.diagram.editor.tools.ClonePropertiesSelectionTool;
+import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
 
 @objid ("65c52afc-33f7-11e2-95fe-001ec947c8cc")
 public class RestyleHandler {
+    @objid ("fd176a18-1cd5-4cfe-8f31-808ec4586654")
+    private static GraphicalEditPart s;
+
     @objid ("65c52afd-33f7-11e2-95fe-001ec947c8cc")
     @Execute
-    public void execute(@Named(IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
-        GraphicalEditPart primarySelection = null;
-        if (selection instanceof IStructuredSelection) {
-            List<?> selectedObjects = ((IStructuredSelection) selection).toList();
-            for (Object selectedObject : selectedObjects) {
-                if (selectedObject instanceof GraphicalEditPart) {
-                    GraphicalEditPart editPart = (GraphicalEditPart) selectedObject;
-                    if (editPart.getSelected() == EditPart.SELECTED_PRIMARY) {
-                        primarySelection = editPart;
-                        break;
-                    }
-                }
+    public void execute(@Named (IServiceConstants.ACTIVE_PART) final MPart part, @Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
+        if ((part.getObject() instanceof AbstractDiagramEditor)) {
+            AbstractDiagramEditor editor = (AbstractDiagramEditor) part.getObject();
+            GraphicalViewer viewer = editor.getGraphicalViewer();
+            if (viewer != null) {
+                // Configure the edit domain
+                // Set the active and default tool
+                    viewer.getEditDomain().setActiveTool(new ClonePropertiesSelectionTool((GraphicalEditPart) s));
             }
-        }
-        
-        // Configure the edit domain
-        // Set the active and default tool
-        if (primarySelection != null) {
-            primarySelection.getViewer()
-            .getEditDomain()
-            .setActiveTool(new ClonePropertiesSelectionTool(primarySelection));
         }
     }
 
     @objid ("ee240366-c24a-487c-803a-e8763efec320")
     @CanExecute
-    public boolean canExecute(@Named(IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
-        GraphicalEditPart primarySelection = null;
-        if (selection instanceof IStructuredSelection) {
-            List<?> selectedObjects = ((IStructuredSelection) selection).toList();
-            for (Object selectedObject : selectedObjects) {
-                if (selectedObject instanceof GraphicalEditPart) {
-                    GraphicalEditPart editPart = (GraphicalEditPart) selectedObject;
-                    if (editPart.getSelected() == EditPart.SELECTED_PRIMARY) {
-                        primarySelection = editPart;
-                    } else {
-                        // more than one element selected, deactivate the handler
-                        return false;
-                    }
-                }
+    public boolean canExecute(@Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
+        if (SelectionHelper.size(selection) == 1) {
+            GraphicalEditPart editPart = SelectionHelper.getFirst(selection, GraphicalEditPart.class);
+            if (! (editPart instanceof AbstractDiagramEditPart)) { 
+                s = editPart;
             }
-        }
-        return (primarySelection != null);
+        } 
+        if (s!=null && !s.isActive())
+            s = null;
+        return s != null;
     }
 
 }

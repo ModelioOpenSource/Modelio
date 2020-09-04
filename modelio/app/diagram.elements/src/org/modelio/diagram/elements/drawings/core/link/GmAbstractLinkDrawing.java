@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -82,6 +82,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
 
     /**
      * Initialize a new GmLink.
+     * 
      * @param diagram The diagram containing the link.
      * @param identifier the drawing identifier, must be unique in the diagram.
      */
@@ -112,6 +113,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
 
     /**
      * Add a link extension.
+     * 
      * @param extension The link extension.
      * @param constraint The extension layout constraint.
      */
@@ -124,6 +126,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
 
     /**
      * Add a link extension.
+     * 
      * @param key extension key
      * @param extension the extension to add.
      */
@@ -251,6 +254,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
      * property change.
      * <p>
      * To be called when the result of {@link GmNodeModel#isVisible()} on the given link extension changes.
+     * 
      * @param child The link extension node whose visibility changed.
      */
     @objid ("b6b077c0-5ed2-4b8b-b0d7-e5d9e1f9934d")
@@ -275,6 +279,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
      * Get all link extensions.
      * <p>
      * Link extensions are roundly all labels related to the link, eg: association role name and cardinality.
+     * 
      * @return all link extensions.
      */
     @objid ("8d19cb1c-fd4e-4380-b118-ea14e4f499f8")
@@ -305,6 +310,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
 
     /**
      * Get the source anchor model.
+     * 
      * @return the source anchor.
      */
     @objid ("37e80cc5-ee5e-455f-b98b-fb04a8df8024")
@@ -314,6 +320,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
 
     /**
      * Get the links starting from this node.
+     * 
      * @return the links starting from this node.
      */
     @objid ("9743c3b1-4db1-4f17-9898-2b260f8b089d")
@@ -326,6 +333,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
 
     /**
      * Get the target anchor model.
+     * 
      * @return the target anchor.
      */
     @objid ("56472a2e-c6fa-44fd-b410-9fa381c404aa")
@@ -382,6 +390,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
 
     /**
      * Remove a link extension.
+     * 
      * @param gmNodeModel the link extension to remove.
      * @throws java.lang.IllegalArgumentException if the link does not own this node.
      */
@@ -408,6 +417,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
      * <p>
      * This method is intended to be called only by {@link IGmLinkable#addEndingLink(IGmLink)}.
      * It fires a {@link IGmDrawingLink#PROP_SOURCE_GM} change event.
+     * 
      * @param from The new link origin
      */
     @objid ("ee1f3250-6c58-4985-8a39-29f0d2d67b64")
@@ -425,6 +435,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
 
     /**
      * Change the given extension location.
+     * 
      * @param extension The link extension.
      * @param layoutData The extension layout constraint.
      */
@@ -499,6 +510,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
      * <p>
      * This method is intended to be called only by {@link IGmLinkable#addEndingLink(IGmLink)}.
      * It fires a {@link IGmDrawingLink#PROP_TARGET_GM} change event.
+     * 
      * @param to The new destination
      */
     @objid ("8c8749f5-0018-403c-b1ef-c8df1e20279b")
@@ -532,6 +544,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
 
     /**
      * Called by the anchor when its location changes.
+     * 
      * @param gmLinkAnchor The moved anchor.
      */
     @objid ("216ebeb3-4f14-47b3-bfa8-a62c82332fbc")
@@ -543,6 +556,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
     /**
      * Get the connection router id stored in the given style. If no StyleKey is found, the default value for the router
      * is DIRECT.
+     * 
      * @param style a style
      * @return the connection router.
      */
@@ -560,6 +574,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
      * Convenience method that compare 2 potentially null references.
      * <p>
      * Returns true if both references are null or a.equals(b) return true.
+     * 
      * @param a first object
      * @param b second object
      * @return true if both references are null or a.equals(b) return true.
@@ -579,6 +594,7 @@ public abstract class GmAbstractLinkDrawing extends GmDrawing implements IGmDraw
      * Subclasses should redefine this method instead of {@link #read(IDiagramReader)}.
      * <p>
      * The default implementation does nothing.
+     * 
      * @param in a reader to build the graphic model from.
      */
     @objid ("206ebf38-2926-4423-95fb-c6b50a9028f3")

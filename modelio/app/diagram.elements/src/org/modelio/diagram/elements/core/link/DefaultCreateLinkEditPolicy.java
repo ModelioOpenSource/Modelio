@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -118,6 +118,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
      * <li>When <code>false</code> on the other hand, the getTargetEditPart method will return <code>null</code>, giving a chance to the tool to propose the request to the host's parent edit part, meaning the host is "transparent".</li>
      * </ul>
      * </p>
+     * 
      * @param isOpaque determines the behavior of this policy on request where the creation expert doesn't allow. See Note.
      */
     @objid ("7fe78624-1dec-11e2-8cad-001ec947c8cc")
@@ -201,6 +202,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Create a serializable path model from the given connection creation request.
+     * 
      * @param req a connection creation request.
      * @return A serializable path model.
      */
@@ -472,6 +474,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
      * Tells whether the metamodel experts allow to connect the given link to the 2 given nodes.
      * <p>
      * Asks the metamodel expert then the stereotypes experts.
+     * 
      * @param newSrcElement the source element
      * @param targetElement the target element
      * @param linkElement the link
@@ -484,6 +487,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
+     * 
      * @param request a Source Reconnect request.
      * @return the host edit part or <code>null</code>.
      */
@@ -529,6 +533,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
+     * 
      * @param request a Target Reconnect request.
      * @return the host edit part or <code>null</code>.
      */
@@ -583,6 +588,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
+     * 
      * @param request a complete Connection creation request.
      * @return the host edit part or <code>null</code>.
      */
@@ -616,6 +622,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
+     * 
      * @param request a starting Connection creation request.
      * @return the host edit part or <code>null</code>.
      */
@@ -656,6 +663,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Get or create the updated connection helper for the given connection creation request.
+     * 
      * @param req a bended connection creation request
      * @return the connection helper.
      */
@@ -717,6 +725,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Test whether the diagram where the link must be created is editable by the user.
+     * 
      * @param r the connection creation request
      * @return whether the diagram is editable by the user.
      */

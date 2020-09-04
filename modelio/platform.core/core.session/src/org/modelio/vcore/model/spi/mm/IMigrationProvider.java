@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public interface IMigrationProvider {
      * some by other ...
      * <p>
      * If no migrator is applicable it must return null.
+     * 
      * @param fromMetamodel the given metamodel
      * @param targetMetamodel the target metamodel
      * @return the metamodel after this migrator would run.

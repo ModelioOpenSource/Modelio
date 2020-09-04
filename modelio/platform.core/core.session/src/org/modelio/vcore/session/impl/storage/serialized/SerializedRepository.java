@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -111,6 +111,7 @@ public class SerializedRepository implements IRepository {
 
     /**
      * Initialize the repository.
+     * 
      * @param dir the repository directory path.
      */
     @objid ("006e57d0-fd1a-1f27-a7da-001ec947cd2a")
@@ -349,6 +350,7 @@ public class SerializedRepository implements IRepository {
 
     /**
      * Unload the given object.
+     * 
      * @param obj the object to unload.
      */
     @objid ("f4b600ee-08b1-11e2-b33c-001ec947ccaf")
@@ -595,6 +597,7 @@ public class SerializedRepository implements IRepository {
 
     /**
      * Save a descriptor of the current metamodel.
+     * 
      * @throws java.io.IOException on failure
      */
     @objid ("ba3a638b-f344-482b-8298-dae0f63ca993")

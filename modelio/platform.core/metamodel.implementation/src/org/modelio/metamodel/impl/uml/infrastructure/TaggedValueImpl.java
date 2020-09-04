@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -46,13 +46,13 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("00903bfc-c4be-1fd8-97fe-001ec947cd2a")
 public class TaggedValueImpl extends ModelElementImpl implements TaggedValue {
-    @objid ("f100abdc-dbb3-4633-a162-8369b1334323")
+    @objid ("ec5e1353-f46d-473f-a365-8aca88ccbd84")
     @Override
     public EList<TagParameter> getActual() {
         return new SmList<>(this, ((TaggedValueSmClass)getClassOf()).getActualDep());
     }
 
-    @objid ("f90b2d82-0249-4192-ae81-101d9b5aa8c8")
+    @objid ("e3203144-d6e7-4dc8-b8dd-091cc101f844")
     @Override
     public <T extends TagParameter> List<T> getActual(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -67,46 +67,46 @@ public class TaggedValueImpl extends ModelElementImpl implements TaggedValue {
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("ee8150d4-e22d-4bc2-b611-04f6e02e6fad")
+    @objid ("c3379fc0-222c-4f0a-966e-e43b32199520")
     @Override
     public TagParameter getQualifier() {
         Object obj = getDepVal(((TaggedValueSmClass)getClassOf()).getQualifierDep());
         return (obj instanceof TagParameter)? (TagParameter)obj : null;
     }
 
-    @objid ("40f9368d-191a-42d9-8a4f-61200609e008")
+    @objid ("f16b895a-b49f-436b-8f56-987c52a58e2f")
     @Override
     public void setQualifier(TagParameter value) {
         appendDepVal(((TaggedValueSmClass)getClassOf()).getQualifierDep(), (SmObjectImpl)value);
     }
 
-    @objid ("001ae712-6f48-400a-9014-f1c63e939dbb")
+    @objid ("7d9b66b8-e17a-4bb6-be28-e8abcb00a825")
     @Override
     public TagType getDefinition() {
         Object obj = getDepVal(((TaggedValueSmClass)getClassOf()).getDefinitionDep());
         return (obj instanceof TagType)? (TagType)obj : null;
     }
 
-    @objid ("b327fd1e-d4f6-4ec6-983b-7f389ed94a17")
+    @objid ("5f694bf9-4076-44b8-8023-b260dd504921")
     @Override
     public void setDefinition(TagType value) {
         appendDepVal(((TaggedValueSmClass)getClassOf()).getDefinitionDep(), (SmObjectImpl)value);
     }
 
-    @objid ("5c283393-113a-4015-8af9-216b31ac187d")
+    @objid ("34fabe64-3f7a-4627-98af-d30bf811ebf0")
     @Override
     public ModelElement getAnnoted() {
         Object obj = getDepVal(((TaggedValueSmClass)getClassOf()).getAnnotedDep());
         return (obj instanceof ModelElement)? (ModelElement)obj : null;
     }
 
-    @objid ("e6be2fca-9fc8-4bd8-83ee-36ba1d340147")
+    @objid ("af72112c-6d34-47d5-ad57-14e1d91a23bb")
     @Override
     public void setAnnoted(ModelElement value) {
         appendDepVal(((TaggedValueSmClass)getClassOf()).getAnnotedDep(), (SmObjectImpl)value);
     }
 
-    @objid ("cf53676e-4ed7-482e-808d-a301605930bf")
+    @objid ("df8c5798-4fab-4be8-8617-9f5ff67a963f")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -118,7 +118,7 @@ public class TaggedValueImpl extends ModelElementImpl implements TaggedValue {
         return super.getCompositionOwner();
     }
 
-    @objid ("b1780354-e83d-424a-bd25-62337b87f8bf")
+    @objid ("7e330eb8-d86f-4663-9e2c-4f90afde1f9c")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -133,7 +133,7 @@ public class TaggedValueImpl extends ModelElementImpl implements TaggedValue {
         return super.getCompositionRelation();
     }
 
-    @objid ("71fb06ef-3a3b-4b8f-9902-507ad562cda9")
+    @objid ("43006c70-398b-458b-a6c2-900e92ce193b")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitTaggedValue(this);

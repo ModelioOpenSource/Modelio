@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class ExmlFragmentFactory implements IFragmentFactory {
 
     /**
      * Create a local project fragment.
+     * 
      * @param name the fragment name
      * @return the project fragment.
      */

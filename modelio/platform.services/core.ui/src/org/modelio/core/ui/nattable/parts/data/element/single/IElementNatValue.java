@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public interface IElementNatValue extends ISingleNatValue {
     /**
      * Get the list of all accepted (and proposed) metaclasses for this cell.
      * Add metaclasses to this list to complete it.
+     * 
      * @return the current allowed metaclasses.
      */
     @objid ("2707d374-160a-4594-85af-85733df07d3e")
@@ -42,6 +43,7 @@ public interface IElementNatValue extends ISingleNatValue {
 
     /**
      * Get the filter that will be used to accept (and propose) elements for this cell.
+     * 
      * @return the current filter. Might be <code>null</code>.
      */
     @objid ("ae893f52-e99f-4133-9b75-baec3a67d5e6")
@@ -53,6 +55,7 @@ public interface IElementNatValue extends ISingleNatValue {
 
     /**
      * Set a filter that will be used to accept (and propose) elements for this cell.
+     * 
      * @param elementFilter the new filter. Might be <code>null</code>.
      */
     @objid ("3aa2bf4f-352d-4b41-9b11-010561ec3e2c")

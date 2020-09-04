@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ class StatusChangeEvent implements IStatusChangeEvent {
      * Test whether the status change event is empty.
      * <p>
      * An empty status change event does not need to be fired.
+     * 
      * @return <code>true</code> if the status change event is empty.
      */
     @objid ("da5447ea-c757-4cb6-98c7-e624c4ce0297")
@@ -107,6 +108,7 @@ class StatusChangeEvent implements IStatusChangeEvent {
 
     /**
      * Fill a collection with elements whose the given status flags changed.
+     * 
      * @param coll the collection to fill
      * @param flagsToCompare the status flags to compare.
      */
@@ -141,6 +143,7 @@ class StatusChangeEvent implements IStatusChangeEvent {
 
     /**
      * Remove a model object from the list of changed status elements.
+     * 
      * @param deletedEl the model object to remove.
      */
     @objid ("4b8d8d27-ffc2-4326-9e2f-e5f8ce04a7df")
@@ -150,6 +153,7 @@ class StatusChangeEvent implements IStatusChangeEvent {
 
     /**
      * Add a changed element.
+     * 
      * @param refered the model object whose status changed
      * @param oldStatus the old object status
      * @param newStatus the new object status

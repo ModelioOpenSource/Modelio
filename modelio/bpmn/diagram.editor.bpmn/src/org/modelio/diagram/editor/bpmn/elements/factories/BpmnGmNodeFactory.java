@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -160,6 +160,7 @@ public class BpmnGmNodeFactory implements IGmNodeFactory {
      * Complete Rectangle layout data with the given dimensions if missing.
      * <p>
      * To be used to set default dimensions for a node.
+     * 
      * @param layoutData a layout data
      * @param w the default width
      * @param h the default height

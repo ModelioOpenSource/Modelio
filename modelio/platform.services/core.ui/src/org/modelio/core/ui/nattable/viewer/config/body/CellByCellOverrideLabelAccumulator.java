@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,6 +27,7 @@ import org.eclipse.nebula.widgets.nattable.layer.cell.ColumnOverrideLabelAccumul
 import org.modelio.core.ui.nattable.parts.data.CellTagHelper;
 import org.modelio.core.ui.nattable.parts.data.INatValue;
 import org.modelio.core.ui.nattable.parts.data.element.choice.IElementChoiceNatValue;
+import org.modelio.core.ui.nattable.parts.data.element.multirow.IMultiRowElementNatValue;
 import org.modelio.core.ui.nattable.parts.data.javaenum.IJavaEnumNatValue;
 import org.modelio.core.ui.nattable.parts.data.string.choice.IStringChoiceNatValue;
 import org.modelio.core.ui.nattable.viewer.model.IPropertyModel;
@@ -42,6 +43,7 @@ public class CellByCellOverrideLabelAccumulator extends ColumnOverrideLabelAccum
 
     /**
      * Create a new accumulator instance.
+     * 
      * @param layer the layer this accumulator works on.
      * @param dataModel the table's data model.
      */
@@ -70,6 +72,10 @@ public class CellByCellOverrideLabelAccumulator extends ColumnOverrideLabelAccum
             // enumeration specific configuration
             Class<? extends Enum<?>> theEnumeration = ((IJavaEnumNatValue) type).getEnumeration();
             String tag = CellTagHelper.getTypeTag(IJavaEnumNatValue.class, theEnumeration.getName());
+            configLabels.addLabel(tag);
+        } else if (type instanceof IMultiRowElementNatValue) {
+            // enumeration specific configuration
+            String tag = CellTagHelper.getTypeTag(IMultiRowElementNatValue.class, ((IMultiRowElementNatValue) type).getTagSuffix());
             configLabels.addLabel(tag);
         } else if (type != null) { // Standard type
             String tag = CellTagHelper.getTypeTag(type.getClass());

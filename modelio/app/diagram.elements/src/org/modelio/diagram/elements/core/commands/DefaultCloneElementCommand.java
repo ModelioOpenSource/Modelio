@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class DefaultCloneElementCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param parentNode The parent node
      * @param parentElement the parent element
      * @param elementToClone MObject to clone
@@ -84,6 +85,7 @@ public class DefaultCloneElementCommand extends Command {
 
     /**
      * Get the initial layout constraint.
+     * 
      * @return the initial layout constraint.
      */
     @objid ("7f34b5a5-1dec-11e2-8cad-001ec947c8cc")
@@ -93,6 +95,7 @@ public class DefaultCloneElementCommand extends Command {
 
     /**
      * Get the parent model element.
+     * 
      * @return the parent model element.
      */
     @objid ("7f34b5aa-1dec-11e2-8cad-001ec947c8cc")
@@ -102,6 +105,7 @@ public class DefaultCloneElementCommand extends Command {
 
     /**
      * Get the parent graphic node.
+     * 
      * @return the parent graphic node.
      */
     @objid ("7f34b5af-1dec-11e2-8cad-001ec947c8cc")
@@ -131,6 +135,7 @@ public class DefaultCloneElementCommand extends Command {
 
     /**
      * Get the element to clone.
+     * 
      * @return the element to clone.
      */
     @objid ("7f34b5b9-1dec-11e2-8cad-001ec947c8cc")

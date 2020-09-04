@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 public interface IMetaOf {
     /**
      * See {@link SmObjectImpl#appendDepVal(SmDependency, SmObjectImpl)}
+     * 
      * @param obj the object
      * @param dep the meta relation.
      * @param dep_val the value to add
@@ -44,6 +45,7 @@ public interface IMetaOf {
 
     /**
      * See {@link SmObjectImpl#appendDepVal(SmDependency, SmObjectImpl, int)}
+     * 
      * @param obj the object
      * @param dep the meta relation.
      * @param dep_val the value to add
@@ -57,6 +59,7 @@ public interface IMetaOf {
      * Called when a fresh new object is created.
      * <p>
      * 'obj' is guaranteed to be a new object in the whole world.
+     * 
      * @param obj the created object
      */
     @objid ("0096891c-004e-1f20-85a5-001ec947cd2a")
@@ -64,6 +67,7 @@ public interface IMetaOf {
 
     /**
      * Delete an object individually.
+     * 
      * @param obj the object to delete
      */
     @objid ("009689bc-004e-1f20-85a5-001ec947cd2a")
@@ -71,6 +75,7 @@ public interface IMetaOf {
 
     /**
      * See {@link SmObjectImpl#eraseDepVal(SmDependency, SmObjectImpl)}
+     * 
      * @param obj the object
      * @param dep the meta relation.
      * @param dep_val the value to remove
@@ -86,6 +91,7 @@ public interface IMetaOf {
      * Get the content of a model dependency.
      * <p>
      * Returns a SmObjectImpl if the dependency is single, a {@link SmList} in the other case.
+     * 
      * @param obj a model object.
      * @param dep the dependency to browse.
      * @return the dependency content.
@@ -99,6 +105,7 @@ public interface IMetaOf {
      * An object with the same identifier may already exist in other project
      * or may have existed in this project. Some repository
      * implementations may have to check whether they know it.
+     * 
      * @param obj the created object
      */
     @objid ("16f7c349-9d04-4f0e-9021-d5207c58ceb1")
@@ -112,6 +119,7 @@ public interface IMetaOf {
 
     /**
      * Undo an object deletion.
+     * 
      * @param obj the object to restore
      */
     @objid ("00968e30-004e-1f20-85a5-001ec947cd2a")
@@ -119,6 +127,7 @@ public interface IMetaOf {
 
     /**
      * Enable or disable transaction recording.
+     * 
      * @param val true to enable transactions, false to disable it.
      */
     @objid ("00968ed0-004e-1f20-85a5-001ec947cd2a")
@@ -126,6 +135,7 @@ public interface IMetaOf {
 
     /**
      * Change the value of the given attribute on the given object.
+     * 
      * @param obj The object to modify
      * @param att The attribute to change
      * @param value The new value
@@ -139,6 +149,7 @@ public interface IMetaOf {
 
     /**
      * Delete the given object without recording it in the transaction.
+     * 
      * @param obj The object to delete.
      */
     @objid ("00969024-004e-1f20-85a5-001ec947cd2a")

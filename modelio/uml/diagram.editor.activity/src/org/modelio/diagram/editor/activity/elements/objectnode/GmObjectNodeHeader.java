@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class GmObjectNodeHeader extends GmDefaultModelElementHeader {
 
     /**
      * Creates a classifier header
+     * 
      * @param diagram the owning diagram.
      * @param relatedRef reference to the represented object node.
      */

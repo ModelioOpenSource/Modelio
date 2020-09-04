@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,7 +22,6 @@ package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.uml2.uml.UMLFactory;
-import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.statik.Class;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
@@ -50,8 +49,7 @@ public class OClass extends ONameSpace {
 
     @objid ("e68fdbf9-a34e-43c7-b174-069dc278ddef")
     private org.eclipse.uml2.uml.Element getOrCreateEcoreAssociationClass() {
-        return GenerationProperties.getInstance()
-                                                .getMappedElement((getObjingElement()));
+        return GenerationProperties.getInstance().getMappedElement((getObjingElement()));
     }
 
     @objid ("1157bb84-fe52-46b4-a871-77dace7d1d03")
@@ -104,14 +102,7 @@ public class OClass extends ONameSpace {
 
     @objid ("f9027fd8-4da7-4b3b-b50c-b57fe36f3876")
     private void linkEcoreClass(org.eclipse.uml2.uml.Class ecoreElt) {
-        GenerationProperties genProp = GenerationProperties.getInstance();
-        
-        ModelTree objingOwner = ((Class) getObjingElement()).getOwner();
-        
-        if (objingOwner == null)
-            objingOwner = ((Class)getObjingElement()).getOwnerTemplateParameter();
-        
-        org.eclipse.uml2.uml.Element ecoreOwner = genProp.getMappedElement(objingOwner);
+        org.eclipse.uml2.uml.Element ecoreOwner = GenerationProperties.getInstance().getMappedElement(getObjingElement().getCompositionOwner());
         
         if (ecoreOwner != null) {
             if (ecoreOwner instanceof org.eclipse.uml2.uml.Package) {
@@ -128,7 +119,7 @@ public class OClass extends ONameSpace {
                 ownerIsClass.getNestedClassifiers().add(ecoreElt);
             } else if (ecoreOwner instanceof org.eclipse.uml2.uml.TemplateParameter) {
                 org.eclipse.uml2.uml.TemplateParameter ownerIsTemplateParameter = (org.eclipse.uml2.uml.TemplateParameter) ecoreOwner;
-                ecoreElt.setOwningTemplateParameter(ownerIsTemplateParameter);
+                ownerIsTemplateParameter.setOwnedParameteredElement(ecoreElt);
             } else {
                 ecoreElt.destroy();
                 throw new NotFoundException("Owner Class ("
@@ -140,25 +131,25 @@ public class OClass extends ONameSpace {
     @objid ("08f87693-1790-4d07-92a5-a13e6864bed1")
     private void setClassProperties(org.eclipse.uml2.uml.Class ecoreElt) {
         this.setLeaf(ecoreElt);
+        this.setActive(ecoreElt);
         
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             this.setPrimitiveEAnnotation(ecoreElt);
             this.setMainEAnnotation(ecoreElt);
             this.setRootEAnnotation(ecoreElt);
         }
-        
-        this.setActive(ecoreElt);
     }
 
     @objid ("367cd918-8f6d-4411-993b-ecee4e380078")
     private void setAssociationClassProperties(org.eclipse.uml2.uml.AssociationClass ecoreElt) {
         this.setLeaf(ecoreElt);
+        this.setActive(ecoreElt);
+        
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             this.setPrimitiveEAnnotation(ecoreElt);
             this.setMainEAnnotation(ecoreElt);
             this.setRootEAnnotation(ecoreElt);
         }
-        this.setActive(ecoreElt);
     }
 
     @objid ("6441a27b-5a11-42cb-913c-d830424d0674")

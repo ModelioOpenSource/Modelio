@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.examples.release.feature"
+      label="Nebula Widgets Examples"
+      version="1.1.0.201812241324"
+      provider-name="Eclipse Nebula">
+
+   <description url="http://eclipse.org/nebula">
+      This feature contains the examples for the examples view.
+   </description>
+
+   <copyright>
+      Copyright 2015, Weltevree beheer B.V. and others
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <discovery label="Nebula Release" url="http://download.eclipse.org/technology/nebula/snapshot"/>
+      <discovery label="Nebula Incubation" url="http://download.eclipse.org/technology/nebula/incubation/snapshot"/>
+   </url>
+
+   <requires>
+      <import feature="org.eclipse.nebula.feature" version="1.0.0.qualifier"/>
+      <import feature="org.eclipse.nebula.examples.feature" version="1.0.4.qualifier"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.grid.example"
+         download-size="29"
+         install-size="50"
+         version="1.1.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.grid.example.source"
+         download-size="10"
+         install-size="26"
+         version="1.1.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.pgroup.example"
+         download-size="13"
+         install-size="20"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.pgroup.example.source"
+         download-size="9"
+         install-size="17"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.pshelf.example"
+         download-size="12"
+         install-size="18"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.pshelf.example.source"
+         download-size="9"
+         install-size="14"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.gallery.example"
+         download-size="27"
+         install-size="48"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.gallery.example.source"
+         download-size="12"
+         install-size="30"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.xviewer.example"
+         download-size="57"
+         install-size="106"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.xviewer.example.source"
+         download-size="38"
+         install-size="86"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.tablecombo.example"
+         download-size="18"
+         install-size="29"
+         version="1.2.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.tablecombo.example.source"
+         download-size="12"
+         install-size="25"
+         version="1.2.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.ganttchart.example"
+         download-size="10"
+         install-size="13"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.ganttchart.example.source"
+         download-size="8"
+         install-size="10"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.oscilloscope.example"
+         download-size="302"
+         install-size="452"
+         version="1.0.1.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.oscilloscope.example.source"
+         download-size="11"
+         install-size="27"
+         version="1.0.1.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.cdatetime.example"
+         download-size="25"
+         install-size="44"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.cdatetime.example.source"
+         download-size="10"
+         install-size="19"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.paperclips.example"
+         download-size="62"
+         install-size="71"
+         version="2.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.paperclips.example.source"
+         download-size="57"
+         install-size="65"
+         version="2.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.effects.stw.example"
+         download-size="738"
+         install-size="911"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.effects.stw.example.source"
+         download-size="715"
+         install-size="888"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.geomap.example"
+         download-size="23"
+         install-size="41"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.geomap.example.source"
+         download-size="10"
+         install-size="21"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.visualization.example"
+         download-size="12"
+         install-size="16"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.visualization.example.source"
+         download-size="8"
+         install-size="12"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.visualization.xygraph.exampleview"
+         download-size="78"
+         install-size="104"
+         version="1.1.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.visualization.xygraph.exampleview.source"
+         download-size="15"
+         install-size="30"
+         version="1.1.0.201812241324"
+         unpack="false"/>
+         
+	<!-- Opal -->
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.commons"
+         download-size="106"
+         install-size="150"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.breadcrumb.snippets"
+         download-size="16"
+         install-size="20"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.checkboxgroup.snippets"
+         download-size="10"
+         install-size="13"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.columnbrowser.snippets"
+         download-size="12"
+         install-size="18"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.dialog.snippets"
+         download-size="17"
+         install-size="28"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.duallist.snippets"
+         download-size="37"
+         install-size="45"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.header.snippets"
+         download-size="16"
+         install-size="18"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.heapmanager.snippets"
+         download-size="10"
+         install-size="13"
+         version="1.0.0.201812241324"
+         unpack="false"/>		 
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.logindialog.snippets"
+         download-size="30"
+         install-size="35"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.multichoice.snippets"
+         download-size="17"
+         install-size="26"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.notifier.snippets"
+         download-size="10"
+         install-size="13"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.preferencewindow.snippets"
+         download-size="29"
+         install-size="39"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.promptsupport.snippets"
+         download-size="11"
+         install-size="17"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.propertytable.snippets"
+         download-size="16"
+         install-size="26"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.rangeslider.snippets"
+         download-size="15"
+         install-size="24"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.starrating.snippets"
+         download-size="10"
+         install-size="13"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.textassist.snippets"
+         download-size="11"
+         install-size="15"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.tipoftheday.snippets"
+         download-size="10"
+         install-size="14"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.titledseparator.snippets"
+         download-size="11"
+         install-size="14"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.roundedtoolbar.snippets"
+         download-size="19"
+         install-size="25"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.calculator.snippets"
+         download-size="13"
+         install-size="17"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.horizontalspinner.snippets"
+         download-size="14"
+         install-size="22"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.launcher.snippets"
+         download-size="45"
+         install-size="49"
+         version="1.0.0.201812241324"
+         unpack="false"/>		 
+		 
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.panels.snippets"
+         download-size="13"
+         install-size="18"
+         version="1.0.0.201812241324"
+         unpack="false"/>		
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.switchbutton.snippets"
+         download-size="14"
+         install-size="20"
+         version="1.0.0.201812241324"
+         unpack="false"/>	
+
+   <plugin 
+         id="org.eclipse.nebula.widgets.progresscircle.snippets"
+         download-size="20"
+         install-size="33"
+         version="1.0.0.201812241324"
+         unpack="false"/>		
+
+   <plugin 
+         id="org.eclipse.nebula.widgets.nebulaslider.snippets"
+         download-size="12"
+         install-size="17"
+         version="1.0.0.201812241324"
+         unpack="false"/>	
+
+</feature>

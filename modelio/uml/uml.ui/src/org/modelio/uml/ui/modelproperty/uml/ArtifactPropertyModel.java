@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
 
     /**
      * Create a new <i>Artifact</i> data model from an <i>Artifact</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("f85bf52b-688f-47db-9014-1a81f09184dd")
@@ -61,6 +62,7 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("0c0b3422-3c23-4b68-ae8f-ba76ab1bec7d")
@@ -71,6 +73,7 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("c5fd9305-7840-4133-bed7-c2000b9ac778")
@@ -83,6 +86,7 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -117,6 +121,7 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -149,6 +154,7 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

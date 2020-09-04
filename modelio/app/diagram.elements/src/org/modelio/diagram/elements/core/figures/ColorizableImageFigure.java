@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class ColorizableImageFigure extends Figure {
 
     /**
      * Creates an image colored in black.
+     * 
      * @param image the image
      */
     @objid ("7f6b8bc7-1dec-11e2-8cad-001ec947c8cc")
@@ -58,6 +59,7 @@ public class ColorizableImageFigure extends Figure {
 
     /**
      * Constructor.
+     * 
      * @param image the image
      * @param color the color to apply
      */

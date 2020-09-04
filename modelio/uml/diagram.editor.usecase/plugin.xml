@@ -5,51 +5,53 @@
     <fragment uri="e4model/diagram_usecase_editor.e4xmi"/>
     <processor beforefragment="true" class="org.modelio.diagram.editor.usecase.plugin.UseCaseProcessor"/>
   </extension>
-  
+
   <extension point="org.modelio.diagram.editor.inputprovider">
     <inputprovider class="org.modelio.diagram.editor.usecase.editor.UseCaseDiagramEditorInputProvider"/>
   </extension>
-  
+
   <extension point="org.modelio.diagram.editor.toolregistry">
-    <creationtool id="CREATE_USECASE" interactor="node" label="%UseCase.label" tooltip="%UseCase.tooltip">
-      <context metaclass="Standard.UseCase"/>
-    </creationtool>
-    <creationtool id="CREATE_EXTENSIONPOINT" interactor="node" label="%ExtensionPoint.label" tooltip="%ExtensionPoint.tooltip">
-      <context metaclass="Standard.ExtensionPoint"/>
-    </creationtool>
-    <creationtool id="CREATE_USECASEDEPENDENCYINCLUDE" interactor="link" label="%UseCaseDependencyInclude.label" tooltip="%UseCaseDependencyInclude.tooltip">
-      <context metaclass="Standard.UseCaseDependency" stereotype="include" router="USECASEDEPENDENCY_ROUTINGMODE"/>
-    </creationtool>
-    <creationtool id="CREATE_USECASEDEPENDENCYEXTEND" interactor="link" label="%UseCaseDependencyExtend.label" tooltip="%UseCaseDependencyExtend.tooltip">
-      <context metaclass="Standard.UseCaseDependency" stereotype="extend" router="USECASEDEPENDENCY_ROUTINGMODE"></context>
-    </creationtool>
-    <creationtool id="CREATE_ACTOR" interactor="point" label="%Actor.label" tooltip="%Actor.tooltip">
-      <context metaclass="Standard.Actor"/>
-    </creationtool>
-    <creationtool id="CREATE_ACTORSECONDARY" interactor="point" label="%ActorSecondary.label" tooltip="%ActorSecondary.tooltip">
-      <context metaclass="Standard.Actor" stereotype="secondary"/>
-    </creationtool>
-    <creationtool id="CREATE_ACTORPRIMARY" interactor="point" label="%ActorPrimary.label" tooltip="%ActorPrimary.tooltip">
-      <context metaclass="Standard.Actor" stereotype="primary"/>
-    </creationtool>
-    <creationtool id="CREATE_ACTORSYSTEM" interactor="point" label="%ActorSystem.label" tooltip="%ActorSystem.tooltip">
-      <context metaclass="Standard.Actor" stereotype="system"/>
-    </creationtool>
-    <creationtool id="CREATE_COMMUNICATIONLINK" interactor="link" label="%CommunicationLink.label" tooltip="%CommunicationLink.tooltip" icon="icons/communicationlink.png">
-      <context metaclass="Standard.AssociationEnd" router="ASSOC_CONNECTIONROUTER"/>
-    </creationtool>
+  	<tools>
+	    <creationtool id="CREATE_USECASE" interactor="node" label="%UseCase.label" tooltip="%UseCase.tooltip">
+	      <context metaclass="Standard.UseCase"/>
+	    </creationtool>
+	    <creationtool id="CREATE_EXTENSIONPOINT" interactor="node" label="%ExtensionPoint.label" tooltip="%ExtensionPoint.tooltip">
+	      <context metaclass="Standard.ExtensionPoint"/>
+	    </creationtool>
+	    <creationtool id="CREATE_USECASEDEPENDENCYINCLUDE" interactor="link" label="%UseCaseDependencyInclude.label" tooltip="%UseCaseDependencyInclude.tooltip">
+	      <context metaclass="Standard.UseCaseDependency" stereotype="include" router="USECASEDEPENDENCY_ROUTINGMODE"/>
+	    </creationtool>
+	    <creationtool id="CREATE_USECASEDEPENDENCYEXTEND" interactor="link" label="%UseCaseDependencyExtend.label" tooltip="%UseCaseDependencyExtend.tooltip">
+	      <context metaclass="Standard.UseCaseDependency" stereotype="extend" router="USECASEDEPENDENCY_ROUTINGMODE"></context>
+	    </creationtool>
+	    <creationtool id="CREATE_ACTOR" interactor="point" label="%Actor.label" tooltip="%Actor.tooltip">
+	      <context metaclass="Standard.Actor"/>
+	    </creationtool>
+	    <creationtool id="CREATE_ACTORSECONDARY" interactor="point" label="%ActorSecondary.label" tooltip="%ActorSecondary.tooltip">
+	      <context metaclass="Standard.Actor" stereotype="secondary"/>
+	    </creationtool>
+	    <creationtool id="CREATE_ACTORPRIMARY" interactor="point" label="%ActorPrimary.label" tooltip="%ActorPrimary.tooltip">
+	      <context metaclass="Standard.Actor" stereotype="primary"/>
+	    </creationtool>
+	    <creationtool id="CREATE_ACTORSYSTEM" interactor="point" label="%ActorSystem.label" tooltip="%ActorSystem.tooltip">
+	      <context metaclass="Standard.Actor" stereotype="system"/>
+	    </creationtool>
+	    <creationtool id="CREATE_COMMUNICATIONLINK" interactor="link" label="%CommunicationLink.label" tooltip="%CommunicationLink.tooltip" icon="icons/communicationlink.png">
+	      <context metaclass="Standard.AssociationEnd" router="ASSOC_CONNECTIONROUTER"/>
+	    </creationtool>
+	</tools>
   </extension>
-  
+
   <extension point="org.modelio.creation.wizard.contributor">
     <creation categoryType = "%ContributorCategoryType.UML" categoryLabel = "%ContributorCategoryLabel.UML" categoryIcon = "./icons/uml.png" contributor="org.modelio.diagram.editor.usecase.contributor.UseCaseDiagramCreationContributor"/>
   </extension>
-  
+
   <extension name="UseCase drop extension" point="org.modelio.diagram.editor.droppolicy.extensions">
     <droppolicyextension class="org.modelio.diagram.editor.statik.editor.StaticDiagramDropEditPolicyExtension">
       <scope editorId="org.modelio.diagram.editor.usecase.UseCaseDiagramEditorID"/>
     </droppolicyextension>
   </extension>
-  
+
   <extension point="org.modelio.diagram.editor.palette">
     <palette id="org.modelio.diagram.editor.usecase.UseCaseDiagramEditorID">
       <palette_group collapsible="false" label="main">

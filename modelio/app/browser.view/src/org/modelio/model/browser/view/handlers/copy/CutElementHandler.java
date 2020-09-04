@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,7 +38,6 @@ import org.modelio.core.ui.swt.copy.PasteElementObject.PasteType;
 import org.modelio.core.ui.swt.copy.PasteElementObject;
 import org.modelio.core.ui.swt.copy.PasteElementTransfer;
 import org.modelio.core.ui.swt.copy.TransferItem;
-import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -55,6 +54,7 @@ public class CutElementHandler {
 
     /**
      * Available only when the selected elements are modifiable.
+     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -73,19 +73,20 @@ public class CutElementHandler {
         }
         
         for (MObject element : selectedElements) {
-            MObject owner = element.getCompositionOwner();            
-            if (owner == null || owner instanceof AbstractProject) {
-                return false;   // cannot delete if its owner is the root which means it is created by default
+            MObject owner = element.getCompositionOwner();
+            if (owner == null) {
+                return false;
             }
             if (!element.getStatus().isModifiable()) {
                 return false;
-            }                    
+            }
         }
         return true;
     }
 
     /**
      * Cut the currently selected elements.
+     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */

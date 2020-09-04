@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -87,6 +87,7 @@ public class TDataObjectReference extends TFlowElement {
 
     /**
      * Sets the value of the dataState property.
+     * 
      * @param value allowed object is
      * {@link TDataState }
      */
@@ -108,6 +109,7 @@ public class TDataObjectReference extends TFlowElement {
 
     /**
      * Sets the value of the itemSubjectRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -129,6 +131,7 @@ public class TDataObjectReference extends TFlowElement {
 
     /**
      * Sets the value of the dataObjectRef property.
+     * 
      * @param value allowed object is
      * {@link Object }
      */

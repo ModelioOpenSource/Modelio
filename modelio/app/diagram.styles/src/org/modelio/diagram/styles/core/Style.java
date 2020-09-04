@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Creates a style associated to an element.
+     * 
      * @param cascadedStyle The parent style.
      */
     @objid ("8579ac32-1926-11e2-92d2-001ec947c8cc")
@@ -77,6 +78,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
      * <p>
      * The listener will be fired each time a property is changed or removed.<br>
      * Registering 2 times a listener will make it fired 2 times.
+     * 
      * @param l The style change listener.
      */
     @objid ("8579ac36-1926-11e2-92d2-001ec947c8cc")
@@ -93,6 +95,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Convenience method to get a boolean property.
+     * 
      * @param propertyKey The property key
      * @return The boolean value.
      */
@@ -115,6 +118,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Convenience method to get a Color property.
+     * 
      * @param propertyKey The property key
      * @return The Color value.
      */
@@ -131,6 +135,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Convenience method to get a Font property.
+     * 
      * @param propertyKey The property key
      * @return The Font value.
      */
@@ -147,6 +152,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Convenience method to get an integer property.
+     * 
      * @param propertyKey The property key
      * @return The integer value.
      */
@@ -177,6 +183,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
      * Get a style property .
      * @param <T>
      * The wanted property value type .
+     * 
      * @param key The property key
      * @return The property value
      */
@@ -202,6 +209,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Tells whether the given property is set locally.
+     * 
      * @param propertyKey a style key
      * @return true if a local value is defined for the key, false in the other case.
      */
@@ -274,6 +282,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Remove a style change listener.
+     * 
      * @param l a style change listener to remove.
      */
     @objid ("8579ac78-1926-11e2-92d2-001ec947c8cc")
@@ -284,6 +293,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Remove a property value and fires style changes listeners.
+     * 
      * @param key The property to remove
      */
     @objid ("8579ac7d-1926-11e2-92d2-001ec947c8cc")
@@ -312,6 +322,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Set the parent style used to get a property value when it is not defined on this style.
+     * 
      * @param style The new parent style.
      */
     @objid ("857c0e91-1926-11e2-92d2-001ec947c8cc")
@@ -339,6 +350,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Change a style property and fires the style listeners.
+     * 
      * @param key The property key.
      * @param value The new value.
      */
@@ -414,6 +426,7 @@ public class Style implements IPersistent, IStyle, IStyleChangeListener {
      * <p>
      * The content of this map will be definitively lost on next diagram save.
      * To be used when migrating graphic objects whose style key changed.
+     * 
      * @return the obsolete properties, never null.
      */
     @objid ("9bedddb8-f785-40c5-a3ab-5daf5d04d62e")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public abstract class DiagramGraphic implements IDiagramGraphic {
 
     /**
      * Initializer
+     * 
      * @param diagramHandle the diagram handle
      */
     @objid ("e352f549-5a98-4dc3-bdea-8e7e4193393d")
@@ -59,21 +60,21 @@ public abstract class DiagramGraphic implements IDiagramGraphic {
     @objid ("22d4c4f1-353e-4417-b202-61a24cf7009f")
     @Override
     public String toString() {
-        return String.format("%s(%s)", this.getClass().getSimpleName(), this.getElement());
+        return String.format("%s(%s)", this.getClass().getSimpleName(), getElement());
     }
 
     @objid ("a75e268b-6e5a-4bb6-9ce1-81cdcc834739")
     @Override
     public boolean isSelected() {
         final GraphicalEditPart editPart = this.diagramHandle.getEditPart(getModel());
-        return (editPart.getSelected() != EditPart.SELECTED_NONE);
+        return editPart.getSelected() != EditPart.SELECTED_NONE;
     }
 
     @objid ("f88d5f63-38a7-498b-b331-0470f61c3047")
     @Override
     public boolean isPrimarySelected() {
         final GraphicalEditPart editPart = this.diagramHandle.getEditPart(getModel());
-        return (editPart.getSelected() == EditPart.SELECTED_PRIMARY);
+        return editPart.getSelected() == EditPart.SELECTED_PRIMARY;
     }
 
     @objid ("6b33b4e0-7728-43cd-b987-26435fca62a3")
@@ -91,15 +92,20 @@ public abstract class DiagramGraphic implements IDiagramGraphic {
     @objid ("2e2d1a58-54f7-42b5-8136-c3134b4dee48")
     @Override
     public IStyleHandle getStyle() {
-        final NamedStyle style = ((NamedStyle) getModel().getDisplayedStyle().getCascadedStyle());
-        final StyleHandle newStyle = new StyleHandle(style);
-        return newStyle;
+        final IStyle cascadedStyle = getModel().getDisplayedStyle().getCascadedStyle();
+        if (cascadedStyle instanceof NamedStyle) {
+            final NamedStyle style = (NamedStyle) cascadedStyle;
+            final StyleHandle newStyle = new StyleHandle(style);
+            return newStyle;
+        } else {
+            return null;
+        }
     }
 
     @objid ("1ac41701-cb47-4335-bb0a-811779b69e17")
     @Override
     public void setStyle(final IStyleHandle style) {
-        final NamedStyle namedStyle = DiagramStyles.getStyleManager().getStyle(style.getName());
+        final IStyle namedStyle = style != null ? DiagramStyles.getStyleManager().getStyle(style.getName()) : getModel().getDiagram().getPersistedStyle();
         getModel().getDisplayedStyle().setCascadedStyle(namedStyle);
     }
 
@@ -137,7 +143,7 @@ public abstract class DiagramGraphic implements IDiagramGraphic {
         
         if (key != null) {
             getModel().getDisplayedStyle()
-                       .setProperty(key, StyleKeyTypeConverter.convertFromString(key, stringValue));
+                    .setProperty(key, StyleKeyTypeConverter.convertFromString(key, stringValue));
         }
     }
 
@@ -172,8 +178,9 @@ public abstract class DiagramGraphic implements IDiagramGraphic {
     @Override
     public void setHyperLink(MObject obj) {
         StyleKey styleKey = getModel().getStyleKey(MetaKey.HYPERREFLINK);
-        if (styleKey != null)
+        if (styleKey != null) {
             getModel().getDisplayedStyle().setProperty(styleKey, new MRef(obj));
+        }
     }
 
     /**
@@ -189,7 +196,7 @@ public abstract class DiagramGraphic implements IDiagramGraphic {
         int result = 1;
         final IGmObject model = getModel();
         
-        result = prime * result + ((model == null) ? 0 : model.hashCode());
+        result = prime * result + (model == null ? 0 : model.hashCode());
         return result;
     }
 

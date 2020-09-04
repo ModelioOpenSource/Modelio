@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ public class MultilineTextCellEditor extends TextCellEditor {
      * <p>
      * The cell editor value is the string itself, which is initially the empty string.
      * Initially, the cell editor has no cell validator.
+     * 
      * @param parent the parent control
      */
     @objid ("7e30d53b-1dec-11e2-8cad-001ec947c8cc")
@@ -49,6 +50,7 @@ public class MultilineTextCellEditor extends TextCellEditor {
      * <p>
      * The cell editor value is the string itself, which is initially the empty string.
      * Initially, the cell editor has no cell validator.
+     * 
      * @param parent the parent control
      * @param style more style bytes. See {@link org.eclipse.swt.widgets.Text}
      */

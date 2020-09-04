@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import org.modelio.metamodel.uml.statik.Package;
 
 /**
  * Configuration class for the XMI export service in {@link IExchangeService}.
+ * 
  * @since 2.2
  */
 @objid ("1478fa0e-9516-11e1-a83f-002564c97630")
@@ -57,6 +58,7 @@ public class XmiExportConfiguration {
      * - annotations are not exported.
      * - file is "$ProjectSpace/XMI/rootPackageName.xmi"
      * - version is EMF 3.0.0
+     * 
      * @param packageToExport the export root.
      */
     @objid ("1479211b-9516-11e1-a83f-002564c97630")
@@ -64,7 +66,7 @@ public class XmiExportConfiguration {
         this.entryPoint = packageToExport;
         this.exportAnnotations = false;
         this.versionExport = VersionExport.EMF300;
-        this.xmiFile = new File(GProject.getProject(packageToExport).getProjectPath().toFile(), "XMI/" + this.entryPoint.getName() + ".xmi");
+        this.xmiFile = GProject.getProject(packageToExport).getProjectFileStructure().getProjectPath().resolve("XMI").resolve(this.entryPoint.getName() + ".xmi").toFile();
     }
 
     @objid ("1479bd61-9516-11e1-a83f-002564c97630")
@@ -110,7 +112,7 @@ public class XmiExportConfiguration {
     @objid ("18386706-a4c7-44eb-bd10-cf461d1063b7")
     public void setXmiFile(final String xmiFilePath) {
         File file = new File(xmiFilePath);
-        if (file.exists()){
+        if (file.exists()) {
             this.xmiFile = file;
         }
     }

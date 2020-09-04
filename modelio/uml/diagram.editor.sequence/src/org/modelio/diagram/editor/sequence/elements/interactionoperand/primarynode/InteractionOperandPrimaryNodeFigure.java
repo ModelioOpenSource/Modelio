@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,6 +22,8 @@ package org.modelio.diagram.editor.sequence.elements.interactionoperand.primaryn
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.geometry.Insets;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.diagram.elements.core.figures.RectangularFigure;
 
 /**
@@ -31,20 +33,31 @@ import org.modelio.diagram.elements.core.figures.RectangularFigure;
  */
 @objid ("d90cb102-55b6-11e2-877f-002564c97630")
 public class InteractionOperandPrimaryNodeFigure extends RectangularFigure {
+    /**
+     * Minimum inset where a transparent interaction operand is still clickable.
+     */
+    @objid ("a3c9f8e9-f731-4f58-81c3-36681d4761aa")
+    public static final Insets TRANSPARENT_MARGIN = new Insets(10);
+
     @objid ("d90e3759-55b6-11e2-877f-002564c97630")
     @Override
     public boolean containsPoint(final int x, final int y) {
         if (super.containsPoint(x, y)) {
-            for (Object childObj : getChildren()) {
-                if (((IFigure) childObj).containsPoint(x, y)) {
-                    return true;
+            if (! isOpaque() || getFillAlpha() <255){
+                for (Object c : getChildren()) {
+                    IFigure fig = (IFigure)c;
+                    Rectangle minimumBounds = new Rectangle(fig.getBounds().getTopLeft(), fig.getMinimumSize());
+                    if (minimumBounds.contains(x, y)) {
+                        // Click on the label
+                        return true;
+                    }
                 }
+                    
+                return ! (getBounds().getShrinked(getInsets().getAdded(TRANSPARENT_MARGIN)).contains(x, y));
             }
-        
-            return !getBounds().getExpanded(-10, -10).contains(x, y);
-        } else {
-            return false;
+            return true;
         }
+        return false;
     }
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class MofSmAttribute extends SmAttribute {
 
     /**
      * Create a String MOF attribute.
+     * 
      * @param owner the metaclass
      * @param name the name
      */
@@ -76,6 +77,7 @@ public class MofSmAttribute extends SmAttribute {
 
     /**
      * Copy constructor
+     * 
      * @param owner the owner MOF metaclass
      * @param original the attribute to copy
      */

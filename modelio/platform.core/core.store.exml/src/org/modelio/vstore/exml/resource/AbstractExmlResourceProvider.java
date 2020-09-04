@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -100,6 +100,7 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
 
     /**
      * Redefine only if really necessary. Redefining {@link #getResource(String)} should be suffisient.
+     * 
      * @throws java.io.IOException in case of failure
      */
     @objid ("8901ae83-c450-468c-bc38-e074402ef419")
@@ -163,6 +164,7 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
      * Read the repository formats versions from {@link #getRepositoryVersionResource()}.
      * <p>
      * May return <i>null</i> if it is an old repository with no format version file.
+     * 
      * @return the repository versions, null if none stored yet.
      * @throws java.io.IOException in case of error getting the versions
      */
@@ -213,6 +215,7 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
      * <p>
      * Subclasses must redefine this method to do something for {@link #createRepository(MMetamodel)}.
      * {@link #getGeometry()} works inside this method.
+     * 
      * @param metamodel the metamodel
      * @throws java.io.IOException on failure.
      */
@@ -224,6 +227,7 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
      * <p>
      * Called by {@link #open()}.
      * Implementations may call {@link #readGeometry(File)}.
+     * 
      * @return the repository geometry.
      * @throws java.io.IOException on non recoverable failure.
      */

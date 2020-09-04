@@ -3,7 +3,7 @@
 <plugin>
 
   <extension point="org.eclipse.e4.workbench.model" id="modelContribution">
-      <fragment uri="e4model/projectui.ext.e4xmi"></fragment> 
+      <fragment uri="e4model/projectui.ext.e4xmi"/> 
    </extension>
    
    

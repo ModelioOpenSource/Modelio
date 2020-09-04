@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -42,19 +42,19 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("00927aac-c4be-1fd8-97fe-001ec947cd2a")
 public class DocumentImpl extends AbstractResourceImpl implements Document {
-    @objid ("463af7d0-9d47-4348-b7fe-99f0f56fdb4b")
+    @objid ("9212434c-99a9-4551-bb6e-ab69f6aec90f")
     @Override
     public String getAbstract() {
         return (String) getAttVal(((DocumentSmClass)getClassOf()).getAbstractAtt());
     }
 
-    @objid ("6eff891d-6b3d-496b-8582-93dc130f55d8")
+    @objid ("b84f8493-aecb-46f0-8715-f569e84a925e")
     @Override
     public void setAbstract(String value) {
         setAttVal(((DocumentSmClass)getClassOf()).getAbstractAtt(), value);
     }
 
-    @objid ("aa364e4c-d607-4c54-a00e-883fd2c09e72")
+    @objid ("8be6b110-8984-4fe6-b2cb-976c9b4d42ca")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -62,7 +62,7 @@ public class DocumentImpl extends AbstractResourceImpl implements Document {
         return super.getCompositionOwner();
     }
 
-    @objid ("66d33d23-e772-4b95-9325-d2562ef56a14")
+    @objid ("a242cbb6-a6d4-4914-a13f-9d066318e495")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -72,7 +72,7 @@ public class DocumentImpl extends AbstractResourceImpl implements Document {
         return super.getCompositionRelation();
     }
 
-    @objid ("4fc2f024-f0a3-40ed-ac33-5b4f702d1dc9")
+    @objid ("db15bde4-7c7a-43b1-9695-21ab9c630038")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitDocument(this);

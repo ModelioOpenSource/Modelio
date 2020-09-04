@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -112,6 +112,7 @@ public class GmInstanceLink extends GmLink {
 
     /**
      * Creates a GmLink.
+     * 
      * @param diagram The diagram containing the link.
      * @param theRole The represented element.
      * @param roleRef The represented role reference. May not be null.
@@ -195,6 +196,7 @@ public class GmInstanceLink extends GmLink {
 
     /**
      * Get the source side navigability.
+     * 
      * @return true if the source side is navigable.
      */
     @objid ("355babf9-55b7-11e2-877f-002564c97630")
@@ -204,6 +206,7 @@ public class GmInstanceLink extends GmLink {
 
     /**
      * Get the target side navigability.
+     * 
      * @return true if the target side of the link is navigable.
      */
     @objid ("355babfe-55b7-11e2-877f-002564c97630")
@@ -235,6 +238,7 @@ public class GmInstanceLink extends GmLink {
 
     /**
      * Get the represented link role.
+     * 
      * @return the link role.
      */
     @objid ("355bac28-55b7-11e2-877f-002564c97630")

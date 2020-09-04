@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class UsagePropertyModel extends AbstractPropertyModel<Usage> {
 
     /**
      * Create a new <i>Usage</i> data model from an <i>Usage</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("512a2cd2-5839-4b73-a74b-bee8bdc7934d")
@@ -65,6 +66,7 @@ public class UsagePropertyModel extends AbstractPropertyModel<Usage> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("b534ca9f-4c12-49ed-b961-4b7e04033865")
@@ -75,6 +77,7 @@ public class UsagePropertyModel extends AbstractPropertyModel<Usage> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("32391047-5c4f-4e87-817a-e09affd4f125")
@@ -87,6 +90,7 @@ public class UsagePropertyModel extends AbstractPropertyModel<Usage> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -117,6 +121,7 @@ public class UsagePropertyModel extends AbstractPropertyModel<Usage> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -148,6 +153,7 @@ public class UsagePropertyModel extends AbstractPropertyModel<Usage> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,7 +48,7 @@ public class InheritedAuthData extends AuthData {
 
     @objid ("23c62957-9a34-41f2-9fa0-6864c9ebb2b1")
     @Override
-    public Map<String, String> serialize() {
+    public Map<String, String> serialize(boolean forceCredentials) {
         return Collections.emptyMap();
     }
 
@@ -66,6 +66,7 @@ public class InheritedAuthData extends AuthData {
 
     /**
      * Convenience method to test whether an authentication data is inherited.
+     * 
      * @param d an authentication data
      * @return <i>true</i> if the data is inherited.
      */

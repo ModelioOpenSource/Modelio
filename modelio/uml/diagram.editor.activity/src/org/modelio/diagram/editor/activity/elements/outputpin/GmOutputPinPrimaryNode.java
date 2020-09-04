@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class GmOutputPinPrimaryNode extends GmNoStyleSimpleNode implements IImag
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this GM will be unmasked.
      * @param relatedRef related element reference, must not be null.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,7 +68,7 @@ public class DiagramApi implements BundleActivator {
         DiagramApi.context = bundleContext;
         ServiceReference<ExtendedLogService> ref = bundleContext.getServiceReference(ExtendedLogService.class);
         ExtendedLogService service = bundleContext.getService(ref);
-        DiagramApi.LOG = new PluginLogger(service.getLogger(null));
+        DiagramApi.LOG = new PluginLogger(service.getLogger((String)null));
         
         DiagramApi.I18N = new BundledMessages(DiagramApi.LOG, ResourceBundle.getBundle("diagramapi"));
         

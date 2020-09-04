@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -181,6 +181,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
 
     /**
      * Modify the metamodel so that it can read the source repository.
+     * 
      * @param metamodel the metamodel at the final state
      * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
      */
@@ -375,6 +376,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
 
     /**
      * Move all Collaborations and Processes to parent Namespace or Operation then delete BpmnBehavior .
+     * 
      * @param mofSession the MOF session
      * @param bpmnBehavior the BPMN behavior to process
      */
@@ -449,6 +451,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
      * - b.BpmnCaller : BpmnCallActivity.CalledBehavior
      * 
      * So that they point to the contained Process or Collaboration.
+     * 
      * @param bpmnBehavior the BPMN Behavior to migrate
      * @param content its initial content
      */

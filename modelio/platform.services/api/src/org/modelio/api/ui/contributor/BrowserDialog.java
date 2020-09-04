@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,6 +46,7 @@ class BrowserDialog extends ModelioDialog {
 
     /**
      * Create an BrowserDialog instance.
+     * 
      * @param parentShell The parent shell.
      * @param docUrl The documentation url to display.
      */
@@ -59,6 +60,7 @@ class BrowserDialog extends ModelioDialog {
      * Add buttons to the buttons bar in the bottom of the dialog.
      * <p>
      * Here we just need to have a "close" button.
+     * 
      * @param parent the parent composite of the dialog.
      */
     @objid ("6d91fbf4-00cd-4f7a-936e-6ca15283cc78")
@@ -69,6 +71,7 @@ class BrowserDialog extends ModelioDialog {
 
     /**
      * This is the main method that is called to construct the GUI content of the box.
+     * 
      * @param parent the parent composite of the dialog.
      */
     @objid ("d9d926fa-58bf-4b88-896e-e6bec32332ce")

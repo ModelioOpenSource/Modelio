@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public class DefaultStringChoiceNatValue extends DefaultNatValue implements IStr
 
     /**
      * Creates a new instance.
+     * 
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
      * @param valueChoices list of values to choose from.
@@ -55,6 +56,7 @@ public class DefaultStringChoiceNatValue extends DefaultNatValue implements IStr
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("756fbc9c-fab9-49bb-bd0f-a47da55a69c8")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class GeneralOrderingPropertyModel extends AbstractPropertyModel<GeneralO
     /**
      * Create a new <i>GeneralOrdering</i> data model from an
      * <i>GeneralOrdering</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("19c8339e-06fd-44bd-ae11-53dd30a9c621")
@@ -64,6 +65,7 @@ public class GeneralOrderingPropertyModel extends AbstractPropertyModel<GeneralO
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("59e5fe30-0414-4dd8-a65f-b996fe4f2840")
@@ -74,6 +76,7 @@ public class GeneralOrderingPropertyModel extends AbstractPropertyModel<GeneralO
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("48ca5a5f-6f8a-4abb-9c13-aba38823d2e2")
@@ -86,6 +89,7 @@ public class GeneralOrderingPropertyModel extends AbstractPropertyModel<GeneralO
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -116,6 +120,7 @@ public class GeneralOrderingPropertyModel extends AbstractPropertyModel<GeneralO
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -145,6 +150,7 @@ public class GeneralOrderingPropertyModel extends AbstractPropertyModel<GeneralO
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

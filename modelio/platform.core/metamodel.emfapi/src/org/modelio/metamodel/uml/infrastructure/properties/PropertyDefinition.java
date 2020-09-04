@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,16 +19,14 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure.properties;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
-import org.modelio.metamodel.uml.infrastructure.properties.PropertyType;
 
 /**
  * PropertyDefinition v0.0.9054
@@ -41,13 +39,13 @@ public interface PropertyDefinition extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("54bc82ba-12ec-41e6-92de-cdb89441c692")
+    @objid ("80e2cf6c-9ebe-4c33-9ebf-d486ad8ea22a")
     public static final String MNAME = "PropertyDefinition";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("adc35fbe-71dc-40b3-bb8f-c8c4bcaa5b48")
+    @objid ("1c8a725d-8d27-4693-8407-fc1e8b0bef56")
     public static final String MQNAME = "Infrastructure.PropertyDefinition";
 
     /**
@@ -55,6 +53,7 @@ public interface PropertyDefinition extends ModelElement {
      * <p>
      * Used after reading a persisted string value in a property table.
      * </p>
+     * 
      * @param value the initial string value. Might be <code>null</code>.
      * @param object the element this conversion is done for.
      * @return the converted value. Might be <code>null</code>.
@@ -67,6 +66,7 @@ public interface PropertyDefinition extends ModelElement {
      * <p>
      * Used before writing a persisted string value in a property table.
      * </p>
+     * 
      * @param value a value. Might be <code>null</code>.
      * @param object the element this conversion is done for.
      * @return the value converted to string.
@@ -80,7 +80,7 @@ public interface PropertyDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("ef84f1ac-c8d0-4916-86db-2510346761ad")
+    @objid ("c5e3460a-07e6-4340-b2da-c1969c043e85")
     boolean isIsEditable();
 
     /**
@@ -89,7 +89,7 @@ public interface PropertyDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("0eafaeec-34d5-4b14-8569-c5576c54680a")
+    @objid ("10441fe0-82b8-43c0-aea8-7b10f8ccb46f")
     void setIsEditable(boolean value);
 
     /**
@@ -98,7 +98,7 @@ public interface PropertyDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("f23035ad-4864-43dc-b229-d716b923d9f8")
+    @objid ("99b20404-59a9-488d-86a3-edca71c518a7")
     String getDefaultValue();
 
     /**
@@ -107,7 +107,7 @@ public interface PropertyDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("f7df8870-77d7-46da-810b-a91719871fe5")
+    @objid ("d916cbb7-d3fd-410c-aa91-a16224eafa49")
     void setDefaultValue(String value);
 
     /**
@@ -116,7 +116,7 @@ public interface PropertyDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("f49c191a-8f9e-4f4f-84e2-9ab77cdc246a")
+    @objid ("ac8497ee-de53-46e2-932c-9c219badeccf")
     PropertyType getType();
 
     /**
@@ -125,7 +125,7 @@ public interface PropertyDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("68622735-cc8c-457c-8c67-37eaf36007d1")
+    @objid ("42d461d2-9238-438d-855d-7892a7371cf6")
     void setType(PropertyType value);
 
     /**
@@ -134,7 +134,7 @@ public interface PropertyDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("691bb571-4f2e-4b50-ae9d-6d2b0ec8f6ec")
+    @objid ("ab6d9ba3-a60f-4022-9d48-d10382741922")
     PropertyTableDefinition getOwner();
 
     /**
@@ -143,7 +143,19 @@ public interface PropertyDefinition extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("51df54b7-0c0f-4ed4-ba9e-67973337eb98")
+    @objid ("b9116627-6c41-4416-98e7-480f22aa1b9c")
     void setOwner(PropertyTableDefinition value);
+
+    /**
+     * Translates an internal string value, according to the property definition's base type.
+     * <p>
+     * Used for displaying translated value (on diagrams for example).
+     * </p>
+     * @param value
+     * 
+     * @return the translated string.
+     */
+    @objid ("ba7e86fd-d887-4038-aa44-38eafcb176bb")
+    String computeLabel(String value);
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public abstract class GmDrawing extends GmAbstractObject implements IGmDrawing {
 
     /**
      * Default constructor.
+     * 
      * @param diagram the owner diagram.
      * @param identifier the drawing identifier.
      */
@@ -149,6 +150,7 @@ public abstract class GmDrawing extends GmAbstractObject implements IGmDrawing {
      * <p>
      * Can be redefined to create another style or to return <tt>null<tt/> if
      * {@link #getStyle()} is redefined to return another style.
+     * 
      * @param aDiagram the diagram where the object will be
      * @return the created style or <tt>null</tt> if the creation is postponed
      */
@@ -225,6 +227,7 @@ public abstract class GmDrawing extends GmAbstractObject implements IGmDrawing {
 
     /**
      * To be redefined by sub classes that used hyper link stored in style keys.
+     * 
      * @return the style key name where hyper link was stored.
      * @since 3.7
      */

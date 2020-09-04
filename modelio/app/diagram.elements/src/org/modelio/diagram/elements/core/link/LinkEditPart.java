@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -150,6 +150,7 @@ public class LinkEditPart extends AbstractConnectionEditPart implements Property
      * <p>
      * Extends {@link AbstractConnectionEditPart#getAdapter(Class)} to support {@link MObject}, {@link IGmObject}, {@link GmModel} and their subclasses.
      * @see IAdaptable#getAdapter(Class)
+     * 
      * @param adapter the adapter class to look up
      * @return a object castable to the given class, or <code>null</code> if this object does not have an adapter for the given class
      */
@@ -386,6 +387,7 @@ public class LinkEditPart extends AbstractConnectionEditPart implements Property
 
     /**
      * Get the connection router registry.
+     * 
      * @return the connection router registry.
      */
     @objid ("801e5c0f-1dec-11e2-8cad-001ec947c8cc")
@@ -395,6 +397,7 @@ public class LinkEditPart extends AbstractConnectionEditPart implements Property
 
     /**
      * Convenience method to get the {@link GmLink} model.
+     * 
      * @return the link model.
      */
     @objid ("801e5c14-1dec-11e2-8cad-001ec947c8cc")
@@ -424,6 +427,7 @@ public class LinkEditPart extends AbstractConnectionEditPart implements Property
 
     /**
      * Get the current connection routing mode.
+     * 
      * @return the connection routing mode.
      */
     @objid ("801e5c2a-1dec-11e2-8cad-001ec947c8cc")
@@ -433,6 +437,7 @@ public class LinkEditPart extends AbstractConnectionEditPart implements Property
 
     /**
      * Refresh source and target decoration line color, width and pattern from the style
+     * 
      * @param connection The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -478,6 +483,7 @@ public class LinkEditPart extends AbstractConnectionEditPart implements Property
      * Refresh the figure from the given style. This implementation updates pen and brush properties if applicable. StyleKey are looked up by MetaKey.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
+     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -587,6 +593,7 @@ public class LinkEditPart extends AbstractConnectionEditPart implements Property
      * Change the source or destination of the link given by the request.
      * <p>
      * Unmask the element if it is not displayed in the diagram. Updates the model, the graphic model and the view.
+     * 
      * @param newEndElement the new source/destination
      * @param request The reconnect request.
      */
@@ -792,6 +799,7 @@ public class LinkEditPart extends AbstractConnectionEditPart implements Property
 
     /**
      * Update the connection router, the edit policies and the drag tracker from the model routing style.
+     * 
      * @param cnx The connection figure
      */
     @objid ("8020be7e-1dec-11e2-8cad-001ec947c8cc")
@@ -854,6 +862,7 @@ public class LinkEditPart extends AbstractConnectionEditPart implements Property
      * Find the root edit part this ConnectionEditPart should be owned by.
      * <p>
      * For most link it is anEditPart.getRoot(), except for cross diagram connections for which the parent must be the root edit part of the connection diagram.
+     * 
      * @param anEditPart the source or target of the connection
      * @return the root edit part this ConnectionEditPart should be owned by.
      */

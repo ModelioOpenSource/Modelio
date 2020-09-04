@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,7 @@ public abstract class AbstractModulePropertyPage implements IModulePropertyPage 
 
     /**
      * Constructors of this abstract property page.
+     * 
      * @param module module that is associated to the property page
      * @param name the name of the property page.
      * @param label the label of the property page.

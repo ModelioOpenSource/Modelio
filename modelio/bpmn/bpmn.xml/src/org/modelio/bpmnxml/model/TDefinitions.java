@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -327,6 +327,7 @@ public class TDefinitions {
 
     /**
      * Sets the value of the id property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -348,6 +349,7 @@ public class TDefinitions {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -369,6 +371,7 @@ public class TDefinitions {
 
     /**
      * Sets the value of the targetNamespace property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -394,6 +397,7 @@ public class TDefinitions {
 
     /**
      * Sets the value of the expressionLanguage property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -419,6 +423,7 @@ public class TDefinitions {
 
     /**
      * Sets the value of the typeLanguage property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -440,6 +445,7 @@ public class TDefinitions {
 
     /**
      * Sets the value of the exporter property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -461,6 +467,7 @@ public class TDefinitions {
 
     /**
      * Sets the value of the exporterVersion property.
+     * 
      * @param value allowed object is
      * {@link String }
      */

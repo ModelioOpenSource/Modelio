@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -183,6 +183,7 @@ public class ElementCreationStandardHandler extends DefaultModuleCommandHandler 
      * <p>
      * Deleting "newElement" in this method triggers an automatic rollback for the current transaction.
      * </p>
+     * 
      * @param newElement the new created element
      * @param module the module
      */

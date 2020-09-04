@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class OInternalTransition extends OTransition {
 
     /**
      * Constructor
+     * 
      * @param param : the exported Modelio InternalTransition
      */
     @objid ("41f3b24d-7c7c-4413-a036-950a3bd04db4")
@@ -79,7 +80,7 @@ public class OInternalTransition extends OTransition {
         String received = objingElement.getReceivedEvents();
         
         org.eclipse.uml2.uml.State ecoreState = (org.eclipse.uml2.uml.State) GenerationProperties.getInstance().getMappedElement(objingElement.getSComposed());
-               
+        
         if (received != null) {
             if  (received.equals("Entry")){
                 ecoreState.setEntry(this.ecoreOpaqueBehavior);               
@@ -96,17 +97,20 @@ public class OInternalTransition extends OTransition {
     @objid ("3a7d26d8-1237-4082-8aed-01f7b2ee6695")
     private void setAdditionalValues() {
         InternalTransition internalTransition = (InternalTransition) getObjingElement();
+        GenerationProperties genProp = GenerationProperties.getInstance();
+        
         if (this.ecoreOpaqueBehavior != null){
-            if (internalTransition.getEffect() != null)
-                ObjingEAnnotation.setEffect(this.ecoreOpaqueBehavior, internalTransition.getEffect());
+            if (genProp.isRoundtripEnabled()){
+                if (internalTransition.getEffect() != null)
+                    ObjingEAnnotation.setEffect(this.ecoreOpaqueBehavior, internalTransition.getEffect());
         
-            if (internalTransition.getPostCondition() != null)
-                ObjingEAnnotation.setPostCondition(this.ecoreOpaqueBehavior, internalTransition.getPostCondition());
-        
+                if ((internalTransition.getPostCondition() != null) && (genProp.isRoundtripEnabled()))
+                    ObjingEAnnotation.setPostCondition(this.ecoreOpaqueBehavior, internalTransition.getPostCondition());
+            }
         }else{
             String message = Xmi.I18N.getMessage("logFile.warning.export.internalTransitionHaveNotBehavior", 
                     internalTransition.getReceivedEvents(), internalTransition.getSComposed().getName());
-            GenerationProperties.getInstance().addWarning(message, internalTransition);
+            genProp.addWarning(message, internalTransition);
         }
     }
 

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Returns a DiagramGraphic for the given model. Can be either a DiagramNode or a DiagramLink.
+     * 
      * @param diagramHandle a handle to the diagram
      * @param gmModel the model.
      * @return a {@link DiagramGraphic}
@@ -99,6 +100,7 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Return a list of DiagramGraphics for each given model. Can be mixed {@link DiagramNode}s and {@link DiagramLink}s
+     * 
      * @param diagramHandle a handle to the diagram
      * @param models the models
      * @return a list of {@link DiagramGraphic}
@@ -153,6 +155,7 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Return a list of DiagramNode for each given model.
+     * 
      * @param diagramHandle a handle to the diagram
      * @param models the models
      * @return a list of {@link DiagramNode}
@@ -171,6 +174,7 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Returns a DiagramGraphic for the given model. Can be either a DiagramNode or a DiagramLink.
+     * 
      * @param diagramHandle a handle to the diagram
      * @param gmModel the model.
      * @return a {@link DiagramGraphic}
@@ -203,6 +207,7 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Return a list of {@link IDiagramLayer} for each given model.
+     * 
      * @param diagramHandle a handle to the diagram
      * @param models the models
      * @return a list of {@link IDiagramLayer}
@@ -221,6 +226,7 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Returns a {@link IDiagramLayer} for the given model.
+     * 
      * @param diagramHandle the diagram in which the model is shown.
      * @param gm the model.
      * @return a {@link IDiagramLayer}
@@ -232,6 +238,7 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Returns a {@link IDiagramLink} for the given drawing link model.
+     * 
      * @param diagramHandle the diagram in which the model is shown.
      * @param gmLinkModel the drawing link model.
      * @return a {@link IDiagramLink}

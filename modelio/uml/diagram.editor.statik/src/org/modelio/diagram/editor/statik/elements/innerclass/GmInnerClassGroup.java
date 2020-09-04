@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,6 +25,7 @@ import org.modelio.diagram.elements.common.group.GmGroup;
 import org.modelio.diagram.elements.common.label.base.GmElementLabel;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
@@ -56,6 +57,7 @@ public class GmInnerClassGroup extends GmGroup {
 
     /**
      * Creates an inner classes group.
+     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
@@ -94,8 +96,8 @@ public class GmInnerClassGroup extends GmGroup {
     @objid ("3527cb03-55b7-11e2-877f-002564c97630")
     @Override
     public boolean isVisible() {
-        GmInnerClass parent = (GmInnerClass) getParent();
-        if (parent != null && parent.getRepresentationMode() != null && parent.getRepresentationMode() == RepresentationMode.STRUCTURED && parent.isVisible()) {
+        GmCompositeNode parent = getParentNode();
+        if (parent != null && parent.isVisible() && parent.getRepresentationMode() == RepresentationMode.STRUCTURED) {
             StyleKey viewModeStyleKey = getViewModeStyleKey();
             if (viewModeStyleKey == null) {
                 return false;

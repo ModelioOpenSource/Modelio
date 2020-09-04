@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
 
     /**
      * Returns the FreeformHelper.
+     * 
      * @return the FreeformHelper
      */
     @objid ("2e57e082-5840-4878-9898-b7d8bafdcb59")
@@ -149,6 +150,7 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
      * Set a filter to use when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
+     * 
      * @param f an extent filter.
      */
     @objid ("0acc2c67-9206-4627-a459-eacc0f219de1")
@@ -161,6 +163,7 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
      * Get the filter used when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
+     * 
      * @return an extent filter.
      */
     @objid ("7b234742-0ecf-4b04-abed-f238f9276631")

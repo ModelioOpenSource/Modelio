@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public final class RakeConnectionHelper implements IConnectionHelper {
 
     /**
      * Updates this path from the given connection creation raw data.
+     * 
      * @param req The connection creation raw data.
      */
     @objid ("80506d80-1dec-11e2-8cad-001ec947c8cc")
@@ -98,6 +99,7 @@ public final class RakeConnectionHelper implements IConnectionHelper {
 
     /**
      * Get the path routing mode.
+     * 
      * @return the path routing mode.
      */
     @objid ("80506d86-1dec-11e2-8cad-001ec947c8cc")
@@ -108,6 +110,7 @@ public final class RakeConnectionHelper implements IConnectionHelper {
 
     /**
      * constructor from serialized data
+     * 
      * @param serializedData serialized data.
      * @param connection the routed connection
      */
@@ -119,6 +122,7 @@ public final class RakeConnectionHelper implements IConnectionHelper {
 
     /**
      * Creates a rake helper from a raw path data.
+     * 
      * @param req a raw path data.
      * @param connection the routed connection
      */

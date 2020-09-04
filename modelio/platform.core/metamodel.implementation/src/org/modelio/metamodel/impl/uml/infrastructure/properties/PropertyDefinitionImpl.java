@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,19 +19,22 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementImpl;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.metamodel.uml.infrastructure.properties.PropertyBaseType;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyType;
@@ -55,7 +58,7 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
     @Override
     public Object convertToObject(String value, ModelElement object) {
         // If there is no base type, can only return the string
-        if (getType().getBaseType() == null) {
+        if (getType() == null || getType().getBaseType() == null) {
             return value;
         }
         
@@ -94,21 +97,21 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
             return null;
         case TIME:
             if (value == null || value.isEmpty()) {
-                return new Date();
+                return null;
             }
             try {
                 return new Date(Long.parseLong(value));
             } catch (@SuppressWarnings ("unused") final NumberFormatException e) {
-                return new Date();
+                return null;
             }
         case DATE:
             if (value == null || value.isEmpty()) {
-                return new Date();
+                return null;
             }
             try {
                 return new Date(Long.parseLong(value));
             } catch (@SuppressWarnings ("unused") final NumberFormatException e) {
-                return new Date();
+                return null;
             }
         case MULTIELEMENT:
             if (value != null) {
@@ -148,7 +151,8 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
             return "";
         }
         
-        switch (getType().getBaseType()) {
+        PropertyType type = getType();
+        switch (type != null ? type.getBaseType() : PropertyBaseType.TEXT) {
         case BOOLEAN:
             return value instanceof Boolean ? Boolean.toString((Boolean) value) : value.toString();
         case ENUMERATE:
@@ -206,70 +210,70 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
         }
     }
 
-    @objid ("7b6e45ae-5d07-44da-83f5-31fbc4415636")
+    @objid ("05cacdc4-5596-4c06-b552-c6df6728f2e4")
     @Override
     public boolean isIsEditable() {
         return (Boolean) getAttVal(((PropertyDefinitionSmClass) getClassOf()).getIsEditableAtt());
     }
 
-    @objid ("90957c36-7a5c-4abf-bd67-eeaff76580c2")
+    @objid ("fd8a62ac-6f72-42f0-891e-d1c654dc38e0")
     @Override
     public void setIsEditable(boolean value) {
         setAttVal(((PropertyDefinitionSmClass) getClassOf()).getIsEditableAtt(), value);
     }
 
-    @objid ("fecee775-78c1-441e-bbc4-329b618a8379")
+    @objid ("d208ceaa-0b08-4279-a719-e2ee8284edba")
     @Override
     public String getDefaultValue() {
         return (String) getAttVal(((PropertyDefinitionSmClass) getClassOf()).getDefaultValueAtt());
     }
 
-    @objid ("a0db1ae9-6524-4d6a-90cb-94c9110bcdcc")
+    @objid ("80849511-0bba-4fb7-b3b8-428cf4a3f3eb")
     @Override
     public void setDefaultValue(String value) {
         setAttVal(((PropertyDefinitionSmClass) getClassOf()).getDefaultValueAtt(), value);
     }
 
-    @objid ("2caec450-5053-4285-a6cd-907f2ce19827")
+    @objid ("4f5a5c39-c66e-4714-86ef-32db172df9e6")
     @Override
     public PropertyType getType() {
         Object obj = getDepVal(((PropertyDefinitionSmClass) getClassOf()).getTypeDep());
-        return (obj instanceof PropertyType) ? (PropertyType) obj : null;
+        return obj instanceof PropertyType ? (PropertyType) obj : null;
     }
 
-    @objid ("cc0d7e24-8cb2-49b1-a3dd-41b06716551c")
+    @objid ("1c6e3022-f4e8-4406-9184-dfc772eaf52f")
     @Override
     public void setType(PropertyType value) {
         appendDepVal(((PropertyDefinitionSmClass) getClassOf()).getTypeDep(), (SmObjectImpl) value);
     }
 
-    @objid ("1f7ba5f2-9818-4540-b61e-d0b8792d2708")
+    @objid ("bbbc5b15-49d0-45eb-baf8-eeb223a294c7")
     @Override
     public PropertyTableDefinition getOwner() {
         Object obj = getDepVal(((PropertyDefinitionSmClass) getClassOf()).getOwnerDep());
-        return (obj instanceof PropertyTableDefinition) ? (PropertyTableDefinition) obj : null;
+        return obj instanceof PropertyTableDefinition ? (PropertyTableDefinition) obj : null;
     }
 
-    @objid ("f973d22b-d818-44b8-9a28-32eeea76ae62")
+    @objid ("9a3917e5-84e9-4c90-a0c4-6d9d10fc3e6a")
     @Override
     public void setOwner(PropertyTableDefinition value) {
         appendDepVal(((PropertyDefinitionSmClass) getClassOf()).getOwnerDep(), (SmObjectImpl) value);
     }
 
-    @objid ("38d2d6fb-9768-459f-b691-3c7997df10b9")
+    @objid ("59d66b8f-e74f-4603-9313-8077f387ceb7")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
         SmObjectImpl obj;
         // Owner
-        obj = (SmObjectImpl) this.getDepVal(((PropertyDefinitionSmClass) getClassOf()).getOwnerDep());
+        obj = (SmObjectImpl) getDepVal(((PropertyDefinitionSmClass) getClassOf()).getOwnerDep());
         if (obj != null) {
             return obj;
         }
         return super.getCompositionOwner();
     }
 
-    @objid ("75ce4cb7-418f-4c0c-90ee-1a47f41be99f")
+    @objid ("d143df50-8250-4d51-b6d0-d4cbc1e995f5")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -278,17 +282,48 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
         
         // Owner
         dep = ((PropertyDefinitionSmClass) getClassOf()).getOwnerDep();
-        obj = (SmObjectImpl) this.getDepVal(dep);
+        obj = (SmObjectImpl) getDepVal(dep);
         if (obj != null) {
             return new SmDepVal(dep, obj);
         }
         return super.getCompositionRelation();
     }
 
-    @objid ("22ae5072-4632-43cb-999e-1c6a89a8f603")
+    @objid ("6843184e-98fb-4972-8e32-2b48908e5a65")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitPropertyDefinition(this);
+    }
+
+    @objid ("63f1768b-2744-4a81-970b-23b1521eb101")
+    @Override
+    public String computeLabel(String value) {
+        if (value == null || value.isEmpty()) {
+            return "";
+        }
+        
+        switch (getType().getBaseType()) {
+        case DATE:
+            DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.getDefault());
+            try {
+                Date date = new Date(Long.parseLong(value));
+                return dateFormatter.format(date.getTime());
+            } catch (@SuppressWarnings ("unused") final NumberFormatException e) {
+                Date date = new Date();
+                return dateFormatter.format(date.getTime());
+            }
+        case TIME:
+            DateFormat timeFormatter = DateFormat.getTimeInstance(DateFormat.DEFAULT, Locale.getDefault());
+            try {
+                Date date = new Date(Long.parseLong(value));
+                return timeFormatter.format(date.getTime());
+            } catch (@SuppressWarnings ("unused") final NumberFormatException e) {
+                Date date = new Date();
+                return timeFormatter.format(date.getTime());
+            }
+        default:
+            return value;
+        }
     }
 
 }

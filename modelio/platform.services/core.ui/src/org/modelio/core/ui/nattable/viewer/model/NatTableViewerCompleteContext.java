@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -74,6 +74,7 @@ public class NatTableViewerCompleteContext implements INatTableViewerContext {
 
     /**
      * Initialize with an eclipse context.
+     * 
      * @param context an eclipse context to get Modelio services from.
      */
     @objid ("a3696daa-3790-4a00-8ab4-2867afd5473c")
@@ -94,6 +95,15 @@ public class NatTableViewerCompleteContext implements INatTableViewerContext {
     public ICoreSession getSession() {
         ICurrentProjectService projectService = this.context.get(ICurrentProjectService.class);
         return projectService != null ? projectService.getSession() : null;
+    }
+
+    @objid ("002d3dd1-b5d2-44a3-a734-bb3be4c9aeca")
+    @Override
+    public <T> T getService(Class<T> clazz) {
+        if (clazz == IEclipseContext.class) {
+            return (T) this.context;
+        }
+        return this.context.get(clazz);
     }
 
 }

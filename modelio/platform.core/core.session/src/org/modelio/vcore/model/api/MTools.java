@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -110,6 +110,7 @@ public class MTools {
 
     /**
      * Get the model tools from a model object.
+     * 
      * @param obj a model object
      * @return the tools for the project of this model object.
      */
@@ -120,6 +121,7 @@ public class MTools {
 
     /**
      * Get the model tools for a project.
+     * 
      * @param session an opened core session.
      * @return the tools for this project.
      */
@@ -149,6 +151,7 @@ public class MTools {
 
     /**
      * Get the service used to get a model factory.
+     * 
      * @return the model factories service.
      * @since 3.6
      */
@@ -159,6 +162,7 @@ public class MTools {
 
     /**
      * Get the service used to get a model factory.
+     * 
      * @return the model factories service.
      * @deprecated renamed to {@link #getModelFactories()} since 3.6 .
      */
@@ -172,6 +176,7 @@ public class MTools {
      * Get a specific model factory.
      * <p>
      * This is a convenience method replacing <code>{@link #getModelFactories()}.{@link IModelFactoryService#getFactory(Class) getFactory(Class<? extends IModelFactory>)}</code>
+     * 
      * @param factoryCls the model factory interface class.
      * @return the matching model factory
      * @throws java.lang.IllegalArgumentException if there is no model factory implementing the class or interface.
@@ -193,6 +198,7 @@ public class MTools {
      * Initialize {@link MTools} so that {@link #getModelTool()} and {@link #getAuthTool()} work.
      * <p>
      * This method should be called by GProject on first open.
+     * 
      * @param modelTool the model tool
      * @param authTool the auth tool
      */
@@ -216,6 +222,7 @@ public class MTools {
      * Private constructor.
      * <p>
      * Builds all project related tools.
+     * 
      * @param proj the related project
      */
     @objid ("39f94803-cd04-479d-8745-c361c0d011da")

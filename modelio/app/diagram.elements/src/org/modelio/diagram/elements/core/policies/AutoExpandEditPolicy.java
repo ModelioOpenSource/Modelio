@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -82,6 +82,7 @@ public class AutoExpandEditPolicy extends GraphicalEditPolicy {
      * Called by an edit part listener when a child edit part is added.
      * <p>
      * Try to expand the container to fit all children.
+     * 
      * @param child the added edit part
      */
     @objid ("ab42772c-e03e-4f28-866c-3789253bbaff")

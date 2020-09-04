@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ import org.modelio.diagram.elements.core.link.SelectConnectionEditPartTracker;
 public class LinkToVoidEditPartTracker extends SelectConnectionEditPartTracker {
     /**
      * Initialize the tracker.
+     * 
      * @param owner Connection edit part that creates and owns the tracker object
      */
     @objid ("7ece308e-1dec-11e2-8cad-001ec947c8cc")

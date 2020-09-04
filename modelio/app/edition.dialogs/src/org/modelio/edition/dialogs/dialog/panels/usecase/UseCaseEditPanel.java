@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,9 +20,13 @@
 
 package org.modelio.edition.dialogs.dialog.panels.usecase;
 
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.Creatable;
+import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
@@ -34,6 +38,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.modelio.api.module.context.IModuleContext;
+import org.modelio.api.ui.form.fields.IField;
 import org.modelio.api.ui.form.fields.NoteField;
 import org.modelio.api.ui.form.fields.StringField;
 import org.modelio.api.ui.form.fields.TextField;
@@ -90,6 +95,9 @@ public class UseCaseEditPanel implements IPanelProvider {
 
     @objid ("ad6bd846-846d-4536-9ce7-4a151bf721af")
     private IModuleContext genericModuleContext;
+
+    @objid ("5fd97c26-46fb-4b50-9066-f9a471d1b222")
+    protected List<IField> fields = new ArrayList<>();
 
     @objid ("957f5db5-9913-4ed5-9248-4bd233333671")
     @Override
@@ -176,6 +184,28 @@ public class UseCaseEditPanel implements IPanelProvider {
         if (firstTime || isDisposed) {
             createFormFields(this.form.getBody());
             // this.form.getShell().pack(true);
+            PropertyChangeListener listener = (ev) -> {
+                IField f = (IField) ev.getSource();
+                String err = f.getValidationError() ;
+            
+                // Save the field value in the model if it is valid.
+                // If invalid, reset the field to the value in model.
+                if (err == null) {
+                    f.apply();
+                } else {
+                    f.refresh();
+                }
+                
+                if (err == null) {
+                    this.form.getMessageManager().removeMessages(f.getControl());
+                } else {
+                    this.form.getMessageManager().addMessage(f, err, null, IMessageProvider.ERROR, f.getControl());
+                }
+            };
+            
+            for (IField f : this.fields) {
+                f.addPropertyChangeListener(listener);
+            }
         }
         
         this.form.setText(this.uc.getName());
@@ -186,6 +216,7 @@ public class UseCaseEditPanel implements IPanelProvider {
     @objid ("5e03ab04-4672-4d24-a76d-0ea6de3478a8")
     void createFormFields(Composite comp) {
         // The fields
+        this.fields.clear();
         
         // Name
         IFormFieldData data = new UseCaseFieldData(this.uc, UseCaseFieldData.FieldID.NAME);
@@ -193,6 +224,7 @@ public class UseCaseEditPanel implements IPanelProvider {
         this.name.getComposite().setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
         this.name.setHelpText(EditionDialogs.I18N.getString("UseCaseEditPanel.ucName.help"));
         this.name.setVertical(false);
+        this.fields.add(this.name);
         
         final CTabFolder folder = new CTabFolder(comp, SWT.BORDER | SWT.TOP);
         folder.setTabHeight(-1);
@@ -212,6 +244,7 @@ public class UseCaseEditPanel implements IPanelProvider {
         this.description.getComposite().setLayoutData(ld_description);
         this.description.setHelpText(EditionDialogs.I18N.getString("UseCaseEditPanel.ucDescription.help"));
         this.description.setVertical(true);
+        this.fields.add(this.description);
         
         tab1.setControl(this.description.getComposite());
         
@@ -240,6 +273,7 @@ public class UseCaseEditPanel implements IPanelProvider {
         this.exceptions.getComposite().setLayoutData(ld_exceptions);
         this.exceptions.setHelpText(EditionDialogs.I18N.getString("UseCaseEditPanel.ucExceptions.help"));
         this.exceptions.setVertical(true);
+        this.fields.add(this.exceptions);
         
         tab2.setControl(exceptionGroup);
         
@@ -267,6 +301,7 @@ public class UseCaseEditPanel implements IPanelProvider {
         this.preConditions.getComposite().setLayoutData(ld_preConditions);
         this.preConditions.setVertical(true);
         this.preConditions.setHelpText(EditionDialogs.I18N.getString("UseCaseEditPanel.ucPreConditions.help"));
+        this.fields.add(this.preConditions);
         
         // post-conditions field
         data = new UseCaseFieldData(this.uc, UseCaseFieldData.FieldID.POSTCOND);
@@ -276,6 +311,7 @@ public class UseCaseEditPanel implements IPanelProvider {
         this.postConditions.getComposite().setLayoutData(ld_postConditions);
         this.postConditions.setHelpText(EditionDialogs.I18N.getString("UseCaseEditPanel.ucPostConditions.help"));
         this.postConditions.setVertical(true);
+        this.fields.add(this.postConditions);
         
         tab3.setControl(conditionsGroup);
         
@@ -303,6 +339,7 @@ public class UseCaseEditPanel implements IPanelProvider {
         this.constraints.getComposite().setLayoutData(ld_constraints);
         this.constraints.setHelpText(EditionDialogs.I18N.getString("UseCaseEditPanel.ucConstraints.help"));
         this.constraints.setVertical(true);
+        this.fields.add(this.constraints);
         
         // non-functional constraints field
         data = new UseCaseFieldData(this.uc, UseCaseFieldData.FieldID.NFCONSTRAINTS);
@@ -312,6 +349,7 @@ public class UseCaseEditPanel implements IPanelProvider {
         this.nonFuncConstraints.getComposite().setLayoutData(ld_nonFuncConstraints);
         this.nonFuncConstraints.setHelpText(EditionDialogs.I18N.getString("UseCaseEditPanel.ucNonFunctionalConstraints.help"));
         this.nonFuncConstraints.setVertical(true);
+        this.fields.add(this.nonFuncConstraints);
         tab4.setControl(constraintsGroup);
         
         folder.setSelection(tab1);
@@ -357,6 +395,7 @@ public class UseCaseEditPanel implements IPanelProvider {
     /**
      * E4 Constructor.
      * @param genericModulecontext a generic module context
+     * 
      * @param projectService the project service
      */
     @objid ("0d778af1-ea9a-4637-9d18-1413cf2018f5")

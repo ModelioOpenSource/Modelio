@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class InternalTransitionPropertyModel extends AbstractPropertyModel<Inter
     /**
      * Create a new <i>InternalTransition</i> data model from an
      * <i>InternalTransition</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("9c384417-a771-4009-9530-384b4d3d0793")
@@ -77,6 +78,7 @@ public class InternalTransitionPropertyModel extends AbstractPropertyModel<Inter
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("4c56fa14-65ad-4925-bbb9-980cb9738427")
@@ -87,6 +89,7 @@ public class InternalTransitionPropertyModel extends AbstractPropertyModel<Inter
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("b9dd4d8f-0bb1-4b83-ba04-b4d5cdbc310a")
@@ -99,6 +102,7 @@ public class InternalTransitionPropertyModel extends AbstractPropertyModel<Inter
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -147,6 +151,7 @@ public class InternalTransitionPropertyModel extends AbstractPropertyModel<Inter
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -184,6 +189,7 @@ public class InternalTransitionPropertyModel extends AbstractPropertyModel<Inter
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -248,6 +254,7 @@ public class InternalTransitionPropertyModel extends AbstractPropertyModel<Inter
     protected static class TransitionEffectType {
         /**
          * Get the effect of a transition
+         * 
          * @param t a Transition
          * @return a String, an Operation or a Behavior
          */
@@ -269,6 +276,7 @@ public class InternalTransitionPropertyModel extends AbstractPropertyModel<Inter
 
         /**
          * Set the effect of a Transition
+         * 
          * @param t a Transition
          * @param value a String, an Operation or a Behavior
          */
@@ -328,6 +336,7 @@ public class InternalTransitionPropertyModel extends AbstractPropertyModel<Inter
     protected static class TransitionSentType {
         /**
          * Get the sent signal of a transition
+         * 
          * @param t a Transition
          * @return a String, or a Signal
          */
@@ -344,6 +353,7 @@ public class InternalTransitionPropertyModel extends AbstractPropertyModel<Inter
 
         /**
          * Set the signal sent from a Transition
+         * 
          * @param t a Transition
          * @param value a String or a Signal
          */

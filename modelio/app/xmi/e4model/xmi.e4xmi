@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_8KapMIkZEeWbO4MnNK7ogg">
-  <imports xsi:type="menu:Menu" xmi:id="_loNtwACdEeaDgIFl5pnvCw" elementId="org.modelio.model.browser.view.popupmenu.interop.import"/>
-  <imports xsi:type="menu:Menu" xmi:id="_si7dIACdEeaDgIFl5pnvCw" elementId="org.modelio.model.browser.view.popupmenu.interop.export"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_7fEgQJL9EeKzwNCVVnW3jA" featurename="commands" parentElementId="org.modelio.app.application">
     <elements xsi:type="commands:Command" xmi:id="_6O5EENJyEeKUafBn9f5aXg" elementId="xmi.command.import" commandName="%importxmi.name"/>
     <elements xsi:type="commands:Command" xmi:id="__sPoENM3EeKf_7glQmJA1Q" elementId="xmi.command.export" commandName="%exportxmi.name"/>

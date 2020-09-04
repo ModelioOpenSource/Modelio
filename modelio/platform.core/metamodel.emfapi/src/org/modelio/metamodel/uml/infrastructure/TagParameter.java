@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -41,13 +41,13 @@ public interface TagParameter extends Element {
     /**
      * The metaclass simple name.
      */
-    @objid ("c50a802a-4840-4d90-a7b7-a9e1b2929384")
+    @objid ("457e11b9-2856-4155-a811-15448dd394f1")
     public static final String MNAME = "TagParameter";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("9968c81f-107d-485a-a94f-fafba36e73b6")
+    @objid ("9b278438-3270-4a54-8be1-f14b8835cc20")
     public static final String MQNAME = "Infrastructure.TagParameter";
 
     /**
@@ -56,7 +56,7 @@ public interface TagParameter extends Element {
      * Metamodel description:
      * <i>Parameter value.</i>
      */
-    @objid ("9a1574a7-bcc2-4119-af28-8dbcb4d17795")
+    @objid ("70e774e4-492a-4775-b94b-ddb2b0df05e0")
     String getValue();
 
     /**
@@ -65,7 +65,7 @@ public interface TagParameter extends Element {
      * Metamodel description:
      * <i>Parameter value.</i>
      */
-    @objid ("b4f520a8-bfd6-4b61-b20c-23ea55b4c182")
+    @objid ("88eae0bc-e11f-4eee-8de8-f6c3d97020cc")
     void setValue(String value);
 
     /**
@@ -74,7 +74,7 @@ public interface TagParameter extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("3951d673-fb6f-49b6-96c7-313baa6278b6")
+    @objid ("39b31746-59ef-4716-bbb8-0581999842ee")
     TaggedValue getAnnoted();
 
     /**
@@ -83,7 +83,7 @@ public interface TagParameter extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("bdc40b9b-3f7a-4ec1-aa5d-0b3d419e6e9b")
+    @objid ("e91753f3-5b81-4f89-9b0e-33ec46ed3840")
     void setAnnoted(TaggedValue value);
 
     /**
@@ -92,7 +92,7 @@ public interface TagParameter extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("a73fdfff-68b5-40ba-b97d-110437ba9938")
+    @objid ("85f056c8-135f-4568-a5c8-e579d752ae51")
     TaggedValue getQualified();
 
     /**
@@ -101,7 +101,7 @@ public interface TagParameter extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("814d3a04-4b1a-4040-a1ae-f4f8ecade259")
+    @objid ("805d490f-1297-4269-a330-684e1c431315")
     void setQualified(TaggedValue value);
 
 }

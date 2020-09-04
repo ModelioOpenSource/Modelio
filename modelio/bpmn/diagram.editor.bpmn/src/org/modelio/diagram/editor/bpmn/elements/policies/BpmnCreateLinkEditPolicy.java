@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class BpmnCreateLinkEditPolicy extends DefaultCreateLinkEditPolicy {
 
     /**
      * C'tor.
+     * 
      * @param isOpaque determines the behavior of this policy on request where the creation expert doesn't allow.
      */
     @objid ("89f77598-7580-4d96-92ac-f5d75bb62162")

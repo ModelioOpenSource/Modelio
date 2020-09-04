@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -82,6 +82,7 @@ public class GmLinkLayoutEditPolicy extends LayoutEditPolicy {
 
     /**
      * Returns the <code>Command</code> to resize a group of children.
+     * 
      * @param request the ChangeBoundsRequest
      * @return the Command
      */
@@ -124,6 +125,7 @@ public class GmLinkLayoutEditPolicy extends LayoutEditPolicy {
      * Decorates the child with a {@link EditPolicy#PRIMARY_DRAG_ROLE} such as {@link ResizableEditPolicy}.
      * <p>
      * Redefined to do nothing if {@link #createChildEditPolicy(EditPart)} returns <code>null</code>.
+     * 
      * @param child the child EditPart being decorated
      */
     @objid ("8023210e-1dec-11e2-8cad-001ec947c8cc")

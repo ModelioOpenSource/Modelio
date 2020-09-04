@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Get the fill color.
+     * 
      * @return the fill color.
      */
     @objid ("d8e68b3e-55b6-11e2-877f-002564c97630")
@@ -73,6 +74,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Returns the Rectangle around which handles are to be placed. The Rectangle should be in the same coordinate system as the figure itself.
+     * 
      * @return The rectangle used for handles
      */
     @objid ("d8e68b44-55b6-11e2-877f-002564c97630")
@@ -83,6 +85,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Get the line color.
+     * 
      * @return the line color.
      */
     @objid ("d8e68b4a-55b6-11e2-877f-002564c97630")
@@ -93,6 +96,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Get the line pattern
+     * 
      * @return lineStyle the line style See {@link LinePattern}
      */
     @objid ("d8e68b50-55b6-11e2-877f-002564c97630")
@@ -103,6 +107,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Get the line width.
+     * 
      * @return the line width.
      */
     @objid ("d8e68b58-55b6-11e2-877f-002564c97630")
@@ -113,6 +118,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Get the text color.
+     * 
      * @return the text color.
      */
     @objid ("d8e68b5e-55b6-11e2-877f-002564c97630")
@@ -123,6 +129,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Get the text font.
+     * 
      * @return the text font.
      */
     @objid ("d8e811bb-55b6-11e2-877f-002564c97630")
@@ -133,6 +140,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Tells whether the background is filled with a gradient.
+     * 
      * @return true if the background is filled with a gradient, false in the other case.
      */
     @objid ("d8e811c1-55b6-11e2-877f-002564c97630")
@@ -143,6 +151,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set the fill color.
+     * 
      * @param fillColor the fill color.
      */
     @objid ("d8e811c7-55b6-11e2-877f-002564c97630")
@@ -153,6 +162,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set the line(s) color.
+     * 
      * @param lineColor the line color.
      */
     @objid ("d8e811cc-55b6-11e2-877f-002564c97630")
@@ -165,6 +175,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
      * Sets the line pattern to the argument, which must be one of the constants
      * 
      * {@link LinePattern}
+     * 
      * @param lineStyle the new style
      */
     @objid ("d8e811d1-55b6-11e2-877f-002564c97630")
@@ -175,6 +186,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set the line(s) width.
+     * 
      * @param lineWidth the line(s) width.
      */
     @objid ("d8e811d8-55b6-11e2-877f-002564c97630")
@@ -185,6 +197,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set the text color.
+     * 
      * @param textColor the text color.
      */
     @objid ("d8e811dd-55b6-11e2-877f-002564c97630")
@@ -195,6 +208,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set the text font.
+     * 
      * @param textFont the text font.
      */
     @objid ("d8e811e2-55b6-11e2-877f-002564c97630")
@@ -205,6 +219,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set whether the background is filled with a gradient.
+     * 
      * @param useGradient true to fill with a gradient, false to fill only with the fill color.
      */
     @objid ("d8e811e7-55b6-11e2-877f-002564c97630")

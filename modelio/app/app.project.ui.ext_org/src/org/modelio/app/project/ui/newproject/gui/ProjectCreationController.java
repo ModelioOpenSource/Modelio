@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class ProjectCreationController implements Listener, ISelectionChangedLis
 
     /**
      * Initialize the controller.
+     * 
      * @param dialog The project creation dialog
      * @param dataModel The data model
      */
@@ -79,6 +80,7 @@ public class ProjectCreationController implements Listener, ISelectionChangedLis
 
     /**
      * Check the filled data validity.
+     * 
      * @return true if the tab data is valid.
      */
     @objid ("00463a2a-cc35-1ff2-a7f4-001ec947cd2a")

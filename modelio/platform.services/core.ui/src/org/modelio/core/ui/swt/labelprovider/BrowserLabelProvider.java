@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -222,6 +222,7 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
          * @param featuresVisibility Whether or not to show the visibility in feature's labels.
          * @param namespaceVisibility Whether or not to show the visibility in namespace's
          * labels.
+         * 
          * @param element The element to get symbol
          * @return The element symbol.
          */
@@ -368,6 +369,7 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
 
         /**
          * Initialize the label service.
+         * 
          * @param elementStack a stack to use for recursive calls to
          * {@link #getLabel(Element, boolean)}
          */
@@ -379,6 +381,7 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
 
         /**
          * Append <code>"(from xxxx)"</code> to the symbol
+         * 
          * @param symbol the symbol to modify
          * @param srcObj the source object, used to compute the style of
          * <code>'xxxx'</code>

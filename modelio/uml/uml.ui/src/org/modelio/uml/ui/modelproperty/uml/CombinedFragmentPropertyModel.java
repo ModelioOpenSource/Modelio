@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class CombinedFragmentPropertyModel extends AbstractPropertyModel<Combine
     /**
      * Create a new <i>CombinedFragment</i> data model from an
      * <i>CombinedFragment</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("1ffa2d4d-e29f-4ecb-a003-bcd14659fcee")
@@ -62,6 +63,7 @@ public class CombinedFragmentPropertyModel extends AbstractPropertyModel<Combine
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("7a7474e9-69a3-4f2f-895e-8da56042c4fc")
@@ -72,6 +74,7 @@ public class CombinedFragmentPropertyModel extends AbstractPropertyModel<Combine
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("cacfdf48-69f5-4e7e-b3bd-35bd072accb1")
@@ -84,6 +87,7 @@ public class CombinedFragmentPropertyModel extends AbstractPropertyModel<Combine
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -114,6 +118,7 @@ public class CombinedFragmentPropertyModel extends AbstractPropertyModel<Combine
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -142,6 +147,7 @@ public class CombinedFragmentPropertyModel extends AbstractPropertyModel<Combine
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

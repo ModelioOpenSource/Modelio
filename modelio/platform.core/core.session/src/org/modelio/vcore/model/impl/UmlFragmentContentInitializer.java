@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class UmlFragmentContentInitializer implements IRepositoryContentInitiali
 
     /**
      * Populate the given repository using the given session.
+     * 
      * @param fragmentName the fragment name
      * @param s the session to use
      * @param repository the repository to populate.

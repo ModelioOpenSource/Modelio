@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -213,6 +213,7 @@ public class MetamodelDescriptorWriter {
 
     /**
      * Dump the metamodel descriptor to a string.
+     * 
      * @param d the descriptor to write
      * @return the XML string
      */

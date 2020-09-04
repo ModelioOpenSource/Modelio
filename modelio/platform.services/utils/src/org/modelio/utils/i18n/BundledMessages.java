@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class BundledMessages {
      * <p>
      * The internationalized string is expected to use {@link MessageFormat} pattern.
      * @see MessageFormat
+     * 
      * @param key The message key
      * @param arguments arguments for the message pattern
      * @return the internationalized message
@@ -84,6 +85,7 @@ public class BundledMessages {
 
     /**
      * Gets an internationalized string for the given key from this plugin resource bundle.
+     * 
      * @param key The string key
      * @return The internationalized string
      */
@@ -102,6 +104,7 @@ public class BundledMessages {
 
     /**
      * Return the locale currently being used by this BundledMessages
+     * 
      * @return the locale
      */
     @objid ("edf4007f-b609-48f6-ad81-dbc55ddc7bbe")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -92,9 +92,8 @@ class DiagramImageChooserListener implements SelectionListener {
         String[] filterNames = new String[] { ModelProperty.I18N.getString("StereotypeCreationDialog.ImageFiles") };
         String[] filterExtensions = new String[] { "*.png;*.bmp" };
         
-        String projectPath = "";
         GProject openedProject = this.projectService.getOpenedProject();
-        projectPath = openedProject.getProjectPath().toString();
+        String projectPath = openedProject.getProjectFileStructure().getProjectPath().toString();
         
         fileDialog.setFilterNames(filterNames);
         fileDialog.setFilterExtensions(filterExtensions);

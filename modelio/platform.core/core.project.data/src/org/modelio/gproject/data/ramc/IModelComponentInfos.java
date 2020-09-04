@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,6 +24,7 @@ import java.nio.file.Path;
 import java.nio.file.attribute.FileTime;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.gproject.data.project.IFragmentInfos;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vbasic.version.VersionedItem;
 
@@ -31,7 +32,7 @@ import org.modelio.vbasic.version.VersionedItem;
  * Model component information interface.
  */
 @objid ("0ff8a947-3918-4cab-85ee-9f968e71d6e2")
-public interface IModelComponentInfos {
+public interface IModelComponentInfos extends IFragmentInfos {
     /**
      * The manifest version.
      * <p>
@@ -54,6 +55,7 @@ public interface IModelComponentInfos {
      * @return the description.
      */
     @objid ("ce6e13f7-cf57-4725-a842-026328f892a9")
+    @Override
     String getDescription();
 
     /**
@@ -64,15 +66,18 @@ public interface IModelComponentInfos {
 
     /**
      * Get the version of Modelio used to package this RAMC.
+     * 
      * @return the Modelio version.
      */
     @objid ("5b2a2002-09a6-4655-9848-f9385ae1f64c")
+    @Override
     Version getModelioVersion();
 
     /**
      * @return this model component name.
      */
     @objid ("90859aa0-b1c7-4ee7-97c0-0d0e229bd90e")
+    @Override
     String getName();
 
     /**
@@ -97,6 +102,7 @@ public interface IModelComponentInfos {
      * @return this model component version.
      */
     @objid ("550b4736-d101-40b4-8468-c75e0dbf1202")
+    @Override
     Version getVersion();
 
     /**
@@ -129,7 +135,7 @@ public interface IModelComponentInfos {
          * @param date the date/time to set as the file modification time.
          */
         @objid ("1eb8fd9b-c40b-4494-997d-550c4e8687ce")
-        public ExportedFile(String nameInArchive, Path path, FileTime date) {
+        public ExportedFile(final String nameInArchive, final Path path, final FileTime date) {
             this.nameInArchive = nameInArchive;
             this.path = path;
             this.date = date;
@@ -139,6 +145,7 @@ public interface IModelComponentInfos {
          * Get the destination path.
          * <p>
          * This path is a relative path from the project directory.
+         * 
          * @return the destination path.
          */
         @objid ("f298608a-5f1d-4692-aea2-934bdcb40caf")

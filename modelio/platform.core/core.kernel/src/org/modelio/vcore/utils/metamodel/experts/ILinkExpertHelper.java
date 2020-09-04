@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ public interface ILinkExpertHelper {
 
     /**
      * Get a model link source
+     * 
      * @param aLink a model link.
      * @return the link source
      */
@@ -54,6 +55,7 @@ public interface ILinkExpertHelper {
 
     /**
      * Get a model link target.
+     * 
      * @param aLink a model link.
      * @return the link target.
      */
@@ -62,6 +64,7 @@ public interface ILinkExpertHelper {
 
     /**
      * Change a model link source.
+     * 
      * @param link a model link.
      * @param oldSource the old source.
      * @param newSource the new source.
@@ -72,6 +75,7 @@ public interface ILinkExpertHelper {
 
     /**
      * Change a model link target.
+     * 
      * @param link a model link.
      * @param oldTarget the old target.
      * @param newTarget the new target.

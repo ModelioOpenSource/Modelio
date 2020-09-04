@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -152,6 +152,7 @@ public class ModulePanelProvider implements IPanelProvider {
 
     /**
      * Get the current element displayed by the view.
+     * 
      * @return the model element whose notes are currently listed in the tree panel. May be null.
      */
     @objid ("c883b933-1eba-11e2-9382-bc305ba4815c")
@@ -162,6 +163,7 @@ public class ModulePanelProvider implements IPanelProvider {
 
     /**
      * Set the current element displayed by the view.
+     * 
      * @param input the model element whose note are to be listed in the tree panel. May be null, a single element or a list of elements.
      */
     @objid ("c8840750-1eba-11e2-9382-bc305ba4815c")

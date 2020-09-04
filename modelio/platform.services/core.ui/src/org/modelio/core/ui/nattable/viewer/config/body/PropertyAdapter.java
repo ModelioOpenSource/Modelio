@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 public class PropertyAdapter {
     /**
      * Get the property type as a java class.
+     * 
      * @param pdef the property definition.
      * @param value the value to get the type of.
      * @return the property type as a java class.
@@ -110,6 +111,7 @@ public class PropertyAdapter {
             }
             return new DefaultIntegerNatValue(integerValue);
         case ELEMENT:
+        case RICHTEXT:
             DefaultElementNatValue elementNatValue = new DefaultElementNatValue((MObject) value, true, getAllowedMetaclasses(pdef));
         
             Stereotype stereotype = getAllowedStereotype(pdef);
@@ -126,7 +128,7 @@ public class PropertyAdapter {
                 try {
                     timeValue = new Date(Long.parseLong((String) value));
                 } catch (@SuppressWarnings ("unused") final NumberFormatException e) {
-                    timeValue = new Date();
+                    timeValue = null;
                 }
             }
             return new DefaultTimeNatValue(timeValue);
@@ -138,7 +140,7 @@ public class PropertyAdapter {
                 try {
                     dateValue = new Date(Long.parseLong((String) value));
                 } catch (@SuppressWarnings ("unused") final NumberFormatException e) {
-                    dateValue = new Date();
+                    dateValue = null;
                 }
             }
             return new DefaultDateNatValue(dateValue);
@@ -153,7 +155,6 @@ public class PropertyAdapter {
             return multiElementNatValue;
         case MULTISTRING:
             return new DefaultMultiStringNatValue((List<String>) value, false);
-        case RICHTEXT:
         case STRING:
         case TEXT:
         default:

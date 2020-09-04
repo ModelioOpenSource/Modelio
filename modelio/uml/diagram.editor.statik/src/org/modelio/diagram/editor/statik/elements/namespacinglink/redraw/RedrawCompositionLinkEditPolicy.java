@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -135,6 +135,7 @@ public class RedrawCompositionLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Create a serializable path model from the given connection creation request.
+     * 
      * @param req a connection creation request.
      * @return A serializable path model.
      */
@@ -259,6 +260,7 @@ public class RedrawCompositionLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
+     * 
      * @param request a complete Connection creation request.
      * @return the host edit part or <code>null</code>.
      */
@@ -274,6 +276,7 @@ public class RedrawCompositionLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
+     * 
      * @param request a starting Connection creation request.
      * @return the host edit part or <code>null</code>.
      */

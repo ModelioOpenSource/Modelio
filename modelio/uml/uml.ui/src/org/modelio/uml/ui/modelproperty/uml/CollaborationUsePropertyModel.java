@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class CollaborationUsePropertyModel extends AbstractPropertyModel<Collabo
     /**
      * Create a new <i>CollaborationUse</i> data model from an
      * <i>CollaborationUse</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("1d40cc1c-f876-4789-8967-0f9245425963")
@@ -64,6 +65,7 @@ public class CollaborationUsePropertyModel extends AbstractPropertyModel<Collabo
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("d8559410-17b5-4f88-85f0-f3cc6f71ae84")
@@ -74,6 +76,7 @@ public class CollaborationUsePropertyModel extends AbstractPropertyModel<Collabo
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("44b02294-4f7e-496c-b7a3-8413fee121cc")
@@ -86,6 +89,7 @@ public class CollaborationUsePropertyModel extends AbstractPropertyModel<Collabo
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -118,6 +122,7 @@ public class CollaborationUsePropertyModel extends AbstractPropertyModel<Collabo
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -149,6 +154,7 @@ public class CollaborationUsePropertyModel extends AbstractPropertyModel<Collabo
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

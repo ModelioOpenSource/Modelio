@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Constructs a tracker for the given connection and index.
+     * 
      * @param editpart the connection
      * @param index the index of the segment
      * @param orientation the orientation of the segment
@@ -101,6 +102,7 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Convenience method to obtain the connection editpart's connection figure.
+     * 
      * @return the connection figure
      */
     @objid ("8033d15d-1dec-11e2-8cad-001ec947c8cc")
@@ -110,6 +112,7 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Returns the connection editpart on which the tracker operates.
+     * 
      * @return the connection editpart
      */
     @objid ("8033d164-1dec-11e2-8cad-001ec947c8cc")
@@ -125,6 +128,7 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Returns the index of the segment being dragged.
+     * 
      * @return the index
      */
     @objid ("8033d170-1dec-11e2-8cad-001ec947c8cc")
@@ -134,6 +138,7 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Sets the connection editpart being operated on.
+     * 
      * @param editpart the connection
      */
     @objid ("8036337e-1dec-11e2-8cad-001ec947c8cc")
@@ -143,6 +148,7 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Sets the index of the operation.
+     * 
      * @param i the index
      */
     @objid ("80363385-1dec-11e2-8cad-001ec947c8cc")
@@ -161,6 +167,7 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Sets the current orientation.
+     * 
      * @param orientation the orientation of the reference segment.
      */
     @objid ("8036338d-1dec-11e2-8cad-001ec947c8cc")

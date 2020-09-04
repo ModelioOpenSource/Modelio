@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -84,6 +84,7 @@ public class StyleLoader {
 
     /**
      * Load property values from the default settings resource file.
+     * 
      * @param url the url of the file to load the style from.
      */
     @objid ("8587fa4f-1926-11e2-92d2-001ec947c8cc")
@@ -102,6 +103,7 @@ public class StyleLoader {
 
     /**
      * Load property values from the default settings resource file.
+     * 
      * @param source the InputStream to load the style from.
      */
     @objid ("0f01ff96-9443-43d4-89fd-8f2ea17d4765")
@@ -141,6 +143,7 @@ public class StyleLoader {
     /**
      * This method tries to extract a value for the StyleKey 'sKey' from the raw properties 'loadedValues' that have been read from a property file.<br>
      * When no value can directly be extracted from 'loadedValue' the method tries to analyze 'sKey' as a MetaKey to guess a reasonable default value (asking the defaults provider if some). If nothing work, it returns null.
+     * 
      * @param loadedValues the raw loaded values from the property file
      * @param sKey the StyleKey for which the method is expected to fetch a value
      * @return the value for 'sKey' or null if none.

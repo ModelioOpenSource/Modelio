@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -78,7 +78,8 @@ public class BlobResourceHandle implements IResourceHandle {
             throw new IllegalArgumentException(String.format("%s is not an embedded resource, storage='%s'.", modelEl, info));
         }
         
-        this.fileName = matcher.group(1);
+        // Remove special chars that are forbidden in a file name
+        this.fileName = matcher.group(1).replaceAll("[\\/:\\*\\?\"<>`|]", "");
         this.repository = CoreSession.getSession(modelEl).getRepository(modelEl);
         this.blobInfo = new BlobInfo(new MRef(modelEl), IResourceHandle.BLOB_LOCAL_KEY);
     }
@@ -113,6 +114,7 @@ public class BlobResourceHandle implements IResourceHandle {
 
     /**
      * Delete the attached resource.
+     * 
      * @throws java.io.IOException on I/O failure.
      */
     @objid ("2dd0f4e6-1a39-4ba4-ba2d-f2d0c749f4cc")

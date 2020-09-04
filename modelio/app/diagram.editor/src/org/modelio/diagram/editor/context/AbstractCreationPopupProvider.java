@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.e4.ui.di.AboutToHide;
 import org.eclipse.e4.ui.di.AboutToShow;
+import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.commands.MCommand;
 import org.eclipse.e4.ui.model.application.commands.MCommandsFactory;
@@ -46,8 +47,10 @@ import org.eclipse.e4.ui.model.application.ui.menu.MMenuFactory;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenuSeparator;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.modelio.app.core.events.ModelioEventTopics;
 import org.modelio.core.ui.swt.images.MetamodelImageService;
 import org.modelio.diagram.editor.plugin.DiagramEditor;
+import org.modelio.gproject.gproject.GProject;
 import org.modelio.utils.i18n.BundledMessages;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -85,10 +88,11 @@ public abstract class AbstractCreationPopupProvider {
      * A local MCommand cache, to minimize navigation in the e4 model. Most of the time, creation popup entries use "org.modelio.app.ui.command.create.element".
      */
     @objid ("b073cb7c-ade6-43d1-8846-87fd7ad637d0")
-    private Map<String, MCommand> commandCache = new HashMap<>();
+    private final Map<String, MCommand> commandCache = new HashMap<>();
 
     /**
      * Get the bundle defining the new creation popup menu.
+     * 
      * @return An installed bundle in the Framework.
      */
     @objid ("3324e43a-562f-474f-b878-74e2f7e86248")
@@ -98,6 +102,7 @@ public abstract class AbstractCreationPopupProvider {
      * Get the i18n bundle containing all keys referenced by the current popup menu.<br/>
      * Default location is often <b>bundle/res/diagram-create-popups.properties<b/>
      * </p>
+     * 
      * @return an i18n bundle.
      */
     @objid ("e3486435-e49f-4588-a023-f2c5ac5eddf3")
@@ -105,30 +110,32 @@ public abstract class AbstractCreationPopupProvider {
 
     @objid ("c6c47d6d-00a9-463b-a209-1ba2b4917c65")
     protected URL getCreatePopupXmlFile() {
-        Bundle bundle = getBundle();
-        IPath contextualMenuContent = new Path("/res/diagram-create-popups.xml");
-        URL url = FileLocator.find(bundle, contextualMenuContent, null);
+        final Bundle bundle = getBundle();
+        final IPath contextualMenuContent = new Path("/res/diagram-create-popups.xml");
+        final URL url = FileLocator.find(bundle, contextualMenuContent, null);
         return url;
     }
 
     /**
      * Fills a dynamic creation menu with selection-compatible contributions before display. <br/>
      * Called by the rcp platform through injection.
+     * 
      * @param items the item list to fill.
      */
     @objid ("56be8b8e-9246-4ce0-a0d1-6ecb9a288226")
     @AboutToShow
-    public void aboutToShow(List<MMenuElement> items) {
+    public void aboutToShow(final List<MMenuElement> items) {
         // Initialize all possible contents if needed.
         if (this.popupEntries == null) {
             loadPopupEntries();
         }
         
+        final String contributorId = getContributorId(getBundle());
         // Add the creation menu with selection-compatible commands
-        List<CreationPopupEntryDescriptor> entries = getPopupEntries(getSelectedElement());
+        final List<CreationPopupEntryDescriptor> entries = getPopupEntries(getSelectedElement());
         if (!entries.isEmpty()) {
             // create a new handled item
-            MMenu elementCreationMenu = MMenuFactory.INSTANCE.createMenu();
+            final MMenu elementCreationMenu = MMenuFactory.INSTANCE.createMenu();
             elementCreationMenu.setLabel(getMenuLabel());
             elementCreationMenu.setIconURI(getMenuIconPath());
         
@@ -138,35 +145,37 @@ public abstract class AbstractCreationPopupProvider {
             elementCreationMenu.setVisible(true);
         
             // bound the menu to the contributing plugin
-            elementCreationMenu.setContributorURI(getContributorId(getBundle()));
+            elementCreationMenu.setContributorURI(contributorId);
         
             // add creation items
-            elementCreationMenu.getChildren().addAll(createMenuItems(entries));
+            elementCreationMenu.getChildren().addAll(createMenuItems(entries, contributorId));
         
             // bind the new menu to the popup
             items.add(elementCreationMenu);
         
             // Add a separator
-            MMenuSeparator separator = MMenuFactory.INSTANCE.createMenuSeparator();
+            final MMenuSeparator separator = MMenuFactory.INSTANCE.createMenuSeparator();
+            separator.setContributorURI(contributorId);
             items.add(separator);
         }
     }
 
     @objid ("4d9645ee-6631-4a39-8107-33070308ce54")
     @AboutToHide
-    public void aboutToHide(@SuppressWarnings ("unused") List<MMenuElement> items) {
+    public void aboutToHide(@SuppressWarnings ("unused") final List<MMenuElement> items) {
         // Here, we could dispose things and so on...
     }
 
     /**
      * Get the currently selected element, or <code>null</code> if the selection size is not equal to one.
+     * 
      * @return the selected element.
      */
     @objid ("35396dea-7520-42f8-849d-d2f3aa58f2f5")
     protected MObject getSelectedElement() {
         // Get the active selection from the application, to avoid context-related issues when opening the same diagram several
         // times...
-        IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(
+        final IStructuredSelection selection = (IStructuredSelection) this.application.getContext().get(
                 IServiceConstants.ACTIVE_SELECTION);
         if (selection.size() != 1) {
             return null;
@@ -176,7 +185,7 @@ public abstract class AbstractCreationPopupProvider {
         if (obj instanceof MObject) {
             return (MObject) obj;
         } else if (obj instanceof IAdaptable) {
-            IAdaptable adaptable = (IAdaptable) obj;
+            final IAdaptable adaptable = (IAdaptable) obj;
             return adaptable.getAdapter(MObject.class);
         }
         return null;
@@ -184,10 +193,11 @@ public abstract class AbstractCreationPopupProvider {
 
     /**
      * Compute a contributor id from a bundle.
+     * 
      * @return a contributor id.
      */
     @objid ("82f5952b-42d7-4fde-a955-9bfaa50107d6")
-    private String getContributorId(Bundle bundle) {
+    private String getContributorId(final Bundle bundle) {
         return "platform:/plugin/" + bundle.getSymbolicName();
     }
 
@@ -197,22 +207,22 @@ public abstract class AbstractCreationPopupProvider {
      */
     @objid ("4d815172-dec8-4346-bdaf-7a394227e39d")
     private void loadPopupEntries() {
-        URL url = getCreatePopupXmlFile();
+        final URL url = getCreatePopupXmlFile();
         
-        CreationPopupXmlLoader loader = new CreationPopupXmlLoader();
+        final CreationPopupXmlLoader loader = new CreationPopupXmlLoader();
         
         this.popupEntries = loader.parseCreationPopupEntries(url);
     }
 
     @objid ("85b9d5b8-498c-4fb3-9d89-d1fb14b0fdac")
-    private List<CreationPopupEntryDescriptor> getPopupEntries(MObject obj) {
+    private List<CreationPopupEntryDescriptor> getPopupEntries(final MObject obj) {
         if (obj == null) {
             return Collections.emptyList();
         }
         
-        MClass mclass = obj.getMClass();
+        final MClass mclass = obj.getMClass();
         
-        List<CreationPopupEntryDescriptor> validCommands = new ArrayList<>();
+        final List<CreationPopupEntryDescriptor> validCommands = new ArrayList<>();
         
         // Find commands with short metaclass name
         List<CreationPopupEntryDescriptor> cmds = this.popupEntries.get(mclass.getName());
@@ -230,35 +240,41 @@ public abstract class AbstractCreationPopupProvider {
 
     /**
      * Create a new handled menu items from popup entry descriptors.
+     * 
      * @param entries the descriptors to convert.
      * @return a list of menu elements.
      */
     @objid ("49a47d0a-15e3-418f-8079-d024cc92db98")
-    private List<MMenuElement> createMenuItems(List<CreationPopupEntryDescriptor> entries) {
-        List<MMenuElement> items = new ArrayList<>();
-        for (CreationPopupEntryDescriptor entry : entries) {
-            items.add(createMenuItem(entry));
+    private List<MMenuElement> createMenuItems(final List<CreationPopupEntryDescriptor> entries, final String contributorId) {
+        final List<MMenuElement> items = new ArrayList<>();
+        for (final CreationPopupEntryDescriptor entry : entries) {
+            if (entry.commandId == null) {
+                items.add(createMenuSeparator(contributorId));
+            } else {
+                items.add(createMenuItem(entry, contributorId));
+            }
         }
         return items;
     }
 
     /**
      * Create a new handled menu item from a popup entry descriptor.
+     * 
      * @param entry the descriptor to convert.
      * @return a new menu elements.
      */
     @objid ("2c2c4a13-0cd8-4f04-aa3f-d12c6651fb2a")
-    private MHandledMenuItem createMenuItem(CreationPopupEntryDescriptor entry) {
+    private MHandledMenuItem createMenuItem(final CreationPopupEntryDescriptor entry, final String contributorId) {
         // create a new handled item
-        MHandledMenuItem item = MMenuFactory.INSTANCE.createHandledMenuItem();
-        MCommand command = getCommand(entry.commandId);
+        final MHandledMenuItem item = MMenuFactory.INSTANCE.createHandledMenuItem();
+        final MCommand command = getCommand(entry.commandId);
         item.setCommand(command);
         
         // compute the element id
-        String sourceMetaclass = entry.sourceMetaclass;
-        String dependency = entry.parameters.getProperty("dependency", "");
-        String targetMetaclass = entry.parameters.getProperty("metaclass", "");
-        String targetStereotype = entry.parameters.getProperty("stereotype", "");
+        final String sourceMetaclass = entry.sourceMetaclass;
+        final String dependency = entry.parameters.getProperty("dependency", "");
+        final String targetMetaclass = entry.parameters.getProperty("metaclass", "");
+        final String targetStereotype = entry.parameters.getProperty("stereotype", "");
         String i18nKey = entry.parameters.getProperty("i18nKey", "");
         if (i18nKey.isEmpty()) {
             // Build a key with simple metaclasses instead of qualified metaclasses
@@ -267,11 +283,11 @@ public abstract class AbstractCreationPopupProvider {
         item.setElementId(sourceMetaclass + dependency + targetMetaclass + targetStereotype);
         
         // compute label, tooltip and icon
-        BundledMessages i18nBundle = getI18nBundle();
+        final BundledMessages i18nBundle = getI18nBundle();
         item.setLabel(i18nBundle.getString(i18nKey + ".label"));
         item.setTooltip(i18nBundle.getString(i18nKey + ".tooltip"));
         
-        String baseIcon = i18nBundle.getString(i18nKey + ".icon");
+        final String baseIcon = i18nBundle.getString(i18nKey + ".icon");
         if (!baseIcon.contains("!")) {
             item.setIconURI(MetamodelImageService.getIconCompletePath(baseIcon));
         }
@@ -282,13 +298,14 @@ public abstract class AbstractCreationPopupProvider {
         item.setVisible(true);
         
         // bound the item to the contributing plugin
-        item.setContributorURI(getContributorId(getBundle()));
+        item.setContributorURI(contributorId);
         
         // add creation parameters
-        for (Entry<Object, Object> param : entry.parameters.entrySet()) {
-            MParameter p = MCommandsFactory.INSTANCE.createParameter();
+        for (final Entry<Object, Object> param : entry.parameters.entrySet()) {
+            final MParameter p = MCommandsFactory.INSTANCE.createParameter();
             p.setName((String) param.getKey());
             p.setValue((String) param.getValue());
+            p.setContributorURI(contributorId);
             item.getParameters().add(p);
         }
         return item;
@@ -296,16 +313,17 @@ public abstract class AbstractCreationPopupProvider {
 
     /**
      * Get the MCommand defined in the application having a specific id.
+     * 
      * @param commandId the element id of the MCommand to find.
      * @return a MCommand, or <code>null</code> if the id is not found.
      */
     @objid ("232db0fa-83a7-4933-ac96-27231170bc3a")
-    private MCommand getCommand(String commandId) {
+    private MCommand getCommand(final String commandId) {
         // Try the cache first...
         MCommand command = this.commandCache.get(commandId);
         if (command == null) {
             // Not in the cache, look into the application commands
-            for (MCommand c : this.application.getCommands()) {
+            for (final MCommand c : this.application.getCommands()) {
                 if (commandId.equals(c.getElementId())) {
                     // Match, keep it in the cache...
                     command = c;
@@ -325,6 +343,28 @@ public abstract class AbstractCreationPopupProvider {
     @objid ("5fcca183-4bf9-4fee-9bdf-d933304631de")
     protected String getMenuLabel() {
         return DiagramEditor.I18N.getString("CreateElementMenu.label");
+    }
+
+    @objid ("22b2f9b2-dc14-42b1-883a-b563df803031")
+    final void onProjectClosed(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
+        this.popupEntries = null;
+    }
+
+    /**
+     * Create a new menu separator item.
+     * 
+     * @return a new menu elements.
+     */
+    @objid ("f812fb53-5620-4a74-8bfe-1f31442cc8fc")
+    private MMenuSeparator createMenuSeparator(final String contributorId) {
+        final MMenuSeparator item = MMenuFactory.INSTANCE.createMenuSeparator();
+        // make the item visible
+        item.setToBeRendered(true);
+        item.setVisible(true);
+        
+        // bound the item to the contributing plugin
+        item.setContributorURI(contributorId);
+        return item;
     }
 
 }

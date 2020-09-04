@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ import org.modelio.diagram.diagramauto.diagram.DiagramStyleHandle;
 import org.modelio.diagram.diagramauto.diagram.layout.FourGroupStructuralLayout;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
+import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
@@ -265,6 +266,12 @@ public class InheritanceCreator extends AbstractDiagramCreator {
     @Override
     public ModelElement getMainElement(AbstractDiagram autoDiagram) {
         return autoDiagram.getOrigin();
+    }
+
+    @objid ("41386d77-e491-4744-bf93-88b2ac00e8be")
+    @Override
+    protected AbstractDiagram createDiagramElement(IStandardModelFactory standardFactory) {
+        return standardFactory.createClassDiagram();
     }
 
 }

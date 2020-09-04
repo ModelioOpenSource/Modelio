@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,7 +21,7 @@
 package org.modelio.core.ui.swt.images.spi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.swt.graphics.Image;
+import org.modelio.ui.swt.QualifiedImage;
 import org.modelio.vcore.smkernel.mapi.MClass;
 
 /**
@@ -34,37 +34,41 @@ import org.modelio.vcore.smkernel.mapi.MClass;
 public interface IMetamodelImageProvider {
     /**
      * Get the icon for a metaclass and a flavor
+     * 
      * @param mClass a metaclass.
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the metaclass browser icon.
      */
     @objid ("1f660788-252a-4ad2-89a5-c81f4a61b0ed")
-    Image getIcon(MClass mClass, String flavor);
+    QualifiedImage getIcon(MClass mClass, String flavor);
 
     /**
      * Get the image for a metaclass and a flavor
+     * 
      * @param mClass a metaclass.
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the metaclass diagram image.
      */
     @objid ("d5280b2a-5268-42eb-8ec9-bc885eedb756")
-    Image getImage(MClass mClass, String flavor);
+    QualifiedImage getImage(MClass mClass, String flavor);
 
     /**
      * Get the icon for a metaclass.
+     * 
      * @param metaclassName a metaclass name.
      * @return the metaclass icon.
      * @deprecated this method is not fully compatible with metamodel extensions, use {@link #getIcon(MClass, String)} instead.
      */
     @objid ("59c4d899-55c9-4953-8ce5-5a4fa84a972b")
     @Deprecated
-    Image getIcon(String metaclassName);
+    QualifiedImage getIcon(String metaclassName);
 
     /**
      * Get the full physical path of a metaclass icon.
      * <p>
      * Usually needed when programmatically building e4 contributions.
      * </p>
+     * 
      * @param metaclassName name of a metaclass
      * @return path to the found icon or <code>null</code>.
      * @since 3.8
@@ -77,6 +81,7 @@ public interface IMetamodelImageProvider {
      * <p>
      * Usually needed when programmatically building e4 contributions.
      * </p>
+     * 
      * @param metaclass a metaclass
      * @return path to the found icon or <code>null</code>.
      * @since 3.8

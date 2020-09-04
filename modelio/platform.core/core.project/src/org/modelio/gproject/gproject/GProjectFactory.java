@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.data.project.ILockInfo;
 import org.modelio.gproject.data.project.ProjectDescriptor;
 import org.modelio.gproject.data.project.ProjectDescriptorReader;
+import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.gproject.gproject.lock.ProjectLock;
 import org.modelio.gproject.gproject.url.GUrlProjectFactory;
 import org.modelio.gproject.module.IModuleRTCache;
@@ -50,6 +51,7 @@ public class GProjectFactory {
 
     /**
      * Get the remote project descriptor for a project descriptor.
+     * 
      * @param projectDescriptor a project descriptor.
      * @param authData authentication data.
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
@@ -73,6 +75,7 @@ public class GProjectFactory {
 
     /**
      * Tells whether the given path is a project space path.
+     * 
      * @param projectPath a directory path
      * @return <code>true</code> if it is a project space path, else
      * <code>false</code>.
@@ -80,11 +83,12 @@ public class GProjectFactory {
     @objid ("0021c0c8-34d4-1fc7-b42e-001ec947cd2a")
     public static boolean isProjectSpace(final Path projectPath) {
         Path confFile = GProjectFactory.getConfigFile(projectPath);
-        return (Files.isRegularFile(confFile));
+        return Files.isRegularFile(confFile);
     }
 
     /**
      * Register a project factory.
+     * 
      * @param f a project factory.
      */
     @objid ("da64af38-0e3b-11e2-8e4b-001ec947ccaf")
@@ -94,6 +98,7 @@ public class GProjectFactory {
 
     /**
      * Create a ProjectDescriptor from a project directory.
+     * 
      * @param projectDir the project directory.
      * @return the read project descriptor.
      * @throws java.io.IOException in case of error reading the configuration file.
@@ -117,13 +122,14 @@ public class GProjectFactory {
 
     @objid ("0021e1c0-34d4-1fc7-b42e-001ec947cd2a")
     private static Path getConfigFile(final Path projectPath) {
-        return projectPath.resolve("project.conf");
+        return new ProjectFileStructure(projectPath).getProjectConfFile();
     }
 
     /**
      * Get the custom factory supporting the given descriptor.
      * <p>
      * Returns <code>null</code> if no such factory is found.
+     * 
      * @param desc the project descriptor to load
      * @return the found factory or <code>null</code>.
      */
@@ -147,16 +153,15 @@ public class GProjectFactory {
 
     /**
      * Test whether a project is locked.
+     * 
      * @param desc a project descriptor.
      * @return lock informations if the project is locked, else <i>null</i>.
      * @throws java.io.IOException in case of I/O failure
      */
     @objid ("2730c29a-29f2-48da-bf37-e87126767e2b")
     public static ILockInfo getLockInformations(final ProjectDescriptor desc) throws IOException {
-        Path projectDir = desc.getPath();
-        
         ProjectLock locker = ProjectLock.get(
-                projectDir.resolve(GProject.RUNTIME_SUBDIR),
+                desc.getProjectFileStructure().getProjectRuntimePath(),
                 desc.getName());
         return locker.test();
     }
@@ -171,6 +176,7 @@ public class GProjectFactory {
 
     /**
      * Initialize a GProject builder.
+     * 
      * @param projectDescriptor a project descriptor.
      * @return a GProject builder to be configured.
      */
@@ -181,6 +187,7 @@ public class GProjectFactory {
 
     /**
      * Initialize a GProject builder from a project directory.
+     * 
      * @param projectDir the project directory
      * @return a GProject builder to be configured.
      * @throws java.io.IOException in case of error reading the configuration file.
@@ -213,6 +220,7 @@ static {
 
         /**
          * Set the module catalog and the metamodel fragments from an existing project environment.
+         * 
          * @param configuration an already configured project environment to copy.
          * @return this builder with new methods accessible.
          */
@@ -221,6 +229,7 @@ static {
 
         /**
          * Use the same modules catalog and metamodel fragments as another project.
+         * 
          * @param aProject another project. The project must be open.
          * @return this builder with new methods accessible.
          */
@@ -280,6 +289,7 @@ static {
 
         /**
          * Set the module catalog and the metamodel fragments from an existing project environment.
+         * 
          * @param configuration2 an already configured project environment to copy.
          * @return this builder to chain calls.
          */
@@ -304,6 +314,7 @@ static {
 
         /**
          * Use the same modules catalog and metamodel fragments as another project.
+         * 
          * @param aProject another project. The project must be open.
          * @return this builder to chain calls.
          */
@@ -323,6 +334,7 @@ static {
          * The monitor will remain once the project is open.
          * If it is not your intended behavior you have to remove it from the project manually
          * after having opened it.
+         * 
          * @param aeventListener a project event monitor
          * @return this builder to chain calls.
          */
@@ -336,6 +348,7 @@ static {
          * Create a GProject from a project descriptor without opening it.
          * <p>
          * Next step is either to synchronize it or opening it.
+         * 
          * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
          * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
          * reported and that the operation cannot be cancelled.

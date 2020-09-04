@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class ReparentExecutionSpecificationCommand extends Command {
 
     /**
      * Default C'tor.
+     * 
      * @param newParent the composite node that will be the new parent of the reparented node.
      * @param reparentedChild the reparented node.
      * @param startTime the new "time" of the ExecutionOccurenceSpecification that starts the execution.

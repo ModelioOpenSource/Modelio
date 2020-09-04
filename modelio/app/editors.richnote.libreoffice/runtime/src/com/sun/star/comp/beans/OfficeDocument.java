@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class OfficeDocument extends Wrapper implements com.sun.star.frame.XModel
 
     /**
      * Create the document
+     * 
      * @param xModel XModel of the document.
      */
     @objid ("88d65d68-31da-4dff-bb61-8637cddf0258")

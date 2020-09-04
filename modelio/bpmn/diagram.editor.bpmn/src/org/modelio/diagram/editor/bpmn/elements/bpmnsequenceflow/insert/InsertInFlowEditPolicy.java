@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -158,6 +158,7 @@ public class InsertInFlowEditPolicy extends GmLinkLayoutEditPolicy {
      * <li>Any catch event excepted 'catch link'</li>
      * </ul>
      * @param metaclass
+     * 
      * @param properties @return
      */
     @objid ("e0b0345b-b7fe-43ef-8361-e98252371940")

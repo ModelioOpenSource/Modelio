@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impact;
 
@@ -43,13 +43,13 @@ public interface ImpactModel extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("8c07c483-990b-471d-b7bc-0ddc9bc76790")
+    @objid ("c1dbdc80-5277-4196-a32e-c44c12e7abab")
     public static final String MNAME = "ImpactModel";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("d115e891-75b4-431a-bc46-78203a02f317")
+    @objid ("70e0cad6-e4a4-4cf8-87ef-fdd124801e04")
     public static final String MQNAME = "Infrastructure.ImpactModel";
 
     /**
@@ -58,7 +58,7 @@ public interface ImpactModel extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("c7992f4c-18db-4d06-ac25-54cce531cedc")
+    @objid ("ae44446a-b0a7-41d0-b43b-f28fe5c4d5d9")
     ImpactProject getProject();
 
     /**
@@ -67,7 +67,7 @@ public interface ImpactModel extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("c78ecd56-e14b-40e1-b9bc-b2cb53618967")
+    @objid ("320b19c0-b20f-4cad-bcbe-37387bc491b0")
     void setProject(ImpactProject value);
 
     /**
@@ -76,7 +76,7 @@ public interface ImpactModel extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("3b7a28d1-99e4-49f4-acf8-ad4e2f2e7981")
+    @objid ("9fae87fc-db51-49e4-ba35-f755cce22775")
     EList<ImpactLink> getOwnedLinks();
 
     /**
@@ -85,7 +85,7 @@ public interface ImpactModel extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("082be8f5-9cd9-4235-ac09-69046ace1a4e")
+    @objid ("9a8bb454-3077-41a9-a042-e6901ef331af")
     <T extends ImpactLink> List<T> getOwnedLinks(java.lang.Class<T> filterClass);
 
 }

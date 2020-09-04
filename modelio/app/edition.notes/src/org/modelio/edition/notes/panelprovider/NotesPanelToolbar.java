@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -87,6 +87,7 @@ public class NotesPanelToolbar implements IPanelProvider {
 
     /**
      * C'Tor
+     * 
      * @param controller the controller of the GUI panel owning the tool bar
      */
     @objid ("3e929c96-c812-4811-8401-f0783c4a15d6")
@@ -96,7 +97,7 @@ public class NotesPanelToolbar implements IPanelProvider {
 
 /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.modelio.ui.panel.IPanelProvider#isRelevantFor(java.lang.Object)
      */
     @objid ("de82d177-a31a-4ece-b16e-79b53a6ac164")
@@ -107,7 +108,7 @@ public class NotesPanelToolbar implements IPanelProvider {
 
 /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.modelio.ui.panel.IPanelProvider#createPanel(org.eclipse.swt.widgets. Composite)
      */
     @objid ("d8d9e865-1ee1-4ec3-a210-dacb3926c593")
@@ -123,7 +124,7 @@ public class NotesPanelToolbar implements IPanelProvider {
         ToolBar tb = new ToolBar(this.tbComp, SWT.HORIZONTAL);
         tb.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false));
         
-        this.addConstraint = createToolButton(tb, SWT.PUSH, EditionNotes.getImageDescriptor("icons/addconstraint.png"), "AddConstraint.tooltip");
+        this.addConstraint = createToolButton(tb, SWT.PUSH, EditionNotes.getImageDescriptor("icons/addconstraint.png"), "$AddConstraint.tooltip");
         this.addConstraint.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -131,7 +132,7 @@ public class NotesPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.addNote = createToolButton(tb, SWT.PUSH, EditionNotes.getImageDescriptor("icons/addnote.png"), "AddNote.tooltip");
+        this.addNote = createToolButton(tb, SWT.PUSH, EditionNotes.getImageDescriptor("icons/addnote.png"), "$AddNote.tooltip");
         this.addNote.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -139,7 +140,7 @@ public class NotesPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.addDescription = createToolButton(tb, SWT.PUSH, EditionNotes.getImageDescriptor("icons/adddescription.png"), "AddDescription.tooltip");
+        this.addDescription = createToolButton(tb, SWT.PUSH, EditionNotes.getImageDescriptor("icons/adddescription.png"), "$AddDescription.tooltip");
         this.addDescription.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -147,7 +148,7 @@ public class NotesPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.addDocument = createToolButton(tb, SWT.PUSH, EditionNotes.getImageDescriptor("icons/adddocument.png"), "AddDocument.tooltip");
+        this.addDocument = createToolButton(tb, SWT.PUSH, EditionNotes.getImageDescriptor("icons/adddocument.png"), "$AddDocument.tooltip");
         this.addDocument.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -155,7 +156,7 @@ public class NotesPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.removeAnnotation = createToolButton(tb, SWT.PUSH, UI.getImageDescriptor("icons/delete.png"), "RemoveAnnotation.tooltip");
+        this.removeAnnotation = createToolButton(tb, SWT.PUSH, UI.getImageDescriptor("icons/delete.png"), "$RemoveAnnotation.tooltip");
         this.removeAnnotation.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -163,7 +164,7 @@ public class NotesPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.cleanContent = createToolButton(tb, SWT.PUSH, EditionNotes.getImageDescriptor("icons/cleannote.png"), "CleanNote.tooltip");
+        this.cleanContent = createToolButton(tb, SWT.PUSH, EditionNotes.getImageDescriptor("icons/cleannote.png"), "$CleanNote.tooltip");
         this.cleanContent.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -171,7 +172,7 @@ public class NotesPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.moveUp = createToolButton(tb, SWT.PUSH, UI.getImageDescriptor("icons/uparrow.png"), "MoveUp.tooltip");
+        this.moveUp = createToolButton(tb, SWT.PUSH, UI.getImageDescriptor("icons/uparrow.png"), "$MoveUp.tooltip");
         this.moveUp.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -179,7 +180,7 @@ public class NotesPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.moveDown = createToolButton(tb, SWT.PUSH, UI.getImageDescriptor("icons/downarrow.png"), "MoveDown.tooltip");
+        this.moveDown = createToolButton(tb, SWT.PUSH, UI.getImageDescriptor("icons/downarrow.png"), "$MoveDown.tooltip");
         this.moveDown.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -191,7 +192,7 @@ public class NotesPanelToolbar implements IPanelProvider {
         final ToolItem dropDown = new ToolItem(tb, SWT.DROP_DOWN);
         final Menu menu = new Menu(tb.getShell(), SWT.POP_UP);
         
-        this.autoLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/automaticorientation.png"), "SetAutoLayout.label", "SetAutoLayout.tooltip");
+        this.autoLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/automaticorientation.png"), "$SetAutoLayout.label", "$SetAutoLayout.tooltip");
         this.autoLayout.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -199,14 +200,14 @@ public class NotesPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.horizontalLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/horizontalorientation.png"), "SetHorizontalLayout.label", "SetHorizontalLayout.tooltip");
+        this.horizontalLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/horizontalorientation.png"), "$SetHorizontalLayout.label", "$SetHorizontalLayout.tooltip");
         this.horizontalLayout.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 NotesPanelToolbar.this.controller.onHorizontalLayout();
             }
         });
-        this.verticalLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/verticalorientation.png"), "SetVerticalLayout.label", "SetVerticalLayout.tooltip");
+        this.verticalLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/verticalorientation.png"), "$SetVerticalLayout.label", "$SetVerticalLayout.tooltip");
         this.verticalLayout.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -228,7 +229,7 @@ public class NotesPanelToolbar implements IPanelProvider {
 
 /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.modelio.ui.panel.IPanelProvider#getPanel()
      */
     @objid ("5117beae-3f2d-4b20-8ff8-64d20963a7dd")
@@ -239,7 +240,7 @@ public class NotesPanelToolbar implements IPanelProvider {
 
 /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.modelio.ui.panel.IPanelProvider#getHelpTopic()
      */
     @objid ("05c6ce5c-d2c7-4334-823b-055f2b436406")
@@ -250,7 +251,7 @@ public class NotesPanelToolbar implements IPanelProvider {
 
 /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.modelio.ui.panel.IPanelProvider#getInput()
      */
     @objid ("8b820737-6027-4c93-b4ee-61ba04635a18")
@@ -262,7 +263,7 @@ public class NotesPanelToolbar implements IPanelProvider {
 
 /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.modelio.ui.panel.IPanelProvider#setInput(java.lang.Object)
      */
     @objid ("b4dbb353-ec36-44f0-8256-e93fa799ea08")
@@ -289,6 +290,7 @@ public class NotesPanelToolbar implements IPanelProvider {
 
     /**
      * Helper function to create tool item
+     * 
      * @param parent the parent toolbar
      * @param iconDescriptor the image to display on the tool item
      * @param tooltip the tool tip text for the tool item
@@ -315,7 +317,7 @@ public class NotesPanelToolbar implements IPanelProvider {
 
 /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.modelio.ui.panel.IPanelProvider#dispose()
      */
     @objid ("119b4f32-f5ee-4bc5-aaa2-f164599f2b45")

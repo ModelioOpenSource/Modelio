@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class GmOperationGroup extends GmGroup {
 
     /**
      * Creates an operation group.
+     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class EmfResource implements Resource {
 
     /**
      * Initialize the EXML adapter.
+     * 
      * @param abstractExmlRepository the EXML repository.
      */
     @objid ("a654c25f-c064-11e1-b511-001ec947ccaf")

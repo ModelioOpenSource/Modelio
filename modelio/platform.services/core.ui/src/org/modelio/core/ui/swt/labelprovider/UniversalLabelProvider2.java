@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -198,6 +198,7 @@ public class UniversalLabelProvider2 extends LabelProvider implements IModelioEl
     /**
      * Unregister the services that were registered with {@link #addExtensionElements(IConfigurationElement[])}.
      * @see #addExtensionElements(IConfigurationElement[])
+     * 
      * @param configurationElements the configuration elements to remove.
      */
     @objid ("9a4ec9cf-857e-46c3-9402-941813bc41c1")
@@ -220,6 +221,7 @@ public class UniversalLabelProvider2 extends LabelProvider implements IModelioEl
      * <li>a "metamodel" string attribute
      * <li>a "implementation" string attribute representing a java class accessible by the declaring plugin.
      * </ul>
+     * 
      * @param configurationElements the {@link IConfigurationElement} at the root of the matched plugin extensions.
      */
     @objid ("c0ff2b9c-9f83-4aff-98b1-ee6cd915030f")
@@ -269,6 +271,7 @@ public class UniversalLabelProvider2 extends LabelProvider implements IModelioEl
          * @param featuresVisibility Whether or not to show the visibility in feature's labels.
          * @param namespaceVisibility Whether or not to show the visibility in namespace's
          * labels.
+         * 
          * @param element The element to get symbol
          * @return The element symbol.
          */
@@ -415,6 +418,7 @@ public class UniversalLabelProvider2 extends LabelProvider implements IModelioEl
 
         /**
          * Initialize the label service.
+         * 
          * @param elementStack a stack to use for recursive calls to
          * {@link #getLabel(Element, boolean)}
          */
@@ -426,6 +430,7 @@ public class UniversalLabelProvider2 extends LabelProvider implements IModelioEl
 
         /**
          * Append <code>"(from xxxx)"</code> to the symbol
+         * 
          * @param symbol the symbol to modify
          * @param srcObj the source object, used to compute the style of
          * <code>'xxxx'</code>

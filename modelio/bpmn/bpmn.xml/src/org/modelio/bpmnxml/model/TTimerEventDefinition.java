@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -81,6 +81,7 @@ public class TTimerEventDefinition extends TEventDefinition {
 
     /**
      * Sets the value of the timeDate property.
+     * 
      * @param value allowed object is
      * {@link TExpression }
      */
@@ -102,6 +103,7 @@ public class TTimerEventDefinition extends TEventDefinition {
 
     /**
      * Sets the value of the timeDuration property.
+     * 
      * @param value allowed object is
      * {@link TExpression }
      */
@@ -123,6 +125,7 @@ public class TTimerEventDefinition extends TEventDefinition {
 
     /**
      * Sets the value of the timeCycle property.
+     * 
      * @param value allowed object is
      * {@link TExpression }
      */

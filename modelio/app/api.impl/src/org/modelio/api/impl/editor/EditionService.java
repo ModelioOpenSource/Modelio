@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class EditionService implements IEditionService {
 
     /**
      * Initialize the edition service.
+     * 
      * @param eventService the Modelio event service
      */
     @objid ("83aae504-98c5-4e05-aa25-24ca50ff57ae")

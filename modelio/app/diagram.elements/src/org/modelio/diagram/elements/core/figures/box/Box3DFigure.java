@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class Box3DFigure extends ShapedFigure {
 
     /**
      * Setter for the depth of the box.
+     * 
      * @param value the new depth for the box.
      */
     @objid ("9735d506-55b6-11e2-877f-002564c97630")
@@ -85,6 +86,7 @@ public class Box3DFigure extends ShapedFigure {
 
     /**
      * Getter for the depth of the box.
+     * 
      * @return the current depth of the box.
      */
     @objid ("9735d50a-55b6-11e2-877f-002564c97630")
@@ -143,6 +145,7 @@ public class Box3DFigure extends ShapedFigure {
 
         /**
          * Setter for the depth of the box.
+         * 
          * @param value the new depth for the box.
          */
         @objid ("97375bad-55b6-11e2-877f-002564c97630")
@@ -152,6 +155,7 @@ public class Box3DFigure extends ShapedFigure {
 
         /**
          * Getter for the depth of the box.
+         * 
          * @return the current depth of the box.
          */
         @objid ("97375bb1-55b6-11e2-877f-002564c97630")

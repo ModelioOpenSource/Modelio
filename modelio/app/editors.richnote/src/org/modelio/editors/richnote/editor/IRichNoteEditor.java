@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public interface IRichNoteEditor {
      * Called when the original content or the model object has been externally deleted.
      * <p>
      * The edited file is still here and won't be touched.
+     * 
      * @param model the deleted model object
      */
     @objid ("91867cd4-0ca1-49ce-9cd7-61655049c3a1")
@@ -56,6 +57,7 @@ public interface IRichNoteEditor {
      * <li> ask the user for what to do,
      * <li> ...
      * </ul>
+     * 
      * @param model the deleted model object
      */
     @objid ("d0798fc7-a575-4ae6-9324-d9434750d39c")
@@ -73,6 +75,7 @@ public interface IRichNoteEditor {
 
     /**
      * Get the Eclipse 4 part used to edit the rich note.
+     * 
      * @return the part
      */
     @objid ("8cfc32ce-ff62-4551-8884-4d1b2a16d613")

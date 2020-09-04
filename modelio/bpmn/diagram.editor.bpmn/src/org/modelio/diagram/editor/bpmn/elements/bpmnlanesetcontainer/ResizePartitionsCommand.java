@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public class ResizePartitionsCommand extends Command {
 
     /**
      * Constructor.
+     * 
      * @param container the partition container.
      */
     @objid ("614b5797-55b6-11e2-877f-002564c97630")
@@ -47,6 +48,7 @@ public class ResizePartitionsCommand extends Command {
 
     /**
      * Set the constraints that must be changed.
+     * 
      * @param newConstraints the constraints that must be changed.
      */
     @objid ("614b579b-55b6-11e2-877f-002564c97630")

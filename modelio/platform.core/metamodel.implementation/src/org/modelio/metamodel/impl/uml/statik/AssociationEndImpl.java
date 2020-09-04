@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 public class AssociationEndImpl extends StructuralFeatureImpl implements AssociationEnd {
     /**
      * Compute the association navigability from all roles construction.
+     * 
      * @return the association navigability.
      */
     @objid ("779babaf-b95e-442f-9c0d-af9c01f610c7")

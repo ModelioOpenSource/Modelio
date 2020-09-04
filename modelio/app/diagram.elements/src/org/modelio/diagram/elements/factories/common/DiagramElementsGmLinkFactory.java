@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -148,6 +148,7 @@ public class DiagramElementsGmLinkFactory implements IGmLinkFactory {
          * Creates a GmNoteLink between the annotated element and the note.
          * <p>
          * The link destination must be a GmNote.
+         * 
          * @throws java.lang.ClassCastException if the destination node is not a GmNote.
          */
         @objid ("a645174b-6914-4878-b980-6b7fbaf81542")

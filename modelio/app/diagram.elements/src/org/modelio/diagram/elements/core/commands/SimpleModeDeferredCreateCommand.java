@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class SimpleModeDeferredCreateCommand extends Command {
 
     /**
      * Create a deferred command.
+     * 
      * @param req The creation request.
      * @param sender The edit part sending the request
      */
@@ -96,6 +97,7 @@ public class SimpleModeDeferredCreateCommand extends Command {
 
     /**
      * Build and return the deferred command.
+     * 
      * @return the built command or null if it couldn't be built.
      */
     @objid ("7f47c885-1dec-11e2-8cad-001ec947c8cc")
@@ -128,6 +130,7 @@ public class SimpleModeDeferredCreateCommand extends Command {
 
     /**
      * Get the composite node in which the element will be really unmasked.
+     * 
      * @return the target node.
      * @throws java.lang.IllegalArgumentException if the metaclass name of the element to create is invalid
      */

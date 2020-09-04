@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class DelegateAnchor extends ConnectionAnchorBase implements ISlidableAnc
 
     /**
      * Get the real anchor that does the work.
+     * 
      * @return the real anchor.
      */
     @objid ("7f5151c3-1dec-11e2-8cad-001ec947c8cc")
@@ -76,6 +77,7 @@ public class DelegateAnchor extends ConnectionAnchorBase implements ISlidableAnc
 
     /**
      * Set the connection anchor that does the real work.
+     * 
      * @param delegate the new real anchor.
      */
     @objid ("7f5151e2-1dec-11e2-8cad-001ec947c8cc")

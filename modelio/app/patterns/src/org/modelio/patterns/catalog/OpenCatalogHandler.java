@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class OpenCatalogHandler {
     /**
      * Apply a pattern chosen in the pattern catalog.
      * @param selection the current modelio selection.
+     * 
      * @param patternService the pattern service.
      */
     @objid ("72af4657-4926-4360-a894-e510954c3765")

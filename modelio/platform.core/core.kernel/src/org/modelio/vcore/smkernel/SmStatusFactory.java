@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class SmStatusFactory {
 
     /**
      * Read the persistent and runtime status from the given long.
+     * 
      * @param data the model object to initialize
      * @param readLong the read statuses
      */
@@ -67,6 +68,7 @@ public class SmStatusFactory {
 
     /**
      * Reset the runtime status of the given model object data.
+     * 
      * @param data a model object data.
      */
     @objid ("a176a4c0-220c-4387-a96c-72cd9ef24e66")
@@ -82,6 +84,7 @@ public class SmStatusFactory {
 
     /**
      * Reset the persistent status of the given model object data.
+     * 
      * @param data a model object data.
      */
     @objid ("a3946258-7ae5-4689-be3f-4c1279897e68")

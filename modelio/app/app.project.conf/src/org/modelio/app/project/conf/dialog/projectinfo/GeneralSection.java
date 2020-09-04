@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -129,6 +129,7 @@ class GeneralSection {
 
     /**
      * C'tor
+     * 
      * @param msgManager message manager to report validation errors
      */
     @objid ("a7459d5d-33f6-11e2-a514-002564c97630")
@@ -253,6 +254,7 @@ class GeneralSection {
 
     /**
      * Loads and display the icon matching a project property.
+     * 
      * @param propertyName a project property name
      */
     @objid ("fdfe9f7b-571a-4ef2-9d8f-faeb39461f3f")
@@ -308,7 +310,7 @@ class GeneralSection {
     private Path resolveProjectImagePath(String relPath) {
         if (!relPath.startsWith("http")) {
             try {
-                Path imagePath = this.displayedProject.getPath().resolve("data").resolve(relPath);
+                Path imagePath = this.displayedProject.getProjectFileStructure().getProjectDataPath().resolve(relPath);
                 if (imagePath != null && Files.exists(imagePath)) {
                     return imagePath;
                 }
@@ -466,7 +468,7 @@ class GeneralSection {
                     File selectedFile = new File(selected);
                     AppProjectConf.LOG.info(selected + " is selected.");
                     try {
-                        Path newImagePath = GeneralSection.this.displayedProject.getPath().resolve("data").resolve(selectedName);
+                        Path newImagePath = GeneralSection.this.displayedProject.getProjectFileStructure().getProjectDataPath().resolve(selectedName);
                         // if selected project logo and icon have the same name ...
                         int i = 1;
                         while (Files.exists(newImagePath)) {
@@ -578,7 +580,7 @@ class GeneralSection {
         try {
             URL url = new URL(urlPath);
             return ImageDescriptor.createFromURL(url).createImage(false, null);
-        } catch (MalformedURLException e) {
+        } catch (@SuppressWarnings ("unused") MalformedURLException e) {
             // ignore exception and return null
             return null;
         }
@@ -594,6 +596,7 @@ class GeneralSection {
      * <li>the resolved path matches an existing file.
      * </ul>
      * Returns <i>null</i> in all other cases.
+     * 
      * @param propertyName a project property name
      * @return the image path if found, else <i>null</i>.
      */
@@ -623,8 +626,7 @@ class GeneralSection {
         @objid ("8b8c5b3b-3ec5-11e2-8121-002564c97630")
         @Override
         public void modifyText(ModifyEvent e) {
-            if (e.widget == GeneralSection.this.projectName) {
-            } else if (e.widget == GeneralSection.this.projectDescription) {
+            if (e.widget == GeneralSection.this.projectDescription) {
                 GeneralSection.this.displayedProject.getProperties().setProperty(GeneralSection.INFO_DESCRIPTION, GeneralSection.this.projectDescription.getText().replace("\n", "\\n"), DefinitionScope.LOCAL);
             } else if (e.widget == GeneralSection.this.projectContact) {
                 GeneralSection.this.displayedProject.getProperties().setProperty(GeneralSection.INFO_CONTACT, GeneralSection.this.projectContact.getText(), DefinitionScope.LOCAL);

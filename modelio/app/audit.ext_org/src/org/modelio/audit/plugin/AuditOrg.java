@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -83,6 +83,7 @@ public class AuditOrg implements BundleActivator {
 
     /**
      * Get the path of a file bundled with the plugin.
+     * 
      * @param relPath the path relative to the plugin.
      * @return the found file
      * @throws java.io.IOException if the file is not found or cannot be copied on the file system, should never occur.

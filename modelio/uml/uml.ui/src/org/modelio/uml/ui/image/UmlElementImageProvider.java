@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.metamodel.visitors.DefaultModelVisitor;
+import org.modelio.ui.swt.QualifiedImage;
 import org.modelio.uml.ui.plugin.UmlUi;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -61,47 +62,42 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
 
     @objid ("3eb625d6-54cb-4e9d-ba0f-09e2542a2670")
     @Override
-    public Image getIcon(MObject element) {
+    public QualifiedImage getIcon(MObject element) {
         return getIcon(element.getMClass(), getFlavor(element));
     }
 
     /**
      * Get the icon for a metaclass and a flavor
+     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found icon or a default unknown icon.
      */
     @objid ("499e2b3f-0685-4ec5-87b4-7b20026cc3b4")
     @Override
-    public Image getIcon(MClass metaclass, String flavor) {
-        final String key;
-        if (metaclass.getOrigin().isExtension()) {
-            key = getIconKey(metaclass, flavor, true);
-        } else {
-            // Use a simple name for standard metaclasses
-            key = getIconKey(metaclass, flavor, false);
-        }
-        return getImageFromKey(key);
+    public QualifiedImage getIcon(MClass metaclass, String flavor) {
+        // since 3.8.1 ALWAYS get metaclass icons by a qualified name
+        return getImageFromKey(getIconKey(metaclass, flavor));
     }
 
     @objid ("9e8d022a-fbd4-4b9a-8a2a-051dbc513725")
     @Override
-    public Image getImage(MObject element) {
+    public QualifiedImage getImage(MObject element) {
         return getImage(element.getMClass(), getFlavor(element));
     }
 
     /**
      * Get the diagram big image for a metaclass and a flavor.
+     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found image or null.
      */
     @objid ("ae1a496b-7e69-486f-b0b7-de0cac43e534")
     @Override
-    public Image getImage(MClass metaclass, String flavor) {
+    public QualifiedImage getImage(MClass metaclass, String flavor) {
         final String key = getImageKey(metaclass, flavor, metaclass.getOrigin().isExtension());
-        Image image = getImageFromKey(key);
-        return image;
+        return getImageFromKey(key);
     }
 
     /**
@@ -114,12 +110,12 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
 
     @objid ("6e26d999-ae11-4c44-9880-6238cb1c7557")
     private String getImageKey(MClass metaclass, String flavor, boolean qualified) {
-        return getIconKey(metaclass, flavor, qualified) + ".image";
+        return getIconKey(metaclass, flavor) + ".image";
     }
 
     @objid ("e6ec5264-f1f9-4ffa-be4d-89513ec67181")
-    private String getIconKey(MClass metaclass, String flavor, boolean qualified) {
-        final String className = qualified ? metaclass.getQualifiedName() : metaclass.getName();
+    private String getIconKey(MClass metaclass, String flavor) {
+        final String className = metaclass.getQualifiedName();
         if (flavor == null || flavor.isEmpty()) {
             return className;
         } else {
@@ -144,12 +140,13 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
 
     /**
      * Get the icon for a metaclass.
+     * 
      * @param metaclassName a metaclass name.
      * @return the metaclass icon.
      */
     @objid ("e0dbd9e3-5b3d-4da6-b978-2d766434b222")
     @Override
-    public Image getIcon(final String metaclassName) {
+    public QualifiedImage getIcon(final String metaclassName) {
         return getImageFromKey(metaclassName);
     }
 
@@ -157,19 +154,22 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
      * Get the image for a given key.
      * <p>
      * The image is loaded into the registry if not yet done.
-     * @param key @return
+     * @return
      */
     @objid ("e8ad69b4-cd30-4060-b0ca-fffb42ff1721")
-    private Image getImageFromKey(final String key) {
+    private QualifiedImage getImageFromKey(final String key) {
         Image image = UmlElementImageProvider.REGISTRY.get(key);
         
         if (image == null) {
             image = loadImage(key);
             if (image != null) {
                 UmlElementImageProvider.REGISTRY.put(key, image);
+            } else {
+                return null;
             }
         }
-        return image;
+        // Image is not null
+        return new QualifiedImage(image, key);
     }
 
     /**
@@ -204,7 +204,7 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
     @objid ("6f641c17-7a12-4566-bd06-cbe9a092581b")
     @Override
     public String getIconCompletePath(MClass metaclass) {
-        final String key = getImageKey(metaclass, null, metaclass.getOrigin().isExtension());
+        final String key = getIconKey(metaclass, null);
         return getIconCompletePath(key);
     }
 

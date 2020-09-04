@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -118,6 +118,7 @@ class ComboBoxCellEditor2 extends CellEditor {
      * Creates a new cell editor with a combo containing the given list of choices and parented under the given control.
      * The cell editor value is the zero-based index of the selected item. Initially, the cell editor has no cell
      * validator and the first item in the list is selected.
+     * 
      * @param parent the parent control
      * @param items the list of strings for the combo box
      */
@@ -130,6 +131,7 @@ class ComboBoxCellEditor2 extends CellEditor {
      * Creates a new cell editor with a combo containing the given list of choices and parented under the given control.
      * The cell editor value is the zero-based index of the selected item. Initially, the cell editor has no cell
      * validator and the first item in the list is selected.
+     * 
      * @param parent the parent control
      * @param items the list of strings for the combo box
      * @param style the style bits
@@ -143,6 +145,7 @@ class ComboBoxCellEditor2 extends CellEditor {
 
     /**
      * Returns the list of choices for the combo box
+     * 
      * @return the list of choices for the combo box
      */
     @objid ("85964891-1926-11e2-92d2-001ec947c8cc")
@@ -152,6 +155,7 @@ class ComboBoxCellEditor2 extends CellEditor {
 
     /**
      * Sets the list of choices for the combo box
+     * 
      * @param items the list of choices for the combo box
      */
     @objid ("85964898-1926-11e2-92d2-001ec947c8cc")
@@ -243,6 +247,7 @@ class ComboBoxCellEditor2 extends CellEditor {
     /**
      * The <code>ComboBoxCellEditor</code> implementation of this <code>CellEditor</code> framework method returns the
      * zero-based index of the current selection.
+     * 
      * @return the zero-based index of the current selection wrapped as an <code>Integer</code>
      */
     @objid ("859b0d2b-1926-11e2-92d2-001ec947c8cc")
@@ -280,6 +285,7 @@ class ComboBoxCellEditor2 extends CellEditor {
 
     /**
      * This method allows to control how the combo reacts when activated
+     * 
      * @param activationStyle the style used
      */
     @objid ("859b0d3c-1926-11e2-92d2-001ec947c8cc")
@@ -290,6 +296,7 @@ class ComboBoxCellEditor2 extends CellEditor {
     /**
      * The <code>ComboBoxCellEditor</code> implementation of this <code>CellEditor</code> framework method accepts a
      * zero-based index of a selection.
+     * 
      * @param value the zero-based index of the selection wrapped as an <code>Integer</code>
      */
     @objid ("859b0d41-1926-11e2-92d2-001ec947c8cc")

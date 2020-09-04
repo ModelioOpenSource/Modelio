@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class CreateBendedConnectionRequest extends CreateConnectionRequest {
 
     /**
      * Get the raw path data.
+     * 
      * @return the raw data.
      */
     @objid ("7fe523b1-1dec-11e2-8cad-001ec947c8cc")
@@ -60,6 +61,7 @@ public class CreateBendedConnectionRequest extends CreateConnectionRequest {
      * selected.
      * 
      * This list should only be filled by a creation command's execute method and read by the emitting tool.
+     * 
      * @return the list of objects that should be created.
      */
     @objid ("7fe523c0-1dec-11e2-8cad-001ec947c8cc")

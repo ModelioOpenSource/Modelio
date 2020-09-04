@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -26,38 +26,32 @@ import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.TreeItem;
 import org.modelio.module.propertytab.model.ModuleProperty;
-import org.modelio.module.propertytab.plugin.ModulePropertyTab;
 import org.modelio.ui.UIColor;
+import org.modelio.ui.UIImages;
 
 /**
  * Provide checkbox label
  */
 @objid ("c891c2f1-1eba-11e2-9382-bc305ba4815c")
 public class CheckboxLabelProvider extends ColumnLabelProvider {
-    @objid ("c891c2f3-1eba-11e2-9382-bc305ba4815c")
-    private static final Image CHECKED = ModulePropertyTab.getImageDescriptor("icons/checked.png").createImage();
-
-    @objid ("c891ea01-1eba-11e2-9382-bc305ba4815c")
-    private static final Image UNCHECKED = ModulePropertyTab.getImageDescriptor("icons/unchecked.png").createImage();
-
     @objid ("c8921113-1eba-11e2-9382-bc305ba4815c")
     @Override
-    public Image getImage(Object element) {
-        ModuleProperty property = (ModuleProperty) element;
+    public Image getImage(final Object element) {
+        final ModuleProperty property = (ModuleProperty) element;
         if (property.getValue().equals(true)) {
-            return CheckboxLabelProvider.CHECKED;
+            return UIImages.CHECKED;
         } else {
-            return CheckboxLabelProvider.UNCHECKED;
+            return UIImages.UNCHECKED;
         }
     }
 
     @objid ("c8923823-1eba-11e2-9382-bc305ba4815c")
     @Override
-    public void update(ViewerCell cell) {
+    public void update(final ViewerCell cell) {
         super.update(cell);
         
         if (cell.getItem() instanceof TreeItem) {
-            TreeItem item = (TreeItem) cell.getItem();
+            final TreeItem item = (TreeItem) cell.getItem();
             if (item.getParent().indexOf(item) % 2 == 0) {
                 cell.setBackground(UIColor.TABLE_EVENROW_BG);
             } else {
@@ -68,7 +62,7 @@ public class CheckboxLabelProvider extends ColumnLabelProvider {
 
     @objid ("c8925f31-1eba-11e2-9382-bc305ba4815c")
     @Override
-    public String getText(Object element) {
+    public String getText(final Object element) {
         return null;
     }
 

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class LinkEnd2PropertyModel extends AbstractPropertyModel<LinkEnd> {
 
     /**
      * Create a new <i>LinkEnd</i> data model from an <i>LinkEnd</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("ca2c16a9-9e80-4d47-b400-743d8ae9b9b0")

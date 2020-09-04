@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public class InvalidCertificateException extends CertificateException {
 
     /**
      * initialize the exception.
+     * 
      * @param chain the invalid certificate chain
      * @param e the exception cause
      */
@@ -65,6 +66,7 @@ public class InvalidCertificateException extends CertificateException {
 
     /**
      * Get the certificate chain whose validation failed.
+     * 
      * @return in invalid certificate chain.
      */
     @objid ("8f29fa9a-2e64-4f27-8eab-d713ada8c0a8")

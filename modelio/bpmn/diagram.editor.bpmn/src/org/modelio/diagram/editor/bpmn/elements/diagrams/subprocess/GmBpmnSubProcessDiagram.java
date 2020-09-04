@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -86,6 +86,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
 
     /**
      * Default constructor.
+     * 
      * @param manager the manager needed make the link between the Ob and Gm models.
      * @param diagram the diagram itself.
      * @param diagramRef a reference to the diagram.
@@ -153,7 +154,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
             break;
         }
         default: {
-            assert (false) : "version number not covered!";
+            assert false : "version number not covered!";
             // reading as last handled version: 1
             read_1(in);
             break;
@@ -164,6 +165,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
     /**
      * Returns true if the given metaclass is supported.
      * @param metaclass
+     * 
      * @return true if the given metaclass is supported.
      */
     @objid ("61ff655d-55b6-11e2-877f-002564c97630")
@@ -179,7 +181,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
                 Note.class.isAssignableFrom(metaclass)) {
             return true;
         }
-        return (BpmnBaseElement.class.isAssignableFrom(metaclass));
+        return BpmnBaseElement.class.isAssignableFrom(metaclass);
     }
 
     @objid ("61ff6566-55b6-11e2-877f-002564c97630")
@@ -337,11 +339,16 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
     @objid ("61f19fee-c14c-490f-a386-9adbb2c6f338")
     @Override
     public boolean isUserEditable() {
-        return super.isUserEditable() && isLocal();
+        MObject relatedElement = getRelatedElement();
+        return relatedElement != null
+                && !(relatedElement.isShell() || relatedElement.isDeleted())
+                && relatedElement.getStatus().isModifiable()
+                && isLocal();
     }
 
     /**
      * A sub-process is local if its owner diagram is also local, or null.
+     * 
      * @return <code>true</code> if the sub-process is local.
      */
     @objid ("7bf51053-252b-47e7-a811-045a2dffde96")

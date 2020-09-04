@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class AbstractDiagramFigure extends FreeformLayer2 {
 
     /**
      * Set page boundary dimensions.
+     * 
      * @param size the page boundary dimensions.
      */
     @objid ("7e084d4a-1dec-11e2-8cad-001ec947c8cc")
@@ -86,6 +87,7 @@ public class AbstractDiagramFigure extends FreeformLayer2 {
 
     /**
      * Set the working area bounds.
+     * 
      * @param r The new work area bounds.
      */
     @objid ("7e084d50-1dec-11e2-8cad-001ec947c8cc")
@@ -100,6 +102,7 @@ public class AbstractDiagramFigure extends FreeformLayer2 {
 
     /**
      * Toggle display of page boundaries.
+     * 
      * @param onOff true to display page boundaries, false to hide them.
      */
     @objid ("7e084d56-1dec-11e2-8cad-001ec947c8cc")

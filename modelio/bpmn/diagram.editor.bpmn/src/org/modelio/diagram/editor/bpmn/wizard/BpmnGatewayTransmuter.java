@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class BpmnGatewayTransmuter extends AbstractElementTransmuter {
     /**
      * Public constructor required by the {@link TransformerRegistry}.
+     * 
      * @param targetMetaclass target metaclass of the transmutation
      */
     @objid ("d75bb7ec-de90-48c2-86fe-eb3d68538c06")

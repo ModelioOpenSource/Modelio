@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -129,6 +129,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Creates a GmClass.
+     * 
      * @param diagram The owner diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
@@ -181,6 +182,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the group where <tt>GmEnumLiterals</tt> are unmasked.
+     * 
      * @return the enum group.
      */
     @objid ("34dd0647-55b7-11e2-877f-002564c97630")
@@ -218,6 +220,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the group where {@link Operation} are unmasked.
+     * 
      * @return the operations group.
      */
     @objid ("34de8cc3-55b7-11e2-877f-002564c97630")
@@ -460,6 +463,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the group where <tt>GmAttributes</tt> are unmasked.
+     * 
      * @return the attributes group.
      */
     @objid ("34e01386-55b7-11e2-877f-002564c97630")

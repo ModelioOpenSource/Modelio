@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class ONaryLinkEnd extends OModelElement {
 
     /**
      * Constructor
+     * 
      * @param param : the exported Modelio LinkEnd
      */
     @objid ("7c662da2-838e-40ba-9df8-1495dc014609")
@@ -109,9 +110,11 @@ public class ONaryLinkEnd extends OModelElement {
 
     @objid ("80fd5010-d457-4c6e-abc4-af5939e98739")
     private void setSlotProperties(org.eclipse.uml2.uml.Slot ecoreElt) {
+        //UML properties
         setLinked(ecoreElt);
         setDefiningFeature(ecoreElt);
         
+        //Modelio Properties
         if (GenerationProperties.getInstance().isRoundtripEnabled()) {
             ObjingEAnnotation.setIsUnique(ecoreElt, this.objElt.isIsUnique());
             ObjingEAnnotation.setIsOrdered(ecoreElt, this.objElt.isIsOrdered());

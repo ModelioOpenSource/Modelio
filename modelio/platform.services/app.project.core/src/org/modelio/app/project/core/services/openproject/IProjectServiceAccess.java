@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,8 +20,10 @@
 
 package org.modelio.app.project.core.services.openproject;
 
+import java.nio.file.Path;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.preference.IPersistentPreferenceStore;
+import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.modelio.app.core.events.ModelioEvent;
 import org.modelio.app.preferences.GProjectPreferenceStore;
 import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.gproject.gproject.GProject;
@@ -29,7 +31,7 @@ import org.modelio.gproject.gproject.GProject;
 /**
  * Accessors on internals of {@link IProjectService} implementation.
  * 
- * @author cmarin
+ * 
  * @since 3.5
  */
 @objid ("f5df3653-f60b-43c2-a312-db0bb058e3e4")
@@ -46,7 +48,25 @@ public interface IProjectServiceAccess {
     @objid ("6e8f265a-6a0d-4497-8643-693792c89d1c")
     void setOpenedProject(GProject project);
 
-    @objid ("1caaaf15-8a0a-49d1-ad14-bff922d1a6d4")
-    void setStatePreferenceStore(IPersistentPreferenceStore stateStore);
+    @objid ("bd0f7774-c894-4aae-9bc4-77ffa59d98ca")
+    void postSyncEvent(final ModelioEvent topic, final Object data);
+
+    @objid ("718b3d35-2e7b-4005-81cb-ac4bba2aaeae")
+    void postAsyncEvent(final ModelioEvent topic, final Object data);
+
+    @objid ("1661b9bb-80ac-4eb6-bad1-4ebaf006fffb")
+    IEclipseContext getEclipseContext();
+
+    @objid ("439970dd-b9e0-4d35-868f-b8f0e94e9923")
+    void closeAppStatePreferenceStore();
+
+    @objid ("12e5146d-ee31-410c-abb7-05b27ac53933")
+    void openAppStatePreferenceStore(GProject project);
+
+    @objid ("3b528df6-cfb0-4878-b972-eb83660b3d85")
+    boolean isOpeningEventSent();
+
+    @objid ("e07718cf-61a3-4eae-9170-b0befd94f93d")
+    Path getWorkspace();
 
 }

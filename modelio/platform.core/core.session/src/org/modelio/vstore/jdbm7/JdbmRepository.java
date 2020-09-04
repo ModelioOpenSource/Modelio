@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -170,6 +170,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Initialize the repository.
+     * 
      * @param repositoryPath the repository directory.
      */
     @objid ("db0b2956-5f0e-4201-a468-506a13e1575e")
@@ -275,6 +276,7 @@ public class JdbmRepository implements IRepository {
      * Get the repository name.
      * <p>
      * The repository name is intended to be displayed to the user.
+     * 
      * @return the repository name.
      */
     @objid ("974f8290-5743-4473-a1e2-1f122bf1fa4b")
@@ -506,10 +508,10 @@ public class JdbmRepository implements IRepository {
                 mon.worked(1);
                 ++i;
                 if (i % 20 == 0) {
-                    mon.subTask(VCoreSession.getMessage("JdbmRepository.save", getName(), i, nbDirty));
+                    mon.subTask(VCoreSession.I18N.getMessage("JdbmRepository.save", getName(), i, nbDirty));
                 } else if (i % 9011 == 0) {
                     // Save too large for one transaction
-                    mon.subTask(VCoreSession.getMessage("JdbmRepository.save", getName(), i, nbDirty) + VCoreSession.getMessage("JdbmRepository.save.commit", getName()));
+                    mon.subTask(VCoreSession.I18N.getMessage("JdbmRepository.save", getName(), i, nbDirty) + VCoreSession.I18N.getMessage("JdbmRepository.save.commit", getName()));
                     this.db.commit();
                 }
             }
@@ -523,13 +525,13 @@ public class JdbmRepository implements IRepository {
             }
         
         
-            mon.subTask(VCoreSession.getMessage("JdbmRepository.save.commit", getName()));
+            mon.subTask(VCoreSession.I18N.getMessage("JdbmRepository.save.commit", getName()));
             this.db.clearCache();
             mon.worked(30);
             this.db.commit();
             mon.worked(30);
         
-            mon.subTask(VCoreSession.getMessage("JdbmRepository.save.done", getName()));
+            mon.subTask(VCoreSession.I18N.getMessage("JdbmRepository.save.done", getName()));
             for (SmObjectImpl obj : toSave) {
                 obj.setRStatus(IRStatus.REPO_LOADED, IRStatus.REPO_DIRTY, 0);
             }
@@ -558,6 +560,7 @@ public class JdbmRepository implements IRepository {
      * Set the repository name.
      * <p>
      * The repository name is intended to be displayed to the user.
+     * 
      * @param name the repository name.
      */
     @objid ("e2643e1a-2c7e-4269-9deb-84c3d314a4ea")
@@ -589,6 +592,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Get the EMF mapping.
+     * 
      * @return the EMF mapping.
      */
     @objid ("b026dcc8-a2c7-4bfd-8b99-a6e883dc62ca")
@@ -608,6 +612,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Tells whether the identifier is one of the stored objects.
+     * 
      * @param uuid the object identifier.
      * @return true if stored else false.
      */
@@ -649,6 +654,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Remove the object from the repository.
+     * 
      * @param obj the object to remove.
      */
     @objid ("8f71b094-4378-4b48-85af-84d7444cea23")
@@ -659,6 +665,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Unload a model object.
+     * 
      * @param obj a model object to forget.
      */
     @objid ("7278e970-e52b-4e97-a787-89e91db59bf5")
@@ -682,6 +689,7 @@ public class JdbmRepository implements IRepository {
      * Find all instances of the given metaclass with its sub classes if asked.
      * <p>
      * The model objects are not loaded, only stubs are instantiated.
+     * 
      * @param cls a metamodel class
      * @param recursive <code>true</code> to load all sub classes too.
      * @throws org.modelio.vcore.model.DuplicateObjectException when adding to the cache an object with the same identifier as another one.
@@ -713,6 +721,7 @@ public class JdbmRepository implements IRepository {
      * its content lazily.
      * <p>
      * The model objects are not loaded, only stubs are instantiated lazily.
+     * 
      * @param cls a metamodel class
      * @param recursive <code>true</code> to load all sub classes too.
      * @throws java.lang.IllegalStateException when adding to the cache an object with the same identifier as another one.
@@ -804,6 +813,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Get access to the maintenance operations.
+     * 
      * @return the maintenance operations.
      */
     @objid ("216c678b-f363-4088-b00b-ffe0033b3737")
@@ -857,6 +867,7 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Save a descriptor of the current metamodel.
+     * 
      * @throws java.io.IOException on failure
      */
     @objid ("9aabd6a5-4013-498e-85e2-64b5f011d65e")
@@ -949,6 +960,7 @@ public class JdbmRepository implements IRepository {
          * If this collection contains more than Integer.MAX_VALUE elements, returns Integer.MAX_VALUE.
          * <p>
          * <b>Note: Iterates the whole collection content, avoid calling it. </b>
+         * 
          * @return the collection size.
          */
         @objid ("13070010-9c5f-4544-a051-b5fc7450c9bc")

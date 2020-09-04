@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class CutAnnotationHandler {
 
     /**
      * Available only when the selected elements are modifiable.
+     * 
      * @param part the current active part.
      * @return true if the handler can be executed.
      */
@@ -76,6 +77,7 @@ public class CutAnnotationHandler {
 
     /**
      * Cut the currently selected elements.
+     * 
      * @param part the current active part.
      * @param currentDisplay the display Modelio runs into.
      */

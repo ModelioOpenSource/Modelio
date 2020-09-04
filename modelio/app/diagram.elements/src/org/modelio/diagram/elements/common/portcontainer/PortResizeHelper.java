@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ class PortResizeHelper {
      * In case port container parent is a port container itself, it needs to know the modification of our main node bounds.
      * @param mainNodeConstraint the main node constraint to put, if different from current ones.
      * If <i>null</i> the current one will be used. Must be relative to layout origin.
+     * 
      * @param containerEditPart the port container edit part
      * @param req the request to complete.
      */
@@ -66,6 +67,7 @@ class PortResizeHelper {
      * <li> the port container figure handle bounds.
      * </ol>
      * The returned rectangle is freely modifiable copy.
+     * 
      * @param containerFigure the port container figure
      * @return the bounds the main node should have
      */
@@ -95,6 +97,7 @@ class PortResizeHelper {
      * Recursively dump the command and all its composition hierarchy to a string.
      * <p>
      * TODO : move this in a more general class.
+     * 
      * @param cmd the command to dump
      * @return the string representation.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class RichNoteDescriptor {
 
     /**
      * Initialize the rich note descriptor.
+     * 
      * @param targetElement The element on which the rich note must be created.
      */
     @objid ("8be9937f-bcef-4d60-b932-02c72651412c")

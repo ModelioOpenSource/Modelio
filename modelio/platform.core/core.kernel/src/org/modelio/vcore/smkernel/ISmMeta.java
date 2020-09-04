@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public interface ISmMeta {
      * @param dep
      * @param value
      * @param index
+     * 
      * @return <i>true</i> if the model object was modified.
      */
     @objid ("006258a4-b2b0-1f4f-9c13-001ec947cd2a")
@@ -48,6 +49,7 @@ public interface ISmMeta {
      * Append 'value' to the 'dep' dependency. For SmSingleDependency this method is equivalent to a 'set'
      * @param dep
      * @param value
+     * 
      * @return <i>true</i> if the model object was modified.
      */
     @objid ("006247c4-b2b0-1f4f-9c13-001ec947cd2a")
@@ -55,6 +57,7 @@ public interface ISmMeta {
 
     /**
      * Set the 'dep' value at position 'index', replacing the current value at this position.
+     * 
      * @param dep the dependency
      * @param index the index to modify
      * @param value the new value
@@ -68,6 +71,7 @@ public interface ISmMeta {
      * Remove 'value' from 'dep'. For SmSingleDependency, the method is equivalent to a 'set' to null
      * @param dep
      * @param value
+     * 
      * @return <i>true</i> if the dependency was modified (ie something was removed)
      */
     @objid ("00629030-b2b0-1f4f-9c13-001ec947cd2a")
@@ -79,6 +83,7 @@ public interface ISmMeta {
      * Note that the returned object is a List<SmObjectImpl> for
      * {@link SmMultipleDependency multiple dependencies} and
      * a SmObjectImpl for ?..1 dependencies.
+     * 
      * @param dep the dependency
      * @return the dependency content
      */
@@ -88,6 +93,7 @@ public interface ISmMeta {
     /**
      * Return the current value of the 'dep' dependency as a list. Note that the returned object is a List<SmObjectImpl> for
      * {@link SmMultipleDependency multiple dependencies}
+     * 
      * @param dep the dependency
      * @return the dependency content
      */
@@ -96,6 +102,7 @@ public interface ISmMeta {
 
     /**
      * Return the current value of the 'att' SmAttribute.
+     * 
      * @param att the SmAttribute.
      * @return the attribute value
      */

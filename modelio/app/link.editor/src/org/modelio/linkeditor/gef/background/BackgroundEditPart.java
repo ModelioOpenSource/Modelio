@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -232,6 +232,7 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
      * Get the size of the control showing the viewer .
      * <p>
      * Scroll bars are deduced from the view size.
+     * 
      * @return the visible view size.
      */
     @objid ("1b87bc2e-5e33-11e2-b81d-002564c97630")
@@ -267,6 +268,7 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
      * Layout a node, ie set its position.
      * @param goLeft
      * - the direction of the graph navigation.
+     * 
      * @param node - the node to layout
      * @param rank - the tree depth coordinate where to layout the node.<br/>
      * For vertical layout rank is the Y coordinate, for horizontal layout rank is the X coordinate.
@@ -325,6 +327,7 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
 
     /**
      * Align the center node on the center of the view or one of its border depending on the edges existence.
+     * 
      * @param directedGraph the model graph
      */
     @objid ("1b87bc43-5e33-11e2-b81d-002564c97630")

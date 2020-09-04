@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,14 +20,15 @@
 
 package org.modelio.vstore.exml.plugin;
 
-import java.text.MessageFormat;
-import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.vbasic.log.Log;
+import org.modelio.vbasic.i18n.MessageBundle;
 
 /**
- * core.utils plugin class.
+ * Represents the <b>core.store.exml</b> plugin.
+ * <p>
+ * Cannot respect the <a href="http://forge.minotaure.softeam.com/projects/modelio-phoenix/wiki/Plugin_singleton">
+ * typical plugin singleton pattern</a> because core plugins must not use OSGI.
  */
 @objid ("b6608515-463d-4e21-ad27-cdcf69674050")
 public class VStoreExml {
@@ -35,30 +36,12 @@ public class VStoreExml {
      * Plugin ID.
      */
     @objid ("c83b7df8-f707-47a0-9d93-b687b0b5779e")
-    public static final String PLUGIN_ID = "org.modelio.core.utils";
+    public static final String PLUGIN_ID = "org.modelio.core.store.exml";
 
     /**
      * Translated messages bundle.
      */
     @objid ("dfb81334-92ea-4bdb-8ae2-8170faa76b14")
-    public static final ResourceBundle I18N = ResourceBundle.getBundle("vstore_exml");
-
-    /**
-     * Get the translated formatted message.
-     * @param key the message key
-     * @param args arguments
-     * @return the formatted message
-     */
-    @objid ("acfefc84-00a8-42e3-a348-66d9d9fea319")
-    public static String getMessage(String key, Object... args) {
-        String pattern;
-        try {
-            pattern = I18N.getString(key);
-        } catch (MissingResourceException e) {
-            Log.warning("No I18n message for '%s'", key);
-            pattern = "!" + key + "!";
-        }
-        return MessageFormat.format(pattern, args);
-    }
+    public static final MessageBundle I18N = new MessageBundle(ResourceBundle.getBundle("vstore_exml"));
 
 }

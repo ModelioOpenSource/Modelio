@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -377,6 +377,7 @@ public class JxbModule {
 
     /**
      * Sets the value of the uid property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -398,6 +399,7 @@ public class JxbModule {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -419,6 +421,7 @@ public class JxbModule {
 
     /**
      * Sets the value of the image property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -440,6 +443,7 @@ public class JxbModule {
 
     /**
      * Sets the value of the author property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -461,6 +465,7 @@ public class JxbModule {
 
     /**
      * Sets the value of the description property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -482,6 +487,7 @@ public class JxbModule {
 
     /**
      * Sets the value of the version property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -503,6 +509,7 @@ public class JxbModule {
 
     /**
      * Sets the value of the clazz property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -524,6 +531,7 @@ public class JxbModule {
 
     /**
      * Sets the value of the licenseRequired property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -545,6 +553,7 @@ public class JxbModule {
 
     /**
      * Sets the value of the binaryversion property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -717,6 +726,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the name property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -738,6 +748,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the version property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -789,6 +800,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the name property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -810,6 +822,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the version property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -861,6 +874,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the name property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -882,6 +896,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the version property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1150,6 +1165,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the baseDiagram property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1171,6 +1187,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the stereotype property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1192,6 +1209,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the keepBasePalette property.
+             * 
              * @param value allowed object is
              * {@link Boolean }
              */
@@ -1381,6 +1399,7 @@ public class JxbModule {
 
                 /**
                  * Sets the value of the baseStyle property.
+                 * 
                  * @param value allowed object is
                  * {@link String }
                  */
@@ -1440,6 +1459,7 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the metaclass property.
+                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -1461,6 +1481,7 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the stereotype property.
+                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -1482,6 +1503,7 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the key property.
+                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -1503,6 +1525,7 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the value property.
+                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -1596,6 +1619,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the value property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1617,6 +1641,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the name property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1638,6 +1663,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the clazz property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1659,6 +1685,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the label property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1680,6 +1707,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the image property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1785,6 +1813,7 @@ public class JxbModule {
 
         /**
          * Sets the value of the name property.
+         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -1806,6 +1835,7 @@ public class JxbModule {
 
         /**
          * Sets the value of the label property.
+         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -1827,6 +1857,7 @@ public class JxbModule {
 
         /**
          * Sets the value of the group property.
+         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -1848,6 +1879,7 @@ public class JxbModule {
 
         /**
          * Sets the value of the defaultValue property.
+         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -1869,6 +1901,7 @@ public class JxbModule {
 
         /**
          * Sets the value of the type property.
+         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -1890,6 +1923,7 @@ public class JxbModule {
 
         /**
          * Sets the value of the uid property.
+         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -2031,6 +2065,7 @@ public class JxbModule {
 
                 /**
                  * Sets the value of the name property.
+                 * 
                  * @param value allowed object is
                  * {@link String }
                  */
@@ -2052,6 +2087,7 @@ public class JxbModule {
 
                 /**
                  * Sets the value of the label property.
+                 * 
                  * @param value allowed object is
                  * {@link String }
                  */
@@ -2189,6 +2225,7 @@ public class JxbModule {
 
         /**
          * Sets the value of the uid property.
+         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -2210,6 +2247,7 @@ public class JxbModule {
 
         /**
          * Sets the value of the name property.
+         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -2303,6 +2341,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the uid property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2324,6 +2363,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the metaclass property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2478,6 +2518,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the uid property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2499,6 +2540,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the name property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2520,6 +2562,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the label property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2541,6 +2584,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the metaclass property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2562,6 +2606,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the ownerStereotype property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2583,6 +2628,7 @@ public class JxbModule {
 
             /**
              * Sets the value of the isHidden property.
+             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2745,6 +2791,7 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the path property.
+                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -2791,6 +2838,7 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the path property.
+                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -2837,6 +2885,7 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the path property.
+                     * 
                      * @param value allowed object is
                      * {@link String }
                      */

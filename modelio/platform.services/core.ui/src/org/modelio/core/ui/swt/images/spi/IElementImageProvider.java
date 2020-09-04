@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,7 +21,7 @@
 package org.modelio.core.ui.swt.images.spi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.swt.graphics.Image;
+import org.modelio.ui.swt.QualifiedImage;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -38,13 +38,13 @@ public interface IElementImageProvider {
      * @return the element browser icon.
      */
     @objid ("120b6d6a-fa30-43b3-a7a5-ef96f71cc523")
-    Image getIcon(MObject element);
+    QualifiedImage getIcon(MObject element);
 
     /**
      * @param element an element
      * @return the element diagram image
      */
     @objid ("6d65c1eb-b79f-40f0-9cb3-8e3ee2755da2")
-    Image getImage(MObject element);
+    QualifiedImage getImage(MObject element);
 
 }

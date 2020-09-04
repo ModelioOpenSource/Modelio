@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class BlobInfo implements IBlobInfo {
 
     /**
      * Copy constructor
+     * 
      * @param other the blob info to copy.
      */
     @objid ("7228adb5-b5b3-4ef3-b33e-00093ffd7258")
@@ -68,6 +69,7 @@ public class BlobInfo implements IBlobInfo {
 
     /**
      * Constructs a global blob info.
+     * 
      * @param key the blob key
      * @since 3.7
      */
@@ -81,6 +83,7 @@ public class BlobInfo implements IBlobInfo {
     /**
      * @param label a user friendly label.
      * @since 3.7
+     * 
      * @param owner the owner model element
      * @param localName an string to identify this blob in the blobs owned by the owned element. Will be used to compute the blob key.
      */
@@ -96,6 +99,7 @@ public class BlobInfo implements IBlobInfo {
      * <p>
      * If the MRef is null the local name is returned.
      * If the local name is null a prefix string is returned.
+     * 
      * @param ref a model object reference
      * @param localName a local name.
      * @return the computed key or key prefix.
@@ -118,6 +122,7 @@ public class BlobInfo implements IBlobInfo {
      * <p>
      * If the MObject is null the local name is returned.
      * If the local name is null a prefix string is returned.
+     * 
      * @param obj a model object
      * @param localName a local name.
      * @return the computed key or key prefix.

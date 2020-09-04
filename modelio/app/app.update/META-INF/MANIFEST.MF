@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Update
 Bundle-SymbolicName: org.modelio.app.update;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Vendor: modelio.org
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
@@ -14,7 +14,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.modelio.version,
  org.modelio.core.utils,
  org.eclipse.ui.workbench,
- org.modelio.app.project.core
+ org.modelio.app.project.core,
+ org.modelio.app.update.repo
 Bundle-ClassPath: res/,
  .
 Bundle-Activator: org.modelio.app.update.plugin.AppUpdate

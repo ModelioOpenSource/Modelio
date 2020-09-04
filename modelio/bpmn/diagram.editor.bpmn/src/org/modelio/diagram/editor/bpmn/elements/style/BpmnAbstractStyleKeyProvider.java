@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ import org.modelio.diagram.styles.core.StyleKey;
 public abstract class BpmnAbstractStyleKeyProvider extends AbstractStyleKeyProvider {
     /**
      * Creates a StyleKey based on a MetaKey.
+     * 
      * @param key The style key.
      * @param metakey the base meta key.
      * @return a StyleKey with i18n informations filled.
@@ -51,6 +52,7 @@ public abstract class BpmnAbstractStyleKeyProvider extends AbstractStyleKeyProvi
 
     /**
      * Creates a style key.
+     * 
      * @param key The style key id.
      * @param type The type of the style key.
      * @return a StyleKey with i18n informations filled.

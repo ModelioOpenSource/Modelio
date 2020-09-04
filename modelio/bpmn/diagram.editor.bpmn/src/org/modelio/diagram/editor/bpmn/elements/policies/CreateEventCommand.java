@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,10 +33,12 @@ import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
 import org.modelio.metamodel.bpmn.events.BpmnEvent;
+import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnIntermediateCatchEvent;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
+import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
 import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Event;
@@ -63,6 +65,7 @@ public class CreateEventCommand extends Command {
 
     /**
      * Initialize the command.
+     * 
      * @param dropLocation The location of the element in the diagram
      * @param referencedEvent The element to be used as referencedEvent.
      * @param editPart The destination edit part that will own the data object.
@@ -132,7 +135,17 @@ public class CreateEventCommand extends Command {
             IMdaExpert mdaExpert = modelManager.getMdaExpert();
             if (mdaExpert.canLink(Event.MdaTypes.STEREOTYPE_ELT, linkMetaclass, newElement.getMClass(), this.referencedEvent.getMClass())) {
                 Event.setTarget(newElement, this.referencedEvent);
+        
+                BpmnEventDefinition eventDefinition;
+                if (this.referencedEvent instanceof Signal) {
+                    eventDefinition = modelFactory.createBpmnSignalEventDefinition();
+                } else {
+                    eventDefinition = modelFactory.createBpmnMessageEventDefinition();
+                }
+                eventDefinition.setName(eventDefinition.getMClass().getName());
+                eventDefinition.setDefined(newElement);
             }
+        
         }
         
         unmaskElement(newElement);
@@ -140,6 +153,7 @@ public class CreateEventCommand extends Command {
 
     /**
      * Unmask the given element in the destination edit part.
+     * 
      * @param el The element to unmask
      */
     @objid ("9167c9af-756c-4d92-887f-ec13d96b49e7")

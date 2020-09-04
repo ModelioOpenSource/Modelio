@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -144,6 +144,7 @@ public class ElementPropertyUi {
 
     /**
      * Get the top level container of the UI.
+     * 
      * @return the top level container of the UI.
      */
     @objid ("0a2f0ccf-d59a-4ee4-8065-af810437f5b5")
@@ -345,6 +346,7 @@ public class ElementPropertyUi {
 
         /**
          * C'tor
+         * 
          * @param view the panel view
          */
         @objid ("3ff46de3-8d23-449e-910f-ec0acaa39a86")

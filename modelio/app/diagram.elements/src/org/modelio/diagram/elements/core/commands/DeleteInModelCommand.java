@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class DeleteInModelCommand extends Command {
 
     /**
      * Create a delete command.
+     * 
      * @param toDelete The element to delete.
      */
     @objid ("7f3e3f35-1dec-11e2-8cad-001ec947c8cc")
@@ -67,6 +68,7 @@ public class DeleteInModelCommand extends Command {
 
     /**
      * Add an element to delete.
+     * 
      * @param el an element to delete.
      */
     @objid ("7f3e3f3c-1dec-11e2-8cad-001ec947c8cc")

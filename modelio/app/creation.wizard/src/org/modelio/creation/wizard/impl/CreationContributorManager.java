@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.diagram.ContributorCategory;
 import org.modelio.api.module.contributor.IWizardContributor;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.creation.wizard.plugin.CreationWizard;
 import org.osgi.framework.Bundle;
 
@@ -61,7 +62,7 @@ public class CreationContributorManager {
     private final IEclipseContext context;
 
     @objid ("a4a52b67-4997-4326-884d-6f2de4d64c45")
-    public void addContributor(ContributorCategory category, IWizardContributor contributor) {
+    public void addContributor(final ContributorCategory category, final IWizardContributor contributor) {
         ContextInjectionFactory.inject(contributor, this.context);
         
         List<IWizardContributor> categoryContributors = this.contributors.get(category);
@@ -89,8 +90,8 @@ public class CreationContributorManager {
     }
 
     @objid ("33ef14ca-e20f-46fb-8bad-88124b540bf7")
-    public void removeContributor(ContributorCategory category, IWizardContributor contributor) {
-        List<IWizardContributor> categoryContributors = this.contributors.get(category);
+    public void removeContributor(final ContributorCategory category, final IWizardContributor contributor) {
+        final List<IWizardContributor> categoryContributors = this.contributors.get(category);
         if (categoryContributors != null) {
             categoryContributors.remove(contributor);
             // Remove category from the list if it has no more contributors
@@ -105,7 +106,7 @@ public class CreationContributorManager {
      */
     @objid ("ec4ab600-7ada-425b-b519-8cad34824093")
     @Inject
-    CreationContributorManager(IEclipseContext context) {
+    CreationContributorManager(final IEclipseContext context) {
         this.context = context;
         this.contributors = new HashMap<>();
         this.categories = new HashMap<>();
@@ -113,48 +114,48 @@ public class CreationContributorManager {
     }
 
     @objid ("46830209-292e-47f9-ac66-89e2b563d512")
-    private ContributorCategory createCategory(String type, String label, String iconPath, String bundleId) {
-        Image icon = getCategoryIcon(bundleId, iconPath);
-        ContributorCategory category = new ContributorCategory(type, label, icon);
+    private ContributorCategory createCategory(final String type, final String label, final String iconPath, final String bundleId) {
+        final Image icon = getCategoryIcon(bundleId, iconPath);
+        final ContributorCategory category = new ContributorCategory(type, label, icon);
         this.categories.put(type, category);
         return category;
     }
 
     @objid ("344b7258-31f3-4e86-90a4-d174d4327700")
-    private ContributorCategory getCategory(String type) {
+    private ContributorCategory getCategory(final String type) {
         return this.categories.get(type);
     }
 
     @objid ("a75520a7-f467-491f-b61e-eed78fe51b8f")
-    private Image getCategoryIcon(String bundleId, String iconPathString) {
+    private Image getCategoryIcon(final String bundleId, final String iconPathString) {
         Image icon = null;
         if (iconPathString != null) {
-            Bundle bundle = Platform.getBundle(bundleId);
-            IPath iconPath = new Path(iconPathString);
-            URL iconUrl = FileLocator.find(bundle, iconPath, null);
-            icon = (ImageDescriptor.createFromURL(iconUrl)).createImage();
+            final Bundle bundle = Platform.getBundle(bundleId);
+            final IPath iconPath = new Path(iconPathString);
+            final URL iconUrl = FileLocator.find(bundle, iconPath, null);
+            icon = ImageDescriptor.createFromURL(iconUrl).createImage();
         }
         return icon;
     }
 
     @objid ("d0131972-d2a5-4f5f-9936-70827da34105")
-    private void parseCreationContributor(IConfigurationElement element) {
-        String categoryType = element.getAttribute("categoryType");
-        String categoryLabel = element.getAttribute("categoryLabel");
-        String iconPath = element.getAttribute("categoryIcon");
+    private void parseCreationContributor(final IConfigurationElement element) {
+        final String categoryType = element.getAttribute("categoryType");
+        final String categoryLabel = element.getAttribute("categoryLabel");
+        final String iconPath = element.getAttribute("categoryIcon");
         Object contributor;
         
         try {
             contributor = element.createExecutableExtension("contributor");
             ContributorCategory category = getCategory(categoryType);
             if (category == null) {
-                String bundleId = element.getNamespaceIdentifier();
+                final String bundleId = element.getNamespaceIdentifier();
                 category = createCategory(categoryType, categoryLabel, iconPath, bundleId);
             }
             if (contributor instanceof IWizardContributor) {
                 addContributor(category, (IWizardContributor) contributor);
             }
-        } catch (CoreException e) {
+        } catch (final CoreException e) {
             CreationWizard.LOG.error("Unable to register wizard contribution declared by %s: %s", element.getContributor().getName(), e.getMessage());
             CreationWizard.LOG.debug(e);
         }
@@ -162,28 +163,26 @@ public class CreationContributorManager {
 
     @objid ("1d2282fc-21dc-4672-8e99-fe1283dbb429")
     private final void readExtensions() {
-        IConfigurationElement[] config = Platform.getExtensionRegistry()
-                .getConfigurationElementsFor(CreationContributorManager.DIAGRAM_CREATION_EXTENSION_ID);
-        for (IConfigurationElement element : config) {
-            if ("creation".equals(element.getName())) {
-                parseCreationContributor(element);
-            }
+        for (final IConfigurationElement element : new ExtensionPointContributionManager(CreationContributorManager.DIAGRAM_CREATION_EXTENSION_ID).getExtensions("creation")) {
+            parseCreationContributor(element);
         }
     }
 
     /**
      * Get all contributors by type (Diagram or Matrix)
+     * 
      * @param typeFilter the type of contributors specified by its Java interface
      * class. Cannot be null.
      * @return the filtered contributors
      */
     @objid ("537de727-817b-4cc4-8f77-ee5a71637f02")
-    public <T extends IWizardContributor> List<T> getAllContributors(java.lang.Class<T> typeFilter) {
+    public <T extends IWizardContributor> List<T> getAllContributors(final java.lang.Class<T> typeFilter) {
         return getAllContributors(typeFilter, null);
     }
 
     /**
      * Get all contributors by type (Diagram or Matrix)
+     * 
      * @param typeFilter the type of contributors specified by its Java interface
      * class. Cannot be null.
      * @param nameFilter optional name for further filtering based on strict string
@@ -193,10 +192,10 @@ public class CreationContributorManager {
      */
     @objid ("62ddceb8-b495-40d8-8380-e883e91b42e2")
     @SuppressWarnings("unchecked")
-    public <T extends IWizardContributor> List<T> getAllContributors(java.lang.Class<T> typeFilter, String nameFilter) {
-        List<T> allContributors = new ArrayList<>();
+    public <T extends IWizardContributor> List<T> getAllContributors(final java.lang.Class<T> typeFilter, final String nameFilter) {
+        final List<T> allContributors = new ArrayList<>();
         
-        for (IWizardContributor contributor : getAllContributors()) {
+        for (final IWizardContributor contributor : getAllContributors()) {
             if (typeFilter.isAssignableFrom(contributor.getClass())) {
                 if (nameFilter == null || contributor.getClass().getSimpleName().equals(nameFilter)) {
                     allContributors.add((T) contributor);
@@ -208,8 +207,8 @@ public class CreationContributorManager {
 
     @objid ("103b50dd-4395-4f0c-a5a3-935e8ef5aaff")
     public List<IWizardContributor> getAllContributors() {
-        List<IWizardContributor> allContributors = new ArrayList<>();
-        for (List<IWizardContributor> cons : this.contributors.values()) {
+        final List<IWizardContributor> allContributors = new ArrayList<>();
+        for (final List<IWizardContributor> cons : this.contributors.values()) {
             allContributors.addAll(cons);
         }
         return allContributors;

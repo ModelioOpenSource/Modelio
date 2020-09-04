@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,7 +39,7 @@ public class UpdateModuleDescriptor extends TodoActionDescriptor {
     @objid ("d1184e9d-3e10-4e12-8405-38fddeb3a843")
     @Override
     public String getLocalizedLabel() {
-        return GProjectData.getMessage("TodoDescriptor.update",
+        return GProjectData.I18N.getMessage("TodoDescriptor.update",
                                 this.oldModuleName,
                                 this.newDescriptor.getName(),
                                 this.newDescriptor.getVersion(),

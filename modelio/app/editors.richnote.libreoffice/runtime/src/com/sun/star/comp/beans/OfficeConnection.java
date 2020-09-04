@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ import com.sun.star.uno.XComponentContext;
 public interface OfficeConnection extends XComponent {
     /**
      * Sets a connection URL.
+     * 
      * @param url This is UNO URL which describes the type of a connection.
      * @throws java.net.MalformedURLException if the URL is invalid
      */
@@ -42,6 +43,7 @@ public interface OfficeConnection extends XComponent {
      * Retrieves the UNO component context.
      * Establishes a connection if necessary and initializes the
      * UNO service manager if it has not already been initialized.
+     * 
      * @return The office UNO component context.
      */
     @objid ("30e722e8-cdde-4fb0-b7f6-220b5ece55ab")

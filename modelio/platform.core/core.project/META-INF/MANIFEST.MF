@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Project
 Bundle-SymbolicName: org.modelio.core.project;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Require-Bundle: org.modelio.core.store.exml,
  org.modelio.core.kernel,
  org.modelio.core.utils,
@@ -19,6 +19,7 @@ Export-Package: org.modelio.gproject.fragment,
  org.modelio.gproject.fragment.exml,
  org.modelio.gproject.fragment.migration,
  org.modelio.gproject.fragment.ramcfile,
+ org.modelio.gproject.fragment.url,
  org.modelio.gproject.gproject,
  org.modelio.gproject.gproject.remote,
  org.modelio.gproject.model.impl.importer.core,

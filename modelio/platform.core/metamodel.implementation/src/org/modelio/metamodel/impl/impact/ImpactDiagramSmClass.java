@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.impact;
 
@@ -41,42 +41,42 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("09aabc1b-3c73-4356-8c32-fe32f693c2c1")
 public class ImpactDiagramSmClass extends AbstractDiagramSmClass {
-    @objid ("c53e129a-dfb3-4f5f-955c-2c1214cdf041")
+    @objid ("f0d1ecb5-d979-473f-bf08-80dc12d0731c")
     public ImpactDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("0bc6ca12-6eea-4f9b-9d04-1f31824bfc74")
+    @objid ("cc736036-a00c-4a0c-ad65-6853e4d597bf")
     @Override
     public String getName() {
         return "ImpactDiagram";
     }
 
-    @objid ("fdcd9a03-ef0f-40a3-8ce6-01e5dbe19a8c")
+    @objid ("68ff53f2-5ffd-4126-a9d4-d5d3147d36e5")
     @Override
     public Version getVersion() {
         return new Version("3.6.00");
     }
 
-    @objid ("0ec1b7d9-0ae5-4bdf-bb67-066b1a08f804")
+    @objid ("680cd618-51ea-4bf5-9c39-bab5db1ab561")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ImpactDiagram.class;
     }
 
-    @objid ("0cc991be-e26c-48eb-b51d-75c01be892e8")
+    @objid ("023fc063-e8ea-428c-93ad-43e426a9a897")
     @Override
     public boolean isCmsNode() {
         return true;
     }
 
-    @objid ("21986a62-5eb7-448f-af72-c15a052bbfb7")
+    @objid ("e0bbc061-0765-45f0-a3c0-d941015e3ced")
     @Override
     public boolean isAbstract() {
         return false;
     }
 
-    @objid ("6a5b804e-fcd3-427d-bcaf-4f46726803f5")
+    @objid ("6146dcdd-9e27-4c86-8c36-629752f7dad6")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(AbstractDiagram.MQNAME);
@@ -90,21 +90,21 @@ public class ImpactDiagramSmClass extends AbstractDiagramSmClass {
 
     @objid ("2beae2ef-f96a-4cf6-a497-966596be45ac")
     private static class ImpactDiagramObjectFactory implements ISmObjectFactory {
-        @objid ("ad59ec67-e908-4067-9f65-238491dfcfe4")
+        @objid ("7b2160e3-c866-4e17-a32f-a24a8d79e7c6")
         private ImpactDiagramSmClass smClass;
 
-        @objid ("565400a7-540e-4488-a832-a64c2c16bf52")
+        @objid ("488e1ce9-7a38-4059-bab2-6e132dafcc08")
         public ImpactDiagramObjectFactory(ImpactDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("463bf4ae-b04c-4061-a503-5099fbf79ddd")
+        @objid ("ed2d3cc9-c2f5-4cd3-9031-c2be588247fa")
         @Override
         public ISmObjectData createData() {
             return new ImpactDiagramData(this.smClass);
         }
 
-        @objid ("c066d855-d0fd-4cde-8e88-f4be339243e7")
+        @objid ("9f4bb134-06d2-486d-8e31-afd4e27517ec")
         @Override
         public SmObjectImpl createImpl() {
             return new ImpactDiagramImpl();

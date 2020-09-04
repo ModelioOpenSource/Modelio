@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -99,6 +99,7 @@ public interface IInfrastructureModelFactory extends IModelFactory {
      * Create a DiagramSet.
      * 
      * The DiagramSet is created on owner and has a name.
+     * 
      * @param name the name of the DiagramSet to create.
      * @param owner the DiagramSet that will own the DiagramSet. f null, the created DiagramSet is owned at the project level.
      * @return An Class representing the Class in the Model.
@@ -110,6 +111,7 @@ public interface IInfrastructureModelFactory extends IModelFactory {
      * Creates a new attached document.
      * <p>
      * Call {@link Document#createEmbeddedResource(String)} or {@link Document#createExternalResource(String)} on the returned resource to initialize it.
+     * 
      * @return a new {@link Document}.
      * @since 3.7
      */
@@ -124,6 +126,7 @@ public interface IInfrastructureModelFactory extends IModelFactory {
 
     /**
      * Creates a new rich note.
+     * 
      * @return a new {@link ExternDocument}.
      * @deprecated since 3.7
      */
@@ -135,6 +138,7 @@ public interface IInfrastructureModelFactory extends IModelFactory {
      * Creates an attached document.
      * <p>
      * Call {@link Document#createEmbeddedResource(String)} or {@link Document#createExternalResource(String)} on the returned resource to initialize it.
+     * 
      * @param resourceType the role played by the resource.
      * @param owner the composition owner of the resource.
      * @param mimeType the MIME type of the rich note.
@@ -220,6 +224,7 @@ public interface IInfrastructureModelFactory extends IModelFactory {
 
     /**
      * Creates an {@link ImpactProject}.
+     * 
      * @param repository the repository where the model object will be stored.
      * @return a new {@link ImpactProject}.
      */
@@ -381,6 +386,7 @@ public interface IInfrastructureModelFactory extends IModelFactory {
 
     /**
      * Build a new attached {@link Document} or {@link Resource}.
+     * 
      * @return an attached resource builder.
      * @since 3.7
      */

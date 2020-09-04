@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class CheckBoxPainter2 extends CheckBoxPainter {
      * Redefined to handle values not convertible to boolean.
      * <p>
      * In this case it returns <i>null</i>.
+     * 
      * @return a Boolean or <i>null</i>.
      */
     @objid ("431282ae-585f-44e2-a8d3-153bf2d7b9f7")

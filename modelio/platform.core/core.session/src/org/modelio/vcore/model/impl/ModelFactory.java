@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -105,6 +105,7 @@ public class ModelFactory extends AbstractModelFactory implements IModelFactoryS
 
     /**
      * Get the specific model factory implementing the given java class/interface.
+     * 
      * @param factoryCls the model factory java interface/
      * @return the found model factory
      * @throws java.lang.IllegalArgumentException if there is no model factory implementing the class or interface.

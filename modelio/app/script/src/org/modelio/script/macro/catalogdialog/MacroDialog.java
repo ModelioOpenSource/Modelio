@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -201,6 +201,7 @@ public class MacroDialog extends ModelioDialog {
 
     /**
      * Get the edited macro.
+     * 
      * @return the edited macro.
      */
     @objid ("006a05cc-c497-106a-bf4f-001ec947cd2a")
@@ -232,6 +233,7 @@ public class MacroDialog extends ModelioDialog {
 
     /**
      * Add a metaclass to the applicable metaclass list table.
+     * 
      * @param s a metaclass name
      */
     @objid ("006a0842-c497-106a-bf4f-001ec947cd2a")
@@ -243,6 +245,7 @@ public class MacroDialog extends ModelioDialog {
 
     /**
      * Check the path is an existing a readable file path.
+     * 
      * @param pathString The path to check
      */
     @objid ("0069a5c8-c497-106a-bf4f-001ec947cd2a")

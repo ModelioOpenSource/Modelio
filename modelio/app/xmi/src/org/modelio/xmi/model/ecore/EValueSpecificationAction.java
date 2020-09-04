@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,18 +23,18 @@ package org.modelio.xmi.model.ecore;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TagParameter;
 import org.modelio.metamodel.uml.infrastructure.TagType;
 import org.modelio.metamodel.uml.infrastructure.TaggedValue;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
+import org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ValueSpecificationAction;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.ObjingEAnnotation;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("a5cef32e-3322-4726-858f-f2c880024b39")
 public class EValueSpecificationAction extends EActivityNode {
@@ -46,18 +46,7 @@ public class EValueSpecificationAction extends EActivityNode {
     public Element createObjingElt() {
         if(ObjingEAnnotation.isDeleted(this.ecoreElement))
             return null;
-        
-        
-        IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
-        OpaqueAction element = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createOpaqueAction();
-        
-        try {
-            element.getExtension().add(mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2VALUESPECIFICATIONACTION, element.getMClass()));
-        } catch (ElementNotUniqueException e) {
-            Xmi.LOG.warning(e);
-        }
-        return element;
+        return UML2ValueSpecificationAction.create().getElement();
     }
 
     @objid ("d82583ae-51ac-4c6a-9a02-4f1a83394b69")
@@ -78,7 +67,7 @@ public class EValueSpecificationAction extends EActivityNode {
         IStandardModelFactory model = ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class);
         
         try {
-            Stereotype stereo = ReverseProperties.getInstance().getMModelServices().getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2VALUESPECIFICATIONACTION, objingElt.getMClass());
+            Stereotype stereo = ReverseProperties.getInstance().getMModelServices().getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2VALUESPECIFICATIONACTION, objingElt.getMClass());
         
             for (TagType tagType : stereo.getDefinedTagType()){
                 if (tagType.getName().equals("Value")){

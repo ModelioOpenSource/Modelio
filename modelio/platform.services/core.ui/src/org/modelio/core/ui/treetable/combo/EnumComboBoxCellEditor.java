@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public class EnumComboBoxCellEditor extends ComboBoxCellEditor2 {
 
     /**
      * Creates a new cell editor with a combo containing the enum's possible values parented under the given control.
+     * 
      * @param parent the parent control
      * @param enumClass the enumeration providing literal values for the combo box
      * @param style the style bits

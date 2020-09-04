@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class ExtensionPointPropertyModel extends AbstractPropertyModel<Extension
     /**
      * Create a new <i>ExtensionPoint</i> data model from an
      * <i>ExtensionPoint</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("04f0fdc3-67d6-4e9c-a523-4095ae31de6b")
@@ -62,6 +63,7 @@ public class ExtensionPointPropertyModel extends AbstractPropertyModel<Extension
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("7b727f6f-286f-4f33-82bd-c71c76f593f9")
@@ -72,6 +74,7 @@ public class ExtensionPointPropertyModel extends AbstractPropertyModel<Extension
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("b9496d66-5392-4de2-840f-acc08ec78904")
@@ -84,6 +87,7 @@ public class ExtensionPointPropertyModel extends AbstractPropertyModel<Extension
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -116,6 +120,7 @@ public class ExtensionPointPropertyModel extends AbstractPropertyModel<Extension
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -146,6 +151,7 @@ public class ExtensionPointPropertyModel extends AbstractPropertyModel<Extension
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

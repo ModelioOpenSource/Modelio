@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class StyleKeyTypeConverter {
 
     /**
      * Convert a value to a String.
+     * 
      * @param key a style key
      * @param value its value
      * @return its value converted to string
@@ -99,6 +100,7 @@ public class StyleKeyTypeConverter {
 
     /**
      * Convert stringValue to the type of the StyleKey.
+     * 
      * @param key a style key
      * @param stringValue a style key value as a string
      * @return the same value converted to the style key type

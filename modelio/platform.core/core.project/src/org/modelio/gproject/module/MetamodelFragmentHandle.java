@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class MetamodelFragmentHandle implements IMetamodelFragmentHandle {
 
     /**
      * @param mainClassName
+     * 
      * @param name the metamodel fragment name
      * @param version the metamodel fragment version for Modelio
      * @param vendor the vendor name this metamodel come from

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class TLBRBorder extends LineBorder {
 
     /**
      * C'tor that allows to specify which sides are visible. Uses default color and width of 1.
+     * 
      * @param drawTop true if top side should be drawn
      * @param drawLeft true if left side should be drawn
      * @param drawBottom true if bottom side should be drawn
@@ -70,6 +71,7 @@ public class TLBRBorder extends LineBorder {
 
     /**
      * C'tor that allows to specify the line width and which sides are visible. Uses default color.
+     * 
      * @param width the width of the border in pixels
      * @param drawTop true if top side should be drawn
      * @param drawLeft true if left side should be drawn
@@ -83,6 +85,7 @@ public class TLBRBorder extends LineBorder {
 
     /**
      * C'tor that allows to specify the line color, the line width and which sides are visible.
+     * 
      * @param color the color of the border
      * @param width the width of the border in pixels
      * @param drawTop true if top side should be drawn
@@ -144,6 +147,7 @@ public class TLBRBorder extends LineBorder {
 
     /**
      * Changes whether the top side should be drawn or not.
+     * 
      * @param drawTop true if the top side should be drawn.
      */
     @objid ("7f6464cc-1dec-11e2-8cad-001ec947c8cc")
@@ -153,6 +157,7 @@ public class TLBRBorder extends LineBorder {
 
     /**
      * Changes whether the left side should be drawn or not.
+     * 
      * @param drawLeft true if the left side should be drawn.
      */
     @objid ("7f66c6e7-1dec-11e2-8cad-001ec947c8cc")
@@ -162,6 +167,7 @@ public class TLBRBorder extends LineBorder {
 
     /**
      * Changes whether the bottom side should be drawn or not.
+     * 
      * @param drawBottom true if the bottom side should be drawn.
      */
     @objid ("7f66c6ec-1dec-11e2-8cad-001ec947c8cc")
@@ -171,6 +177,7 @@ public class TLBRBorder extends LineBorder {
 
     /**
      * Changes whether the right side should be drawn or not.
+     * 
      * @param drawRight true if the right side should be drawn.
      */
     @objid ("7f66c6f1-1dec-11e2-8cad-001ec947c8cc")

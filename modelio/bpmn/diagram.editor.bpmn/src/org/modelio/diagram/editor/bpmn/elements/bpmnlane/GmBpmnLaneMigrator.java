@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -84,6 +84,7 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
      * <li>{@link GmBpmnLaneV0} representing a {@link BpmnLane} are handled by {@link #migrateLaneToLane(GmBpmnLaneV0)}</li>
      * <li>{@link GmBpmnLaneV0} representing a {@link BpmnParticipant} or {@link NullPointerException} are handled by {@link #migrateLaneToParticipant(GmBpmnLaneV0)}</li>
      * </ul>
+     * 
      * @param oldGmLane the gm being migrated.
      * @return the migrated gm, replacing the given one.
      * @throws org.modelio.diagram.persistence.PersistenceException if the lane do not represents a {@link BpmnLane} nor a {@link BpmnParticipant}.
@@ -275,6 +276,7 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
     /**
      * Old GmBpmnLane layout data was buggily the width instead of the height, and was interpreted as a weight.
      * Interpret all of them as a weight and translate to height.
+     * 
      * @param gmLaneContainer the laneset container
      * @param containerBounds the bounds of the container
      */

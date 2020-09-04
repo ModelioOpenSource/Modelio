@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public class AbstractMetaclassException extends RuntimeException {
 
     /**
      * Preferred constructor, computes a default message.
+     * 
      * @param metaclass the abstract metaclass.
      */
     @objid ("6e528f61-2520-46da-b253-6572452b541a")
@@ -44,6 +45,7 @@ public class AbstractMetaclassException extends RuntimeException {
 
     /**
      * Constructor with a custom message
+     * 
      * @param metaclass the abstract metaclass.
      * @param message the custom message
      */
@@ -55,6 +57,7 @@ public class AbstractMetaclassException extends RuntimeException {
 
     /**
      * Constructor with a custom message and a cause.
+     * 
      * @param metaclass the abstract metaclass.
      * @param message the custom message
      * @param cause cause the cause (which is saved for later retrieval by the

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public interface IPlacementConstraintProvider {
      * Creates and returns a PlacementConstraint for the given model.
      * @param y
      * @param height
+     * 
      * @param model the graphic model for which a constraint is to be created.
      * @param x the desired X coordinate in coordinates relative to the parent figure.
      * @param width the desired width of the figure.

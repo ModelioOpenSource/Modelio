@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ class UserNodeIndex implements IUserNodeIndex {
     /**
      * Initialize the index.
      * @param metamodel
+     * 
      * @param db the JDBM database.
      * @throws org.modelio.vstore.exml.common.index.IndexException if the index is broken
      */

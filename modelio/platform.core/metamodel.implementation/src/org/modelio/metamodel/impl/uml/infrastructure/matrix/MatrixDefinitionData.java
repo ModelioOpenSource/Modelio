@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.matrix;
 
@@ -31,22 +31,22 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("efa02e20-bfde-4080-8f8e-4890ce002c4f")
 public class MatrixDefinitionData extends ModelElementData {
-    @objid ("7ba05b00-e804-4486-8d75-68656c4267eb")
+    @objid ("9ffdd8a2-8305-4e41-9d95-f860c973631e")
      SmObjectImpl mLinesDefinition;
 
-    @objid ("6969bc7c-79e3-4e41-83d6-6d98a649ee20")
+    @objid ("d1ab8e20-9c51-4709-a5b4-059fa1c48047")
      SmObjectImpl mColumnsDefinition;
 
-    @objid ("87c92316-fb03-412e-a38f-c8f93d6873d5")
+    @objid ("7e403f77-b6bd-4d86-b387-f2e10d293062")
      SmObjectImpl mValuesDefinition;
 
-    @objid ("66f2436e-529b-4fa7-a1cb-c1a573f1fb9b")
+    @objid ("a7478862-7e31-4d83-8cc1-5ca4bc40384a")
      SmObjectImpl mDepthDefinition;
 
-    @objid ("41c50394-1f55-4e4e-8e09-1a0e3983e4d1")
+    @objid ("f7f74689-cfaf-42a1-a9c4-47847216c7f6")
      SmObjectImpl mOwner;
 
-    @objid ("a9827f8b-1de1-45f5-ac96-172925cffb55")
+    @objid ("f4b86166-3b73-4cb8-9d19-84ca643ab041")
     public MatrixDefinitionData(MatrixDefinitionSmClass smClass) {
         super(smClass);
     }

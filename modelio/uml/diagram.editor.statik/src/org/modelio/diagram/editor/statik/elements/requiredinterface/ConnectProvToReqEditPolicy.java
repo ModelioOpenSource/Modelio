@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -89,6 +89,7 @@ public class ConnectProvToReqEditPolicy extends LinkToVoidFinishCreationEditPoli
 
     /**
      * Return the lollipop edit part if the link is connected to one or the host.
+     * 
      * @return the lollipop edit part or the host edit part.
      */
     @objid ("366e54a3-55b7-11e2-877f-002564c97630")

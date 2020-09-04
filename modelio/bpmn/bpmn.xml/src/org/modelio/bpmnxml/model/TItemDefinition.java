@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public class TItemDefinition extends TRootElement {
 
     /**
      * Sets the value of the structureRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -105,6 +106,7 @@ public class TItemDefinition extends TRootElement {
 
     /**
      * Sets the value of the isCollection property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -130,6 +132,7 @@ public class TItemDefinition extends TRootElement {
 
     /**
      * Sets the value of the itemKind property.
+     * 
      * @param value allowed object is
      * {@link TItemKind }
      */

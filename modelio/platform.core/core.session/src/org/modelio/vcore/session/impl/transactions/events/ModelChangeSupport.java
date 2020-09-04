@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -112,6 +112,7 @@ public class ModelChangeSupport implements IModelChangeSupport {
      * <p>
      * Transactions are forbidden for model change listeners, ie model change listeners are not allowed to modify the model
      * Exceptions thrown by listeners are caught, added to the log and ignored.
+     * 
      * @param event the model change event.
      */
     @objid ("7d7cdcfc-1c43-11e2-8eb9-001ec947ccaf")
@@ -130,6 +131,7 @@ public class ModelChangeSupport implements IModelChangeSupport {
      * <p>
      * Transactions are forbidden for status change listeners, ie status change listeners are not allowed to modify the model.
      * Exceptions thrown by listeners are caught, added to the log and ignored.
+     * 
      * @param event a status change event
      */
     @objid ("7d7cdd01-1c43-11e2-8eb9-001ec947ccaf")
@@ -147,6 +149,7 @@ public class ModelChangeSupport implements IModelChangeSupport {
      * Get the model change handlers.
      * <p>
      * Do not modify the returned list!
+     * 
      * @return the model change handlers.
      */
     @objid ("056c9b92-ff9d-4e4a-8731-53d3a9ea8bfa")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ final class NoControlGraphicalViewer extends GraphicalViewerImpl {
 
     /**
      * Called if and when the viewer is disposed.
+     * 
      * @param e the dispose event
      */
     @objid ("181313f7-fec1-44a9-9a16-47e3a1df6670")

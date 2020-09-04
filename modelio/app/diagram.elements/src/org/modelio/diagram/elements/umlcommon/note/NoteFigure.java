@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -120,6 +120,7 @@ public class NoteFigure extends ShapedFigure {
 
     /**
      * Get the note content figure.
+     * 
      * @return The figure where the note content is displayed.
      */
     @objid ("818d8655-1dec-11e2-8cad-001ec947c8cc")
@@ -129,6 +130,7 @@ public class NoteFigure extends ShapedFigure {
 
     /**
      * Set note content and mode.
+     * 
      * @param content the content, as HTML or plain text
      * @param htmlMode true to activate the HTML mode
      */
@@ -191,6 +193,7 @@ public class NoteFigure extends ShapedFigure {
 
     /**
      * Set the displayed note type.
+     * 
      * @param type the note type.
      */
     @objid ("818d8668-1dec-11e2-8cad-001ec947c8cc")
@@ -203,6 +206,7 @@ public class NoteFigure extends ShapedFigure {
      * Convert a HTML text to plain text.
      * <p>
      * In the case where the conversion fails, the HTMl text is returned.
+     * 
      * @param htmlText HTML text
      * @return plain text.
      */
@@ -213,6 +217,7 @@ public class NoteFigure extends ShapedFigure {
 
     /**
      * Creates HTMl representation .
+     * 
      * @param htmlText the HTML text
      * @return the created figure
      */
@@ -224,6 +229,7 @@ public class NoteFigure extends ShapedFigure {
 
     /**
      * Creates the plain text mode figure: a FlowPage + a TextFlow
+     * 
      * @param content the plain text
      * @return the plain text mode figure
      */
@@ -285,6 +291,7 @@ public class NoteFigure extends ShapedFigure {
 
         /**
          * Calculate the minimum size a note should be.
+         * 
          * @param container the note figure
          * @param wHint the width hint (the desired width of the container)
          * @param hHint the height hint (the desired height of the container)
@@ -314,6 +321,7 @@ public class NoteFigure extends ShapedFigure {
 
         /**
          * Compute the ideal size of the note.
+         * 
          * @param container the note figure
          * @param wHint the width hint (the desired width of the container)
          * @param hHint the height hint (the desired height of the container)
@@ -399,6 +407,7 @@ public class NoteFigure extends ShapedFigure {
          * 5----------4
          * </pre>
          * @param p an array of 6 points. If null a new array with 6 points will be allocated.
+         * 
          * @param r the bounding box rectangle
          * @return the passed array or a new one
          */

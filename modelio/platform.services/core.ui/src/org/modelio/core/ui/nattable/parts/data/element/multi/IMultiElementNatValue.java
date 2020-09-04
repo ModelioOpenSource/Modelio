@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public interface IMultiElementNatValue extends IMultiNatValue {
     /**
      * Get the list of all accepted (and proposed) metaclasses for this cell.
      * Add metaclasses to this list to complete it.
+     * 
      * @return the current allowed metaclasses.
      */
     @objid ("9433555e-6255-4ca5-9745-3f9b208026f5")
@@ -42,6 +43,7 @@ public interface IMultiElementNatValue extends IMultiNatValue {
 
     /**
      * Get the filter that will be used to accept (and propose) elements for this cell.
+     * 
      * @return the current filter. Might be <code>null</code>.
      */
     @objid ("1d7e18f8-84b8-4fb7-a19b-ed17e817186f")
@@ -53,6 +55,7 @@ public interface IMultiElementNatValue extends IMultiNatValue {
 
     /**
      * Set a filter that will be used to accept (and propose) elements for this cell.
+     * 
      * @param elementFilter the new filter. Might be <code>null</code>.
      */
     @objid ("79c2e589-f852-4316-89b9-513d6642f430")

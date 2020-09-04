@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public class PointListUtilities {
      * true, there will also be points in between that approximate the arc. Arc size is r. Sometimes, segment between
      * two bendpoints is shorter than r. In that case, arc size for both bendpoints has to be reduced to be half of the
      * segment length, so that both arcs can fit. These reduced arc sizes (if any) are kept in rForBendpoint hashtable.
+     * 
      * @param points Initial list of connection points
      * @param r Size (radius) of the arc that should replace bendpoint
      * @param rForBendpoint Hashtable keeping track of bendpoints whose arcs have to be smaller than r
@@ -216,6 +217,7 @@ public class PointListUtilities {
 
     /**
      * Method calcSmoothPolyline. Calculate the smooth polyline approximation of this polyline based on a smooth factor.
+     * 
      * @param points the <code>PointList</code> that is used to calculate the smooth point list from.
      * @param nSmoothFactor the <code>int</code> smooth factor to smooth the line with 0 - None, 15 - some, 30 - lots
      * @param nBezierSteps the <code>int</code> number of line steps used to approximate the smooth curve
@@ -230,6 +232,7 @@ public class PointListUtilities {
     /**
      * Calculates the smooth polyline equivalent of the given points list. It will extrapolate a bezier approximation in
      * polylines that resembles a curved line.
+     * 
      * @param points the <code>PointList</code> that is used to calculate the smooth bezier approximation.
      * @param nSmoothFactor the <code>int</code> smooth factor to smooth the line with 0 - None, 15 - some, 30 - lots
      * @param nBezierSteps the <code>int</code> number of line steps used to approximate the smooth curve
@@ -245,6 +248,7 @@ public class PointListUtilities {
 
     /**
      * Finds a point relative to the pointList passed in based on the parameters passed in.
+     * 
      * @param pointList the <code>PointList</code>
      * @param fromLine distance off the line
      * @param fromEnd distance from the starting point of the line (i.e. distance from source end along the line)
@@ -278,6 +282,7 @@ public class PointListUtilities {
 
     /**
      * Utility method used to check if a point is contained inside a polygon
+     * 
      * @param points the polygon
      * @param point point to check
      * @return true is the pointis inside the polygon, otherwise false
@@ -312,6 +317,7 @@ public class PointListUtilities {
      * is initializing the copy based on size but then making the copy based on the array allocation which may be
      * different causing an ArrayIndexOutOfBounds exception.
      * @param pointsFrom
+     * 
      * @return PointList
      */
     @objid ("7f8f4f32-1dec-11e2-8cad-001ec947c8cc")
@@ -323,6 +329,7 @@ public class PointListUtilities {
 
     /**
      * createPointsFromRect
+     * 
      * @param rBox Rectangle to base the PointList from
      * @return PointList that is equivalent to the Rectangle
      */
@@ -344,6 +351,7 @@ public class PointListUtilities {
 
     /**
      * Find all intersection points between this polyline and another polyline passed into the method.
+     * 
      * @param points PointList to calculate interesections with.
      * @param poly the <code>PointList</code> to calculate intersections with.
      * @param intersections the <code>PointList</code> containing the resulting calculated intersection points.
@@ -405,6 +413,7 @@ public class PointListUtilities {
 
     /**
      * Calculate the nearest line segment index distance wise to the given point.
+     * 
      * @param points PointList to calculate the nearest line segment of.
      * @param ptCoord the <code>Point</code> to test containment of.
      * @return int Index of line segment that is nearest in the polyline to the given point. The index is 1 based where
@@ -435,6 +444,7 @@ public class PointListUtilities {
 
     /**
      * Method getLineSegments. Converts the points of this polyline into a list of <code>LineSeg</code> objects
+     * 
      * @param points PointList to get LineSeg equivalents of.
      * @return List of LineSeg objects.
      */
@@ -457,6 +467,7 @@ public class PointListUtilities {
 
     /**
      * Static utility method to get the nearest segment in the polyline from the given coordinates.
+     * 
      * @param mySegments the <code>List</code> of <code>LineSeg</code> objects
      * @param xCoord the <code>int</code> x coordinate of the point
      * @param yCoord the <code>int</code> y coordinate of the point
@@ -490,6 +501,7 @@ public class PointListUtilities {
 
     /**
      * Method getPointsSupremum. Get points representing the minimum for this poly line.
+     * 
      * @param points PointList to calculate the minimum point from.
      * @return Point value of the lowest point in the bounding box of the polyline.
      */
@@ -505,6 +517,7 @@ public class PointListUtilities {
 
     /**
      * Static utility function to calculate the length of a series of points if interpreted as line segments.
+     * 
      * @param points PointList to calculate the length of.
      * @return length of the line segments
      */
@@ -516,6 +529,7 @@ public class PointListUtilities {
 
     /**
      * Method getPointsSupremum. Get points representing the extrema for this poly line.
+     * 
      * @param points PointList to calculate the highest point from.
      * @return Point value of the highest point in the bounding box of the polyline.
      */
@@ -533,6 +547,7 @@ public class PointListUtilities {
      * Normalizes the line segments in the polyline. Checks for lines that are with-in a threshold for length and
      * removes them. Additionally, it will remove points that that adjacent segments that are both horizontal, or both
      * vertical.
+     * 
      * @param points <code>PointList</code> to be normalized
      * @return <code>boolean</code> <code>true</code> if segments were changed, <code>false</code> otherwise
      */
@@ -545,6 +560,7 @@ public class PointListUtilities {
      * Normalizes the line segments in the polyline. Checks for lines that are with-in a threshold for length and
      * removes them. Additionally, it will remove points that that adjacent segments that are both horizontal, or both
      * vertical. Will utilize a tolerance value to determine if segments needs to flattened or not.
+     * 
      * @param points <code>PointList</code> to normalize
      * @param straightLineTolerance the tolerance value within which indicates the line is straight in relative coordinates.
      * @return <code>boolean</code> <code>true</code> if segments were changed, <code>false</code> otherwise
@@ -581,6 +597,7 @@ public class PointListUtilities {
      * <Code>Point</Code> from the <Code>PointList</Code> closest to
      * @param p
      * @param p
+     * 
      * @param points - the list of points to select the result from
      * @param p - the point to which the closest point must be found
      * @return the <Code>Point</Code> from the <Code>PointList</Code> closest to
@@ -606,6 +623,7 @@ public class PointListUtilities {
      * <Code>Point</Code> from the <Code>PointList</Code> closest to
      * @param p
      * @param p
+     * 
      * @param points - the list of points to select the result from
      * @param p - the point to which the closest point must be found
      * @return the <Code>Point</Code> from the <Code>PointList</Code> closest to
@@ -628,6 +646,7 @@ public class PointListUtilities {
 
     /**
      * Calculate the point on the polyline given a distance from a key point.
+     * 
      * @param points the <code>PointList</code> to calculate the point on the polyline.
      * @param theDistance the <code>long</code> x coordinate of the point
      * @param fromKeyPoint the <code>int</code> constant value indicating the key point Origin, Terminus, Midpoint
@@ -642,6 +661,7 @@ public class PointListUtilities {
 
     /**
      * Calculate a new routed version of this polyline that will route itself around a given point.
+     * 
      * @param points PointList to modify
      * @param ptCenter the <code>Point</code> around which the routing will occur.
      * @param nHeight the <code>int</code> height to route around the point.
@@ -773,6 +793,7 @@ public class PointListUtilities {
 
     /**
      * Routes this polyline around another polyline that is presumably intersecting with it.
+     * 
      * @param points the <code>PointList</code> that is to be modified based on the routing calculations made around the
      * <code>poly</code> parameter.
      * @param poly the <code>PolylinePointList</code> around which the routing will occur.
@@ -902,6 +923,7 @@ public class PointListUtilities {
 
     /**
      * Route this polyline around a rectangle that is presumably intersecting with it.
+     * 
      * @param points PointList that will be modified to route around the given rectangle
      * @param rBox the <code>Rectangle</code> around which the routing will occur.
      * @param nSmoothFactor the <code>int</code> smooth factor to route the line with 0 - None, 15 - some, 30 - lots
@@ -962,6 +984,7 @@ public class PointListUtilities {
 
     /**
      * Removes redudant points from the point list.
+     * 
      * @param points the <code>PointList</code> which will be modified to remove redudant points
      * @param straightLineTolerance the tolerance value within which indicates the line is straight
      * @return <code>boolean</code> <code>true</code> if segments were modified, <code>false</code> otherwise.
@@ -1008,6 +1031,7 @@ public class PointListUtilities {
      * @param pt1
      * @param pt2
      * @param pt3
+     * 
      * @return boolean true if the line connecting all three points are straight, false otherwise.
      */
     @objid ("7f967603-1dec-11e2-8cad-001ec947c8cc")
@@ -1020,6 +1044,7 @@ public class PointListUtilities {
     /**
      * Static utility function to calculate the distanceAlong a series of line segments a given point is on the line.
      * @param mySegments
+     * 
      * @param aPoint Point to calculate the distance along the polyline of.
      * @return double value of the distance along the polyline of the given point.
      */
@@ -1042,6 +1067,7 @@ public class PointListUtilities {
 
     /**
      * Static utility function to calculate the length of a series of line segments.
+     * 
      * @param mySegments List of line segments to calculate the length of.
      * @return long length of the line segments
      */
@@ -1059,6 +1085,7 @@ public class PointListUtilities {
     /**
      * Static utility function used by <code>pointOn</code>.
      * @param mySegments
+     * 
      * @param theDistance the <code>long</code> x coordinate of the point
      * @param fromKeyPoint the <code>int</code> constant value indicating the key point Origin, Terminus, Midpoint
      * @param ptResult the <code>Point</code> where the resulting point value is set.
@@ -1126,6 +1153,7 @@ public class PointListUtilities {
      * @param mySegments
      * @param theSegment
      * @param uptoKeyPoint
+     * 
      * @return double
      */
     @objid ("7f967635-1dec-11e2-8cad-001ec947c8cc")
@@ -1170,6 +1198,7 @@ public class PointListUtilities {
      * @param ptCtl3
      * @param ptCtl4
      * @param nSteps
+     * 
      * @return boolean
      */
     @objid ("7f967640-1dec-11e2-8cad-001ec947c8cc")
@@ -1273,6 +1302,7 @@ public class PointListUtilities {
      * @param routePoly
      * @param bForward
      * @param nBuffer
+     * 
      * @return int
      */
     @objid ("7f98d84d-1dec-11e2-8cad-001ec947c8cc")
@@ -1332,6 +1362,7 @@ public class PointListUtilities {
 
     /**
      * Utility function that takes a set of bezier points and calculates a polyline approximation.
+     * 
      * @param points the <code>PointList</code> to calculate the bezier from.
      * @param nBezierSteps the <code>int</code> number of line steps that will be used to approximate each bezier curve
      * @return PolylinePointList List of PolylinePoint representing the smooth polyline.
@@ -1373,6 +1404,7 @@ public class PointListUtilities {
 
     /**
      * Calculate the actual bezier points of this polyline based on a smooth factor.
+     * 
      * @param points PointList to calculate the bezier approximation from
      * @param nSmoothFactor the <code>int</code> smooth factor to smooth the line with 0 - None, 15 - some, 30 - lots
      * @param nStartIndex int Index to start the calculation at
@@ -1615,6 +1647,7 @@ public class PointListUtilities {
      * the terminus; pctDist must be between 0.0 and 0.5 if the keypoint is the midpoint.
      * @param mySegments
      * @param pctDist
+     * 
      * @param fromKeyPoint the <code>int</code> constant value indicating the key point Origin, Terminus, Midpoint
      * @param locateInfo LocateInfo where the calculated info is stored for return.
      * @return boolean true if the segment could be located, false otherwise.
@@ -1687,6 +1720,7 @@ public class PointListUtilities {
      * reAdjustBoxSize private utility method to shrink / expand the box segment size to accommodate the given point on
      * the edge. When completed the containedPoint will be on the border of the boxSegs list. Assumptions: 1. boxSegs is
      * a list of LineSegs that represent a rectangle. 2. boxSegs is ordered clockwise around the rectangle.
+     * 
      * @param boxSegs List of LineSegs to shrink / expand
      * @param containedPoint Point that is typically contained inside the Rectangle the the boxSegs LineSeg list represents.
      */

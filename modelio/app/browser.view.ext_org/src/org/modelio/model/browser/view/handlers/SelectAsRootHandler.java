@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class SelectAsRootHandler {
 
     /**
      * Set the selected notes as the roots for the BrowserView's tree.
+     * 
      * @param part a {@link BrowserView} part.
      * @param selection the current application selection.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -79,6 +79,7 @@ public class DelegatingEditPolicy implements EditPolicy {
      * Erases source feedback based on the given <code>Request</code>. Does nothing if the EditPolicy does not apply to the given Request.
      * <P>
      * This method is declared on {@link EditPart#eraseSourceFeedback(Request) EditPart}, and is redeclared here so that EditPart can delegate its implementation to each of its EditPolicies.
+     * 
      * @param request the Request
      */
     @objid ("80d12c77-1dec-11e2-8cad-001ec947c8cc")
@@ -91,6 +92,7 @@ public class DelegatingEditPolicy implements EditPolicy {
      * Erases target feedback based on the given <code>Request</code>. Does nothing if the EditPolicy does not apply to the given Request.
      * <P>
      * This method is declared on {@link EditPart#eraseTargetFeedback(Request) EditPart}, and is redeclared here so that EditPart can delegate its implementation to each of its EditPolicies.
+     * 
      * @param request the Request
      */
     @objid ("80d12c7e-1dec-11e2-8cad-001ec947c8cc")
@@ -105,6 +107,7 @@ public class DelegatingEditPolicy implements EditPolicy {
      * <P>
      * This method is declared on {@link EditPart#getCommand(Request) EditPart}, and is redeclared here so that EditPart can delegate its implementation to each of its EditPolicies. The EditPart will combine each EditPolicy's contribution into a
      * {@link org.eclipse.gef.commands.CompoundCommand}.
+     * 
      * @param request the Request
      * @return <code>null</code> or a Command contribution
      */
@@ -201,6 +204,7 @@ public class DelegatingEditPolicy implements EditPolicy {
      * Does nothing if the EditPolicy does not recognize the given Request.
      * <P>
      * This method is declared on {@link EditPart#showSourceFeedback(Request) EditPart}, and is redeclared here so that EditPart can delegate its implementation to each of its EditPolicies.
+     * 
      * @param request the Request
      */
     @objid ("80d38ec6-1dec-11e2-8cad-001ec947c8cc")
@@ -215,6 +219,7 @@ public class DelegatingEditPolicy implements EditPolicy {
      * Does nothing if the EditPolicy does not recognize the given request.
      * <P>
      * This method is declared on {@link EditPart#showTargetFeedback(Request) EditPart}, and is redeclared here so that EditPart can delegate its implementation to each of its EditPolicies.
+     * 
      * @param request the Request
      */
     @objid ("80d38ecd-1dec-11e2-8cad-001ec947c8cc")
@@ -229,6 +234,7 @@ public class DelegatingEditPolicy implements EditPolicy {
      * This method is declared on {@link EditPart#understandsRequest(Request) EditPart}, and is redeclared here so that EditPart can delegate its implementation to each of its EditPolicies. <code>EditPart</code> returns <code>true</code> if any of its
      * EditPolicies returns <code>true</code>. In other words, it performs a logical OR.
      * @see EditPart#understandsRequest(Request)
+     * 
      * @param request the Request
      * @return boolean <code>true</code> if the EditPolicy understands the specified request
      */
@@ -247,6 +253,7 @@ public class DelegatingEditPolicy implements EditPolicy {
      * If no child model is found, return <tt>null</tt>.<br>
      * If the found model is not visible, return the host edit part.
      * <p>
+     * 
      * @param metaclass The metaclass to create or drop.
      * @return
      * <ul>

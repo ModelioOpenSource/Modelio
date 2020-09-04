@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -70,6 +70,7 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
      * <p>
      * @param pipe
      * the pipe of the connection
+     * 
      * @param description the description of the connection
      */
     @objid ("9a772359-aa8f-4f5d-aff0-e76da20b1d28")
@@ -182,6 +183,7 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
      * @param aReadBytes
      * the outparameter, where the bytes have to be placed
      * @see com.sun.star.connections.XConnection#read
+     * 
      * @param nBytesToRead the number of bytes to read
      * @return the number of bytes read
      */
@@ -200,6 +202,7 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
      * Write bytes.
      * <p>
      * @see com.sun.star.connections.XConnection#write
+     * 
      * @param aData the bytes to write
      */
     @objid ("e1d44d1a-8d7e-4cdc-b58f-502182e37709")
@@ -239,6 +242,7 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
      * Gives a description of the connection.
      * <p>
      * @see com.sun.star.connections.XConnection#getDescription
+     * 
      * @return the description
      */
     @objid ("12aeadf7-8f5b-4266-9f5e-3af6d66ec0a4")

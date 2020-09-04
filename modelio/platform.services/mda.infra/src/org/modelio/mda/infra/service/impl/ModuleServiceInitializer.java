@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,8 +55,8 @@ import org.modelio.vbasic.progress.IModelioProgress;
 public class ModuleServiceInitializer {
     @objid ("6b428c7e-8d37-467f-b2cb-c30c6df89c74")
     @Execute
-    private static void execute(IEclipseContext context) {
-        ModuleManagementService moduleService = ContextInjectionFactory.make(ModuleManagementService.class, context);
+    private static void execute(final IEclipseContext context) {
+        final ModuleManagementService moduleService = ContextInjectionFactory.make(ModuleManagementService.class, context);
         context.set(IModuleManagementService.class, moduleService);
         context.set(IModuleService.class, moduleService);
         
@@ -68,21 +68,22 @@ public class ModuleServiceInitializer {
     /**
      * initialize the module cache and register it in the context as
      * {@link IModuleStore}.
+     * 
      * @param context the context to initialize.
      */
     @objid ("85f146e7-5f64-4268-a140-9cef33804584")
-    private static void initModuleCache(IEclipseContext context) {
+    private static void initModuleCache(final IEclipseContext context) {
         final ModelioEnv env = context.get(ModelioEnv.class);
         
         // Instantiate and register the module catalog
-        IModuleStore stdModuleCatalog = context.get(IModuleStore.class);
+        final IModuleStore stdModuleCatalog = context.get(IModuleStore.class);
         
         // Get the mda.infra preference node, as the module catalog is managed by this plugin
         // Add a preference change listener to update module catalog path.
         if (stdModuleCatalog instanceof FileModuleStore) {
             AppPreferences.getPreferences().addPropertyChangeListener(new IPropertyChangeListener() {
                 @Override
-                public void propertyChange(PropertyChangeEvent event) {
+                public void propertyChange(final PropertyChangeEvent event) {
                     if (ModelioEnv.MODULE_PATH_PREFERENCE.equals(event.getProperty())) {
                         ((FileModuleStore) stdModuleCatalog).setCachePath(Paths.get((String) event.getNewValue()));
                     }
@@ -91,16 +92,16 @@ public class ModuleServiceInitializer {
         }
         
         // Instantiate the module catalog cache
-        Path cachePath = MdaInfra.getContext().getBundle().getDataFile("modules_cache").toPath();
-        IModuleRTCache moduleCache = new ModuleRTCache(stdModuleCatalog, env.getMetamodelExtensions(), cachePath);
+        final Path cachePath = MdaInfra.getContext().getBundle().getDataFile("modules_cache").toPath();
+        final IModuleRTCache moduleCache = new ModuleRTCache(stdModuleCatalog, env.getAllMetamodelExtensions(), cachePath);
         
         MdaInfra.LOG.debug("Module cache created in: " + cachePath);
         
         // Plugdules : plugin modules "cache"
-        PluginModulesCache pluginCache = new PluginModulesCache(env.getMetamodelExtensions());
+        final PluginModulesCache pluginCache = new PluginModulesCache(env.getAllMetamodelExtensions());
         
         // Register the module catalog cache as the module catalog
-        CompositeModuleCache aggregateCache = new CompositeModuleCache(pluginCache, moduleCache);
+        final CompositeModuleCache aggregateCache = new CompositeModuleCache(pluginCache, moduleCache);
         context.set(IModuleRTCache.class, aggregateCache);
     }
 
@@ -113,7 +114,7 @@ public class ModuleServiceInitializer {
         private final IModuleRTCache modulesCache;
 
         @objid ("d7b69173-4d3c-4abe-a828-209150fc492f")
-        public CompositeModuleCache(IModuleRTCache pluginCache, IModuleRTCache modulesCache) {
+        public CompositeModuleCache(final IModuleRTCache pluginCache, final IModuleRTCache modulesCache) {
             super();
             this.pluginCache = pluginCache;
             this.modulesCache = modulesCache;
@@ -121,13 +122,13 @@ public class ModuleServiceInitializer {
 
         @objid ("53bc41f1-d436-4ad2-b192-c2d9ae2ad13e")
         @Override
-        public IModuleHandle installModuleArchive(Path archive, IModelioProgress monitor) throws IOException {
+        public IModuleHandle installModuleArchive(final Path archive, final IModelioProgress monitor) throws IOException {
             return this.modulesCache.installModuleArchive(archive, monitor);
         }
 
         @objid ("bf82b40d-21d5-42ec-b234-1f7f0bc17285")
         @Override
-        public IModuleHandle findModule(String moduleName, String moduleVersion, IModelioProgress monitor) throws IOException {
+        public IModuleHandle findModule(final String moduleName, final String moduleVersion, final IModelioProgress monitor) throws IOException {
             IModuleHandle h = this.pluginCache.findModule(moduleName, moduleVersion, monitor);
             
             if (h == null) {

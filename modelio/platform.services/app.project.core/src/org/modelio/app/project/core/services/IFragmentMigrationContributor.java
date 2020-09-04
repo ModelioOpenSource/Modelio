@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public interface IFragmentMigrationContributor {
      * <p>
      * The fragment is mount, and you need to open a transaction if you need to modify the model.
      * the project is accessible with IProjectFragment#get
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility
      * to call done() on the given monitor. Accepts <i>null</i>, indicating that no progress should be
      * reported and that the operation cannot be cancelled.

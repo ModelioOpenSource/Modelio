@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ public class NoteChooserModel {
 
     /**
      * Constructor.
+     * 
      * @param element the element to create notes on.
      */
     @objid ("26e385b0-186f-11e2-bc4e-002564c97630")
@@ -42,6 +43,7 @@ public class NoteChooserModel {
 
     /**
      * Get the element beeing edited.
+     * 
      * @return a model element
      */
     @objid ("42b724c1-1917-11e2-bc4e-002564c97630")

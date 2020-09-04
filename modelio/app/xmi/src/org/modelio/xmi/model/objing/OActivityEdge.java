@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.metamodel.uml.behavior.activityModel.ForkJoinNode;
 import org.modelio.metamodel.uml.behavior.activityModel.InterruptibleActivityRegion;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.xmi.generation.GenerationProperties;
+import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
 
 @objid ("b0e9e7eb-6719-4187-8206-69317f63105d")
@@ -134,13 +135,12 @@ public class OActivityEdge extends OModelElement {
         if (weight.length() > 0) {
             try{
                 int weightInt = Integer.valueOf(weight);
-                org.eclipse.uml2.uml.LiteralInteger ecoreWeight = UMLFactory.eINSTANCE
-                .createLiteralInteger();
+                org.eclipse.uml2.uml.LiteralInteger ecoreWeight = UMLFactory.eINSTANCE.createLiteralInteger();
                 ecoreWeight.setValue(weightInt);
                 flow.setWeight(ecoreWeight);
             }catch(Exception e){
-                org.eclipse.uml2.uml.LiteralString ecoreWeight = UMLFactory.eINSTANCE
-                .createLiteralString();
+                Xmi.LOG.warning(e);
+                org.eclipse.uml2.uml.LiteralString ecoreWeight = UMLFactory.eINSTANCE.createLiteralString();
                 ecoreWeight.setValue(weight);
                 flow.setWeight(ecoreWeight);
             }

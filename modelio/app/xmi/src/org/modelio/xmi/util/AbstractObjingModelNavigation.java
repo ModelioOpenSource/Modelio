@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -92,6 +92,8 @@ import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.metamodel.uml.statik.PackageImport;
 import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.metamodel.uml.statik.Port;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.xmi.generation.GenerationProperties;
@@ -160,14 +162,12 @@ public abstract class AbstractObjingModelNavigation {
 
     @objid ("160aa3a6-48e8-428b-9096-7d80a945940c")
     public static boolean isCreate(Operation operation) {
-        return isStereotyped(operation, Xmi.I18N
-                                                                                        .getString("objing.java.stereotype.constructor"));
+        return isStereotyped(operation, Xmi.I18N.getString("objing.java.stereotype.constructor"));
     }
 
     @objid ("b51df578-6c62-463e-9008-df45b4781f5a")
     public static boolean isDestroy(Operation operation) {
-        return isStereotyped(operation, Xmi.I18N
-                                                                                        .getString("objing.java.stereotype.destructor"));
+        return isStereotyped(operation, Xmi.I18N.getString("objing.java.stereotype.destructor"));
     }
 
     @objid ("a6c1b084-7e85-4e8e-9e72-d53d76db6e34")
@@ -258,12 +258,6 @@ public abstract class AbstractObjingModelNavigation {
         if (ecoreElt != null){
             ecoreElt.destroy();
         }
-    }
-
-    @objid ("9f3eef78-6700-47da-8a57-a62f99d31bde")
-    public static Stereotype getStereotype(MClass metaclass, String stereotypeName) {
-        return Modelio.getInstance().getModelingSession()
-                                                                                        .getMetamodelExtensions().getStereotype(stereotypeName, metaclass);
     }
 
     @objid ("fe3fec0d-ff09-4a77-acd7-f4292d535aab")
@@ -502,7 +496,7 @@ public abstract class AbstractObjingModelNavigation {
         if (profile == null)
              return false;
         
-        if (profile.getOwnerModule().getName().equals(XMIProperties.modelerModuleName)  
+        if (profile.getOwnerModule().getName().equals(IModelerModulePeerModule.MODULE_NAME)  
                 && profile.getName().equals("default")
                 && ((obStereotype.getName().equals(IModelerModuleStereotypes.EXTEND))
                         || (obStereotype.getName().equals(IModelerModuleStereotypes.INCLUDE)
@@ -819,7 +813,7 @@ public abstract class AbstractObjingModelNavigation {
     @objid ("dfa3853e-f683-4e93-ae61-1d81c054e513")
     public static boolean haveInstanceValue(UmlModelElement elt) {
         for (Dependency dep: elt.getDependsOnDependency()){
-            if (dep.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2INSTANCEVALUE)){
+            if (dep.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSTANCEVALUE)){
                 return true;
             }
         }
@@ -829,7 +823,7 @@ public abstract class AbstractObjingModelNavigation {
     @objid ("634bafd1-e9f2-4350-a110-295b26fb9de8")
     public static Instance getInstanceValue(UmlModelElement elt) {
         for (Dependency dep: elt.getDependsOnDependency()){
-            if (dep.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2INSTANCEVALUE)
+            if (dep.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSTANCEVALUE)
                     && (dep.getDependsOn() instanceof Instance)){
                 return (Instance) dep.getDependsOn();
             }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IEditorDropClient {
     /**
      * Returns whether the field accepts the element as a value.
+     * 
      * @param element the new value candidate.
      * @return true if the new value is valid, false in the other case.
      */
@@ -37,6 +38,7 @@ public interface IEditorDropClient {
     /**
      * Set the field value to the given element and end the picking session
      * if the given element is valid.
+     * 
      * @param dropedElement The new represented elements in the field
      */
     @objid ("e451adfe-79db-11dd-ba6f-0014222a9f79")

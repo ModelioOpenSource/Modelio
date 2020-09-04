@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class ResizeChildrenCommand extends Command {
 
     /**
      * Constructor.
+     * 
      * @param container the partition container.
      */
     @objid ("7f1a7ba9-1dec-11e2-8cad-001ec947c8cc")
@@ -51,6 +52,7 @@ public class ResizeChildrenCommand extends Command {
 
     /**
      * Set the constraints that must be changed.
+     * 
      * @param newConstraints the constraints that must be changed.
      */
     @objid ("7f1a7bad-1dec-11e2-8cad-001ec947c8cc")

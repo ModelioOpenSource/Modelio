@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ public interface ISslUntrustedServerFixer {
      * Allows the user to fix the server trust problem.
      * <p>
      * If the method returns <code>true</code> the caller may try the connection again.
+     * 
      * @param uri the server URI
      * @param chain the invalid certificate chain
      * @param ex the connection error.

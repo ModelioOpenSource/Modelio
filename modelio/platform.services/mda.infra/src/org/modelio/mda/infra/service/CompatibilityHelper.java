@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public class CompatibilityHelper {
 
     /**
      * Tells whether a module with this compatibility level can be run.
+     * 
      * @param level a CompatibilityLevel
      * @return true if a module with this compatibility level can be run
      */
@@ -48,6 +49,7 @@ public class CompatibilityHelper {
 
     /**
      * Get the compatibility level of a module handle with the current Modelio version.
+     * 
      * @param mh the module handle
      * @return the compatibility level
      */
@@ -59,6 +61,7 @@ public class CompatibilityHelper {
 
     /**
      * Get the compatibility level of a module binary version with the given Modelio version.
+     * 
      * @param modelioVersion the Modelio binary version
      * @param moduleBinaryVersion the module required binary version
      * @return the binary compatibility level

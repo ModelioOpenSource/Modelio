@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class VersionedNodeDependencies {
 
     /**
      * Computes the CMS dependencies of a given CMS node element.
+     * 
      * @param el a CMS node
      */
     @objid ("3de2911e-121a-11e2-816a-001ec947ccaf")
@@ -97,6 +98,7 @@ public class VersionedNodeDependencies {
 
     /**
      * Get the model objects outside of the repository.
+     * 
      * @return the model objects outside of the repository
      */
     @objid ("ad6ff07b-1778-11e2-ac36-001ec947ccaf")
@@ -116,6 +118,7 @@ public class VersionedNodeDependencies {
      * Get the objects referenced outside this node.
      * <p>
      * The CMS node owning these objects can be got with {@link #getUsedNodes()}.
+     * 
      * @return the used objects .
      */
     @objid ("ad6ff06f-1778-11e2-ac36-001ec947ccaf")
@@ -125,6 +128,7 @@ public class VersionedNodeDependencies {
 
     /**
      * Get the CMS nodes used by this CMS node.
+     * 
      * @return the used CMS nodes
      */
     @objid ("ad6ff068-1778-11e2-ac36-001ec947ccaf")

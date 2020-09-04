@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -421,6 +421,7 @@ public class ElementPropertyController {
 
     /**
      * Called when the selection change in the annotation tree. Sets the given tagged values set (from Stereotype or Module) in the data panel.
+     * 
      * @param typeItem : the type item whose contents is to be displayed in the content panel. May be null
      */
     @objid ("d4e66867-b90b-4a92-9232-555393019dd8")
@@ -434,6 +435,7 @@ public class ElementPropertyController {
 
     /**
      * Get the selected elements in the left tree.
+     * 
      * @return the selected elements.
      */
     @objid ("8faa29b8-c068-11e1-8c0a-002564c97630")

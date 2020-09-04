@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -126,6 +126,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
 
     /**
      * Get the selection listener used to show satellite links.
+     * 
      * @return the selection listener.
      */
     @objid ("7f004205-1dec-11e2-8cad-001ec947c8cc")
@@ -187,6 +188,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
     /**
      * Sets the internal selection value. This method is called automatically by the listener. If the selection value is
      * changed, the appropriate method is called to show the specified selection type.
+     * 
      * @param type the type of selection the EditPolicy should display
      */
     @objid ("7f02a42b-1dec-11e2-8cad-001ec947c8cc")

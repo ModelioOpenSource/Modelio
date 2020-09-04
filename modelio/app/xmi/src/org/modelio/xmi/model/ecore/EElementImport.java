@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,7 +50,7 @@ public class EElementImport extends EElement {
         org.eclipse.uml2.uml.PackageableElement ecoreImported = this.ecoreElement.getImportedElement();
         org.eclipse.uml2.uml.Namespace ecoreImporting = this.ecoreElement.getImportingNamespace();
         
-        // with the ecore  take de IjingElement
+        // with the ecore  take de ModelioElement
         
         if ((ecoreImported != null) && (ecoreImporting != null)){
             Object objingImported = revProp.getMappedElement(ecoreImported);
@@ -64,6 +64,7 @@ public class EElementImport extends EElement {
 
     /**
      * The constructor with the imported Ecore org.eclipse.uml2.uml.ElementImport
+     * 
      * @param element : the imported Ecore org.eclipse.uml2.uml.ElementImport
      */
     @objid ("31927e3e-50db-4717-9f22-4dd7b7d7100b")
@@ -82,7 +83,7 @@ public class EElementImport extends EElement {
         org.eclipse.uml2.uml.PackageableElement ecoreImported = this.ecoreElement.getImportedElement();
         org.eclipse.uml2.uml.Namespace ecoreImporting = this.ecoreElement.getImportingNamespace();
         
-        // with the ecore  take de IjingElement
+        // with the ecore  take de ModelioElement
         Object objingImported = revProp.getMappedElement(ecoreImported);
         Object objingImporting = revProp.getMappedElement(ecoreImporting);
         

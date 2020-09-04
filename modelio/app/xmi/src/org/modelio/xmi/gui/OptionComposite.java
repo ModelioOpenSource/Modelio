@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class OptionComposite extends Composite {
 
     /**
      * The constructor of the OptionComposite
+     * 
      * @param parent : the parent composite
      * @param style : the SWT style of the returned composite
      */
@@ -121,7 +122,7 @@ public class OptionComposite extends Composite {
         
         this.compatibility = new Button(this.groupCompatibility, SWT.CHECK);
         final RowData fd_compatibility = new RowData();
-        fd_compatibility.height = 30;
+        fd_compatibility.height = 35;
         this.compatibility.setLayoutData(fd_compatibility);
         
                
@@ -133,7 +134,7 @@ public class OptionComposite extends Composite {
         this.format = new FormatChooserComposite(this.groupCompatibility, SWT.NONE, SWT.OPEN, projectService);
         
         final RowData fd_format = new RowData();
-        fd_format.height = 30;
+        fd_format.height = 35;
         this.format.setLayoutData(fd_format);
         
         this.groupExtension = new Group(this.groupOwner,  SWT.NONE);  
@@ -149,14 +150,14 @@ public class OptionComposite extends Composite {
         this.xmi = new Button(this.groupExtension, SWT.RADIO);
         
         final RowData fd_xmi = new RowData();
-        fd_xmi.height = 30;
+        fd_xmi.height = 35;
         this.xmi.setLayoutData(fd_xmi);
         
         this.xmi.setText(".xmi");
         
         this.uml = new Button(this.groupExtension, SWT.RADIO);
         final RowData fd_uml = new RowData();
-        fd_uml.height = 30;
+        fd_uml.height = 35;
         this.uml.setLayoutData(fd_uml);
         this.uml.setText(".uml");
         
@@ -181,6 +182,7 @@ public class OptionComposite extends Composite {
 
     /**
      * This method returns the UML radio button
+     * 
      * @return SWT Button
      */
     @objid ("a2ca9326-6b1e-49c4-9183-51452e8bb1a4")
@@ -190,6 +192,7 @@ public class OptionComposite extends Composite {
 
     /**
      * This method returns the XMI radio button
+     * 
      * @return SWT Button
      */
     @objid ("382784ac-738f-4456-a08d-453fa58ff4d0")
@@ -199,6 +202,7 @@ public class OptionComposite extends Composite {
 
     /**
      * This method returns the specified file extension
+     * 
      * @return the file extension .xmi or .uml
      */
     @objid ("010bcdad-d248-42eb-a9b0-5b4bbd1f9d4a")
@@ -211,6 +215,7 @@ public class OptionComposite extends Composite {
 
     /**
      * This method returns the compatibility checkbox
+     * 
      * @return SWT CheckBox
      */
     @objid ("2e28c92d-1bbe-45b5-9779-64a430585274")
@@ -238,6 +243,7 @@ public class OptionComposite extends Composite {
 
     /**
      * This method returns the availability of the annotation export
+     * 
      * @return true if the annotation must be exported
      */
     @objid ("f6b952fe-1cfc-464b-8655-7d0b7462c2a6")
@@ -247,6 +253,7 @@ public class OptionComposite extends Composite {
 
     /**
      * This method returns the SWT FileDialog created inside the FileChooserComposite
+     * 
      * @return the owned FileDialog
      */
     @objid ("9aec9821-32f0-4b9d-8bbf-ba02a6e9d549")
@@ -256,6 +263,7 @@ public class OptionComposite extends Composite {
 
     /**
      * This method returns the format selected
+     * 
      * @return FormatExport
      */
     @objid ("53763a56-229f-414e-a035-20263beb1e2c")

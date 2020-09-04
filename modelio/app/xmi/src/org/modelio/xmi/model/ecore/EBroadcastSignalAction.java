@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,16 +21,11 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.behavior.activityModel.SendSignalAction;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.xmi.plugin.Xmi;
+import org.modelio.module.modelermodule.api.xmi.standard.sendsignalaction.UML2BroadcastSignalAction;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("e5b9ff4a-ade7-4a5c-80bd-6fc3af9326dd")
 public class EBroadcastSignalAction extends EActivityNode {
@@ -40,17 +35,7 @@ public class EBroadcastSignalAction extends EActivityNode {
     @objid ("b01bb94a-90c3-4340-bce8-1d4fed981b15")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmService = ReverseProperties.getInstance().getMModelServices();
-        
-        SendSignalAction result = mmService.getModelFactory().getFactory(IStandardModelFactory.class).createSendSignalAction();
-        
-        try {
-            result.getExtension().add(mmService
-                    .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2BROADCASTSIGNALACTION, result.getMClass()));
-        } catch (ElementNotUniqueException e) {
-            Xmi.LOG.warning(e);
-        }
-        return result;
+        return UML2BroadcastSignalAction.create().getElement();
     }
 
     @objid ("85e78ffa-c7a3-47d3-8922-bae09f47bd3d")

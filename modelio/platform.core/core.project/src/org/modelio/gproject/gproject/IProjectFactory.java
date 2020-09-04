@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public interface IProjectFactory {
      * Instantiate a {@link GProject} from a descriptor.
      * <p>
      * The implementation should just create an instance of GProject and return.
+     * 
      * @param projectDescriptor a project descriptor
      * @return the built GProject.
      * @throws java.lang.IllegalArgumentException if the descriptor is not supported.
@@ -44,6 +45,7 @@ public interface IProjectFactory {
 
     /**
      * Tells whether the given project descriptor is supported.
+     * 
      * @param projectDescriptor a project descriptor
      * @return <code>true</code> if the factory can create a project with it, else <code>false</code>.
      */
@@ -54,6 +56,7 @@ public interface IProjectFactory {
      * Get the remote project descriptor.
      * <p>
      * Should return <code>null</code> for local projects.
+     * 
      * @param projectDescriptor the local descriptor of the project.
      * @param authData authentication data.
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call

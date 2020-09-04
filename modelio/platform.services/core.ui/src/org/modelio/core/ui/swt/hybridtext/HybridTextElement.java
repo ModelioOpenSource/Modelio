@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -304,6 +304,7 @@ public class HybridTextElement {
      * Create and configure the wrapped text control
      * @param parent
      * @param style
+     * 
      * @return the configured Text control
      */
     @objid ("a029aab4-253d-44ce-a3f8-3818cbd9ebdc")
@@ -854,6 +855,7 @@ public class HybridTextElement {
         /**
          * Extract the list of MObject being dropped, excluding 'deleted'
          * objects.
+         * 
          * @param event @return
          */
         @objid ("56de3403-dc04-4318-9135-fe39f8df5cfc")

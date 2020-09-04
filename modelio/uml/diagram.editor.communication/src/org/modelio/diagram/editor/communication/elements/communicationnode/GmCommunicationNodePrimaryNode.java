@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class GmCommunicationNodePrimaryNode extends GmNoStyleCompositeNode imple
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param ref a reference to the represented object node.
      */
@@ -105,6 +106,7 @@ public class GmCommunicationNodePrimaryNode extends GmNoStyleCompositeNode imple
 
     /**
      * Get the stereotype image to display.
+     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("7a5bf7e7-55b6-11e2-877f-002564c97630")
@@ -187,6 +189,7 @@ public class GmCommunicationNodePrimaryNode extends GmNoStyleCompositeNode imple
 
     /**
      * Migration constructor.
+     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("7a5d7e75-55b6-11e2-877f-002564c97630")

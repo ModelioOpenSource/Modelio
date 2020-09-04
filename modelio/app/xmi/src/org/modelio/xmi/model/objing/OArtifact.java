@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,17 +27,17 @@ import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.statik.Artifact;
 import org.modelio.metamodel.uml.statik.Manifestation;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.generation.GenerationProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.NotFoundException;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("76472803-064d-4d70-b9ad-2415fc160c28")
 public class OArtifact extends ONameSpace {
     @objid ("d59af07b-6bb7-416c-998b-cf8c27326438")
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
-        if (getObjingElement().isStereotyped(XMIProperties.modelerModuleName,IModelerModuleStereotypes.UML2DEPLOYMENTSPECIFICATION)){
+        if (getObjingElement().isStereotyped(IModelerModulePeerModule.MODULE_NAME,IModelerModuleStereotypes.UML2DEPLOYMENTSPECIFICATION)){
             return UMLFactory.eINSTANCE.createDeploymentSpecification();
         }else{
             return UMLFactory.eINSTANCE.createArtifact();

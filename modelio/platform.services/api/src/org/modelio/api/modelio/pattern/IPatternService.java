@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ public interface IPatternService {
     /**
      * Export a pattern.
      * @param pattern the pattern to export.
+     * 
      * @throws java.io.IOException when the Pattern can't be exported.
      */
     @objid ("b59fc083-9c1b-439c-8a47-a85b99260cd4")
@@ -46,6 +47,7 @@ public interface IPatternService {
      * If the pattern already exists in the catalog, it is replaced.
      * </p>
      * @param newPattern a valid <i>.umlt<i> file.
+     * 
      * @throws java.io.IOException when the given file doesn't contain a valid pattern.
      */
     @objid ("c2757188-36ba-4048-ac0e-b18923d08bdd")
@@ -53,6 +55,7 @@ public interface IPatternService {
 
     /**
      * Get all available patterns.
+     * 
      * @return a collection of pattern names.
      */
     @objid ("b917660c-083f-471f-8ab2-055f8e215760")
@@ -60,6 +63,7 @@ public interface IPatternService {
 
     /**
      * Get patterns applicable on these elements from the catalog.
+     * 
      * @param elements the model elements to filter the patterns with.
      * @return a collection of pattern names.
      */
@@ -69,6 +73,7 @@ public interface IPatternService {
     /**
      * Remove a pattern from the catalog.
      * @param pattern the pattern to remove.
+     * 
      * @throws java.security.InvalidParameterException when no pattern with this name is found in the catalog.
      */
     @objid ("3f273794-0ca9-4cb2-bd75-2b80c7474771")
@@ -77,6 +82,7 @@ public interface IPatternService {
     /**
      * Execute a pattern with the given parameters.
      * @param pattern the name of the pattern to execute.
+     * 
      * @param parameters the parameters for the pattern to run.
      * @throws java.io.IOException when the pattern loading fails.
      * @throws java.security.InvalidParameterException when no pattern with this name is found in the catalog.
@@ -87,6 +93,7 @@ public interface IPatternService {
     /**
      * Check that all module and model components dependencies are resolved before applying a pattern.
      * @param pattern the name of the pattern to execute.
+     * 
      * @return <code>true</code> when all module and model components the pattern depends on are resolved. <code>false</code> if at least one of them is missing.
      * @throws java.io.IOException when the pattern loading fails.
      * @throws java.security.InvalidParameterException when no pattern with this name is found in the catalog.
@@ -96,6 +103,7 @@ public interface IPatternService {
 
     /**
      * Execute a pattern with the given parameters.
+     * 
      * @param patternPath the jar of the pattern to execute.
      * @param parameters the parameters for the pattern to run.
      * @throws java.io.IOException when the pattern loading fails.

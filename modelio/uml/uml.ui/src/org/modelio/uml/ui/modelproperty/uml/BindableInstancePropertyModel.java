@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class BindableInstancePropertyModel extends AbstractPropertyModel<Bindabl
     /**
      * Create a new <i>BindableInstance</i> data model from an
      * <i>BindableInstance</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("26fabbec-e1ee-4bfe-b6e0-bc3440d27a2c")
@@ -71,6 +72,7 @@ public class BindableInstancePropertyModel extends AbstractPropertyModel<Bindabl
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("10133ad8-4d56-41ce-b885-60079c3c8b84")
@@ -81,6 +83,7 @@ public class BindableInstancePropertyModel extends AbstractPropertyModel<Bindabl
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("6b84d3b3-2fdc-4913-bf48-42332b44e1a3")
@@ -93,6 +96,7 @@ public class BindableInstancePropertyModel extends AbstractPropertyModel<Bindabl
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -135,6 +139,7 @@ public class BindableInstancePropertyModel extends AbstractPropertyModel<Bindabl
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -182,6 +187,7 @@ public class BindableInstancePropertyModel extends AbstractPropertyModel<Bindabl
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

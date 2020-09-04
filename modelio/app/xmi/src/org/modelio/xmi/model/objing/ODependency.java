@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,10 +24,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.generation.GenerationProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.ObjingEAnnotation;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("cf21353e-c5a2-4453-a989-24ba2d017de1")
 public class ODependency extends OModelElement {
@@ -40,27 +39,27 @@ public class ODependency extends OModelElement {
     @objid ("2a0938ea-9aef-4787-8753-46fc67ded246")
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
-        if (this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ASSOCIATIONREFERENCE) 
-                || this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2METHODREFERENCE)
-                || this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2STRUCTURALFEATUREREFERENCE)
-                || this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLASSIFIERREFERENCE)
-                || this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ENDCREATIONDATAREFERENCE)
-                || this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ENDDESTRUCTIONDATAREFERENCE)
-                || this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2INSTANCEVALUE)
-                 || this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EVENT)
-                || this.objingElement.isStereotyped(XMIProperties.modelerModuleName,IModelerModuleStereotypes.PART)){
+        if (this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ASSOCIATIONREFERENCE) 
+                || this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2METHODREFERENCE)
+                || this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2STRUCTURALFEATUREREFERENCE)
+                || this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLASSIFIERREFERENCE)
+                || this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ENDCREATIONDATAREFERENCE)
+                || this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ENDDESTRUCTIONDATAREFERENCE)
+                || this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSTANCEVALUE)
+                 || this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EVENT)
+                || this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME,IModelerModuleStereotypes.PART)){
             return null;
-        }else if (this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2COMPONENTREALIZATION)){
+        }else if (this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2COMPONENTREALIZATION)){
             return UMLFactory.eINSTANCE.createComponentRealization();
-        }else if (this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DEPLOYMENT)){
+        }else if (this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DEPLOYMENT)){
             return UMLFactory.eINSTANCE.createDeployment();
-        }else if (this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2PROTOCOLCONFORMANCE)){
+        }else if (this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2PROTOCOLCONFORMANCE)){
             return UMLFactory.eINSTANCE.createProtocolConformance();
-        }else if (this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ABSTRACTION)){
+        }else if (this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ABSTRACTION)){
             return UMLFactory.eINSTANCE.createAbstraction();
-        }else if (this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.SATISFY)
-                ||this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.VERIFY)
-                ||this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.DERIVE)){
+        }else if (this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.SATISFY)
+                ||this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.VERIFY)
+                ||this.objingElement.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.DERIVE)){
                     this.genProp.addSysMLExported(this.objingElement);
             return UMLFactory.eINSTANCE.createAbstraction();
         }else{
@@ -126,13 +125,6 @@ public class ODependency extends OModelElement {
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
-        setFlow((org.eclipse.uml2.uml.Dependency) ecoreElt);
-    }
-
-    @objid ("87db91bb-fb88-445d-b795-173eeaae276e")
-    private void setFlow(org.eclipse.uml2.uml.Dependency ecoreElt) {
-        if (this.objingElement.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.FLOW))
-            ObjingEAnnotation.setIsFlow(ecoreElt);
     }
 
 }

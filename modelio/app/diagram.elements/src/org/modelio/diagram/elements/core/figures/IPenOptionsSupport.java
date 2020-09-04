@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.modelio.diagram.styles.core.StyleKey.LinePattern;
 public interface IPenOptionsSupport {
     /**
      * Set the line(s) color.
+     * 
      * @param lineColor the line color.
      */
     @objid ("7fa4c442-1dec-11e2-8cad-001ec947c8cc")
@@ -40,6 +41,7 @@ public interface IPenOptionsSupport {
 
     /**
      * Set the line(s) width.
+     * 
      * @param lineWidth the line(s) width.
      */
     @objid ("7fa4c445-1dec-11e2-8cad-001ec947c8cc")
@@ -47,6 +49,7 @@ public interface IPenOptionsSupport {
 
     /**
      * Get the line color.
+     * 
      * @return the line color.
      */
     @objid ("7fa4c448-1dec-11e2-8cad-001ec947c8cc")
@@ -54,6 +57,7 @@ public interface IPenOptionsSupport {
 
     /**
      * Get the line width.
+     * 
      * @return the line width.
      */
     @objid ("7fa4c44b-1dec-11e2-8cad-001ec947c8cc")
@@ -61,6 +65,7 @@ public interface IPenOptionsSupport {
 
     /**
      * Set the text color.
+     * 
      * @param textColor the text color.
      */
     @objid ("7fa4c44e-1dec-11e2-8cad-001ec947c8cc")
@@ -68,6 +73,7 @@ public interface IPenOptionsSupport {
 
     /**
      * Set the text font.
+     * 
      * @param textFont the text font.
      */
     @objid ("7fa4c451-1dec-11e2-8cad-001ec947c8cc")
@@ -75,6 +81,7 @@ public interface IPenOptionsSupport {
 
     /**
      * Get the text color.
+     * 
      * @return the text color.
      */
     @objid ("7fa4c454-1dec-11e2-8cad-001ec947c8cc")
@@ -82,6 +89,7 @@ public interface IPenOptionsSupport {
 
     /**
      * Get the text font.
+     * 
      * @return the text font.
      */
     @objid ("7fa72665-1dec-11e2-8cad-001ec947c8cc")
@@ -91,6 +99,7 @@ public interface IPenOptionsSupport {
      * Sets the line pattern to the argument, which must be one of the constants
      * 
      * {@link LinePattern}
+     * 
      * @param lineStyle the new style
      */
     @objid ("7fa72668-1dec-11e2-8cad-001ec947c8cc")
@@ -98,6 +107,7 @@ public interface IPenOptionsSupport {
 
     /**
      * Get the line pattern
+     * 
      * @return lineStyle the line style See {@link LinePattern}
      */
     @objid ("7fa7266b-1dec-11e2-8cad-001ec947c8cc")

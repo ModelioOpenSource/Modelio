@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
 
     /**
      * Initialize the handler.
+     * 
      * @param base the EXML repository.
      * @param cmsNode the root CMS node
      * @param isNodeLoaded <code>true</code> if the node is already loaded else <code>false</code>.
@@ -122,6 +123,21 @@ public class ExmlStorageHandler implements IRepositoryObject {
         if (isPersistent(dep)) {
             this.dirty = true;
         }
+        
+        if ((ExmlUtils.isComposition(obj, dep, val))
+                && !val.getClassOf().isCmsNode() && val.getRepositoryObject() == this) {
+            // A non CMS node moved out this CMS node.
+            // For most case 'val' becomes orphan.
+            // In corner cases 'val' may become owned by another object,
+            // In this last case fix its storage handler.
+            SmObjectImpl newOwner = val.getCompositionOwner();
+            if (newOwner != null ) {
+                IRepositoryObject newHandle = newOwner.getRepositoryObject();
+                if(newHandle  != this && newHandle instanceof ExmlStorageHandler) {
+                    ((ExmlStorageHandler) newHandle).propagateHandler(val);
+                }
+            }
+        }
     }
 
     @objid ("fd245759-5986-11e1-991a-001ec947ccaf")
@@ -147,6 +163,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
      * Get the root CMS node of this handler.
      * <p>
      * May return <i>null</i> if the node was deleted then unloaded.
+     * 
      * @return the root CMS node of this handler or <i>null</i>.
      */
     @objid ("fd245752-5986-11e1-991a-001ec947ccaf")
@@ -196,7 +213,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
         } else if (areUsersLoaded(obj)) {
             return true;
         } else if (isInverseDepStored(dep)) {
-            // dynamic dependencies are always reloaded 
+            // dynamic dependencies are always reloaded
         
             return false;
         } else {
@@ -215,6 +232,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
 
     /**
      * Tells whether the CMS node is loaded.
+     * 
      * @return <code>true</code> if the node is loaded else <code>false</code>.
      */
     @objid ("3c9891b4-2f3f-11e2-8359-001ec947ccaf")
@@ -254,7 +272,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
                 } else {
                     // any "navigable" dependency : load the node
                     load ();
-                    
+        
                 }
             } else if (isInverseDepStored(dep)) {
                 this.base.loadDynamicDep(obj, dep);
@@ -271,6 +289,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
 
     /**
      * Set the node as dirty or not.
+     * 
      * @param value the new dirty state.
      */
     @objid ("fd24572c-5986-11e1-991a-001ec947ccaf")
@@ -280,6 +299,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
 
     /**
      * Set the node as loaded or not.
+     * 
      * @param value the new load state.
      */
     @objid ("fd245812-5986-11e1-991a-001ec947ccaf")
@@ -322,6 +342,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
     /**
      * Set the repository object of the given model object to this handler.
      * Propagates to all composition children in the same CMS node
+     * 
      * @param obj a non CMS node model object
      */
     @objid ("fd245805-5986-11e1-991a-001ec947ccaf")
@@ -353,6 +374,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
 
     /**
      * Look for the parent CMS node in the index.
+     * 
      * @param obj the model object whose parent is wanted.
      * @return the model object parent CMS node or <code>null</code>.
      * @throws org.modelio.vstore.exml.common.index.IndexException in case of error in the indexes.

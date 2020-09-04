@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public class CacheHandle implements ICacheHandle {
 
     /**
      * Initialize the cache handler
+     * 
      * @param cacheManager the cache to maintain.
      */
     @objid ("006e898a-0d1e-1f20-85a5-001ec947cd2a")

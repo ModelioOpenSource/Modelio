@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -138,6 +138,7 @@ public class CreationWizardModel {
 
     /**
      * Get all contributors by type (Diagram or Matrix)
+     * 
      * @param filter the type of contributors specified by its Java interface
      * class. Cannot be null.
      * @param nameFilter optional name for further filtering based on strict string
@@ -162,6 +163,7 @@ public class CreationWizardModel {
 
     /**
      * Get all contributors by type (Diagram or Matrix)
+     * 
      * @param filter the type of contributors specified by its Java interface
      * class. Cannot be null.
      * @return the filtered contributors

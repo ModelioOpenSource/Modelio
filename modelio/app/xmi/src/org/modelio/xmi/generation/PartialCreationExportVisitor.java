@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -202,13 +202,13 @@ import org.modelio.metamodel.uml.statik.TemplateParameter;
 import org.modelio.metamodel.uml.statik.TemplateParameterSubstitution;
 import org.modelio.metamodel.visitors.DefaultModelVisitor;
 import org.modelio.metamodel.visitors.IDefaultInfrastructureVisitor;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.ModelioPrimitiveTypeMapper;
 import org.modelio.xmi.util.ObjingEAnnotation;
-import org.modelio.xmi.util.XMIProperties;
 
 /**
  * This class creates an Ecore element corresponding to given Modelio element.
@@ -239,6 +239,7 @@ public class PartialCreationExportVisitor {
 
     /**
      * This is method supervise the Ecore element creation
+     * 
      * @param objingElt : the referenced Modelio element
      * @return the corresponding Ecore element
      */
@@ -264,6 +265,7 @@ public class PartialCreationExportVisitor {
 
     /**
      * This method returns the CreationExportMapper
+     * 
      * @return the CreationExportMapper
      */
     @objid ("231e1542-ccb8-4a3b-a8b1-951a1111e334")
@@ -274,6 +276,7 @@ public class PartialCreationExportVisitor {
 
     /**
      * This methods returns the map containing all "partial" exports
+     * 
      * @return the PartilaExportMap
      */
     @objid ("f994e0a9-92af-4cb1-9f34-3898850646af")
@@ -389,7 +392,7 @@ public class PartialCreationExportVisitor {
         @objid ("2cfd288b-38d4-4557-96ef-500643620247")
         @Override
         public Object visitArtifact(Artifact objingElt) {
-            if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DEPLOYMENTSPECIFICATION)) {
+            if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DEPLOYMENTSPECIFICATION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createDeploymentSpecification();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createArtifact();
@@ -412,9 +415,9 @@ public class PartialCreationExportVisitor {
                 PartialCreationExportVisitor.this.partialMap.put(classAssoc.getUuid().toString(), PartialCreationExportVisitor.this.ecoreElt);
                 PartialCreationExportVisitor.this.partialMap.put(classAssoc.getClassPart().getUuid().toString(), PartialCreationExportVisitor.this.ecoreElt);
             } else {
-                if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2COMMUNICATIONPATH)) {
+                if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2COMMUNICATIONPATH)) {
                     PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createCommunicationPath();
-                } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXTENSION)) {
+                } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXTENSION)) {
                     PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createExtension();
                 } else {
                     PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createAssociation();
@@ -429,7 +432,7 @@ public class PartialCreationExportVisitor {
             Association assoc = objingElt.getAssociation();
             
             if (!AbstractObjingModelNavigation.isOwnedByActor(assoc)) {
-                if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXTENSIONEND)) {
+                if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXTENSIONEND)) {
                     PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createExtensionEnd();
                 }
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createProperty();
@@ -653,7 +656,7 @@ public class PartialCreationExportVisitor {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createConnector();
                 return null;
             }
-                     
+            
             String message = Xmi.I18N.getMessage("logFile.warning.unsupportedExport",
                     objingElt.getName(),
                     objingElt.getClass().getSimpleName());
@@ -683,7 +686,7 @@ public class PartialCreationExportVisitor {
                     return null;
                 }
             }
-                       
+            
             String message = Xmi.I18N.getMessage("logFile.warning.unsupportedExport",
                     objingElt.getName(),
                     objingElt.getClass().getSimpleName());
@@ -813,26 +816,26 @@ public class PartialCreationExportVisitor {
         @objid ("af2dda02-3ccc-41d9-a15b-aa5b50472ab4")
         @Override
         public Object visitDependency(Dependency objingElt) {
-            if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ASSOCIATIONREFERENCE)
-                    || objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2METHODREFERENCE)
-                    || objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2STRUCTURALFEATUREREFERENCE)
-                    || objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLASSIFIERREFERENCE)
-                    || objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ENDCREATIONDATAREFERENCE)
-                    || objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ENDDESTRUCTIONDATAREFERENCE)
-                    || objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EVENT)
-                    || objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2INSTANCEVALUE)
-                    || objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.PART)) {
+            if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ASSOCIATIONREFERENCE)
+                    || objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2METHODREFERENCE)
+                    || objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2STRUCTURALFEATUREREFERENCE)
+                    || objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLASSIFIERREFERENCE)
+                    || objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ENDCREATIONDATAREFERENCE)
+                    || objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ENDDESTRUCTIONDATAREFERENCE)
+                    || objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EVENT)
+                    || objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSTANCEVALUE)
+                    || objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.PART)) {
                 PartialCreationExportVisitor.this.ecoreElt = null;
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2COMPONENTREALIZATION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2COMPONENTREALIZATION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createComponentRealization();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DEPLOYMENT)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DEPLOYMENT)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createDeployment();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2PROTOCOLCONFORMANCE)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2PROTOCOLCONFORMANCE)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createProtocolConformance();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.SATISFY)
-                    || objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.VERIFY)
-                    || objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.DERIVE)
-                    || objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ABSTRACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.SATISFY)
+                    || objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.VERIFY)
+                    || objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.DERIVE)
+                    || objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ABSTRACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createAbstraction();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createDependency();
@@ -935,11 +938,11 @@ public class PartialCreationExportVisitor {
                     PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createCallEvent();
                     break;
                 }
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CREATIONEVENT)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CREATIONEVENT)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createCreationEvent();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DESTRUCTIONEVENT)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DESTRUCTIONEVENT)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createDestructionEvent();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXECUTIONEVENT)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXECUTIONEVENT)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createExecutionEvent();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = null;
@@ -1162,7 +1165,7 @@ public class PartialCreationExportVisitor {
         @objid ("92a2ee15-32e2-4d90-a58d-a90dfac6c847")
         @Override
         public Object visitInputPin(InputPin objingElt) {
-            if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ACTIONINPUTPIN)) {
+            if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ACTIONINPUTPIN)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createActionInputPin();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createInputPin();
@@ -1180,7 +1183,7 @@ public class PartialCreationExportVisitor {
         @objid ("71c4c569-6724-4bcd-88f3-f8e824e0aef5")
         @Override
         public Object visitInstanceNode(InstanceNode objingElt) {
-            if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2VARIABLE)) {
+            if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2VARIABLE)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createVariable();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createCentralBufferNode();
@@ -1283,7 +1286,7 @@ public class PartialCreationExportVisitor {
                 return null;
             }
             
-                       
+            
             String message = Xmi.I18N.getMessage("logFile.warning.unsupportedExport",
                     objingElt.getName(),
                     objingElt.getClass().getSimpleName());
@@ -1416,9 +1419,9 @@ public class PartialCreationExportVisitor {
                 PartialCreationExportVisitor.this.partialMap.put(classAssoc.getUuid().toString(), PartialCreationExportVisitor.this.ecoreElt);
                 PartialCreationExportVisitor.this.partialMap.put(classAssoc.getClassPart().getUuid().toString(), PartialCreationExportVisitor.this.ecoreElt);
             } else {
-                if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2COMMUNICATIONPATH)) {
+                if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2COMMUNICATIONPATH)) {
                     PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createCommunicationPath();
-                } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXTENSION)) {
+                } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXTENSION)) {
                     PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createExtension();
                 } else {
                     PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createAssociation();
@@ -1433,7 +1436,7 @@ public class PartialCreationExportVisitor {
             NaryAssociation assoc = objingElt.getNaryAssociation();
             
             if (!AbstractObjingModelNavigation.isOwnedByActor(assoc)) {
-                if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXTENSIONEND)) {
+                if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXTENSIONEND)) {
                     PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createExtensionEnd();
                 }
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createProperty();
@@ -1444,9 +1447,9 @@ public class PartialCreationExportVisitor {
         @objid ("5802e5bd-a37c-410d-a817-8dfcc8950b15")
         @Override
         public Object visitNode(Node objingElt) {
-            if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DEVICE)) {
+            if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DEVICE)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createDevice();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXECUTIONENVIRONMENT)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXECUTIONENVIRONMENT)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createExecutionEnvironment();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createNode();
@@ -1477,61 +1480,61 @@ public class PartialCreationExportVisitor {
         @objid ("6b2a24c5-20df-4d99-805b-204c61ba0316")
         @Override
         public Object visitOpaqueAction(OpaqueAction objingElt) {
-            if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2VALUESPECIFICATIONACTION)) {
+            if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2VALUESPECIFICATIONACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createValueSpecificationAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CREATEOBJECTACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CREATEOBJECTACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createCreateObjectAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CREATELINKACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CREATELINKACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createCreateLinkAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READLINKACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READLINKACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReadLinkAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DESTROYLINKACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DESTROYLINKACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createDestroyLinkAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLEARASSOCIATIONACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLEARASSOCIATIONACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createClearAssociationAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ADDSTRUCTURALFEATUREVALUEACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ADDSTRUCTURALFEATUREVALUEACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createAddStructuralFeatureValueAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READSTRUCTURALFEATUREACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READSTRUCTURALFEATUREACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReadStructuralFeatureAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READEXTENTACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READEXTENTACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReadExtentAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DESTROYOBJECTACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DESTROYOBJECTACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createDestroyObjectAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ADDVARIABLEVALUEACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ADDVARIABLEVALUEACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createAddVariableValueAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLEARSTRUCTURALFEATUREACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLEARSTRUCTURALFEATUREACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createClearStructuralFeatureAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLEARVARIABLEACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLEARVARIABLEACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createClearVariableAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2RAISEEXCEPTIONACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2RAISEEXCEPTIONACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createRaiseExceptionAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READISCLASSIFIEROBJECTACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READISCLASSIFIEROBJECTACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReadIsClassifiedObjectAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READLINKOBJECTENDACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READLINKOBJECTENDACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReadLinkObjectEndAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READLINKOBJECTENDQUALIFIERACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READLINKOBJECTENDQUALIFIERACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReadLinkObjectEndQualifierAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READSELFACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READSELFACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReadSelfAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READVARIABLEACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READVARIABLEACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReadVariableAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2RECLASSIFYOBJECTACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2RECLASSIFYOBJECTACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReclassifyObjectAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REDUCEACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REDUCEACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReduceAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REMOVESTRUCTURALFEATUREACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REMOVESTRUCTURALFEATUREACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createRemoveStructuralFeatureValueAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REMOVEVARIABLEVALUEACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REMOVEVARIABLEVALUEACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createRemoveVariableValueAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REPLYACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REPLYACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReplyAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2SENDOBJECTACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2SENDOBJECTACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createSendObjectAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2STARTCLASSIFIERBEHAVIORACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2STARTCLASSIFIERBEHAVIORACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createStartClassifierBehaviorAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2TESTIDENTITYACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TESTIDENTITYACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createTestIdentityAction();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2UNMARSHALLACTION)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2UNMARSHALLACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createUnmarshallAction();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createOpaqueAction();
@@ -1551,19 +1554,25 @@ public class PartialCreationExportVisitor {
         public Object visitOperation(Operation objingElt) {
             MObject objingOwner = objingElt.getCompositionOwner();
             
-            if (objingOwner instanceof Actor
-                    || objingOwner instanceof UseCase
-                    || objingOwner instanceof Signal) {
-                PartialCreationExportVisitor.this.ecoreElt = null;
-            } else {
-                if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2RECEPTION)) {
+            if ((objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2RECEPTION)
+                    && (objingElt.getSRepresentation() != null))) {
+                if (objingOwner instanceof Actor
+                        || objingOwner instanceof UseCase
+                        || objingOwner instanceof Signal) {
+                    PartialCreationExportVisitor.this.ecoreElt = null;
+                }else {
                     PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createReception();
-                } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REDEFINABLETEMPLATESIGNATURE)) {
-                    PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createRedefinableTemplateSignature();
-                } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2TEMPLATESIGNATURE)) {
-                    PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createTemplateSignature();
-                } else {
-            
+                }
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REDEFINABLETEMPLATESIGNATURE)) {
+                PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createRedefinableTemplateSignature();
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TEMPLATESIGNATURE)) {
+                PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createTemplateSignature();
+            } else {
+                if (objingOwner instanceof Actor
+                        || objingOwner instanceof UseCase
+                        || objingOwner instanceof Signal) {
+                    PartialCreationExportVisitor.this.ecoreElt = null;
+                }else {
                     PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createOperation();
                 }
             }
@@ -1601,9 +1610,9 @@ public class PartialCreationExportVisitor {
         @objid ("9c393b39-c03b-4583-8480-223c085892c8")
         @Override
         public Object visitParameter(Parameter objingElt) {
-            if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLASSIFIERTEMPLATEPARAMETER)) {
+            if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLASSIFIERTEMPLATEPARAMETER)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createClassifierTemplateParameter();
-            } else if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OPERATIONTEMPLATEPARAMETER)) {
+            } else if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OPERATIONTEMPLATEPARAMETER)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createOperationTemplateParameter();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createParameter();
@@ -1737,7 +1746,7 @@ public class PartialCreationExportVisitor {
         @objid ("0fbf7f94-8bc9-4ddc-aad9-621e1bfbc2ea")
         @Override
         public Object visitSendSignalAction(SendSignalAction objingElt) {
-            if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2BROADCASTSIGNALACTION)) {
+            if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2BROADCASTSIGNALACTION)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createBroadcastSignalAction();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createSendSignalAction();
@@ -1791,7 +1800,7 @@ public class PartialCreationExportVisitor {
         @objid ("e7959ce7-b5b6-423b-88d0-e89584877d28")
         @Override
         public Object visitStructuredActivityNode(StructuredActivityNode objingElt) {
-            if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2SEQUENCENODE)) {
+            if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2SEQUENCENODE)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createSequenceNode();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createStructuredActivityNode();
@@ -1835,7 +1844,7 @@ public class PartialCreationExportVisitor {
         @objid ("10ba33d2-2282-4433-b880-844b564e548a")
         @Override
         public Object visitTemplateParameter(TemplateParameter objingElt) {
-            if (objingElt.isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CONNECTABLEELEMENTTEMPLATEPARAMETER)) {
+            if (objingElt.isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CONNECTABLEELEMENTTEMPLATEPARAMETER)) {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createConnectableElementTemplateParameter();
             } else {
                 PartialCreationExportVisitor.this.ecoreElt = UMLFactory.eINSTANCE.createTemplateParameter();

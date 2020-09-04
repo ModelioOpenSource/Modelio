@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IMemoryManager {
     /**
      * Add a memory listener.
+     * 
      * @param listener a memory listener.
      */
     @objid ("888475a2-614b-4dbd-aa34-f464cae24b22")
@@ -39,6 +40,7 @@ public interface IMemoryManager {
 
     /**
      * Remove a memory listener.
+     * 
      * @param listener a memory listener.
      */
     @objid ("1a535b79-4663-43c8-acb8-f18f8efbfece")

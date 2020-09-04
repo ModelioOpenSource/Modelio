@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class GmExternDocumentLink extends GmLink {
 
     /**
      * Creates a new GmExternDocumentLink
+     * 
      * @param diagram The diagram containing the link.
      * @param relatedRef a reference to the represented {@link Document}.
      */
@@ -112,6 +113,7 @@ public class GmExternDocumentLink extends GmLink {
 
     /**
      * Updates the proxy style to point to the given node style.
+     * 
      * @param ref the reference node, may be null.
      */
     @objid ("8159129c-1dec-11e2-8cad-001ec947c8cc")

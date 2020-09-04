@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class DeferredGroupCommand extends Command {
 
     /**
      * Create a deferred command.
+     * 
      * @param req The creation request.
      * @param sender The edit part sending the request
      */
@@ -98,6 +99,7 @@ public class DeferredGroupCommand extends Command {
     /**
      * Get the node model where all the request must be handled or <tt>null</tt> if the request cannot be executed in a
      * single node (the selection is not homogeneous).
+     * 
      * @return the node model where the request must be handled.
      */
     @objid ("7f3e3f0d-1dec-11e2-8cad-001ec947c8cc")

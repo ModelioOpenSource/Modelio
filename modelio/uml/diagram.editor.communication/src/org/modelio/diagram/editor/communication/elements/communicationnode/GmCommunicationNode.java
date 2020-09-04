@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -74,6 +74,7 @@ public class GmCommunicationNode extends GmPortContainer {
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theCommunicationNode the represented object node, may be null.
      * @param ref a reference to the represented object node.
@@ -224,6 +225,7 @@ public class GmCommunicationNode extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -235,6 +237,7 @@ public class GmCommunicationNode extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -266,6 +269,7 @@ public class GmCommunicationNode extends GmPortContainer {
 
     /**
      * Migration constructor from major version 0, should only be called by migrator.
+     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("7a55dd6b-55b6-11e2-877f-002564c97630")

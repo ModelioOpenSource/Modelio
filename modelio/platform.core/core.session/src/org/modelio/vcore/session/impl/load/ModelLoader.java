@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -424,6 +424,7 @@ class ModelLoader implements IModelLoader {
      * Ensure the data won't be garbaged until the end of loading.
      * <p>
      * This method must be called for each ISmObjectData modified by a loading method.
+     * 
      * @param data the data being loaded.
      */
     @objid ("3fe3101f-1661-4863-8df8-e001452f72b8")
@@ -491,6 +492,7 @@ class ModelLoader implements IModelLoader {
      * Schedule for status initialization the given object.
      * <p>
      * The object status will be initialized in {@link #doClose()}.
+     * 
      * @param obj the object for which the status must be initialized.
      */
     @objid ("33430ab9-4097-11e2-87cb-001ec947ccaf")
@@ -513,6 +515,7 @@ class ModelLoader implements IModelLoader {
      * Ensure the data won't be garbaged until the end of loading.
      * <p>
      * This method must be called for each already loaded ISmObjectData modified by a loading method.
+     * 
      * @param data the data being loaded.
      */
     @objid ("efd191fc-d716-4685-8cad-cc19761a00b4")

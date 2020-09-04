@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,91 +23,278 @@ package org.modelio.xmi.util;
 import java.util.HashMap;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.metamodel.bpmn.activities.BpmnActivity;
+import org.modelio.metamodel.bpmn.activities.BpmnAdHocSubProcess;
+import org.modelio.metamodel.bpmn.activities.BpmnBusinessRuleTask;
+import org.modelio.metamodel.bpmn.activities.BpmnCallActivity;
+import org.modelio.metamodel.bpmn.activities.BpmnComplexBehaviorDefinition;
+import org.modelio.metamodel.bpmn.activities.BpmnLoopCharacteristics;
+import org.modelio.metamodel.bpmn.activities.BpmnManualTask;
+import org.modelio.metamodel.bpmn.activities.BpmnMultiInstanceLoopCharacteristics;
+import org.modelio.metamodel.bpmn.activities.BpmnReceiveTask;
+import org.modelio.metamodel.bpmn.activities.BpmnScriptTask;
+import org.modelio.metamodel.bpmn.activities.BpmnSendTask;
+import org.modelio.metamodel.bpmn.activities.BpmnServiceTask;
+import org.modelio.metamodel.bpmn.activities.BpmnStandardLoopCharacteristics;
+import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
+import org.modelio.metamodel.bpmn.activities.BpmnTask;
+import org.modelio.metamodel.bpmn.activities.BpmnTransaction;
+import org.modelio.metamodel.bpmn.activities.BpmnUserTask;
+import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnCollaborationDiagram;
+import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessCollaborationDiagram;
+import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessDesignDiagram;
+import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnSubProcessDiagram;
+import org.modelio.metamodel.bpmn.bpmnService.BpmnEndPoint;
+import org.modelio.metamodel.bpmn.bpmnService.BpmnInterface;
+import org.modelio.metamodel.bpmn.bpmnService.BpmnOperation;
+import org.modelio.metamodel.bpmn.events.BpmnBoundaryEvent;
+import org.modelio.metamodel.bpmn.events.BpmnCancelEventDefinition;
+import org.modelio.metamodel.bpmn.events.BpmnCatchEvent;
+import org.modelio.metamodel.bpmn.events.BpmnCompensateEventDefinition;
+import org.modelio.metamodel.bpmn.events.BpmnConditionalEventDefinition;
+import org.modelio.metamodel.bpmn.events.BpmnEndEvent;
+import org.modelio.metamodel.bpmn.events.BpmnErrorEventDefinition;
+import org.modelio.metamodel.bpmn.events.BpmnEscalationEventDefinition;
+import org.modelio.metamodel.bpmn.events.BpmnEvent;
+import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
+import org.modelio.metamodel.bpmn.events.BpmnImplicitThrowEvent;
+import org.modelio.metamodel.bpmn.events.BpmnIntermediateCatchEvent;
+import org.modelio.metamodel.bpmn.events.BpmnIntermediateThrowEvent;
+import org.modelio.metamodel.bpmn.events.BpmnLinkEventDefinition;
+import org.modelio.metamodel.bpmn.events.BpmnMessageEventDefinition;
+import org.modelio.metamodel.bpmn.events.BpmnSignalEventDefinition;
+import org.modelio.metamodel.bpmn.events.BpmnStartEvent;
+import org.modelio.metamodel.bpmn.events.BpmnTerminateEventDefinition;
+import org.modelio.metamodel.bpmn.events.BpmnThrowEvent;
+import org.modelio.metamodel.bpmn.events.BpmnTimerEventDefinition;
+import org.modelio.metamodel.bpmn.flows.BpmnMessage;
+import org.modelio.metamodel.bpmn.flows.BpmnMessageFlow;
+import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
+import org.modelio.metamodel.bpmn.gateways.BpmnComplexGateway;
+import org.modelio.metamodel.bpmn.gateways.BpmnEventBasedGateway;
+import org.modelio.metamodel.bpmn.gateways.BpmnExclusiveGateway;
+import org.modelio.metamodel.bpmn.gateways.BpmnGateway;
+import org.modelio.metamodel.bpmn.gateways.BpmnInclusiveGateway;
+import org.modelio.metamodel.bpmn.gateways.BpmnParallelGateway;
+import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
+import org.modelio.metamodel.bpmn.objects.BpmnDataInput;
+import org.modelio.metamodel.bpmn.objects.BpmnDataObject;
+import org.modelio.metamodel.bpmn.objects.BpmnDataOutput;
+import org.modelio.metamodel.bpmn.objects.BpmnDataState;
+import org.modelio.metamodel.bpmn.objects.BpmnDataStore;
+import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
+import org.modelio.metamodel.bpmn.objects.BpmnItemDefinition;
+import org.modelio.metamodel.bpmn.objects.BpmnSequenceFlowDataAssociation;
+import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
+import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
+import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
+import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
+import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
+import org.modelio.metamodel.bpmn.resources.BpmnResource;
+import org.modelio.metamodel.bpmn.resources.BpmnResourceParameter;
+import org.modelio.metamodel.bpmn.resources.BpmnResourceParameterBinding;
+import org.modelio.metamodel.bpmn.resources.BpmnResourceRole;
+import org.modelio.metamodel.bpmn.rootElements.BpmnArtifact;
+import org.modelio.metamodel.bpmn.rootElements.BpmnAssociation;
+import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
+import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
+import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
+import org.modelio.metamodel.bpmn.rootElements.BpmnGroup;
+import org.modelio.metamodel.bpmn.rootElements.BpmnSharedDefinitions;
+import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
+import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.ActivityDiagram;
 import org.modelio.metamodel.diagrams.BehaviorDiagram;
+import org.modelio.metamodel.diagrams.ClassDiagram;
+import org.modelio.metamodel.diagrams.CommunicationDiagram;
+import org.modelio.metamodel.diagrams.CompositeStructureDiagram;
+import org.modelio.metamodel.diagrams.DeploymentDiagram;
 import org.modelio.metamodel.diagrams.DiagramSet;
+import org.modelio.metamodel.diagrams.GraphDiagram;
+import org.modelio.metamodel.diagrams.ObjectDiagram;
+import org.modelio.metamodel.diagrams.SequenceDiagram;
+import org.modelio.metamodel.diagrams.StateMachineDiagram;
 import org.modelio.metamodel.diagrams.StaticDiagram;
+import org.modelio.metamodel.diagrams.UseCaseDiagram;
 import org.modelio.metamodel.impact.ImpactDiagram;
 import org.modelio.metamodel.impact.ImpactLink;
 import org.modelio.metamodel.impact.ImpactModel;
 import org.modelio.metamodel.impact.ImpactProject;
+import org.modelio.metamodel.mda.ModuleComponent;
+import org.modelio.metamodel.mda.ModuleParameter;
 import org.modelio.metamodel.mda.Project;
+import org.modelio.metamodel.uml.behavior.activityModel.AcceptCallEventAction;
+import org.modelio.metamodel.uml.behavior.activityModel.AcceptChangeEventAction;
+import org.modelio.metamodel.uml.behavior.activityModel.AcceptSignalAction;
+import org.modelio.metamodel.uml.behavior.activityModel.AcceptTimeEventAction;
+import org.modelio.metamodel.uml.behavior.activityModel.Activity;
+import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityEdge;
+import org.modelio.metamodel.uml.behavior.activityModel.ActivityFinalNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityGroup;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityNode;
+import org.modelio.metamodel.uml.behavior.activityModel.ActivityParameterNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityPartition;
+import org.modelio.metamodel.uml.behavior.activityModel.CallAction;
+import org.modelio.metamodel.uml.behavior.activityModel.CallBehaviorAction;
+import org.modelio.metamodel.uml.behavior.activityModel.CallOperationAction;
+import org.modelio.metamodel.uml.behavior.activityModel.CentralBufferNode;
 import org.modelio.metamodel.uml.behavior.activityModel.Clause;
+import org.modelio.metamodel.uml.behavior.activityModel.ConditionalNode;
+import org.modelio.metamodel.uml.behavior.activityModel.ControlFlow;
+import org.modelio.metamodel.uml.behavior.activityModel.ControlNode;
+import org.modelio.metamodel.uml.behavior.activityModel.DataStoreNode;
+import org.modelio.metamodel.uml.behavior.activityModel.DecisionMergeNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ExceptionHandler;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionRegion;
+import org.modelio.metamodel.uml.behavior.activityModel.FinalNode;
+import org.modelio.metamodel.uml.behavior.activityModel.FlowFinalNode;
+import org.modelio.metamodel.uml.behavior.activityModel.ForkJoinNode;
+import org.modelio.metamodel.uml.behavior.activityModel.InitialNode;
+import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
+import org.modelio.metamodel.uml.behavior.activityModel.InstanceNode;
+import org.modelio.metamodel.uml.behavior.activityModel.InterruptibleActivityRegion;
+import org.modelio.metamodel.uml.behavior.activityModel.LoopNode;
+import org.modelio.metamodel.uml.behavior.activityModel.MessageFlow;
+import org.modelio.metamodel.uml.behavior.activityModel.ObjectFlow;
+import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
+import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
+import org.modelio.metamodel.uml.behavior.activityModel.OutputPin;
+import org.modelio.metamodel.uml.behavior.activityModel.Pin;
+import org.modelio.metamodel.uml.behavior.activityModel.SendSignalAction;
+import org.modelio.metamodel.uml.behavior.activityModel.StructuredActivityNode;
+import org.modelio.metamodel.uml.behavior.activityModel.ValuePin;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
+import org.modelio.metamodel.uml.behavior.commonBehaviors.BehaviorParameter;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Event;
+import org.modelio.metamodel.uml.behavior.commonBehaviors.OpaqueBehavior;
+import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
+import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationChannel;
+import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationInteraction;
+import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationMessage;
+import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationNode;
+import org.modelio.metamodel.uml.behavior.interactionModel.CombinedFragment;
+import org.modelio.metamodel.uml.behavior.interactionModel.DurationConstraint;
+import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionOccurenceSpecification;
+import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionSpecification;
+import org.modelio.metamodel.uml.behavior.interactionModel.Gate;
+import org.modelio.metamodel.uml.behavior.interactionModel.GeneralOrdering;
+import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
+import org.modelio.metamodel.uml.behavior.interactionModel.InteractionOperand;
+import org.modelio.metamodel.uml.behavior.interactionModel.InteractionUse;
 import org.modelio.metamodel.uml.behavior.interactionModel.Lifeline;
 import org.modelio.metamodel.uml.behavior.interactionModel.Message;
+import org.modelio.metamodel.uml.behavior.interactionModel.MessageEnd;
+import org.modelio.metamodel.uml.behavior.interactionModel.OccurrenceSpecification;
+import org.modelio.metamodel.uml.behavior.interactionModel.PartDecomposition;
+import org.modelio.metamodel.uml.behavior.interactionModel.StateInvariant;
+import org.modelio.metamodel.uml.behavior.interactionModel.TerminateSpecification;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.AbstractPseudoState;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.ChoicePseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ConnectionPointReference;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.DeepHistoryPseudoState;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.EntryPointPseudoState;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.ExitPointPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.FinalState;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.ForkPseudoState;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.InitialPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.InternalTransition;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.JoinPseudoState;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.JunctionPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.ShallowHistoryPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateVertex;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.TerminatePseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Transition;
+import org.modelio.metamodel.uml.behavior.usecaseModel.Actor;
 import org.modelio.metamodel.uml.behavior.usecaseModel.ExtensionPoint;
+import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCaseDependency;
 import org.modelio.metamodel.uml.informationFlow.DataFlow;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.informationFlow.InformationItem;
+import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
+import org.modelio.metamodel.uml.infrastructure.Abstraction;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Document;
 import org.modelio.metamodel.uml.infrastructure.Element;
+import org.modelio.metamodel.uml.infrastructure.ExternElement;
 import org.modelio.metamodel.uml.infrastructure.ExternProcessor;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
+import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.metamodel.uml.infrastructure.NoteType;
 import org.modelio.metamodel.uml.infrastructure.Profile;
 import org.modelio.metamodel.uml.infrastructure.Resource;
+import org.modelio.metamodel.uml.infrastructure.ResourceType;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.Substitution;
+import org.modelio.metamodel.uml.infrastructure.TagParameter;
+import org.modelio.metamodel.uml.infrastructure.TagType;
 import org.modelio.metamodel.uml.infrastructure.TaggedValue;
+import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
+import org.modelio.metamodel.uml.infrastructure.Usage;
 import org.modelio.metamodel.uml.infrastructure.matrix.MatrixDefinition;
 import org.modelio.metamodel.uml.infrastructure.matrix.MatrixValueDefinition;
+import org.modelio.metamodel.uml.infrastructure.matrix.QueryDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.DynamicPropertyDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.EnumeratedPropertyType;
 import org.modelio.metamodel.uml.infrastructure.properties.LocalPropertyTable;
+import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
+import org.modelio.metamodel.uml.infrastructure.properties.PropertyEnumerationLitteral;
+import org.modelio.metamodel.uml.infrastructure.properties.PropertyTable;
+import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
+import org.modelio.metamodel.uml.infrastructure.properties.PropertyType;
+import org.modelio.metamodel.uml.infrastructure.properties.TypedPropertyTable;
+import org.modelio.metamodel.uml.statik.Artifact;
 import org.modelio.metamodel.uml.statik.Association;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Attribute;
 import org.modelio.metamodel.uml.statik.AttributeLink;
+import org.modelio.metamodel.uml.statik.BehavioralFeature;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Binding;
+import org.modelio.metamodel.uml.statik.Class;
 import org.modelio.metamodel.uml.statik.ClassAssociation;
+import org.modelio.metamodel.uml.statik.Classifier;
+import org.modelio.metamodel.uml.statik.Collaboration;
 import org.modelio.metamodel.uml.statik.CollaborationUse;
+import org.modelio.metamodel.uml.statik.Component;
 import org.modelio.metamodel.uml.statik.ComponentRealization;
 import org.modelio.metamodel.uml.statik.Connector;
 import org.modelio.metamodel.uml.statik.ConnectorEnd;
 import org.modelio.metamodel.uml.statik.DataType;
 import org.modelio.metamodel.uml.statik.ElementImport;
 import org.modelio.metamodel.uml.statik.ElementRealization;
+import org.modelio.metamodel.uml.statik.Enumeration;
 import org.modelio.metamodel.uml.statik.EnumerationLiteral;
 import org.modelio.metamodel.uml.statik.Feature;
+import org.modelio.metamodel.uml.statik.GeneralClass;
 import org.modelio.metamodel.uml.statik.Generalization;
 import org.modelio.metamodel.uml.statik.Instance;
+import org.modelio.metamodel.uml.statik.Interface;
 import org.modelio.metamodel.uml.statik.InterfaceRealization;
 import org.modelio.metamodel.uml.statik.Link;
 import org.modelio.metamodel.uml.statik.LinkEnd;
 import org.modelio.metamodel.uml.statik.Manifestation;
+import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.NaryAssociation;
 import org.modelio.metamodel.uml.statik.NaryAssociationEnd;
 import org.modelio.metamodel.uml.statik.NaryConnector;
 import org.modelio.metamodel.uml.statik.NaryConnectorEnd;
 import org.modelio.metamodel.uml.statik.NaryLink;
 import org.modelio.metamodel.uml.statik.NaryLinkEnd;
+import org.modelio.metamodel.uml.statik.Node;
 import org.modelio.metamodel.uml.statik.Operation;
+import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.metamodel.uml.statik.PackageImport;
 import org.modelio.metamodel.uml.statik.PackageMerge;
 import org.modelio.metamodel.uml.statik.Parameter;
@@ -115,6 +302,7 @@ import org.modelio.metamodel.uml.statik.Port;
 import org.modelio.metamodel.uml.statik.ProvidedInterface;
 import org.modelio.metamodel.uml.statik.RaisedException;
 import org.modelio.metamodel.uml.statik.RequiredInterface;
+import org.modelio.metamodel.uml.statik.StructuralFeature;
 import org.modelio.metamodel.uml.statik.TemplateBinding;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
 import org.modelio.metamodel.uml.statik.TemplateParameterSubstitution;
@@ -743,7 +931,8 @@ public class ScopeChecker {
         @objid ("fc0395f4-a04f-4ef5-b951-bccb4b6886a9")
         @Override
         public Object visitNoteType(NoteType eltToTest) {
-            return visitModelElement(eltToTest);
+            contains(eltToTest.getCompositionOwner());
+            return null;
         }
 
         @objid ("c16ed6c0-a80e-46be-9c3d-bc757ba19827")
@@ -845,7 +1034,7 @@ public class ScopeChecker {
         @objid ("b84374fb-6c5a-4900-8bd9-1fd8f6f4ece1")
         @Override
         public Object visitResource(Resource obj) {
-            // TODO Auto-generated method stub
+            setTheResult(false);
             return null;
         }
 
@@ -927,6 +1116,1326 @@ public class ScopeChecker {
             if (contains(eltToTest.getTarget())) {
                 contains(eltToTest.getOrigin());
             }
+            return null;
+        }
+
+        @objid ("4875bad6-dd56-4f95-a4b5-878c4cb31fe2")
+        @Override
+        public Object visitTagType(TagType eltToTest) {
+            contains(eltToTest.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("18a4a721-d250-41a9-b8ad-9acb1713423b")
+        @Override
+        public Object visitAbstractDiagram(AbstractDiagram obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("8902baa6-287a-4a0c-880a-418bb5f656a3")
+        @Override
+        public Object visitAbstractProject(AbstractProject obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("eab5fc2e-9c3a-4b3f-aa13-7c2741511249")
+        @Override
+        public Object visitExternElement(ExternElement obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("74e6bbdc-073f-4036-aa38-4842eb8a0fce")
+        @Override
+        public Object visitGraphDiagram(GraphDiagram obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("4212b46d-aceb-4381-ac97-67fdd97d9a8b")
+        @Override
+        public Object visitMethodologicalLink(MethodologicalLink obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("27547e83-6bed-4601-8d5c-9e7665f070c3")
+        @Override
+        public Object visitModuleComponent(ModuleComponent obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("a8a4f535-436f-4db7-b2d5-2ace039168d7")
+        @Override
+        public Object visitModuleParameter(ModuleParameter obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("b1c1adc4-4af6-48cb-b7e0-33383f8c221f")
+        @Override
+        public Object visitPropertyDefinition(PropertyDefinition obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("ad3a5170-e8fd-4454-a0d2-e039298af63f")
+        @Override
+        public Object visitPropertyEnumerationLitteral(PropertyEnumerationLitteral obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("699e1d1d-010d-48e1-ba41-d80d24178b89")
+        @Override
+        public Object visitPropertyTable(PropertyTable obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("c781ebe4-093b-4e78-878d-378bec5be6d5")
+        @Override
+        public Object visitPropertyTableDefinition(PropertyTableDefinition obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("0d2ec8bc-ed08-4c45-834c-49321b8d5985")
+        @Override
+        public Object visitPropertyType(PropertyType obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("2a0ea241-a01e-456b-b6fb-9debbde1dca8")
+        @Override
+        public Object visitQueryDefinition(QueryDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("93214fda-8040-4f46-a2a9-ed68ed622b4c")
+        @Override
+        public Object visitResourceType(ResourceType obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("c855ccab-a71b-4927-9dff-c660bddd128e")
+        @Override
+        public Object visitTagParameter(TagParameter obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("3c0f4896-41bf-4189-879c-2449367b787e")
+        @Override
+        public Object visitTypedPropertyTable(TypedPropertyTable obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("018eccd1-46cc-44a7-8fb4-e52a2062b81d")
+        @Override
+        public Object visitAbstraction(Abstraction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("666b8420-27cb-4ee6-bac9-e939a5ac9441")
+        @Override
+        public Object visitAcceptCallEventAction(AcceptCallEventAction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("b168e988-bedc-422e-bb5d-e51d361fa8af")
+        @Override
+        public Object visitAcceptChangeEventAction(AcceptChangeEventAction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("e4f3c351-3a11-4e74-ac1d-ec7cc3e70004")
+        @Override
+        public Object visitAcceptSignalAction(AcceptSignalAction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("c6c1dd69-7346-4d89-bebc-b657bd781454")
+        @Override
+        public Object visitAcceptTimeEventAction(AcceptTimeEventAction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("43218733-8673-4174-9745-2244ef61d534")
+        @Override
+        public Object visitActivity(Activity obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("ebbd2868-348c-4635-a675-c5ea758f3b5e")
+        @Override
+        public Object visitActivityAction(ActivityAction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("4761c6a5-80ab-4d6a-b245-9efd7126b352")
+        @Override
+        public Object visitActivityFinalNode(ActivityFinalNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("8efe4411-b28f-47af-bdbd-fa6bcabe48c7")
+        @Override
+        public Object visitActivityParameterNode(ActivityParameterNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("4cd71ad8-bf31-413f-a2d0-2adf918af9b4")
+        @Override
+        public Object visitActor(Actor obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("5c9cea17-e246-491e-8401-4066279704e0")
+        @Override
+        public Object visitArtifact(Artifact obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("d474bf5b-82ca-4f69-9328-c4921e43bffa")
+        @Override
+        public Object visitBehaviorParameter(BehaviorParameter obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("08c542bc-4c1a-472a-974d-5a393bc613ea")
+        @Override
+        public Object visitBehavioralFeature(BehavioralFeature obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("76f4f4f7-7de6-4215-a14b-b25762ccf6e2")
+        @Override
+        public Object visitBpmnActivity(BpmnActivity obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("9c8e564d-5044-4ba7-b9f7-f233e52e7075")
+        @Override
+        public Object visitBpmnAdHocSubProcess(BpmnAdHocSubProcess obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("8b6d7f07-77b4-47f5-b916-77d7dfdd542b")
+        @Override
+        public Object visitBpmnArtifact(BpmnArtifact obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("5d9cad1c-9ee2-44fe-883d-bc1c23789ab0")
+        @Override
+        public Object visitBpmnAssociation(BpmnAssociation obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("f944b5e1-05dc-4290-921e-2183cbcc49ca")
+        @Override
+        public Object visitBpmnBaseElement(BpmnBaseElement obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("411f4e5d-43eb-420d-86a0-ab93262cd6c7")
+        @Override
+        public Object visitBpmnBoundaryEvent(BpmnBoundaryEvent obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("01be4909-c40b-4131-9749-9a06c140e639")
+        @Override
+        public Object visitBpmnBusinessRuleTask(BpmnBusinessRuleTask obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("9d2ac686-4a11-496e-9d28-1b3e80fac85d")
+        @Override
+        public Object visitBpmnCallActivity(BpmnCallActivity obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("f1ecc3da-c9ab-40d1-b16a-ffc4373dfdf0")
+        @Override
+        public Object visitBpmnCancelEventDefinition(BpmnCancelEventDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("fe1a269a-04e6-41bb-bf2a-e91c24b4cfd3")
+        @Override
+        public Object visitBpmnCatchEvent(BpmnCatchEvent obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("ff86211f-1945-483d-83b7-b3be6b3c3b74")
+        @Override
+        public Object visitBpmnCollaboration(BpmnCollaboration obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("a6911f91-c680-4013-ad8e-22fc12439cf8")
+        @Override
+        public Object visitBpmnCollaborationDiagram(BpmnCollaborationDiagram obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("a45d4e04-76c9-4797-8c16-0d23e52ee6fa")
+        @Override
+        public Object visitBpmnCompensateEventDefinition(BpmnCompensateEventDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("10fd21a5-472d-4141-b2e1-5a3b71b77a40")
+        @Override
+        public Object visitBpmnComplexBehaviorDefinition(BpmnComplexBehaviorDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("7904035f-0ce2-4c3f-a1c7-c8f8347c86b5")
+        @Override
+        public Object visitBpmnComplexGateway(BpmnComplexGateway obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("1b837b7f-99bb-4278-b02a-454367187429")
+        @Override
+        public Object visitBpmnConditionalEventDefinition(BpmnConditionalEventDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("d006c22b-9a8d-4cb9-bf82-6dc0beff6688")
+        @Override
+        public Object visitBpmnDataAssociation(BpmnDataAssociation obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("7d026f70-ae62-4fe4-aff1-a7dc622c12b8")
+        @Override
+        public Object visitBpmnDataInput(BpmnDataInput obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("06707b8a-453c-4efd-9bf1-1ea24836c4d4")
+        @Override
+        public Object visitBpmnDataObject(BpmnDataObject obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("e34c3d51-3b0e-45f4-b323-da397aa61b56")
+        @Override
+        public Object visitBpmnDataOutput(BpmnDataOutput obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("dc19f0dc-9402-443e-b15a-1e9dec4ae2b9")
+        @Override
+        public Object visitBpmnDataState(BpmnDataState obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("eb893c27-17d6-436f-9666-4eaa3dcbcdc2")
+        @Override
+        public Object visitBpmnDataStore(BpmnDataStore obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("efd85f5d-b6eb-4140-a327-f1c72b3cd50c")
+        @Override
+        public Object visitBpmnEndEvent(BpmnEndEvent obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("1c896fa6-7f93-4606-b4d1-e1e2cabe0d64")
+        @Override
+        public Object visitBpmnEndPoint(BpmnEndPoint obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("4f3ac069-da09-4ab8-8f5b-7aade7cbbff2")
+        @Override
+        public Object visitBpmnErrorEventDefinition(BpmnErrorEventDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("a2c1e50e-771a-4424-a4eb-26892dc42871")
+        @Override
+        public Object visitBpmnEscalationEventDefinition(BpmnEscalationEventDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("cbbeec4f-8e77-450a-bae8-4e926642aa17")
+        @Override
+        public Object visitBpmnEvent(BpmnEvent obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("a7cee663-663b-4805-8dfc-181338bc502b")
+        @Override
+        public Object visitBpmnEventBasedGateway(BpmnEventBasedGateway obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("356bd121-cd65-4191-b9e7-9af8675c44e7")
+        @Override
+        public Object visitBpmnEventDefinition(BpmnEventDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("c9cc3efb-f510-423f-a2b7-0e43f7438e6f")
+        @Override
+        public Object visitBpmnExclusiveGateway(BpmnExclusiveGateway obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("c831cc14-8f28-48d9-b004-0bc433ab0717")
+        @Override
+        public Object visitBpmnFlowElement(BpmnFlowElement obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("8dda8f26-d337-4002-9b06-a53cb868e550")
+        @Override
+        public Object visitBpmnFlowNode(BpmnFlowNode obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("5ca88cfb-f7c4-4ec1-9357-c6557507f073")
+        @Override
+        public Object visitBpmnGateway(BpmnGateway obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("a90d1387-2275-4b7f-9b61-bde374b37675")
+        @Override
+        public Object visitBpmnGroup(BpmnGroup obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("8abcbd68-2967-4999-a12d-d4afe3b0cd19")
+        @Override
+        public Object visitBpmnImplicitThrowEvent(BpmnImplicitThrowEvent obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("ea927bd2-791b-47c5-9863-ac09c1d05120")
+        @Override
+        public Object visitBpmnInclusiveGateway(BpmnInclusiveGateway obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("c70d4c5a-e6c2-497e-b784-3e5e00e036d6")
+        @Override
+        public Object visitBpmnInterface(BpmnInterface obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("ca3328cd-6412-4798-b91a-98c962ccd5e4")
+        @Override
+        public Object visitBpmnIntermediateCatchEvent(BpmnIntermediateCatchEvent obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("c35d1fb8-d228-42ac-a543-a82977362d9d")
+        @Override
+        public Object visitBpmnIntermediateThrowEvent(BpmnIntermediateThrowEvent obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("ea5a55b8-8212-4cd0-8d64-bd737a31d1bd")
+        @Override
+        public Object visitBpmnItemAwareElement(BpmnItemAwareElement obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("7da59539-bb73-4442-a677-3c01a7fa9ed2")
+        @Override
+        public Object visitBpmnItemDefinition(BpmnItemDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("6452c333-21d3-404e-b260-3452a075c99c")
+        @Override
+        public Object visitBpmnLane(BpmnLane obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("ec6e4113-f998-4f32-aa30-62035eaa1648")
+        @Override
+        public Object visitBpmnLaneSet(BpmnLaneSet obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("d3043548-aa31-410a-84e7-b5b3595ea5d0")
+        @Override
+        public Object visitBpmnLinkEventDefinition(BpmnLinkEventDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("89ab0150-1018-4411-bb97-28b0de3064b6")
+        @Override
+        public Object visitBpmnLoopCharacteristics(BpmnLoopCharacteristics obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("c65a4503-f46a-46ef-bdeb-1b15381f10b7")
+        @Override
+        public Object visitBpmnManualTask(BpmnManualTask obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("fc70498b-0e3d-4f68-8176-dce93933139e")
+        @Override
+        public Object visitBpmnMessage(BpmnMessage obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("b3fbdda8-f409-4a89-ae52-094498ac35ea")
+        @Override
+        public Object visitBpmnMessageEventDefinition(BpmnMessageEventDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("7a807725-f138-4b30-b8ba-0908034fec1c")
+        @Override
+        public Object visitBpmnMessageFlow(BpmnMessageFlow obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("87203211-a90c-4a94-9807-dedb60a0d654")
+        @Override
+        public Object visitBpmnMultiInstanceLoopCharacteristics(BpmnMultiInstanceLoopCharacteristics obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("18c12897-1020-4aa9-94cf-2bb2728a0d27")
+        @Override
+        public Object visitBpmnOperation(BpmnOperation obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("fd779bd2-1b5d-42f4-aa19-260977a04852")
+        @Override
+        public Object visitBpmnParallelGateway(BpmnParallelGateway obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("8d5519f6-9ccf-4098-8dcc-c1649154e083")
+        @Override
+        public Object visitBpmnParticipant(BpmnParticipant obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("6f527b02-d537-4fe6-87a8-3e9a02b7d58e")
+        @Override
+        public Object visitBpmnProcess(BpmnProcess obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("2b2820c0-96a2-4405-9358-d70087caaa87")
+        @Override
+        public Object visitBpmnProcessCollaborationDiagram(BpmnProcessCollaborationDiagram obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("26fb2d95-32c1-4c4a-8eda-50651ca7a5f5")
+        @Override
+        public Object visitBpmnProcessDesignDiagram(BpmnProcessDesignDiagram obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("2553ff7a-76b6-4c3a-b744-d7ac271aac36")
+        @Override
+        public Object visitBpmnReceiveTask(BpmnReceiveTask obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("ec5279ee-6f8e-4b91-bd64-be9f66d7672f")
+        @Override
+        public Object visitBpmnResource(BpmnResource obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("b203e552-1de6-4d43-81ec-faee4085e851")
+        @Override
+        public Object visitBpmnResourceParameter(BpmnResourceParameter obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("e2e0476a-31dc-44ab-98e2-3bb831c56660")
+        @Override
+        public Object visitBpmnResourceParameterBinding(BpmnResourceParameterBinding obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("933f5f11-b4db-41c6-b048-9f1ca5f7e090")
+        @Override
+        public Object visitBpmnResourceRole(BpmnResourceRole obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("974b42dc-9ba5-483e-b2b9-39c9c5315144")
+        @Override
+        public Object visitBpmnScriptTask(BpmnScriptTask obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("a140a06c-d12f-482e-a17d-4f5987ffa398")
+        @Override
+        public Object visitBpmnSendTask(BpmnSendTask obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("03e484dd-e3a4-48cf-b536-ce9beb4f95df")
+        @Override
+        public Object visitBpmnSequenceFlow(BpmnSequenceFlow obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("66c50fa7-ad25-4283-bdee-31c36c446b8f")
+        @Override
+        public Object visitBpmnSequenceFlowDataAssociation(BpmnSequenceFlowDataAssociation obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("d590c5d4-ed54-4132-91f6-7e63616b64b3")
+        @Override
+        public Object visitBpmnServiceTask(BpmnServiceTask obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("b4dd8eb2-baa7-4101-87e5-4fa1cf3afbfe")
+        @Override
+        public Object visitBpmnSharedDefinitions(BpmnSharedDefinitions obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("57548f20-6084-4e00-a954-5a2948b1adea")
+        @Override
+        public Object visitBpmnSharedElement(BpmnSharedElement obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("6516e4e1-9209-42ea-a2a2-922a9eaf34fd")
+        @Override
+        public Object visitBpmnSignalEventDefinition(BpmnSignalEventDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("75619ba4-8ee9-4166-afc3-53a31095ef57")
+        @Override
+        public Object visitBpmnStandardLoopCharacteristics(BpmnStandardLoopCharacteristics obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("f2d1fe62-4d86-4b76-a397-19f373c36e6c")
+        @Override
+        public Object visitBpmnStartEvent(BpmnStartEvent obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("b35cb63b-ce9e-4926-b8bf-e7b9ca8acae8")
+        @Override
+        public Object visitBpmnSubProcess(BpmnSubProcess obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("a193b58b-fafe-4bbf-a3c7-3ad4be068d7b")
+        @Override
+        public Object visitBpmnSubProcessDiagram(BpmnSubProcessDiagram obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("2b43c7a0-da75-47ed-a603-eaf043d39720")
+        @Override
+        public Object visitBpmnTask(BpmnTask obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("9a03a164-078e-4c58-9687-e51041f3f27b")
+        @Override
+        public Object visitBpmnTerminateEventDefinition(BpmnTerminateEventDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("27351849-631c-41dc-8385-add05664f756")
+        @Override
+        public Object visitBpmnThrowEvent(BpmnThrowEvent obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("ba6b8716-d1a8-49a9-9998-d6628d056990")
+        @Override
+        public Object visitBpmnTimerEventDefinition(BpmnTimerEventDefinition obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("9fe1eb2d-6afe-4463-bc1d-7fae1f56c99f")
+        @Override
+        public Object visitBpmnTransaction(BpmnTransaction obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("c3543841-d67e-4f53-ae69-76c0e05178e4")
+        @Override
+        public Object visitBpmnUserTask(BpmnUserTask obj) {
+            setTheResult(false);
+            return null;
+        }
+
+        @objid ("59dcbf28-727c-410c-8a84-c2a444dd3a90")
+        @Override
+        public Object visitCallAction(CallAction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("9a424161-61ae-4cc1-a846-4367bce86c53")
+        @Override
+        public Object visitCallBehaviorAction(CallBehaviorAction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("d1317025-affc-4c29-b970-26ee2cd954b8")
+        @Override
+        public Object visitCallOperationAction(CallOperationAction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("a00714f5-6ecc-4a51-a724-721b87a5ec65")
+        @Override
+        public Object visitCentralBufferNode(CentralBufferNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("393d8b4d-cdcf-489b-8698-f900c8207ba2")
+        @Override
+        public Object visitChoicePseudoState(ChoicePseudoState obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("c78e8b3a-b3e9-4c8f-98ad-6c04df193ec5")
+        @Override
+        public Object visitClass(Class obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("fdfa8bc3-ebaa-47c3-ae67-6c6e821d9bde")
+        @Override
+        public Object visitClassDiagram(ClassDiagram obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("16147946-7c33-4a7c-a432-db012bc201ad")
+        @Override
+        public Object visitClassifier(Classifier obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("71ebb511-c592-41a0-8f84-d823dd72e4d4")
+        @Override
+        public Object visitCollaboration(Collaboration obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("3e505f9a-9e7d-41b2-bfa7-1713dc9b2e58")
+        @Override
+        public Object visitCombinedFragment(CombinedFragment obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("bd429288-8d6c-4972-8ec4-d284a86a0ae1")
+        @Override
+        public Object visitCommunicationChannel(CommunicationChannel obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("832ecb93-6468-4e29-9480-43410d49a309")
+        @Override
+        public Object visitCommunicationDiagram(CommunicationDiagram obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("fe0096e6-8eba-4dc4-ac02-a3689b381001")
+        @Override
+        public Object visitCommunicationInteraction(CommunicationInteraction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("7a8205ea-bf73-4775-96ea-17f2e1ae98f0")
+        @Override
+        public Object visitCommunicationMessage(CommunicationMessage obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("c6086189-5484-4bb8-b25f-9fe763f6a798")
+        @Override
+        public Object visitCommunicationNode(CommunicationNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("3e26d86a-14ad-47e5-a968-a36514dd496c")
+        @Override
+        public Object visitComponent(Component obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("bd923b9a-165a-41a4-8d46-489c994170b8")
+        @Override
+        public Object visitCompositeStructureDiagram(CompositeStructureDiagram obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("c10ce7e6-7632-4863-a954-901af7b1f864")
+        @Override
+        public Object visitConditionalNode(ConditionalNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("f018d3fe-7b49-48d6-b4f8-980f2714ef57")
+        @Override
+        public Object visitControlFlow(ControlFlow obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("0828be55-74e2-4853-acee-b8ba9a0aa23f")
+        @Override
+        public Object visitControlNode(ControlNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("a27b75e3-1817-4bea-8b09-f64f4be3e25e")
+        @Override
+        public Object visitDataStoreNode(DataStoreNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("f9e559bf-43bd-4588-862e-1bdf532979ef")
+        @Override
+        public Object visitDecisionMergeNode(DecisionMergeNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("bdcd6252-9b0d-4eed-8dd7-2516c95b40ac")
+        @Override
+        public Object visitDeepHistoryPseudoState(DeepHistoryPseudoState obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("5ae56e30-f055-4603-99ca-7aa98d3d8700")
+        @Override
+        public Object visitDeploymentDiagram(DeploymentDiagram obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("2b5dede5-37df-4b8d-8ae1-d19424021232")
+        @Override
+        public Object visitDurationConstraint(DurationConstraint obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("af213bc2-782c-43c1-bec5-b6e62a097a74")
+        @Override
+        public Object visitEntryPointPseudoState(EntryPointPseudoState obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("d129d6ca-abdc-45d6-a2a9-fdeae24f5837")
+        @Override
+        public Object visitEnumeration(Enumeration obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("296d6c0b-4a56-4c5a-9c49-b44822060605")
+        @Override
+        public Object visitExecutionOccurenceSpecification(ExecutionOccurenceSpecification obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("e03159ef-f687-4693-b7bd-7d9f4d68f5e7")
+        @Override
+        public Object visitExecutionSpecification(ExecutionSpecification obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("a5bc4823-bee0-4997-bde7-dafe8614c580")
+        @Override
+        public Object visitExitPointPseudoState(ExitPointPseudoState obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("7dda9197-f05e-4aa0-aba0-2e74360582c2")
+        @Override
+        public Object visitFinalNode(FinalNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("5b67e434-2ff4-48b6-906c-fba7d06f2a06")
+        @Override
+        public Object visitFlowFinalNode(FlowFinalNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("042ce3c2-ae26-4d6e-a595-214290748676")
+        @Override
+        public Object visitForkJoinNode(ForkJoinNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("9f9cee11-c239-46cc-a3d5-287d6730fed8")
+        @Override
+        public Object visitForkPseudoState(ForkPseudoState obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("c2db44d7-9bed-44b7-8afa-410ba88128b4")
+        @Override
+        public Object visitGate(Gate obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("a55ff677-7039-4d11-9e19-293278efd3b8")
+        @Override
+        public Object visitGeneralClass(GeneralClass obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("beee6002-b785-44a5-8ba2-3270da24d0e1")
+        @Override
+        public Object visitGeneralOrdering(GeneralOrdering obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("a4513971-c867-4403-a264-e5832c27fd9a")
+        @Override
+        public Object visitInitialNode(InitialNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("138576d4-2fd1-4bad-8da6-671675151364")
+        @Override
+        public Object visitInitialPseudoState(InitialPseudoState obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("eba1ac90-1c1b-419b-bc5c-ba14b7fa859c")
+        @Override
+        public Object visitInputPin(InputPin obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("e5e5c9a9-6b91-4847-a6ff-66d21dd9686a")
+        @Override
+        public Object visitInstanceNode(InstanceNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("13c523cc-a76e-451d-a0f0-57868880cb92")
+        @Override
+        public Object visitInteraction(Interaction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("7979d762-65a5-472e-b96a-07454c70757a")
+        @Override
+        public Object visitInteractionOperand(InteractionOperand obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("58722a20-91b3-4ee5-ba47-3b03da86c6ab")
+        @Override
+        public Object visitInteractionUse(InteractionUse obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("f9450238-f325-4120-8451-686e39558038")
+        @Override
+        public Object visitInterface(Interface obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("c8a947f8-3ab2-4f00-93d6-7fc5ca44e9be")
+        @Override
+        public Object visitInterruptibleActivityRegion(InterruptibleActivityRegion obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("14bdd988-1210-431a-854e-3f9ce9eef2b9")
+        @Override
+        public Object visitJoinPseudoState(JoinPseudoState obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("56abe6fa-f78b-49c5-8b4c-3a3e137b1ead")
+        @Override
+        public Object visitJunctionPseudoState(JunctionPseudoState obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("2dd5fcbf-166b-44cc-9621-b5f27d8c55bb")
+        @Override
+        public Object visitLoopNode(LoopNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("41921514-ce84-41be-8cb4-c7ae0bc1702f")
+        @Override
+        public Object visitMessageEnd(MessageEnd obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("f42a989a-38af-4ce8-b576-304cae7c9a0a")
+        @Override
+        public Object visitMessageFlow(MessageFlow obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("922d0c6c-def5-4435-9406-dd306605e028")
+        @Override
+        public Object visitNameSpace(NameSpace obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("b2f69713-df27-4b49-87e8-571983c27656")
+        @Override
+        public Object visitNode(Node obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("de3fd494-cee2-404d-9074-875d699d7cbc")
+        @Override
+        public Object visitObjectDiagram(ObjectDiagram obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("3ebf8910-30a5-44c0-a15f-24b6fba6dc45")
+        @Override
+        public Object visitObjectFlow(ObjectFlow obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("9380ce3b-9484-443d-9eef-27ab130a6bf2")
+        @Override
+        public Object visitObjectNode(ObjectNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("303fb922-d323-404a-b536-05c62a8177d4")
+        @Override
+        public Object visitOccurrenceSpecification(OccurrenceSpecification obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("05e5951f-8bef-4f67-86e7-f5fbeb1535a8")
+        @Override
+        public Object visitOpaqueAction(OpaqueAction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("9338c06b-299f-4df1-bd01-18b6d0dcdbb4")
+        @Override
+        public Object visitOpaqueBehavior(OpaqueBehavior obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("75f47242-2ac0-4769-8eb7-497764ba9762")
+        @Override
+        public Object visitOutputPin(OutputPin obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("3be98740-dd17-47da-a3b3-fdb5b16bcd9d")
+        @Override
+        public Object visitPackage(Package obj) {
+            if (ScopeChecker.this.localRoot.contains(obj)) {
+                setTheResult(true);
+            }else {
+                contains(obj.getCompositionOwner());
+            }
+            return null;
+        }
+
+        @objid ("15f1784a-cd35-4423-87f3-fdb7bc49a6d1")
+        @Override
+        public Object visitPartDecomposition(PartDecomposition obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("c13cb2f6-45c2-4acb-b85b-b4af958dff7f")
+        @Override
+        public Object visitPin(Pin obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("cf6270b2-7447-493f-98bd-f1750d543415")
+        @Override
+        public Object visitSendSignalAction(SendSignalAction obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("292169f1-62b0-4e4e-b62a-a4f53e6a97ea")
+        @Override
+        public Object visitSequenceDiagram(SequenceDiagram obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("329503eb-d429-4bd1-81e9-d2335b575e9f")
+        @Override
+        public Object visitShallowHistoryPseudoState(ShallowHistoryPseudoState obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("2a620cca-5f3f-4782-9e0a-be91590740df")
+        @Override
+        public Object visitSignal(Signal obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("4987655e-1926-4877-b068-98ab08edd2eb")
+        @Override
+        public Object visitStateInvariant(StateInvariant obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("aa4dc927-e2f6-41eb-a3fd-0819f8537721")
+        @Override
+        public Object visitStateMachine(StateMachine obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("69fc3c10-a617-48dc-b8cb-28f64e8a31bf")
+        @Override
+        public Object visitStateMachineDiagram(StateMachineDiagram obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("0a9bc1c3-2878-4fce-a8b0-470b5211ff4d")
+        @Override
+        public Object visitStructuralFeature(StructuralFeature obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("be432b00-ddea-4819-a5a9-d131e81c9e14")
+        @Override
+        public Object visitStructuredActivityNode(StructuredActivityNode obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("48caa063-f12f-42f9-889d-674da187e385")
+        @Override
+        public Object visitTerminatePseudoState(TerminatePseudoState obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("f083a6af-6f2f-4425-bc74-33287aaa428a")
+        @Override
+        public Object visitTerminateSpecification(TerminateSpecification obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("b7840cc1-3699-4344-b547-c0b9503fe3f9")
+        @Override
+        public Object visitUmlModelElement(UmlModelElement obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("24f1a7c4-e093-43ff-bc43-0e6681dce399")
+        @Override
+        public Object visitUsage(Usage obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("2b45fea1-1583-4807-a94d-1ca3d0647aee")
+        @Override
+        public Object visitUseCase(UseCase obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("599aaf07-c247-4597-82a4-d131b29d4550")
+        @Override
+        public Object visitUseCaseDiagram(UseCaseDiagram obj) {
+            contains(obj.getCompositionOwner());
+            return null;
+        }
+
+        @objid ("4e30e219-7bf7-4765-9fb9-3da57c8dbc5e")
+        @Override
+        public Object visitValuePin(ValuePin obj) {
+            contains(obj.getCompositionOwner());
             return null;
         }
 

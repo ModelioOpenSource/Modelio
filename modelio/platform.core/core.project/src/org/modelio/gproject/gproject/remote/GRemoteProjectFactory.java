@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,7 +22,6 @@ package org.modelio.gproject.gproject.remote;
 
 import java.io.IOException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.data.project.DescriptorServices;
 import org.modelio.gproject.data.project.FragmentDescriptor;
 import org.modelio.gproject.data.project.ProjectDescriptor;
@@ -51,6 +50,7 @@ public abstract class GRemoteProjectFactory implements IProjectFactory {
 
     /**
      * Fetch the remote descriptor from its remote location.
+     * 
      * @param localDescriptor the local part of a project descriptor.
      * @param authData authentication data.
      * @param monitor a progress monitor
@@ -63,19 +63,19 @@ public abstract class GRemoteProjectFactory implements IProjectFactory {
 
     @objid ("22187d6c-d7a1-43d0-a95e-3a0e0a8af56d")
     @Override
-    public final ProjectDescriptor getRemoteDescriptor(ProjectDescriptor localDescriptor, IAuthData authData, IModelioProgress monitor) throws GProjectAuthenticationException, IOException {
-        InputSource is = readRemoteDescriptor(localDescriptor, authData, monitor);
+    public final ProjectDescriptor getRemoteDescriptor(final ProjectDescriptor localDescriptor, final IAuthData authData, final IModelioProgress monitor) throws GProjectAuthenticationException, IOException {
+        final InputSource is = readRemoteDescriptor(localDescriptor, authData, monitor);
         try {
-            ProjectDescriptor newServerDesc = new ProjectDescriptorReader().read(is, null);
+            final ProjectDescriptor newServerDesc = new ProjectDescriptorReader().read(is, null);
             return newServerDesc;
-        } catch (IOException e) {
+        } catch (final IOException e) {
             // Enriches the exception with the descriptor content if possible.
             try {
-                InputSource is2 = readRemoteDescriptor(localDescriptor, authData, monitor);
-                String content = FileUtils.readWhole(is2.getByteStream(), "utf-8");
+                final InputSource is2 = readRemoteDescriptor(localDescriptor, authData, monitor);
+                final String content = FileUtils.readWhole(is2.getByteStream(), "utf-8");
                 e.addSuppressed(new Throwable("Descriptor content:\n"+content));
-                
-            } catch (Exception e2) {
+        
+            } catch (final Exception e2) {
                 e.addSuppressed(e2);
             }
             throw e;
@@ -83,9 +83,9 @@ public abstract class GRemoteProjectFactory implements IProjectFactory {
     }
 
     @objid ("151079c2-d162-4f44-a4f9-f3226ee7955c")
-    protected void completeDescriptor(ProjectDescriptor projectDescriptor, IAuthData authData, IModelioProgress aProgress) throws GProjectAuthenticationException, IOException {
+    protected void completeDescriptor(final ProjectDescriptor projectDescriptor, final IAuthData authData, final IModelioProgress aProgress) throws GProjectAuthenticationException, IOException {
         boolean complete = true;
-        for (FragmentDescriptor  fd: projectDescriptor.getFragments()) {
+        for (final FragmentDescriptor  fd: projectDescriptor.getFragments()) {
             if (! fd.isValid()) {
                 complete = false;
                 break;
@@ -93,9 +93,9 @@ public abstract class GRemoteProjectFactory implements IProjectFactory {
         }
         
         if (! complete){
-            InputSource is = readRemoteDescriptor(projectDescriptor, authData, aProgress);
-            
-            ProjectDescriptor newServerDesc = new ProjectDescriptorReader().read(is, null);
+            final InputSource is = readRemoteDescriptor(projectDescriptor, authData, aProgress);
+        
+            final ProjectDescriptor newServerDesc = new ProjectDescriptorReader().read(is, null);
             DescriptorServices.removeSharedPart(projectDescriptor);
             DescriptorServices.merge(newServerDesc, projectDescriptor);
             projectDescriptor.cleanup();

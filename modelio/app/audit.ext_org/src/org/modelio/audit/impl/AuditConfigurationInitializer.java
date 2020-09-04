@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,7 +52,7 @@ public class AuditConfigurationInitializer {
     @Optional
     void onProjectOpening(@UIEventTopic (ModelioEventTopics.PROJECT_OPENING) final GProject openedProject, IAuditService auditService) {
         // Set project configuration file
-        final File projFile = openedProject.getProjectDataPath().resolve(GProject.DATA_SUBDIR).resolve(AuditConfigurationInitializer.PROJECT_AUDIT_CONF_PATH).toFile();
+        final File projFile = openedProject.getProjectFileStructure().getProjectDataPath().resolve(AuditConfigurationInitializer.PROJECT_AUDIT_CONF_PATH).toFile();
         auditService.setConfigurationFile(projFile);
     }
 

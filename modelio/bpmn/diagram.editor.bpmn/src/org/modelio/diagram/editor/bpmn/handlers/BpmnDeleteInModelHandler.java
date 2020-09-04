@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -209,6 +209,7 @@ public class BpmnDeleteInModelHandler {
 
     /**
      * Collect the edit parts to mask by analyzing the selected edit parts.
+     * 
      * @param selected the selected edit parts to analyze
      */
     @objid ("86540063-d98c-446b-af73-48d5d2c6b709")
@@ -232,6 +233,7 @@ public class BpmnDeleteInModelHandler {
 
     /**
      * Collect the element to delete by analyzing the selected edit parts.
+     * 
      * @param selected the selected edit parts to analyze
      * @return the effective elements to delete.
      */
@@ -259,6 +261,7 @@ public class BpmnDeleteInModelHandler {
 
     /**
      * In some cases, deleting a specific element must also delete others, which are not properly handled at metamodel level.
+     * 
      * @param el the element being deleted
      * @return the effective elements to delete.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -84,7 +84,7 @@ class DependencyLoader {
 
     @objid ("fd24579a-5986-11e1-991a-001ec947ccaf")
     public void execute(SmObjectImpl anObj, SmDependency aDep, List<SmObjectImpl> newValues) {
-        assert (aDep != null);
+        assert aDep != null;
         
         if (this.dep != null) {
             throwRecursion(anObj, aDep);
@@ -97,7 +97,7 @@ class DependencyLoader {
             // Compare old and new dependency values and update if required
             List<SmObjectImpl> currentValues = getCurrentContents();
         
-            if (!strictEquals(currentValues,newValues)) {
+            if (!strictEquals(currentValues, newValues)) {
                 // Change detected
         
                 if (this.dep.isOrdered()) {
@@ -113,6 +113,7 @@ class DependencyLoader {
 
     /**
      * Hook to notify a dependency change.
+     * 
      * @param anObj the modified object
      * @param aDep the modified relation
      * @param value the added value
@@ -124,6 +125,7 @@ class DependencyLoader {
 
     /**
      * Hook to notify a dependency change.
+     * 
      * @param anObj the modified object
      * @param aDep the modified relation
      * @param value the removed value
@@ -135,6 +137,7 @@ class DependencyLoader {
 
     /**
      * Get the current dependencies values
+     * 
      * @return the current dependencies values
      */
     @objid ("0095ff7e-20a4-10be-92d7-001ec947cd2a")
@@ -221,7 +224,7 @@ class DependencyLoader {
     @objid ("526d9dbc-75ee-4461-9436-5af4679503da")
     private SmDependency getCachedDep(ISmObjectData object, SmDependency original) {
         if (original != null && original.isMultiple() && original.getValueAsCollection(object).size() > 20) {
-            return this.depCache.computeIfAbsent(new CacheKey(object, original), 
+            return this.depCache.computeIfAbsent(new CacheKey(object, original),
                     (k) -> new CachedDep(original));
         }
         return original;
@@ -230,22 +233,22 @@ class DependencyLoader {
     @objid ("e9ea3805-356c-11e2-a87b-001ec947ccaf")
     private static String getDebugSymbol(SmObjectImpl obj, Throwable t) {
         /*
-         * Commented: This may throw  "java.lang.IllegalStateException: Reentrant call not allowed." and make fragment go down.
+         * Commented: This may throw "java.lang.IllegalStateException: Reentrant call not allowed." and make fragment go down.
          *
-        try {
-            return "('" + GetAbsoluteSymbol.get(obj) + "' {" + obj.getUuid() + "} " + obj.getMClass().getName() + ")";
-        } catch (Exception | LinkageError e) {
-            if (t != null) {
-                t.addSuppressed(e);
-            }
-            try {
-                return "(" + obj.toString() + ")";
-            } catch (Exception | LinkageError e2) {
-                e.addSuppressed(e2);
-                return "(" + obj.getMClass().getName() + ")";
-            }
-        }
-        */
+         * try {
+         * return "('" + GetAbsoluteSymbol.get(obj) + "' {" + obj.getUuid() + "} " + obj.getMClass().getName() + ")";
+         * } catch (Exception | LinkageError e) {
+         * if (t != null) {
+         * t.addSuppressed(e);
+         * }
+         * try {
+         * return "(" + obj.toString() + ")";
+         * } catch (Exception | LinkageError e2) {
+         * e.addSuppressed(e2);
+         * return "(" + obj.getMClass().getName() + ")";
+         * }
+         * }
+         */
         try {
             return "(" + obj.toString() + ")";
         } catch (Exception | LinkageError e) {
@@ -258,6 +261,7 @@ class DependencyLoader {
 
     /**
      * Compute an error message telling wich part couldn't be loaded.
+     * 
      * @param destObject the object that couldn't be added
      * @param e the error
      * @return the error message.
@@ -267,19 +271,19 @@ class DependencyLoader {
         String err;
         try {
             String origMsg = e.getLocalizedMessage();
-            if (origMsg==null || origMsg.isEmpty()) {
+            if (origMsg == null || origMsg.isEmpty()) {
                 origMsg = e.toString();
             }
-            
-            err = MessageFormat.format("Cannot add {0} to {1}.{2}: {3}", 
-                    getDebugSymbol(destObject, e), 
+        
+            err = MessageFormat.format("Cannot add {0} to {1}.{2}: {3}",
+                    getDebugSymbol(destObject, e),
                     getDebugSymbol(this.obj, e),
-                    this.dep.getName(), 
+                    this.dep.getName(),
                     origMsg);
         } catch (Exception | LinkageError t) {
             e.addSuppressed(t);
-            err = MessageFormat.format("Failed loading {0} dependency: {1}", 
-                    this.dep.getName(), 
+            err = MessageFormat.format("Failed loading {0} dependency: {1}",
+                    this.dep.getName(),
                     e);
         }
         return err;
@@ -303,27 +307,27 @@ class DependencyLoader {
     @objid ("9dc9e0dd-66ca-432f-9f30-11388eff99e6")
     private void logShellDepVal(SmObjectImpl value) {
         if (value.isShell() && this.obj.hasStatus(IRStatus.USERWRITE)) {
-            Log.warning("DependencyLoader: Loading %s unresolved reference into %s.%s relation.", getDebugSymbol(value, null), getDebugSymbol(this.obj, null), this.dep.getName());
+            Log.trace("DependencyLoader: Loading %s unresolved reference into %s.%s relation.", getDebugSymbol(value, null), getDebugSymbol(this.obj, null), this.dep.getName());
         }
     }
 
     @objid ("fd24578f-5986-11e1-991a-001ec947ccaf")
     private void propagateAppendToOpposite(final SmObjectImpl anObj, final SmDependency aDep, final SmObjectImpl value) {
-        if (value != null ) {
+        if (value != null) {
             SmDependency symetricDep = getOppositeDep(aDep, value);
         
-            if (symetricDep != null ) {
-                
+            if (symetricDep != null) {
+        
                 ISmObjectData valueData = value.getData();
                 if (symetricDep.isMultiple()) {
                     SmDependency cachedSym = getCachedDep(valueData, symetricDep);
         
                     // ensure the value won't be twice in the list
                     cachedSym.remove(valueData, anObj);
-                    
+        
                     // Propagate to symetricDep the append
                     cachedSym.add(valueData, anObj);
-            
+        
                     // Notify change
                     depValAdded(value, symetricDep, anObj);
                 } else {
@@ -338,10 +342,10 @@ class DependencyLoader {
                         // Remove the old value with propagation.
                         eraseDepVal(value, symetricDep, oldValue);
                     }
-                    
+        
                     // Propagate to symetricDep the append
                     symetricDep.add(valueData, anObj);
-            
+        
                     // Notify change
                     depValAdded(value, symetricDep, anObj);
                 }
@@ -356,7 +360,7 @@ class DependencyLoader {
         
             if (oppDep != null) {
                 ISmObjectData valueData = value.getData();
-                
+        
                 SmDependency cachedDep = getCachedDep(valueData, oppDep);
                 cachedDep.remove(valueData, anObj);
         
@@ -376,10 +380,10 @@ class DependencyLoader {
 
     @objid ("5e23d777-afc4-4f07-ab6d-3a4cd52a71a5")
     private static boolean strictEquals(List<SmObjectImpl> a, List<SmObjectImpl> a2) {
-        if (a==a2) {
+        if (a == a2) {
             return true;
         }
-        if (a==null || a2==null) {
+        if (a == null || a2 == null) {
             return false;
         }
         
@@ -388,7 +392,7 @@ class DependencyLoader {
             return false;
         }
         
-        for (int i=0; i<length; i++) {
+        for (int i = 0; i < length; i++) {
             if (a.get(i) != a2.get(i)) {
                 return false;
             }
@@ -468,8 +472,8 @@ class DependencyLoader {
         public int hashCode() {
             final int prime = 31;
             int result = 1;
-            result = prime * result + ((this.orig == null) ? 0 : this.orig.hashCode());
-            result = prime * result + ((this.owner == null) ? 0 : this.owner.hashCode());
+            result = prime * result + (this.orig == null ? 0 : this.orig.hashCode());
+            result = prime * result + (this.owner == null ? 0 : this.owner.hashCode());
             return result;
         }
 
@@ -522,11 +526,11 @@ class DependencyLoader {
         public CachedDep(SmDependency orig) {
             this.orig = orig;
             
-            init(orig.getName(), 
-                    orig.getOwner(), 
-                    orig.getType(), 
-                    orig.getMinCardinality(), 
-                    orig.getMaxCardinality(), 
+            init(orig.getName(),
+                    orig.getOwner(),
+                    orig.getType(),
+                    orig.getMinCardinality(),
+                    orig.getMaxCardinality(),
                     orig.getDirectives().toArray(new SmDirective[0]));
             postInit();
         }
@@ -534,7 +538,7 @@ class DependencyLoader {
         @objid ("1b41afe3-d11a-4a31-88de-4529f7e6fe73")
         @Override
         public boolean add(ISmObjectData obj, SmObjectImpl value) {
-            synchronized (SYNC) {
+            synchronized (CachedDep.SYNC) {
                 if (this.cache == null) {
                     return this.orig.add(obj, value);
                 } else {
@@ -584,8 +588,8 @@ class DependencyLoader {
         @objid ("417aabd6-cf6a-4697-a9e1-81d3b089a3e6")
         @Override
         public boolean remove(ISmObjectData obj, SmObjectImpl value) {
-            synchronized (SYNC) {
-                if (++ this.useCount == MIN_USES) {
+            synchronized (CachedDep.SYNC) {
+                if (++this.useCount == CachedDep.MIN_USES) {
                     fillCache(obj);
                 }
             
@@ -621,7 +625,7 @@ class DependencyLoader {
                         // Add thread dump to the exception and rethrow
                         throw ThreadDumper.get().getAllThreads(false).addAsSupressed(e);
                     }
-                    
+            
                     // The model is probably being modified in another thread.
                     // Sleep some time then try again.
                     try {

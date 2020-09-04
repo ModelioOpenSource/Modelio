@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -155,6 +155,7 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
 
     /**
      * Get the connection router registry.
+     * 
      * @return the connection router registry.
      */
     @objid ("7e464a64-1dec-11e2-8cad-001ec947c8cc")
@@ -164,6 +165,7 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
 
     /**
      * Get the connection routing mode.
+     * 
      * @return the connection routing mode.
      */
     @objid ("7e464a69-1dec-11e2-8cad-001ec947c8cc")
@@ -196,6 +198,7 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
 
     /**
      * Add an edit policy to edit bend points if the router handles bend point editing.
+     * 
      * @param newRoutingMode the new routing mode
      */
     @objid ("7e464a75-1dec-11e2-8cad-001ec947c8cc")
@@ -222,6 +225,7 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
 
     /**
      * Update the connection router, the edit policies and the drag tracker from the model routing style.
+     * 
      * @param cnx The connection figure
      */
     @objid ("7e464a79-1dec-11e2-8cad-001ec947c8cc")

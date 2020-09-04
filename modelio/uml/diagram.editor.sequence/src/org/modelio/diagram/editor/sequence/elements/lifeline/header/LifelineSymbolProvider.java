@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public class LifelineSymbolProvider {
 
     /**
      * Get the lifeline label at the following format: "name : representedType [min..max]"
+     * 
      * @param lifeline the lifeline
      * @return the computed label
      */
@@ -71,6 +72,7 @@ public class LifelineSymbolProvider {
     /**
      * Get the instance label at the following format: "name : type [min..max]"
      * @param lifeline
+     * 
      * @param c the instance
      * @param s Where the computed cardinality is appended.
      * @return the computed label
@@ -102,6 +104,7 @@ public class LifelineSymbolProvider {
      * <li>1..* : returns "[1..*]"
      * <li>all other a..b : returns "[a..b]"
      * </ul>
+     * 
      * @param c The instance.
      * @param s Where the computed cardinality is appended.
      */

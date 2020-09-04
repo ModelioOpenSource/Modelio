@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class BpmnMessageLabelBuilder {
     /**
      * Computes a label for a BpmnItemAwareElement
      * @param elt the data object whose name is to be computed
+     * 
      * @return the computed name
      */
     @objid ("4e29a883-c404-492c-b51b-112fb8d87bc0")

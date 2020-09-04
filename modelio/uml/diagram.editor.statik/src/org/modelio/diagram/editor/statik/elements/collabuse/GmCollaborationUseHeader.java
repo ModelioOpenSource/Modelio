@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
 
     /**
      * Initialize a classifier header
+     * 
      * @param diagram the owning diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
@@ -118,6 +119,7 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
 
     /**
      * Qualified label : return only the name and the type
+     * 
      * @param c A collaboration use
      * @return The collaboration use label
      */
@@ -129,6 +131,7 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
 
     /**
      * Qualified label : return only the name and the type
+     * 
      * @param c A collaboration use
      * @return The collaboration use label
      */
@@ -145,6 +148,7 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
 
     /**
      * Simple label : return only the name
+     * 
      * @param c A collaboration use
      * @return The collaboration use label
      */

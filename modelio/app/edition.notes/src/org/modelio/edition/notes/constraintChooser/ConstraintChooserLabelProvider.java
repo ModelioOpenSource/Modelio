@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,7 +48,7 @@ public class ConstraintChooserLabelProvider extends LabelProvider {
                 return image;
             }
         }
-        return MetamodelImageService.getIcon(Constraint.MNAME);
+        return MetamodelImageService.getIcon(Constraint.MQNAME);
     }
 
     @objid ("26d79ef5-186f-11e2-bc4e-002564c97630")

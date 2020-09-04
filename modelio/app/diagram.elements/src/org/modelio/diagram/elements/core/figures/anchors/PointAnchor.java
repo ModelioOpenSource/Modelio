@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ public class PointAnchor extends XYAnchor {
 
     /**
      * Constructs an anchor at the point p.
+     * 
      * @param owner the owner figure
      * @param p The anchor location in coordinates relative to the owner.
      */
@@ -62,6 +63,7 @@ public class PointAnchor extends XYAnchor {
 
     /**
      * Get the reference point in coordinates <i>relative</i> to the owner.
+     * 
      * @return the reference point in coordinates <i>relative</i> to the owner.
      */
     @objid ("1907e416-fd58-46a3-aa2b-0ed76200dfd1")

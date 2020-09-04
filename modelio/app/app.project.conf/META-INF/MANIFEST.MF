@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Project Configurator
 Bundle-Localization: plugin
 Bundle-SymbolicName: org.modelio.app.project.conf;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: org.modelio.app.project.conf.plugin.AppProjectConf
 Bundle-Vendor: modelio.org
 Require-Bundle: org.modelio.ui,
@@ -19,18 +19,15 @@ Require-Bundle: org.modelio.ui,
  org.eclipse.e4.ui.services,
  org.modelio.app.project.core,
  org.modelio.core.utils,
- org.modelio.core.session,
- org.modelio.core.kernel,
  org.modelio.metamodel.emfapi,
  org.modelio.api,
  org.modelio.mda.infra,
  org.eclipse.ui.forms,
  org.eclipse.e4.ui.model.workbench,
- org.modelio.audit,
  org.eclipse.e4.core.services,
  org.modelio.core.project.data,
- org.modelio.app.modules,
- org.modelio.app.update
+ org.modelio.core.rcp,
+ org.modelio.core.kernel
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: res/,
@@ -39,5 +36,6 @@ Import-Package: javax.annotation;version="1.1.0",
  javax.inject;version="1.0.0"
 Export-Package: org.modelio.app.project.conf.dialog,
  org.modelio.app.project.conf.dialog.common,
- org.modelio.app.project.conf.dialog.workmodel.local,
- org.modelio.app.project.conf.plugin
+ org.modelio.app.project.conf.dialog.projectinfo,
+ org.modelio.app.project.conf.dialog.urls,
+ org.modelio.app.project.conf.dialog.workmodel.local

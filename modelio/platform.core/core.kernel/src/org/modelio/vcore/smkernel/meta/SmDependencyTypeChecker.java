@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public interface SmDependencyTypeChecker {
      * boolean.
      * @param smObjectImpl
      * @param value
+     * 
      * @throws org.modelio.vcore.smkernel.IllegalModelManipulationException if the value is invalid.
      */
     @objid ("007c365c-ea69-1fa3-98b4-001ec947cd2a")
@@ -62,6 +63,7 @@ public interface SmDependencyTypeChecker {
      * <li>obj.setDEP(value) - <i> for a simple dependency or attribute</i></li>
      * <li>obj.getDEP(value).add(value) - <i> for a multiple dependency or attribute</i></li>
      * </ul>
+     * 
      * @param obj the source object
      * @param value the target value
      * @return true if <i>value</i> is acceptable, false otherwise.

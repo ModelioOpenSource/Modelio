@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -28,10 +28,11 @@ import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
+import org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateObjectAction;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("1a63e4cb-d235-4b97-8310-e3593e234059")
 public class ECreateObjectAction extends EActivityNode {
@@ -41,16 +42,7 @@ public class ECreateObjectAction extends EActivityNode {
     @objid ("955a999d-9636-4de9-b9a7-ef49a161fac0")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
-        OpaqueAction element = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createOpaqueAction();
-        
-        try {
-            element.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CREATEOBJECTACTION);
-        } catch (ExtensionNotFoundException e) {
-            Xmi.LOG.warning(e);
-        }
-        return element;
+        return UML2CreateObjectAction.create().getElement();
     }
 
     @objid ("0ddd53e4-d5a3-470a-a41c-f96bfcc4b10f")
@@ -76,7 +68,7 @@ public class ECreateObjectAction extends EActivityNode {
             Dependency dependency = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createDependency();
         
             try {
-                dependency.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLASSIFIERREFERENCE);
+                dependency.addStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLASSIFIERREFERENCE);
             } catch (ExtensionNotFoundException e) {
                 Xmi.LOG.warning(e);
             }

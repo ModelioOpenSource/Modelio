@@ -1,3 +1,0 @@
-org.eclipse.platform-4.7.3a
-org.eclipse.rcp.source-4.7.3a
-

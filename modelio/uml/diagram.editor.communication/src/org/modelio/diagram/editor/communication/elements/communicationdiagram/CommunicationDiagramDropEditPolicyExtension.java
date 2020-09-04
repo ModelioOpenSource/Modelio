@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -26,11 +26,14 @@ import java.util.Deque;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.CreateRequest;
+import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramElementDropEditPolicyExtension;
 import org.modelio.diagram.elements.common.abstractdiagram.DiagramElementDropEditPolicy;
+import org.modelio.diagram.elements.common.abstractdiagram.UnmaskConstraintCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
@@ -41,6 +44,7 @@ import org.modelio.metamodel.diagrams.CommunicationDiagram;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationInteraction;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationNode;
+import org.modelio.metamodel.uml.infrastructure.Constraint;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Attribute;
@@ -51,6 +55,7 @@ import org.modelio.metamodel.uml.statik.GeneralClass;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.Port;
+import org.modelio.metamodel.visitors.DefaultModelVisitor;
 import org.modelio.vcore.model.api.IElementNamer;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -79,7 +84,9 @@ public class CommunicationDiagramDropEditPolicyExtension extends AbstractDiagram
         } else if (droppedElement != null) {
             // TODO improve check for a "communication diagram" element
             if (droppedElement.getMClass().getOrigin().getName().equals(StandardMetamodel.NAME)) {
-                return super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
+                Command cmd = (Command) droppedElement.accept(new StandardVisitorImpl(dropPolicy, dropLocation));
+                return cmd != null ? cmd : super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
+                //return super.getUnmaskCommandFor(dropPolicy, droppedElement, dropLocation);
             }
         }
         return null;
@@ -249,6 +256,7 @@ public class CommunicationDiagramDropEditPolicyExtension extends AbstractDiagram
 
         /**
          * Copy the Ports of the base class to the instance.
+         * 
          * @param part the part where Ports are to be added.
          * @return the created ports.
          */
@@ -285,6 +293,28 @@ public class CommunicationDiagramDropEditPolicyExtension extends AbstractDiagram
             if (cmd != null && cmd.canExecute()) {
                 cmd.execute();
             }
+        }
+
+    }
+
+    @objid ("3e15dd28-7847-4129-9ce7-c8acb4ba20a3")
+    private static class StandardVisitorImpl extends DefaultModelVisitor {
+        @objid ("e2f06296-35d2-4f0f-abbb-c4b8f61cecbe")
+        private Point dropLocation;
+
+        @objid ("8d1d42f8-c761-4297-9fdc-714bfe34740c")
+        private DiagramElementDropEditPolicy dropPolicy;
+
+        @objid ("598a770e-d85f-4a69-ab1b-ed12158e5fef")
+        public StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
+            this.dropPolicy = dropPolicy;
+            this.dropLocation = dropLocation;
+        }
+
+        @objid ("a0de39a1-8c6e-43f1-8344-a2a26df7fa28")
+        @Override
+        public Object visitConstraint(final Constraint theConstraint) {
+            return new UnmaskConstraintCommand(theConstraint, (AbstractDiagramEditPart) this.dropPolicy.getHost(), new Rectangle(this.dropLocation, new Dimension(-1, -1)));
         }
 
     }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -74,7 +74,7 @@ public class BpmnConfigurationPlan implements IAuditConfigurationPlan {
     @objid ("e617eec1-59ed-4774-8ec8-47584f0c434c")
     @Override
     public Image getImage(AuditCategory category) {
-        return MetamodelImageService.getIcon(BpmnProcess.MNAME);
+        return MetamodelImageService.getIcon(BpmnProcess.MQNAME);
     }
 
 }

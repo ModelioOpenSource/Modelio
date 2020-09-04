@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Constructor that builds a default summary.
+     * 
      * @param fragment the fragment that needs migration.
      * @param targetVersion the needed metamodel version
      */
@@ -67,6 +68,7 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Constructor with a custom summary.
+     * 
      * @param fragment the fragment that needs migration.
      * @param targetVersion the needed metamodel version
      * @param summary summary about the needed migration.
@@ -93,6 +95,7 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Get the identifier of the fragment to migrate.
+     * 
      * @return the fragment identifier.
      */
     @objid ("8b32a0cd-360e-47fa-8cd7-a8615d2e8108")
@@ -102,6 +105,7 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Get the metamodel version of the fragment to migrate.
+     * 
      * @return the fragment metamodel version.
      */
     @objid ("82f680f3-5d9c-4a85-9b82-70c5167a6b61")
@@ -111,6 +115,7 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Get the metamodel version the fragment must be migrated to.
+     * 
      * @return the target metamodel version.
      */
     @objid ("8022e424-f360-4941-908f-955b80da8bb4")
@@ -120,6 +125,7 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Compute the exception message.
+     * 
      * @param fragment the fragment to migrate
      * @param targetVersion the target metamodel versions
      * @return a message.
@@ -133,7 +139,7 @@ public class FragmentMigrationNeededException extends Exception {
                     .withTarget(targetVersion)
                     .withCommonRemoved();
         
-            return CoreProject.getMessage(
+            return CoreProject.I18N.getMessage(
                     "FragmentMigrationNeededException.message", 
                     fragment.getId(), 
                     comp.getSource(), 
@@ -145,6 +151,7 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Tells for a remote/versioned fragment whether the remote repository needs to be migrated too.
+     * 
      * @return true if the remote repository needs to be migrated, false if only the local model needs migration.
      * @since 3.7.01
      */
@@ -155,6 +162,7 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Set the remote repository needs to be migrated too.
+     * 
      * @return this instance to chain calls.
      * @since 3.7.01
      */

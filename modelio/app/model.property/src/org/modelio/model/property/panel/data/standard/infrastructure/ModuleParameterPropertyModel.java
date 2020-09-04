@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class ModuleParameterPropertyModel extends AbstractPropertyModel<ModulePa
 
     /**
      * Instantiate the profile properties view.
+     * 
      * @param theEditedElement the current profile.
      */
     @objid ("dc294bb5-5fa5-4900-8819-189c9017a704")

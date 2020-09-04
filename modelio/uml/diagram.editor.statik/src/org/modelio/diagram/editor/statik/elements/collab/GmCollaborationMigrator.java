@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ import org.modelio.diagram.styles.core.StyleKey;
 public class GmCollaborationMigrator implements IPersistentMigrator {
     /**
      * Instantiate a version of the {@link IPersistent} as it was when its major version was the given parameter. The returned instance can then be used to read the serialisation string corresponding to the version without risk.
+     * 
      * @param majorVersionToInstantiate the major version of the instance requested.
      * @return an instance of IPersistent at the requested version.
      */
@@ -54,6 +55,7 @@ public class GmCollaborationMigrator implements IPersistentMigrator {
 
     /**
      * Returns an instance of IPersistent with the most recent major version, using as much information from the given IPersistent as possible.
+     * 
      * @param instanceToMigrate an instance of a previous major version to be used as source of information.
      * @return an instance of IPersistent with the most recent major version based on the given instance.
      */

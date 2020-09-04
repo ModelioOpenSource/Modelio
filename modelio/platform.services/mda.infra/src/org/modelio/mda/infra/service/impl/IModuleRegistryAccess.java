@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ import org.modelio.mda.infra.service.IRTModule;
 public interface IModuleRegistryAccess extends IModuleRegistry {
     /**
      * Adds a module to the list of the projects modules
+     * 
      * @param module the module.
      */
     @objid ("1e6375ee-edc3-11e1-88ee-001ec947c8cc")
@@ -39,6 +40,7 @@ public interface IModuleRegistryAccess extends IModuleRegistry {
 
     /**
      * Adds a module to the list of started modules
+     * 
      * @param module the started module.
      */
     @objid ("1e6375e8-edc3-11e1-88ee-001ec947c8cc")
@@ -46,6 +48,7 @@ public interface IModuleRegistryAccess extends IModuleRegistry {
 
     /**
      * Remove a module from the list of started modules.
+     * 
      * @param module the stopped module.
      */
     @objid ("1e6375eb-edc3-11e1-88ee-001ec947c8cc")
@@ -53,6 +56,7 @@ public interface IModuleRegistryAccess extends IModuleRegistry {
 
     /**
      * Remove a module from the list of loaded modules.
+     * 
      * @param module the unloaded module.
      */
     @objid ("1e6375f5-edc3-11e1-88ee-001ec947c8cc")
@@ -63,6 +67,7 @@ public interface IModuleRegistryAccess extends IModuleRegistry {
      * {@link GModule}.
      * <p>
      * Creates a new IRTModule if none is found.
+     * 
      * @param model the module model.
      * @return the matching <code>IRTModule</code>.
      */
@@ -77,6 +82,7 @@ public interface IModuleRegistryAccess extends IModuleRegistry {
 
     /**
      * Set the registry project name for debugging.
+     * 
      * @param name the project name
      */
     @objid ("8dea9875-0273-4e2d-81f1-66b880c3ddba")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,6 +60,7 @@ public abstract class DefaultLinkTool extends DefaultDiagramTool implements ILin
      * 
      * This method is called until the user clicks on an element.<br>
      * This default implementation always accept the interaction.
+     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param targetNode the graphic that is below the mouse pointer.
      * @return an boolean that represents the result of the acceptFirstElement method.
@@ -74,6 +75,7 @@ public abstract class DefaultLinkTool extends DefaultDiagramTool implements ILin
      * 
      * This method is called after the user has choosen the origin of the link.<br>
      * This default implementation always accept the interaction.
+     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param originNode the graphic that is the origin of the link.
      * @param targetNode the graphic the is below the mouse pointer.
@@ -92,6 +94,7 @@ public abstract class DefaultLinkTool extends DefaultDiagramTool implements ILin
      * This default implementation does nothing.
      * <p>
      * @see IDiagramHandle#unmask(MObject, int, int)
+     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param originNode the origin graphic of the link to create.
      * @param targetNode the destination graphic of the link to create.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ import org.modelio.vcore.smkernel.mapi.MStatus;
 public class MObjectViewerDropListener extends ViewerDropAdapter {
     /**
      * Constructor initializing an instance of MObjectViewerDropListener.
+     * 
      * @param viewer the viewer were elements are dropped
      */
     @objid ("c328ed80-63d2-44d6-a3ea-cbc8a71fd5e4")
@@ -103,6 +104,7 @@ public class MObjectViewerDropListener extends ViewerDropAdapter {
      * <p>
      * Metamodel rules are checked, as well as manipulation rights for both the target and dropped elements.
      * </p>
+     * 
      * @param target the targeted element, must be a MObject.
      * @param operation the d&d operation, must be {@link DND#DROP_COPY} or {@link DND#DROP_MOVE}.
      * @param transferType the contents of data being dropped.
@@ -145,6 +147,7 @@ public class MObjectViewerDropListener extends ViewerDropAdapter {
 
     /**
      * Tells whether 'child' can be owned by 'parent'.
+     * 
      * @param parent The future parent element
      * @param child a child element
      * @return true only if parent can contain the child.
@@ -175,6 +178,7 @@ public class MObjectViewerDropListener extends ViewerDropAdapter {
     /**
      * Get the elements dragged from the same instance of Modelio. Uses {@link LocalSelectionTransfer}.
      * @see LocalSelectionTransfer
+     * 
      * @return the dragged elements.
      */
     @objid ("b1e30427-6c6e-47fe-ba24-d7e166b09c11")
@@ -203,6 +207,7 @@ public class MObjectViewerDropListener extends ViewerDropAdapter {
 
     /**
      * Tells whether 'element' is owned by 'parentCandidate'.
+     * 
      * @param parentCandidate The parent element to check
      * @param element an element
      * @return true only if parentCandidate owns element.
@@ -229,6 +234,7 @@ public class MObjectViewerDropListener extends ViewerDropAdapter {
      * <li>The drop target can be modified</li>
      * <li>For a "move", the dragged elements and their respective parents must be modifiable.</li>
      * </ul>
+     * 
      * @param targetElement the targeted element.
      * @param elementsToDrop the elements to drop.
      * @param isMove <code>true</code> if the current drop is a move operation, <code>false</code> if it is a copy.
@@ -340,6 +346,7 @@ public class MObjectViewerDropListener extends ViewerDropAdapter {
 
     /**
      * After a drop has been stated as valid, copy or move the dragged elements under the target.
+     * 
      * @param targetElement the targeted element.
      * @param elementsToDrop the elements to drop.
      * @param isMove <code>true</code> if the current drop is a move operation, <code>false</code> if it is a copy.

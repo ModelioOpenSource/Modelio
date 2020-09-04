@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +43,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IWizardContributor {
     /**
      * Execute the creation action.
+     * 
      * @param context the model element on which the wizard is run
      * @param name the name of the element to create.
      * @param description the description of the element to create.
@@ -53,6 +54,7 @@ public interface IWizardContributor {
 
     /**
      * Get a complete textual explanation of the contribution's role or function.
+     * 
      * @return the contribution's role or function.
      */
     @objid ("d27e968a-f065-4968-ab50-4bad191ceab0")
@@ -60,6 +62,7 @@ public interface IWizardContributor {
 
     /**
      * Get a URL to some 'help' or 'documentation' page about the contribution.
+     * 
      * @return the help URL.
      */
     @objid ("9ab0cfb2-8b4c-4d2b-a15c-c47e9eb65d57")
@@ -75,6 +78,7 @@ public interface IWizardContributor {
      * Get a short textual explanation of the contribution's role or function.
      * <p>
      * This text is displayed in the panel header.
+     * 
      * @return the short explanation.
      */
     @objid ("4ceed4d6-4e26-429b-ab1d-300e2830dbea")
@@ -82,6 +86,7 @@ public interface IWizardContributor {
 
     /**
      * Get the label to be displayed for the contribution by the Creation Wizard in the "type" browser.
+     * 
      * @return the label to be displayed
      */
     @objid ("a6e56c11-967d-4a5a-b9ad-55994175d762")
@@ -107,6 +112,7 @@ public interface IWizardContributor {
 
     /**
      * Set a textual explanation of the contribution's role or function.
+     * 
      * @param details a textual explanation
      */
     @objid ("ab067d70-abe7-4997-a9dc-9a23488e53ad")
@@ -128,6 +134,7 @@ public interface IWizardContributor {
      * Get a short textual explanation of the contribution's role or function.
      * <p>
      * This text is displayed in the panel header.
+     * 
      * @param information the short explanation.
      */
     @objid ("f15104d6-e8d6-4ce5-8f82-4e7138deb6ff")
@@ -159,6 +166,7 @@ public interface IWizardContributor {
 
     /**
      * This method checks if an element is accepted.
+     * 
      * @param element the model element to check.
      * @return <code>true</code> if the element is accepted.
      */
@@ -167,6 +175,7 @@ public interface IWizardContributor {
 
     /**
      * Get the GUI panel to display in the wizard.
+     * 
      * @return the wizard panel to display.
      * @since 3.4
      */

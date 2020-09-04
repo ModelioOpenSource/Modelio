@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -113,6 +113,7 @@ public class ArrowButtonCanvas extends Draw2dCanvas {
      * Possible values are
      * {@link PositionConstants#NORTH}, {@link PositionConstants#SOUTH},
      * {@link PositionConstants#EAST} and {@link PositionConstants#WEST}.
+     * 
      * @param direction The direction
      */
     @objid ("60305305-ed96-4ea8-baff-450c150bb6ec")
@@ -122,6 +123,7 @@ public class ArrowButtonCanvas extends Draw2dCanvas {
 
     /**
      * Add an {@link ActionListener} to react to button click.
+     * 
      * @param l the listener
      */
     @objid ("197bc09e-bd70-4595-bb57-8b3c28ec8ede")

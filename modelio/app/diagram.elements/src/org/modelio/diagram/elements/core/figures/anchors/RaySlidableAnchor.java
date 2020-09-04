@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class RaySlidableAnchor extends NodeAnchor implements ISlidableAnchor {
 
     /**
      * Constructor.
+     * 
      * @param f <code>IFigure</code> that this anchor is associated with.
      * @param relativePos the position that the anchor will initially attach to, <i>relative</i> to the node top left corner..
      */
@@ -56,6 +57,7 @@ public class RaySlidableAnchor extends NodeAnchor implements ISlidableAnchor {
      * Returns the location where the Connection should be anchored in absolute
      * coordinates. The anchor may use the given reference Point to calculate
      * this location.
+     * 
      * @param reference The reference Point in absolute coordinates
      * @return The anchor's location
      */
@@ -130,6 +132,7 @@ public class RaySlidableAnchor extends NodeAnchor implements ISlidableAnchor {
 
     /**
      * Gets the anchors associated figure's bounding box in absolute coordinates.
+     * 
      * @return a <code>Rectangle</code> that is the bounding box of the owner figure in absolute coordinates
      */
     @objid ("7f5d3d9f-1dec-11e2-8cad-001ec947c8cc")

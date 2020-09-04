@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,15 @@ public class AuditEntryDialog extends ModelioDialog {
     private static final String HREF_BASE = "org.modelio.documentation.vaudit/html/Modeler_audit_rules_";
 
     /**
+     * The main composite of the dialog box
+     */
+    @objid ("1cd0e3bb-361c-40b8-9744-ea3efc8dbfe5")
+    private Composite area = null;
+
+    @objid ("469796b0-1de9-415b-90d0-9be78d01102e")
+    private Browser browser;
+
+    /**
      * The audit entry that is displayed.
      */
     @objid ("a2044026-6ad8-40f1-9675-df9e929fef23")
@@ -74,20 +83,12 @@ public class AuditEntryDialog extends ModelioDialog {
     @objid ("715a1820-8493-49c9-9508-1d024135563f")
     private URL ruleUrl;
 
-    /**
-     * The main composite of the dialog box
-     */
-    @objid ("aa796da3-f96e-4adf-8afe-eb94fbf5390f")
-    private Composite area = null;
-
-    @objid ("daa906ed-6dd0-4e9a-a54f-abd504235c42")
-    private Browser browser;
-
     @objid ("76bf7442-cb69-4d57-b227-5b9c23c96c21")
     private IAuditConfigurationPlan auditConfigurationPlan;
 
     /**
      * Create an AuditEntryDialog instance.
+     * 
      * @param parentShell The parent shell.
      * @param entry The audit entry that must be displayed.
      * @param modelingSession The modeling session.
@@ -105,6 +106,7 @@ public class AuditEntryDialog extends ModelioDialog {
      * Add buttons to the buttons bar in the bottom of the dialog.
      * <p>
      * Here we just need to have a "close" button.
+     * 
      * @param parent the parent composite of the dialog.
      */
     @objid ("9e74a8b4-c643-493e-87c5-2e4dd72bfc17")
@@ -115,6 +117,7 @@ public class AuditEntryDialog extends ModelioDialog {
 
     /**
      * This is the main method that is called to construct the GUI content of the box.
+     * 
      * @param parent the parent composite of the dialog.
      */
     @objid ("41cec314-ccf4-4b15-9587-3ad91fcec70f")

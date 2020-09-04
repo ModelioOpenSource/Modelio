@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public class ResourceTypePropertyModel extends AbstractPropertyModel<ResourceTyp
 
     /**
      * Instantiate the note type properties view.
+     * 
      * @param theEditedElement the current note type.
      */
     @objid ("a1b34859-3b58-4162-8e64-fb6ab1cdf078")

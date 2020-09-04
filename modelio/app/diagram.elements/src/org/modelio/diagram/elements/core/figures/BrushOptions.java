@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class BrushOptions {
 
     /**
      * Copy constructor.
+     * 
      * @param other the original
      */
     @objid ("72bc9d53-5a6f-47c3-b4e2-c5a33ddd33b6")

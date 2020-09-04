@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,7 +58,11 @@ public class TextLabelProvider extends ColumnLabelProvider {
     @Override
     public String getText(Object element) {
         ModuleProperty property = (ModuleProperty) element;
-        return (String) property.getValue();
+        Object value = property.getValue();
+        
+        if (value == null)
+            return null;
+        return String.valueOf(value);
     }
 
 }

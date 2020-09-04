@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IPropertyModel<T extends MObject> {
     /**
      * Get the number of columns to be displayed for the edited element.
+     * 
      * @return a positive integer.
      */
     @objid ("b3334b01-11a7-407e-8830-215991cdb8ab")
@@ -48,6 +49,7 @@ public interface IPropertyModel<T extends MObject> {
 
     /**
      * Get the number of rows to be displayed for the edited element.
+     * 
      * @return a positive integer.
      */
     @objid ("6de786af-8aca-435b-ba4b-a3c3352c2cbd")
@@ -55,6 +57,7 @@ public interface IPropertyModel<T extends MObject> {
 
     /**
      * Get the {@link INatValue} at coordinates (row, col) for the edited element.
+     * 
      * @param row the row index.
      * @param col the column index.
      * @return an {@link INatValue}. Might be <code>null</code>.
@@ -64,6 +67,7 @@ public interface IPropertyModel<T extends MObject> {
 
     /**
      * Ask if the cell at coordinates (row, col) can be edited for the edited element.
+     * 
      * @param row the row index.
      * @param col the column index.
      * @return <code>true</code> if the cell can be edited.
@@ -73,6 +77,7 @@ public interface IPropertyModel<T extends MObject> {
 
     /**
      * Set a new value in the cell at coordinates (row, col) for the edited element.
+     * 
      * @param row the row index.
      * @param col the column index.
      * @param value an {@link Object} consistent with the {@link INatValue} returned by {@link #getValueAt(int, int)}. Might be <code>null</code>.

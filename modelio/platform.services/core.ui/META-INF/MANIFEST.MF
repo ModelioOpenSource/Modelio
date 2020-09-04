@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Core ui services
 Bundle-SymbolicName: org.modelio.core.ui;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: org.modelio.core.ui.plugin.CoreUi
 Bundle-Vendor: modelio.org
 Require-Bundle: org.eclipse.core.runtime,
@@ -24,11 +24,19 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.expressions,
  org.modelio.mda.infra,
  org.modelio.ui,
- org.eclipse.e4.core.contexts
+ org.eclipse.e4.core.contexts,
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.ui.forms,
+ org.modelio.core.rcp,
+ org.eclipse.e4.core.di,
+ org.eclipse.e4.ui.di,
+ org.eclipse.e4.ui.services,
+ org.eclipse.nebula.widgets.pgroup;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
  res/
 Export-Package: org.modelio.core.ui,
+ org.modelio.core.ui.cert,
  org.modelio.core.ui.dialogs.auth,
  org.modelio.core.ui.dialogs.elementChooser,
  org.modelio.core.ui.nattable.parts.corner,
@@ -36,6 +44,7 @@ Export-Package: org.modelio.core.ui,
  org.modelio.core.ui.nattable.parts.data.bool,
  org.modelio.core.ui.nattable.parts.data.element.choice,
  org.modelio.core.ui.nattable.parts.data.element.multi,
+ org.modelio.core.ui.nattable.parts.data.element.multirow,
  org.modelio.core.ui.nattable.parts.data.element.single,
  org.modelio.core.ui.nattable.parts.data.hybrid,
  org.modelio.core.ui.nattable.parts.data.image,
@@ -61,6 +70,7 @@ Export-Package: org.modelio.core.ui,
  org.modelio.core.ui.panels.search.note,
  org.modelio.core.ui.panels.selectelements,
  org.modelio.core.ui.plugin,
+ org.modelio.core.ui.popupmenu,
  org.modelio.core.ui.swt,
  org.modelio.core.ui.swt.contribitem,
  org.modelio.core.ui.swt.copy,
@@ -85,3 +95,5 @@ Export-Package: org.modelio.core.ui,
  org.modelio.core.ui.treetable.number,
  org.modelio.core.ui.treetable.percentscale
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: javax.annotation;version="1.1.0",
+ javax.inject;version="1.0.0"

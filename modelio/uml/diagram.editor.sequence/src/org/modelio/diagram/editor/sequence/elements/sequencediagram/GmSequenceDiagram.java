@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
 
     /**
      * Default constructor.
+     * 
      * @param manager the model manager for this diagram.
      * @param theSequenceDiagram the represented sequence diagram.
      * @param diagramRef a reference to the represented diagram.
@@ -297,6 +298,7 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
 
         /**
          * Reload the diagram if it has been modified outside.
+         * 
          * @param event The change event.
          */
         @objid ("d975fa03-55b6-11e2-877f-002564c97630")
@@ -314,7 +316,7 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
                 Display.getDefault().asyncExec(() -> {
                     if (!this.gmSequenceDiagram.isDisposed()) {
                         try {
-                            this.gmSequenceDiagram.getPersister().load();
+                            this.gmSequenceDiagram.load();
                         } catch (PersistenceException pe) {
                             // Failed to read string, log error.
                             DiagramEditorSequence.LOG.error(DiagramEditorSequence.PLUGIN_ID, pe);
@@ -345,7 +347,7 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
             }
             
             // Save the refreshed diagram
-            this.gmSequenceDiagram.getPersister().save(false);
+            this.gmSequenceDiagram.save(false);
         }
 
         @objid ("443a0a9d-e2b8-4a21-9f67-acf426b7e99a")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
 
     /**
      * Default constructor.
+     * 
      * @param manager the manager needed make the link between the Ob and Gm models.
      * @param theUseCaseDiagram the diagram itself.
      * @param diagramRef a reference to the diagram.

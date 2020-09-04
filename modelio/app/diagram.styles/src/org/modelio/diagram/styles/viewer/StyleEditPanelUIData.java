@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class StyleEditPanelUIData {
     /**
      * C'tor.
      * @param session the modeling session
+     * 
      * @param styleData the edited style data
      * @param isEditable whether or not this style can be edited
      */

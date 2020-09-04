@@ -59,6 +59,16 @@
                </appinfo>
             </annotation>
          </attribute>
+         <attribute name="validator" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.core.rcp.extensionpoint.IExtensionPointContribution"/>
+               </appinfo>
+            </annotation>
+         </attribute>
       </complexType>
    </element>
 

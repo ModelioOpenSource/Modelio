@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ public class UnknownAuthData extends AuthData {
 
     /**
      * Initialize the authentication data.
+     * 
      * @param scheme the unknown scheme identifier.
      */
     @objid ("b7ec47a6-54b1-4e9f-b9e5-aa7ab0df411a")
@@ -48,7 +49,7 @@ public class UnknownAuthData extends AuthData {
 
     @objid ("1fa000ad-9446-444c-be29-4109ce558643")
     @Override
-    public Map<String, String> serialize() {
+    public Map<String, String> serialize(boolean forceCredentials) {
         return getData();
     }
 

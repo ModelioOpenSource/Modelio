@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -70,6 +70,7 @@ public class GmInformationItemPrimaryNode extends GmNoStyleCompositeNode impleme
 
     /**
      * Creates a GmClass.
+     * 
      * @param diagram The owner diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */

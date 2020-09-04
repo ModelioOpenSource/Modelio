@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public interface IBlobProvider {
      * Get all blobs related to a given model object.
      * <p>
      * Asks all registered blob providers.
+     * 
      * @param obj a model object
      * @return all related blobs
      */
@@ -51,6 +52,7 @@ public interface IBlobProvider {
      * <p>
      * The implementation should decide what to do with the blobs it handles.
      * An implementation usually duplicate the blobs of the original object.
+     * 
      * @param from the original model object
      * @param fromRepo the original model object repository
      * @param to the model object copy.
@@ -66,6 +68,7 @@ public interface IBlobProvider {
      * <p>
      * The implementation should decide what to do with the blobs it handles.
      * An implementation usually moves the blobs of the moved object to the destination repository.
+     * 
      * @param objs the moved model objects. the model object is already in the new repository.
      * @param fromRepo its previous repository
      * @param destRepo its new repository.

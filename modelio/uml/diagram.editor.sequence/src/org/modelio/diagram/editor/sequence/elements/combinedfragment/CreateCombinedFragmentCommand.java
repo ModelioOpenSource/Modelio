@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class CreateCombinedFragmentCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param diagram The sequence diagram in which the interaction use is to be created.
      * @param context Details on the MObject and/or the node to create.
      * @param constraint The initial constraint of the created node.

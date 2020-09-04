@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class ModuleResolutionHelper {
      * <p>
      * Current strategy is to return <i>true</i>
      * if the module Version is equal or newer than the reference Version.
+     * 
      * @param moduleVersion the Version to test for compatibility.
      * @param referenceVersion the reference version.
      * @return <i>true</i> if the passed module is version compatible with the reference.
@@ -54,6 +55,7 @@ public class ModuleResolutionHelper {
 
     /**
      * Returns the first found GModule in the project which name match the passed name.
+     * 
      * @param gProject the project to search into.
      * @param moduleName the name of the GModule to find.
      * @return the first found GModule in the project which name match the passed name or <code>null</code> if none found.
@@ -71,6 +73,7 @@ public class ModuleResolutionHelper {
     /**
      * Returns the list of GModule of the passed project that the passed GModule depends on
      * (i.e. the returned GModules are required as mandatory by the passed GModule).
+     * 
      * @param gModule the GModule to look dependencies for
      * @param gProject the project to look into.
      * @return the list of GModule of the passed project that the passed GModule depends on.
@@ -83,6 +86,7 @@ public class ModuleResolutionHelper {
     /**
      * Returns the list of GModule of the passed project that the passed ModuleComponent depends on
      * (i.e. the returned GModules are required as mandatory by the passed ModuleComponent).
+     * 
      * @param moduleHandle the module handle to look dependencies for
      * @param gProject the project to look into.
      * @return the list of GModule of the passed project that the passed ModuleComponent depends on.
@@ -107,6 +111,7 @@ public class ModuleResolutionHelper {
 
     /**
      * Returns the list of GModule that the passed module has weak dependencies on.
+     * 
      * @param gModule the GModule to look weak dependencies for
      * @param gProject the project to look into.
      * @return the list of GModule of the passed project that the passed GModule have weak dependencies on.
@@ -118,6 +123,7 @@ public class ModuleResolutionHelper {
 
     /**
      * Returns the list of GModule that the passed module has weak dependencies on.
+     * 
      * @param moduleHandle the module to look weak dependencies for.
      * @param gProject the project to look into.
      * @return the list of GModule of the passed project that the passed GModule have weak dependencies on.
@@ -146,6 +152,7 @@ public class ModuleResolutionHelper {
      * Current strategy is to test if all modules required by the passed module can be found in
      * the passed project in a version compatible
      * with the requirement and that no module in the project requires a newer version of this model.
+     * 
      * @param moduleHandle the module to test.
      * @param gProject the project in which the passed module would be installed
      * @throws org.modelio.api.module.lifecycle.ModuleException if a dependency is missing or the module would break another one.
@@ -217,6 +224,7 @@ public class ModuleResolutionHelper {
 
     /**
      * Get the modules in the project that depend directly on the given module handle.
+     * 
      * @param moduleHandle a module handle
      * @param gProject the project to scan
      * @return a list containing all modules that depend on <i>moduleHandle</i>
@@ -243,6 +251,7 @@ public class ModuleResolutionHelper {
      * Returns the first found GModule in the project which UUID matches the passed handle UUID.
      * <p>
      * If no such module is found returns the first one whose name matches the handle name.
+     * 
      * @param gProject the project to search into.
      * @param handle the handle of the GModule to find.
      * @return the first found GModule in the project which matches the passed handle or <code>null</code> if none found.
@@ -263,6 +272,7 @@ public class ModuleResolutionHelper {
     /**
      * Returns the list of loaded {@link IRTModule} in the project that have a dependency
      * (direct , strong ) on the passed module.
+     * 
      * @param iModule the module for which dependents are searched.
      * @param moduleRegistry the modules registry.
      * @return the list of {@link IRTModule} in the project that have a dependency (direct, strong) on the passed module.
@@ -285,6 +295,7 @@ public class ModuleResolutionHelper {
 
     /**
      * Get the modules in the project that weakly depend directly on the given module handle.
+     * 
      * @param moduleHandle a module handle
      * @param gProject the project to scan
      * @return a list containing all modules that depend weakly on <i>moduleHandle</i>
@@ -310,6 +321,7 @@ public class ModuleResolutionHelper {
     /**
      * Returns the list of loaded {@link IRTModule} in the project that have a dependency
      * (direct , weak) on the passed module.
+     * 
      * @param iModule the module for which dependents are searched.
      * @param moduleRegistry the modules registry.
      * @return the list of {@link IRTModule} in the project that have a dependency (direct or not, strong or weak) on the passed module.

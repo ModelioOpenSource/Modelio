@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,17 +80,17 @@ public class UmlConfigurationPlan implements IAuditConfigurationPlan {
     public Image getImage(AuditCategory category) {
         switch (category.getId()) {
         case "Activity":
-            return MetamodelImageService.getIcon(Activity.MNAME);
+            return MetamodelImageService.getIcon(Activity.MQNAME);
         case "Behaviour":
-            return MetamodelImageService.getIcon(Behavior.MNAME);
+            return MetamodelImageService.getIcon(Behavior.MQNAME);
         case "Sequence":
-            return MetamodelImageService.getIcon(Interaction.MNAME);
+            return MetamodelImageService.getIcon(Interaction.MQNAME);
         case "State":
-            return MetamodelImageService.getIcon(StateMachine.MNAME);
+            return MetamodelImageService.getIcon(StateMachine.MQNAME);
         case "Static":
-            return MetamodelImageService.getIcon(Class.MNAME);
+            return MetamodelImageService.getIcon(Class.MQNAME);
         case "UseCase":
-            return MetamodelImageService.getIcon(UseCase.MNAME);
+            return MetamodelImageService.getIcon(UseCase.MQNAME);
         case "Others":
             // No icon yet...
         default:

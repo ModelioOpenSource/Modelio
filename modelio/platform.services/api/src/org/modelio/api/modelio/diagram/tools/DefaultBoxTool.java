@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,6 +54,7 @@ public abstract class DefaultBoxTool extends DefaultDiagramTool implements IBoxT
      * 
      * This method is called until the interaction is validated by the user.<br>
      * This default implementation always accept the interaction.
+     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param targetNode the graphic that is below the mouse pointer.
      * @return an boolean that represents the result of the acceptElement method.
@@ -76,6 +77,7 @@ public abstract class DefaultBoxTool extends DefaultDiagramTool implements IBoxT
      * The rect argument is the rectangle that result from the user interaction with the diagram. This rect should be
      * used to manage the unmasking of the model element in the diagram.
      * @see IDiagramHandle#unmask(MObject, int, int)
+     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param parent the graphic parent where the user has clicked.
      * @param rect the rectangle of the object to create.

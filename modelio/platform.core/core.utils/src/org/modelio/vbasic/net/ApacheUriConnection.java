@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -111,6 +111,7 @@ public class ApacheUriConnection extends UriConnection {
      * It is strongly advised to <b>write to the returned stream in another thread</b>.
      * @see PipedOutputStream
      * @see PipedInputStream
+     * 
      * @return an output stream that writes to this connection.
      * @throws java.io.IOException if an I/O error occurs while creating the output stream.
      */
@@ -214,6 +215,7 @@ public class ApacheUriConnection extends UriConnection {
      * <p>
      * Adds as cause another exception whose message is the entity content.
      * This may be the HTML message sent by the server.
+     * 
      * @throws java.nio.file.FileSystemException the built exception
      */
     @objid ("4e25ec1d-3711-45cc-b742-0c77edf5e414")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ public class MoveExecutionOccurenceSpecificationCommand extends Command {
 
     /**
      * Sets the modified execution occurence specification.
+     * 
      * @param value the modified execution occurence specification.
      */
     @objid ("d8e070ab-55b6-11e2-877f-002564c97630")
@@ -55,6 +56,7 @@ public class MoveExecutionOccurenceSpecificationCommand extends Command {
 
     /**
      * Sets the new "time" of the ExecutionOccurenceSpecification.
+     * 
      * @param value the new "time" of the ExecutionOccurenceSpecification.
      */
     @objid ("d8e070af-55b6-11e2-877f-002564c97630")

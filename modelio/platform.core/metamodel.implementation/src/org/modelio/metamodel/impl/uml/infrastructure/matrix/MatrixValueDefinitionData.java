@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.matrix;
 
@@ -31,16 +31,16 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("f8547119-965d-492b-818a-83746a647c78")
 public class MatrixValueDefinitionData extends ElementData {
-    @objid ("d12fe331-efed-4e9a-a60c-96f1e965e305")
+    @objid ("e61ce6fd-a9fe-45e6-8390-37e518c4f04c")
      SmObjectImpl mProcessor;
 
-    @objid ("d00153b1-7f52-42dd-a9d6-f5babfa88c95")
+    @objid ("4df7079a-c6ee-458f-b7cb-d6272ace304d")
      SmObjectImpl mParameters;
 
-    @objid ("43eebec5-34d2-4597-8cc4-105bb24609a9")
+    @objid ("5c213d47-c906-4104-9b38-b9792a77fb21")
      SmObjectImpl mMatrix;
 
-    @objid ("bf816e71-bcb7-44b5-891a-5258524365e4")
+    @objid ("02121ee1-8cdd-4696-a83c-94db7479bbc5")
     public MatrixValueDefinitionData(MatrixValueDefinitionSmClass smClass) {
         super(smClass);
     }

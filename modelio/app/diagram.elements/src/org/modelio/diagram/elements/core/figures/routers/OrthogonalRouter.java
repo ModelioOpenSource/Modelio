@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
 
     /**
      * convenience method to get the constraint as a list of bend points.
+     * 
      * @param connection a connection figure
      * @return The list of bend points.
      */
@@ -75,6 +76,7 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
     /**
      * Get the anchor owner (handle)bounds in absolute coordinates. If the anchor is not attached to a figure, returns a
      * 1x1 sized rectangle located at the anchor reference point.
+     * 
      * @param anchor The anchor.
      * @return The anchor owner bounds.
      */
@@ -353,6 +355,7 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
 
     /**
      * Compute a list of points to use when routing the connection.
+     * 
      * @param connection an orthogonal connection.
      * @return a List of Points
      */

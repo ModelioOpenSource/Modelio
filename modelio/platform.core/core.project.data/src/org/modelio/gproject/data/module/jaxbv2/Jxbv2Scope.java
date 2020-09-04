@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class Jxbv2Scope {
 
     /**
      * Sets the value of the metaclass property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -98,6 +99,7 @@ public class Jxbv2Scope {
 
     /**
      * Sets the value of the stereotype property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -123,6 +125,7 @@ public class Jxbv2Scope {
 
     /**
      * Sets the value of the withSubClasses property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -148,6 +151,7 @@ public class Jxbv2Scope {
 
     /**
      * Sets the value of the withSubStereotypes property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */

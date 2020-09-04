@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface ISwap {
     /**
      * Save the object.
+     * 
      * @param data the object data to save.
      */
     @objid ("006b1f34-861a-1f21-85a5-001ec947cd2a")
@@ -37,6 +38,7 @@ public interface ISwap {
 
     /**
      * Restore a saved object data.
+     * 
      * @param uuid the object identifier
      * @return the restored data.
      */

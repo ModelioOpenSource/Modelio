@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class DefaultMoveBendPointCommand extends Command {
 
     /**
      * Constructor.
+     * 
      * @param gmLink the link to edit
      * @param index the index of the point to move
      * @param newpoint the new bend point position.

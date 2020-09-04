@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -108,6 +108,7 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
 
     /**
      * Register an allowed composition
+     * 
      * @param parentClass the parent metaclass
      * @param childClass the child metaclass.
      * @param depName the composition dependency name
@@ -125,6 +126,7 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
 
     /**
      * Register an allowed composition
+     * 
      * @param srcClass the source metaclass
      * @param targetClass the target metaclass.
      * @param depName the dependency name
@@ -160,6 +162,7 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
 
     /**
      * Activate/deactivate the dependency rules.
+     * 
      * @param value whether or not to deactivate the rules.
      */
     @objid ("bae65db9-73ae-43b3-9d81-13c236e7b182")
@@ -199,6 +202,7 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
 
         /**
          * Tells whether the target metaclass can be added to the source metaclass with the given dependency.
+         * 
          * @param srcMetaclass The owner metaclass
          * @param targetMetaclass The child metaclass
          * @param dep the dependency, if <i>null</i> answer for any dependency.
@@ -217,6 +221,7 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
 
         /**
          * Add an allowed rule.
+         * 
          * @param mcX parent metaclass
          * @param mcY child metaclass
          * @param depName the dependency, if <i>null</i> answer for any dependency.
@@ -228,6 +233,7 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
 
         /**
          * Add an allowed rule.
+         * 
          * @param srcClass source metaclass
          * @param withSrcSubclasses with subclasses
          * @param childClass the target metaclass

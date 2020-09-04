@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -134,6 +134,7 @@ public class R1310 extends AbstractUmlRule {
 
         /**
          * Checks if the given edge respect the rule: All downstream nodes must have an upper bound lower that the flow's weight.
+         * 
          * @param edge The edge to check.
          * @return The audit result.
          */
@@ -167,6 +168,7 @@ public class R1310 extends AbstractUmlRule {
 
         /**
          * If a node is modified, its upper bound is potentially modified, so we need to check all the upstream flows' weight, either object or control, targeting it or leading to it. A node can also be updated if a flow is moved or deleted, potentially creating or removing paths between object nodes, so we need to check both upstream and downstream path to updated concerned flows.
+         * 
          * @param node The object node to start from.
          * @return A list of audit entries for each concerned flow.
          */
@@ -181,6 +183,7 @@ public class R1310 extends AbstractUmlRule {
 
         /**
          * If an object flow is created or moved, it potentially connects object nodes together, and therefore creates potentially new paths (in both direction) to check the rule on. If the object flow is updated, we also need to check the rule on it.
+         * 
          * @param objectFlow The edge to check.
          * @return A list of audit entries for each impacted edges.
          */
@@ -207,6 +210,7 @@ public class R1310 extends AbstractUmlRule {
 
         /**
          * Check all upper bounds of the object nodes, that are not control types, downstream of the given node.
+         * 
          * @param weight The weight to compare to
          * @param target The starting node
          * @return True if all the nodes have an upper bound equal or inferior to the weight, false otherwise.
@@ -237,6 +241,7 @@ public class R1310 extends AbstractUmlRule {
         /**
          * Finds all the flows connecting the given ObjectNode to another ObjectNode, except for ObjectNodes that are controls.
          * @param objectFlows The list of found flows
+         * 
          * @param node The Object node to search from
          * @param visitedFlows The list of visited ObjectFlows
          */
@@ -264,6 +269,7 @@ public class R1310 extends AbstractUmlRule {
         /**
          * Finds all the upstream flows targeting the node until we reach either an action or an object node.
          * @param objectFlows The list of found flows
+         * 
          * @param node The Object node to search from
          * @param visitedFlows The list of visited ObjectFlows
          */
@@ -290,6 +296,7 @@ public class R1310 extends AbstractUmlRule {
 
         /**
          * Check all the flows upstream of a given node.
+         * 
          * @param node The node to start from.
          * @return A list of audit entries for each flow.
          */
@@ -308,6 +315,7 @@ public class R1310 extends AbstractUmlRule {
 
         /**
          * Check all the flows downstream of a given node.
+         * 
          * @param node The node to start from.
          * @return A list of audit entries for each flow.
          */

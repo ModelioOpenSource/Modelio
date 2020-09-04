@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,7 +43,7 @@ public class NoteChooserLabelProvider extends LabelProvider {
             ModuleComponent moduleComponent = (ModuleComponent) element;
             return ModuleI18NService.getModuleImage(moduleComponent);
         } else if (element instanceof NoteType) {
-            return MetamodelImageService.getIcon(Note.MNAME);
+            return MetamodelImageService.getIcon(Note.MQNAME);
         } else if (element instanceof Stereotype) {
             Stereotype stereotype = (Stereotype) element;
             Image image = ModuleI18NService.getIcon(stereotype);

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class AuditCategory implements Comparable<AuditCategory> {
 
     /**
      * Initialize a category.
+     * 
      * @param id the category's identifier.
      */
     @objid ("dd86bc9d-fcea-431c-8d95-a8ff8ae67480")
@@ -54,6 +55,7 @@ public class AuditCategory implements Comparable<AuditCategory> {
 
     /**
      * Add a rule.
+     * 
      * @param rulePref a rule
      */
     @objid ("8b55405a-7b63-4fe8-beda-96d41cbb0aa0")
@@ -63,6 +65,7 @@ public class AuditCategory implements Comparable<AuditCategory> {
 
     /**
      * Get the category rules.
+     * 
      * @return the category rules.
      */
     @objid ("9102932c-a9bc-43da-84c5-912b1cd6b158")
@@ -73,6 +76,7 @@ public class AuditCategory implements Comparable<AuditCategory> {
 
     /**
      * Remove a rule
+     * 
      * @param rulePref a rule
      */
     @objid ("3d045178-c06c-4bb3-957a-e96b894c7805")

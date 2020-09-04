@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IContributor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.spi.RegistryContributor;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleRTCache;
 import org.modelio.gproject.module.IModuleStore;
@@ -55,7 +56,7 @@ public class PluginModulesCache implements IModuleRTCache, IModuleStore {
     private final Map<Bundle, IModuleHandle> handles = new WeakHashMap<>();
 
     @objid ("ac9f5c75-1208-4fb0-a41a-7ae8d47b6148")
-    public PluginModulesCache(Collection<IGMetamodelExtension> mmExtensions) {
+    public PluginModulesCache(final Collection<IGMetamodelExtension> mmExtensions) {
         this.handleFactory = new PluginModuleHandleFactory(mmExtensions);
     }
 
@@ -64,17 +65,15 @@ public class PluginModulesCache implements IModuleRTCache, IModuleStore {
      */
     @objid ("819992c7-cc7b-430a-b6b7-3956ab1d6654")
     @Override
-    public IModuleHandle installModuleArchive(Path archive, IModelioProgress monitor) throws IOException {
+    public IModuleHandle installModuleArchive(final Path archive, final IModelioProgress monitor) throws IOException {
         throw new UnsupportedOperationException();
     }
 
     @objid ("1d9dfbe7-a61c-49a6-a40a-4c78306481b6")
     @Override
-    public IModuleHandle findModule(String moduleName, String moduleVersion, IModelioProgress monitor) throws IOException {
-        IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor(PluginModuleConstants.EXTENSION_ID);
-        for (IConfigurationElement elt : config) {
-            if (elt.getName().equals(PluginModuleConstants.MODULE_EL)
-                    && elt.getAttribute(PluginModuleConstants.MODULE_NAME).equals(moduleName)
+    public IModuleHandle findModule(final String moduleName, final String moduleVersion, final IModelioProgress monitor) throws IOException {
+        for (final IConfigurationElement elt : new ExtensionPointContributionManager(PluginModuleConstants.EXTENSION_ID).getExtensions(PluginModuleConstants.MODULE_EL)) {
+            if (elt.getAttribute(PluginModuleConstants.MODULE_NAME).equals(moduleName)
                     && moduleVersion == null || elt.getAttribute(PluginModuleConstants.MODULE_VERSION).equals(moduleVersion)) {
         
                 return getModuleHandle(monitor,  elt);
@@ -84,8 +83,8 @@ public class PluginModulesCache implements IModuleRTCache, IModuleStore {
     }
 
     @objid ("79593e3c-c6a5-4902-9cbc-cc07558f4898")
-    private IModuleHandle getModuleHandle(IModelioProgress monitor, IConfigurationElement elt) throws IOException {
-        Bundle plugin = getBundle(elt.getContributor());
+    private IModuleHandle getModuleHandle(final IModelioProgress monitor, final IConfigurationElement elt) throws IOException {
+        final Bundle plugin = getBundle(elt.getContributor());
         
         IModuleHandle h = this.handles.get(plugin);
         if (h != null || this.handles.containsKey(plugin)) {
@@ -102,43 +101,40 @@ public class PluginModulesCache implements IModuleRTCache, IModuleStore {
      */
     @objid ("f54842a9-a325-4623-8db5-e1f82cac3f31")
     @Override
-    public void removeModule(IModuleHandle mh) throws FileSystemException, IOException {
+    public void removeModule(final IModuleHandle mh) throws FileSystemException, IOException {
         throw new UnsupportedOperationException();
     }
 
     @objid ("f93cf0e6-a5a0-4b0f-b8a0-89d360b93a01")
-    private static Bundle getBundle(IContributor contributor) {
+    private static Bundle getBundle(final IContributor contributor) {
         /*
          * from https://stackoverflow.com/questions/3043828/getting-osgi-bundle-from-eclipse-iconfigurationelement
-         * 
+         *
          * All this information is based on Eclipse 3.6:
-         * 
-         * The IContributor will be an instance of RegistryContributor if you are in the OSGI environment 
+         *
+         * The IContributor will be an instance of RegistryContributor if you are in the OSGI environment
          * which of course you are or you wouldn't be having this issue.
-         * 
-         * RegistryContributor gives you two methods: getID() and getActualID(). 
-         * getID() may return the host bundle if this was loaded from a fragment. 
+         *
+         * RegistryContributor gives you two methods: getID() and getActualID().
+         * getID() may return the host bundle if this was loaded from a fragment.
          * getActualID() always loads the id of the fragment/bundle the contributor represents.
-         *  
+         *
          * You can use this id in your BundleContext.getBundle(long id) method.
          */
         if (contributor instanceof RegistryContributor) {
-          long id = Long.parseLong(((RegistryContributor) contributor).getActualId());
-          return MdaInfra.getContext().getBundle(id);
+            final long id = Long.parseLong(((RegistryContributor) contributor).getActualId());
+            return MdaInfra.getContext().getBundle(id);
         } else {
-          return Platform.getBundle(contributor.getName());          
+            return Platform.getBundle(contributor.getName());
         }
     }
 
     @objid ("77ff05cb-91b2-4cec-811d-4d34809d37c4")
     @Override
-    public List<IModuleHandle> findAllModules(IModelioProgress monitor) throws FileSystemException, IOException {
-        IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor(PluginModuleConstants.EXTENSION_ID);
-        List<IModuleHandle> ret = new ArrayList<>(config.length);
-        for (IConfigurationElement elt : config) {
-            if (elt.getName().equals(PluginModuleConstants.MODULE_EL)) {
-                ret.add(getModuleHandle(monitor,  elt));
-            }
+    public List<IModuleHandle> findAllModules(final IModelioProgress monitor) throws FileSystemException, IOException {
+        final List<IModuleHandle> ret = new ArrayList<>(1);
+        for (final IConfigurationElement elt : new ExtensionPointContributionManager(PluginModuleConstants.EXTENSION_ID).getExtensions(PluginModuleConstants.MODULE_EL)) {
+            ret.add(getModuleHandle(monitor,  elt));
         }
         return ret;
     }
@@ -148,18 +144,16 @@ public class PluginModulesCache implements IModuleRTCache, IModuleStore {
      */
     @objid ("cc0d6071-05a8-49ba-a116-1adb7cbac3c8")
     @Override
-    public IModuleHandle findModule(Path archivePath, IModelioProgress monitor) throws FileSystemException, IOException {
+    public IModuleHandle findModule(final Path archivePath, final IModelioProgress monitor) throws FileSystemException, IOException {
         return null;
     }
 
     @objid ("67fde6fa-5902-4fd9-be74-e53489a15db5")
     @Override
-    public List<IModuleHandle> findModule(String moduleName, IModelioProgress monitor) throws FileSystemException, IOException {
-        List<IModuleHandle> ret = new ArrayList<>(1);
-        IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor(PluginModuleConstants.EXTENSION_ID);
-        for (IConfigurationElement elt : config) {
-            if (elt.getName().equals(PluginModuleConstants.MODULE_EL)
-                    && elt.getAttribute(PluginModuleConstants.MODULE_NAME).equals(moduleName)) {
+    public List<IModuleHandle> findModule(final String moduleName, final IModelioProgress monitor) throws FileSystemException, IOException {
+        final List<IModuleHandle> ret = new ArrayList<>(1);
+        for (final IConfigurationElement elt : new ExtensionPointContributionManager(PluginModuleConstants.EXTENSION_ID).getExtensions(PluginModuleConstants.MODULE_EL)) {
+            if (elt.getAttribute(PluginModuleConstants.MODULE_NAME).equals(moduleName)) {
                 ret.add(getModuleHandle(monitor,  elt));
             }
         }

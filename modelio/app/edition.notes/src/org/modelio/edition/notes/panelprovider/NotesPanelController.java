@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -313,6 +313,7 @@ public class NotesPanelController {
 
     /**
      * Creates the views in the given composite
+     * 
      * @param parent a SWT Composite
      * @return the created panel view
      */
@@ -509,6 +510,7 @@ public class NotesPanelController {
 
     /**
      * Called when the end-user double-clicks a Note or a Constraint in the tree
+     * 
      * @param selection the double clicked selection
      */
     @objid ("6366391a-5686-4c22-a3fa-75e965dc0393")
@@ -527,6 +529,7 @@ public class NotesPanelController {
 
     /**
      * Called when the end-user selects a Note or a Constraint in the tree
+     * 
      * @param selection the new selection
      */
     @objid ("32b038c3-5263-42ae-b6df-d71135247543")
@@ -725,6 +728,7 @@ public class NotesPanelController {
 
     /**
      * Set the activation service.
+     * 
      * @param activationService the activation service.
      */
     @objid ("0a377ddb-5843-4e2c-bcd4-62fcc9b153a2")
@@ -736,6 +740,7 @@ public class NotesPanelController {
      * The NotesPanelComposite has to be driven for two inputs:
      * <li>the edited element which is the element whose notes and constraints are currently being edited,
      * <li>and the current selection which is the note or constraint currently being displayed.
+     * 
      * @param elt the note item whose contents is to be displayed in the content panel. May be null Refresh the whole notes view. Clean up the content of the currently selected note Set the note item object (Note or Constraint) currently displayed in the
      * content panel.
      * @param select the currently selected notes/constraints in the view
@@ -870,6 +875,7 @@ public class NotesPanelController {
     /**
      * Returns true if parentCandidate is in the composition tree of element. (recursive search).
      * @param parentCandidate
+     * 
      * @param element @return
      */
     @objid ("5c1fb019-2e06-43ad-a44e-52d6cf9df239")

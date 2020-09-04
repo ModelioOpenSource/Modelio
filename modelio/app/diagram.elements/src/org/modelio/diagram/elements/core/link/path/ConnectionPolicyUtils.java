@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 public class ConnectionPolicyUtils {
     /**
      * Build a {@link IGmPath} from a request and a Connection figure.
+     * 
      * @param req a connection creation request.
      * @param tmpConnection a temporary Connection figure. This figure will be setup to reflect the request result and is used to compute
      * the result path.
@@ -92,6 +93,7 @@ public class ConnectionPolicyUtils {
 
     /**
      * Get the anchor model for the given anchor.
+     * 
      * @param editpart a node edit part.
      * @param anchor a draw2d anchor
      * @return the anchor model, may be <code>null</code>
@@ -107,6 +109,7 @@ public class ConnectionPolicyUtils {
 
     /**
      * Get the connection layer for an edit part.
+     * 
      * @param ep an edit part
      * @return the the connection layer to use.
      */
@@ -120,6 +123,7 @@ public class ConnectionPolicyUtils {
      * <p>
      * If the source and target are in the same diagram, return the root edit part.
      * In the other case, return the common edit part in both roots ownership chain.
+     * 
      * @param req a connection creation request.
      * @return the common edit part.
      */
@@ -141,6 +145,7 @@ public class ConnectionPolicyUtils {
      * <p>
      * If the source and target are in the same diagram, return the root edit part.
      * In the other case, return the common edit part in the ownership chain.
+     * 
      * @param sourceEp an edit part
      * @param targetEp an edit part
      * @return the edit part containing both.
@@ -179,6 +184,7 @@ public class ConnectionPolicyUtils {
 
     /**
      * Setup the Connection figure to reflects the result of the request.
+     * 
      * @param req a connection creation request.
      * @param tmpConnection a Connection figure.
      */
@@ -216,6 +222,7 @@ public class ConnectionPolicyUtils {
      * <p>
      * This collection is used by {@link RoundedLinkFigure} to find connections intersections to draw bridges.
      * The collection is returned by reference to be updated by the connection figures.
+     * 
      * @return all diagram connections.
      * @since 3.7
      */

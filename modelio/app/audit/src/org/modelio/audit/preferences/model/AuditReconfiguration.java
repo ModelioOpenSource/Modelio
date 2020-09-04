@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class AuditReconfiguration {
      * <li>if 'enabled' is <code>null</code>, no change is applied to the rule current enable state</li>
      * <li>the enable state is set to MAX(current state, 'enabled') where enabled is > disabled</li>
      * </ul>
+     * 
      * @param ruleId - the rule identifier, mandatory, not null
      * @param enabled - the enabled/disabled state to set. If null the parameter is ignored (state not modified)
      * @param severity - the severity to set - if null the parameter is ignored (severity not modified)
@@ -72,6 +73,7 @@ public class AuditReconfiguration {
 
     /**
      * Add a new rule.
+     * 
      * @param rule the rule to add. The new rule id must not already exist.
      */
     @objid ("c5a4aad1-c813-47df-8431-699a76f08585")

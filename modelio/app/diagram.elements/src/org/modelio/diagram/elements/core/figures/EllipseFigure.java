@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class EllipseFigure extends ShapedFigure {
 
     /**
      * set the label displayed on the center of the circle.
+     * 
      * @param string the label.
      */
     @objid ("7f77779e-1dec-11e2-8cad-001ec947c8cc")
@@ -167,6 +168,7 @@ public class EllipseFigure extends ShapedFigure {
 
     /**
      * Copy constructor
+     * 
      * @param orig the original
      */
     @objid ("c7046cdc-de8d-4651-b32a-895345ba6315")

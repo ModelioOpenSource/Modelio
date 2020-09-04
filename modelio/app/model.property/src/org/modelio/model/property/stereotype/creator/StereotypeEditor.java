@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -126,6 +126,7 @@ public class StereotypeEditor {
 
     /**
      * @param elements
+     * 
      * @param showApplyStereotype @return
      */
     @objid ("3c8af456-467f-45d3-bd09-99a8124ea874")
@@ -142,14 +143,13 @@ public class StereotypeEditor {
         ICoreSession session = this.projectService.getSession();
         
         if (element == null ||
-            element instanceof ModuleComponent ||
-            element instanceof Profile ||
-            element instanceof Project ||
-            element instanceof TagType ||
-            element instanceof NoteType ||
-            element instanceof Stereotype ||
-            element instanceof ModuleParameter)
-        {
+                element instanceof ModuleComponent ||
+                element instanceof Profile ||
+                element instanceof Project ||
+                element instanceof TagType ||
+                element instanceof NoteType ||
+                element instanceof Stereotype ||
+                element instanceof ModuleParameter) {
             metaclassName = "ModelElement";
         
             if (session != null && element != null) {
@@ -169,9 +169,9 @@ public class StereotypeEditor {
             }
         }
         
-        StereotypeEditionDataModel dataModel = new StereotypeEditionDataModel(metaclassName, null, this.projectService.getOpenedProject().getProjectPath());
+        StereotypeEditionDataModel dataModel = new StereotypeEditionDataModel(metaclassName, null, this.projectService.getOpenedProject().getProjectFileStructure().getProjectRuntimePath());
         dataModel.setApplyStereotype(show);
-        StereotypeEditionDialog dialog = new StereotypeEditionDialog(null,dataModel, this.projectService, this.mmServices, elements);
+        StereotypeEditionDialog dialog = new StereotypeEditionDialog(null, dataModel, this.projectService, this.mmServices, elements);
         
         // Open the main window
         // Don't return from open() until dialog window closes
@@ -192,24 +192,22 @@ public class StereotypeEditor {
         ICoreSession session = this.projectService.getSession();
         // Local module path
         GProject openedProject = this.projectService.getOpenedProject();
-        Path projectPath = openedProject.getProjectPath();
-        Path localPath = openedProject.getProjectPath().resolve(".runtime").resolve("modules").resolve("local");
         
-        StereotypeEditionDataModel dataModel = new StereotypeEditionDataModel(editedStereotype.getBaseClassName(), editedStereotype, projectPath);
+        StereotypeEditionDataModel dataModel = new StereotypeEditionDataModel(editedStereotype.getBaseClassName(), editedStereotype, openedProject.getProjectFileStructure().getProjectRuntimePath());
         dataModel.setStereotypeName(editedStereotype.getName());
         
         IRepository repository = session.getRepositorySupport().getRepository(editedStereotype);
         
         if (!editedStereotype.getIcon().isEmpty()) {
-            Path iconPath = localPath.resolve("tempIcon.png");
-            if (readStereotypeBlob(repository, editedStereotype.getUuid()+ICON, iconPath)) {
+            Path iconPath = dataModel.getLocalPath().resolve("tempIcon.png");
+            if (readStereotypeBlob(repository, editedStereotype.getUuid() + StereotypeEditor.ICON, iconPath)) {
                 dataModel.setExplorerIcon(iconPath.toString());
             }
         }
         
         if (!editedStereotype.getImage().isEmpty()) {
-            Path imagePath = localPath.resolve("tempImage.png");
-            if (readStereotypeBlob(repository, editedStereotype.getUuid()+IMAGE, imagePath)) {
+            Path imagePath = dataModel.getLocalPath().resolve("tempImage.png");
+            if (readStereotypeBlob(repository, editedStereotype.getUuid() + StereotypeEditor.IMAGE, imagePath)) {
                 dataModel.setDiagramImage(imagePath.toString());
             }
         }
@@ -329,10 +327,10 @@ public class StereotypeEditor {
         try {
             File iconFile = new File(dataModel.getExplorerIcon());
             IBlobInfo iconBlob;
-            iconBlob = repository.readBlobInfo(stereotype.getUuid() + ICON);
+            iconBlob = repository.readBlobInfo(stereotype.getUuid() + StereotypeEditor.ICON);
             if (iconFile.exists()) {
                 if (iconBlob == null) {
-                    iconBlob = new BlobInfo(stereotype.getUuid() + ICON, "icon for " + stereotype.getName());
+                    iconBlob = new BlobInfo(stereotype.getUuid() + StereotypeEditor.ICON);
                     createStereotypeBlob(repository, iconFile, iconBlob);
                 } else {
                     updateStereotypeBlob(repository, iconFile, iconBlob);
@@ -358,10 +356,10 @@ public class StereotypeEditor {
         try {
             File imageFile = new File(dataModel.getDiagramImage());
             IBlobInfo imageBlob;
-            imageBlob = repository.readBlobInfo(stereotype.getUuid() + IMAGE);
+            imageBlob = repository.readBlobInfo(stereotype.getUuid() + StereotypeEditor.IMAGE);
             if (imageFile.exists()) {
                 if (imageBlob == null) {
-                    imageBlob = new BlobInfo(stereotype.getUuid() + IMAGE, "image for " + stereotype.getName());
+                    imageBlob = new BlobInfo(stereotype.getUuid() + StereotypeEditor.IMAGE);
                     createStereotypeBlob(repository, imageFile, imageBlob);
                 } else {
                     updateStereotypeBlob(repository, imageFile, imageBlob);
@@ -378,12 +376,9 @@ public class StereotypeEditor {
 
     /**
      * Read a blob of the given key, and copy it to a temperate file.
-     * @param repository
-     * @param key
-     * @param tempPath @return
      */
     @objid ("997985a6-e3d0-4809-a824-78d47dd03c0d")
-    private Boolean readStereotypeBlob(IRepository repository, String key, Path tempPath) {
+    private boolean readStereotypeBlob(IRepository repository, String key, Path tempPath) {
         try (InputStream in = repository.readBlob(key);) {
             if (in != null) {
                 tempPath.toFile().mkdirs();
@@ -400,11 +395,12 @@ public class StereotypeEditor {
      * Write the given blob.
      * @param repository
      * @param file
+     * 
      * @param blob @return
      */
     @objid ("087430e0-c507-4f52-aaa8-13edc98cc47e")
     private boolean writeStereotypeBlob(IRepository repository, File file, IBlobInfo blob) {
-        try ( OutputStream out = repository.writeBlob(blob); ) {
+        try (OutputStream out = repository.writeBlob(blob);) {
             Files.copy(file.toPath(), out);
             file.delete();
             return true;

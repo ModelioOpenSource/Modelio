@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class HorizontalSegmentMoveHandle extends ConnectionHandle {
 
     /**
      * Revalidates this handle when the connection's points change.
+     * 
      * @param event the event that caused the points change
      */
     @objid ("803633b2-1dec-11e2-8cad-001ec947c8cc")

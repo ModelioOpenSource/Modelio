@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class DiagramCommandStack extends CommandStack {
 
     /**
      * Initialize the command stack.
+     * 
      * @param iCoreSession a modeling session
      * @param gmDiagram The diagram model to handle.
      */
@@ -135,7 +136,7 @@ public class DiagramCommandStack extends CommandStack {
         try (ITransaction t = this.session.createTransaction(command.getLabel())) {
             command.execute();
             if (!this.batchMode) {
-                this.diagram.getPersister().save(true);
+                this.diagram.save(true);
             }
             t.commit();
             commitFailed = false;
@@ -150,7 +151,7 @@ public class DiagramCommandStack extends CommandStack {
         } finally {
             if (commitFailed) {
                 // Commit failed, force a diagram reload
-                this.diagram.getPersister().load();
+                this.diagram.load();
             }
             notifyListeners(command, CommandStack.POST_EXECUTE);
         }
@@ -173,6 +174,7 @@ public class DiagramCommandStack extends CommandStack {
 
     /**
      * Sets the batch mode on/off. Should only be used by API.
+     * 
      * @param value true if batch mode should be engaged (ie no more automatic save of the diagram).
      */
     @objid ("9b591753-bb10-4490-a379-79e041b56702")

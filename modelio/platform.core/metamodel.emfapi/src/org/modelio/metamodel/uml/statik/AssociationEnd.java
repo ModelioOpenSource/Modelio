@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public interface AssociationEnd extends StructuralFeature {
      * <li>BOTHSIDES: current source must be equals to opposite target as well as current target and opposite source.</li>
      * <li>NONE: both sources must be filled, but no target</li>
      * </ul>
+     * 
      * @param value whether or not to synchronize the other end and both source/target values. This end will be made navigable whatever the current navigability is.
      */
     @objid ("00788250-28da-1080-943a-001ec947cd2a")
@@ -84,6 +85,7 @@ public interface AssociationEnd extends StructuralFeature {
 
     /**
      * Sets the value of the 'target' dependency.
+     * 
      * @param fixModel whether or not to synchronize the other end and both source/target values. This end will be made navigable whatever the current navigability is.
      */
     @objid ("00308234-28fb-1080-943a-001ec947cd2a")
@@ -91,6 +93,7 @@ public interface AssociationEnd extends StructuralFeature {
 
     /**
      * Sets the value of the 'source' dependency.
+     * 
      * @param fixModel whether or not to synchronize the other end and both source/target values. This end will be made navigable whatever the current navigability is.
      */
     @objid ("000bdc7c-291a-1080-943a-001ec947cd2a")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,7 +65,7 @@ public class EComment extends EElement {
 
     @objid ("7fbf2ca9-cd75-43c8-b5ba-2d4bf0ccb103")
     @Override
-    public void attach(List<Object> objingElts) {
+    public void attach(Element objingElt) {
         ReverseProperties revProp = ReverseProperties.getInstance();
         
         List<org.eclipse.uml2.uml.Element> annotatedElementList = this.ecoreElement.getAnnotatedElements();
@@ -79,21 +79,24 @@ public class EComment extends EElement {
             Object objingAnnotatedElt = revProp.getMappedElement(ecoreAnnotatedElt);
         
             if ((objingAnnotatedElt != null) && (objingAnnotatedElt instanceof Element)) {
+                
                 if (ecoreAnnotatedElt instanceof org.eclipse.uml2.uml.AssociationClass) {
-                    if (ObjingEAnnotation.isOwnedByAssociation(this.ecoreElement)) {
-                        createNote(((Class) objingAnnotatedElt).getLinkToAssociation().getAssociationPart(), objingElts);
-                    } else if (ObjingEAnnotation.isOwnedByAssociationClass(this.ecoreElement)) {
-                        createNote(((Class) objingAnnotatedElt).getLinkToAssociation(), objingElts);
+                    if ((objingAnnotatedElt instanceof Class) && (ObjingEAnnotation.isOwnedByAssociation(this.ecoreElement))) {
+                        createNote(((Class) objingAnnotatedElt).getLinkToAssociation().getAssociationPart());
+                    } else if ((objingAnnotatedElt instanceof Class) && (ObjingEAnnotation.isOwnedByAssociationClass(this.ecoreElement))) {
+                        createNote(((Class) objingAnnotatedElt).getLinkToAssociation());
                     } else {
-                        createNote(objingAnnotatedElt, objingElts);
+                        createNote(objingAnnotatedElt);
                     }
                 } else {
-                    createNote(objingAnnotatedElt, objingElts);
+                    createNote(objingAnnotatedElt);
                 }
-            } else if (objingAnnotatedElt instanceof ArrayList) {
-                for (Object objingAnnotatedElt2 : (ArrayList<? extends Object>) objingAnnotatedElt) {
+                
+            } else if (objingAnnotatedElt instanceof List) {              
+                List<?> alist = (List<?>) objingAnnotatedElt;
+                for (Object objingAnnotatedElt2 : alist) {
                     if (objingAnnotatedElt2 instanceof ModelElement) {
-                        createNote(objingAnnotatedElt2, objingElts);
+                        createNote(objingAnnotatedElt2);
                     }
                 }
             }
@@ -111,7 +114,7 @@ public class EComment extends EElement {
     }
 
     @objid ("ad241920-7c0e-4196-b7e1-ca476b99b15c")
-    public void createNote(Object objingAnnotatedElt, List<Object> objingElt) {
+    private void createNote(Object objingAnnotatedElt) {
         if ((objingAnnotatedElt != null)
                 && (objingAnnotatedElt instanceof ModelElement)
                 && ((ModelElement) objingAnnotatedElt).getStatus().isModifiable()) {
@@ -119,7 +122,6 @@ public class EComment extends EElement {
             Note objingNote = createNote();
             objingNote.setSubject((ModelElement) objingAnnotatedElt);
             ((ModelElement) objingAnnotatedElt).getDescriptor().add(objingNote);
-            objingElt.add(objingNote);
         }
     }
 

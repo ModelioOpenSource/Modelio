@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class LoadHelper implements ILoadHelper {
 
     /**
      * Initialize the loading helper.
+     * 
      * @param exmlBase the EXML repository
      * @param loadReadWrite <code>true</code> if the repository is read/write, <code>false</code> if read only.
      */
@@ -289,6 +290,7 @@ public class LoadHelper implements ILoadHelper {
 
     /**
      * Initialize the model object status flags.
+     * 
      * @param modelLoader the model loader to use to initialize flags.
      * @param obj the model object to initialize.
      */
@@ -312,6 +314,7 @@ public class LoadHelper implements ILoadHelper {
      * Method to be called when loading fails with an exception.
      * <p>
      * Fires a warning to repository monitors and set the object as shell.
+     * 
      * @param obj the CMS node unable to be loaded.
      * @param modelLoader the model loader
      * @param e the exception
@@ -343,6 +346,7 @@ public class LoadHelper implements ILoadHelper {
     /**
      * initialize the object  name from the {@link ObjId#name} if non null, from the index in the other case.
      * @param id the name holder
+     * 
      * @param modelLoader a model loader
      * @param newObject the object to initialize
      */

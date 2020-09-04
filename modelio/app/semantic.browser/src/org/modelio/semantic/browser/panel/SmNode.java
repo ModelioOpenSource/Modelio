@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -118,6 +118,7 @@ public class SmNode {
     /**
      * For a SmDependency, return its contents.
      * For a SmAttribute return nothing.
+     * 
      * @return the tree node children
      */
     @objid ("2f8fc558-4e88-47b2-afb7-605daf6eda20")

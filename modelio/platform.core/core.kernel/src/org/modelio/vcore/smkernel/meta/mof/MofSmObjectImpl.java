@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -79,6 +79,7 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
 
     /**
      * Get an attribute value.
+     * 
      * @param attName the attribute name.
      * @return attribute value.
      * @throws java.lang.IllegalArgumentException if the attribute does not exist on the metaclass.
@@ -140,6 +141,7 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
      * <p>
      * <b>Note:</b> The returned list reflects the content of the dependency at any moment.
      * Modifying the returned list will modify the dependency content.
+     * 
      * @param depName the dependency name
      * @return the dependency content.
      */
@@ -174,6 +176,7 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
 
     /**
      * Get a 0..1 dependency content.
+     * 
      * @param depName the dependency name.
      * @return null or the dependency content.
      * @throws java.lang.IllegalArgumentException if the dependency contains many elements or the dependency does not exist.
@@ -192,6 +195,7 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
 
     /**
      * Set an attribute value
+     * 
      * @param attName the attribute name
      * @param value the value to set.
      * @throws java.lang.IllegalArgumentException if the attribute does not exist on the metaclass.

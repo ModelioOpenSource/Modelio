@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -90,6 +90,7 @@ public class ChainedExmlFragmentMigrator extends ChainedMofFragmentMigrator {
 
     /**
      * @param formatMigrationNeeded
+     * 
      * @param project the project
      * @param exmlFragment the fragment to migrate
      * @param mmVersionPath the metamodel version file path
@@ -153,7 +154,7 @@ public class ChainedExmlFragmentMigrator extends ChainedMofFragmentMigrator {
         
         } catch (RuntimeException e) {
             e.printStackTrace(getMigrationReporter().getLogger());
-            throw new MigrationFailedException(CoreProject.getMessage(
+            throw new MigrationFailedException(CoreProject.I18N.getMessage(
                     "ChainedExmlFragmentMigrator.MigrationFailed",
                     this.exmlFragment.getId(),
                     e.toString()), e);
@@ -257,7 +258,7 @@ public class ChainedExmlFragmentMigrator extends ChainedMofFragmentMigrator {
     @objid ("86f48317-b926-4b32-9c9e-9718ed4695b3")
     private MigrationFailedException handleIOException(IOException e) {
         e.printStackTrace(getMigrationReporter().getLogger());
-        return new MigrationFailedException(CoreProject.getMessage("ChainedExmlFragmentMigrator.MigrationFailed",
+        return new MigrationFailedException(CoreProject.I18N.getMessage("ChainedExmlFragmentMigrator.MigrationFailed",
                                                                                 this.exmlFragment.getId(),
                                                                                 FileUtils.getLocalizedMessage(e)), e);
     }
@@ -288,6 +289,7 @@ public class ChainedExmlFragmentMigrator extends ChainedMofFragmentMigrator {
     /**
      * Write the new metamodel version.
      * @throws MofMigrationException
+     * 
      * @throws java.io.IOException in case of I/O failure
      */
     @objid ("5e73c73f-c307-450c-9be3-116ce67f0468")
@@ -316,7 +318,7 @@ public class ChainedExmlFragmentMigrator extends ChainedMofFragmentMigrator {
             if (getMigrationChain().isNoopMigrationChain()) {
                 // No migration step needed
                 ret = new ArrayList<>();
-                ret.add(new MigrationStepDescription(CoreProject.getMessage(
+                ret.add(new MigrationStepDescription(CoreProject.I18N.getMessage(
                         "ChainedExmlFragmentMigrator.SaveMmVersionNeeded", 
                         this.exmlFragment.getId())));
             } else {
@@ -324,7 +326,7 @@ public class ChainedExmlFragmentMigrator extends ChainedMofFragmentMigrator {
             }
             
             if (isFormatChangeNeeded()) {
-                ret.add(new MigrationStepDescription(CoreProject.getMessage(
+                ret.add(new MigrationStepDescription(CoreProject.I18N.getMessage(
                         "ExmlFragment.RepositoryFormatNeedMigration", 
                         this.exmlFragment.getId(),
                         this.srcRepositoryFormat,

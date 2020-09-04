@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IModulePropertyTable {
     /**
      * Add an "integer" typed property in the model.
+     * 
      * @param key the name of the property.
      * @param value the value of the property.
      */
@@ -39,6 +40,7 @@ public interface IModulePropertyTable {
 
     /**
      * Add a "string" typed property in the model.
+     * 
      * @param key the name of the property.
      * @param value the value of the property.
      */
@@ -47,6 +49,7 @@ public interface IModulePropertyTable {
 
     /**
      * Add a "boolean" typed property in the model.
+     * 
      * @param key the name of the property.
      * @param value the value of the property.
      */
@@ -55,6 +58,7 @@ public interface IModulePropertyTable {
 
     /**
      * Add an "enumeration" typed property in the model.
+     * 
      * @param key the name of the property.
      * @param value the value of the property.
      * @param enumValues the values of the property.
@@ -64,6 +68,7 @@ public interface IModulePropertyTable {
 
     /**
      * Add a read only property in the model.
+     * 
      * @param key the name of the property.
      * @param value the value of the property.
      */
@@ -78,6 +83,7 @@ public interface IModulePropertyTable {
 
     /**
      * Add a "MObject" typed property in the model.
+     * 
      * @param key the name of the property.
      * @param value the value of the property.
      * @param acceptedMetaclasses a list of metaclasses that can be set in this property.

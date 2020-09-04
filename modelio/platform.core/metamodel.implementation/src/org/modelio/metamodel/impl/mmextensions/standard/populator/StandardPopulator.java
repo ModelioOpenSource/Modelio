@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class StandardPopulator implements IRepositoryContentInitializer {
     /**
      * Populate the given repository using the given session.
+     * 
      * @param fragmentName the fragment name
      * @param s the session to use
      * @param repository the repository to populate.

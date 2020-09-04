@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -99,6 +99,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
      * <p>
      * If the entry is already present the passed argument is not added. If the entry is 'success' removing the previosu one(s) from
      * the diagnostic
+     * 
      * @param diagnosticEntries The entries to be added.
      * @param session a modeling session
      * @return <code>true</code> if the current entry list changed, and listeners must be notified.
@@ -154,6 +155,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
 
     /**
      * Register an audit listener.
+     * 
      * @param listener the listener to add.
      */
     @objid ("984297ab-baed-43d0-9100-e0b836f3204c")
@@ -164,6 +166,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
 
     /**
      * Unregister an audit listener.
+     * 
      * @param listener the listener to remove.
      */
     @objid ("9a81dff1-a01e-4b23-b6a6-524599b598fb")
@@ -262,6 +265,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
 
     /**
      * Purge current results from disabled or obsolete rules
+     * 
      * @param configuredRules configuration rules.
      */
     @objid ("3bf3a592-6d40-4ce8-b35e-99d13a195d0a")
@@ -327,6 +331,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
 
     /**
      * Update the audit status flags on the audited elements.
+     * 
      * @param auditStatusMap a map of elements with their audit status.
      */
     @objid ("83fdcdb9-5698-400b-97f9-a7040b9c142e")
@@ -372,6 +377,18 @@ public class AuditDiagnostic implements IAuditDiagnostic {
             return AuditSeverity.AuditAdvice;
         }
         return AuditSeverity.AuditSuccess;
+    }
+
+    @objid ("d06d5867-524f-4615-9011-ede89d84caf2")
+    public void purgeJob(String jobId) {
+        String jid = jobId != null ? jobId : "";
+        
+        for (int index = this.entries.size() - 1; index >= 0; index--) {
+            IAuditEntry entry = this.entries.get(index);
+            if (entry.getJobId().equals(jid)) {
+                doRemoveEntry(index);
+            }
+        }
     }
 
 }

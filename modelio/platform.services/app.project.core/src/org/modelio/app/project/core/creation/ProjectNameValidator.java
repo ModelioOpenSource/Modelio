@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class ProjectNameValidator implements IInputValidator {
 
     /**
      * Default constructor.
+     * 
      * @param workspace The Modelio work space.
      */
     @objid ("00463886-cc35-1ff2-a7f4-001ec947cd2a")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class UserNodeIndex implements IUserNodeIndex {
 
     /**
      * Initialize the index.
+     * 
      * @param db the JDBM database.
      * @param symbolTable the string symbols table
      * @param objIdTable the ObjId table
@@ -195,6 +196,7 @@ public class UserNodeIndex implements IUserNodeIndex {
      * Get a sub map of the given map filtered for the target node id and.
      * <p>
      * Reminder: {@link UseEntry} are sorted in order by: the target then the dependency id then the source.
+     * 
      * @param from the map to filter
      * @param nodeId the target node id in the index
      * @param depId the dependency id in the index

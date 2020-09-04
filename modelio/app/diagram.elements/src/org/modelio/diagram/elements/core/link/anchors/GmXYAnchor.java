@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ public class GmXYAnchor implements IPersistent {
 
     /**
      * Constructor
+     * 
      * @param ref the position of the reference point in absolute coordinates.
      */
     @objid ("7fe2c167-1dec-11e2-8cad-001ec947c8cc")
@@ -57,6 +58,7 @@ public class GmXYAnchor implements IPersistent {
 
     /**
      * Get the anchor location.
+     * 
      * @return the position of the anchor in absolute coordinates.
      */
     @objid ("7fe2c171-1dec-11e2-8cad-001ec947c8cc")
@@ -78,6 +80,7 @@ public class GmXYAnchor implements IPersistent {
 
     /**
      * Set the anchor location.
+     * 
      * @param ref the position of the anchor in absolute coordinates.
      */
     @objid ("7fe2c180-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 public interface IStyleProvider {
     /**
      * Get the element style, ignoring dynamic styling.
+     * 
      * @return the element style.
      * @since 3.6 . Before 3.6 this method was called "getStyle()"
      */
@@ -41,6 +42,7 @@ public interface IStyleProvider {
 
     /**
      * Get all style keys the element supports.
+     * 
      * @return style keys supported by the element.
      * @deprecated Since 3.7, {@link #getSymbolViewModel()} is used to get the symbol view content.
      */
@@ -50,6 +52,7 @@ public interface IStyleProvider {
 
     /**
      * Get the style key corresponding to the given meta key.
+     * 
      * @param metakey a meta key
      * @return the corresponding style key or null if none maps.
      */
@@ -58,6 +61,7 @@ public interface IStyleProvider {
 
     /**
      * Get the element style, including dynamic styling.
+     * 
      * @return the element style.
      * @since 3.6
      */
@@ -66,6 +70,7 @@ public interface IStyleProvider {
 
     /**
      * Get the edition model of the element persisted style.
+     * 
      * @return the tree model of the symbol view.
      * @since 3.7
      */

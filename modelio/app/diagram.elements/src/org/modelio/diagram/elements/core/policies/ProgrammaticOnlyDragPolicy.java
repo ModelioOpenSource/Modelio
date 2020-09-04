@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -92,6 +92,7 @@ public class ProgrammaticOnlyDragPolicy extends GraphicalEditPolicy {
 
     /**
      * Returns the command contribution to an alignment request
+     * 
      * @param request the alignment request
      * @return the contribution to the alignment
      */
@@ -109,6 +110,7 @@ public class ProgrammaticOnlyDragPolicy extends GraphicalEditPolicy {
      * implementation actually redispatches the request to the host's parent
      * editpart as a {@link RequestConstants#REQ_MOVE_CHILDREN} request. The
      * parent's contribution is returned.
+     * 
      * @param request the change bounds request
      * @return the command contribution to the request
      */
@@ -130,6 +132,7 @@ public class ProgrammaticOnlyDragPolicy extends GraphicalEditPolicy {
      * requests are not forwarded to the host's parent here. That is done in
      * {@link ComponentEditPolicy}. So, if the host has a component editpolicy,
      * then the parent will already have a chance to contribute.
+     * 
      * @param req the orphan request
      * @return <code>null</code> by default
      */
@@ -144,6 +147,7 @@ public class ProgrammaticOnlyDragPolicy extends GraphicalEditPolicy {
      * {@link org.eclipse.gef.RequestConstants#REQ_RESIZE_CHILDREN}. The
      * parent's edit policies determine how to perform the resize based on the
      * layout manager in use.
+     * 
      * @param request the resize request
      * @return the command contribution obtained from the parent
      */

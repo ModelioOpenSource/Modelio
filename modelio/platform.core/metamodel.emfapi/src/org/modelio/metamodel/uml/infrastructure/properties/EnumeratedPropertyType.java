@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure.properties;
 
@@ -42,17 +42,18 @@ public interface EnumeratedPropertyType extends PropertyType {
     /**
      * The metaclass simple name.
      */
-    @objid ("885f8cd3-5492-450e-b0af-d50f80676271")
+    @objid ("41c384a9-852c-455b-a935-af03e1056631")
     public static final String MNAME = "EnumeratedPropertyType";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("e069f066-a735-4790-aa54-b4c46ce5d2ef")
+    @objid ("7fc1ec97-ab2c-43b6-90c2-d89938187e32")
     public static final String MQNAME = "Infrastructure.EnumeratedPropertyType";
 
     /**
      * Returns the literal represented by 's' or null if not found
+     * 
      * @param s @return
      */
     @objid ("980fb52a-eaee-4290-b6b6-bde39e3d8dc7")
@@ -64,7 +65,7 @@ public interface EnumeratedPropertyType extends PropertyType {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("44b992ad-59f2-4cf0-861f-d05dd82bc623")
+    @objid ("89fd1a16-ff09-4f51-b39b-791e77ba5a6a")
     EList<PropertyEnumerationLitteral> getLitteral();
 
     /**
@@ -73,7 +74,7 @@ public interface EnumeratedPropertyType extends PropertyType {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("337fe983-cdfa-4f89-be4e-89841fddbb5a")
+    @objid ("60556e0f-cf97-433d-bec8-62bef5639066")
     <T extends PropertyEnumerationLitteral> List<T> getLitteral(java.lang.Class<T> filterClass);
 
     /**
@@ -82,7 +83,7 @@ public interface EnumeratedPropertyType extends PropertyType {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("2834a228-d0d2-4918-9a89-64c5b225e105")
+    @objid ("ab677af9-3932-4eb3-b6fb-a88d80a39059")
     EList<ModuleParameter> getOccurenceConfigParam();
 
     /**
@@ -91,7 +92,7 @@ public interface EnumeratedPropertyType extends PropertyType {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("21a2ec7f-708e-4f77-ad42-3b4a761ee065")
+    @objid ("772ab581-d603-4708-8f6a-ef4617b0d128")
     <T extends ModuleParameter> List<T> getOccurenceConfigParam(java.lang.Class<T> filterClass);
 
 }

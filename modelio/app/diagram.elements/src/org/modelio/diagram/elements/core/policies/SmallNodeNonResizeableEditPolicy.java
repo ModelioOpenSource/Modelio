@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -164,6 +164,7 @@ public class SmallNodeNonResizeableEditPolicy extends DefaultNodeResizableEditPo
 
     /**
      * Compute the delta from the current size to the size fixed by the figure preferred size.
+     * 
      * @return the delta to the preferred size.
      */
     @objid ("80d853a3-1dec-11e2-8cad-001ec947c8cc")

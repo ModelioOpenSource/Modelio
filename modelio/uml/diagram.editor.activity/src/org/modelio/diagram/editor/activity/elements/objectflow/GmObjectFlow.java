@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class GmObjectFlow extends GmLink {
 
     /**
      * Initialize a control flow graphic model.
+     * 
      * @param diagram The owning diagram
      * @param objectflow The reference flow, may be null
      * @param ref The referenced flow reference, may not be null

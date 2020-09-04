@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ class VersionedLoadHelper extends LoadHelper {
 
     /**
      * initialize the helper.
+     * 
      * @param exmlBase the EXML repository
      * @param statusInitializer the element status initializer
      * @param loadReadWrite <code>true</code> if the repository is read/write, <code>false</code> if read only.

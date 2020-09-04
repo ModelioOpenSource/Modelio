@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -138,6 +138,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
 
     /**
      * Add a MOF migration candidate.
+     * 
      * @param migrator a MOF migration candidate.
      * @return this instance
      */
@@ -151,6 +152,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Get the migration reporter.
      * <p>
      * Works only once {@link #run(IModelioProgress, IMigrationReporter)} has been called.
+     * 
      * @return the migration reporter.
      */
     @objid ("5ad975aa-6053-4f49-b632-30e5db683625")
@@ -171,6 +173,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Run the MOF migrator at the given index in the chain.
      * @param reporter
      * an object to report migration process and result to.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user.
      * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
      * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
@@ -190,7 +193,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
                 .withMissingSourcesRemoved();
         
         MetamodelVersionDescriptor mmDiff = vcomparator.getTarget();
-        String msg = CoreProject.getMessage("ChainedMofFragmentMigrator.mon.migratingTowardVersion", this.fragToMigrate.getId(), mmDiff);
+        String msg = CoreProject.I18N.getMessage("ChainedMofFragmentMigrator.mon.migratingTowardVersion", this.fragToMigrate.getId(), mmDiff);
         mon.subTask(msg);
         
         this.migrationReporter.getLogger().format("\n\nMigrating '%s' from %s toward %s...\n------------------------------------\n", 
@@ -255,7 +258,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
                     .withSource(this.fromMmVersion)
                     .withTarget(this.targetMmVersion)
                     .withCommonRemoved();
-            this.userMessage = CoreProject.getMessage("ChainedMofFragmentMigrator.noMigrationChainFound", this.fragToMigrate.getId(), comp.getSource(), comp.getTarget());
+            this.userMessage = CoreProject.I18N.getMessage("ChainedMofFragmentMigrator.noMigrationChainFound", this.fragToMigrate.getId(), comp.getSource(), comp.getTarget());
             this.stepsDescription = Collections.emptyList();
         } else {
             this.userMessage = computeUserMessage();
@@ -316,6 +319,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Hook called before {@link IMofRepositoryMigrator#run(IModelioProgress, org.modelio.vcore.session.api.ICoreSession, IRepository)}.
      * <p>
      * May be redefined by subclasses to to some post processing.
+     * 
      * @param mon a progress monitor with 2 ticks available.
      * @param migrationSession the migration session
      * @param mofMigrator the run migrator.
@@ -330,6 +334,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Hook called after {@link IMofRepositoryMigrator#run(IModelioProgress, org.modelio.vcore.session.api.ICoreSession, IRepository)}.
      * <p>
      * May be redefined by subclasses to to some post processing.
+     * 
      * @param mon a progress monitor with 2 ticks available.
      * @param migrationSession the migration session
      * @param mofMigrator the run migrator.
@@ -354,6 +359,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
 
     /**
      * Creates a {@link MofSession} connected to the repository to migrate.
+     * 
      * @param monitor a progress monitor
      * @param migratorIndex the index of the migrators to use to prepare the metamodel.
      * All migrators from the last index to the given one will be called with {@link IMofRepositoryMigrator#prepareMetamodel(MofMetamodel)}.
@@ -398,6 +404,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
 
     /**
      * Run all MOF migrators in order.
+     * 
      * @param monitor the progress monitor
      * @throws org.modelio.gproject.fragment.FragmentAuthenticationException on authentication error
      * @throws org.modelio.gproject.fragment.migration.MigrationFailedException on failure
@@ -416,6 +423,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Compute a warning message to display to the user if needed.
      * @param fromMetamodel the source metamodel
      * @param targetMetamodel the target metamodel
+     * 
      * @return a warning message or empty string, never <i>null</i>.
      */
     @objid ("65caaf3b-cbf5-4abd-ba79-ce0e7087d8cf")
@@ -427,6 +435,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Build a migration chain between the 2 given metamodels.
      * <p>
      * May be redefined.
+     * 
      * @param fromMetamodel the source metamodel
      * @param targetMetamodelDesc the target metamodel
      * @param migrationProviders all known migration providers.
@@ -442,6 +451,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
 
     /**
      * Prepare a {@link ICoreSession} connected to the repository to migrate with the final metamodel.
+     * 
      * @param monitor a progress monitor
      * @return the ICoreSession
      * @throws org.modelio.gproject.fragment.FragmentAuthenticationException in case of authentication error
@@ -527,7 +537,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
         
         this.migrationReporter = reporter;
         
-        String msg = CoreProject.getMessage("ChainedMofFragmentMigrator.mon.migration", this.fragToMigrate.getId());
+        String msg = CoreProject.I18N.getMessage("ChainedMofFragmentMigrator.mon.migration", this.fragToMigrate.getId());
         monitor.subTask(msg);
         monitor.setTaskName(msg);
         
@@ -563,6 +573,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Hook called by {@link #start(IModelioProgress, IMigrationReporter)} for sub classes.
      * <p>
      * Does nothing by default. May be redefined by sub classes.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user.
      * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
      * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
@@ -597,6 +608,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
 
     /**
      * Hook called by {@link #finish(IModelioProgress)} for sub classes.
+     * 
      * @param monitor the progress monitor to use for reporting progress to the user.
      * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
      * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
@@ -624,6 +636,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
     /**
      * Hook called by {@link #close()}, to be redefined by sub classes if they have something not done in {@link #doFinish(IModelioProgress)}
      * and {@link #doAbort(IModelioProgress)}.
+     * 
      * @throws org.modelio.gproject.fragment.migration.MigrationFailedException on failure.
      */
     @objid ("dfdaf2aa-11f2-4a31-96ad-976722f95b74")
@@ -655,6 +668,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
 
     /**
      * Computes the migration steps descriptions from the migration chain.
+     * 
      * @return the migration steps descriptions.
      */
     @objid ("284bc8f1-c616-4448-9d04-620d15f718cf")
@@ -669,7 +683,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
                     .withMissingRemoved();
         
             if (!vcomparator.isTargetCompatible(false)) {
-                String msg = CoreProject.getMessage("ChainedMofFragmentMigrator.detail.migratorline", this.fragToMigrate.getId(), vcomparator.getSource(), vcomparator.getTarget());
+                String msg = CoreProject.I18N.getMessage("ChainedMofFragmentMigrator.detail.migratorline", this.fragToMigrate.getId(), vcomparator.getSource(), vcomparator.getTarget());
                 ret.add(new MigrationStepDescription(msg));
             }
         
@@ -689,7 +703,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
                 .withSource(getFromMmVersion())
                 .withTarget(getTargetMmVersion())
                 .withCommonRemoved();
-        return (CoreProject.getMessage("ChainedMofFragmentMigrator.detail.first", this.fragToMigrate.getId(), comp.getSource(), comp.getTarget()));
+        return (CoreProject.I18N.getMessage("ChainedMofFragmentMigrator.detail.first", this.fragToMigrate.getId(), comp.getSource(), comp.getTarget()));
     }
 
     @objid ("8d77e405-28a4-4c25-a1c0-7991beaa6e4c")
@@ -713,6 +727,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
          * Instantiate the repository.
          * <p>
          * Does not open it.
+         * 
          * @param session the modeling session the repository will be connected to
          * @return the repository
          * @throws org.modelio.gproject.fragment.FragmentAuthenticationException on authentication error

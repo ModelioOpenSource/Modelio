@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -275,6 +275,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
      * Creates the EditPartListener for observing when children are added to the host.
      * <p>
      * Redefined to auto expand on child edit part addition.
+     * 
      * @return EditPartListener
      */
     @objid ("1245a3ca-4697-43f8-8b60-ea5c61c15a5d")
@@ -423,6 +424,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Lazily creates and returns a <code>Polyline</code> Figure for use as feedback.
+     * 
      * @return a Polyline figure
      */
     @objid ("9dd20a54-749c-4710-9bf2-2af9b33bbcd1")
@@ -514,6 +516,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
      * Called by an edit part listener when a child edit part is added.
      * <p>
      * Try to expand the container to fit all children.
+     * 
      * @param child the added edit part
      */
     @objid ("7c5201ac-e871-4ca0-b0bd-bfc1069f3d51")
@@ -544,6 +547,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Tells whether the given point is on the 20% figure border.
+     * 
      * @param absLoc a location in absolute coordinates
      * @return true if the point is near the figure border.
      */

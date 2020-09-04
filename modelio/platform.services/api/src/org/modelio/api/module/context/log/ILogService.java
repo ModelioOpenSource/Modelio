@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ public interface ILogService {
      * This method send logs on Modelio console only if the logs have been
      * activated. The file and line of the log is displayed in the Modelio
      * console before the message.
+     * 
      * @param t an exception to be displayed as a log.
      */
     @objid ("509889f3-a65c-11e1-833c-001ec947ccaf")
@@ -42,6 +43,7 @@ public interface ILogService {
      * This method send logs on Modelio console only if the logs have been
      * activated. The file and line of the log is displayed in the Modelio
      * console before the message.
+     * 
      * @param msg a message to be displayed as a log.
      */
     @objid ("3adbc9d1-6bfd-11e0-a371-001ec947cd2a")
@@ -53,6 +55,7 @@ public interface ILogService {
      * This method send logs on Modelio console only if the logs have been
      * activated. The file and line of the log is displayed in the Modelio
      * console before the message.
+     * 
      * @param t an exception to be displayed as a log.
      */
     @objid ("509889e7-a65c-11e1-833c-001ec947ccaf")
@@ -64,6 +67,7 @@ public interface ILogService {
      * This method send logs on Modelio console only if the logs have been
      * activated. The file and line of the log is displayed in the Modelio
      * console before the message.
+     * 
      * @param msg a message to be displayed as a log.
      */
     @objid ("8422bf70-557c-4925-8b84-158d2986aabe")
@@ -75,6 +79,7 @@ public interface ILogService {
      * This method send logs on Modelio console only if the logs have been
      * activated. The file and line of the log is displayed in the Modelio
      * console before the message.
+     * 
      * @param t an exception to be displayed as a log.
      */
     @objid ("509889ed-a65c-11e1-833c-001ec947ccaf")
@@ -86,6 +91,7 @@ public interface ILogService {
      * This method send logs on Modelio console only if the logs have been
      * activated. The file and line of the log is displayed in the Modelio
      * console before the message.
+     * 
      * @param msg a message to be displayed as a log.
      */
     @objid ("3a433391-6bfd-11e0-a371-001ec947cd2a")

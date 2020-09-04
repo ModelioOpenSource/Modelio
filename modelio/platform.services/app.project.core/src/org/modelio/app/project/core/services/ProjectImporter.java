@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,8 +24,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
-import java.util.zip.ZipEntry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
@@ -59,6 +59,7 @@ public class ProjectImporter {
     /**
      * Import the archive.
      * @param the name of the created project. <code>null</code> when an error occurs.
+     * 
      * @param archiveFile the archive file.
      * @param progress a progress monitor.
      */
@@ -66,11 +67,11 @@ public class ProjectImporter {
     public String importProject(Path archiveFile, IProgressMonitor progress) {
         final Unzipper unzipper = new Unzipper();
         final IModelioProgress monitor = ModelioProgressAdapter.convert(progress, 10);
-        final Display display = this.parentShell.getDisplay(); 
+        final Display display = this.parentShell.getDisplay();
         
         monitor.beginTask(AppProjectCore.I18N.getMessage("ImportingProject", "..."), 10);
         
-        ZipEntry[] projectConf;
+        ArchiveEntry[] projectConf;
         try {
             projectConf = unzipper.findEntry(archiveFile.toFile(), "^[^/]+/project\\.conf$");
         } catch (IOException e) {
@@ -82,10 +83,10 @@ public class ProjectImporter {
         if (projectConf.length == 1) {
             // Checks for an already existing project
             final String projectName = projectConf[0].getName().substring(0, projectConf[0].getName().indexOf("/"));
-            if (this.projSvc.getWorkspace().resolve(projectName).toFile().exists()) { 
-                if (!SwtThreadHelper.syncSupply(display, () 
-                        -> MessageDialog.openQuestion(this.parentShell, 
-                                AppProjectCore.I18N.getString("CannotImportExistingProjectTitle"), 
+            if (this.projSvc.getWorkspace().resolve(projectName).toFile().exists()) {
+                if (!SwtThreadHelper.syncSupply(display, ()
+                        -> MessageDialog.openQuestion(this.parentShell,
+                                AppProjectCore.I18N.getString("CannotImportExistingProjectTitle"),
                                 AppProjectCore.I18N.getMessage("CannotImportExistingProjectMsg", projectName)))) {
                     // Fast exit
                     return null;
@@ -105,10 +106,10 @@ public class ProjectImporter {
             } catch (final IOException e) {
                 reportIOException(projectName, e);
             }
-            
+        
             return projectName;
         } else {
-            display.syncExec(() 
+            display.syncExec(()
                     -> MessageDialog.openInformation(this.parentShell,
                             AppProjectCore.I18N.getString("InvalidProjectArchiveTitle"),
                             AppProjectCore.I18N.getMessage("InvalidProjectArchiveMsg", archiveFile.toString()))
@@ -130,7 +131,7 @@ public class ProjectImporter {
     @objid ("0855ec03-eb0e-4d75-b86c-df54ee1525d3")
     private void reportIOException(String projectName, IOException e) {
         AppProjectCore.LOG.error(e);
-        this.parentShell.getDisplay().asyncExec(() 
+        this.parentShell.getDisplay().asyncExec(()
                 -> MessageDialog.openError(this.parentShell,
                         AppProjectCore.I18N.getMessage("ImportingProject", projectName),
                         FileUtils.getLocalizedMessage(e)));

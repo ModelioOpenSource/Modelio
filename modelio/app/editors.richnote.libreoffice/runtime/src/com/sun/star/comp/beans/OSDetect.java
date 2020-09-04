@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public class OSDetect {
 
     /**
      * Tells whether the OS is a Linux
+     * 
      * @return <code>true</code> if the OS is Linux.
      */
     @objid ("7cac20e4-5fd6-42c1-b298-60bc3143b11b")
@@ -56,6 +57,7 @@ public class OSDetect {
 
     /**
      * Test whether the runtime operating system is a Windows variant.
+     * 
      * @return true if the runtime OS is Windows
      */
     @objid ("f147a91d-b9c8-4095-920b-b9cdca218fe3")
@@ -65,6 +67,7 @@ public class OSDetect {
 
     /**
      * Test whether the runtime operating system is "unix-like".
+     * 
      * @return true if the runtime OS is unix-like, Linux, Unix, FreeBSD etc
      */
     @objid ("385174d0-7535-46d6-a608-5b7ce6958fa1")
@@ -74,6 +77,7 @@ public class OSDetect {
 
     /**
      * Test whether the runtime operating system is a Mac variant.
+     * 
      * @return true if the runtime OS is Mac
      */
     @objid ("cf60fdea-5d98-42b0-ae89-1529321f478c")
@@ -83,6 +87,7 @@ public class OSDetect {
 
     /**
      * Retrieves a platform dependent system window identifier.
+     * 
      * @return The system window identifier.
      */
     @objid ("1826119c-ba98-41be-8989-55e3361dfa2a")
@@ -115,6 +120,7 @@ public class OSDetect {
 
     /**
      * Retrieves a platform dependent system window type.
+     * 
      * @return The system window type.
      */
     @objid ("92ef48cd-3906-4910-b2a0-c23b87fd3c24")

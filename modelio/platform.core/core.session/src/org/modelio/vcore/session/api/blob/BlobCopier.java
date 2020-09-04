@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ public class BlobCopier {
      * Copy a blob from a repository to another (or the same).
      * <p>
      * Reports failures to the destination storage error support.
+     * 
      * @param blobKey the source blob key.
      * @param from the source repository
      * @param to the destination blob identification
@@ -73,6 +74,7 @@ public class BlobCopier {
      * <p>
      * The destination repository must be different from the source one.
      * Reports failures to the involved storage error support.
+     * 
      * @param blobKey the source blob key.
      * @param from the source repository
      * @param to the destination repository
@@ -119,6 +121,7 @@ public class BlobCopier {
 
     /**
      * Get a user friendly error message from the given exception.
+     * 
      * @param e an exception
      * @return the error message
      */

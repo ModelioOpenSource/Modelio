@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -66,6 +66,7 @@ public class BasicAccessManager implements IAccessManager {
 
     /**
      * Set elements as model component.
+     * 
      * @param ramc <code>true</code> to set loaded elements as model component.
      */
     @objid ("f638648f-3948-11e2-920a-001ec947ccaf")
@@ -81,6 +82,7 @@ public class BasicAccessManager implements IAccessManager {
 
     /**
      * Tells whether the access manager allow writing.
+     * 
      * @return <code>true</code> if writing is allowed else <code>false</code>.
      */
     @objid ("f63ac6e0-3948-11e2-920a-001ec947ccaf")
@@ -90,6 +92,7 @@ public class BasicAccessManager implements IAccessManager {
 
     /**
      * Allow write.
+     * 
      * @param val <code>true</code> to allow writing, <code>false</code> to deny it.
      */
     @objid ("f63ac6e5-3948-11e2-920a-001ec947ccaf")

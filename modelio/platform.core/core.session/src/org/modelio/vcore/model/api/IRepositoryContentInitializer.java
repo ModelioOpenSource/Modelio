@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ public interface IRepositoryContentInitializer extends IMetamodelDependentServic
      * Populate the given repository using the given session.
      * <p>
      * The repository must be mount and a model transaction be open.
+     * 
      * @param modelName the fragment name
      * @param session the session to use
      * @param repository the repository to populate.

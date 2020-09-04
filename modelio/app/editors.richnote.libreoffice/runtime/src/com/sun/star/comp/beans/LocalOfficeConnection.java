@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -125,6 +125,7 @@ public class LocalOfficeConnection implements OfficeConnection {
      * protected Constructor
      * Initialize a LocalOfficeConnection with an already running office.
      * This C'Tor is only used in complex tests at the moment.
+     * 
      * @param xContext a XComponentContext
      */
     @objid ("1b84ffce-4d7b-4dcb-ad14-aced630656ee")
@@ -143,6 +144,7 @@ public class LocalOfficeConnection implements OfficeConnection {
      * pathv  := platform_specific_path_to_the_local_office_distribution
      * pipev  := local_office_connection_pipe_name
      * </pre>
+     * 
      * @param url This is UNO URL which describes the type of a connection.
      * @throws java.net.MalformedURLException if the URL is invalid.
      */
@@ -180,6 +182,7 @@ public class LocalOfficeConnection implements OfficeConnection {
      * UNO service manager if it has not already been initialized.
      * This method can return <code>null</code> if it fails to connect
      * to the office application.
+     * 
      * @return The office UNO component context.
      * @deprecated May establishes a new connection if disconnected.
      */
@@ -235,6 +238,7 @@ public class LocalOfficeConnection implements OfficeConnection {
 
     /**
      * Adds an event listener to the object.
+     * 
      * @param listener is a listener object.
      */
     @objid ("3c316219-6095-4216-a551-d25c74160d84")
@@ -245,6 +249,7 @@ public class LocalOfficeConnection implements OfficeConnection {
 
     /**
      * Removes an event listener from the listener list.
+     * 
      * @param listener is a listener object.
      */
     @objid ("c1fce687-8cef-4263-aef3-bbe2c6c9bc62")
@@ -255,6 +260,7 @@ public class LocalOfficeConnection implements OfficeConnection {
 
     /**
      * Establishes the connection to the office.
+     * 
      * @throws java.io.IOException in case of failure.
      */
     @objid ("501347f2-0f98-4e67-806d-ebc9af8d0afc")
@@ -416,6 +422,7 @@ public class LocalOfficeConnection implements OfficeConnection {
 
     /**
      * Retrieves a path to the office program folder.
+     * 
      * @return The path to the office program folder.
      */
     @objid ("1a1b9711-75c3-4188-8574-239429e18aa8")
@@ -441,6 +448,7 @@ public class LocalOfficeConnection implements OfficeConnection {
 
     /**
      * Get the system dependent office program name.
+     * 
      * @return the office program name.
      */
     @objid ("127239ee-e3ea-4ff3-889c-b4eb1bdfe9b9")
@@ -476,6 +484,7 @@ public class LocalOfficeConnection implements OfficeConnection {
      * <li>"uno:localoffice,pipe=xyz_Office,path=/opt/openoffice11/program;urp;StarOffice.ServiceManager";
      * <li>"uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager";
      * </ul>
+     * 
      * @param url This is UNO URL which describes the type of a connection.
      * @exception java.net.MalformedURLException when inappropreate URL was
      * provided.
@@ -689,6 +698,7 @@ public class LocalOfficeConnection implements OfficeConnection {
 
         /**
          * Retrieve the office service identifier.
+         * 
          * @return The identifier of the office service.
          */
         @objid ("f456ffc4-5aef-4f91-b78a-3a34451112dc")
@@ -764,6 +774,7 @@ public class LocalOfficeConnection implements OfficeConnection {
 
         /**
          * Retrieves the amount of time to wait for the startup.
+         * 
          * @return The amount of time to wait in seconds(?).
          */
         @objid ("9a7e5340-3842-4efd-920a-cc8f8b39ae06")

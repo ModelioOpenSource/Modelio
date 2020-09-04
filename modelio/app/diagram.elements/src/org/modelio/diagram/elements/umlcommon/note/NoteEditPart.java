@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -158,6 +158,7 @@ public class NoteEditPart extends AbstractNodeEditPart {
 
     /**
      * Get the note figure.
+     * 
      * @return The note figure.
      */
     @objid ("818d862c-1dec-11e2-8cad-001ec947c8cc")
@@ -185,6 +186,7 @@ public class NoteEditPart extends AbstractNodeEditPart {
 
     /**
      * Recreate the link between the {@link Note} and its annoted element through a reconnect request.
+     * 
      * @param source the annoted element.
      */
     @objid ("c2e9147a-5562-4179-a9de-1c46e889df02")

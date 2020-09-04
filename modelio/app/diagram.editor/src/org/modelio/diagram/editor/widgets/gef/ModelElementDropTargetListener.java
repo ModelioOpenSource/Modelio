@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,42 +20,39 @@
 
 package org.modelio.diagram.editor.widgets.gef;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.dnd.AbstractTransferDropTargetListener;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.swt.dnd.Transfer;
 import org.modelio.api.ui.dnd.ModelElementTransfer;
+import org.modelio.core.ui.swt.SelectionHelper;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.vcore.session.api.model.IModel;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
+/**
+ * Drop listener that supports {@link ModelElementTransfer} and {@link LocalSelectionTransfer}.
+ * <p>
+ * Use static constructors to get an instance for both types.
+ */
 @objid ("6664e8a8-33f7-11e2-95fe-001ec947c8cc")
 public class ModelElementDropTargetListener extends AbstractTransferDropTargetListener {
     @objid ("6664e8a9-33f7-11e2-95fe-001ec947c8cc")
     private ModelElementDropRequest request;
 
     @objid ("6664e8aa-33f7-11e2-95fe-001ec947c8cc")
-    private IModel coreSession;
-
-    @objid ("6664e8ab-33f7-11e2-95fe-001ec947c8cc")
-    ModelElementDropTargetListener(EditPartViewer viewer, Transfer xfer) {
-        super(viewer, xfer);
-    }
+    private final IModel coreSession;
 
     @objid ("6664e8af-33f7-11e2-95fe-001ec947c8cc")
-    public ModelElementDropTargetListener(EditPartViewer viewer, IModel coreSession) {
-        super(viewer, ModelElementTransfer.getInstance());
+    protected ModelElementDropTargetListener(EditPartViewer viewer, IModel coreSession, Transfer xfer) {
+        super(viewer, xfer);
         this.coreSession = coreSession;
         setEnablementDeterminedByCommand(true);
     }
@@ -71,6 +68,7 @@ public class ModelElementDropTargetListener extends AbstractTransferDropTargetLi
     @objid ("6664e8b8-33f7-11e2-95fe-001ec947c8cc")
     @Override
     protected void updateTargetRequest() {
+        //System.out.println("updateTargetRequest() for "+getTransfer().getClass().getSimpleName());
         ((ModelElementDropRequest) getTargetRequest()).setLocation(getDropLocation());
         setRequestDroppedElements(getCurrentEvent());
     }
@@ -78,29 +76,25 @@ public class ModelElementDropTargetListener extends AbstractTransferDropTargetLi
     @objid ("6664e8bb-33f7-11e2-95fe-001ec947c8cc")
     @Override
     protected void handleDragOver() {
+        //System.out.println("begin handleDragOver() for "+getTransfer().getClass().getSimpleName()+" ep="+getTargetEditPart());
+        
         getCurrentEvent().detail = DND.DROP_COPY;
         // setRequestDroppedElements(getCurrentEvent());
         super.handleDragOver();
-    }
-
-    @objid ("6664e8be-33f7-11e2-95fe-001ec947c8cc")
-    @Override
-    protected void handleDrop() {
-        // DropTargetEvent event = getCurrentEvent();
         
-        // Point dropPoint = Display.getCurrent().map(null, dropZone, event.x, event.y);
-        
-        super.handleDrop();
+        //System.out.println(" end handleDragOver() for "+getTransfer().getClass().getSimpleName()+" ep="+getTargetEditPart());
     }
 
     /**
      * Updates the ModelElementDropRequest dragged elements.
+     * 
      * @param event the event to get the infos from.
      */
     @objid ("6664e8c1-33f7-11e2-95fe-001ec947c8cc")
     private void setRequestDroppedElements(DropTargetEvent event) {
+        MObject[] droppedElements = null;
+        
         if (ModelElementTransfer.getInstance().isSupportedType(event.currentDataType)) {
-            MObject[] droppedElements = null;
             MRef[] refs = (MRef[]) event.data;
             if (refs != null) {
                 droppedElements = new MObject[refs.length];
@@ -113,46 +107,61 @@ public class ModelElementDropTargetListener extends AbstractTransferDropTargetLi
                 droppedElements = getLocalDraggedElements();
             }
         
-            if (droppedElements != null) {
+        } else if (LocalSelectionTransfer.getTransfer().isSupportedType(event.currentDataType)) {
+            droppedElements = getLocalDraggedElements();
+        }
         
-                // for ( MObject element : droppedElements )
-                // System.out.println( element + " Drop at (" + event.x + ", " + event.y + ")");
+        if (droppedElements != null) {
         
-                ModelElementDropRequest req = (ModelElementDropRequest) getTargetRequest();
-                req.setDroppedElements(droppedElements);
+            final boolean DEBUG = false;
+            if (DEBUG) {
+                System.out.println( getTransfer().getClass().getSimpleName() + " Drop at (" + event.x + ", " + event.y + "):");
+                for ( MObject element : droppedElements ) {
+                    System.out.println( "  - " + element );
+                }
             }
-            // else {
-            // System.out.println("setRequestDroppedElements(DropTargetEvent event) : event.data == null");
-            // }
+        
+            ModelElementDropRequest req = (ModelElementDropRequest) getTargetRequest();
+            req.setDroppedElements(droppedElements);
         }
     }
 
     /**
      * Get the elements dragged from the same instance of Modelio. Uses {@link LocalSelectionTransfer}.
-     * @see LocalSelectionTransfer
+     * 
      * @return the dragged elements.
      */
     @objid ("6664e8c5-33f7-11e2-95fe-001ec947c8cc")
     private static MObject[] getLocalDraggedElements() {
-        List<MObject> selectedElements = new ArrayList<>();
-        
         ISelection selection = LocalSelectionTransfer.getTransfer().getSelection();
-        if (selection instanceof IStructuredSelection) {
-            IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-            for (Iterator<?> i = structuredSelection.iterator(); i.hasNext();) {
-                Object o = i.next();
-                if (o instanceof IAdaptable) {
-                    IAdaptable adapter = (IAdaptable) o;
-                    MObject element = adapter.getAdapter(MObject.class);
-                    if (element != null) {
-                        selectedElements.add(element);
-                    }
-                } else if (o instanceof MObject) {
-                    selectedElements.add((MObject) o);
-                }
-            }
-        }
+        List<MObject> selectedElements = SelectionHelper.toList(selection, MObject.class);
         return selectedElements.toArray(new MObject[0]);
+    }
+
+    /**
+     * Get an instance for {@link ModelElementTransfer}.
+     * 
+     * @param viewer an EditPartViewer
+     * @param coreSession the Interface used to access the model
+     * @return a {@link ModelElementDropTargetListener}
+     * @since 4.0
+     */
+    @objid ("3f78e4a6-db06-47e4-8ec9-8e4c7eaec21f")
+    public static ModelElementDropTargetListener forModelElementTransfer(EditPartViewer viewer, IModel coreSession) {
+        return new ModelElementDropTargetListener(viewer, coreSession, ModelElementTransfer.getInstance());
+    }
+
+    /**
+     * Get an instance for {@link LocalSelectionTransfer}.
+     * 
+     * @param viewer an EditPartViewer
+     * @param coreSession the Interface used to access the model
+     * @return a {@link ModelElementDropTargetListener}
+     * @since 4.0
+     */
+    @objid ("0caa444f-538c-4453-967a-2b7df782d351")
+    public static ModelElementDropTargetListener forLocalSelectionTransfer(EditPartViewer viewer, IModel coreSession) {
+        return new ModelElementDropTargetListener(viewer, coreSession, LocalSelectionTransfer.getTransfer());
     }
 
 }

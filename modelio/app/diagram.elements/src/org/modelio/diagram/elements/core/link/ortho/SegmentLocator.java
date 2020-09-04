@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class SegmentLocator extends ConnectionLocator {
 
     /**
      * Creates a new SegmentLocator for the segment between the points index and index + 1 of the connection.
+     * 
      * @param connection Connection associated with SegmentLocator
      * @param index index of Segment
      */
@@ -55,6 +56,7 @@ public class SegmentLocator extends ConnectionLocator {
     /**
      * Returns the index of this segment locator. This index is the position of the segment in this SegmentLocator's
      * {@link Connection}.
+     * 
      * @return The index
      */
     @objid ("80421f45-1dec-11e2-8cad-001ec947c8cc")

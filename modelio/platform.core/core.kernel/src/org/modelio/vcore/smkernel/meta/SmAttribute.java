@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -73,6 +73,7 @@ public abstract class SmAttribute extends SmFeature implements MAttribute {
 
     /**
      * Get the EMF adapter for this attribute.
+     * 
      * @return The EMF {@link EAttribute}.
      */
     @objid ("ef779bcd-bea9-11e1-b576-001ec947ccaf")
@@ -98,6 +99,7 @@ public abstract class SmAttribute extends SmFeature implements MAttribute {
 
     /**
      * Get the attribute value on the given model object.
+     * 
      * @param object the model object
      * @return the attribute value
      */
@@ -106,6 +108,7 @@ public abstract class SmAttribute extends SmFeature implements MAttribute {
 
     /**
      * Initialize the attribute.
+     * 
      * @param name the attribute name
      * @param owner the owner
      * @param type the attribute type
@@ -119,6 +122,7 @@ public abstract class SmAttribute extends SmFeature implements MAttribute {
 
     /**
      * Initialize the EMF attribute adapter.
+     * 
      * @param emfAdapter the EMF attribute.
      */
     @objid ("ef779bd2-bea9-11e1-b576-001ec947ccaf")
@@ -128,6 +132,7 @@ public abstract class SmAttribute extends SmFeature implements MAttribute {
 
     /**
      * Set the attribute value on the given model object data.
+     * 
      * @param object a model object data
      * @param value the new attribute value
      */
@@ -144,6 +149,7 @@ public abstract class SmAttribute extends SmFeature implements MAttribute {
      * Tells whether this attribute is a name attribute.
      * <p>
      * The name of the attribute is compared to "name" case insensitively.
+     * 
      * @return <code>true</code> if the attribute is a name attribute.
      */
     @objid ("3d4dbd4e-2f3f-11e2-8359-001ec947ccaf")
@@ -153,6 +159,7 @@ public abstract class SmAttribute extends SmFeature implements MAttribute {
 
     /**
      * Initialize the attribute.
+     * 
      * @param name the attribute name
      * @param owner the owner
      * @param type the attribute type

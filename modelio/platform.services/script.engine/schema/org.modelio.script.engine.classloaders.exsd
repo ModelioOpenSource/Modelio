@@ -17,9 +17,9 @@
          </appinfo>
       </annotation>
       <complexType>
-         <choice minOccurs="0" maxOccurs="unbounded">
+         <sequence minOccurs="0" maxOccurs="unbounded">
             <element ref="jython-api-provider"/>
-         </choice>
+         </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
                <documentation>
@@ -56,6 +56,16 @@
                </documentation>
                <appinfo>
                   <meta.attribute kind="java" basedOn=":org.modelio.script.engine.core.engine.IClassLoaderProvider"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="validator" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.core.rcp.extensionpoint.IExtensionPointContribution"/>
                </appinfo>
             </annotation>
          </attribute>

@@ -23,21 +23,21 @@
          <attribute name="point" type="string" use="required">
             <annotation>
                <documentation>
-                  
+
                </documentation>
             </annotation>
          </attribute>
          <attribute name="id" type="string">
             <annotation>
                <documentation>
-                  
+
                </documentation>
             </annotation>
          </attribute>
          <attribute name="name" type="string">
             <annotation>
                <documentation>
-                  
+
                </documentation>
                <appinfo>
                   <meta.attribute translatable="true"/>
@@ -72,6 +72,16 @@
                </appinfo>
             </annotation>
          </attribute>
+         <attribute name="validator" type="string">
+            <annotation>
+               <documentation>
+
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.core.rcp.extensionpoint.IExtensionPointContribution"/>
+               </appinfo>
+            </annotation>
+         </attribute>
       </complexType>
    </element>
 
@@ -97,7 +107,7 @@
          <attribute name="icon" type="string">
             <annotation>
                <documentation>
-                  
+
                </documentation>
                <appinfo>
                   <meta.attribute kind="resource"/>
@@ -107,14 +117,14 @@
          <attribute name="collapsible" type="boolean" use="default" value="true">
             <annotation>
                <documentation>
-                  
+
                </documentation>
             </annotation>
          </attribute>
          <attribute name="initialState" use="default" value="closed">
             <annotation>
                <documentation>
-                  
+
                </documentation>
             </annotation>
             <simpleType>
@@ -208,7 +218,7 @@ May be used by external code to modify the palette.
    <element name="separator">
       <annotation>
          <documentation>
-            A separator for the palette 
+            A separator for the palette
 
 Separators can also be used as markers. Palettes that expect external code to add entries to it can use such markers to indicate where those new entries should be added. For this to happen, a separator must be uniquely identified. Unless a separator is not a marker, it is recommended that it be given a unique ID.
          </documentation>

@@ -6,33 +6,32 @@
    <extension-point id="org.modelio.diagram.editor.inputprovider" name="Diagram input provider" schema="schema/org.modelio.diagram.editor.inputprovider.exsd"/>
    <extension-point id="org.modelio.diagram.editor.palette" name="Diagram palette" schema="schema/org.modelio.diagram.editor.palette.exsd"/>
    <extension-point id="org.modelio.diagram.editor.toolregistry" name="Diagram tool registry" schema="schema/org.modelio.diagram.editor.toolregistry.exsd"/>
-   
+
    <extension id="id1" point="org.eclipse.e4.workbench.model">
       <processor beforefragment="true" class="org.modelio.diagram.editor.plugin.DiagramElementsProcessor" />
       <processor beforefragment="true" class="org.modelio.diagram.editor.plugin.DiagramEditorsManager"/>
       <processor beforefragment="true" class="org.modelio.diagram.editor.context.ModuleMenuCreator"/>
    </extension>
-	
-   <extension point="org.modelio.diagram.editor.toolregistry">
-        <creationtool id="CREATE_NOTE" label="%Note.label" tooltip="%Note.tooltip"  interactor="linkedNode">
-			<context metaclass="Infrastructure.Note"/>
-		</creationtool>
 
-		<creationtool id="CREATE_EXTERNDOCUMENT" label="%Document.label" tooltip="%Document.tooltip"  interactor="linkedNode" >
-			<context metaclass="Infrastructure.Document" />
-		</creationtool>
-
-        <creationtool id="CREATE_RELATED_DIAGRAM_LINK" label="%RelatedDiagramLink.label" tooltip="%RelatedDiagramLink.tooltip" interactor="linkedNode" icon="icons/relateddiagram.png">
-			<context metaclass="Infrastructure.Dependency" dependency="ModelElement.DependsOnDependency" stereotype="related_diagram" router="DEPENDENCY_CONNECTIONROUTER"/>
-		</creationtool>
-		
-		<creationtool id="CREATE_DEPENDENCY" label="%Dependency.label" tooltip="%Dependency.tooltip" interactor="link" >
-			<context metaclass="Infrastructure.Dependency" router="DEPENDENCY_ROUTINGMODE"/>
-		</creationtool>
+	<extension point="org.modelio.diagram.editor.toolregistry">
+		<tools>
+	        <creationtool id="CREATE_NOTE" label="%Note.label" tooltip="%Note.tooltip"  interactor="linkedNode">
+				<context metaclass="Infrastructure.Note"/>
+			</creationtool>
+			<creationtool id="CREATE_EXTERNDOCUMENT" label="%Document.label" tooltip="%Document.tooltip"  interactor="linkedNode" >
+				<context metaclass="Infrastructure.Document" />
+			</creationtool>
+	        <creationtool id="CREATE_RELATED_DIAGRAM_LINK" label="%RelatedDiagramLink.label" tooltip="%RelatedDiagramLink.tooltip" interactor="linkedNode" icon="icons/relateddiagram.png">
+				<context metaclass="Infrastructure.Dependency" dependency="ModelElement.DependsOnDependency" stereotype="related_diagram" router="DEPENDENCY_CONNECTIONROUTER"/>
+			</creationtool>
+			<creationtool id="CREATE_DEPENDENCY" label="%Dependency.label" tooltip="%Dependency.tooltip" interactor="link" >
+				<context metaclass="Infrastructure.Dependency" router="DEPENDENCY_ROUTINGMODE"/>
+			</creationtool>
+		</tools>
    </extension>
 
 <extension point="org.eclipse.e4.workbench.model"  id="modelContribution">
-      <fragment uri="e4model/diagram.editor.e4xmi"></fragment>
+      <fragment uri="e4model/diagram.editor.e4xmi"/>
 </extension>
 
 <extension point="org.eclipse.core.expressions.definitions">
@@ -74,7 +73,7 @@
      </with>
   </definition>
 </extension>
-  
+
 <extension point="org.eclipse.core.expressions.propertyTesters">
 		<propertyTester
 			class="org.modelio.diagram.editor.corexp.GmTester"

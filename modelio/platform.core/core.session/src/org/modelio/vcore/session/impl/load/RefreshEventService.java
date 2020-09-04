@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class RefreshEventService {
 
     /**
      * Initialize the refresh event support
+     * 
      * @param changeSupport the model change support
      * @param transactionSupport the model transaction support
      * @param schedulerService a scheduler executor service
@@ -69,6 +70,7 @@ public class RefreshEventService {
      * Add a refresh event to process.
      * <p>
      * Add the event to a queue and returns immediately.
+     * 
      * @param actions all model refresh changes.
      * @param newDeletedData deleted model object data to keep from garbage collection.
      */

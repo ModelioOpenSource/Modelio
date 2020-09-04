@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -250,6 +250,7 @@ public class MetaKey {
 
     /**
      * Private constructor. Don't use outside this class.
+     * 
      * @param key The meta key name.
      * @param type The meta key type.
      */
@@ -264,6 +265,7 @@ public class MetaKey {
 
     /**
      * Get the string uniquely identifying the meta key.
+     * 
      * @return the meta key name.
      */
     @objid ("855d1016-1926-11e2-92d2-001ec947c8cc")
@@ -291,6 +293,7 @@ public class MetaKey {
 
     /**
      * Get the meta key type.
+     * 
      * @return the meta key type.
      */
     @objid ("855f7259-1926-11e2-92d2-001ec947c8cc")
@@ -306,6 +309,7 @@ public class MetaKey {
 
     /**
      * Return the MetaKey instance for a given string key.
+     * 
      * @param id the id string value
      * @return the MetaKey for the given string key or null if none found.
      */
@@ -316,6 +320,7 @@ public class MetaKey {
 
     /**
      * Get all instances of MetaKey
+     * 
      * @return all created style keys.
      */
     @objid ("855f726b-1926-11e2-92d2-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class EPackageImport extends EElement {
     /**
      * The EPackageImport constructor.
      * It takes the imported Ecore org.eclipse.uml2.uml.PackageImport as parameter
+     * 
      * @param element : the imported Ecore org.eclipse.uml2.uml.PackageImport
      */
     @objid ("c22ff0f3-3484-4ab8-96fd-886c8fa8e90c")

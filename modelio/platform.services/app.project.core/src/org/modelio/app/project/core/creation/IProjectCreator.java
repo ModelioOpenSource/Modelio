@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import org.modelio.vbasic.progress.IModelioProgress;
 public interface IProjectCreator {
     /**
      * @param projFactory a GProject factory
+     * 
      * @param data the project creation data model.
      * @param monitor a progress monitor, can be null
      * @throws java.io.IOException in case of I/O error.

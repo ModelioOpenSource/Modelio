@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class GmNote extends GmSimpleNode {
 
     /**
      * Creates a GmNote.
+     * 
      * @param diagram The diagram owning the node
      * @param note The represented note element
      * @param ref The represented note reference
@@ -144,6 +145,7 @@ public class GmNote extends GmSimpleNode {
 
     /**
      * Get the note type label.
+     * 
      * @return the note type label.
      */
     @objid ("8188c170-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public class BpmnCreateLinkChooseNodeEditPolicy extends AbstractCreateLinkChoose
 
     /**
      * Only node tools from the palette. For BpmnEvent only those without type.
+     * 
      * @param entry a palette entry
      * @return true only for node tools without typed BpmnEvent ones.
      */
@@ -124,6 +125,7 @@ public class BpmnCreateLinkChooseNodeEditPolicy extends AbstractCreateLinkChoose
      * Tells whether the request is a choose link and choose node request.
      * <p>
      * It is a request having a {@link UserChoiceLinkCreationFactory} creation factory.
+     * 
      * @param request a {@link CreateLinkConstants#REQ_CONNECTION_CREATE_LINK_CHOOSENODE} request
      * @return whether it is a "user choice" create link request.
      */
@@ -152,6 +154,7 @@ public class BpmnCreateLinkChooseNodeEditPolicy extends AbstractCreateLinkChoose
      * Create an updated clone of the given request with a {@link ModelioLinkCreationContext} factory for {@link BpmnSequenceFlow}.
      * <p>
      * The clone is cached in the request extended data.
+     * 
      * @param req a request
      * @return the cloned request.
      */

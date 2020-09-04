@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class UriPathAccess implements AutoCloseable {
 
     /**
      * Constructor
+     * 
      * @param uri the URI to access a a Path.
      * @deprecated Please use {@link #UriPathAccess(URI, IAuthData)} with an authentication data or <code>null</code>
      * if none is needed.
@@ -68,6 +69,7 @@ public class UriPathAccess implements AutoCloseable {
 
     /**
      * Constructor
+     * 
      * @param uri the URI to access a a Path.
      * @param auth authentication data, may be <code>null</code>.
      */
@@ -79,6 +81,7 @@ public class UriPathAccess implements AutoCloseable {
 
     /**
      * Convert the URI to a {@link Path}.
+     * 
      * @return the converted path.
      * @throws java.io.IOException in case of I/O failure.
      * @throws java.nio.file.FileSystemException in case of file system failure
@@ -92,6 +95,7 @@ public class UriPathAccess implements AutoCloseable {
 
     /**
      * Set the authentication data.
+     * 
      * @param auth authentication data, may be <code>null</code>.
      */
     @objid ("fde22ca8-57f1-4f57-adb4-8788735d8951")

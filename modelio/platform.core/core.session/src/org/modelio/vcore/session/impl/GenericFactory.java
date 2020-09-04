@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public final class GenericFactory {
      * <p>
      * The new object will belong to the same repository as the 'referent' object. The 'referent' object is NOT the composition
      * owner of the created object.
+     * 
      * @param metaclass the metaclass of the object to create.
      * @param referent the referent object
      * @return the created object
@@ -64,6 +65,7 @@ public final class GenericFactory {
      * Create an instance of 'metaclass'.
      * <p>
      * The new object will belong to the given repository .
+     * 
      * @param metaclass the metaclass of the object to create.
      * @param repository the repository
      * @return the created object
@@ -76,6 +78,7 @@ public final class GenericFactory {
     /**
      * Create an instance of 'metaclass'. The new object will belong to the same repository as the 'referent' object. The 'referent'
      * object is NOT the composition owner of the created object.
+     * 
      * @param metaclass the metaclass name of the object to create.
      * @param referent the referent object
      * @return the created object
@@ -88,6 +91,7 @@ public final class GenericFactory {
 
     /**
      * Create an instance of 'metaclass'. The new object will belong to the given repository.
+     * 
      * @param metaclass the metaclass name of the object to create.
      * @param repository the repository that will contain the object.
      * @return the created object
@@ -104,6 +108,7 @@ public final class GenericFactory {
      * Create an instance of 'metaclass' and define 'parent' as its composition owner using the dependency 'dep'.
      * <p>
      * The new object will belong to the same repository as the 'parent' object.
+     * 
      * @param metaclass the metaclass name
      * @param parent the composition owner
      * @param depName the name of the metamodel relation from the owner to the created element.
@@ -127,6 +132,7 @@ public final class GenericFactory {
     /**
      * Create an instance of 'metaclass' and define 'parent' as its composition owner using the dependency 'depName'.
      * The new object will belong to the same repository as the 'parent' object.
+     * 
      * @param metaclass a metamodel class java interface
      * @param parent the new element owner
      * @param depName the metamodel relation from the owner to the created element.
@@ -142,6 +148,7 @@ public final class GenericFactory {
     /**
      * Create an instance of 'metaclass' and define 'parent' as its composition owner using the dependency 'dep'. The new object
      * will belong to the same repository as the 'parent' object.
+     * 
      * @param metaclass a metamodel class
      * @param parent the new element owner
      * @param dep the metamodel relation from the owner to the created element.
@@ -158,6 +165,7 @@ public final class GenericFactory {
      * Create an instance of 'metaclass'. The new object will belong to the given repository.
      * @param <T>
      * the metaclass interface of the object to create.
+     * 
      * @param metaclass the metaclass of the object to create.
      * @param repository the repository where the model object will be stored.
      * @return the created object
@@ -173,6 +181,7 @@ public final class GenericFactory {
      * object is NOT the composition owner of the created object.
      * @param <T>
      * the metaclass interface of the object to create.
+     * 
      * @param metaclass the metaclass of the object to create.
      * @param referent the referent object
      * @return the created object
@@ -185,6 +194,7 @@ public final class GenericFactory {
 
     /**
      * Initialize a generic factory.
+     * 
      * @param smFactory a core factory.
      * @param repoSupport a repository support.
      */
@@ -202,7 +212,7 @@ public final class GenericFactory {
             throw new IllegalArgumentException(metaclass.getSimpleName() + " is not a metamodel class.");
         }
         if (cls.isFake()) {
-            throw new IllegalArgumentException(VCoreSession.getMessage("GenericFactory.fakeMetaclass", cls.getQualifiedName()));
+            throw new IllegalArgumentException(VCoreSession.I18N.getMessage("GenericFactory.fakeMetaclass", cls.getQualifiedName()));
         }
         return cls;
     }
@@ -214,7 +224,7 @@ public final class GenericFactory {
             throw new IllegalArgumentException(metaclass + " is not a metamodel class.");
         }
         if (cls.isFake()) {
-            throw new IllegalArgumentException(VCoreSession.getMessage("GenericFactory.fakeMetaclass", cls.getQualifiedName()));
+            throw new IllegalArgumentException(VCoreSession.I18N.getMessage("GenericFactory.fakeMetaclass", cls.getQualifiedName()));
         }
         return cls;
     }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ public class TransactionWrapper implements org.modelio.api.modelio.model.ITransa
 
     /**
      * Constructor
+     * 
      * @param wrapped the wrapped transaction.
      */
     @objid ("1c44d7fb-06af-4003-9fc7-7e4545fb8f2b")

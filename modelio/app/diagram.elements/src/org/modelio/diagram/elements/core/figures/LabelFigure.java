@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class LabelFigure extends Label {
 
     /**
      * Set whether the main label is underlined.
+     * 
      * @param underline true to underline the main label
      */
     @objid ("7fa7268b-1dec-11e2-8cad-001ec947c8cc")
@@ -74,6 +75,7 @@ public class LabelFigure extends Label {
 
     /**
      * Set whether the main label is underlined.
+     * 
      * @param strikeThrough true to strike the label
      */
     @objid ("7fa72690-1dec-11e2-8cad-001ec947c8cc")

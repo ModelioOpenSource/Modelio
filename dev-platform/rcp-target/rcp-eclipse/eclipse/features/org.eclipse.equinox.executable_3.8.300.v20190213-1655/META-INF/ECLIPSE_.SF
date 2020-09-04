@@ -1,0 +1,45 @@
+Signature-Version: 1.0
+SHA-256-Digest-Manifest-Main-Attributes: TDkVaVl5gKwm/zi6L83gICN0jV1Vi
+ hntq8CniRs8YCE=
+SHA-256-Digest-Manifest: f7Ic8D/1b5o2vitsxB2zK408ZQWE1KPbI9D8QlEFCKo=
+Created-By: 1.8.0_51 (Oracle Corporation)
+
+Name: bin/gtk/linux/x86_64/launcher
+SHA-256-Digest: moHD1X1QrlTkYGDb1YTO8dZ2BKeOmxfwtsvKfP6HOHc=
+
+Name: feature.xml
+SHA-256-Digest: vG55yhVi0bsdY3HDQrvXA0UdNFBKTVrMZ9BynQaNFgY=
+
+Name: feature.properties
+SHA-256-Digest: yBhhtlxEQ278vqpvYlibd/Ym6ye9h7sKVSmEy+tqd3g=
+
+Name: bin/cocoa/macosx/x86_64/Eclipse.app/Contents/MacOS/launcher
+SHA-256-Digest: SUDtyKyr/PpHYdmXkLImJLT7iGaqtjqTrQMrw7Ulymw=
+
+Name: bin/win32/win32/x86_64/eclipsec.exe
+SHA-256-Digest: fq3wodR9WdU8Blt4wWIi+qQbgVPCWCNxefGpyIch1Oo=
+
+Name: bin/win32/win32/x86_64/launcher.exe
+SHA-256-Digest: cqzuqszA4r1TTAMGOjKiCYpDT4PvEKFqKeWYtAhqkhM=
+
+Name: bin/cocoa/macosx/x86_64/Eclipse.app/Contents/Info.plist
+SHA-256-Digest: bOOvOeCTnDSXjghlARQ7S2Z709MPFMgktr44BhzeWbI=
+
+Name: bin/gtk/linux/ppc64le/launcher
+SHA-256-Digest: sdTOA0So4dbcdi5ZQFQ6tD2QAg2Q6hzthzdTonX4JlM=
+
+Name: epl-2.0.html
+SHA-256-Digest: AED4dAeGrOY0hc5nW8gJmyCMPlZ5rTF8ACL9TK1dx/Q=
+
+Name: build.properties
+SHA-256-Digest: AHSJcB3dAlsd0XRy/qazhtTfbvYoNc8HBueRtMEePTI=
+
+Name: gtk_root/about.html
+SHA-256-Digest: gFWcnFuoVaJVH+7YmIl2HVGpFRo7tb7M+wM0/JsJwO8=
+
+Name: build.xml
+SHA-256-Digest: U+tyMopQwr6t1YqE+UVI6s2B0BbYmg8YxnEEBcugu6A=
+
+Name: license.html
+SHA-256-Digest: zVM/vJgU0kRLZDQ3qmgeRgMh5WQ38NzJh/8vJedLd0s=
+

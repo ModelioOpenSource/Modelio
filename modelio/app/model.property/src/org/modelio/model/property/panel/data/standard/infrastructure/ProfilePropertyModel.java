@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public class ProfilePropertyModel extends AbstractPropertyModel<Profile> {
 
     /**
      * Instantiate the profile properties view.
+     * 
      * @param theEditedElement the current profile.
      */
     @objid ("46ca4c30-6f85-4cb3-8ab0-deb41fe62e87")

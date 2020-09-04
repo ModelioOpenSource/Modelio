@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface FakeMVisitor {
     /**
      * Visit a fake object.
+     * 
      * @param obj a fake object.
      * @return implementation dependent.
      */

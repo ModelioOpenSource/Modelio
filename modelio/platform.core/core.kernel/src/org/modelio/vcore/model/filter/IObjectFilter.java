@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IObjectFilter {
     /**
      * Tells whether the given object must be included.
+     * 
      * @param obj an object
      * @return <li><code>true</code> to include the object, <li>
      * <code>false</code> to filter it out.

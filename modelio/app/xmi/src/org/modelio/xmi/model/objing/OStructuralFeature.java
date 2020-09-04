@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,7 +39,9 @@ public class OStructuralFeature extends OFeature {
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
+        
         if (ecoreElt instanceof org.eclipse.uml2.uml.StructuralFeature){
+        
             StructuralFeature structFeature = (StructuralFeature) getObjingElement();
             org.eclipse.uml2.uml.StructuralFeature ecoreFeature = (org.eclipse.uml2.uml.StructuralFeature) ecoreElt;
             setMin(ecoreFeature, structFeature);
@@ -83,7 +85,8 @@ public class OStructuralFeature extends OFeature {
             }
         }
         
-        ObjingEAnnotation.setMultiMax(ecoreFeature, objingMultMax);
+        if (GenerationProperties.getInstance().isRoundtripEnabled())
+            ObjingEAnnotation.setMultiMax(ecoreFeature, objingMultMax);
     }
 
     @objid ("03cb5187-ff84-4496-b70c-cdd66e7fd679")
@@ -112,7 +115,8 @@ public class OStructuralFeature extends OFeature {
             }
         }
         
-        ObjingEAnnotation.setMultiMin(ecoreFeature, objingMultMin);
+        if (GenerationProperties.getInstance().isRoundtripEnabled())
+            ObjingEAnnotation.setMultiMin(ecoreFeature, objingMultMin);
     }
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class GAuthConf {
 
     /**
      * initialize an authentication configuration from an authentication data.
+     * 
      * @param data an authentication data.
      * @param scope the definition scope
      */
@@ -92,6 +93,7 @@ public class GAuthConf {
      * Initialize an authentication configuration from the descriptor.
      * <p>
      * Returns a local empty GAuthConf if no descriptor is passed.
+     * 
      * @param desc an authentication data descriptor.
      * @return the authentication configuration, never <code>null</code>.
      */
@@ -111,6 +113,7 @@ public class GAuthConf {
      * Get the authentication data.
      * <p>
      * <i>null</i> means authentication must be asked to the user.
+     * 
      * @return the authentication data or <i>null</i>.
      */
     @objid ("7d657f60-3600-4114-a0f8-8efa77a5be84")
@@ -140,6 +143,7 @@ public class GAuthConf {
      * Reconfigure this authentication configuration from the provided authentication descriptor.
      * <p>
      * If no descriptor is provided, the configuration is left unmodified.
+     * 
      * @param authDescriptor The new authentication descriptor
      * @return <code>true</code> if the authentication changed else <code>false</code>.
      */
@@ -200,6 +204,7 @@ public class GAuthConf {
      * Returns <code>false</code> if the second authentication should replace the first one.
      * Compares the schemes, then test whether all the first authentication properties
      * are contained in the second one.
+     * 
      * @param old an current authentication data
      * @param newData the new authentication data.
      * @return <code>true</code> if the 2 authentications represents the same login,
@@ -232,6 +237,7 @@ public class GAuthConf {
      * Get the authentication scheme id for convenience.
      * <p>
      * Returns <i>null</i> if there is no authentication data.
+     * 
      * @return the authentication data scheme id.
      */
     @objid ("04c3e7ee-c36a-48f2-9c77-1ca68aa3f040")

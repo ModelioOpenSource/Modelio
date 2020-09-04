@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -313,6 +313,7 @@ class StyleEditPanelUI implements IStyleChangeListener {
 
     /**
      * Add entries to the contextual menu
+     * 
      * @param popupMenu the contextual menu to fill.
      */
     @objid ("22d302ce-9e17-4c4b-9d66-6800061cd842")
@@ -353,6 +354,7 @@ class StyleEditPanelUI implements IStyleChangeListener {
      * Get the contextual menu manager.
      * <p>
      * The caller may add entries to the menu.
+     * 
      * @return the contextual menu manager.
      */
     @objid ("8cfe4e8e-bbf9-45de-8d8d-404289c46ebc")

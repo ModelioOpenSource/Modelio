@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import org.modelio.diagram.browser.view.DiagramBrowserView;
 public class CollapseAllHandler {
     /**
      * Collapses all nodes of the DiagramBrowserView's tree, starting with the root.
+     * 
      * @param part a {@link BrowserView} part.
      */
     @objid ("b1e97f07-54c7-11e2-ae63-002564c97630")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ import org.modelio.diagram.elements.core.figures.ZoomDrawer;
 public class ZoomableLineBorder extends LineBorder {
     /**
      * Constructs a LineBorder with the specified color and of the specified width.
+     * 
      * @param lineColor The color of the border.
      * @param lineWidth The width of the border in pixels.
      * @since 2.0

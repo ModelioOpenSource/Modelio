@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -119,6 +119,7 @@ public class VersionedItem<T> implements Comparable<VersionedItem<?>>, Serializa
 
     /**
      * Convenience to find a versioned item by name in a generic collection.
+     * 
      * @param name the name to look for
      * @param coll the collection to look into
      * @return the found item or <i>null</i>.
@@ -143,6 +144,7 @@ public class VersionedItem<T> implements Comparable<VersionedItem<?>>, Serializa
 
     /**
      * Get the represented object, or any data attached.
+     * 
      * @return the object
      */
     @objid ("b6245d28-9c01-4886-864c-0d1dc153bf1a")
@@ -172,6 +174,7 @@ public class VersionedItem<T> implements Comparable<VersionedItem<?>>, Serializa
 
     /**
      * Attach the represented object or any other data.
+     * 
      * @param object the object to attach.
      */
     @objid ("98d2a4cd-1031-4160-a7d1-3d257bda7a7e")

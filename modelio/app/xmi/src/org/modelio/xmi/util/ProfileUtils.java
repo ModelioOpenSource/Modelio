@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -98,6 +98,7 @@ public class ProfileUtils {
      * Get the content of an {@link Image} as {@link org.eclipse.swt.graphics.Image}
      * @link Image} to set
      * @link org.eclipse.swt.graphics.Image} content
+     * 
      * @param image the UML {
      * @return {
      */
@@ -141,7 +142,7 @@ public class ProfileUtils {
 
     @objid ("599cb712-e276-48a4-847b-be6c61312e03")
     public static List<String> getObjingNameClass(final String ecoreClassName) {
-        List<String> result = ReverseProperties.getInstance().getObjClassNames(ecoreClassName);
+        List<String> result = ReverseProperties.getInstance().getClassNames(ecoreClassName);
         
         if (result.size() == 0){
             result.add("ModelElement");
@@ -151,7 +152,7 @@ public class ProfileUtils {
 
     @objid ("4278ef88-cfd5-4892-9604-9d96003c54f6")
     public static List<String> getEcoreNameClass(final String objClassName) {
-        List<String> result = GenerationProperties.getInstance().getEcoreClassNames(objClassName);
+        List<String> result = GenerationProperties.getInstance().getClassNames(objClassName);
         
         if (result.size() == 0)
             result.add("Element");
@@ -160,21 +161,27 @@ public class ProfileUtils {
 
     @objid ("a3c3b449-22c7-4032-85d8-d6eec5c497fd")
     public static org.eclipse.uml2.uml.Stereotype createStereotype(final Stereotype obStereotype) {
-        org.eclipse.uml2.uml.Profile profile = (org.eclipse.uml2.uml.Profile) GenerationProperties.getInstance().getMappedElement(obStereotype.getOwner());
+        Object owner = GenerationProperties.getInstance().getMappedElement(obStereotype.getOwner());
         
-        String name = ProfileUtils.getStereotypeName(obStereotype);
-        org.eclipse.uml2.uml.Stereotype stereotype  = profile.getOwnedStereotype(name);
+        if (owner instanceof org.eclipse.uml2.uml.Profile) {
+            
+            org.eclipse.uml2.uml.Profile profile = (org.eclipse.uml2.uml.Profile) owner;
+            String name = ProfileUtils.getStereotypeName(obStereotype);
+            org.eclipse.uml2.uml.Stereotype stereotype  = profile.getOwnedStereotype(name);
         
-        if (stereotype == null){
-            stereotype = profile.createOwnedStereotype(name, false);
-            setIconsProperties(stereotype, obStereotype);
-            TotalExportMap.getInstance().put(obStereotype.getUuid().toString(), stereotype);
+            if (stereotype == null){
+                stereotype = profile.createOwnedStereotype(name, false);
+                setIconsProperties(stereotype, obStereotype);
+                TotalExportMap.getInstance().put(obStereotype.getUuid().toString(), stereotype);
         
+            }
+        
+            ObjingEAnnotation.setIsNamedWithConvention(stereotype, ProfileUtils.isNamedWithConvention(obStereotype));
+            ObjingEAnnotation.addObjingID(stereotype, obStereotype.getUuid().toString());
+        
+            return stereotype;           
         }
-        
-        ObjingEAnnotation.setIsNamedWithConvention(stereotype, ProfileUtils.isNamedWithConvention(obStereotype));
-        ObjingEAnnotation.addObjingID(stereotype, obStereotype.getUuid().toString());
-        return stereotype;
+        return null;
     }
 
     @objid ("b46fe5d0-a787-42b1-9dd6-9152c2a537d1")
@@ -184,6 +191,7 @@ public class ProfileUtils {
             File imageFile = new File(moduleResPath.toString() + File.separator + iconPath);
         
             Image icon = stereotype.createIcon(imageFile.getAbsolutePath());
+        
             icon.setFormat(iconPath.substring(iconPath.lastIndexOf(".") + 1, iconPath.length()));
         
             setContent(icon, imageFile);
@@ -231,6 +239,7 @@ public class ProfileUtils {
     /**
      * Set the content of an {@link Image} with a file (containing an image)
      * @link Image} to set
+     * 
      * @param image the UML {
      * @param imageFile the icon
      */
@@ -261,6 +270,7 @@ public class ProfileUtils {
      * org.eclipse.uml2.uml.Read an image file content
      * @param file
      * @throws IOException
+     * 
      * @return a table of bytes of the file content
      */
     @objid ("2154d545-1b59-4464-bb28-7515b7e9b9c4")
@@ -760,6 +770,7 @@ public class ProfileUtils {
      * BufferedImage bimg = convertToAWT(img.getImageData())
      * 
      * funcione correctamente para "pepe" con formato png, jpg, gif
+     * 
      * @param data la ImageData (image swt) a convertir
      * @return la conversi?n de data a una BufferedImage swt
      */

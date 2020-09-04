@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class InteractionUsePropertyModel extends AbstractPropertyModel<Interacti
     /**
      * Create a new <i>InteractionUse</i> data model from an
      * <i>InteractionUse</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("22acf0cd-6a81-4e4a-a8ca-03503bc4fcc2")
@@ -64,6 +65,7 @@ public class InteractionUsePropertyModel extends AbstractPropertyModel<Interacti
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("d2a69c75-979a-45ed-91fe-d9263411af3f")
@@ -74,6 +76,7 @@ public class InteractionUsePropertyModel extends AbstractPropertyModel<Interacti
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("37f8b930-a244-416c-b3cf-bd2789cfd838")
@@ -89,6 +92,7 @@ public class InteractionUsePropertyModel extends AbstractPropertyModel<Interacti
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -120,6 +124,7 @@ public class InteractionUsePropertyModel extends AbstractPropertyModel<Interacti
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -153,6 +158,7 @@ public class InteractionUsePropertyModel extends AbstractPropertyModel<Interacti
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column

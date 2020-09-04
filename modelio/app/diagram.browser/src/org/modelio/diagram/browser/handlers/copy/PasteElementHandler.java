@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class PasteElementHandler {
 
     /**
      * Available only when the selection contains only one modifiable element.
+     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the SWT display
      * @return true if the handler can be executed.
@@ -143,6 +144,7 @@ public class PasteElementHandler {
 
     /**
      * Cut the currently selected elements.
+     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */

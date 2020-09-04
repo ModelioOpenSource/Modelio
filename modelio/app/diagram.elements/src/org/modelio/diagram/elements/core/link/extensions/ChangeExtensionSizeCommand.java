@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -90,6 +90,7 @@ public class ChangeExtensionSizeCommand extends Command {
 
     /**
      * Get the new bounds of the figure if the command matching the request was executed.
+     * 
      * @param hostFigure the host figure
      * @param request the request
      * @return the new bounds in host figure coordinates .
@@ -108,6 +109,7 @@ public class ChangeExtensionSizeCommand extends Command {
 
     /**
      * Show the feedback of a resize link extension.
+     * 
      * @param request the request
      * @param feedback the feedback figure to use
      * @param hostFigure the target link extension figure of the request

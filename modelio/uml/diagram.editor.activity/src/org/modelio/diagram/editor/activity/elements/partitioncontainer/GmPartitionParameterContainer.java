@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class GmPartitionParameterContainer extends GmPortContainer {
 
     /**
      * Constructor.
+     * 
      * @param diagram the diagram in which this ActivityParameter container is unmasked.
      * @param relatedRef represented element reference, must not be null.
      */
@@ -155,6 +156,7 @@ public class GmPartitionParameterContainer extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -166,6 +168,7 @@ public class GmPartitionParameterContainer extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

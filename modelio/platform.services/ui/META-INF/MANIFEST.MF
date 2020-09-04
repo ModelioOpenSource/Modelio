@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Ui Plug-in
 Bundle-SymbolicName: org.modelio.ui;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.modelio.utils,
  org.eclipse.core.runtime,
@@ -13,6 +13,7 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: modelio.org
 Export-Package: org.modelio.ui,
+ org.modelio.ui.desktop,
  org.modelio.ui.dialog,
  org.modelio.ui.gef,
  org.modelio.ui.htmleditor,

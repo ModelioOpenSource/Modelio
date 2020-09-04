@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -112,6 +112,7 @@ public class DiagramBrowserView {
 
     /**
      * Get the modeling session.
+     * 
      * @return the modeling session.
      */
     @objid ("000d345a-0d4f-10c6-842f-001ec947cd2a")
@@ -121,6 +122,7 @@ public class DiagramBrowserView {
 
     /**
      * Select and reveal the given model element in the browser.
+     * 
      * @param element the element to select.
      */
     @objid ("000d76e0-0d4f-10c6-842f-001ec947cd2a")
@@ -210,6 +212,7 @@ public class DiagramBrowserView {
 
     /**
      * Selects and edits the given element in the tree if possible.
+     * 
      * @param elementToEdit the element to select and edit.
      */
     @objid ("cd493808-54c7-11e2-ae63-002564c97630")
@@ -270,6 +273,7 @@ public class DiagramBrowserView {
 
     /**
      * Get selected content model in the toolbar
+     * 
      * @param part @return
      */
     @objid ("756fe621-4b86-442a-9f1d-5530556c46a7")
@@ -298,6 +302,7 @@ public class DiagramBrowserView {
 
     /**
      * This listener is activated when the selection changes in the workbench.<br>
+     * 
      * @param selection the current modelio selection.
      */
     @objid ("ac1b12ab-a34a-4c6a-8791-66e0a2555261")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -84,6 +84,7 @@ public class GmLollipopConnection extends GmSimpleNode {
 
     /**
      * Initialize a lollipop connection.
+     * 
      * @param diagram The diagram.
      * @param element The represented connector, may be null.
      */
@@ -188,6 +189,7 @@ public class GmLollipopConnection extends GmSimpleNode {
 
     /**
      * Get the first provided interface link connected to this node.
+     * 
      * @return the first provided interface link.
      */
     @objid ("36746efa-55b7-11e2-877f-002564c97630")

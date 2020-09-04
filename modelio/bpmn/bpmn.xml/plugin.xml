@@ -2,6 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
 	<extension point="org.eclipse.e4.workbench.model" id="modelContribution">
-		<fragment uri="e4model/bpmnxml.e4xmi" /> 
+		<fragment uri="e4model/bpmnxml.e4xmi"/> 
 	</extension>
 </plugin>

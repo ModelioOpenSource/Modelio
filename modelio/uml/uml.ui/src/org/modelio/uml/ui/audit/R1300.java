@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -170,6 +170,7 @@ public class R1300 extends AbstractUmlRule {
 
         /**
          * If an object node is modified, its upper bound is potentially modified, so we need to check all the upstream and downstream flows connecting to ObjectNodes. An object node can also be updated if a flow is moved or deleted, potentially creating or removing paths between object nodes, so we need to check both upstream and downstream path to update concerned flows.
+         * 
          * @param objectNode The object node that was updated.
          * @return A list of audit entries of all concerned flows.
          */
@@ -200,6 +201,7 @@ public class R1300 extends AbstractUmlRule {
 
         /**
          * Finds all the ObjectFlows connecting the given ObjectNode to another ObjectNode, except for ObjectNodes that are controls.
+         * 
          * @param node The Object node to search from
          * @param objectFlows The list of found ObjectFlow
          * @param visitedFlows The list of visited ObjectFlows
@@ -230,6 +232,7 @@ public class R1300 extends AbstractUmlRule {
 
         /**
          * Finds all the ObjectFlows connecting the given ObjectNode to another ObjectNode, except for ObjectNodes that are controls.
+         * 
          * @param node The Object node to search from
          * @param objectFlows The list of found ObjectFlow
          * @param visitedFlows The list of visited ObjectFlows

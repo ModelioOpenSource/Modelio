@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -40,13 +40,13 @@ public interface Note extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("9904f3cf-0eb5-4993-b9f8-3ee2fdf8cb32")
+    @objid ("615770eb-f5e8-4a51-9085-acfbee94fb10")
     public static final String MNAME = "Note";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("a0a51370-2442-4066-aff6-bd6398cdd8ac")
+    @objid ("31ff9cf8-0f64-4c18-a9b2-e3bf21062025")
     public static final String MQNAME = "Infrastructure.Note";
 
     /**
@@ -55,7 +55,7 @@ public interface Note extends ModelElement {
      * Metamodel description:
      * <i>Textual content of the Note. This text can be a description or any syntax used for a target language.</i>
      */
-    @objid ("2adbaea7-2cb7-4f24-aa15-26d5d5a4cbc2")
+    @objid ("93eecfcd-8bb8-4535-8dd3-bfdf3881133d")
     String getContent();
 
     /**
@@ -64,7 +64,7 @@ public interface Note extends ModelElement {
      * Metamodel description:
      * <i>Textual content of the Note. This text can be a description or any syntax used for a target language.</i>
      */
-    @objid ("9b845830-5eeb-4f5c-a432-4822b4921531")
+    @objid ("53a1b7f9-c5a8-4b92-8670-aef349f4cb76")
     void setContent(String value);
 
     /**
@@ -77,7 +77,7 @@ public interface Note extends ModelElement {
      * 
      * </i>
      */
-    @objid ("d2b32389-aa41-4baa-9563-4811758911ff")
+    @objid ("73e906b5-6435-40b7-91d2-61e60760e9aa")
     String getMimeType();
 
     /**
@@ -90,7 +90,7 @@ public interface Note extends ModelElement {
      * 
      * </i>
      */
-    @objid ("1a2cbe3d-2638-4372-a959-5f828898edfe")
+    @objid ("a6cb13a2-78c0-43fe-a8a1-fcd41a8e1107")
     void setMimeType(String value);
 
     /**
@@ -99,7 +99,7 @@ public interface Note extends ModelElement {
      * Metamodel description:
      * <i>The NoteType defines the different kinds of Notes that are allowed in a particular context (in specific MDACs, for example).</i>
      */
-    @objid ("6f502643-0725-4a4f-95aa-962c1ae1ccf6")
+    @objid ("97e80c8a-cb48-4575-9266-eac03ce9cd29")
     NoteType getModel();
 
     /**
@@ -108,7 +108,7 @@ public interface Note extends ModelElement {
      * Metamodel description:
      * <i>The NoteType defines the different kinds of Notes that are allowed in a particular context (in specific MDACs, for example).</i>
      */
-    @objid ("f3f4cc86-976a-4637-96ba-6a1c93831be9")
+    @objid ("a3ca27ef-aea0-4f3f-a5f9-df53ecad39cd")
     void setModel(NoteType value);
 
     /**
@@ -117,7 +117,7 @@ public interface Note extends ModelElement {
      * Metamodel description:
      * <i>The annotated element owning this note.</i>
      */
-    @objid ("99ebe215-79e1-4e10-a45c-a5618e9ced48")
+    @objid ("d000b894-274e-4ee5-b1d4-a9e3d90b84be")
     ModelElement getSubject();
 
     /**
@@ -126,7 +126,7 @@ public interface Note extends ModelElement {
      * Metamodel description:
      * <i>The annotated element owning this note.</i>
      */
-    @objid ("43f6eb0a-21ce-42a1-9c2b-49e631ac39e3")
+    @objid ("579cb331-1396-4f87-b508-0d15f0c5a412")
     void setSubject(ModelElement value);
 
 }

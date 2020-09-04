@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -86,6 +86,7 @@ public abstract class SmFeature extends SmElement {
 
     /**
      * Check 'value' is a valid value for the feature on the given model object.
+     * 
      * @param smObjectImpl a model object
      * @param value the feature value
      * @throws java.lang.IllegalArgumentException if the value is not valid.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class IdTable {
 
     /**
      * Get the MRef from a local id.
+     * 
      * @param key a local identifier
      * @return the found MRef or null.
      * @throws java.io.IOException on JDBM failure.
@@ -80,6 +81,7 @@ public class IdTable {
      * Get the local identifier for a MRef.
      * <p>
      * Records the MRef and gives him a local identifier if it is missing.
+     * 
      * @param ref a MRef.
      * @return the exisiting or new local identifier.
      * @throws java.io.IOException on JDBM failure.
@@ -119,6 +121,7 @@ public class IdTable {
 
     /**
      * Create a garbage collector.
+     * 
      * @param repositoryLabel a user friendly repository label
      * @return a garbage collector for this table.
      * @throws java.io.IOException on I/O error
@@ -130,6 +133,7 @@ public class IdTable {
 
     /**
      * Remove an entry from the table.
+     * 
      * @param lid the local id
      * @throws java.io.IOException on I/O error
      */
@@ -153,6 +157,7 @@ public class IdTable {
 
         /**
          * Initialize a garbage collector.
+         * 
          * @throws java.io.IOException on I/O error
          */
         @objid ("f6e4ae24-6ff1-49eb-b88d-03888756dc2e")
@@ -163,6 +168,7 @@ public class IdTable {
 
         /**
          * Mark the local id as used.
+         * 
          * @param lid a local id
          * @throws java.io.IOError on I/O error
          */
@@ -173,6 +179,7 @@ public class IdTable {
 
         /**
          * Delete unused entried.
+         * 
          * @param monitor a progress monitor
          * @throws java.io.IOException on I/O error
          */
@@ -187,13 +194,13 @@ public class IdTable {
                 if (! this.walked.contains(entry)) {
                     it.remove();
                 } else if (i++ % 31 == 0) {
-                    mon.subTask(VCoreSession.getMessage("JdbmRepository.gc.finish.delete", this.repoLabel, i, nwalked));
+                    mon.subTask(VCoreSession.I18N.getMessage("JdbmRepository.gc.finish.delete", this.repoLabel, i, nwalked));
                     mon.worked(1);
                     mon.setWorkRemaining(5);
                 }
             }            
             
-            mon.subTask(VCoreSession.getMessage("JdbmRepository.gc.finish.commit", this.repoLabel));
+            mon.subTask(VCoreSession.I18N.getMessage("JdbmRepository.gc.finish.commit", this.repoLabel));
             IdTable.this.db.commit();
             mon.worked(nwalked / 2);
         }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,7 +64,19 @@ class GridLayer2 extends GridLayer {
         graphics.setAlpha(this.gridAlpha);
         graphics.setForegroundColor(this.gridColor);
         graphics.clipRect(getBounds().getCopy().shrink(8, 8)); //TODO improve design...
+        
+        
+        //graphics.setForegroundColor(ColorConstants.black);
+        
         super.paintGrid(graphics);
+        
+        // Draw a (0, 0) point indicator
+        int size = 8;
+        graphics.setAlpha(255);
+        graphics.setLineWidth(2);
+        
+        graphics.drawLine(-size, 0, size, 0);
+        graphics.drawLine(0, -size, 0, size);
     }
 
     @objid ("65aaf120-33f7-11e2-95fe-001ec947c8cc")

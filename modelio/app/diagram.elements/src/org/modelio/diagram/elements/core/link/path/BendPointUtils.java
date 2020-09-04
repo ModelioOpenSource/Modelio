@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class BendPointUtils {
 
     /**
      * Get the connection points in a java standard list of points,.
+     * 
      * @param connection a PolylineConnection figure.
      * @return a list of points in coordinates relative to the connection.
      */

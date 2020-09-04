@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,7 +21,6 @@
 package org.modelio.app.project.conf.dialog;
 
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,6 +29,7 @@ import org.modelio.app.project.conf.dialog.urls.UrlEntry;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
 import org.modelio.gproject.data.project.FragmentType;
 import org.modelio.gproject.data.project.GProperties;
+import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.gproject.data.project.ProjectType;
 import org.modelio.gproject.fragment.IProjectFragment;
 import org.modelio.gproject.fragment.ramcfile.MdaFragment;
@@ -68,8 +68,8 @@ public class ProjectModel {
     }
 
     @objid ("a747c026-33f6-11e2-a514-002564c97630")
-    public Path getPath() {
-        return this.gProject.getProjectPath();
+    public ProjectFileStructure getProjectFileStructure() {
+        return this.gProject.getProjectFileStructure();
     }
 
     @objid ("a747c02a-33f6-11e2-a514-002564c97630")
@@ -131,8 +131,8 @@ public class ProjectModel {
         
         for (IProjectFragment fragment : getAllFragments()) {
             if (fragment.getType() == FragmentType.RAMC) {
-                if (! (fragment instanceof MdaFragment)) {
-                    if (! (fragment.getId().equals("PredefinedTypes"))) {                        
+                if (!(fragment instanceof MdaFragment)) {
+                    if (!fragment.getId().equals("PredefinedTypes")) {
                         ramcFragments.add((RamcFileFragment) fragment);
                     }
                 }
@@ -204,7 +204,7 @@ public class ProjectModel {
         List<IProjectFragment> models = new ArrayList<>();
         
         for (IProjectFragment fragment : getAllFragments()) {
-            if (! (fragment instanceof MdaFragment)) {
+            if (!(fragment instanceof MdaFragment)) {
                 models.add(fragment);
             }
         }

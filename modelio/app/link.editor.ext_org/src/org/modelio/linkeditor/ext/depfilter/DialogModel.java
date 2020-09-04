@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -94,6 +94,7 @@ class DialogModel {
 
     /**
      * Adds a specific stereotype to the filter.
+     * 
      * @param stereotype the stereotype to add to the filter.
      */
     @objid ("1b61a62a-5e33-11e2-b81d-002564c97630")
@@ -117,6 +118,7 @@ class DialogModel {
 
     /**
      * Removes a specific stereotype from the filter.
+     * 
      * @param stereotype the stereotype to remove from the filter.
      */
     @objid ("1b61a62f-5e33-11e2-b81d-002564c97630")
@@ -140,6 +142,7 @@ class DialogModel {
 
     /**
      * Adds all stereotypes of a module to the filter.
+     * 
      * @param module the module which stereotypes are to be added to the filter.
      */
     @objid ("1b61a634-5e33-11e2-b81d-002564c97630")
@@ -161,6 +164,7 @@ class DialogModel {
 
     /**
      * Removes all stereotypes of a module from the filter.
+     * 
      * @param module the module which stereotypes are to be removed from the filter.
      */
     @objid ("1b61a639-5e33-11e2-b81d-002564c97630")

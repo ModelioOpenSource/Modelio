@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class CopyAnnotationHandler {
 
     /**
      * Available only when the selected elements is not empty.
+     * 
      * @param part the current active part.
      * @return true if the handler can be executed.
      */
@@ -76,6 +77,7 @@ public class CopyAnnotationHandler {
 
     /**
      * Copy the currently selected elements.
+     * 
      * @param part the current active part.
      * @param currentDisplay the display Modelio runs into.
      */

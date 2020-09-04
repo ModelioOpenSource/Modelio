@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -121,6 +121,7 @@ public class DiagramDrawingNodeDG extends DiagramAbstractNode implements IDiagra
 
     /**
      * Creates a drawing node.
+     * 
      * @param diagramHandle the diagram handle
      * @param gmNode the node model
      */
@@ -132,6 +133,7 @@ public class DiagramDrawingNodeDG extends DiagramAbstractNode implements IDiagra
 
     /**
      * Set the node label.
+     * 
      * @param label the node label.
      */
     @objid ("9bbb8e56-eedd-4eea-acbd-6f1593894c35")

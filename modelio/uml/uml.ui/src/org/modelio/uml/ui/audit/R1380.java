@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -208,6 +208,7 @@ public class R1380 extends AbstractUmlRule {
 
         /**
          * If an attribute was created or moved under a Signal, we need to check the rule on the Signal.
+         * 
          * @param attribute The created or moved attribute.
          * @return A list of audit entry for each SendSignalAction concerned by the attribute.
          */
@@ -223,6 +224,7 @@ public class R1380 extends AbstractUmlRule {
 
         /**
          * If an InputPin was created or moved, and if it now belongs to a SendSignalAction, we need to check the rule on the SendSignalAction. If an InputPin was updated and belongs to a SendSignalAction, it's represented attribute potentially changed and we need to check the rule on the SendSignalAction.
+         * 
          * @param pin The InputPin that was either created, moved of updated.
          * @return An audit entry for the SendSignalAction if the InputPin belongs to one, null otherwise.
          */
@@ -237,6 +239,7 @@ public class R1380 extends AbstractUmlRule {
 
         /**
          * If a Signal is modified, Attributes were potentially added or removed, and we need to check the rule on any SendSignalAction which is a sender of the Signal.
+         * 
          * @param signal The Signal that was updated.
          * @return A list of audit entry for any concerned SendSignalAction.
          */

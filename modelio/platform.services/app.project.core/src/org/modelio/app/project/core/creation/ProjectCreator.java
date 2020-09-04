@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -142,6 +142,7 @@ public class ProjectCreator implements IProjectCreator {
 
     /**
      * Return the diagrams that ought to be opened when first opening the project right after its creation
+     * 
      * @return the diagrams to open.
      */
     @objid ("8716539d-59a0-4e88-8366-8d78d836652f")
@@ -151,6 +152,7 @@ public class ProjectCreator implements IProjectCreator {
 
     /**
      * Find the ModelerModule, if not found : abort as this module is mandatory.
+     * 
      * @param moduleCache the modules cache
      * @param monitor a progress monitor
      * @return the ModelerModule handle

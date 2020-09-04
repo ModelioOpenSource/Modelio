@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 public class DirectConnectionHelper implements IConnectionHelper {
     /**
      * Get all bend points without extremity points.
+     * 
      * @return the bend points.
      */
     @objid ("8046e41e-1dec-11e2-8cad-001ec947c8cc")
@@ -53,6 +54,7 @@ public class DirectConnectionHelper implements IConnectionHelper {
 
     /**
      * Get the path routing mode.
+     * 
      * @return the path routing mode.
      */
     @objid ("8046e42d-1dec-11e2-8cad-001ec947c8cc")
@@ -70,6 +72,7 @@ public class DirectConnectionHelper implements IConnectionHelper {
 
     /**
      * Get the draw2d routing constraint to apply to the connection figure.
+     * 
      * @return the draw2d routing constraint.
      */
     @objid ("8049464b-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class StatusChangeManager {
 
     /**
      * Initialize the service.
+     * 
      * @param taskService a task scheduling service.
      * @param tmgr the transaction manager.
      * @param chgSupport the model change support used to fire status change events
@@ -76,6 +77,7 @@ public class StatusChangeManager {
 
     /**
      * To be called when a model object status changed.
+     * 
      * @param obj the model object whose status changed.
      * @param oldStatus the old status value for the model object.
      */
@@ -95,6 +97,7 @@ public class StatusChangeManager {
 
     /**
      * Retrieves and removes all status changes model objects and reset the recorded set.
+     * 
      * @return the record of changed model objects.
      */
     @objid ("56e6837c-42d9-461d-840c-cef8fc8e86df")

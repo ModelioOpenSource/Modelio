@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class DynamicPropertyModel extends AbstractPropertyModel<MObject> {
 
     /**
      * Create a new data model from any MObject.
+     * 
      * @param theEditedElement The <i>Element</i> that corresponds to this data model.
      */
     @objid ("5124f58b-9c5d-4fd0-8b25-b6f2e6fc533f")
@@ -77,6 +78,7 @@ public class DynamicPropertyModel extends AbstractPropertyModel<MObject> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("8b4cda94-318b-40f5-9a72-810af1d2bf11")
@@ -119,6 +121,7 @@ public class DynamicPropertyModel extends AbstractPropertyModel<MObject> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("c4aa59d5-87ca-49a1-9eba-87b9d1137804")
@@ -131,6 +134,7 @@ public class DynamicPropertyModel extends AbstractPropertyModel<MObject> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -181,6 +185,7 @@ public class DynamicPropertyModel extends AbstractPropertyModel<MObject> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -213,6 +218,7 @@ public class DynamicPropertyModel extends AbstractPropertyModel<MObject> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

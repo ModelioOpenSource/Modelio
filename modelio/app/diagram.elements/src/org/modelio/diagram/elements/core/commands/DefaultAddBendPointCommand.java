@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class DefaultAddBendPointCommand extends Command {
 
     /**
      * Initialize the command.
+     * 
      * @param gmLink The link to modify
      * @param index The index where the new bend point will be inserted.
      * @param newpoint The bend point to insert.

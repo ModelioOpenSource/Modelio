@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='uml2_3.2/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1552061217194'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='34'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.codegen.ecore' version='1.7.1.v201109082252'>
+      <properties size='5'>
+        <property name='artifact.size' value='344490'/>
+        <property name='download.size' value='344490'/>
+        <property name='download.md5' value='e517a1d679bf41337a78a7edb2a9904c'/>
+        <property name='download.checksum.md5' value='e517a1d679bf41337a78a7edb2a9904c'/>
+        <property name='download.checksum.sha-256' value='7a71192db59264adeb1684a0cd6e1dfa52d62088f7f5ea63cff1a2c0b76ce319'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml.ecore.exporter.source' version='2.4.100.v201008301510'>
+      <properties size='5'>
+        <property name='artifact.size' value='13596'/>
+        <property name='download.size' value='13596'/>
+        <property name='download.md5' value='f84745294c3e247f5dd52936e01d222c'/>
+        <property name='download.checksum.md5' value='f84745294c3e247f5dd52936e01d222c'/>
+        <property name='download.checksum.sha-256' value='0896ae6e2fa69070d07fa20ffc370a127a4440fa3490bb6da1ffa50b905f3564'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml.resources.source' version='3.1.100.v201008191510'>
+      <properties size='5'>
+        <property name='artifact.size' value='5753'/>
+        <property name='download.size' value='5753'/>
+        <property name='download.md5' value='b88d2d76cc8536d7192c9ab5bba55fa1'/>
+        <property name='download.checksum.md5' value='b88d2d76cc8536d7192c9ab5bba55fa1'/>
+        <property name='download.checksum.sha-256' value='a445ada1485707350ae65c1e6ca576ef54f6a08f8be5190cc11feb08a667367d'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.uml2.doc' version='3.2.0.v201103291514'>
+      <properties size='1'>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml.edit.source' version='3.1.100.v201009281840'>
+      <properties size='5'>
+        <property name='artifact.size' value='592230'/>
+        <property name='download.size' value='592230'/>
+        <property name='download.md5' value='638711c854a09e5618d5234c6bf1ff48'/>
+        <property name='download.checksum.md5' value='638711c854a09e5618d5234c6bf1ff48'/>
+        <property name='download.checksum.sha-256' value='3e590900702a38d559feeb5979de20e0381f3912e518f5963a07dec90b942cc1'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.codegen.ecore.ui.source' version='1.6.100.v201008301510'>
+      <properties size='5'>
+        <property name='artifact.size' value='29066'/>
+        <property name='download.size' value='29066'/>
+        <property name='download.md5' value='55602322227640fdeb159c9e02b8be60'/>
+        <property name='download.checksum.md5' value='55602322227640fdeb159c9e02b8be60'/>
+        <property name='download.checksum.sha-256' value='b825d8edb7549c899c99aeb4924a555f66c9dd11a070291e858414528880871f'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.common.edit.source' version='1.5.0.v201005031530'>
+      <properties size='5'>
+        <property name='artifact.size' value='22402'/>
+        <property name='download.size' value='22402'/>
+        <property name='download.md5' value='377349edcf2a72575049b35133f64631'/>
+        <property name='download.checksum.md5' value='377349edcf2a72575049b35133f64631'/>
+        <property name='download.checksum.sha-256' value='7c79ad6ee7109983fe1c951bed1af5753b7649a2c421e99a75017032ae212f9c'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml' version='3.2.100.v201108110105'>
+      <properties size='5'>
+        <property name='artifact.size' value='3061802'/>
+        <property name='download.size' value='3061802'/>
+        <property name='download.md5' value='c0c0d24ebe4eb406f8909ad0c9d8f283'/>
+        <property name='download.checksum.md5' value='c0c0d24ebe4eb406f8909ad0c9d8f283'/>
+        <property name='download.checksum.sha-256' value='94b8503bb52123eda8c4c3d81eada131f145abb8a89b6b17cb64d59e1ef36431'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.uml2.examples' version='3.2.0.v201103291514'>
+      <properties size='1'>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.examples' version='3.0.0.v201005031530'>
+      <properties size='5'>
+        <property name='artifact.size' value='10503'/>
+        <property name='download.size' value='10503'/>
+        <property name='download.md5' value='fb44f9640768c270c93463c988c5dc3a'/>
+        <property name='download.checksum.md5' value='fb44f9640768c270c93463c988c5dc3a'/>
+        <property name='download.checksum.sha-256' value='b3d38ca06d233a19d9495976a97abe4a3b7a44dc6f22a54fb931b1bd464bbe24'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.emf.mapping.ecore2xml' version='2.5.0.v20100521-1847'>
+      <properties size='5'>
+        <property name='artifact.size' value='56899'/>
+        <property name='download.size' value='56899'/>
+        <property name='download.md5' value='b4baa8512dfe09a489f5a78cd4663bd0'/>
+        <property name='download.checksum.md5' value='b4baa8512dfe09a489f5a78cd4663bd0'/>
+        <property name='download.checksum.sha-256' value='880e1b1887bdb9e3564d23d6e24712d1bf3ed4c853a5bcb0a29da47a5b8884ad'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.codegen.ecore.source' version='1.7.1.v201109082252'>
+      <properties size='5'>
+        <property name='artifact.size' value='172445'/>
+        <property name='download.size' value='172445'/>
+        <property name='download.md5' value='cf5303edea6a491428f64991ac54c564'/>
+        <property name='download.checksum.md5' value='cf5303edea6a491428f64991ac54c564'/>
+        <property name='download.checksum.sha-256' value='90aea395bf815ed3b9fa1b8dc1220a886f1c59932085053a0f57d719ff9552b5'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.uml2.source' version='3.2.1.v201109082252'>
+      <properties size='1'>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.doc' version='3.1.0.v201005031530'>
+      <properties size='5'>
+        <property name='artifact.size' value='8978238'/>
+        <property name='download.size' value='8978238'/>
+        <property name='download.md5' value='605760ae999daee300ef3991d1e8a89d'/>
+        <property name='download.checksum.md5' value='605760ae999daee300ef3991d1e8a89d'/>
+        <property name='download.checksum.sha-256' value='c419e3d1471181fd6af04d3678cce5e60864c524938fd36e3bcc2e84e021220c'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.uml2.examples.source' version='3.2.0.v201103291514'>
+      <properties size='1'>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.examples.source' version='3.0.0.v201005031530'>
+      <properties size='5'>
+        <property name='artifact.size' value='10793'/>
+        <property name='download.size' value='10793'/>
+        <property name='download.md5' value='38e2624a9914844757b2d3121aa2c059'/>
+        <property name='download.checksum.md5' value='38e2624a9914844757b2d3121aa2c059'/>
+        <property name='download.checksum.sha-256' value='c7eacf4c85db5adbe3b78ad5dd434e924599673725649bce9382f8f2495266b6'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2' version='3.2.0.v201101271655'>
+      <properties size='5'>
+        <property name='artifact.size' value='10498'/>
+        <property name='download.size' value='10498'/>
+        <property name='download.md5' value='16efe01a8a0744df930c2a54f6182721'/>
+        <property name='download.checksum.md5' value='16efe01a8a0744df930c2a54f6182721'/>
+        <property name='download.checksum.sha-256' value='5b406dca8345af2a7eef6b9f1fa2bd0cafec5f9eadbd27f8c39708ad620bc919'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.common.edit' version='1.5.0.v201005031530'>
+      <properties size='5'>
+        <property name='artifact.size' value='28531'/>
+        <property name='download.size' value='28531'/>
+        <property name='download.md5' value='6ecefee98341dc3728fc2c4649e66846'/>
+        <property name='download.checksum.md5' value='6ecefee98341dc3728fc2c4649e66846'/>
+        <property name='download.checksum.sha-256' value='b7860586a66d386cd24e1980c6b4fd29b1be40cc2eff4de62826041ab8968816'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml.editor' version='3.1.100.v201009281840'>
+      <properties size='5'>
+        <property name='artifact.size' value='139722'/>
+        <property name='download.size' value='139722'/>
+        <property name='download.md5' value='4cad95dc0f21043886ceb7d43148e4f6'/>
+        <property name='download.checksum.md5' value='4cad95dc0f21043886ceb7d43148e4f6'/>
+        <property name='download.checksum.sha-256' value='61fcc9fec47a1ecef375a9c596e523842b2979fe997cfdfc6fd06dcad3b0bfc5'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.common' version='1.6.0.v201105021727'>
+      <properties size='5'>
+        <property name='artifact.size' value='120956'/>
+        <property name='download.size' value='120956'/>
+        <property name='download.md5' value='57f156ca913cc1cb8e3df6975d3a4401'/>
+        <property name='download.checksum.md5' value='57f156ca913cc1cb8e3df6975d3a4401'/>
+        <property name='download.checksum.sha-256' value='5ccd49246a1d51ba49a571e7e3735246ecc7ec256cd8e27a3db88fdf58897e87'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.common.source' version='1.6.0.v201105021727'>
+      <properties size='5'>
+        <property name='artifact.size' value='50178'/>
+        <property name='download.size' value='50178'/>
+        <property name='download.md5' value='7a54d60281d7dea7adbea5cc2c4d5194'/>
+        <property name='download.checksum.md5' value='7a54d60281d7dea7adbea5cc2c4d5194'/>
+        <property name='download.checksum.sha-256' value='86c09b1f88f72dc96cd975c99fa28d726c388deaeb2511a1feb0d139252b7a27'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml.edit' version='3.1.100.v201009281840'>
+      <properties size='5'>
+        <property name='artifact.size' value='878497'/>
+        <property name='download.size' value='878497'/>
+        <property name='download.md5' value='17faf66ea6b11046d0821742eab2d714'/>
+        <property name='download.checksum.md5' value='17faf66ea6b11046d0821742eab2d714'/>
+        <property name='download.checksum.sha-256' value='62597f87b020a5e94f4d3c27440a8ab5b8bff0083b3af0c32d6a1245d8a63988'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml.editor.source' version='3.1.100.v201009281840'>
+      <properties size='5'>
+        <property name='artifact.size' value='55548'/>
+        <property name='download.size' value='55548'/>
+        <property name='download.md5' value='93c2c5317adfc5be34ed29433d351d87'/>
+        <property name='download.checksum.md5' value='93c2c5317adfc5be34ed29433d351d87'/>
+        <property name='download.checksum.sha-256' value='ad2d786704d17667bea4c0efc862be859b02e8100035429b6c41af83f316f7e7'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml.ecore.importer.source' version='2.4.100.v201008301510'>
+      <properties size='5'>
+        <property name='artifact.size' value='27219'/>
+        <property name='download.size' value='27219'/>
+        <property name='download.md5' value='2758dadd02ca4c4ff02a6c3baba8a103'/>
+        <property name='download.checksum.md5' value='2758dadd02ca4c4ff02a6c3baba8a103'/>
+        <property name='download.checksum.sha-256' value='bc23efa01e503f1f3908e2cdfba1f38071abb6af6bb42f8dbc6830fb54f0e569'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml.ecore.importer' version='2.4.100.v201008301510'>
+      <properties size='5'>
+        <property name='artifact.size' value='39843'/>
+        <property name='download.size' value='39843'/>
+        <property name='download.md5' value='4e7189f15edcd08885f1c85ed1de9674'/>
+        <property name='download.checksum.md5' value='4e7189f15edcd08885f1c85ed1de9674'/>
+        <property name='download.checksum.sha-256' value='38d84ebac8b3c6860a82b643ed08c5583038752624ab0728fd9bb04f610b937f'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.uml2' version='3.2.1.v201109082252'>
+      <properties size='1'>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.uml2.sdk' version='3.2.1.v201109082252'>
+      <properties size='1'>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml.resources' version='3.1.100.v201008191510'>
+      <properties size='5'>
+        <property name='artifact.size' value='222880'/>
+        <property name='download.size' value='222880'/>
+        <property name='download.md5' value='2689864adf812c9392b54c790e65a8f6'/>
+        <property name='download.checksum.md5' value='2689864adf812c9392b54c790e65a8f6'/>
+        <property name='download.checksum.sha-256' value='57d76e03f6dd096b5b97d428f280fb97ea113ef1a6a99f2f17a7d1a0d6ae8394'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.source' version='3.2.0.v201101271655'>
+      <properties size='5'>
+        <property name='artifact.size' value='10771'/>
+        <property name='download.size' value='10771'/>
+        <property name='download.md5' value='94bfc78a51443dbc85c88f722a43e30d'/>
+        <property name='download.checksum.md5' value='94bfc78a51443dbc85c88f722a43e30d'/>
+        <property name='download.checksum.sha-256' value='3f4a2b2ec31687e574118b8c3959935293f3b32d87bcc72605e89be86396d3be'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml.ecore.exporter' version='2.4.100.v201008301510'>
+      <properties size='5'>
+        <property name='artifact.size' value='23167'/>
+        <property name='download.size' value='23167'/>
+        <property name='download.md5' value='ce10ed3e407ee3be2f1c3df522d182d3'/>
+        <property name='download.checksum.md5' value='ce10ed3e407ee3be2f1c3df522d182d3'/>
+        <property name='download.checksum.sha-256' value='89923d4830dd5a09831aaf1c237a1b78533c7bc51f942587676778b2a63f75a0'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.examples.uml.ui.source' version='3.0.100.v201008191510'>
+      <properties size='5'>
+        <property name='artifact.size' value='38218'/>
+        <property name='download.size' value='38218'/>
+        <property name='download.md5' value='aef2bedf7d219d0fa9ef384cc710462c'/>
+        <property name='download.checksum.md5' value='aef2bedf7d219d0fa9ef384cc710462c'/>
+        <property name='download.checksum.sha-256' value='37aa7ae240fb16117b7d08f9cfc2d00872ae78b873d115675078da46895b70cd'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.codegen.ecore.ui' version='1.6.100.v201008301510'>
+      <properties size='5'>
+        <property name='artifact.size' value='30235'/>
+        <property name='download.size' value='30235'/>
+        <property name='download.md5' value='0963d9f8fc171f8b037bfbaea8de8e3d'/>
+        <property name='download.checksum.md5' value='0963d9f8fc171f8b037bfbaea8de8e3d'/>
+        <property name='download.checksum.sha-256' value='88901837f8edd7291de13471083a9be1e7b971cbe67064b453df9842774dbe05'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.uml.source' version='3.2.100.v201108110105'>
+      <properties size='5'>
+        <property name='artifact.size' value='2899819'/>
+        <property name='download.size' value='2899819'/>
+        <property name='download.md5' value='778d46c8e9366c74d1b06224c2cccc70'/>
+        <property name='download.checksum.md5' value='778d46c8e9366c74d1b06224c2cccc70'/>
+        <property name='download.checksum.sha-256' value='5511809755ce473af4cf86f724a6f1b22ec33f8671933ee655d03a1b93258a7b'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.uml2.examples.uml.ui' version='3.0.100.v201008191510'>
+      <properties size='5'>
+        <property name='artifact.size' value='74496'/>
+        <property name='download.size' value='74496'/>
+        <property name='download.md5' value='b9d275134c479d51d74e8e8d4a830b59'/>
+        <property name='download.checksum.md5' value='b9d275134c479d51d74e8e8d4a830b59'/>
+        <property name='download.checksum.sha-256' value='f72f5d6b97368fe15bd8d31fc312d7798e0d9e36a70b2a61253eb8552bdcd899'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

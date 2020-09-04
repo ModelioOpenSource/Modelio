@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -241,6 +241,7 @@ class ModelLoaderMetaObject implements IMetaOf {
      * <p>
      * Tests whether the current thread is the one using this meta object.
      * In the other case waits for the other thread to finish loading for 10 seconds.
+     * 
      * @param obj the object to access
      * @return <i>true</i> if the object was concurrently being loaded.
      * @throws java.util.ConcurrentModificationException if after 10 seconds the object is still being loaded.

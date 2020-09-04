@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public class BendedConnectionAndNodeCreationTool extends BendedConnectionCreatio
     /**
      * Called when the user creates a node and link.
      * @see #handleCreateConnection()
+     * 
      * @return always true
      */
     @objid ("7cc66948-5a73-4f89-9110-513c3ecb43fd")

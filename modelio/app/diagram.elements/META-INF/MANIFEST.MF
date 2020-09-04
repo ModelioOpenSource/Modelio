@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Diagram Elements
 Bundle-SymbolicName: org.modelio.diagram.elements;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.modelio.utils,
  org.modelio.ui,
@@ -24,7 +24,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.modelio.mda.infra,
  org.eclipse.e4.ui.services,
  org.modelio.editors.richnote,
- org.eclipse.ui.workbench
+ org.eclipse.ui.workbench,
+ org.modelio.core.project.data,
+ org.modelio.core.rcp
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: res/,
  .,

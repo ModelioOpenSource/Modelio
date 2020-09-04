@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -185,6 +185,8 @@ import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.informationFlow.InformationItem;
 import org.modelio.metamodel.uml.infrastructure.Abstraction;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
+import org.modelio.metamodel.uml.infrastructure.ExternElement;
+import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.Substitution;
@@ -3007,6 +3009,60 @@ public class StandardModelFactoryImpl extends InfrastructureModelFactoryImpl imp
     public void setDefaultValue(String key, Object value) {
         super.setDefaultValue(key, value);
         this.elementInitializer.setDefaultValue(key, value);
+    }
+
+    @objid ("10aabf63-49bb-40e9-8eb6-d23791e02c5d")
+    @Override
+    public ExternElement createExternElement() {
+        ExternElement newElement = this.genericFactory.create(ExternElement.class, this.scratchRepository);
+        this.elementInitializer.initialize(newElement);
+        return newElement;
+    }
+
+    @objid ("1c9ec929-8a6a-4e8b-b0a2-b707f9f70fdb")
+    @Override
+    public MethodologicalLink createMethodologicalLink() {
+        MethodologicalLink newElement = this.genericFactory.create(MethodologicalLink.class, this.scratchRepository);
+        this.elementInitializer.initialize(newElement);
+        return newElement;
+    }
+
+    @objid ("9d3dba20-8de2-4233-a6bf-f22c56975b27")
+    @Override
+    public ExternElement createExternElement(String name, MethodologicalLink owner, Stereotype stereotype) {
+        ExternElement newElement = this.genericFactory.create(ExternElement.class, owner);
+        newElement.setName(name);
+        newElement.setOwner(owner);
+        if (stereotype != null) {
+            newElement.getExtension().add(stereotype);
+        }
+        this.elementInitializer.initialize(newElement);
+        return newElement;
+    }
+
+    @objid ("abf5d489-ece1-4622-8fd4-a715fa171b67")
+    @Override
+    public ExternElement createExternElement(String name, MethodologicalLink owner, String moduleName, String stereotypeName) throws ExtensionNotFoundException {
+        return createExternElement(name, owner, resolveStereotype(moduleName, stereotypeName, this.metamodel.getMClass(Class.class)));
+    }
+
+    @objid ("71109710-73f5-4fc9-a406-9ceb3b6501c4")
+    @Override
+    public MethodologicalLink createMethodologicalLink(ModelElement source, ModelElement destination, Stereotype stereotype) {
+        MethodologicalLink newElement = this.genericFactory.create(MethodologicalLink.class, source);
+        newElement.setImpacted(source);
+        newElement.setDependsOn(destination);
+        if (stereotype != null) {
+            newElement.getExtension().add(stereotype);
+        }
+        this.elementInitializer.initialize(newElement);
+        return newElement;
+    }
+
+    @objid ("6a7204dd-8b53-452d-8f9c-93e470bb7847")
+    @Override
+    public MethodologicalLink createMethodologicalLink(ModelElement source, ModelElement destination, String moduleName, String stereotypeName) throws ExtensionNotFoundException {
+        return createMethodologicalLink(source, destination, resolveStereotype(moduleName, stereotypeName, this.metamodel.getMClass(MethodologicalLink.class)));
     }
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,10 +63,10 @@ public class DiagramStylesProcessor {
     @Optional
     void onProjectOpened(@EventTopic (ModelioEventTopics.PROJECT_OPENING) final GProject openedProject) {
         // Ensure that the project style dir is initialized and that a default style exists in it
-        DiagramStylesProcessor.checkProjectStyleDirectory(openedProject.getProjectDataPath());
+        DiagramStylesProcessor.checkProjectStyleDirectory(openedProject.getProjectFileStructure().getProjectDataPath());
         
         // Load styles
-        DiagramStyles.getStyleManager().reloadStylesIn(openedProject.getProjectDataPath().resolve(DiagramStyles.PROJECT_STYLE_SUBDIR));
+        DiagramStyles.getStyleManager().reloadStylesIn(openedProject.getProjectFileStructure().getProjectDataPath().resolve(DiagramStyles.PROJECT_STYLE_SUBDIR));
         
         if (this.projectService != null) {
             // Listen to diagram theme changes

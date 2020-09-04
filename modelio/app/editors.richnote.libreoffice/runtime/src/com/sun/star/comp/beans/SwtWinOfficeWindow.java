@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class SwtWinOfficeWindow extends Composite implements XEventListener {
     /**
      * Constructor.
      * @param unoCaller
+     * 
      * @param connection The office connection object the window
      * belongs to.
      * @param parent a widget which will be the parent of the new instance (cannot be null)
@@ -131,6 +132,7 @@ public class SwtWinOfficeWindow extends Composite implements XEventListener {
 
     /**
      * Retrieves an UNO XWindowPeer object associated with the OfficeWindow.
+     * 
      * @return The UNO XWindowPeer object associated with the OfficeWindow.
      */
     @objid ("6dcab69f-2fbc-43cf-87d1-da296e88116f")

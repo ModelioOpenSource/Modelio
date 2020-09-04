@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ import org.eclipse.swt.widgets.Label;
 import org.modelio.audit.engine.core.AuditRunnerStatus;
 import org.modelio.audit.engine.core.IAuditDiagnostic;
 import org.modelio.audit.plugin.Audit;
+import org.modelio.ui.UIColor;
 
 /**
  * StatusBar controller.
@@ -71,41 +72,51 @@ public class StatusBar {
     @objid ("60711bf5-9dbe-48df-ba6c-5a27e4b96339")
     private String nAdvicesSuffix;
 
-    @objid ("5e3c4c8a-44b1-41e0-a243-202a59106b1e")
-    private final Label queueSizeLabel;
-
-    @objid ("6251589b-8349-4a89-9405-9d88a28e6099")
+    @objid ("3ba6ad8b-851b-4bad-8b81-466be77108c8")
     private final Label runnerStatusLabel;
 
-    @objid ("5ec88b09-5278-431a-b53f-37d0fc997e5c")
+    @objid ("eb325501-a568-4dd1-8d2c-7a51d838f975")
     private Image processingStatusIcon;
 
-    @objid ("b24c76d4-49f7-4495-a954-e1fc28033319")
+    @objid ("45b11268-1f1e-433e-b581-24ddf4a115c3")
     private Image suspendedStatusIcon;
 
-    @objid ("d26bcf45-d912-4de7-94df-77f0f24627d4")
+    @objid ("95bcaf17-1107-4815-afb4-d56d26204999")
     private Image idleStatusIcon;
 
-    @objid ("4d61ea70-3eb8-4190-9109-e2d441e3b8df")
+    @objid ("ec5304b4-a09d-4840-92dc-348410d87eae")
     private final Composite container;
 
-    @objid ("2ee53650-42fe-4a2d-b107-fa0d6e27c8b6")
+    @objid ("080b5cbb-9e09-4181-bab1-539e4249f8c2")
     private final Label auditSummaryLabel;
+
+    @objid ("e855ae76-01c1-438f-8fe0-a0a48c4095c1")
+    private Color errorColor;
+
+    @objid ("197efcf1-4ee6-40e8-8cc9-821ddc33dd8b")
+    private Color warningColor;
+
+    @objid ("2d0d1849-8c85-486b-89fe-394647bdc5f1")
+    private Color adviceColor;
+
+    @objid ("a12c5011-19bb-45c5-ab8f-0f39792ed40c")
+    private Label scopeLabel;
+
+    @objid ("ecb44454-afba-4d8b-af26-d7c0c6dcaaf7")
+    private int statusAnimationCounter = 0;
+
+    @objid ("b28e9011-0c9e-4b82-bae2-2cc7d9177ed6")
+    private Image processingStatusIcon2;
 
     @objid ("64a6515c-ea48-4605-bc9d-df16810e67e4")
     private StringBuilder summaryMessage = new StringBuilder();
 
-    @objid ("fac1765d-3427-4b7d-9730-31cbd6632dea")
-    private Color errorColor;
-
-    @objid ("2a14aadb-e95d-49f1-93fd-3aa8ba7e1e4f")
-    private Color warningColor;
-
-    @objid ("1f1d4171-3311-4af7-a82c-f0a6c8eedf4b")
-    private Color adviceColor;
+    @objid ("4cce02d2-9071-42c9-9073-8ff4ec7ee4a8")
+    private ProgressBar2 progressBar;
 
     /**
      * Initialize the status bar.
+     * 
      * @param parent The parent composite.
      * @param style not used.
      */
@@ -114,33 +125,46 @@ public class StatusBar {
         allocateResources();
         
         this.container = new Composite(parent, style);
-        
-        final GridLayout layout = new GridLayout();
-        layout.numColumns = 3;
-        layout.marginLeft = 0;
-        layout.marginRight = 0;
+        final GridLayout layout = new GridLayout(5, false);
+        layout.verticalSpacing = 0;
         layout.horizontalSpacing = 0;
         this.container.setLayout(layout);
         
-        this.auditSummaryLabel = new Label(this.container, SWT.BORDER);
+        this.container.addDisposeListener((e) -> StatusBar.this.freeAllocatedResources());
+        
+        //
+        this.scopeLabel = new Label(this.container, SWT.NONE);
+        this.scopeLabel.setText("...");
+        GridData rd = new GridData(SWT.FILL, SWT.CENTER, true, true);
+        this.scopeLabel.setAlignment(SWT.LEFT);
+        this.scopeLabel.setLayoutData(rd);
+        
+        //
+        this.auditSummaryLabel = new Label(this.container, SWT.NONE);
         this.auditSummaryLabel.setText("...");
-        GridData rd = new GridData();
-        rd.horizontalAlignment = SWT.FILL;
-        rd.grabExcessHorizontalSpace = true;
+        rd = new GridData(SWT.FILL, SWT.CENTER, true, true);
         this.auditSummaryLabel.setAlignment(SWT.CENTER);
         this.auditSummaryLabel.setLayoutData(rd);
         
-        // Queue size label
-        this.queueSizeLabel = new Label(this.container, SWT.BORDER | SWT.RIGHT_TO_LEFT);
-        this.queueSizeLabel.setText("0");
-        rd = new GridData(80, SWT.DEFAULT);
-        this.queueSizeLabel.setLayoutData(rd);
+        // Queue size labeled progress bar
+        this.progressBar = new ProgressBar2(this.container, SWT.RIGHT_TO_LEFT) {
+            @Override
+            public String getSelectionLabel() {
+                return String.format("%d", getSelection());
+            }
+        };
+        this.progressBar.setMinimum(0);
+        this.progressBar.setMaximum(100000);
+        this.progressBar.setSelection(0);
+        this.progressBar.setForeground(UIColor.SWT_LIST_SELECTION);
+        rd = new GridData(SWT.FILL, SWT.FILL, true, true);
+        rd.heightHint = this.progressBar.getSize().y;
+        this.progressBar.setLayoutData(rd);
         
         // Runner status 'LED-like' display
         this.runnerStatusLabel = new Label(this.container, SWT.NONE);
         this.runnerStatusLabel.setImage(this.idleStatusIcon);
-        rd = new GridData();
-        rd.horizontalAlignment = SWT.CENTER;
+        rd = new GridData(SWT.FILL, SWT.FILL, false, false);
         this.runnerStatusLabel.setLayoutData(rd);
         
         // TODO : This method shouldn't have to be called here:
@@ -152,6 +176,7 @@ public class StatusBar {
      * Get the status bar SWT Composite.
      * <p>
      * The returned Composite is a child of the composite given to the constructor.
+     * 
      * @return the status bar composite.
      */
     @objid ("024af934-42cc-49e8-b83a-422f58a36662")
@@ -161,10 +186,11 @@ public class StatusBar {
 
     /**
      * Update the status bar from last audit diagnostic. MUST BE CALLED from the UI Thread
+     * 
      * @param auditDiagnostic the last audit diagnostic.
      */
     @objid ("8c4a37ba-abe8-4a2f-ac2f-cdd90b385018")
-    public void doRefreshDiagnostic(final IAuditDiagnostic auditDiagnostic) {
+    public void doRefreshDiagnostic(final IAuditDiagnostic auditDiagnostic, String scope) {
         int nErrors = auditDiagnostic.getErrorCount();
         int nWarnings = auditDiagnostic.getWarningCount();
         int nTips = auditDiagnostic.getTipCount();
@@ -189,26 +215,31 @@ public class StatusBar {
             }
             this.lastRefreshedCount = nErrors + nWarnings + nTips;
         }
+        
+        this.scopeLabel.setText(scope);
     }
 
     /**
      * Update the status view from the given parameters. MUST BE CALLED from the UI Thread
+     * 
      * @param status The audit status
      * @param queueSize The queue size
      */
     @objid ("f3b2425b-7220-431c-9cb0-ad1715864e5d")
     public void doRefreshStatus(final AuditRunnerStatus status, final int queueSize) {
-        this.queueSizeLabel.setText(Integer.toString(queueSize));
+        this.progressBar.setSelection(queueSize);
         
-        if (status != this.lastRefreshedstatus) {
+        if (status != this.lastRefreshedstatus || status == AuditRunnerStatus.PROCESSING) {
+            statusAnimationCounter++;
             switch (status != null ? status : AuditRunnerStatus.IDLE) {
             case IDLE:
                 this.runnerStatusLabel.setImage(this.idleStatusIcon);
                 this.runnerStatusLabel.setToolTipText(this.idleStatusTooltip);
                 break;
             case PROCESSING:
-                this.runnerStatusLabel.setImage(this.processingStatusIcon);
+                this.runnerStatusLabel.setImage((statusAnimationCounter % 2 == 0) ? this.processingStatusIcon : this.processingStatusIcon2);
                 this.runnerStatusLabel.setToolTipText(this.processingStatusTooltip);
+                this.runnerStatusLabel.update();
                 break;
             case SUSPENDED:
                 this.runnerStatusLabel.setImage(this.suspendedStatusIcon);
@@ -229,6 +260,7 @@ public class StatusBar {
     @objid ("1ed3255c-1647-4be2-9b9c-9749a0d96813")
     private void allocateResources() {
         this.processingStatusIcon = createImageDescriptor("icons/processing.png").createImage();
+        this.processingStatusIcon2 = createImageDescriptor("icons/processing2.png").createImage();
         this.processingStatusTooltip = Audit.I18N.getString("Audit.Status.processing");
         this.suspendedStatusIcon = createImageDescriptor("icons/suspended.png").createImage();
         this.suspendedStatusTooltip = Audit.I18N.getString("Audit.Status.suspended");
@@ -246,6 +278,7 @@ public class StatusBar {
 
     /**
      * Create an image descriptor from a path relative to the Audit plugin.
+     * 
      * @param path a relative path.
      * @return the image descriptor.
      */
@@ -253,6 +286,26 @@ public class StatusBar {
     private ImageDescriptor createImageDescriptor(final String path) {
         URL bitmapUrl = FileLocator.find(Platform.getBundle(Audit.PLUGIN_ID), new Path(path), null);
         return ImageDescriptor.createFromURL(bitmapUrl);
+    }
+
+    @objid ("681cb655-8d59-4a92-bee0-b18be43dd641")
+    private void freeAllocatedResources() {
+        if (this.processingStatusIcon != null) {
+            this.processingStatusIcon.dispose();
+            this.processingStatusIcon = null;
+        }
+        if (this.processingStatusIcon2 != null) {
+            this.processingStatusIcon2.dispose();
+            this.processingStatusIcon2 = null;
+        }
+        if (this.suspendedStatusIcon != null) {
+            this.suspendedStatusIcon.dispose();
+            this.suspendedStatusIcon = null;
+        }
+        if (this.idleStatusIcon != null) {
+            this.idleStatusIcon.dispose();
+            this.idleStatusIcon = null;
+        }
     }
 
 }

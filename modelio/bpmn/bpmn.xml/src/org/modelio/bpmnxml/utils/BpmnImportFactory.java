@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public final class BpmnImportFactory {
     /**
      * Create an instance of 'metaclass' and define 'parent' as its composition owner using the dependency 'depName'.
      * The new object will belong to the same repository as the 'parent' object.
+     * 
      * @param metaclass a metamodel class java interface
      * @param parent the new element owner
      * @param depName the metamodel relation from the owner to the created element.
@@ -95,6 +96,7 @@ public final class BpmnImportFactory {
      * object is NOT the composition owner of the created object.
      * @param <T>
      * the metaclass interface of the object to create.
+     * 
      * @param metaclass the metaclass of the object to create.
      * @param referent the referent object
      * @
@@ -123,6 +125,7 @@ public final class BpmnImportFactory {
     /**
      * Create an instance of 'metaclass' and define 'parent' as its composition owner using the dependency 'depName'.
      * The new object will belong to the same repository as the 'parent' object.
+     * 
      * @param metaclass a metamodel class java interface
      * @param parent the new element owner
      * @param depName the metamodel relation from the owner to the created element.
@@ -141,6 +144,7 @@ public final class BpmnImportFactory {
      * object is NOT the composition owner of the created object.
      * @param <T>
      * the metaclass interface of the object to create.
+     * 
      * @param metaclass the metaclass of the object to create.
      * @param referent the referent object
      * @

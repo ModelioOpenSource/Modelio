@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -283,6 +283,7 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
 
     /**
      * Sets the behaviour to adopt.
+     * 
      * @param value the new behaviour.
      */
     @objid ("2af6f4ab-55b6-11e2-877f-002564c97630")
@@ -340,6 +341,7 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
      * <p>
      * Basically, if the request concerns the creation of sub partitions, then the partition container policy should handle it. Otherwise, the free zone policy is concerned.
      * </p>
+     * 
      * @param request @return
      */
     @objid ("2af6f4b4-55b6-11e2-877f-002564c97630")
@@ -355,6 +357,7 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
 
     /**
      * Returns the current behaviour.
+     * 
      * @return the current behaviour.
      */
     @objid ("2af6f4bc-55b6-11e2-877f-002564c97630")

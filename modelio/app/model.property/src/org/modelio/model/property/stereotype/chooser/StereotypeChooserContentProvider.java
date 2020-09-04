@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -128,6 +128,7 @@ public class StereotypeChooserContentProvider implements ITreeContentProvider {
 
     /**
      * Constructor initializing the model service.
+     * 
      * @param modelService the model service needed to find elements.
      */
     @objid ("0dbdff71-379e-4cb2-bf4f-743bef84fd18")

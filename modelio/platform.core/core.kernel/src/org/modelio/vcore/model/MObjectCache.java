@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class MObjectCache {
 
     /**
      * Creates a new cache.
+     * 
      * @param metamodel the metamodel
      */
     @objid ("006e8a20-0d1e-1f20-85a5-001ec947cd2a")
@@ -68,6 +69,7 @@ public class MObjectCache {
 
     /**
      * Add an object to the cache.
+     * 
      * @param obj the object to add
      * @throws org.modelio.vcore.model.DuplicateObjectException if another object with the same identifier is already in the cache.
      */
@@ -88,6 +90,7 @@ public class MObjectCache {
      * The returned collection is a view on the cache and reflects all changes made on it.
      * The cache should not be modified while walking the returned collection to avoid unspecified
      * behavior.
+     * 
      * @return all the cache content.
      */
     @objid ("f4aa154a-08b1-11e2-b33c-001ec947ccaf")
@@ -113,6 +116,7 @@ public class MObjectCache {
 
     /**
      * Find model objects by a metaclass and an attribute value.
+     * 
      * @param cls the metaclass.
      * @param withSubClasses if true will look into subclasses hierarchy too. Since 3.6
      * @param att the attribute to search
@@ -156,6 +160,7 @@ public class MObjectCache {
 
     /**
      * Get all elements of a given class and the class descendants.
+     * 
      * @param cls a metaclass.
      * @param withSubClasses if true look in sub classes hierarchy too.
      * @param result all elements of this class will be added here.
@@ -178,6 +183,7 @@ public class MObjectCache {
      * <p>
      * Looks in sub classes hierarchy too.
      * @see #findById(MClass, String, boolean) to avoid looking in sub classes
+     * 
      * @param cls a metaclass
      * @param siteIdentifier an UUID
      * @return the found element or <code>null</code>.
@@ -189,6 +195,7 @@ public class MObjectCache {
 
     /**
      * Find a model object from its MClass and its identifier.
+     * 
      * @param cls a metaclass
      * @param siteIdentifier an UUID
      * @param lookInsubClasses if true look into subclasses if not found in the given one.
@@ -220,6 +227,7 @@ public class MObjectCache {
      * <p>
      * Returns <code>null</code> if no object with the given class and identifier is found, or
      * if the metaclass is unknown.
+     * 
      * @param ref an element reference
      * @return the found element or <code>null</code>.
      */
@@ -238,6 +246,7 @@ public class MObjectCache {
      * <p>
      * The cache should not be modified while walking it to avoid unspecified
      * behavior.
+     * 
      * @return all the cache content.
      */
     @objid ("bd96ad7d-92d7-11e1-81e9-001ec947ccaf")
@@ -255,6 +264,7 @@ public class MObjectCache {
      * <p>
      * The cache should not be modified while walking it to avoid unspecified
      * behavior.
+     * 
      * @return all the cache content.
      */
     @objid ("bd96ad84-92d7-11e1-81e9-001ec947ccaf")
@@ -273,6 +283,7 @@ public class MObjectCache {
     /**
      * Add an object to the cache without duplicate check.
      * <p>
+     * 
      * @param obj the object to add
      */
     @objid ("f4aa1543-08b1-11e2-b33c-001ec947ccaf")
@@ -283,6 +294,7 @@ public class MObjectCache {
 
     /**
      * Remove a model object from the cache.
+     * 
      * @param obj a model object.
      */
     @objid ("006c8f36-0d1e-1f20-85a5-001ec947cd2a")
@@ -298,6 +310,7 @@ public class MObjectCache {
      * returns a non modifiable empty cache.
      * <p>
      * Nearly all methods of this class should call this method to access the {@link #caches} member.
+     * 
      * @param key a metamodel class
      * @param createMissing <code>true</code> to create a cache if missing, <code>false</code> to return a dummy one.
      * @return the metaclass cache.
@@ -322,6 +335,7 @@ public class MObjectCache {
 
     /**
      * Remove a model object from the cache using its identifier.
+     * 
      * @param cls the metaclass
      * @param uuid the identifier
      * @since 3.6

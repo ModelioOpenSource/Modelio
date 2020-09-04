@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -207,6 +207,7 @@ class DocumentContentHandler extends DefaultHandler {
 
     /**
      * Set the current CMS node parent
+     * 
      * @param className the metaclass name
      * @param uid the UUID
      * @param name the name (currently unused)

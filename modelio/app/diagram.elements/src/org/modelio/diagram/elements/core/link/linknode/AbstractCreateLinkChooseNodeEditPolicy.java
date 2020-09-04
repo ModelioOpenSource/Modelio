@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public abstract class AbstractCreateLinkChooseNodeEditPolicy extends GraphicalEd
 
     /**
      * Get the action provider in charge of defining which node creation action are to be proposed to the end user.
+     * 
      * @return the action provider to populate the node creation choice menu.
      */
     @objid ("717b5f30-80cf-439b-b613-727c1d5d6f4b")
@@ -83,6 +84,7 @@ public abstract class AbstractCreateLinkChooseNodeEditPolicy extends GraphicalEd
 
     /**
      * Define whether or not a kind of link is handled by this policy.
+     * 
      * @param linkCtx the link creation context , may be null
      * @return true if the policy handles the type of link defined in linkCtx. false otherwise. If false the policy won't provide any target edit part nor any command.
      */
@@ -153,6 +155,7 @@ public abstract class AbstractCreateLinkChooseNodeEditPolicy extends GraphicalEd
 
     /**
      * Computes the command for a {@link CreateLinkConstants#REQ_CONNECTION_CREATE_LINK_CHOOSENODE} request.
+     * 
      * @param req a {@link CreateLinkConstants#REQ_CONNECTION_CREATE_LINK_CHOOSENODE} request.
      * @return the command or null.
      */
@@ -211,6 +214,7 @@ public abstract class AbstractCreateLinkChooseNodeEditPolicy extends GraphicalEd
      * <li> filters the given one selecting only node creation actions
      * <li> and chains them with a link creation action
      * </ul>
+     * 
      * @param actionProvider a creation actions provider
      * @return the final provider.
      */
@@ -223,6 +227,7 @@ public abstract class AbstractCreateLinkChooseNodeEditPolicy extends GraphicalEd
 
     /**
      * Asks the source edit part to show feedback of a normal REQ_CONNECTION_END request.
+     * 
      * @param request a {@link CreateLinkConstants#REQ_CONNECTION_CREATE_LINK_CHOOSENODE} request
      */
     @objid ("1968b934-f4a4-40d1-a028-8c5d0c6c6a76")
@@ -235,6 +240,7 @@ public abstract class AbstractCreateLinkChooseNodeEditPolicy extends GraphicalEd
 
     /**
      * Asks the source edit part to remove feedback of a normal REQ_CONNECTION_END request.
+     * 
      * @param request a {@link CreateLinkConstants#REQ_CONNECTION_CREATE_LINK_CHOOSENODE} request
      */
     @objid ("2e9438fb-b9c3-485b-a91b-c6e46c66bdcb")

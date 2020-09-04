@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class CreateCallActivityCommand extends Command {
 
     /**
      * Initialize the command.
+     * 
      * @param dropLocation The location of the element in the diagram
      * @param elementToBeCalled The element to be 'called'.
      * @param editPart The destination edit part that will own the call activity.
@@ -149,6 +150,7 @@ public class CreateCallActivityCommand extends Command {
 
     /**
      * Unmask the given element in the destination edit part.
+     * 
      * @param el The element to unmask
      */
     @objid ("4751a712-2962-4026-8129-a5e4438537ab")

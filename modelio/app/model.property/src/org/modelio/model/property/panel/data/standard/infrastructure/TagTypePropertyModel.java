@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public class TagTypePropertyModel extends AbstractPropertyModel<TagType> {
 
     /**
      * Instantiate the tag type properties view.
+     * 
      * @param theEditedElement the current tag type.
      */
     @objid ("b926989c-67c0-4f3d-9b21-265a1737b0a6")

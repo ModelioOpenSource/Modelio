@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ class ModuleStateEditingSupport extends EditingSupport {
     /**
      * Initialize the ModuleStateEditingSupport.
      * @param applicationContext the Eclipse 4 context
+     * 
      * @param viewer The style viewer.
      */
     @objid ("38e961e8-a7e8-4620-9765-90e7c55f0303")

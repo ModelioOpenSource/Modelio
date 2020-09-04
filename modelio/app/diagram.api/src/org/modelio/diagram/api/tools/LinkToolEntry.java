@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.api.modelio.diagram.tools.IDiagramTool;
 public class LinkToolEntry extends ConnectionCreationToolEntry {
     /**
      * Constructor for LinkToolEntry.
+     * 
      * @param label the label
      * @param shortDesc the description
      * @param factory the CreationFactory

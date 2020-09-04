@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -173,6 +173,7 @@ public class WorkspaceTreeView {
 
     /**
      * Modify the workspace path.
+     * 
      * @param path the workspace path.
      */
     @objid ("79544b5e-3ba2-4dec-babe-ddbfe62695a2")
@@ -235,6 +236,7 @@ public class WorkspaceTreeView {
 
     /**
      * Select the project with the given name.
+     * 
      * @param projectName the project to select
      */
     @objid ("40dec47b-3078-44bf-85ed-29e312c815d2")
@@ -259,6 +261,7 @@ public class WorkspaceTreeView {
 
     /**
      * Called when the contents of the workspace are known to have changed (add/removing project).
+     * 
      * @param wkspace the changed workspace
      */
     @objid ("922aa40f-b39e-434a-b243-86f5cce232ef")
@@ -300,6 +303,7 @@ public class WorkspaceTreeView {
 
     /**
      * Called when the current opened project has been closed
+     * 
      * @param project the closed project
      */
     @objid ("12a4a585-6877-4f9f-8ffd-a2e2225d5cc9")
@@ -316,6 +320,7 @@ public class WorkspaceTreeView {
 
     /**
      * Called when the currently opened project has been saved.
+     * 
      * @param project the saved project
      */
     @objid ("2812c2d1-fd94-448c-b8fe-47f4d64de83a")
@@ -330,6 +335,7 @@ public class WorkspaceTreeView {
 
     /**
      * Called when current workspace has been changed (another workspace was chosen)
+     * 
      * @param wkspace the new workspace
      */
     @objid ("1205faf1-03d1-4c56-92d2-b9a96474f31b")
@@ -347,6 +353,7 @@ public class WorkspaceTreeView {
 
     /**
      * Tells whether the tree view is initialized and not disposed.
+     * 
      * @return <code>true</code> if the viewer is usable else <code>false</code> .
      */
     @objid ("b5bd7783-1bd7-4bc8-89b4-2689d96b18e8")
@@ -356,6 +363,7 @@ public class WorkspaceTreeView {
 
     /**
      * Watch the given workspace directory for modifications and refresh the tree viewer in this case.
+     * 
      * @param path the workspace directory to watch
      */
     @objid ("181a93a1-e02f-4abf-a686-81b259b36176")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public interface IMetamodelFragmentHandle {
      * <p>
      * This class must implement {@link MMetamodelFragment} and should inherit
      * from {@link AbstractMetamodelFragment}.
+     * 
      * @return the main class name.
      */
     @objid ("7d8e8558-2f1f-46b3-8f1a-3388e6114d6c")

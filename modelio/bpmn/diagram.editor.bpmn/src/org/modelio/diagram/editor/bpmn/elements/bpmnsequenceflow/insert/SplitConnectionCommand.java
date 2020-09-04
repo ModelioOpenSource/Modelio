@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ class SplitConnectionCommand extends Command {
 
     /**
      * Creates the that splits a connection in two to insert a node created by another command.
+     * 
      * @param createNodeCmd the node creation command.
      * @param connectionEditPart the connection to split.
      */

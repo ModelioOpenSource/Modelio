@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public class AccessDeniedException extends RuntimeException {
 
     /**
      * Initialize the exception.
+     * 
      * @param message a user friendly error message
      * @param related the object whose access was denied.
      */
@@ -47,6 +48,7 @@ public class AccessDeniedException extends RuntimeException {
 
     /**
      * Get the the object whose access was denied.
+     * 
      * @return the read only object.
      */
     @objid ("c79e3188-d58f-11e1-b069-001ec947ccaf")

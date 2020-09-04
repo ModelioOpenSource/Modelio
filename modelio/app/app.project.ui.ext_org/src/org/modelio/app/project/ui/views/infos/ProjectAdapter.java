@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,7 +22,6 @@ package org.modelio.app.project.ui.views.infos;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.attribute.FileTime;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -36,6 +35,7 @@ import org.modelio.app.project.ui.views.urls.UrlEntry;
 import org.modelio.gproject.data.project.FragmentDescriptor;
 import org.modelio.gproject.data.project.GProperties;
 import org.modelio.gproject.data.project.ProjectDescriptor;
+import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.gproject.gproject.GProject;
 
 @objid ("70c2a655-56a8-4200-aa54-af4a65a1490f")
@@ -55,12 +55,12 @@ class ProjectAdapter {
 
     @objid ("97aeecbd-8d55-408e-93b4-2abba9274347")
     public boolean isSameAs(GProject project) {
-        return (project != null) && (project.getName().equals(getName()));
+        return project != null && project.getName().equals(getName());
     }
 
     @objid ("4445d246-094c-4f61-8e5e-db2c2106ad1a")
     public boolean isSameAs(ProjectDescriptor aProjectDescriptor) {
-        return (aProjectDescriptor != null) && (aProjectDescriptor.getName().equals(getName()));
+        return aProjectDescriptor != null && aProjectDescriptor.getName().equals(getName());
     }
 
     @objid ("7e135cf6-28f0-4692-9c82-39dff8d3d2d6")
@@ -93,9 +93,9 @@ class ProjectAdapter {
     }
 
     @objid ("db440e3d-86f3-40e5-9ce2-fa8b4ce1f852")
-    public Path getPath() {
+    public ProjectFileStructure getProjectFileStructure() {
         if (this.projectDescriptor != null) {
-            return this.projectDescriptor.getPath();
+            return this.projectDescriptor.getProjectFileStructure();
         }
         return null;
     }
@@ -119,18 +119,18 @@ class ProjectAdapter {
     @objid ("cfe30a51-4434-404e-a891-8e57a9a7abb6")
     public String getStoragePathString() {
         if (this.projectDescriptor != null) {
-            return this.projectDescriptor.getPath().toString();
+            return this.projectDescriptor.getProjectFileStructure().getProjectPath().toString();
         }
         return "";
     }
 
     @objid ("3081909f-6836-4674-8f29-0be8f048bc97")
     public String getStorageLastModificationTimeString() {
-        if (this.projectDescriptor != null) {            
+        if (this.projectDescriptor != null) {
             try {
-                FileTime lastLastModifiedTime = Files.getLastModifiedTime(this.projectDescriptor.getPath().resolve("project.conf"));
+                FileTime lastLastModifiedTime = Files.getLastModifiedTime(this.projectDescriptor.getProjectFileStructure().getProjectConfFile());
                 Date date = new Date(lastLastModifiedTime.toMillis());
-                SimpleDateFormat dateFormat = new SimpleDateFormat(AppProjectUiExt.I18N.getString("ProjectInfoHtmlPage.lastLastModifiedTimeFormat")); 
+                SimpleDateFormat dateFormat = new SimpleDateFormat(AppProjectUiExt.I18N.getString("ProjectInfoHtmlPage.lastLastModifiedTimeFormat"));
                 return dateFormat.format(date);
             } catch (IOException e) {
                 AppProjectUi.LOG.error(e);
@@ -146,16 +146,16 @@ class ProjectAdapter {
      */
     @objid ("ece56476-ee22-4f86-bf85-c27ffd265572")
     public List<FragmentDescriptor> getWorkModelsFragments() {
-        List<FragmentDescriptor> workModelsFragments = new ArrayList<>();       
-        for(Object element : getFragments()) {
-            if ((element != null) && (element instanceof FragmentDescriptor)) {
+        List<FragmentDescriptor> workModelsFragments = new ArrayList<>();
+        for (Object element : getFragments()) {
+            if (element != null && element instanceof FragmentDescriptor) {
                 switch (((FragmentDescriptor) element).getType()) {
-                    case EXML_SVN:
-                    case EXML:
-                        workModelsFragments.add((FragmentDescriptor) element);
-                        break;
-                    default:
-                        break;
+                case EXML_SVN:
+                case EXML:
+                    workModelsFragments.add((FragmentDescriptor) element);
+                    break;
+                default:
+                    break;
                 }
             }
         }
@@ -169,18 +169,18 @@ class ProjectAdapter {
      */
     @objid ("bd420ad8-0d47-4f8d-bfaf-acad8149ca51")
     public List<FragmentDescriptor> getLibrariesFragments() {
-        List<FragmentDescriptor> librariesFragments = new ArrayList<>();       
-        for(Object element : getFragments()) {
-            if ((element != null) && (element instanceof FragmentDescriptor)) {
+        List<FragmentDescriptor> librariesFragments = new ArrayList<>();
+        for (Object element : getFragments()) {
+            if (element != null && element instanceof FragmentDescriptor) {
                 switch (((FragmentDescriptor) element).getType()) {
-                    case EXML_URL:
-                    case RAMC:
-                        if (!((FragmentDescriptor) element).getId().equals("PredefinedTypes")) {                            
-                            librariesFragments.add((FragmentDescriptor) element);
-                        }
-                        break;
-                    default:
-                        break;
+                case EXML_URL:
+                case RAMC:
+                    if (!((FragmentDescriptor) element).getId().equals("PredefinedTypes")) {
+                        librariesFragments.add((FragmentDescriptor) element);
+                    }
+                    break;
+                default:
+                    break;
                 }
             }
         }

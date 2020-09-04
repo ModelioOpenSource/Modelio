@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,6 +37,7 @@ import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
+import org.modelio.diagram.elements.common.header.IHeaderFigure;
 import org.modelio.diagram.elements.core.figures.labelum.LabelumFigure;
 import org.modelio.diagram.elements.drawings.core.HAlign;
 
@@ -136,6 +137,7 @@ public final class TextDirectEditManager extends DirectEditManager2 {
 
     /**
      * Set whether the editor is multiline.
+     * 
      * @param v true for multiline, else false
      * @return this instance.
      */
@@ -156,6 +158,7 @@ public final class TextDirectEditManager extends DirectEditManager2 {
      * Set whether wrapping is enabled or not on the widget.
      * <p>
      * Note : This method does not modify the locator whose behavior must be coherent.
+     * 
      * @param wrap true to enable wrap, else false.
      * @return this instance.
      */
@@ -171,17 +174,16 @@ public final class TextDirectEditManager extends DirectEditManager2 {
 
     /**
      * Creates a {@link TextDirectEditManager} configured for the given {@link LabelumFigure}.
+     * 
      * @param source the edited edit part
-     * @param label the edited Labelum
+     * @param headerFigure the header figure owning the Labelum
      * @param initialText the initial text
      * @param autoExpandHorizontally Whether the editor should expand horizontally or wrap text when too large.
      * @return a configured edit manager.
      */
     @objid ("3b8c96b3-5053-493e-929e-3626b6c1b1c8")
-    public static TextDirectEditManager forLabelum(GraphicalEditPart source, LabelumFigure label, String initialText, boolean autoExpandHorizontally) {
-        final CellEditorLocator cellEditorLocator = new EditorLocatorForLabelum(
-                label)
-                        .setAutoExpandH(autoExpandHorizontally);
+    public static TextDirectEditManager forLabelum(GraphicalEditPart source, IHeaderFigure headerFigure, String initialText, boolean autoExpandHorizontally) {
+        LabelumFigure label = headerFigure.getMainLabelFigure();
         
         // Convert the Labelum text alignment to a supported HAlign
         HAlign halign;
@@ -199,17 +201,37 @@ public final class TextDirectEditManager extends DirectEditManager2 {
             break;
         case PositionConstants.LEFT + PositionConstants.RIGHT:
             halign = HAlign.Left;
-            break;
+        break;
         default:
             halign = HAlign.Left;
             break;
         }
+        
+        final CellEditorLocator cellEditorLocator;
+        if (label.getParent() != null) {
+            cellEditorLocator = new EditorLocatorForLabelum(
+                    label)
+                    .setAutoExpandH(autoExpandHorizontally);
+        } else {
+            // Labelum is not attached to its parent, manually compute the editor's bounds
+            cellEditorLocator = new CellEditorLocator() {
+                @Override
+                public void relocate(CellEditor cellEditor) {
+                    final Rectangle rect = headerFigure.getBounds().getCopy();
+                    headerFigure.translateToAbsolute(rect);
+        
+                    final Dimension txtMinSize = TextUtilities.INSTANCE.getStringExtents("pPF", headerFigure.getFont());
+                    rect.union(rect.x, rect.y, txtMinSize.width(), txtMinSize.height());
+                    cellEditor.getControl().setBounds(rect.x, rect.y, rect.width, rect.height);
+                }
+            };
+        }
         return new TextDirectEditManager(
-                        source,
-                        cellEditorLocator,
-                        halign,
-                        initialText)
-                                .setWrap(!autoExpandHorizontally);
+                source,
+                cellEditorLocator,
+                halign,
+                initialText)
+                .setWrap(!autoExpandHorizontally);
     }
 
     /**
@@ -226,6 +248,7 @@ public final class TextDirectEditManager extends DirectEditManager2 {
          * Creates a new text string cell editor parented under the given control.
          * The cell editor value is the string itself, which is initially the empty string.
          * Initially, the cell editor has no cell validator.
+         * 
          * @param parent the parent control
          * @param controlStyle the style bits
          */

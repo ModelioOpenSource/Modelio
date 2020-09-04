@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.opal.duallist.feature"
+      label="Nebula Opal DualList Widget"
+      version="1.0.0.201812241324"
+      provider-name="Eclipse Nebula, Laurent CARON">
+
+   <description url="http://eclipse.org/nebula">
+      DualList
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+   
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.duallist"
+         download-size="21"
+         install-size="39"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.duallist.source"
+         download-size="17"
+         install-size="71"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+</feature>

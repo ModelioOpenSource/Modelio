@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public class Category {
 
     /**
      * Gets the value of the subCategorie property.
+     * 
      * @return possible object is {@link Category }
      */
     @objid ("a7750965-5ab6-4915-8539-a7b224fffd19")
@@ -89,6 +90,7 @@ public class Category {
 
     /**
      * Sets the value of the subCategorie property.
+     * 
      * @param value allowed object is {@link Category }
      */
     @objid ("e93de807-2b8d-4bb1-a994-ca2c50487f3f")
@@ -98,6 +100,7 @@ public class Category {
 
     /**
      * Gets the value of the name property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("95c74c23-51ed-4d01-abff-393a8a01c239")
@@ -107,6 +110,7 @@ public class Category {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("423bc5cf-53c2-459e-98b8-bede8f5f0b32")
@@ -116,6 +120,7 @@ public class Category {
 
     /**
      * Gets the value of the description property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("bee1eb87-ba89-4853-9e2e-42116a1d372a")
@@ -125,6 +130,7 @@ public class Category {
 
     /**
      * Sets the value of the description property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("cc544455-b25b-49e9-9cdf-767ca07a787f")
@@ -134,6 +140,7 @@ public class Category {
 
     /**
      * Gets the value of the image property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("99207ae9-ac8b-4b29-a9ab-d4715371860d")
@@ -143,6 +150,7 @@ public class Category {
 
     /**
      * Sets the value of the image property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("770df913-7d1e-41ba-9aa5-d5cb8382d571")

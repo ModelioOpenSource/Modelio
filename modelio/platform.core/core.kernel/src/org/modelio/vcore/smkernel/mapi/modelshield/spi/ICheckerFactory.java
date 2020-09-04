@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public interface ICheckerFactory extends IMetamodelDependentService {
 
     /**
      * Create and register the model shield checkers.
+     * 
      * @param plan the model shield registry where checkers must be registered.
      * @param metamodel the current metamodel.
      */

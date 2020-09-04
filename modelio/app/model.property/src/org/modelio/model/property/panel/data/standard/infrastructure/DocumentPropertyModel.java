@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class DocumentPropertyModel extends AbstractPropertyModel<Document> {
 
     /**
      * Instantiate the externDocument type properties view.
+     * 
      * @param theEditedElement the current externDocument type.
      */
     @objid ("f29f59d6-503c-4784-b492-336741861c91")

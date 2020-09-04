@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,13 +19,14 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.metamodel.uml.infrastructure.ExternElement;
 
 /**
  * MethodologicalLink v2.1.01
@@ -46,13 +47,31 @@ public interface MethodologicalLink extends Dependency {
     /**
      * The metaclass simple name.
      */
-    @objid ("18cd693a-727f-466d-aef5-afb53025a7c9")
+    @objid ("c429c37b-13fc-4e98-91e3-c376cf341794")
     public static final String MNAME = "MethodologicalLink";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("8cb6537a-66e6-4550-b267-e5834ab4c191")
+    @objid ("47907c21-9431-4db5-8632-7051367c092e")
     public static final String MQNAME = "Infrastructure.MethodologicalLink";
+
+    /**
+     * Getter for relation 'MethodologicalLink->ExternElement'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     */
+    @objid ("f48cdf02-014d-43c6-9907-a5333e7e0888")
+    ExternElement getExternElement();
+
+    /**
+     * Setter for relation 'MethodologicalLink->ExternElement'
+     * 
+     * Metamodel description:
+     * <i>null</i>
+     */
+    @objid ("5e846696-595e-4299-8864-81652a7619b8")
+    void setExternElement(ExternElement value);
 
 }

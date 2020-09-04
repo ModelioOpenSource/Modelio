@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Admin Tools
 Bundle-SymbolicName: org.modelio.admtool;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: org.modelio.admtool.plugin.AdmTool
 Bundle-Vendor: modelio.org
 Bundle-Localization: plugin

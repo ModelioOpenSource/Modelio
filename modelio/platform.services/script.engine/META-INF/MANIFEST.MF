@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Modelio Script Engine
 Bundle-SymbolicName: org.modelio.script.engine;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: modelio.org
 Bundle-ActivationPolicy: lazy
@@ -11,7 +11,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.modelio.utils,
  org.modelio.core.utils,
  org.modelio.metamodel.emfapi,
- org.modelio.api
+ org.modelio.api,
+ org.modelio.core.rcp
 Export-Package: org.modelio.script.engine.core.engine;uses:="org.eclipse.jface.viewers,javax.script",
  org.python.modules
 Bundle-Activator: org.modelio.script.engine.plugin.ScriptEnginePlugin

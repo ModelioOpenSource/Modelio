@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -81,6 +81,7 @@ public final class ElementScope {
      * <p>
      * Calling this constructor is equivalent to <code>new ElementScope(metaclass, true, stereotype, true);</code>
      * </p>
+     * 
      * @param metaclass a metaclass. Might be <code>null</code>
      * @param stereotype a stereotype. Might be <code>null</code>
      * @deprecated use {@link #ElementScope(MClass, boolean, Stereotype, boolean)} instead.
@@ -96,6 +97,7 @@ public final class ElementScope {
      * <p>
      * Both values are optional but at least one of these two fields must be provided.
      * </p>
+     * 
      * @param metaclass a metaclass. Might be <code>null</code>
      * @param withSubClasses whether or not metaclass inheritance should be considered for the check
      * @param stereotype a stereotype. Might be <code>null</code>
@@ -139,6 +141,7 @@ public final class ElementScope {
 
     /**
      * Check that the given element matches the scope's metaclass/stereotype.
+     * 
      * @param e the element to check.
      * @return <code>true</code> if the element matches the scope's metaclass/stereotype.
      * @since 3.8
@@ -150,6 +153,7 @@ public final class ElementScope {
 
     /**
      * Check that the given element matches the scope's metaclass/stereotype.
+     * 
      * @param e the element to check.
      * @param inherit whether or not stereotype inheritance should be considered for the check. This parameter is now obsolete, the one given at the scope's constructor is used instead.
      * @return <code>true</code> if the element matches the scope's metaclass/stereotype.

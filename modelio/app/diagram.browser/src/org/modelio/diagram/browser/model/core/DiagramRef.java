@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,16 +21,17 @@
 package org.modelio.diagram.browser.model.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.core.runtime.IAdaptable;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.DiagramSet;
 
 @objid ("00338a1a-0d4f-10c6-842f-001ec947cd2a")
-public class DiagramRef {
+public class DiagramRef implements IAdaptable {
     @objid ("0033947e-0d4f-10c6-842f-001ec947cd2a")
-     AbstractDiagram referencedDiagram;
+    private final AbstractDiagram referencedDiagram;
 
     @objid ("0033ae0a-0d4f-10c6-842f-001ec947cd2a")
-     DiagramSet referenceOwner;
+    private final DiagramSet referenceOwner;
 
     @objid ("0033c05c-0d4f-10c6-842f-001ec947cd2a")
     public DiagramRef(AbstractDiagram referencedDiagram, DiagramSet referenceOwner) {
@@ -94,6 +95,14 @@ public class DiagramRef {
     @Override
     public String toString() {
         return "DiagramRef [referenceOwner=" + this.referenceOwner + ", referencedDiagram=" + this.referencedDiagram + "]";
+    }
+
+    @objid ("3430672c-67b7-4ea5-b8b8-c7a8ea3557cc")
+    @Override
+    public <T> T getAdapter(Class<T> adapter) {
+        if (adapter.isInstance(this.referencedDiagram))
+            return adapter.cast(this.referencedDiagram);
+        return null;
     }
 
 }

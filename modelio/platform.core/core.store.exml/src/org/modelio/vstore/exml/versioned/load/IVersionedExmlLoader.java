@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ import org.xml.sax.InputSource;
 public interface IVersionedExmlLoader {
     /**
      * Load a CMS node from an EXML resource.
+     * 
      * @param is the versioned EXML part
      * @param localIs the non versioned part
      * @param aModelLoader model loading API

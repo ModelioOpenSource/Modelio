@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class DataFlowPropertyModel extends AbstractPropertyModel<DataFlow> {
 
     /**
      * Create a new <i>DataFlow</i> data model from an <i>DataFlow</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("e0c01f7d-2abb-44d2-b269-b69304c4a94c")
@@ -64,6 +65,7 @@ public class DataFlowPropertyModel extends AbstractPropertyModel<DataFlow> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("9810ca73-24b3-43b9-bd1d-5d7300cecac4")
@@ -74,6 +76,7 @@ public class DataFlowPropertyModel extends AbstractPropertyModel<DataFlow> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("fbc9f893-314d-409a-ba0e-a925a2a8e45e")
@@ -86,6 +89,7 @@ public class DataFlowPropertyModel extends AbstractPropertyModel<DataFlow> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -120,6 +124,7 @@ public class DataFlowPropertyModel extends AbstractPropertyModel<DataFlow> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -154,6 +159,7 @@ public class DataFlowPropertyModel extends AbstractPropertyModel<DataFlow> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

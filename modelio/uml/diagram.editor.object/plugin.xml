@@ -2,9 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
 	<extension id="diagram.object" point="org.eclipse.e4.workbench.model">
-      <fragment
-            uri="e4model/diagram_object_editor.e4xmi">
-      </fragment>
+      <fragment uri="e4model/diagram_object_editor.e4xmi"/>
       <processor beforefragment="true" class="org.modelio.diagram.editor.object.plugin.ObjectProcessor"/>
    </extension>
 
@@ -67,6 +65,6 @@
           </palette_group>
        </palette>
     </extension>
-    
+
 
 </plugin>

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.diagram.editor.AbstractDiagramEditor;
+import org.modelio.diagram.elements.common.abstractdiagram.ImageBuilder;
 import org.modelio.ui.swt.PngTransfer;
 
 @objid ("65afb5e5-33f7-11e2-95fe-001ec947c8cc")

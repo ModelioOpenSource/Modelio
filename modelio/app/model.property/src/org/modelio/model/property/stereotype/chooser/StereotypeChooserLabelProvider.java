@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,7 +22,9 @@ package org.modelio.model.property.stereotype.chooser;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.graphics.Image;
+import org.modelio.core.ui.swt.images.IModelioElementLabelProvider;
 import org.modelio.mda.infra.ModuleI18NService;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
@@ -32,7 +34,7 @@ import org.modelio.ui.UIImages;
  * Default label provider for the note chooser dialog.
  */
 @objid ("a4375516-7c8e-42ce-b70f-198f1ddfddab")
-public class StereotypeChooserLabelProvider extends LabelProvider {
+public class StereotypeChooserLabelProvider extends LabelProvider implements IModelioElementLabelProvider {
     @objid ("ca5efc3a-fad2-4e37-9d7c-6c04a195bcd8")
     @Override
     public Image getImage(Object element) {
@@ -73,6 +75,29 @@ public class StereotypeChooserLabelProvider extends LabelProvider {
         } else {
             return element.toString();
         }
+    }
+
+    @objid ("d7e3665d-0d73-42ee-8775-e402f70c6981")
+    @Override
+    public String getToolTipText(Object element) {
+        if (element instanceof Stereotype) {
+            Stereotype stereotype = (Stereotype) element;
+            return ModuleI18NService.getDescription(stereotype);
+        } else {
+            return null;
+        }
+    }
+
+    @objid ("98c7d17f-c83f-489d-9f33-26a6e6db4353")
+    @Override
+    public StyledString getStyledText(Object element) {
+        return new StyledString(getText(element));
+    }
+
+    @objid ("85b61b6b-ebc8-4671-b65c-aeb3d0487530")
+    @Override
+    public boolean showAsReference(Object object) {
+        return false;
     }
 
 }

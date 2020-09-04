@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -196,6 +196,7 @@ public class R2340 extends AbstractUmlRule {
 
         /**
          * This methods checks if the given classifier is an .Interface, in which case the appropriate method is called.
+         * 
          * @param classifier The Classifier.
          * @return A list of AuditEntries.
          */
@@ -210,6 +211,7 @@ public class R2340 extends AbstractUmlRule {
 
         /**
          * This method recursively navigates the .Interface realizations until it find Classifiers and then call the appropriate method that check Classifiers.
+         * 
          * @param interfaze The .Interface to check.
          * @return A list of AuditEntries.
          */
@@ -241,6 +243,7 @@ public class R2340 extends AbstractUmlRule {
 
         /**
          * This method recursively checks the given Classifier as well as all Classifier that inherits from it.
+         * 
          * @param classifier The given Classifier.
          * @return A list of AuditEntries.
          */

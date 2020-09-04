@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -135,6 +135,7 @@ public class GenericBoxTool extends DefaultBoxTool {
      * Hook called once the element is created, configured, unmasked and before the transaction is committed.
      * <p>
      * Does nothing by default. Sub classes may redefine this method to make additional modifications.
+     * 
      * @param diagramHandle the diagram handle
      * @param parentGraphic the graphic under which the element was unmasked
      * @param rect the new graphic bounds.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class BpmnIntermediateThrowEventPropertyModel extends AbstractPropertyMod
     /**
      * Create a new <i>BpmnIntermediateThrowEvent</i> data model from an <i>BpmnIntermediateThrowEvent</i>.
      * @param definitionPropertyModel
+     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      */
@@ -78,6 +79,7 @@ public class BpmnIntermediateThrowEventPropertyModel extends AbstractPropertyMod
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("8dc62747-5c60-4b08-a51e-130110d24ff9")
@@ -93,6 +95,7 @@ public class BpmnIntermediateThrowEventPropertyModel extends AbstractPropertyMod
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("db5b016e-96ed-465b-bbd8-25828dd4c5ba")
@@ -108,6 +111,7 @@ public class BpmnIntermediateThrowEventPropertyModel extends AbstractPropertyMod
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -126,6 +130,7 @@ public class BpmnIntermediateThrowEventPropertyModel extends AbstractPropertyMod
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

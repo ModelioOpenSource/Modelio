@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -107,6 +107,7 @@ public class GmBpmnProcessDesignDiagram extends GmAbstractDiagram implements IWo
 
     /**
      * Default constructor.
+     * 
      * @param manager the manager needed make the link between the Ob and Gm models.
      * @param diagram the diagram itself.
      * @param diagramRef a reference to the diagram.
@@ -133,7 +134,10 @@ public class GmBpmnProcessDesignDiagram extends GmAbstractDiagram implements IWo
     @objid ("3206ba9d-ec0c-438f-8f24-d865d2b13df2")
     @Override
     public boolean canCreate(Class<? extends MObject> metaclass) {
-        if (Dependency.class.isAssignableFrom(metaclass) ||
+        if (!isLocal()) {
+            // Never accept to create elements in a referenced process
+            return false;
+        } else if (Dependency.class.isAssignableFrom(metaclass) ||
                 AbstractDiagram.class.isAssignableFrom(metaclass) ||
                 Note.class.isAssignableFrom(metaclass) ||
                 Document.class.isAssignableFrom(metaclass)) {
@@ -144,7 +148,7 @@ public class GmBpmnProcessDesignDiagram extends GmAbstractDiagram implements IWo
             return false;
         } else {
             if (((BpmnProcess) this.obDiagram.getOrigin()).getLaneSet() == null) {
-                return (BpmnBaseElement.class.isAssignableFrom(metaclass));
+                return BpmnBaseElement.class.isAssignableFrom(metaclass);
             } else {
                 return false;
             }
@@ -256,7 +260,7 @@ public class GmBpmnProcessDesignDiagram extends GmAbstractDiagram implements IWo
             break;
         }
         default: {
-            assert (false) : "version number not covered!";
+            assert false : "version number not covered!";
             // reading as last handled version: 1
             read_1(in);
             break;
@@ -417,11 +421,16 @@ public class GmBpmnProcessDesignDiagram extends GmAbstractDiagram implements IWo
     @objid ("9830223e-4849-49bb-980f-684ddfb3c37a")
     @Override
     public boolean isUserEditable() {
-        return super.isUserEditable() && isLocal();
+        MObject relatedElement = getRelatedElement();
+        return relatedElement != null
+                && !(relatedElement.isShell() || relatedElement.isDeleted())
+                && relatedElement.getStatus().isModifiable()
+                && isLocal();
     }
 
     /**
      * A process is local if the displayed diagram is not embedded or is displayed in a collaboration that is a composition children of the process itself.
+     * 
      * @return <code>true</code> if the process is local.
      */
     @objid ("a6b58f61-5a02-4520-9218-596fbcf94e70")

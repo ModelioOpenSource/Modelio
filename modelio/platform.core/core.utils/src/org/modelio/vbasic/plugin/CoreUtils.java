@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,9 +22,13 @@ package org.modelio.vbasic.plugin;
 
 import java.util.ResourceBundle;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.vbasic.i18n.MessageBundle;
 
 /**
- * core.utils plugin class.
+ * Represents the <b>core.utils</b> plugin.
+ * <p>
+ * Cannot respect the <a href="http://forge.minotaure.softeam.com/projects/modelio-phoenix/wiki/Plugin_singleton">
+ * typical plugin singleton pattern</a> because core plugins must not use OSGI.
  */
 @objid ("dbe34ae6-cc11-11e1-a564-001ec947ccaf")
 public class CoreUtils {
@@ -38,6 +42,6 @@ public class CoreUtils {
      * Translated messages bundle.
      */
     @objid ("d454feea-cc12-11e1-a564-001ec947ccaf")
-    public static final ResourceBundle I18N = ResourceBundle.getBundle("coreutils");
+    public static final MessageBundle I18N = new MessageBundle(ResourceBundle.getBundle("coreutils"));
 
 }

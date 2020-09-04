@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,10 +21,12 @@
 package org.modelio.app.preferences;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.services.contributions.IContributionFactory;
@@ -56,6 +58,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.modelio.app.preferences.plugin.AppPreferences;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.ui.plugin.UI;
 
 /**
@@ -97,7 +100,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
     private String _message;
 
     @objid ("5002f13d-b176-46f5-9c15-2ce1142cebcf")
-    private List<IPreferenceNode> nodes;
+    private final List<IPreferenceNode> nodes;
 
     @objid ("85b53bb3-b54b-4a5b-9021-e8b73927d532")
     protected static final String ATTR_ICON = "icon"; // $NON-NLS-1$
@@ -137,13 +140,13 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
 
     /**
      * Initialize the preferences dialog.
+     * 
      * @param parentShell a shell.
      * @param context the eclipse context.
-     * @param registry the plugin extension registry.
      */
     @objid ("a692a03a-0d5e-4be5-aa99-36fc0fffa1ed")
-    public ModelioPreferenceDialog(Shell parentShell, IEclipseContext context, IExtensionRegistry registry) {
-        super(parentShell, configurePreferences(context, registry));
+    public ModelioPreferenceDialog(final Shell parentShell, final IEclipseContext context) {
+        super(parentShell, configurePreferences(context));
         
         this._message = "";
         
@@ -153,7 +156,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
     @objid ("e9a249e2-079a-4985-ba23-18adc676fd90")
     @Override
     public boolean close() {
-        for (IPreferenceNode node : this.nodes) {
+        for (final IPreferenceNode node : this.nodes) {
             getPreferenceManager().remove(node);
         }
         return super.close();
@@ -161,7 +164,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
 
     @objid ("7be28e2e-383a-4372-bd74-59be574831ac")
     @Override
-    protected Control createDialogArea(Composite parent) {
+    protected Control createDialogArea(final Composite parent) {
         createTitle(parent);
         
         setTitle(AppPreferences.I18N.getString("ParametersDlg.Title"));
@@ -169,8 +172,8 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
         
         parent.addTraverseListener(new TraverseListener() {
             @Override
-            public void keyTraversed(TraverseEvent event) {
-                if ((event.character == SWT.CR) || (event.character == SWT.KEYPAD_CR) || (event.character == SWT.ESC)) {
+            public void keyTraversed(final TraverseEvent event) {
+                if (event.character == SWT.CR || event.character == SWT.KEYPAD_CR || event.character == SWT.ESC) {
                     event.doit = false;
                 }
             }
@@ -179,7 +182,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
     }
 
     @objid ("291c8a82-7e9d-4390-b89c-2e5d3d168015")
-    protected void setTitleLeftImage(Image newTitleImage) {
+    protected void setTitleLeftImage(final Image newTitleImage) {
         this._titleLeftImage = newTitleImage;
         if (this._titleLeftImageLabel != null && !this._titleLeftImageLabel.isDisposed()) {
             this._titleLeftImageLabel.setImage(newTitleImage);
@@ -188,8 +191,8 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
     }
 
     @objid ("41338c48-dbbd-4a05-9db5-aed3b9cc7b9e")
-    private void setLayoutsForNormalMessage(int verticalSpacing, int horizontalSpacing) {
-        FormData messageLabelData = new FormData();
+    private void setLayoutsForNormalMessage(final int verticalSpacing, final int horizontalSpacing) {
+        final FormData messageLabelData = new FormData();
         messageLabelData.top = new FormAttachment(this._titleLabel, verticalSpacing);
         messageLabelData.right = new FormAttachment(this._titleRightImageLabel);
         messageLabelData.left = new FormAttachment(this._messageImageLabel, horizontalSpacing);
@@ -200,12 +203,12 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
         
         this._messageLabel.setLayoutData(messageLabelData);
         
-        FormData imageLabelData = new FormData();
+        final FormData imageLabelData = new FormData();
         imageLabelData.top = new FormAttachment(this._titleLabel, verticalSpacing);
         imageLabelData.left = new FormAttachment(this._titleLeftImageLabel);
         this._messageImageLabel.setLayoutData(imageLabelData);
         
-        FormData data = new FormData();
+        final FormData data = new FormData();
         data.top = new FormAttachment(this._titleLabel, 0, SWT.TOP);
         data.left = new FormAttachment(this._titleLeftImageLabel);
         data.bottom = new FormAttachment(this._messageLabel, 0, SWT.BOTTOM);
@@ -214,8 +217,8 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
 
     @objid ("34033251-be5a-463e-9c7b-3fa486ef059b")
     private void determineTitleImageLargest() {
-        int titleY = this._titleLeftImageLabel.computeSize(-1, -1).y;
-        int verticalSpacing = convertVerticalDLUsToPixels(1);
+        final int titleY = this._titleLeftImageLabel.computeSize(-1, -1).y;
+        final int verticalSpacing = convertVerticalDLUsToPixels(1);
         int labelY = this._titleLabel.computeSize(-1, -1).y;
         labelY += verticalSpacing;
         labelY += this._messageLabelHeight;
@@ -224,30 +227,30 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
     }
 
     @objid ("30b98bd5-cab0-4393-b635-b2702b1f80ed")
-    private void createTitle(Composite parent) {
+    private void createTitle(final Composite parent) {
         // image from plugin
-        ImageDescriptor imageDescriptor = UI.getImageDescriptor("images/headerleft110x50.png");
+        final ImageDescriptor imageDescriptor = UI.getImageDescriptor("images/headerleft110x50.png");
         
-        Image image = imageDescriptor.createImage();
+        final Image image = imageDescriptor.createImage();
         setTitleLeftImage(image);
         
         this._titleArea = new Composite(parent, SWT.NONE);
         initializeDialogUnits(this._titleArea);
-        GridData titleAreaData = new GridData(SWT.FILL, SWT.TOP, true, false);
+        final GridData titleAreaData = new GridData(SWT.FILL, SWT.TOP, true, false);
         
         this._titleArea.setLayoutData(titleAreaData);
-        FormLayout layout = new FormLayout();
+        final FormLayout layout = new FormLayout();
         this._titleArea.setLayout(layout);
         this._titleArea.addDisposeListener(new DisposeListener() {
             @Override
-            public void widgetDisposed(DisposeEvent e) {
+            public void widgetDisposed(final DisposeEvent e) {
                 if (ModelioPreferenceDialog.this._titleAreaColor != null) {
                     ModelioPreferenceDialog.this._titleAreaColor.dispose();
                 }
             }
         });
         
-        org.eclipse.swt.widgets.Display display = this._titleArea.getDisplay();
+        final org.eclipse.swt.widgets.Display display = this._titleArea.getDisplay();
         Color background;
         Color foreground;
         if (this._titleAreaRGB != null) {
@@ -258,8 +261,8 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
             background = JFaceColors.getBannerBackground(display);
             foreground = JFaceColors.getBannerForeground(display);
         }
-        int verticalSpacing = convertVerticalDLUsToPixels(1);
-        int horizontalSpacing = convertHorizontalDLUsToPixels(4);
+        final int verticalSpacing = convertVerticalDLUsToPixels(1);
+        final int horizontalSpacing = convertHorizontalDLUsToPixels(4);
         this._titleArea.setBackground(background);
         
         this._titleRightImageLabel = new Label(this._titleArea, SWT.NONE);
@@ -276,12 +279,12 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
             this._titleLeftImageLabel.setImage(this._titleLeftImage);
         }
         
-        FormData rightImageData = new FormData();
+        final FormData rightImageData = new FormData();
         rightImageData.top = new FormAttachment(0, 0);
         rightImageData.right = new FormAttachment(100, 0);
         this._titleRightImageLabel.setLayoutData(rightImageData);
         
-        FormData leftImageData = new FormData();
+        final FormData leftImageData = new FormData();
         leftImageData.top = new FormAttachment(0, 0);
         leftImageData.left = new FormAttachment(0, 0);
         this._titleLeftImageLabel.setLayoutData(leftImageData);
@@ -290,7 +293,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
         JFaceColors.setColors(this._titleLabel, foreground, background);
         this._titleLabel.setFont(JFaceResources.getBannerFont());
         this._titleLabel.setText(" ");
-        FormData titleData = new FormData();
+        final FormData titleData = new FormData();
         titleData.left = new FormAttachment(this._titleLeftImageLabel, 5);
         titleData.top = new FormAttachment(0, verticalSpacing);
         titleData.right = new FormAttachment(this._titleRightImageLabel, -5);
@@ -306,13 +309,13 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
         setLayoutsForNormalMessage(verticalSpacing, horizontalSpacing);
         determineTitleImageLargest();
         
-        Label titleBarSeparator = new Label(parent, SWT.SEPARATOR | SWT.HORIZONTAL);
-        GridData barData = new GridData(768);
+        final Label titleBarSeparator = new Label(parent, SWT.SEPARATOR | SWT.HORIZONTAL);
+        final GridData barData = new GridData(768);
         titleBarSeparator.setLayoutData(barData);
     }
 
     @objid ("d8090ce1-9d85-474f-9c3d-6b5050e32882")
-    protected void setTitle(String newTitle) {
+    protected void setTitle(final String newTitle) {
         if (this._titleLabel == null) {
             return;
         }
@@ -324,7 +327,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
     }
 
     @objid ("778403ee-9dfc-4c1d-ae1b-f35f23ef3be8")
-    private void setDialogMessage(String newMessage) {
+    private void setDialogMessage(final String newMessage) {
         if (this._message.equals(newMessage)) {
             return;
         }
@@ -341,8 +344,8 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
 
     @objid ("23f098ef-af6e-4ad5-af83-97eab92e773c")
     private void layoutForNewMessage() {
-        int verticalSpacing = convertVerticalDLUsToPixels(1);
-        int horizontalSpacing = convertHorizontalDLUsToPixels(4);
+        final int verticalSpacing = convertVerticalDLUsToPixels(1);
+        final int horizontalSpacing = convertHorizontalDLUsToPixels(4);
         setLayoutsForNormalMessage(verticalSpacing, horizontalSpacing);
         if (this.dialogArea != null) {
             this._titleArea.layout(true);
@@ -350,35 +353,38 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
     }
 
     @objid ("70ca0447-23a9-4e48-a547-7763389cb376")
-    private static PreferenceManager configurePreferences(final IEclipseContext context, final IExtensionRegistry registry) {
-        PreferenceManager pm = new PreferenceManager();
-        IContributionFactory factory = context.get(IContributionFactory.class);
+    private static PreferenceManager configurePreferences(final IEclipseContext context) {
+        final Set<IPreferenceNode> rootPreferences = new TreeSet<>(new Comparator<IPreferenceNode>() {
+            @Override
+            public int compare(final IPreferenceNode o1, final IPreferenceNode o2) {
+                return o1.getLabelText().compareTo(o2.getLabelText());
+            }
+        });
         
-        for (IConfigurationElement elmt : registry.getConfigurationElementsFor(ModelioPreferenceDialog.PREFS_PAGE_XP)) {
-            String id = elmt.getAttribute(ModelioPreferenceDialog.ATTR_ID);
-            String name = elmt.getAttribute(ModelioPreferenceDialog.ATTR_NAME);
+        final IContributionFactory factory = context.get(IContributionFactory.class);
         
-            if (!elmt.getName().equals(ModelioPreferenceDialog.ELMT_PAGE)) {
-                AppPreferences.LOG.warning("unexpected element: %s", elmt.getName());
-                continue;
-            } else if (isEmpty(id) || isEmpty(name)) {
+        for (final IConfigurationElement elmt : new ExtensionPointContributionManager(ModelioPreferenceDialog.PREFS_PAGE_XP).getExtensions(ModelioPreferenceDialog.ELMT_PAGE)) {
+            final String id = elmt.getAttribute(ModelioPreferenceDialog.ATTR_ID);
+            final String name = elmt.getAttribute(ModelioPreferenceDialog.ATTR_NAME);
+        
+            if (isEmpty(id) || isEmpty(name)) {
                 AppPreferences.LOG.warning("missing id and/or name: %s", elmt.getNamespaceIdentifier());
                 continue;
             }
         
             PreferenceNode pn = null;
-            String clazz = elmt.getAttribute(ModelioPreferenceDialog.ATTR_CLASS);
+            final String clazz = elmt.getAttribute(ModelioPreferenceDialog.ATTR_CLASS);
             if (clazz != null) {
                 IPreferencePage page = null;
                 try {
-                    String prefPageURI = getClassURI(elmt.getNamespaceIdentifier(), clazz);
-                    Object object = factory.create(prefPageURI, context);
+                    final String prefPageURI = getClassURI(elmt.getNamespaceIdentifier(), clazz);
+                    final Object object = factory.create(prefPageURI, context);
                     if (!(object instanceof IPreferencePage)) {
                         AppPreferences.LOG.error("Expected instance of IPreferencePage: %s", clazz);
                         continue;
                     }
                     page = (IPreferencePage) object;
-                } catch (ClassNotFoundException e) {
+                } catch (final ClassNotFoundException e) {
                     AppPreferences.LOG.error(e);
                     continue;
                 }
@@ -387,8 +393,8 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
                     page.setTitle(name);
                 }
         
-                String iconAttr = elmt.getAttribute(ModelioPreferenceDialog.ATTR_ICON);
-                ImageDescriptor icon = iconAttr != null ? AbstractUIPlugin.imageDescriptorFromPlugin(elmt.getContributor().getName(), iconAttr) : null;
+                final String iconAttr = elmt.getAttribute(ModelioPreferenceDialog.ATTR_ICON);
+                final ImageDescriptor icon = iconAttr != null ? AbstractUIPlugin.imageDescriptorFromPlugin(elmt.getContributor().getName(), iconAttr) : null;
         
                 pn = new PreferenceNode(id, page.getTitle(), icon, null);
                 pn.setPage(page);
@@ -397,36 +403,41 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
                 continue;
             }
             if (isEmpty(elmt.getAttribute(ModelioPreferenceDialog.ATTR_CATEGORY))) {
-                pm.addToRoot(pn);
+                rootPreferences.add(pn);
             } else {
-                IPreferenceNode parent = findNode(pm, elmt.getAttribute(ModelioPreferenceDialog.ATTR_CATEGORY));
+                final IPreferenceNode parent = findNode(rootPreferences, elmt.getAttribute(ModelioPreferenceDialog.ATTR_CATEGORY));
                 if (parent == null) {
-                    pm.addToRoot(pn);
+                    rootPreferences.add(pn);
                 } else {
                     parent.add(pn);
                 }
             }
         }
+        
+        final PreferenceManager pm = new PreferenceManager();
+        for (final IPreferenceNode pn : rootPreferences) {
+            pm.addToRoot(pn);
+        }
         return pm;
     }
 
     @objid ("8badbb5b-70ab-487b-8fce-0572c801c795")
-    private static boolean isEmpty(String value) {
+    private static boolean isEmpty(final String value) {
         return value == null || value.trim().isEmpty();
     }
 
     @objid ("ea571be5-8067-4949-9647-e2c692636ae8")
-    private static IPreferenceNode findNode(PreferenceManager pm, String categoryId) {
-        for (Object o : pm.getElements(PreferenceManager.POST_ORDER)) {
-            if (o instanceof IPreferenceNode && ((IPreferenceNode) o).getId().equals(categoryId)) {
-                return (IPreferenceNode) o;
+    private static IPreferenceNode findNode(final Set<IPreferenceNode> rootPreferences, final String categoryId) {
+        for (final IPreferenceNode o : rootPreferences) {
+            if (o.getId().equals(categoryId)) {
+                return o;
             }
         }
         return null;
     }
 
     @objid ("152a2e8f-3f51-42d9-97dd-33e97d7729c1")
-    private static String getClassURI(String definingBundleId, String spec) throws ClassNotFoundException {
+    private static String getClassURI(final String definingBundleId, final String spec) throws ClassNotFoundException {
         if (spec.startsWith("bundleclass:")) { // $NON-NLS-1$
             return spec;
         }
@@ -441,7 +452,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
 
     @objid ("83e14b26-7d50-4d46-843a-400215f470c7")
     @Override
-    protected void configureShell(Shell newShell) {
+    protected void configureShell(final Shell newShell) {
         super.configureShell(newShell);
         newShell.setMinimumSize(860, 540);
     }

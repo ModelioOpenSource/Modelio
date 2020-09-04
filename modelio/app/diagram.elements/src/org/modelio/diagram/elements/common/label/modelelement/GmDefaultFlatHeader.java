@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public final class GmDefaultFlatHeader extends GmDefaultModelElementLabel {
 
     /**
      * Create an header label
+     * 
      * @param diagram the diagram.
      * @param relatedRef reference to the diagram.
      */
@@ -68,6 +69,7 @@ public final class GmDefaultFlatHeader extends GmDefaultModelElementLabel {
 
     /**
      * Migrate this instance to a {@link GmDefaultModelElementHeader}.
+     * 
      * @return a {@link GmDefaultModelElementHeader}.
      */
     @objid ("86ba9f04-41aa-4deb-9901-9f5b969ede86")

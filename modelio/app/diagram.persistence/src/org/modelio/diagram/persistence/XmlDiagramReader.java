@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -78,6 +78,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Creates a diagram reader
+     * 
      * @param instanceFactory An instance factory
      * @param extRefResolver An external reference resolver
      */
@@ -91,6 +92,7 @@ public class XmlDiagramReader implements IDiagramReader {
      * Get the root object being read.
      * <p>
      * The root object is the persistent object passed to {@link #readDiagram(String, IPersistent)}.
+     * 
      * @return the root object being read.
      */
     @objid ("cb7770bd-186f-11e2-92d2-001ec947c8cc")
@@ -102,6 +104,7 @@ public class XmlDiagramReader implements IDiagramReader {
     /**
      * Read all attributes at once.
      * @param attName The attribute name
+     * 
      * @return a map with the attribute name as key and the attribute value as value.
      */
     @objid ("cb7770c2-186f-11e2-92d2-001ec947c8cc")
@@ -124,6 +127,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Read an attribute whose type is not constant.
+     * 
      * @param attName The attribute name
      * @return The attribute value or <tt>null</tt> if the attribute has no value.
      */
@@ -162,6 +166,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Convert the given string value to the given enumeration type.
+     * 
      * @param enumType The enumeration type
      * @param val the string value to convert
      * @return the enumeration value
@@ -176,6 +181,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Returns the enum constant of the specified enum type with the specified name. The name must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
+     * 
      * @param enumType the <tt>Class</tt> object of the enum type from which to return a constant
      * @param val the name of the constant to return
      * @return the enum constant of the specified enum type with the specified name
@@ -217,15 +223,16 @@ public class XmlDiagramReader implements IDiagramReader {
     private static Rectangle convertToRectangle(String val) {
         final String[] vals = val.split(";");
         return new Rectangle(Integer.valueOf(vals[0]),
-                        Integer.valueOf(vals[1]),
-                        Integer.valueOf(vals[2]),
-                        Integer.valueOf(vals[3]));
+                Integer.valueOf(vals[1]),
+                Integer.valueOf(vals[2]),
+                Integer.valueOf(vals[3]));
     }
 
     /**
      * Return an instance of the given class for the given DOM element.
      * <p>
      * This method can create a new instance or return an existing one.
+     * 
      * @param nodeType The java class
      * @return The created instance.
      * 
@@ -261,6 +268,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Read an external reference.
+     * 
      * @param domElement a {@link SchemaConstants#TAG_EXTREF} DOM Element.
      * @return The read external reference
      */
@@ -289,6 +297,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Completely read a {@link List} from the given DOM element.
+     * 
      * @param subEl DOM Element of type {@link SchemaConstants#TAG_LIST}
      * @return a list of persistent elements
      * @throws org.modelio.diagram.persistence.PersistenceException in case of error.
@@ -314,6 +323,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Completely read a {@link Map} from the given DOM element.
+     * 
      * @param domElement DOM Element of type {@link SchemaConstants#TAG_MAP}
      * @return the read map
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
@@ -345,6 +355,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Read the given element and return the read Object.
+     * 
      * @param compElement a DOM Element.
      * @return the read Object
      * @throws org.modelio.diagram.persistence.PersistenceException in case of error
@@ -371,6 +382,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Read the 'Ref' tag value and return the matching persistent object.
+     * 
      * @param compNode DOM Element of type {@link SchemaConstants#TAG_REF}
      * @return The read referenced persistent object.
      */
@@ -383,6 +395,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Completely read an object from the given DOM element.
+     * 
      * @param domElement DOM Element of type {@link SchemaConstants#TAG_PERSISTENT}
      * @return the read object. Might be null in some migration cases.
      * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
@@ -437,6 +450,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Read the 'Property' tag value and convert it to the right type.
+     * 
      * @param el DOM Element of type {@link SchemaConstants#TAG_PROP}
      * @return The read property value.
      * @throws org.modelio.diagram.persistence.PersistenceException in case of error
@@ -457,6 +471,7 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Read the 'Value' tag value and convert it to the right type.
+     * 
      * @param el DOM Element of type {@link SchemaConstants#TAG_VALUE}
      * @return The read value
      * @throws java.lang.NumberFormatException in case of number conversion error
@@ -505,6 +520,9 @@ public class XmlDiagramReader implements IDiagramReader {
                         " type: " +
                         e.getLocalizedMessage(), e);
             }
+        } else if (type.equals("ObRef")) {
+            // Migration case, ObRef might be encountered instead of MRef in old dirty exml files...
+            return XmlDiagramReader.convertToMRef(val);
         } else {
             throw new PersistenceException("'" + val + "' of " + type + " type is not handled.");
         }

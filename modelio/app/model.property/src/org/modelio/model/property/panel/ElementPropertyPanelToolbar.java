@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -82,6 +82,7 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
 
     /**
      * C'Tor
+     * 
      * @param controller the toolbar's controller.
      */
     @objid ("54e6101d-c84c-4aac-9bf7-80791e5b9aa9")
@@ -108,7 +109,7 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
         this.toolbar = new ToolBar(this.tbComp, SWT.HORIZONTAL);
         this.toolbar.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false));
         
-        this.addStereotype = createToolButton(this.toolbar, SWT.PUSH, AppUi.getImageDescriptor("icons/addstereotype.png"), "AddStereotype.tooltip");
+        this.addStereotype = createToolButton(this.toolbar, SWT.PUSH, AppUi.getImageDescriptor("icons/addstereotype.png"), "$AddStereotype.tooltip");
         this.addStereotype.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -116,7 +117,7 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.removeStereotype = createToolButton(this.toolbar, SWT.PUSH, AppUi.getImageDescriptor("icons/removestereotype.png"), "RemoveStereotype.tooltip");
+        this.removeStereotype = createToolButton(this.toolbar, SWT.PUSH, AppUi.getImageDescriptor("icons/removestereotype.png"), "$RemoveStereotype.tooltip");
         this.removeStereotype.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -124,7 +125,7 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.moveStereotypeUp = createToolButton(this.toolbar, SWT.PUSH, UI.getImageDescriptor("icons/uparrow.png"), "MoveStereotypeUp.tooltip");
+        this.moveStereotypeUp = createToolButton(this.toolbar, SWT.PUSH, UI.getImageDescriptor("icons/uparrow.png"), "$MoveStereotypeUp.tooltip");
         this.moveStereotypeUp.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -132,7 +133,7 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.moveStereotypeDown = createToolButton(this.toolbar, SWT.PUSH, UI.getImageDescriptor("icons/downarrow.png"), "MoveStereotypeDown.tooltip");
+        this.moveStereotypeDown = createToolButton(this.toolbar, SWT.PUSH, UI.getImageDescriptor("icons/downarrow.png"), "$MoveStereotypeDown.tooltip");
         this.moveStereotypeDown.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -144,8 +145,8 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
         final ToolItem dropDown = new ToolItem(this.toolbar, SWT.DROP_DOWN);
         final Menu menu = new Menu(this.toolbar.getShell(), SWT.POP_UP);
         
-        this.autoLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/automaticorientation.png"), "SetAutoLayout.label",
-                "SetAutoLayout.tooltip");
+        this.autoLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/automaticorientation.png"), "$SetAutoLayout.label",
+                "$SetAutoLayout.tooltip");
         this.autoLayout.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -153,14 +154,14 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
             }
         });
         
-        this.horizontalLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/horizontalorientation.png"), "SetHorizontalLayout.label", "SetHorizontalLayout.tooltip");
+        this.horizontalLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/horizontalorientation.png"), "$SetHorizontalLayout.label", "$SetHorizontalLayout.tooltip");
         this.horizontalLayout.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 ElementPropertyPanelToolbar.this.controller.onHorizontalLayout();
             }
         });
-        this.verticalLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/verticalorientation.png"), "SetVerticalLayout.label", "SetVerticalLayout.tooltip");
+        this.verticalLayout = createMenuItem(menu, SWT.RADIO, UI.getImageDescriptor("icons/verticalorientation.png"), "$SetVerticalLayout.label", "$SetVerticalLayout.tooltip");
         this.verticalLayout.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -182,7 +183,7 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
 
 /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.modelio.ui.panel.IPanelProvider#getPanel()
      */
     @objid ("cc92af58-e5a4-4ec9-92b0-0da352dbb21e")
@@ -193,7 +194,7 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
 
 /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.modelio.ui.panel.IPanelProvider#getHelpTopic()
      */
     @objid ("c20472fd-222f-44a2-8c22-43ed6c316db5")
@@ -229,7 +230,7 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
             // A button to show/hide the hidden MDA properties (visible only in
             // show administration command mode)
             if (this.showHidden == null) {
-                this.showHidden = createToolButton(this.toolbar, SWT.CHECK, ModelProperty.getImageDescriptor("icons/showhiddenmda.png"), "ShowHiddenMda.tooltip");
+                this.showHidden = createToolButton(this.toolbar, SWT.CHECK, ModelProperty.getImageDescriptor("icons/showhiddenmda.png"), "$ShowHiddenMda.tooltip");
                 this.showHidden.addSelectionListener(new SelectionAdapter() {
                     @Override
                     public void widgetSelected(SelectionEvent e) {
@@ -249,6 +250,7 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
 
     /**
      * Helper function to create tool item
+     * 
      * @param parent the parent toolbar
      * @param style the SWT style of tool item to create
      * @param iconDescriptor the image to display on the tool item
@@ -277,7 +279,7 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
 
 /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.modelio.ui.panel.IPanelProvider#dispose()
      */
     @objid ("dac9068b-f236-4d1a-8da4-a4e017de8f40")
@@ -288,6 +290,7 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
 
     /**
      * Helper function to create tool item
+     * 
      * @param parent the parent toolbar
      * @param style the SWT style of tool item to create
      * @param iconDescriptor the image to display on the tool item

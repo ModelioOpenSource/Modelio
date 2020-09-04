@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import org.modelio.gproject.data.project.FragmentDescriptor;
 import org.modelio.gproject.data.project.FragmentType;
 import org.modelio.gproject.data.project.GAuthConf;
 import org.modelio.gproject.data.project.GProperties;
+import org.modelio.gproject.data.project.IFragmentInfos;
 import org.modelio.gproject.fragment.migration.IFragmentMigrator;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.gproject.GProjectEvent;
@@ -59,6 +60,7 @@ public interface IProjectFragment {
 
     /**
      * Delete the fragment from the disk.
+     * 
      * @throws java.io.IOException if the fragment could not completely be removed from disk.
      */
     @objid ("d10c42db-9849-11e1-ac83-001ec947ccaf")
@@ -67,6 +69,7 @@ public interface IProjectFragment {
     /**
      * Get the fragment authentication configuration if needed.
      * May be <code>null</code>.
+     * 
      * @return authentication data.
      */
     @objid ("3da5c624-a576-4396-8f7d-4e2082ec9617")
@@ -74,6 +77,7 @@ public interface IProjectFragment {
 
     /**
      * Get the error that caused the fragment to be in the down state.
+     * 
      * @return the down state cause.
      */
     @objid ("6a83f283-d66d-11e1-9f03-001ec947ccaf")
@@ -87,6 +91,7 @@ public interface IProjectFragment {
 
     /**
      * Get the service that will migrate the fragment to the current metamodel version.
+     * 
      * @param targetMetamodel the target metamodel
      * @return the fragment migration service.
      * @throws java.io.IOException if the migration is not possible
@@ -98,6 +103,7 @@ public interface IProjectFragment {
      * Get the fragment specific properties.
      * <p>
      * The available properties are implementation dependent.
+     * 
      * @return the fragment properties.
      */
     @objid ("49c0ef8e-ab3f-11e1-8392-001ec947ccaf")
@@ -111,6 +117,7 @@ public interface IProjectFragment {
 
     /**
      * Get the fragment required metamodel as a descriptor.
+     * 
      * @return the required metamodel fragments.
      * @throws java.io.IOException in case of I/O failure reading the version
      */
@@ -119,6 +126,7 @@ public interface IProjectFragment {
 
     /**
      * Get the root elements of the fragment.
+     * 
      * @return the root elements of the fragment.
      */
     @objid ("573e06b7-c1f7-11e1-8e7a-001ec947ccaf")
@@ -126,6 +134,7 @@ public interface IProjectFragment {
 
     /**
      * Get the fragment definition scope: local or shared by a server.
+     * 
      * @return the fragment scope.
      */
     @objid ("6376a977-3004-11e2-8f81-001ec947ccaf")
@@ -133,6 +142,7 @@ public interface IProjectFragment {
 
     /**
      * Get the state of the fragment.
+     * 
      * @return the fragment state.
      */
     @objid ("6a83f280-d66d-11e1-9f03-001ec947ccaf")
@@ -142,6 +152,7 @@ public interface IProjectFragment {
      * Get the fragment type identifier.
      * <p>
      * The fragment type is used on persistence to determine the fragment class to instantiate.
+     * 
      * @return the fragment type.
      */
     @objid ("13a7bf99-9a85-11e1-ac83-001ec947ccaf")
@@ -149,6 +160,7 @@ public interface IProjectFragment {
 
     /**
      * Get the project mount URI.
+     * 
      * @return the mounted URI or null if not mounted.
      */
     @objid ("d10c42dd-9849-11e1-ac83-001ec947ccaf")
@@ -157,6 +169,7 @@ public interface IProjectFragment {
     /**
      * Mount the fragment so that it is usable.
      * @param project the project where the fragment is mount.
+     * 
      * @param aMonitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
      * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
      * reported and that the operation cannot be cancelled.
@@ -171,6 +184,7 @@ public interface IProjectFragment {
      * It may have a different URI.
      * The fragment may choose to update, unmount and remount or even to remove itself and install
      * a new one.
+     * 
      * @param fd the new fragment configuration
      * @param aMonitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
      * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
@@ -183,6 +197,7 @@ public interface IProjectFragment {
      * Set the fragment in "down" state, with the cause.
      * <p>
      * Fires a {@link GProjectEventType#FRAGMENT_DOWN FRAGMENT_DOWN} {@link GProjectEvent event}.
+     * 
      * @param error the cause of down state
      */
     @objid ("5b8b018a-e45c-46b5-a424-4f9a48b38ddd")
@@ -192,6 +207,7 @@ public interface IProjectFragment {
      * initialize the project owning this fragment.
      * <p>
      * This method is called just after the fragment instantiation.
+     * 
      * @param project the project where the fragment will be mount.
      */
     @objid ("a958715e-54f6-4abe-9119-a77d1fa76bd3")
@@ -205,6 +221,7 @@ public interface IProjectFragment {
 
     /**
      * Rename the fragment, including the part on the disk.
+     * 
      * @param name the new fragment name. If equals to the current id, calling this method does nothing.
      * @param aMonitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
      * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
@@ -213,5 +230,14 @@ public interface IProjectFragment {
      */
     @objid ("16de4b2d-aede-42cb-b699-3c4eb10cb0e2")
     void rename(String name, IModelioProgress aMonitor) throws IOException;
+
+    /**
+     * Get the fragment informations such as the version, the description...
+     * 
+     * @return the fragment informations.
+     * @throws java.io.IOException in case of I/O failure.
+     */
+    @objid ("16587b0d-32c5-485e-af42-bd48a5b302dc")
+    IFragmentInfos getInformations() throws IOException;
 
 }

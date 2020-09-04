@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,14 +20,12 @@
 
 package org.modelio.vcore.session.plugin;
 
-import java.text.MessageFormat;
-import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.vbasic.log.Log;
+import org.modelio.vbasic.i18n.MessageBundle;
 
 /**
- * Represents the core.session plugin.
+ * Represents the <b>core.session</b> plugin.
  * <p>
  * Cannot respect the <a href="http://forge.minotaure.softeam.com/projects/modelio-phoenix/wiki/Plugin_singleton">
  * typical plugin singleton pattern</a> because core plugins must not use OSGI.
@@ -42,28 +40,8 @@ public class VCoreSession {
 
     /**
      * The resource bundle.
-     * <p>
-     * Use {@link #getMessage(String, Object...)} instead.
      */
     @objid ("395e5243-8ab6-4e38-8d16-8b2f7481506e")
-    public static final ResourceBundle I18N = ResourceBundle.getBundle("coresession");
-
-    /**
-     * Get the translated formatted message.
-     * @param key the message key
-     * @param args arguments
-     * @return the formatted message
-     */
-    @objid ("73fa79c2-ad18-4742-92b4-fa0d550bc233")
-    public static String getMessage(String key, Object... args) {
-        String pattern;
-        try {
-            pattern = I18N.getString(key);
-        } catch (MissingResourceException e) {
-            Log.warning("No I18n message for '%s'", key);
-            pattern = "!" + key + "!";
-        }
-        return MessageFormat.format(pattern, args);
-    }
+    public static final MessageBundle I18N = new MessageBundle(ResourceBundle.getBundle("coresession"));
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class MinimumSizeLayout extends ChainedLayout {
 
     /**
      * Set the minimum size.
+     * 
      * @param minSize the minimum size. The passed dimension is copied.
      */
     @objid ("ea1ec0bf-e1e8-4765-887f-0ef827386ef5")
@@ -67,6 +68,7 @@ public class MinimumSizeLayout extends ChainedLayout {
 
     /**
      * Set the minimum size.
+     * 
      * @param minw the minimum width
      * @param minh the minimum height
      */
@@ -79,6 +81,7 @@ public class MinimumSizeLayout extends ChainedLayout {
      * Apply a minimum size to the given figure.
      * <p>
      * The figure layout manager must already have been set.
+     * 
      * @param fig the figure to layout
      * @param minw the minimum width
      * @param minh the minimum height

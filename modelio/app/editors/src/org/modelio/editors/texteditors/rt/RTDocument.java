@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -96,6 +96,7 @@ public class RTDocument extends Document {
 
     /**
      * Sets the partitioner to use for this document. If any previous partitioner was used, it is disconnected first.
+     * 
      * @param partitionner the partitioner to use for this document.
      */
     @objid ("7b6a65a0-2a77-11e2-9fb9-bc305ba4815c")

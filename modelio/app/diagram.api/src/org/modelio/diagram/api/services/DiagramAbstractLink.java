@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public abstract class DiagramAbstractLink extends DiagramGraphic implements IDiagramLink {
     /**
      * Return the path of the current link.
+     * 
      * @return The LinkPath that represent the path of the current link.
      */
     @objid ("4a911be1-494e-40f2-a488-dc184896c2c3")
@@ -124,6 +125,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
      * 
      * This method computes a path so that the link goes through the whole list of points. the router referenced by the current Link is an orthogonal router the path will have orthogonal angles. the router referenced by the current Link is a direct router
      * this method is equivalent to the setPath method.
+     * 
      * @param points A collection of points that must be on the link path.
      */
     @objid ("ae930fec-2b07-434c-b2c3-839f120b09c6")
@@ -146,6 +148,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
      * Set the path of a link.
      * 
      * This method tries to set the current link path.
+     * 
      * @throws org.modelio.api.modelio.diagram.InvalidSourcePointException If the source point is invalid.
      * @throws org.modelio.api.modelio.diagram.InvalidPointsPathException If the given path is invalid with the router type associated with the current link.
      * @throws org.modelio.api.modelio.diagram.InvalidDestinationPointException If the destination point is invalid.
@@ -242,6 +245,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
 
     /**
      * Creates a diagram link.
+     * 
      * @param diagramHandle The diagram manipulation class.
      */
     @objid ("97fe33c6-52b9-404c-92e0-6fb1718d4678")
@@ -574,6 +578,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
 
     /**
      * Get the edited connection edit part.
+     * 
      * @return the edit connection edit part.
      */
     @objid ("c5ac5668-0654-4f75-a76a-b5ee5d5aa2bd")
@@ -583,6 +588,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
 
     /**
      * Get and execute if possible the command produced by the given request on the given edit part.
+     * 
      * @param editPart an edit part.
      * @param req a request to execute.
      */

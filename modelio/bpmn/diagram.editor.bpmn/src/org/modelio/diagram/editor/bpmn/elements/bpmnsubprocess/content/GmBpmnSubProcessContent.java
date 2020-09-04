@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class GmBpmnSubProcessContent extends GmEmbeddedDiagram {
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is used.
      * @param subProcessDiagram the unmasked diagram (can be <code>null</code>)
      * @param relatedRef a reference to the unmasked diagram (cannot be <code>null</code>).

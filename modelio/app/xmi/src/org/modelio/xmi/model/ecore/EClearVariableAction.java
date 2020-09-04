@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,32 +21,15 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
-import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.xmi.plugin.Xmi;
-import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
+import org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearVariableAction;
 
 @objid ("d471ac82-b1fd-4f60-af1e-435eeba21abd")
 public class EClearVariableAction extends EActivityNode {
     @objid ("dbe25f1e-857c-42b1-8625-924928b23558")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmService = ReverseProperties.getInstance().getMModelServices();
-        
-        OpaqueAction element = mmService.getModelFactory().getFactory(IStandardModelFactory.class).createOpaqueAction();
-        
-        try {
-            element.getExtension().add(mmService
-                    .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLEARVARIABLEACTION, element.getMClass()));
-        } catch (ElementNotUniqueException e) {
-            Xmi.LOG.warning(e);
-        }
-        return element;
+        return UML2ClearVariableAction.create().getElement();
     }
 
     @objid ("7fb45c6a-f017-4be6-8e9a-13c6ff0a67d5")

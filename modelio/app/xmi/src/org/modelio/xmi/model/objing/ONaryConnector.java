@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class ONaryConnector extends ONaryLink {
 
     /**
      * Constructor
+     * 
      * @param param : the exported Modelio Connector
      */
     @objid ("f88b3648-3057-4206-9002-eda4fc82bc3b")

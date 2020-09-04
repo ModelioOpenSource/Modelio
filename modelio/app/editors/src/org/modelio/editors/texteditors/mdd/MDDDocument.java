@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -28,6 +28,8 @@ import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocumentPartitioner;
 import org.eclipse.jface.text.ITypedRegion;
 import org.eclipse.swt.widgets.Display;
+import org.modelio.editors.plugin.TextEditors;
+import org.modelio.editors.texteditors.mdd.partitions.MDDPartitionTypes;
 
 /**
  * Default implementation for a Model-Driven Document.
@@ -37,13 +39,13 @@ import org.eclipse.swt.widgets.Display;
 @objid ("7b57c7d2-2a77-11e2-9fb9-bc305ba4815c")
 public class MDDDocument extends Document {
     @objid ("7b57c7d4-2a77-11e2-9fb9-bc305ba4815c")
-     IDocumentPartitioner stdPartitionner;
+    private IDocumentPartitioner stdPartitionner;
 
     @objid ("7b57c7d5-2a77-11e2-9fb9-bc305ba4815c")
-     IDocumentPartitioner replacePartitionner;
+    private IDocumentPartitioner replacePartitionner;
 
     @objid ("7b57c7d6-2a77-11e2-9fb9-bc305ba4815c")
-     IDocumentPartitioner currentPartitionner;
+    private IDocumentPartitioner currentPartitionner;
 
     /**
      * C'tor.
@@ -100,24 +102,29 @@ public class MDDDocument extends Document {
 
     /**
      * Sets the standard partitioner for this document.
+     * 
      * @param partitionner the standard partitioner for this document.
      */
     @objid ("7b57c7e9-2a77-11e2-9fb9-bc305ba4815c")
-    public void defineStdPartitioner(IDocumentPartitioner partitionner) {
+    private void defineStdPartitioner(IDocumentPartitioner partitionner) {
         this.stdPartitionner = partitionner;
     }
 
     /**
      * Sets the replace partitioner for this document.
+     * 
      * @param partitionner the replace partitioner for this document.
      */
     @objid ("7b57c7ed-2a77-11e2-9fb9-bc305ba4815c")
-    public void defineReplacePartitioner(IDocumentPartitioner partitionner) {
+    private void defineReplacePartitioner(IDocumentPartitioner partitionner) {
         this.replacePartitionner = partitionner;
     }
 
     /**
-     * Sets the partitioner to use for this document. If any previous partitioner was used, it is disconnected first.
+     * Sets the partitioner to use for this document.
+     * <p>
+     * If any previous partitioner was used, it is disconnected first.
+     * 
      * @param partitionner the partitioner to use for this document.
      */
     @objid ("7b57c7f1-2a77-11e2-9fb9-bc305ba4815c")
@@ -135,14 +142,18 @@ public class MDDDocument extends Document {
         try {
             return isWritablePartition(this.getPartition(offset));
         } catch (final BadLocationException e) {
-            e.printStackTrace();
+            TextEditors.LOG.warning(e);
             return false;
         }
     }
 
     @objid ("7b594e5c-2a77-11e2-9fb9-bc305ba4815c")
     protected boolean isWritablePartition(ITypedRegion r) {
-        return ! "_RO".equals(r.getType()) && ! "_TAG".equals(r.getType());
+        String regionType = r.getType();
+        if (regionType.equals(MDDPartitionTypes.RO_PARTITION) ||
+                regionType.equals(MDDPartitionTypes.TAG_PARTITION))
+            return false;
+        return true;
     }
 
     /**
@@ -155,9 +166,9 @@ public class MDDDocument extends Document {
         ITypedRegion partition = null;
         try {
             partition = getPartition(DEFAULT_PARTITIONING, offset, true);
-            Assert.isNotNull(partition);
+            Assert.isNotNull(partition, "partition not found");
         } catch (final BadPartitioningException e) {
-            Assert.isTrue(false);
+            throw (BadLocationException) new BadLocationException(e.getMessage()).initCause(e);
         }
         return partition;
     }

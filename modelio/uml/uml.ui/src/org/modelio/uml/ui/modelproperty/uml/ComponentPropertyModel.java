@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
 
     /**
      * Create a new <i>Component</i> data model from an <i>Component</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("2265c2bb-9042-4b17-88ce-33ec11e04f1e")
@@ -63,6 +64,7 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("3295768c-16e2-419d-97bc-918f073236c0")
@@ -73,6 +75,7 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("4e05bcef-d67d-4ca6-a052-75927279951e")
@@ -85,6 +88,7 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -131,6 +135,7 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -173,6 +178,7 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class ModelShield {
 
     /**
      * Add a protection agent.
+     * 
      * @param agent a protection agent.
      */
     @objid ("5edd4230-2b5b-11de-b561-001ec947cd2a")
@@ -64,6 +65,7 @@ public class ModelShield {
 
     /**
      * Remove a protection agent.
+     * 
      * @param agent a protection agent.
      */
     @objid ("25146e1e-721e-11de-9c55-0014222a9f79")
@@ -73,6 +75,7 @@ public class ModelShield {
 
     /**
      * Add a diagnostic listener.
+     * 
      * @param listener a diagnostic listener.
      */
     @objid ("002804f8-0000-064a-0000-000000000000")
@@ -82,6 +85,7 @@ public class ModelShield {
 
     /**
      * Remove a diagnostic listener
+     * 
      * @param listener a diagnostic listener.
      */
     @objid ("002804f8-0000-0647-0000-000000000000")
@@ -91,6 +95,7 @@ public class ModelShield {
 
     /**
      * Check for model errors on a model object.
+     * 
      * @param anObject a model object to check.
      * @return the check report.
      */
@@ -122,6 +127,7 @@ public class ModelShield {
 
     /**
      * Check a transaction for model errors.
+     * 
      * @param transaction the transaction to check.
      * @return the check report.
      */

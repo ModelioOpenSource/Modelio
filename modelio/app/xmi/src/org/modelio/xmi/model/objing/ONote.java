@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,7 +49,7 @@ public class ONote extends OElement implements IOElement {
             return UMLFactory.eINSTANCE.createTimeObservation();
         
         }else{
-             org.eclipse.uml2.uml.Comment ecoreComment = UMLFactory.eINSTANCE.createComment();
+            org.eclipse.uml2.uml.Comment ecoreComment = UMLFactory.eINSTANCE.createComment();
             if ((getObjingElement().getModel() != null )
                     && (((getObjingElement().getModel().getOwnerStereotype() != null ) && (SysMLProfileUtils.isSysML(getObjingElement().getModel().getOwnerStereotype().getOwner()))
                             || ((getObjingElement().getModel().getOwnerReference() != null ) && (SysMLProfileUtils.isSysML(getObjingElement().getModel().getOwnerReference().getOwnerProfile()))))))
@@ -101,10 +101,12 @@ public class ONote extends OElement implements IOElement {
     @objid ("7a40312c-7075-4cd4-a011-3fa5c2712165")
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
-        if (ecoreElt instanceof  org.eclipse.uml2.uml.Comment){
-            setTypeEAnnotation( (org.eclipse.uml2.uml.Comment) ecoreElt);
+        if (ecoreElt instanceof  org.eclipse.uml2.uml.Comment){           
             setContents( (org.eclipse.uml2.uml.Comment) ecoreElt);
-            setOwnerAnnotation( (org.eclipse.uml2.uml.Comment) ecoreElt);
+            if (GenerationProperties.getInstance().isRoundtripEnabled()) {
+                setOwnerAnnotation( (org.eclipse.uml2.uml.Comment) ecoreElt);
+                setTypeEAnnotation( (org.eclipse.uml2.uml.Comment) ecoreElt);
+            }
         }else{
             setName((org.eclipse.uml2.uml.TimeObservation) ecoreElt);
         }

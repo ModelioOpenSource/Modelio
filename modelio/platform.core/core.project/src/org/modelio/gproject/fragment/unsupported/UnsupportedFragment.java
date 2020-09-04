@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.gproject.data.project.FragmentDescriptor;
 import org.modelio.gproject.data.project.FragmentType;
 import org.modelio.gproject.data.project.GAuthConf;
 import org.modelio.gproject.data.project.GProperties;
+import org.modelio.gproject.data.project.IFragmentInfos;
 import org.modelio.gproject.fragment.FragmentState;
 import org.modelio.gproject.fragment.Fragments;
 import org.modelio.gproject.fragment.IFragmentFactory;
@@ -51,13 +52,13 @@ import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
 @objid ("1a6c65c1-e9ab-43a1-8579-90b62f1c5dfa")
 public class UnsupportedFragment implements IProjectFragment {
     @objid ("eaf3d5eb-72fe-4d4a-ab37-bfc6cadefbf5")
-    private FragmentDescriptor desc;
+    private final FragmentDescriptor desc;
 
     @objid ("55e6ef4a-b807-4118-88f7-127e8b4dd269")
     private Throwable downCause;
 
     @objid ("32fd3721-341d-4d4c-9154-696331e0c646")
-    private GAuthConf authConf;
+    private final GAuthConf authConf;
 
     @objid ("480ec0d9-2de5-4bb3-a21b-8873289be641")
     private GProject project;
@@ -82,21 +83,22 @@ public class UnsupportedFragment implements IProjectFragment {
 
     /**
      * Instantiate an unsupported fragment.
+     * 
      * @param fd the descriptor.
      */
     @objid ("858195ae-0749-4d16-b8f7-dbcb6eb8153a")
-    public UnsupportedFragment(FragmentDescriptor fd) {
+    public UnsupportedFragment(final FragmentDescriptor fd) {
         this.desc = fd;
         this.authConf = GAuthConf.from(fd.getAuthDescriptor());
-        String msg = CoreProject.getMessage("UnsupportedFragment.DownCause", fd.getType().toString(), fd.getId());
+        final String msg = CoreProject.I18N.getMessage("UnsupportedFragment.DownCause", fd.getType().toString(), fd.getId());
         this.downCause = new UnsupportedOperationException(msg);
     }
 
     @objid ("1695d1f8-3a66-4261-abce-4bf4934878bf")
     @Override
-    public void reconfigure(FragmentDescriptor fd, IModelioProgress aMonitor) {
+    public void reconfigure(final FragmentDescriptor fd, final IModelioProgress aMonitor) {
         // Test whether the fragment is still not supported.
-        IFragmentFactory fact = Fragments.getFactory(fd);
+        final IFragmentFactory fact = Fragments.getFactory(fd);
         if (fact != null && fact != UnsupportedFragmentFactory.getInstance()) {
             // The fragment is now supported, mount it.
             this.project.unregisterFragment(this);
@@ -104,14 +106,14 @@ public class UnsupportedFragment implements IProjectFragment {
             final IProjectFragment fragment = fact.instantiate(fd);
             try {
                 this.project.registerFragment(fragment, aMonitor);
-            } catch (FragmentConflictException e) {
+            } catch (final FragmentConflictException e) {
                 // Report error
                 this.project.getMonitorSupport().fireMonitors(GProjectEvent.buildWarning(fragment, e));
         
                 // try to rollback
                 try {
                     this.project.registerFragment(this, aMonitor);
-                } catch (FragmentConflictException e1) {
+                } catch (final FragmentConflictException e1) {
                     e1.addSuppressed(e);
                     setDown(e1);
                 }
@@ -133,7 +135,7 @@ public class UnsupportedFragment implements IProjectFragment {
 
     @objid ("d69e9fd4-cecc-4ef7-8d10-f2134d8ef4f9")
     @Override
-    public void mount(IModelioProgress aMonitor) {
+    public void mount(final IModelioProgress aMonitor) {
         // nothing to do
     }
 
@@ -181,7 +183,7 @@ public class UnsupportedFragment implements IProjectFragment {
 
     @objid ("2def712c-d1ec-4ef4-be51-7e6aabafe78b")
     @Override
-    public void setDown(Throwable error) {
+    public void setDown(final Throwable error) {
         if (! Objects.equals(error, this.downCause)) {
             // Stack errors
             error.addSuppressed(this.downCause);
@@ -200,20 +202,26 @@ public class UnsupportedFragment implements IProjectFragment {
 
     @objid ("6db8b8eb-2b3d-403f-82e0-ad4af968b15c")
     @Override
-    public void setProject(GProject project) {
+    public void setProject(final GProject project) {
         this.project = project;
     }
 
     @objid ("1fcbfce8-9882-4a6a-8ea8-e61c60310a5d")
     @Override
-    public IFragmentMigrator getMigrator(MetamodelVersionDescriptor targetMetamodel) throws IOException {
+    public IFragmentMigrator getMigrator(final MetamodelVersionDescriptor targetMetamodel) throws IOException {
         throw new IOException(this.downCause.getLocalizedMessage(), this.downCause);
     }
 
     @objid ("6d250920-d266-4aef-a435-7ca0dd0449a8")
     @Override
-    public void rename(String name, IModelioProgress aMonitor) throws IOException {
+    public void rename(final String name, final IModelioProgress aMonitor) throws IOException {
         throw new UnsupportedOperationException();
+    }
+
+    @objid ("b22ae8f7-7c5f-4706-a5c8-9144d869f772")
+    @Override
+    public IFragmentInfos getInformations() throws IOException {
+        throw new IOException(this.downCause.getLocalizedMessage(), this.downCause);
     }
 
 }

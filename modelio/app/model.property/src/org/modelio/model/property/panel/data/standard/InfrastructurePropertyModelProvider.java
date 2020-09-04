@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.ModuleParameter;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Document;
+import org.modelio.metamodel.uml.infrastructure.ExternElement;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.metamodel.uml.infrastructure.NoteType;
@@ -55,6 +56,7 @@ import org.modelio.model.property.panel.data.standard.infrastructure.DiagramSetP
 import org.modelio.model.property.panel.data.standard.infrastructure.DocumentPropertyModel;
 import org.modelio.model.property.panel.data.standard.infrastructure.DynamicPropertyDefinitionPropertyModel;
 import org.modelio.model.property.panel.data.standard.infrastructure.EnumeratedPropertyTypePropertyModel;
+import org.modelio.model.property.panel.data.standard.infrastructure.ExternElementPropertyModel;
 import org.modelio.model.property.panel.data.standard.infrastructure.ImpactLinkPropertyModel;
 import org.modelio.model.property.panel.data.standard.infrastructure.ImpactModelPropertyModel;
 import org.modelio.model.property.panel.data.standard.infrastructure.MatrixDefinitionPropertyModel;
@@ -106,6 +108,12 @@ public class InfrastructurePropertyModelProvider implements IPropertyModelProvid
             return new DiagramSetPropertyModel(theDiagramSet);
         }
 
+        @objid ("0a29a53c-3bcd-4810-b60b-4792a2862f3a")
+        @Override
+        public Object visitDocument(Document theDocument) {
+            return new DocumentPropertyModel(theDocument);
+        }
+
         @objid ("e4087905-4978-497f-b672-a1c695272087")
         @Override
         public Object visitDynamicPropertyDefinition(DynamicPropertyDefinition theProperty) {
@@ -118,10 +126,10 @@ public class InfrastructurePropertyModelProvider implements IPropertyModelProvid
             return new EnumeratedPropertyTypePropertyModel(theEnumeratedPropertyType);
         }
 
-        @objid ("0a29a53c-3bcd-4810-b60b-4792a2862f3a")
+        @objid ("d5cfa9fd-263f-458a-8725-2669f8dd2f41")
         @Override
-        public Object visitDocument(Document theDocument) {
-            return new DocumentPropertyModel(theDocument);
+        public Object visitExternElement(ExternElement theExternElement) {
+            return new ExternElementPropertyModel(theExternElement);
         }
 
         @objid ("fc2ff4a7-447c-42f5-9624-1fa1ab5249fa")
@@ -214,6 +222,18 @@ public class InfrastructurePropertyModelProvider implements IPropertyModelProvid
             return new QueryDefinitionPropertyModel(theQueryDefinition);
         }
 
+        @objid ("2aaef246-b371-483d-a005-b3ce5aa218e2")
+        @Override
+        public Object visitResource(Resource theResource) {
+            return new ResourcePropertyModel(theResource);
+        }
+
+        @objid ("8b171d73-2cab-490f-bfa3-1baa731fc8e0")
+        @Override
+        public Object visitResourceType(ResourceType theResourceType) {
+            return new ResourceTypePropertyModel(theResourceType);
+        }
+
         @objid ("94360462-2a6e-4102-8a2d-a51028b24ff8")
         @Override
         public Object visitStereotype(Stereotype theStereotype) {
@@ -230,18 +250,6 @@ public class InfrastructurePropertyModelProvider implements IPropertyModelProvid
         @Override
         public Object visitTypedPropertyTable(TypedPropertyTable thePropertyValueSet) {
             return new TypedPropertyTablePropertyModel(thePropertyValueSet);
-        }
-
-        @objid ("2aaef246-b371-483d-a005-b3ce5aa218e2")
-        @Override
-        public Object visitResource(Resource theResource) {
-            return new ResourcePropertyModel(theResource);
-        }
-
-        @objid ("8b171d73-2cab-490f-bfa3-1baa731fc8e0")
-        @Override
-        public Object visitResourceType(ResourceType theResourceType) {
-            return new ResourceTypePropertyModel(theResourceType);
         }
 
     }

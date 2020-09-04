@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -93,6 +93,7 @@ public class AutoSizeHandler {
      * Filter the selection: when an ancestor is also in selection, remove the child.
      * That is done because any translation/resizing applied to the ancestor will already have an
      * impact on the child.
+     * 
      * @param primarySelection the primary selection
      * @param otherSelections the secondary selection that will be filtered
      * @return the selected edit parts, or an empty list
@@ -144,6 +145,7 @@ public class AutoSizeHandler {
 
     /**
      * This method returns the effective bounds (those seen by the end user) of a figure.
+     * 
      * @param figure the figure which bounds are to be returned.
      * @return the effective bounds of the figure. This object must NOT be modified.
      */
@@ -178,6 +180,7 @@ public class AutoSizeHandler {
 
     /**
      * Extract and filter the GEF selection from the Eclipse selection
+     * 
      * @param selection the Eclipse selection
      * @return the selected edit parts, or an empty list
      */

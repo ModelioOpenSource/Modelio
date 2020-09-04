@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -125,6 +125,7 @@ public class LibreOfficeEditor implements IRichNoteEditor {
 
     /**
      * Load the element text into the editor.
+     * 
      * @param element the element to load.
      */
     @objid ("cb95487e-ee2f-4373-a854-eac1c29df69d")
@@ -201,6 +202,7 @@ public class LibreOfficeEditor implements IRichNoteEditor {
 
     /**
      * E4 Constructor.
+     * 
      * @param parent a parent shell
      * @param input the rich note to edit
      * @param part the E4 part
@@ -367,6 +369,7 @@ public class LibreOfficeEditor implements IRichNoteEditor {
      * <p>
      * If modal, the method waits for the dialog to be closed before returning.
      * If modeless the method returns immediately.
+     * 
      * @param kind {@link MessageDialog#ERROR}, {@link MessageDialog#WARNING}, {@link MessageDialog#INFORMATION}
      * @param title The dialog title
      * @param message The message.
@@ -491,6 +494,7 @@ public class LibreOfficeEditor implements IRichNoteEditor {
          * <li>Set the view read only if the model becomes read only (to be done)
          * <li>Close the diagram if deleted from the model.
          * <p>
+         * 
          * @param changeEvent the model change event
          */
         @objid ("bc4a23a8-9f94-4e25-9dc6-37def96729cf")

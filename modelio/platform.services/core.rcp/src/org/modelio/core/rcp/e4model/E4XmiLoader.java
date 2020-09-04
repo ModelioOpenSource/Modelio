@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,7 +20,6 @@
 
 package org.modelio.core.rcp.e4model;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -31,6 +30,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.ui.internal.workbench.E4XMIResource;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.MApplicationElement;
+import org.eclipse.e4.ui.model.application.descriptor.basic.MPartDescriptor;
+import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.fragment.MModelFragment;
 import org.eclipse.e4.ui.model.fragment.MModelFragments;
 import org.eclipse.e4.ui.model.fragment.impl.FragmentPackageImpl;
@@ -53,72 +54,73 @@ import org.osgi.framework.Bundle;
  * @see org.eclipse.e4.ui.internal.workbench.ModelAssembler
  */
 @objid ("627cf9eb-d3d1-4c99-94a9-6eb37f10f940")
+@SuppressWarnings ("restriction")
 public final class E4XmiLoader {
     /**
      * Load an E4XMI plugin resource and merges it into the application model.
      * <p>
      * Imports won't be resolved.
+     * 
      * @param application the Eclipse 4 application model.
-     * @param plugin an Eclipse plugin.
-     * @param pluginEntryPath the .e4xmi file path relative to the plugin.
+     * @param e4ModelPath the .e4xmi file path relative to the plugin.
+     * @param contributorPlugin an Eclipse plugin.
      * @return the loaded application elements.
      */
     @objid ("f318d1db-1fcd-4925-8d52-b22a78a2dbf5")
-    public static List<MApplicationElement> load(MApplication application, Bundle plugin, String pluginEntryPath) {
-        URL url = plugin.getEntry(pluginEntryPath);
-        URI uri = URI.createURI(url.toString());
-        
-        String contributorURI = URI.createPlatformPluginURI(plugin.getSymbolicName(), true).toString();
-        return E4XmiLoader.load(application, uri, contributorURI);
+    public static List<MApplicationElement> load(final MApplication application, final String e4ModelPath, final Bundle contributorPlugin) {
+        final URI e4ModelURI = URI.createURI(contributorPlugin.getEntry(e4ModelPath).toString());
+        final String contributorURI = URI.createPlatformPluginURI(contributorPlugin.getSymbolicName(), true).toString();
+        return E4XmiLoader.load(application, e4ModelURI, contributorURI);
     }
 
     /**
-     * Load an E4XMI resource and merges it into the application model.
+     * Load an E4XMI plugin resource and merges it into the application model.
      * <p>
      * Imports won't be resolved.
+     * 
      * @param application the Eclipse 4 application model.
-     * @param uri the E4XMI file URI.
-     * @param contributorURI the contributor plugin URI. Used to translate labels starting with '%'.
+     * @param e4ModelURI the E4XMI file URI.
+     * @param contributorURI the contributor plugin URI.
      * The URI must have the "platform:/plugin/your.plugin.id" format, with no trailing '/'.
      * @return the loaded application elements.
      */
     @objid ("cd37f50a-4b6a-4610-a66d-3f7ca5459012")
-    public static List<MApplicationElement> load(MApplication application, URI uri, String contributorURI) {
-        Resource applicationResource = ((EObject) application).eResource();
-        ResourceSet resourceSet = applicationResource.getResourceSet();
-        E4XMIResource e4appResource = (E4XMIResource) applicationResource;
+    private static List<MApplicationElement> load(final MApplication application, final URI e4ModelURI, final String contributorURI) {
+        final Resource applicationResource = ((EObject) application).eResource();
+        final ResourceSet resourceSet = applicationResource.getResourceSet();
+        final E4XMIResource e4appResource = (E4XMIResource) applicationResource;
         
         Resource resource;
         try {
-            resource = resourceSet.getResource(uri, true);
-        } catch (RuntimeException e) {
-            throw new RuntimeException("Unable to read '" + uri + "' model extension: " + e.getMessage(), e); //$NON-NLS-1$
+            resource = resourceSet.getResource(e4ModelURI, true);
+        } catch (final RuntimeException e) {
+            throw new RuntimeException("Unable to load '" + e4ModelURI + "' model extension: " + e.getMessage(), e); //$NON-NLS-1$
         }
         
-        EList<?> contents = resource.getContents();
+        final EList<?> contents = resource.getContents();
         if (contents.isEmpty()) {
             return Collections.emptyList();
         }
         
-        Object extensionRoot = contents.get(0);
+        final Object extensionRoot = contents.get(0);
         
         if (!(extensionRoot instanceof MModelFragments)) {
             throw new IllegalArgumentException(extensionRoot + " is not a MModelFragments");
         }
         
-        List<MApplicationElement> addedElements = new ArrayList<>();
+        final List<MApplicationElement> addedElements = new ArrayList<>();
         
         boolean evalImports = false;
-        MModelFragments fragmentsContainer = (MModelFragments) extensionRoot;
-        List<MModelFragment> fragments = fragmentsContainer.getFragments();
-        for (MModelFragment fragment : fragments) {
-            List<MApplicationElement> elements = fragment.getElements();
+        final MModelFragments fragmentsContainer = (MModelFragments) extensionRoot;
+        final List<MModelFragment> fragments = fragmentsContainer.getFragments();
+        for (final MModelFragment fragment : fragments) {
+            final List<MApplicationElement> elements = fragment.getElements();
             if (elements.isEmpty()) {
                 continue;
             }
         
-            for (MApplicationElement el : elements) {
-                EObject o = (EObject) el;
+            for (final MApplicationElement el : elements) {
+                final EObject o = (EObject) el;
         
                 // Remember IDs of items
                 E4XMIResource r = (E4XMIResource) o.eResource();
@@ -130,11 +132,11 @@ public final class E4XmiLoader {
                 }
         
                 // Remember IDs of subitems
-                TreeIterator<EObject> treeIt = EcoreUtil.getAllContents(o, true);
+                final TreeIterator<EObject> treeIt = EcoreUtil.getAllContents(o, true);
                 while (treeIt.hasNext()) {
-                    EObject eObj = treeIt.next();
+                    final EObject eObj = treeIt.next();
                     r = (E4XMIResource) eObj.eResource();
-                    if (contributorURI != null && (eObj instanceof MApplicationElement)) {
+                    if (contributorURI != null && eObj instanceof MApplicationElement) {
                         ((MApplicationElement) eObj).setContributorURI(contributorURI);
                     }
                     e4appResource.setID(eObj, r.getInternalId(eObj));
@@ -142,7 +144,7 @@ public final class E4XmiLoader {
             }
         
             // Merge the fragment into the MApplication
-            List<MApplicationElement> merged = fragment.merge(application);
+            final List<MApplicationElement> merged = fragment.merge(application);
             if (merged.size() > 0) {
                 evalImports = true;
                 addedElements.addAll(merged);
@@ -150,7 +152,7 @@ public final class E4XmiLoader {
         }
         
         if (evalImports) {
-            List<MApplicationElement> localImports = fragmentsContainer.getImports();
+            final List<MApplicationElement> localImports = fragmentsContainer.getImports();
             if (localImports != null) {
                 E4XmiLoader.resolveImports(application, localImports, addedElements);
             }
@@ -160,29 +162,36 @@ public final class E4XmiLoader {
 
     /**
      * Remove all E4 elements that belong to the given Eclipse bundle.
+     * 
      * @param application the application model to clean.
-     * @param plugin the bundle to remove.
+     * *
+     * @param e4ModelPath the .e4xmi file path relative to the plugin.
+     * @param contributorPlugin an Eclipse plugin.
      */
     @objid ("828f508c-f4a2-4127-9867-a6678a148ae0")
-    public static void unload(MApplication application, Bundle plugin) {
-        String contributorURI = URI.createPlatformPluginURI(plugin.getSymbolicName(), true).toString();
-        E4XmiLoader.unload(application, contributorURI);
+    public static void unload(final MApplication application, final String e4ModelPath, final Bundle contributorPlugin) {
+        final URI e4ModelURI = URI.createURI(contributorPlugin.getEntry(e4ModelPath).toString());
+        final String contributorURI = URI.createPlatformPluginURI(contributorPlugin.getSymbolicName(), true).toString();
+        E4XmiLoader.unload(application, e4ModelURI, contributorURI);
     }
 
     /**
      * Remove all E4 elements that belong to the given contributor.
+     * 
      * @param application the application model to clean.
-     * @param contributorURI the contributorURI to remove.
+     * @param e4ModelURI the E4XMI file URI.
+     * @param contributorURI the contributor plugin URI.
      */
     @objid ("2b7b1b42-218c-4bdf-b86e-3004b1154b65")
-    public static void unload(MApplication application, String contributorURI) {
-        EObject eobj = (EObject) application;
-        Collection<EObject> toDel = new ArrayList<>();
-        for (TreeIterator<EObject> it = eobj.eAllContents(); it.hasNext();) {
-            EObject child = it.next();
+    private static void unload(final MApplication application, final URI e4ModelURI, final String contributorURI) {
+        final EObject eobj = (EObject) application;
+        final Collection<EObject> toDel = new ArrayList<>();
+        
+        for (final TreeIterator<EObject> it = eobj.eAllContents(); it.hasNext();) {
+            final EObject child = it.next();
         
             if (child instanceof MApplicationElement) {
-                MApplicationElement c = (MApplicationElement) child;
+                final MApplicationElement c = (MApplicationElement) child;
                 if (contributorURI.equals(c.getContributorURI())) {
                     toDel.add(child);
                     it.prune();
@@ -190,75 +199,113 @@ public final class E4XmiLoader {
             }
         }
         
-        for (EObject d : toDel) {
-            EcoreUtil.delete(d);
+        for (final EObject d : toDel) {
+            EcoreUtil.delete(d, true);
+        }
+        
+        // Unload the resource itself
+        final Resource applicationResource = ((EObject) application).eResource();
+        final ResourceSet resourceSet = applicationResource.getResourceSet();
+        
+        try {
+            final Resource resource = resourceSet.getResource(e4ModelURI, false);
+            if (resource != null) {
+                resource.unload();
+                resourceSet.getResources().remove(resource);
+            }
+        } catch (final RuntimeException e) {
+            throw new RuntimeException("Unable to unload '" + e4ModelURI + "' model extension: " + e.getMessage(), e); //$NON-NLS-1$
         }
     }
 
     @objid ("677de8b8-e3af-4ed5-bb56-ef7d3a0c01ac")
-    private static void resolveImports(MApplication application, List<MApplicationElement> imports, List<MApplicationElement> addedElements) {
+    private static void resolveImports(final MApplication application, final List<MApplicationElement> imports, final List<MApplicationElement> addedElements) {
         if (imports.isEmpty()) {
             return;
         }
         // now that we have all components loaded, resolve imports
-        Map<MApplicationElement, MApplicationElement> importMaps = new HashMap<>();
-        for (MApplicationElement importedElement : imports) {
-            MApplicationElement realElement = ModelUtils.findElementById(application,
-                    importedElement.getElementId());
+        final Map<MApplicationElement, MApplicationElement> importMaps = new HashMap<>();
+        for (final MApplicationElement importedElement : imports) {
+            final MApplicationElement realElement = ModelUtils.findElementById(application, importedElement.getElementId());
             if (realElement == null) {
-                CoreRcp.LOG.warning("Could not resolve an import element for '" + realElement + "'"); //$NON-NLS-1$ //$NON-NLS-2$
+                CoreRcp.LOG.warning("Could not resolve an import element for '" + importedElement + "'"); //$NON-NLS-1$ //$NON-NLS-2$
             }
         
             importMaps.put(importedElement, realElement);
         }
         
-        TreeIterator<EObject> it = EcoreUtil.getAllContents(addedElements);
-        List<Runnable> commands = new ArrayList<>();
+        final TreeIterator<EObject> it = EcoreUtil.getAllContents(addedElements);
         
-        // TODO Probably use EcoreUtil.UsageCrossReferencer
         while (it.hasNext()) {
-            EObject o = it.next();
+            final EObject target = it.next();
         
-            EContentsEList.FeatureIterator<EObject> featureIterator = (EContentsEList.FeatureIterator<EObject>) o
-                    .eCrossReferences().iterator();
+            final EContentsEList.FeatureIterator<EObject> featureIterator = (EContentsEList.FeatureIterator<EObject>) target.eCrossReferences().iterator();
             while (featureIterator.hasNext()) {
-                EObject importObject = featureIterator.next();
-                if (importObject.eContainmentFeature() == FragmentPackageImpl.Literals.MODEL_FRAGMENTS__IMPORTS) {
-                    EStructuralFeature feature = featureIterator.feature();
+                final EObject importObject = featureIterator.next();
+                if (importObject.eContainmentFeature() == FragmentPackageImpl.Literals.MODEL_FRAGMENTS__IMPORTS && importObject instanceof MApplicationElement) {
+                    final EStructuralFeature feature = featureIterator.feature();
         
-                    MApplicationElement el = importMaps.get(importObject);
+                    final MApplicationElement el = importMaps.get((MApplicationElement) importObject);
                     if (el == null) {
-                        CoreRcp.LOG.warning("Could not resolve import for " + el); //$NON-NLS-1$
+                        CoreRcp.LOG.warning("Could not resolve import for " + importObject); //$NON-NLS-1$
+                        continue;
                     }
         
-                    final EObject interalTarget = o;
-                    final EStructuralFeature internalFeature = feature;
-                    final MApplicationElement internalElment = el;
-                    final EObject internalImportObject = importObject;
-        
-                    commands.add(new Runnable() {
-        
-                        @Override
-                        public void run() {
-                            if (internalFeature.isMany()) {
-                                CoreRcp.LOG.error("Replacing"); //$NON-NLS-1$
-                                @SuppressWarnings("unchecked")
-                                List<Object> l = (List<Object>) interalTarget.eGet(internalFeature);
-                                int index = l.indexOf(internalImportObject);
-                                if (index >= 0) {
-                                    l.set(index, internalElment);
-                                }
-                            } else {
-                                interalTarget.eSet(internalFeature, internalElment);
-                            }
+                    if (feature.isMany()) {
+                        CoreRcp.LOG.error("Replacing"); //$NON-NLS-1$
+                        @SuppressWarnings("unchecked")
+                        final List<Object> l = (List<Object>) target.eGet(feature);
+                        final int index = l.indexOf(importObject);
+                        if (index >= 0) {
+                            l.set(index, el);
                         }
-                    });
+                    } else {
+                        target.eSet(feature, el);
+                    }
                 }
             }
         }
+    }
+
+    /**
+     * Remove all E4 elements that belong to the given Eclipse bundle.
+     * 
+     * @param application the application model to clean.
+     * *
+     * @param e4ModelPath the .e4xmi file path relative to the plugin.
+     * @param contributorPlugin an Eclipse plugin.
+     */
+    @objid ("afe1698b-00d6-4167-9d59-3d2ef8b4603c")
+    public static void setRendered(final MApplication application, final String e4ModelPath, final Bundle contributorPlugin, final boolean value) {
+        final URI e4ModelURI = URI.createURI(contributorPlugin.getEntry(e4ModelPath).toString());
+        final String contributorURI = URI.createPlatformPluginURI(contributorPlugin.getSymbolicName(), true).toString();
+        E4XmiLoader.setVisible(application, e4ModelURI, contributorURI, value);
+    }
+
+    /**
+     * Show/hide all E4 elements that belong to the given contributor.
+     * 
+     * @param application the application model to update.
+     * @param e4ModelURI the E4XMI file URI.
+     * @param contributorURI the contributor plugin URI.
+     */
+    @objid ("d6984ffa-cbe6-4c9b-91f9-f670c0205814")
+    private static void setVisible(final MApplication application, final URI e4ModelURI, final String contributorURI, final boolean value) {
+        final EObject eobj = (EObject) application;
         
-        for (Runnable cmd : commands) {
-            cmd.run();
+        for (final TreeIterator<EObject> it = eobj.eAllContents(); it.hasNext();) {
+            final EObject child = it.next();
+        
+            if (child instanceof MUIElement) {
+                final MUIElement c = (MUIElement) child;
+                if (contributorURI.equals(c.getContributorURI())) {
+                    // Ignore elements belonging to an MPartDescriptor to avoid ClassCastExceptions in e4 renderers
+                    if (!(((EObject) c).eContainer() instanceof MPartDescriptor)) {
+                        c.setVisible(value);
+                    }
+                    it.prune();
+                }
+            }
         }
     }
 

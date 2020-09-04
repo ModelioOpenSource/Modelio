@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -121,6 +121,7 @@ public class GroupEditPart extends AbstractNodeEditPart {
 
     /**
      * Show or hide the group figure depending on {@link GmNodeModel#isVisible()} result.
+     * 
      * @return <i>true</i> if the group is visible, <i>false</i> in the other case.
      */
     @objid ("7e595d3e-1dec-11e2-8cad-001ec947c8cc")

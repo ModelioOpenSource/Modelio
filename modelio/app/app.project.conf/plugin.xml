@@ -2,9 +2,9 @@
 <?eclipse version="3.4"?>
 <plugin>
 	<extension-point id="org.modelio.app.project.conf.page" name="Configurator pages" schema="schema/org.modelio.app.project.conf.page.exsd"/>
-  
+
 	<extension point="org.eclipse.e4.workbench.model" id="modelContribution">
-		<fragment uri="e4model/projectconf.e4xmi"></fragment> 
+		<fragment uri="e4model/projectconf.e4xmi"/>
 	</extension>
 
 </plugin>

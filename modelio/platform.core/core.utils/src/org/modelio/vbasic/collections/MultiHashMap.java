@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ public class MultiHashMap<K, V> extends HashMap<K,List<V>> {
      * if the value is of an inappropriate type for this map (optional)
      * @throws NullPointerException
      * if the specified value is null and this map does not permit null values (optional)
+     * 
      * @param value value whose presence in this map is to be tested
      * @return <tt>true</tt> if this map maps one or more keys to the specified value
      */
@@ -69,6 +70,7 @@ public class MultiHashMap<K, V> extends HashMap<K,List<V>> {
      * if the specified key or value is null and this map does not permit null keys or values
      * @throws IllegalArgumentException
      * if some property of the specified key or value prevents it from being stored in this map
+     * 
      * @param key key with which the specified value is to be associated
      * @param value value to be associated with the specified key
      * @return true if the value was added or false if it was already present in the map.
@@ -91,6 +93,7 @@ public class MultiHashMap<K, V> extends HashMap<K,List<V>> {
 
     /**
      * Remove the following pair from the map.
+     * 
      * @param key The key where the value is mapped
      * @param value The value to remove
      * @return true if the value was removed, false if it was not mapped to the given key.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class TextIconPainter extends BackgroundPainter {
 
     /**
      * Create a new painter.
+     * 
      * @param underline whether the painter should underline the cell's contents or not.
      */
     @objid ("cd3ffb0b-be4e-4b52-88ec-b11ed4007c6f")
@@ -175,6 +176,7 @@ public class TextIconPainter extends BackgroundPainter {
 
     /**
      * Checks if the given text is bigger than the available space. If not the given text is simply returned without modification. If the text does not fit into the available space, it will be modified by cutting and adding three dots.
+     * 
      * @param text the text to compute
      * @param gc the current GC
      * @param availableLength the available space
@@ -204,6 +206,7 @@ public class TextIconPainter extends BackgroundPainter {
 
     /**
      * Checks if a row resize needs to be triggered.
+     * 
      * @param contentHeight The necessary height to show the content completely
      * @param rectangle The available rectangle to render to
      * @return <code>true</code> if a row resize needs to be performed, <code>false</code> if not

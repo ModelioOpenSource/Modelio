@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.gproject.data.project.ILockInfo;
 import org.modelio.gproject.data.project.ProjectDescriptor;
+import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.ui.UIImages;
 
@@ -95,6 +96,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
 
     /**
      * Constructor.
+     * 
      * @param projectService the project service
      * @param font the font to use.
      */
@@ -218,19 +220,20 @@ public class WksLabelProvider extends StyledCellLabelProvider {
     @objid ("f2fb3f5f-71e3-4e4d-bf1b-8057d9820aa1")
     private boolean isCurrentlyOpenedProject(ProjectDescriptor projectDescriptor) {
         final GProject currentlyOpenedProject = this.projectService.getOpenedProject();
-        return (currentlyOpenedProject != null && (currentlyOpenedProject.getProjectPath().equals(projectDescriptor.getPath())));
+        return currentlyOpenedProject != null && currentlyOpenedProject.getProjectFileStructure().getProjectPath().equals(projectDescriptor.getProjectFileStructure().getProjectPath());
     }
 
     @objid ("c8d6ac2d-739c-42df-97c6-2b68b4d5c5bb")
     private Image getProjectIcon(final ProjectDescriptor project) {
-        Image projectIcon = this.icons.get(project.getPath().toString());
+        ProjectFileStructure projectFileStructure = project.getProjectFileStructure();
+        Image projectIcon = this.icons.get(projectFileStructure.getProjectPath().toString());
         if (projectIcon == null) {
             String iconName = project.getProperties().getValue(WksLabelProvider.INFO_PROJECT_ICON_NAME);
             if (iconName == null) {
                 return null;
             }
         
-            Path iconPath = project.getPath().resolve("data").resolve(iconName);
+            Path iconPath = projectFileStructure.getProjectDataPath().resolve(iconName);
             projectIcon = createUserProjectIcon(iconPath);
         
             if (projectIcon == null) {
@@ -238,7 +241,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
             }
         
             if (projectIcon != null) {
-                this.icons.put(project.getPath().toString(), projectIcon);
+                this.icons.put(projectFileStructure.getProjectPath().toString(), projectIcon);
             }
         }
         return projectIcon;
@@ -265,7 +268,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
     @objid ("2c38442c-9528-4a2a-8c5d-faa59e1a1f44")
     private String getProjectLabel(ProjectDescriptor project) {
         String text;
-        Path p = project.getPath();
+        Path p = project.getProjectFileStructure().getProjectPath();
         if (p.getNameCount() > 0) {
             text = p.getName(p.getNameCount() - 1).toString();
         } else {

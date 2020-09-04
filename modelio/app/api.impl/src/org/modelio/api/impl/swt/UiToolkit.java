@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,8 +29,8 @@ import org.modelio.api.impl.swt.metaclasselector.MetaclassSelectorAdapter;
 import org.modelio.api.modelio.IModelioServices;
 import org.modelio.api.ui.swt.IUiToolkit;
 import org.modelio.api.ui.swt.metaclassselect.IMetaclassSelector;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.core.ui.swt.edition.EditorActivationStrategy;
+import org.modelio.gproject.gproject.GProject;
 
 /**
  * {@link IUiToolkit} implementation.
@@ -42,26 +42,34 @@ public class UiToolkit implements IUiToolkit {
     @objid ("a3f000ed-6e07-4d18-bd83-6e0628922f30")
     private final IModelioServices modelioServices;
 
-    @objid ("1de07a45-a664-49d7-94fb-69f83f100c19")
-    private final IProjectService projectService;
-
     @objid ("41a2be95-a36e-41f2-95ab-b234575afee3")
     private final IEclipseContext eclipseContext;
 
+    @objid ("d4e6aab7-c6b6-44cb-9374-e45b93876768")
+    private GProject gProject;
+
+    /**
+     * C'tor.
+     * 
+     * @param modelioServices modelio services.
+     * @param gProject the currently opened project.
+     * @param eclipseContext the eclipse context.
+     */
     @objid ("46ef2267-6bbf-4fb0-95f2-45527958e057")
-    public UiToolkit(IModelioServices modelioServices, IProjectService projectService, IEclipseContext eclipseContext) {
+    public UiToolkit(IModelioServices modelioServices, GProject gProject, IEclipseContext eclipseContext) {
         this.modelioServices = modelioServices;
-        this.projectService = projectService;
+        this.gProject = gProject;
         this.eclipseContext = eclipseContext;
     }
 
     @objid ("9336132a-ed42-43f4-b831-b89d4518cef2")
     @Override
     public IMetaclassSelector createMetaclassSelector(Composite parent, int style) {
-        return new MetaclassSelectorAdapter(parent, style, this.projectService.getOpenedProject().getSession().getMetamodel());
+        return new MetaclassSelectorAdapter(parent, style, this.gProject.getSession().getMetamodel());
     }
 
     @objid ("6f4970e2-75f9-4a5c-b47c-c88b33801f7e")
+    @Override
     public ColumnViewerEditorActivationStrategy createDefaultEditionStrategy(ColumnViewer viewer, boolean withTimeDelta) {
         return new EditorActivationStrategy(viewer, withTimeDelta);
     }

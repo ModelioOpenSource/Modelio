@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ interface IInfrastructureElementInitializer {
      * Initialize the given element.
      * @param modelFactory
      * the model creation factory.
+     * 
      * @param element The element to initialize.
      */
     @objid ("6f6d5c56-2dc3-475f-b4ee-dc128827142c")

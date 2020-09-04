@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -168,6 +168,7 @@ public class R2180 extends AbstractUmlRule {
 
         /**
          * This checks a single NameSpace to find if it is part of a inheritance cycle.
+         * 
          * @param nameSpace The NameSpace to check.
          * @return The audit result.
          */
@@ -203,6 +204,7 @@ public class R2180 extends AbstractUmlRule {
 
         /**
          * This method search for a cycle in the super types inheritance graph.
+         * 
          * @param nameSpace The NameSpace to start from.
          * @param foundNameSpaces A list of found NameSpaces to avoid cycling.
          * @return True is a cycle was found, false otherwise.

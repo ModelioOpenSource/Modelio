@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-SymbolicName: org.modelio.propertyview;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Name: PropertyView
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Localization: plugin
 Bundle-ClassPath: res/,.
 Require-Bundle: org.eclipse.jface,
@@ -26,7 +26,10 @@ Require-Bundle: org.eclipse.jface,
  org.eclipse.e4.core.services,
  org.eclipse.e4.core.contexts,
  org.eclipse.gef,
- org.modelio.app.ui
+ org.modelio.app.ui,
+ org.modelio.core.rcp,
+ org.modelio.core.project.data,
+ org.modelio.core.utils
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.modelio.propertyview.plugin.PropertyViewPlugin

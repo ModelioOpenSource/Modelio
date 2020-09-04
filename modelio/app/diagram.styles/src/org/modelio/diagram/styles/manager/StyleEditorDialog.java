@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -134,6 +134,7 @@ public class StyleEditorDialog extends ModelioDialog {
 
     /**
      * C'tor.
+     * 
      * @param parentShell the parent SWT shell
      * @param pickingService Modelio picking service
      */
@@ -196,6 +197,7 @@ public class StyleEditorDialog extends ModelioDialog {
 
     /**
      * Set the edited style
+     * 
      * @param editedStyle the edited style
      */
     @objid ("85c39522-1926-11e2-92d2-001ec947c8cc")

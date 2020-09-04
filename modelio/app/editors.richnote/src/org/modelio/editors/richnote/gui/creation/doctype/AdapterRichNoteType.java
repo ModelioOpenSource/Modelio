@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,17 +39,18 @@ class AdapterRichNoteType implements IAdaptable {
     }
 
     @objid ("0b1311e0-713e-4abd-b36d-84532190b337")
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings ("unchecked")
     @Override
-    public Object getAdapter(Class adapter) {
-        if (this.docType!= null && adapter.isInstance(this.docType)) {
-            return this.docType;
+    public <T> T getAdapter(Class<T> adapter) {
+        if (this.docType != null && adapter.isInstance(this.docType)) {
+            return (T) this.docType;
         }
         return null;
     }
 
     /**
      * Get accessor for noteType
+     * 
      * @return the document type.
      */
     @objid ("24cd6043-ed71-4be2-8dd5-2695604af250")
@@ -59,6 +60,7 @@ class AdapterRichNoteType implements IAdaptable {
 
     /**
      * Get accessor for parent
+     * 
      * @return the parent node.
      */
     @objid ("7008d1e7-fe57-4435-b703-211e502ccd8e")

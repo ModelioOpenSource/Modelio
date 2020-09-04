@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -97,6 +97,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
     /**
      * Erases bendpoint feedback. Since the original figure is used for feedback, we just restore the original
      * constraint that was saved before feedback started to show.
+     * 
      * @param request the Request
      */
     @objid ("80611dcf-1dec-11e2-8cad-001ec947c8cc")
@@ -281,6 +282,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
 
     /**
      * handle feedback where the line is dragged outside of the source or target shapes bounding box.
+     * 
      * @param newLine LineSeg representing the line currently being manipulated.
      * @param index the index
      * @param constraint the rake constraint to the gesture.
@@ -327,6 +329,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
 
     /**
      * This method will return a SetBendpointsCommand with the points retrieved from the user feedback in the figure.
+     * 
      * @param request BendpointRequest from the user gesture for moving / creating a bendpoint
      * @return Command SetBendpointsCommand that contains the point changes for the connection.
      */
@@ -361,6 +364,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
 
     /**
      * convenience method to get the connection routing constraint casted to List&lt;Bendpoint>
+     * 
      * @return the connection routing constraint.
      */
     @objid ("8063803a-1dec-11e2-8cad-001ec947c8cc")
@@ -371,6 +375,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
     /**
      * Get the line point at the given index. index 0 is the source anchor, the last point is the target anchor and
      * other indexes correspond to the bend points in the constraint.
+     * 
      * @param index if 0, return the source anchor location. If index is the size of the constraint, return the target
      * anchor.
      * @return return the line point location, <i>relative</i> to the connection
@@ -384,6 +389,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
      * Get the feedback state.
      * <p>
      * Creates one if it does not exist.
+     * 
      * @return the feedback state.
      */
     @objid ("8063804a-1dec-11e2-8cad-001ec947c8cc")
@@ -475,6 +481,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
 
     /**
      * Set the position of the point at the given index for a rake that joins on the target side.
+     * 
      * @param connection The connection to modify
      * @param c The rake constraint for convenience, avoid casts.
      * @param index the index of the point to modify. 0 is the source anchor and 3 is the target anchor.
@@ -526,6 +533,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
 
     /**
      * Modify the coordinates of one segment of the constraint.
+     * 
      * @param rakeConstraint The constraint
      * @param nIndex the index of the first point of the segment
      * @param newSeg the new segment
@@ -567,6 +575,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
 
     /**
      * Draws feedback for moving a bend point of a rectilinear connection
+     * 
      * @param request Bendpoint request
      */
     @objid ("8065e291-1dec-11e2-8cad-001ec947c8cc")
@@ -639,6 +648,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
 
         /**
          * Creates the command.
+         * 
          * @param connectionEditPart the link to modify
          * @param sourceRake source side rake position, can be null if targetRake is not null.
          * @param targetRake target side rake position, can be null is sourceRake is not null.

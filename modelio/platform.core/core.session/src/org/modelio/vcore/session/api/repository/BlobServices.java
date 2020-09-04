@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class BlobServices {
 
     /**
      * Read the blob info from an input stream.
+     * 
      * @param is an input stream.
      * @return the read blob information.
      * @throws java.io.IOException in case of failure
@@ -101,6 +102,7 @@ public class BlobServices {
      * If some blobs cannot be read for any reason, a blob information is created
      * with its key and the error message as label. A warning is also fired
      * to the repository error listeners.
+     * 
      * @param blobKeys the blob keys to read
      * @param repo the repository where blobs are stored
      * @return the read blob information.
@@ -134,6 +136,7 @@ public class BlobServices {
      * Serialize a blob information implementing {@link IBlobInfo} in the given output stream.
      * <p>
      * The blob information will be readable as by using {@link #readBlobInfo(InputStream)}.
+     * 
      * @param info a blob information
      * @param os an output stream.
      * @throws java.io.IOException in case of I/O error

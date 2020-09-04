@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,49 +25,35 @@ import java.util.HashMap;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ITreeContentProvider;
-import org.eclipse.jface.viewers.Viewer;
 import org.modelio.module.propertytab.model.ModuleProperty;
 import org.modelio.module.propertytab.model.ModulePropertyModel;
 
 @objid ("c8996411-1eba-11e2-9382-bc305ba4815c")
 public class ModulePropertyContentProvider implements ITreeContentProvider {
-    @objid ("c8996412-1eba-11e2-9382-bc305ba4815c")
-    @Override
-    public void dispose() {
-        // TODO Auto-generated method stub
-    }
-
-    @objid ("c8998b21-1eba-11e2-9382-bc305ba4815c")
-    @Override
-    public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-        // TODO Auto-generated method stub
-    }
-
     @objid ("c899b231-1eba-11e2-9382-bc305ba4815c")
     @Override
     public Object[] getElements(Object inputElement) {
         List<Object> result = new ArrayList<>();
-        HashMap<String, Category> categorys =  new HashMap<>();
+        HashMap<String, Category> categories =  new HashMap<>();
         
         ModulePropertyModel model = (ModulePropertyModel) inputElement;
         
         for (ModuleProperty property : model.getProperties()) {
-            if (property.getCategory() != null) {
-                Category cat = categorys.get(property.getCategory());
-        
+            String propCategory = property.getCategory();
+            if (propCategory != null) {
+                Category cat = categories.get(propCategory);
                 if (cat == null) {
                     cat = new Category();
                     cat.label = property.getCategoryLabel();
-                    categorys.put(property.getCategory(), cat);
+                    categories.put(propCategory, cat);
                     result.add(cat);
                 }
         
                 cat.childrens.add(property);
                 
-            }else{
+            } else {
                 result.add(property);
             }
-        
         }
         return result.toArray();
     }
@@ -97,12 +83,12 @@ public class ModulePropertyContentProvider implements ITreeContentProvider {
     }
 
     @objid ("c89a4e74-1eba-11e2-9382-bc305ba4815c")
-    public class Category {
+    public static class Category {
         @objid ("045857e3-1ebb-11e2-9382-bc305ba4815c")
         public String label;
 
         @objid ("c89a7580-1eba-11e2-9382-bc305ba4815c")
-        public List<ModuleProperty> childrens = new ArrayList<>();
+        public final List<ModuleProperty> childrens = new ArrayList<>();
 
     }
 

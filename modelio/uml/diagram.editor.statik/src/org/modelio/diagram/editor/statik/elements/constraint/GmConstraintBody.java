@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,6 +72,7 @@ public class GmConstraintBody extends GmCompositeNode {
 
     /**
      * C'tor.
+     * 
      * @param diagram the diagram in which this gm is created.
      * @param constraint the represented constraint. May be null.
      * @param relatedRef a reference to the represented constraint. Must Not be null.
@@ -126,7 +127,7 @@ public class GmConstraintBody extends GmCompositeNode {
         super.refreshFromObModel();
         if (this.constraint != null ) {
             List<UmlModelElement> constrainedElements = this.constraint.getConstrainedElement();
-            // Start by hunting unnecessary links 
+            // Start by hunting unnecessary links
             List<IGmLink> linksToDelete = new ArrayList<>();
             for (IGmLink link : getStartingLinks()) {
                 if (!constrainedElements.contains(link.getToElement())) {
@@ -147,12 +148,15 @@ public class GmConstraintBody extends GmCompositeNode {
                     }
                 }
                 if (!linkFound) {
-                    Collection<GmModel> models = getDiagram().getAllGMRelatedTo(new MRef(constrained));
-                    for (GmModel model : models) {
-                        if (model instanceof GmLink || ((GmNodeModel) model).isVisible()) {
-                            // fire property change to force creation of missing link by edit part.
-                            firePropertyChange(PROPERTY_LINK_SOURCE, null, constrained);
-                            break;
+                    IGmDiagram diagram = getDiagram();
+                    if(diagram != null) {
+                        Collection<GmModel> models = diagram.getAllGMRelatedTo(new MRef(constrained));
+                        for (GmModel model : models) {
+                            if (model instanceof GmLink || ((GmNodeModel) model).isVisible()) {
+                                // fire property change to force creation of missing link by edit part.
+                                firePropertyChange(PROPERTY_LINK_SOURCE, null, constrained);
+                                break;
+                            }
                         }
                     }
                 }
@@ -162,13 +166,13 @@ public class GmConstraintBody extends GmCompositeNode {
 
     @objid ("811d77ab-1dec-11e2-8cad-001ec947c8cc")
     @Override
-    public MObject getRelatedElement() {
+    public Constraint getRelatedElement() {
         return this.constraint;
     }
 
     @objid ("811d77b0-1dec-11e2-8cad-001ec947c8cc")
     @Override
-    public MObject getRepresentedElement() {
+    public Constraint getRepresentedElement() {
         return this.constraint;
     }
 
@@ -178,16 +182,16 @@ public class GmConstraintBody extends GmCompositeNode {
         // Read version, defaults to 0 if not found
         int readVersion = readMinorVersion(in, "GmConstraintBody.");
         switch (readVersion) {
-            case 0: {
-                read_0(in);
-                break;
-            }
-            default: {
-                assert (false) : "version number not covered!";
-                // reading as last handled version: 0
-                read_0(in);
-                break;
-            }
+        case 0: {
+            read_0(in);
+            break;
+        }
+        default: {
+            assert (false) : "version number not covered!";
+            // reading as last handled version: 0
+            read_0(in);
+            break;
+        }
         }
     }
 
@@ -216,9 +220,9 @@ public class GmConstraintBody extends GmCompositeNode {
     @Override
     public void removeStartingLink(final IGmLink gmLink) {
         boolean selfDelete = false;
-        if (getRelatedElement() != null && getRelatedElement().equals(gmLink.getRelatedElement())) {
+        if (this.constraint != null && this.constraint.equals(gmLink.getRelatedElement())) {
             // the removed link represents the same element (the constraint) as this gm: delete self as well.
-            selfDelete = true;
+            selfDelete = this.constraint.getConstrainedElement().contains(gmLink.getToElement());
         }
         super.removeStartingLink(gmLink);
         if (selfDelete) {

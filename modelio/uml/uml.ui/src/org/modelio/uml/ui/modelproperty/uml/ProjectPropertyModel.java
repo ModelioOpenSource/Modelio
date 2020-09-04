@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public class ProjectPropertyModel extends AbstractPropertyModel<Project> {
 
     /**
      * Instantiate the project properties view.
+     * 
      * @param theEditedElement the current project.
      */
     @objid ("b21d763a-bf3e-4c24-9cd1-f58a26768ec2")

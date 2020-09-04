@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class ProjectPageView {
      * initialize the view.
      * <p>
      * Called by the E4 model.
+     * 
      * @param parent the parent composite
      */
     @objid ("7290565c-fe42-4282-8fbf-52a69c798f7a")
@@ -76,6 +77,7 @@ public class ProjectPageView {
 
     /**
      * Test method.
+     * 
      * @param args command line arguments
      */
     @objid ("239ea6af-a38c-4693-b046-44ff200d9bb3")
@@ -111,6 +113,7 @@ public class ProjectPageView {
 
     /**
      * Set the HTML browser URL.
+     * 
      * @param viewUrl the URL to view.
      */
     @objid ("e19d9580-31eb-49f7-a1e7-aa39b114e639")

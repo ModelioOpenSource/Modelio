@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -87,6 +87,7 @@ public class MofSession implements IMofSession {
     /**
      * Create an object
      * @throws MetaclassNotFoundException
+     * 
      * @param cls a metaclass name, preferably qualified
      * @param name the element name
      * @return the created object
@@ -131,6 +132,7 @@ public class MofSession implements IMofSession {
 
     /**
      * Find an element from a reference.
+     * 
      * @param ref an element reference
      * @return the found element or null.
      */
@@ -171,6 +173,7 @@ public class MofSession implements IMofSession {
 
     /**
      * Look for an object by scanning a dependency. Create the element if not found.
+     * 
      * @param from the source element to scan
      * @param depName the dependency name
      * @param clsName the target metaclass name, preferably qualified
@@ -257,6 +260,7 @@ public class MofSession implements IMofSession {
      * A new object is created.
      * The original object is detached to all references, that are attached to the new object.
      * At the end the original object is deleted.
+     * 
      * @param original the original object to be replaced by another
      * @param newMetaclass the new object metaclass
      * @param newUuid the new object UUID. If <i>null</i> a new UUID will be generated. This UUID must NOT be the same as the original one.
@@ -359,6 +363,7 @@ public class MofSession implements IMofSession {
      * from the original one.
      * The original object is deleted in the process.
      * The transmuted object will be reidentified at the end of the migration.
+     * 
      * @param toTransmute the object to transmute.
      * @param newMetaclass the new metaclass
      * @return the new object.
@@ -428,6 +433,7 @@ public class MofSession implements IMofSession {
      * Move the given dependency value to the new object
      * while ensuring order is preserved on the opposite association.
      * @param dep the dependency to move
+     * 
      * @param original the original object
      * @param transmuted the transmuted version of the object
      * @param transmutedDepOpposite the dependency opposite

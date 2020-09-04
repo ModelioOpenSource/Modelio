@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class DelegatingGmLinkFactory implements IGmLinkFactory {
 
     /**
      * Instantiate the factory.
+     * 
      * @param factoryIds identifier of the cascaded factories needed to call the {@link DiagramFactoryRegistry}.
      */
     @objid ("c8468442-8806-418b-be1f-b9a26cf8267f")
@@ -115,6 +116,7 @@ public class DelegatingGmLinkFactory implements IGmLinkFactory {
 
     /**
      * Register a cascaded factory.
+     * 
      * @param factory the link factory extension.
      */
     @objid ("69d15b28-f955-4012-8387-5c5f94fe7832")
@@ -126,6 +128,7 @@ public class DelegatingGmLinkFactory implements IGmLinkFactory {
 
     /**
      * Remove a registered cascaded factory.
+     * 
      * @param factory the link factory extension.
      */
     @objid ("31b5e39f-2e5f-4b23-8deb-9d76455d9949")
@@ -135,6 +138,7 @@ public class DelegatingGmLinkFactory implements IGmLinkFactory {
 
     /**
      * Instantiate the factory.
+     * 
      * @param factory a cascaded factory.
      */
     @objid ("a51e0b48-b222-4311-b34b-7d8cf0a2ffd1")

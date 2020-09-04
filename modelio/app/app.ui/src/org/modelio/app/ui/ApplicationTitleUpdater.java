@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,7 +32,6 @@ import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.modelio.app.core.ModelioEnv;
 import org.modelio.app.core.events.ModelioEventTopics;
-import org.modelio.app.ui.plugin.AppUi;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.vcore.session.api.memory.IMemoryEventListener;
 
@@ -72,20 +71,14 @@ public class ApplicationTitleUpdater implements IMemoryEventListener {
     @objid ("004044b2-4082-1ff4-9ac8-001ec947cd2a")
     @Inject
     @Optional
-    void onProjectOpened(final MApplication application, @EventTopic(ModelioEventTopics.PROJECT_OPENED) GProject project) {
-        if (AppUi.LOG.isDebugEnabled()) {
-            AppUi.LOG.debug("projectOpenedEventHandler - project='%s' application='%s'", project, application);
-        }
+    void onProjectOpened(final MApplication application, @EventTopic (ModelioEventTopics.PROJECT_OPENED) GProject project) {
         updateShellTitle(application, project);
     }
 
     @objid ("004080ee-4082-1ff4-9ac8-001ec947cd2a")
     @Inject
     @Optional
-    void onProjectClosed(final MApplication application, @EventTopic(ModelioEventTopics.PROJECT_CLOSED) GProject project) {
-        if (AppUi.LOG.isDebugEnabled()) {
-            AppUi.LOG.debug("projectClosedEventHandler - project='%s' application='%s'", project, application);
-        }
+    void onProjectClosed(final MApplication application, @EventTopic (ModelioEventTopics.PROJECT_CLOSED) GProject project) {
         updateShellTitle(application, null);
     }
 
@@ -96,7 +89,7 @@ public class ApplicationTitleUpdater implements IMemoryEventListener {
             return;
         }
         
-        final StringBuffer buffer = new StringBuffer();
+        final StringBuilder buffer = new StringBuilder();
         
         if (project != null) {
             buffer.append(project.getName());
@@ -104,7 +97,7 @@ public class ApplicationTitleUpdater implements IMemoryEventListener {
         }
         final ModelioEnv modelioEnv = application.getContext().get(ModelioEnv.class);
         
-        buffer.append(MODELIO);
+        buffer.append(ApplicationTitleUpdater.MODELIO);
         buffer.append(" " + modelioEnv.getVersion().getMajorVersion() + "." + modelioEnv.getVersion().getMinorVersion());
         
         if (this.swapping) {

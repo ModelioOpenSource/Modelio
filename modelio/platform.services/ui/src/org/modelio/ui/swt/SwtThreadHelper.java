@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class SwtThreadHelper {
      * <p>
      * Note that at the time the callable is invoked, widgets that have the receiver as their display may have been disposed.
      * Therefore, it is necessary to check for this case inside the callable before accessing the widget.
+     * 
      * @param d the SWT Display
      * @param callable the code to call
      * @return a CompletableFuture that completes when callable has returned.
@@ -70,6 +71,7 @@ public class SwtThreadHelper {
      * <p>
      * Note that at the time the runnable is invoked, widgets that have the receiver as their display may have been disposed.
      * Therefore, it is necessary to check for this case inside the runnable before accessing the widget.
+     * 
      * @param d the SWT display
      * @return an Executor.
      * @since 3.7
@@ -87,6 +89,7 @@ public class SwtThreadHelper {
      * <p>
      * Note that at the time the supplier is invoked, widgets that have the receiver as their display may have been disposed.
      * Therefore, it is necessary to check for this case inside the supplier before accessing the widget.
+     * 
      * @param d the SWT Display
      * @param q the code to call
      * @return a CompletableFuture that completes when callable has returned.
@@ -114,6 +117,7 @@ public class SwtThreadHelper {
      * <p>
      * Note that at the time the runnable is invoked, widgets that have the receiver as their display may have been disposed.
      * Therefore, it is necessary to check for this case inside the runnable before accessing the widget.
+     * 
      * @param d the SWT display
      * @return an Executor.
      * @since 3.7
@@ -128,6 +132,7 @@ public class SwtThreadHelper {
      * <p>
      * Note that at the time the runnable is invoked, widgets that have the receiver as their display may have been disposed.
      * Therefore, it is necessary to check for this case inside the runnable before accessing the widget.
+     * 
      * @param d the SWT Display.
      * @param q the code to execute
      * @return the value returned by the code.

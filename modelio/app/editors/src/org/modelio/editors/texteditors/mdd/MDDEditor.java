@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,7 +29,10 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IDocumentPartitioner;
+import org.eclipse.jface.text.ITypedRegion;
+import org.eclipse.jface.text.TextViewer;
 import org.eclipse.jface.text.rules.FastPartitioner;
+import org.eclipse.jface.text.rules.IPartitionTokenScanner;
 import org.eclipse.jface.text.source.SourceViewer;
 import org.eclipse.jface.text.source.VerticalRuler;
 import org.eclipse.swt.SWT;
@@ -75,10 +78,12 @@ public class MDDEditor implements IDocumentEditor {
         this.viewer.configure(new MDDConfiguration());
         
         // Set Partitioner
-        IDocumentPartitioner standard = new FastPartitioner(new MDDPartitionScanner(), new String[] {
-                MDDPartitionTypes.RO_PARTITION, MDDPartitionTypes.RW_PARTITION, MDDPartitionTypes.TAG_PARTITION,
-                MDDPartitionTypes.KEYWORD_PARTITION, MDDPartitionTypes.COMMENT_PARTITION });
-        IDocumentPartitioner replace = new FastPartitioner(new MDDReplacePartitionScanner(),
+        IDocumentPartitioner standard = new FixedFastPartitioner(
+                new MDDPartitionScanner(), new String[] {
+                        MDDPartitionTypes.RO_PARTITION, MDDPartitionTypes.RW_PARTITION, MDDPartitionTypes.TAG_PARTITION,
+                        MDDPartitionTypes.KEYWORD_PARTITION, MDDPartitionTypes.COMMENT_PARTITION });
+        IDocumentPartitioner replace = new FixedFastPartitioner(
+                new MDDReplacePartitionScanner(),
                 new String[] { MDDReplacePartitionScanner.RW_PARTITION });
         IDocument document = input.getDocument(new MDDDocument(standard, replace));
         
@@ -138,6 +143,46 @@ public class MDDEditor implements IDocumentEditor {
             this.viewer.getControl().setBackground(UIColor.TEXT_WRITABLE_BG);
             this.editor.setIconURI("platform:/plugin/org.modelio.editors.texteditors/icons/texteditor_rw.png");
         }
+    }
+
+    @objid ("97499cf9-f0ad-4ab0-b2b7-13de3ad78bae")
+    @Override
+    public TextViewer getViewer() {
+        return this.viewer;
+    }
+
+    /**
+     * Fixes {@link FastPartitioner#getPartition(int, boolean)} strange behavior.
+     * @author cma
+     * @since 4.0
+     */
+    @objid ("a2d8751d-6279-400f-8cf9-0ce1b3ea7199")
+    private static class FixedFastPartitioner extends FastPartitioner {
+        @objid ("15c7d547-388f-4c10-b19a-e71141af7119")
+        public FixedFastPartitioner(IPartitionTokenScanner scanner, String[] legalContentTypes) {
+            super(scanner, legalContentTypes);
+        }
+
+        /**
+         * {@inheritDoc}
+         * <p>
+         * Same as parent method but don't force IDocument.DEFAULT_CONTENT_TYPE partitions.
+         * </p>
+         * Note : I don't understand at all Eclipse implementation of this method ...
+         * It forces creation of a new untyped partition, this does not match the javadoc.
+         */
+        @objid ("bda70449-649e-44a4-b01a-396326b3c66a")
+        @Override
+        public ITypedRegion getPartition(int offset, boolean preferOpenPartitions) {
+            ITypedRegion region= getPartition(offset);
+            if (preferOpenPartitions  && offset > 0 && offset == region.getOffset()) {
+                // return the previous partition
+                region= getPartition(offset - 1);
+                return region;
+            }
+            return region;
+        }
+
     }
 
 }

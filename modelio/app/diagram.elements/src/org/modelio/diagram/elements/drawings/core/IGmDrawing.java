@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 public interface IGmDrawing extends IGmObject {
     /**
      * Get the drawing layer.
+     * 
      * @return the drawing layer.
      */
     @objid ("337fce70-ba74-4f24-9a68-d74c457f484f")
@@ -40,6 +41,7 @@ public interface IGmDrawing extends IGmObject {
 
     /**
      * Get the strings that uniquelly identifies this drawing in the diagram.
+     * 
      * @return the drawing identifier.
      */
     @objid ("e5c2bb22-0d1d-4d5b-826d-b6750e48ea03")
@@ -53,6 +55,7 @@ public interface IGmDrawing extends IGmObject {
 
     /**
      * Set the drawing as an hyperlink to a model element.
+     * 
      * @param ref the linked element or null.
      */
     @objid ("3a9d17a1-4b2f-413c-8b2b-769c8e228aa4")

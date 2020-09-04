@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,11 +20,16 @@
 
 package org.modelio.uml.ui.modelproperty.uml;
 
+import java.util.Arrays;
+import java.util.Collection;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.core.ui.nattable.parts.data.INatValue;
+import org.modelio.core.ui.nattable.parts.data.element.multi.DefaultMultiElementNatValue;
 import org.modelio.core.ui.nattable.parts.data.string.single.DefaultStringNatValue;
 import org.modelio.core.ui.nattable.viewer.model.AbstractPropertyModel;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
+import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
+import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
  * <i>Constraint</i> data model.
@@ -47,10 +52,11 @@ public class ConstraintPropertyModel extends AbstractPropertyModel<Constraint> {
      */
     @objid ("2002322c-2e47-4de6-88fc-ededf4294fda")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Body",
-			"Language" };
+			"Language", "ConstrainedElement" };
 
     /**
      * Create a new <i>Constraint</i> data model from an <i>Constraint</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("06f1f418-de9d-4dfa-beaf-936546cccf87")
@@ -60,6 +66,7 @@ public class ConstraintPropertyModel extends AbstractPropertyModel<Constraint> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("62379257-31dd-444d-8fd3-5ad014c9fc9f")
@@ -70,6 +77,7 @@ public class ConstraintPropertyModel extends AbstractPropertyModel<Constraint> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("66d3790e-ae26-4cec-9de9-147c68c9f1c4")
@@ -82,6 +90,7 @@ public class ConstraintPropertyModel extends AbstractPropertyModel<Constraint> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -101,6 +110,8 @@ public class ConstraintPropertyModel extends AbstractPropertyModel<Constraint> {
                 return this.theEditedElement.getBody();
             case 3:
                 return this.theEditedElement.getLanguage();
+            case 4:
+                return this.theEditedElement.getConstrainedElement();
             default:
                 return null;
             }
@@ -116,6 +127,7 @@ public class ConstraintPropertyModel extends AbstractPropertyModel<Constraint> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -136,6 +148,8 @@ public class ConstraintPropertyModel extends AbstractPropertyModel<Constraint> {
                 return new DefaultStringNatValue((String) getValue(row, col), false);
             case 3:
                 return new DefaultStringNatValue((String) getValue(row, col), false);
+            case 4:
+                return new DefaultMultiElementNatValue((Collection<MObject>) getValue(row, col), false, Arrays.asList(UmlModelElement.class));
             default:
                 return null;
             }
@@ -148,6 +162,7 @@ public class ConstraintPropertyModel extends AbstractPropertyModel<Constraint> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +185,10 @@ public class ConstraintPropertyModel extends AbstractPropertyModel<Constraint> {
                 break;
             case 3:
                 this.theEditedElement.setLanguage((String) value);
+                break;
+            case 4:
+                this.theEditedElement.getConstrainedElement().clear();
+                this.theEditedElement.getConstrainedElement().addAll((Collection<? extends UmlModelElement>) value);
                 break;
             default:
                 return;

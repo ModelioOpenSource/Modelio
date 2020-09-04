@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -136,6 +136,7 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
 
     /**
      * Get the GmFreeZone model.
+     * 
      * @return the GmFreeZone.
      */
     @objid ("7e3f2382-1dec-11e2-8cad-001ec947c8cc")
@@ -162,6 +163,7 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
 
     /**
      * Updates the visibility of the zone's figure.
+     * 
      * @param aFigure the zone's figure.
      */
     @objid ("7e3f2394-1dec-11e2-8cad-001ec947c8cc")
@@ -198,6 +200,7 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
 
     /**
      * Create a {@link PointAnchor} anchor relative to free zone coordinates.
+     * 
      * @param absPoint an absolute point.
      * @return a XY anchor for the free zone figure
      */

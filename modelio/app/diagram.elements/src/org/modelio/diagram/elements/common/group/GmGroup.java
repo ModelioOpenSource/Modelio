@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
 
     /**
      * Initialize a group.
+     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to. Must not be <i>null</i>.
      */
@@ -120,6 +121,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
 
     /**
      * Tells whether the group has hidden features.
+     * 
      * @return true if the group has hidden features.
      */
     @objid ("7e549898-1dec-11e2-8cad-001ec947c8cc")
@@ -131,6 +133,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
      * Tells whether the zone must be hidden if empty.
      * <p>
      * The default implementation returns false. It may be overridden to return true depending on a style key.
+     * 
      * @return whether the zone must be hidden if empty.
      */
     @objid ("7e54989d-1dec-11e2-8cad-001ec947c8cc")
@@ -155,6 +158,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
      * The default implementation returns <i>false</i>.
      * <p>
      * Subclasses may redefine this method.
+     * 
      * @return true to grab excess space, else false.
      */
     @objid ("7e5498a9-1dec-11e2-8cad-001ec947c8cc")
@@ -196,6 +200,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
      * </ul>
      * <p>
      * Implementations MUST NOT check whether the element is already unmasked.
+     * 
      * @param el The element to unmask
      * @return <tt>true</tt> if it satisfies all conditions, else <tt>false</tt>.
      */
@@ -206,6 +211,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
      * Set whether the group hides some elements.
      * <p>
      * In this case adds a "..." label. Remove the label in the other case.
+     * 
      * @param hasHiddenFeatures true if some elements are hidden else false.
      */
     @objid ("7e56fade-1dec-11e2-8cad-001ec947c8cc")

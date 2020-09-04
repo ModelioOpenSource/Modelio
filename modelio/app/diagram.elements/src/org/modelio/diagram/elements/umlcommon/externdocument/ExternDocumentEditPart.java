@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -155,6 +155,7 @@ public class ExternDocumentEditPart extends AbstractNodeEditPart {
 
     /**
      * Get the extern document figure.
+     * 
      * @return The extern document figure.
      */
     @objid ("814f88fb-1dec-11e2-8cad-001ec947c8cc")
@@ -188,6 +189,7 @@ public class ExternDocumentEditPart extends AbstractNodeEditPart {
 
     /**
      * Recreate the link between the {@link Document} and its annoted element through a reconnect request.
+     * 
      * @param source the annoted element.
      */
     @objid ("febced4a-d2cd-46b6-9148-0d0133d70697")

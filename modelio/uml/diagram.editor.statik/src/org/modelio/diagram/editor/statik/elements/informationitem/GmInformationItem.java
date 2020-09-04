@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class GmInformationItem extends GmPortContainer {
 
     /**
      * Constructor.
+     * 
      * @param diagram the diagram in which the item is unmasked.
      * @param el the unmasked item.
      * @param ref a reference to the unmasked item.
@@ -242,6 +243,7 @@ public class GmInformationItem extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -255,6 +257,7 @@ public class GmInformationItem extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ public interface IObModelChangeListener {
      * Called when an MObject is added to the represented MObject.
      * <p>
      * The Gm element may then create another Gm element representing the created MObject.
+     * 
      * @param addedEl The added element
      */
     @objid ("8084e165-1dec-11e2-8cad-001ec947c8cc")
@@ -41,6 +42,7 @@ public interface IObModelChangeListener {
      * Called when the represented element that was previously absent from the model is now present in the model.
      * <p>
      * The Gm element should then refresh itself from the element.
+     * 
      * @param resolvedElement The now present element.
      */
     @objid ("8084e168-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.core.ui.swt.labelprovider.UniversalLabelProvider;
-import org.modelio.metamodel.uml.infrastructure.Element;
+import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
  * Basic label provider for model elements.
@@ -62,6 +62,7 @@ public class BasicModelElementLabelProvider extends AbstractModelioElementLabelP
 
     /**
      * C'tor
+     * 
      * @param withFromClause if <code>true</code>,  the label provider adds a '(from namespace)' clause to the element name.
      */
     @objid ("73f4d743-12ab-4e8d-ae04-6d91d6e13b58")
@@ -72,15 +73,26 @@ public class BasicModelElementLabelProvider extends AbstractModelioElementLabelP
     @objid ("11090afc-b3ae-436d-8f40-4c29daf4e13f")
     @Override
     public Image getImage(Object obj) {
-        final Element element = (Element) obj;
-        return ElementImageService.getIcon(element);
+        final MObject element = (MObject) obj;
+        return this.baseLabelProvider.getImage(element);
+        //return ElementImageService.getIcon(element);
     }
 
     @objid ("85f45c86-cba0-482f-a733-f1a25aedfe50")
     @Override
     public StyledString getStyledText(Object element) {
-        final String s = getText(element);
-        return new StyledString(s);
+        StyledString mainLabel = this.baseLabelProvider.getStyledText(element);
+        if (!this.withFromClause) {
+            return mainLabel;
+        }
+        
+        MObject parentEl = (((MObject) element).getCompositionOwner());
+        if (parentEl != null) {
+            mainLabel.append("  (from ");
+            mainLabel.append(this.baseLabelProvider.getStyledText(parentEl));
+            mainLabel.append(")");
+        }
+        return mainLabel;
     }
 
     @objid ("88cbf065-4df5-4c34-a6a8-802db16452c3")
@@ -88,8 +100,11 @@ public class BasicModelElementLabelProvider extends AbstractModelioElementLabelP
     public String getText(Object element) {
         StringBuilder label = new StringBuilder(this.baseLabelProvider.getText(element));
         if (this.withFromClause) {
-            if (((Element) element).getCompositionOwner() != null) {
-                label.append("  (from " + (((Element) element).getCompositionOwner()).getName() + ")");
+            MObject parentEl = ((MObject) element).getCompositionOwner();
+            if (parentEl != null) {
+                label.append("  (from ");
+                label.append(parentEl.getName());
+                label.append(")");
             }
         }
         return label.toString();

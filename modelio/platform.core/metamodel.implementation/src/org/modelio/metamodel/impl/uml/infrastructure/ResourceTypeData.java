@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -31,28 +31,28 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("00937678-c4be-1fd8-97fe-001ec947cd2a")
 public class ResourceTypeData extends ModelElementData {
-    @objid ("4b38f237-f850-4e66-9b2d-6f2cff14e17a")
+    @objid ("efb2d169-78ec-4062-b529-fc5c19119187")
      Object mIsHidden = false;
 
-    @objid ("3cd478b2-c658-4e25-8cf4-0279f5155bdf")
+    @objid ("018e00f4-a3db-4e68-911b-03158a474e35")
      Object mLabelKey = "";
 
-    @objid ("b3f31649-cd48-4d0e-81d5-234623bcb50a")
+    @objid ("fc7812f6-0229-408a-8a9b-780b19137974")
      Object mIcon = "";
 
-    @objid ("c43d09ae-ebf2-43e2-8814-7bac955d67e2")
+    @objid ("93b97fcb-2f0c-4bf9-ad1c-797da1e03caa")
      Object mImage = "";
 
-    @objid ("86d03201-ab64-4f5f-a944-d7d3d7ce4552")
+    @objid ("1905f742-ab99-4d60-8444-077076546cf0")
      SmObjectImpl mOwnerStereotype;
 
-    @objid ("c48bd156-e06b-485a-a7a5-4666f7cf305e")
+    @objid ("4851eabf-1fdf-40b8-994e-0dbcf5f74b31")
      SmObjectImpl mOwnerReference;
 
-    @objid ("ed3d0a32-346b-461e-9d3c-cc7de9d2db09")
+    @objid ("74a61c04-53eb-438c-8e45-34957b7fd00a")
      List<SmObjectImpl> mTypedResource = null;
 
-    @objid ("67e38600-db44-43f6-a620-f551c828fc38")
+    @objid ("9c859f9c-13ee-4bd9-94bc-3539f38ca0db")
     public ResourceTypeData(ResourceTypeSmClass smClass) {
         super(smClass);
     }

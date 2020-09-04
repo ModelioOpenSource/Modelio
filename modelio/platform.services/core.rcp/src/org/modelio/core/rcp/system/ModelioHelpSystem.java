@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class ModelioHelpSystem implements IWorkbenchHelpSystem {
 
     /**
      * Return the singleton instance of this class.
+     * 
      * @return the singleton instance
      */
     @objid ("22b609c9-a02c-4d7d-a0fe-3f32d4678232")

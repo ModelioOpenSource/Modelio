@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class DrawingObjectFactory implements CreationFactory {
 
     /**
      * Creates a factory that creates a {@link GmDrawing} with a random identifier.
+     * 
      * @param metaclass the drawing class
      */
     @objid ("20b43e3c-87ab-4818-9151-b433cbf598f9")
@@ -73,6 +74,7 @@ public class DrawingObjectFactory implements CreationFactory {
 
     /**
      * Get the class of the drawing to create.
+     * 
      * @return the drawing class.
      */
     @objid ("10bd46bc-41d1-43c9-92da-470a128a3407")
@@ -101,6 +103,7 @@ public class DrawingObjectFactory implements CreationFactory {
 
     /**
      * Get the creation custom properties.
+     * 
      * @return the creation properties or <tt>null</tt> if no property was defined.
      */
     @objid ("e572b963-5226-4025-b834-411444b0f5eb")
@@ -110,6 +113,7 @@ public class DrawingObjectFactory implements CreationFactory {
 
     /**
      * Set the creation properties.
+     * 
      * @param properties the creation properties.
      */
     @objid ("52d7208b-f4bc-4548-89f7-a41dce40e6cf")
@@ -119,6 +123,7 @@ public class DrawingObjectFactory implements CreationFactory {
 
     /**
      * Add a custom property value.
+     * 
      * @param key The property key
      * @param value The property value.
      */
@@ -129,6 +134,7 @@ public class DrawingObjectFactory implements CreationFactory {
 
     /**
      * Creates a factory that creates a {@link GmDrawing}.
+     * 
      * @param metaclass the drawing class
      * @param drawingIdentifier the new drawing identifier. Must be unique in the diagram.
      */

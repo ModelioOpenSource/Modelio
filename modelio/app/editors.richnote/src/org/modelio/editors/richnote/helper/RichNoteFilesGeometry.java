@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class RichNoteFilesGeometry {
 
     /**
      * initialize the service.
+     * 
      * @param project the project to handle
      */
     @objid ("8f1bf648-57fd-48fb-8d86-069b26a5ecdc")
@@ -53,6 +54,7 @@ public class RichNoteFilesGeometry {
 
     /**
      * Get the file path of the given document.
+     * 
      * @param doc an external document.
      * @return the file path.
      */
@@ -65,7 +67,7 @@ public class RichNoteFilesGeometry {
         }
         
         Path f = Paths.get(fileName);
-        if (! Files.exists(f)) {
+        if (!Files.exists(f)) {
             f = getAbsoluteFile(fileName);
         }
         return f;
@@ -74,6 +76,7 @@ public class RichNoteFilesGeometry {
     /**
      * Relativize the given path and return it in a format that can be directly
      * stored in the {@link ExternDocument#getPath() path} rich note field.
+     * 
      * @param filePath the path to relativize.
      * @return the relativized path.
      */
@@ -82,14 +85,14 @@ public class RichNoteFilesGeometry {
         if (filePath.startsWith(getRuntimePath())) {
             // Relative to the runtime directory
             return getRuntimePath().relativize(filePath).toString();
-        } else if (filePath.startsWith(this.project.getProjectPath())) {
+        } else if (filePath.startsWith(this.project.getProjectFileStructure().getProjectPath())) {
             // Relative to the project directory
-            String docPath = this.project.getProjectPath().relativize(filePath).toString();
-            return (PROJECT_KEYWORD+"/"+docPath);
+            String docPath = this.project.getProjectFileStructure().getProjectPath().relativize(filePath).toString();
+            return RichNoteFilesGeometry.PROJECT_KEYWORD + "/" + docPath;
         
         } else {
             // Store as is
-            return (filePath.toString());
+            return filePath.toString();
         }
     }
 
@@ -100,13 +103,14 @@ public class RichNoteFilesGeometry {
      * in a file with the element UUID as name with the given extension.
      * <p>
      * The returned path should be made relative before being stored in the rich note element using {@link ExternDocument#setPath(String)}.
+     * 
      * @param doc a rich note.
      * @param extension the file extension
      * @return its default path.
      */
     @objid ("6aa98df4-b292-43c4-8d58-a00c2ee7217b")
     public Path getDefaultPath(final AbstractResource doc, String extension) {
-        return getEditedFilesdirectory().resolve(doc.getUuid().toString()+ "." + extension);
+        return getEditedFilesdirectory().resolve(doc.getUuid().toString() + "." + extension);
     }
 
     /**
@@ -115,16 +119,17 @@ public class RichNoteFilesGeometry {
      * If <i>fileName</i> contains {@value #PROJECT_KEYWORD}, the path is relative to the project
      * root directory. In the other case the path is relative to the project
      * runtime directory.
+     * 
      * @param fileName a relative file path
      * @return an absolute file path.
      */
     @objid ("76abffcd-969c-415c-aede-3715f9a3c53b")
     private Path getAbsoluteFile(final String fileName) {
-        int idx = fileName.lastIndexOf(PROJECT_KEYWORD);
+        int idx = fileName.lastIndexOf(RichNoteFilesGeometry.PROJECT_KEYWORD);
         if (idx == -1) {
             return getRuntimePath().resolve(fileName);
         } else {
-            return this.project.getProjectPath().resolve(fileName.substring(idx+PROJECT_KEYWORD.length()));
+            return this.project.getProjectFileStructure().getProjectPath().resolve(fileName.substring(idx + RichNoteFilesGeometry.PROJECT_KEYWORD.length()));
         }
     }
 
@@ -133,12 +138,12 @@ public class RichNoteFilesGeometry {
      */
     @objid ("6ca7b7a7-4d2f-4082-a310-cd59c3d8a69d")
     private Path getRuntimePath() {
-        return this.project.getProjectRuntimePath();
+        return this.project.getProjectFileStructure().getProjectRuntimePath();
     }
 
     @objid ("6b07fd7b-c36f-4dfd-b90a-bf46f462c68c")
     public Path getEditedFilesdirectory() {
-        return getRuntimePath().resolve(RICHNOTE_DIRNAME);
+        return getRuntimePath().resolve(RichNoteFilesGeometry.RICHNOTE_DIRNAME);
     }
 
 }

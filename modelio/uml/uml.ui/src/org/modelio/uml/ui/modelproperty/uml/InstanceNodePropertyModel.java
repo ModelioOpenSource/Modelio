@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
 
     /**
      * Create a new <i>InstanceNode</i> data model from an <i>InstanceNode</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("d3b39468-9cfd-46cf-9e6d-83b3699b1a52")
@@ -78,6 +79,7 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("26d368be-0905-4f2e-8261-8c2d37c65998")
@@ -88,6 +90,7 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
 
     /**
      * Returns the element represented by the given instance node.
+     * 
      * @return the represented element
      */
     @objid ("8fcf0890-7b86-447f-bf47-c86c4d032a86")
@@ -114,6 +117,7 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("2b3c55f6-53d7-4858-bc47-0f2db1d3807d")
@@ -126,6 +130,7 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -168,6 +173,7 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -211,6 +217,7 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
     /**
      * Set the InstanceNode represented elements. This method set the right
      * dependency and clears the otheEditedElement.
+     * 
      * @param theEditedElement the instance node
      * @param value the new represented element
      */
@@ -277,6 +284,7 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

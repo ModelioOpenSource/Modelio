@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -127,6 +127,7 @@ public class ApplyPatternStandardHandler extends DefaultModuleCommandHandler {
      * <li>selection : the selectedElements selection
      * <li>module : the IModule.
      * </ul>
+     * 
      * @param selectedElements the current selection in Modelio
      * @param module the module owning the command handler.
      */
@@ -147,6 +148,7 @@ public class ApplyPatternStandardHandler extends DefaultModuleCommandHandler {
      * Hook called once the pattern is applied and before the transaction is committed.
      * <p>
      * Does nothing by default. Sub classes may redefine this method to make additional modifications.
+     * 
      * @param selectedElements the current selection in Modelio
      * @param module the module owning the command handler.
      */

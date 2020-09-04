@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -144,6 +144,7 @@ public class MClassRef implements Serializable {
 
     /**
      * Create a MClassRef from a qualified metaclass name.
+     * 
      * @param qualifiedName a qualified metaclass name.
      * @return a metaclass reference.
      */

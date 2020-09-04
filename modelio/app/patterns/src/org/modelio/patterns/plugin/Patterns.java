@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,9 @@ public class Patterns implements BundleActivator {
     @objid ("bec0d7bb-9220-4a03-82fe-256cea51c785")
     public static final String PLUGIN_ID = "org.modelio.patterns";
 
+    @objid ("ab1f2479-371f-4d57-80b8-fd4c60f249d4")
+    private static final String PATTERN_SUBDIR = "patterns";
+
     @objid ("ef1e060b-e206-475d-bd5a-9d7f96d045f9")
     public static BundledMessages I18N;
 
@@ -50,32 +53,33 @@ public class Patterns implements BundleActivator {
     @objid ("665ff740-b912-485b-83fe-0a294a774d77")
     @Override
     public void start(BundleContext bundleContext) throws Exception {
-        context = bundleContext;
+        Patterns.context = bundleContext;
         ServiceReference<ExtendedLogService> ref = bundleContext.getServiceReference(ExtendedLogService.class);
         ExtendedLogService service = bundleContext.getService(ref);
-        LOG = new PluginLogger(service.getLogger(null));
-        I18N = new BundledMessages(LOG, ResourceBundle.getBundle("patterns"));
+        Patterns.LOG = new PluginLogger(service.getLogger((String)null));
+        Patterns.I18N = new BundledMessages(Patterns.LOG, ResourceBundle.getBundle("patterns"));
     }
 
     @objid ("7201dcca-c4e9-4553-90c4-3542a6589977")
     @Override
     public void stop(BundleContext bundleContext) throws Exception {
-        context = null;
+        Patterns.context = null;
     }
 
     @objid ("134df6b1-1ac2-487e-9e4b-0ace09cc6366")
     public static BundleContext getContext() {
-        return context;
+        return Patterns.context;
     }
 
     /**
      * Returns an image descriptor for the image file in the plug-in relative path.
+     * 
      * @param path a path relative to this plugin.
      * @return the image descriptor.
      */
     @objid ("45374a21-8347-4e6a-b3b9-8a5bb97b59aa")
     public static ImageDescriptor getImageDescriptor(final String path) {
-        return AbstractUIPlugin.imageDescriptorFromPlugin(PLUGIN_ID, path);
+        return AbstractUIPlugin.imageDescriptorFromPlugin(Patterns.PLUGIN_ID, path);
     }
 
     /**
@@ -84,10 +88,7 @@ public class Patterns implements BundleActivator {
      */
     @objid ("3c15529a-aded-4757-83da-099f5c8b059c")
     public static Path getProjectPatternsDirectory(GProject openedProject) {
-        return openedProject.getProjectDataPath()
-                        .resolve(GProject.DATA_SUBDIR)
-                        .resolve(GProject.CONFIG_SUBDIR)
-                        .resolve("patterns");
+        return openedProject.getProjectFileStructure().getProjectDataConfigPath().resolve(Patterns.PATTERN_SUBDIR);
     }
 
 }

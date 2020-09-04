@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class InstanceFactory implements IInstanceFactory {
 
     /**
      * Instantiate the {@link InstanceFactory} for a diagram.
+     * 
      * @param gmDiagram a gm diagram to get the gm node/link factories from.
      */
     @objid ("a89df6fd-22d7-4a23-bd93-dfd5fda8c2af")
@@ -72,6 +73,11 @@ public class InstanceFactory implements IInstanceFactory {
             clazz = this.linkFactory.resolveClass(classNamespace);
             if (clazz != null) {
                 return clazz;
+            }
+        
+            // Old migration case, diagram namespacing changed a long time ago...
+            if (classNamespace.startsWith("com.modeliosoft.modelio.diagram")) {
+                return resolveClass(classNamespace.replace("com.modeliosoft.modelio.diagram", "org.modelio.diagram"));
             }
         
             throw new PersistenceException(classNamespace + " class cannot be found.", e);
@@ -119,6 +125,11 @@ public class InstanceFactory implements IInstanceFactory {
                 return (Class<T>) clazz;
             }
         
+            // Old migration case, diagram namespacing changed a long time ago...
+            if (enumNamespace.startsWith("com.modeliosoft.modelio.diagram")) {
+                return getEnumClass(enumNamespace.replace("com.modeliosoft.modelio.diagram", "org.modelio.diagram"));
+            }
+        
             throw new PersistenceException(enumNamespace + " enum cannot be found.", e);
         }
     }
@@ -140,6 +151,11 @@ public class InstanceFactory implements IInstanceFactory {
             clazz = this.linkFactory.resolveMigratorClass(classNamespace);
             if (clazz != null) {
                 return clazz;
+            }
+        
+            // Old migration case, diagram namespacing changed a long time ago...
+            if (classNamespace.startsWith("com.modeliosoft.modelio.diagram")) {
+                return resolveMigratorClass(classNamespace.replace("com.modeliosoft.modelio.diagram", "org.modelio.diagram"));
             }
         
             throw new PersistenceException(classNamespace + " class cannot be found.", e);

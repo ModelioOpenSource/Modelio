@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -26,7 +26,6 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
-import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.tools.CreationTool;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
@@ -99,8 +98,8 @@ public class BoxTool extends CreationTool {
                 : new Dimension(-1, -1);
         Rectangle rect = new Rectangle(where, size);
         
-        ((GraphicalEditPart) getTargetEditPart().getViewer().getContents()).getFigure()
-                .translateToRelative(rect);
+        //The translation is done in the policies
+        //((GraphicalEditPart) getTargetEditPart().getViewer().getContents()).getFigure().translateToRelative(rect);
         
         // Delegate the execution to the BoxCommand handler
         this.boxCommand.actionPerformed(this.diagramHandle, dg, rect);
@@ -124,6 +123,7 @@ public class BoxTool extends CreationTool {
      * Updates the target editpart and returns <code>true</code> if the target changes. The target is updated by using
      * the target conditional and the target request. If the target has been locked, this method does nothing and
      * returns <code>false</code>.
+     * 
      * @return <code>true</code> if the target was changed
      */
     @objid ("7cde64c4-a7aa-4172-b97c-1bb48a228437")

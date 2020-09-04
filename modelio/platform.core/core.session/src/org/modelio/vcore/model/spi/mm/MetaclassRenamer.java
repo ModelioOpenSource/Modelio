@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class MetaclassRenamer {
 
     /**
      * Register a metaclass renaming.
+     * 
      * @param oldMetaclass the old metaclass
      * @param newMetaclass the new metaclass.
      */
@@ -59,6 +60,7 @@ public class MetaclassRenamer {
 
     /**
      * Transmute all elements whose metaclass is renamed.
+     * 
      * @param monitor a progress monitor
      * @param aMofSession the MOF session to use.
      */
@@ -87,6 +89,7 @@ public class MetaclassRenamer {
      * Allows to get model objects not stored in the repository to migrate. Most of them are
      * unresolved references. Unresolved references must be transmuted too when metaclasses names change.
      * @param withSubClasses true to look for sub metaclasses hierarchy.
+     * 
      * @param metaclass the metaclass to look for
      * @return the found references.
      */
@@ -131,6 +134,7 @@ public class MetaclassRenamer {
 
     /**
      * Look for the new metaclass from the old qualified name.
+     * 
      * @param oldQualifiedName the old metaclass qualified name
      * @return the new metaclass or null.
      */

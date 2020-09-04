@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,7 +49,7 @@ public class AppModelImportOrg implements BundleActivator {
         AppModelImportOrg.context = bundleContext;
         ServiceReference<ExtendedLogService> ref = bundleContext.getServiceReference(ExtendedLogService.class);
         ExtendedLogService service = bundleContext.getService(ref);
-        AppModelImportOrg.LOG = new PluginLogger(service.getLogger(null));
+        AppModelImportOrg.LOG = new PluginLogger(service.getLogger((String)null));
         AppModelImportOrg.I18N = new BundledMessages(AppModelImportOrg.LOG, ResourceBundle.getBundle("appmodelimport"));
     }
 

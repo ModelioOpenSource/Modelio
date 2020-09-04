@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,10 +20,7 @@
 
 package org.modelio.xmi.model.objing;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.SequenceDiagram;
@@ -47,87 +44,9 @@ public class OInteraction extends OModelElement {
         return UMLFactory.eINSTANCE.createInteraction();
     }
 
-    @objid ("f726ad72-ddd8-4985-be37-88dd47bd9b18")
-    private void fixingForSAFRAN() {
-        GenerationProperties genProp = GenerationProperties.getInstance();
-        
-        org.eclipse.uml2.uml.Interaction ecoreElt = (org.eclipse.uml2.uml.Interaction) genProp.getMappedElement(getObjingElement());
-        List<org.eclipse.uml2.uml.Message> messageList = new ArrayList<>();
-        
-        for (Object fragment : ecoreElt.getMessages()){
-            messageList.add((org.eclipse.uml2.uml.Message) fragment);
-        }
-        
-        
-        for (org.eclipse.uml2.uml.Message messageDel : messageList){
-            //            if (fragment instanceof org.eclipse.uml2.uml.Message){
-            //            org.eclipse.uml2.uml.Message messageDel = (org.eclipse.uml2.uml.Message) fragment;
-            if (messageDel.getMessageSort().equals(org.eclipse.uml2.uml.MessageSort.DELETE_MESSAGE_LITERAL)){
-                org.eclipse.uml2.uml.MessageOccurrenceSpecification end = (org.eclipse.uml2.uml.MessageOccurrenceSpecification) messageDel.getReceiveEvent();
-                if (end != null){
-                    org.eclipse.uml2.uml.Lifeline lifeline = end.getCovereds().get(0);
-                    EList<?> fragmentList = lifeline.getCoveredBys();
-                    int indexOfDeleteMessage = fragmentList.indexOf(messageDel);
-                    int size  = fragmentList.size();
-                    org.eclipse.uml2.uml.InteractionFragment last = (org.eclipse.uml2.uml.InteractionFragment) fragmentList.get(size - 1);
-                    if (!last.equals(end)) {
-        
-                        //Change org.eclipse.uml2.uml.Message Order
-        
-                        for (int i = indexOfDeleteMessage + 1 ; i < size; i++ ){
-                            org.eclipse.uml2.uml.InteractionFragment current = (org.eclipse.uml2.uml.InteractionFragment) fragmentList.get(i);
-        
-                            if (current instanceof org.eclipse.uml2.uml.MessageOccurrenceSpecification){
-                                org.eclipse.uml2.uml.Message messageCurrent = ((org.eclipse.uml2.uml.MessageOccurrenceSpecification) current).getMessage();
-                                int indexOfMessageCurrent =  ecoreElt.getMessages().indexOf(messageCurrent);
-                                int indexOfDelete =  ecoreElt.getMessages().indexOf(messageDel);
-                                if (indexOfMessageCurrent > indexOfDelete){
-                                    ecoreElt.getMessages().remove(indexOfMessageCurrent);
-                                    ecoreElt.getMessages().add(indexOfDelete, messageCurrent);
-                                    ecoreElt.getMessages().remove(messageDel);
-                                    ecoreElt.getMessages().add(indexOfMessageCurrent, messageDel);
-        
-                                }
-        
-                                indexOfMessageCurrent =  ecoreElt.getFragments().indexOf(messageCurrent.getReceiveEvent());
-                                indexOfDelete =  ecoreElt.getFragments().indexOf(messageDel.getReceiveEvent());
-                                if (indexOfMessageCurrent > indexOfDelete){
-                                    ecoreElt.getFragments().remove(indexOfMessageCurrent);
-                                    ecoreElt.getFragments().add(indexOfDelete, (org.eclipse.uml2.uml.InteractionFragment) messageCurrent.getReceiveEvent());
-                                    ecoreElt.getFragments().remove(messageDel.getReceiveEvent());
-                                    ecoreElt.getFragments().add(indexOfMessageCurrent, (org.eclipse.uml2.uml.InteractionFragment)messageDel.getReceiveEvent());
-        
-                                }
-        
-        
-                                indexOfMessageCurrent =  ecoreElt.getFragments().indexOf(messageCurrent.getSendEvent());
-                                indexOfDelete =  ecoreElt.getFragments().indexOf(messageDel.getSendEvent());
-                                if (indexOfMessageCurrent > indexOfDelete){
-                                    ecoreElt.getFragments().remove(indexOfMessageCurrent);
-                                    ecoreElt.getFragments().add(indexOfDelete, (org.eclipse.uml2.uml.InteractionFragment) messageCurrent.getSendEvent());
-                                    ecoreElt.getFragments().remove(messageDel.getSendEvent());
-                                    ecoreElt.getFragments().add(indexOfMessageCurrent, (org.eclipse.uml2.uml.InteractionFragment) messageDel.getSendEvent());
-        
-                                }
-        
-        
-                            }
-                        }
-                        //Change org.eclipse.uml2.uml.Message Occurence Specification Order
-        
-                        lifeline.getCoveredBys().remove(end);
-                        lifeline.getCoveredBys().add(end);
-                    }
-        
-                }
-        
-            }
-        
-        }
-    }
-
     /**
      * Constructor
+     * 
      * @param element : the exported Modelio Interaction
      */
     @objid ("24b33337-f5d2-4e64-82d1-7b0783ff0d83")
@@ -179,7 +98,7 @@ public class OInteraction extends OModelElement {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setReentrant((org.eclipse.uml2.uml.Interaction) ecoreElt);
-        fixingForSAFRAN();
+        
         if (GenerationProperties.getInstance().isRoundtripEnabled())
             setDiagramName(ecoreElt);
     }

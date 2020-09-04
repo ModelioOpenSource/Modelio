@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -79,6 +79,7 @@ public class TBoundaryEvent extends TCatchEvent {
 
     /**
      * Sets the value of the cancelActivity property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -100,6 +101,7 @@ public class TBoundaryEvent extends TCatchEvent {
 
     /**
      * Sets the value of the attachedToRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

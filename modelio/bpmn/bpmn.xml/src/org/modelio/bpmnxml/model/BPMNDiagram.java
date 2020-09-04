@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public class BPMNDiagram extends Diagram {
 
     /**
      * Sets the value of the bpmnPlane property.
+     * 
      * @param value allowed object is
      * {@link BPMNPlane }
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,6 +57,7 @@ public class FileParameterModel extends ParameterModel {
      * 
      * Each label is a user-friendly short description shown for its corresponding filter.
      * The names array must be the same length as the extensions array.<P>
+     * 
      * @param extensions the allowed file extension filter
      * @param labels the corresponding label for each extension
      */
@@ -82,6 +83,7 @@ public class FileParameterModel extends ParameterModel {
      * 
      * The label is a user-friendly short description shown for its corresponding filter.
      * The names array must be the same length as the extensions array.<P>
+     * 
      * @param extension the allowed file extension filter
      * @param label the corresponding label
      */

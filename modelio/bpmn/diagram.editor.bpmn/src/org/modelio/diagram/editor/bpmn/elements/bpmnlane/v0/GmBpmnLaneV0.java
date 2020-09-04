@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class GmBpmnLaneV0 extends GmCompositeNode {
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this partition will be unmasked.
      * @param theLane the unmasked partition (can be null).
      * @param ref a reference to the unmasked partition (cannot be null).
@@ -184,6 +185,7 @@ public class GmBpmnLaneV0 extends GmCompositeNode {
      * This method should return true only if it is consistent to display the given metaclass elements inside this graphic element.
      * <p>
      * <b>eg:</b> IAttributes can be displayed in a GmClass .
+     * 
      * @param type The metaclass to unmask.
      * @return true only if it is consistent to display elements of the given metaclass inside this graphic element, false in the other cases.
      */

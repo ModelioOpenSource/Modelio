@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ class FilesExporter {
 
     /**
      * Copy exported files in the export area and record them in the {@link Metadatas}.
+     * 
      * @param filesToExport the files to export
      * @param metadatas the metadatas to update
      * @param subMonitor a progress monitor

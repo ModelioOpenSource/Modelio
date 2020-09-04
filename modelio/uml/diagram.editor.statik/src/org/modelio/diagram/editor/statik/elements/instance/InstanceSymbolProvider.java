@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class InstanceSymbolProvider {
 
     /**
      * Get the instance label at the following format: "name : type [min..max]"
+     * 
      * @param c the instance
      * @return the computed label
      */
@@ -68,6 +69,7 @@ public class InstanceSymbolProvider {
      * <li>1..* : returns "[1..*]"
      * <li>all other a..b : returns "[a..b]"
      * </ul>
+     * 
      * @param c The instance.
      * @param s Where the computed cardinality is appended.
      */
@@ -93,6 +95,7 @@ public class InstanceSymbolProvider {
 
     /**
      * Return the absolute path of the instance with its type and cardinality.
+     * 
      * @param c An instance
      * @return its fully qualified symbol.
      */
@@ -117,6 +120,7 @@ public class InstanceSymbolProvider {
 
     /**
      * Return the path of the instance relative to its namespace with its type and cardinality.
+     * 
      * @param c An instance
      * @return its symbol relative to its namespace.
      */
@@ -141,6 +145,7 @@ public class InstanceSymbolProvider {
 
     /**
      * Tells whether the given element is the root package a the project.
+     * 
      * @param el the element to test
      * @return true if the given element is the root package a the project, else false.
      */

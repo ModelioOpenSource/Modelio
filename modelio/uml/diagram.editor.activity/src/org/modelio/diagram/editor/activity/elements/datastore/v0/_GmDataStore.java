@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -90,6 +90,7 @@ public class _GmDataStore extends GmCompositeNode implements IImageableNode {
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theDataStore the represented data store, may be null.
      * @param ref a reference to the represented data store.
@@ -139,6 +140,7 @@ public class _GmDataStore extends GmCompositeNode implements IImageableNode {
 
     /**
      * Get the stereotype image to display.
+     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("2a36b1f0-55b6-11e2-877f-002564c97630")

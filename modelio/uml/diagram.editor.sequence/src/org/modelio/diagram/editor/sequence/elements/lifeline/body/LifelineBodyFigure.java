@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -73,6 +73,7 @@ public class LifelineBodyFigure extends Figure implements IPenOptionsSupport {
 
     /**
      * Get the line color.
+     * 
      * @return the line color.
      */
     @objid ("d9314fc5-55b6-11e2-877f-002564c97630")
@@ -83,6 +84,7 @@ public class LifelineBodyFigure extends Figure implements IPenOptionsSupport {
 
     /**
      * Get the line pattern
+     * 
      * @return lineStyle the line style See {@link LinePattern}
      */
     @objid ("d9314fcb-55b6-11e2-877f-002564c97630")
@@ -93,6 +95,7 @@ public class LifelineBodyFigure extends Figure implements IPenOptionsSupport {
 
     /**
      * Get the line width.
+     * 
      * @return the line width.
      */
     @objid ("d9314fd3-55b6-11e2-877f-002564c97630")
@@ -103,6 +106,7 @@ public class LifelineBodyFigure extends Figure implements IPenOptionsSupport {
 
     /**
      * Get the text color.
+     * 
      * @return the text color.
      */
     @objid ("d9314fd9-55b6-11e2-877f-002564c97630")
@@ -113,6 +117,7 @@ public class LifelineBodyFigure extends Figure implements IPenOptionsSupport {
 
     /**
      * Get the text font.
+     * 
      * @return the text font.
      */
     @objid ("d9314fdf-55b6-11e2-877f-002564c97630")
@@ -123,6 +128,7 @@ public class LifelineBodyFigure extends Figure implements IPenOptionsSupport {
 
     /**
      * Set the line(s) color.
+     * 
      * @param lineColor the line color.
      */
     @objid ("d9314fe5-55b6-11e2-877f-002564c97630")
@@ -138,6 +144,7 @@ public class LifelineBodyFigure extends Figure implements IPenOptionsSupport {
      * Sets the line pattern to the argument, which must be one of the constants
      * 
      * {@link LinePattern}
+     * 
      * @param lineStyle the new style
      */
     @objid ("d9314fea-55b6-11e2-877f-002564c97630")
@@ -150,6 +157,7 @@ public class LifelineBodyFigure extends Figure implements IPenOptionsSupport {
 
     /**
      * Set the line(s) width.
+     * 
      * @param lineWidth the line(s) width.
      */
     @objid ("d9314ff1-55b6-11e2-877f-002564c97630")
@@ -163,6 +171,7 @@ public class LifelineBodyFigure extends Figure implements IPenOptionsSupport {
 
     /**
      * Set the text color.
+     * 
      * @param textColor the text color.
      */
     @objid ("d9314ff6-55b6-11e2-877f-002564c97630")
@@ -175,6 +184,7 @@ public class LifelineBodyFigure extends Figure implements IPenOptionsSupport {
 
     /**
      * Set the text font.
+     * 
      * @param textFont the text font.
      */
     @objid ("d932d65c-55b6-11e2-877f-002564c97630")

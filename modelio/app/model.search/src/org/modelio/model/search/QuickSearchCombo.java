@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -183,6 +183,7 @@ public class QuickSearchCombo extends TrimBarComponent {
      * <li>includeRamc = true</li>
      * <li>no stereotype </li<
      * </ul>
+     * 
      * @param expression the search expression
      */
     @objid ("00102d0e-c59e-10ab-8258-001ec947cd2a")

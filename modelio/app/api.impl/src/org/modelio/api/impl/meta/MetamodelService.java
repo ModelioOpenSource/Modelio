@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,16 +23,47 @@ package org.modelio.api.impl.meta;
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.api.modelio.meta.IMetamodelI18nSupport;
 import org.modelio.api.modelio.meta.IMetamodelService;
+import org.modelio.core.ui.MetamodelLabels;
+import org.modelio.vcore.smkernel.mapi.MAttribute;
 import org.modelio.vcore.smkernel.mapi.MClass;
+import org.modelio.vcore.smkernel.mapi.MDependency;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
+/**
+ * Implementation of {@link IMetamodelService} delegating its work to an {@link MMetamodel} instance.
+ */
 @objid ("bd05b9fd-c038-4e22-bc58-45428ddd2ccf")
 public class MetamodelService implements IMetamodelService {
     @objid ("d23ec973-aba2-4d21-9cef-02549dc42b38")
     private MMetamodel metamodel;
 
+    /**
+     * Implementation using {@link MetamodelLabels} for translations.
+     */
+    @objid ("90e1bcd7-209a-4a88-b785-f710ad2d7e23")
+    private static final IMetamodelI18nSupport I18N_SUPPORT = new IMetamodelI18nSupport() {
+        @Override
+        public String getLabel(MAttribute mAtt) {
+            return MetamodelLabels.getString(mAtt.getName());
+        }
+        @Override
+        public String getLabel(MDependency mDep) {
+            return MetamodelLabels.getString(mDep.getName());
+        }
+        @Override
+        public String getLabel(MClass mClass) {
+            return MetamodelLabels.getString(mClass.getName());
+        }
+    };
+
+    /**
+     * C'tor.
+     * 
+     * @param metamodel the current metamodel.
+     */
     @objid ("22dc64bb-736b-4647-aba2-ebcfbe9a86d4")
     public MetamodelService(MMetamodel metamodel) {
         this.metamodel = metamodel;
@@ -41,6 +72,7 @@ public class MetamodelService implements IMetamodelService {
     /**
      * Returns the textual name of a metaclass.<br>
      * <em>Note: The returned name is <u>NOT</u> i18n'd.</em>
+     * 
      * @param metaclassName the metaclass whose name is sought.
      * @return the textual name of the metaclass. Might be <code>null</code> if no metaclass matches.
      */
@@ -57,6 +89,7 @@ public class MetamodelService implements IMetamodelService {
     /**
      * Returns the textual name of a metaclass.<br>
      * <em>Note: The returned name is <u>NOT</u> i18n'd.</em>
+     * 
      * @param metaclass the metaclass whose name is sought, or <code>null</code> if the given class is not a metaclass.
      * @return the textual name of the metaclass.
      */
@@ -70,6 +103,7 @@ public class MetamodelService implements IMetamodelService {
      * Get the metaclasses that inherit from the given metaclass.
      * <p>
      * The given metaclass will in the result list.
+     * 
      * @param javaMetaclass The parent metaclass of the wanted metaclasses.
      * @return A list of metaclasses that inherit from the given metaclass.
      */
@@ -91,6 +125,12 @@ public class MetamodelService implements IMetamodelService {
     @Override
     public MMetamodel getMetamodel() {
         return this.metamodel;
+    }
+
+    @objid ("96841292-89f8-493e-8099-ed872ade253b")
+    @Override
+    public IMetamodelI18nSupport getI18nSupport() {
+        return I18N_SUPPORT;
     }
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IUriConnectionFactory {
     /**
      * Tells whether this handler supports this URI.
+     * 
      * @param uri an URI
      * @return <code>true</code> if this handler supports the URI else <code>false</code>.
      */
@@ -46,6 +47,7 @@ public interface IUriConnectionFactory {
      * <p>
      * No connection to the server is created yet when instantiating the connection,
      * it will be done only when needed.
+     * 
      * @param uri a supported URI.
      * @return a connection.
      * @throws java.io.IOException in case of failure.

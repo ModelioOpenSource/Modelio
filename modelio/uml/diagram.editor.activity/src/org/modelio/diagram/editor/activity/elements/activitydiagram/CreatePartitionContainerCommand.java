@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,6 +72,7 @@ public class CreatePartitionContainerCommand extends Command {
 
     /**
      * C'tor.
+     * 
      * @param originalRequest the request that lead to this command.
      * @param parentDiagramEditPart the edit part of the diagram in which the partition container is to be created.
      * @param context the creation context.

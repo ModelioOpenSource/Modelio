@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -81,6 +81,7 @@ public class DiagramOutlineView {
 
     /**
      * Create the outline page when select a part which provides an {@link IContentOutlinePage}.
+     * 
      * @param part the active part.
      */
     @objid ("a961591e-2d66-4bd3-8b50-54877732c4dc")

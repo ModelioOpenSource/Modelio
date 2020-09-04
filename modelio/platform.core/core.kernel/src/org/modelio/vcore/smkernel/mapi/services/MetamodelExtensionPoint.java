@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class MetamodelExtensionPoint<S> implements IMetamodelServiceProvider<S> 
      * Get a service for the given metamodel fragment.
      * <p>
      * Will return null if no matching service provider was registered for the metamodel fragment.
+     * 
      * @param metamodelFragment the metamodel fragment
      * @return the found service or null.
      */
@@ -62,6 +63,7 @@ public class MetamodelExtensionPoint<S> implements IMetamodelServiceProvider<S> 
     /**
      * Register a metamodel extension.
      * <p>
+     * 
      * @param service the implemented service.
      * @param metamodelFragmentClass the supported metamodel fragment class.
      */
@@ -72,6 +74,7 @@ public class MetamodelExtensionPoint<S> implements IMetamodelServiceProvider<S> 
 
     /**
      * Remove a metamodel service provider.
+     * 
      * @param metamodelFragmentClass the metamodel fragment class to forget.
      */
     @objid ("83500bb8-7cbc-4413-9deb-fd8f8dd6da40")
@@ -87,6 +90,7 @@ public class MetamodelExtensionPoint<S> implements IMetamodelServiceProvider<S> 
      * from other metamodel fragments.
      * <p>
      * Will return null if no matching service provider was found.
+     * 
      * @param cls a metaclass
      * @return the found service or null.
      */

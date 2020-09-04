@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ public interface IExtReferenceResolver {
      * readXxxxAtt(String)} methods can be called to get more informations.
      * <p>
      * This method may create a new instance or return an existing one.
+     * 
      * @param type The element type.
      * @param dbId The location of the external element. May be empty.
      * @param extId The external element id.

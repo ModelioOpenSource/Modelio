@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,70 +56,65 @@ import org.modelio.ui.panel.IPanelProvider;
  */
 @objid ("050ad305-9298-48fc-965c-03c0471a3e5f")
 public class OperationPropertiesPanel implements IPanelProvider {
-    @objid ("d71a432d-05e2-47d3-bd86-6e28229da8bc")
-    private IOperationPropertyModel opModel;
-
-    @objid ("a9c771cc-ed57-4002-af57-abc1058c6b54")
+    @objid ("f9195c4a-b60a-4ef4-b19f-64a02dea4ab2")
     private ComboViewer kindCombo;
 
-    @objid ("13095e54-6449-4f1c-86d0-faca9949237a")
+    @objid ("c5b9ff00-d338-47e0-9b73-ea14de9653f4")
     private ComboViewer visibilityCombo;
+
+    @objid ("77ff2691-e41b-4c75-91c4-cdb0600f3c3b")
+    private Composite container;
+
+    @objid ("5cf779d0-73cb-4c0e-852e-91322302c247")
+    private Text nameText;
+
+    @objid ("a64b8232-0c09-4a2f-a114-b0beea98d990")
+    private Button isAbstractCheckbox;
+
+    @objid ("ed0992cc-5662-4656-bd0a-236bb64a8f82")
+    private Button isClassCheckbox;
+
+    @objid ("1e6c7441-7712-4966-84b5-6803c2c5509f")
+    private Button isFinalCheckbox;
+
+    @objid ("d71a432d-05e2-47d3-bd86-6e28229da8bc")
+    private IOperationPropertyModel opModel;
 
     @objid ("e0293cb4-ffc4-433b-85b7-10a8549a7472")
     private TextElement redefinitionTextElement;
 
-    @objid ("6b299982-a165-4194-8921-34993a4815d0")
-    private Composite container;
-
-    @objid ("0627c74a-38f2-4559-b5f6-fd673a2fc128")
-    private Text nameText;
-
-    @objid ("40c9ef18-c627-4f6c-8d01-347c48e36dd0")
-    private Button isAbstractCheckbox;
-
-    @objid ("9154f3da-fab5-4091-959b-d19c11a0e4ce")
-    private Button isClassCheckbox;
-
-    @objid ("553b650b-cd27-4068-b8d1-7ab14ba06c24")
-    private Button isFinalCheckbox;
-
     @objid ("56d10437-6dd8-48c7-801b-62b079ebe4d9")
     @Override
     public Object createPanel(Composite parent) {
-        this.container = new Composite(parent, SWT.BORDER);
-        final GridLayout gl = new GridLayout(1, false);
-        gl.marginHeight = 8;
+        this.container = new Composite(parent, SWT.NONE);
+        final GridLayout gl = new GridLayout(7, true);
+        gl.marginHeight = 4;
         gl.marginWidth = 2;
+        gl.verticalSpacing = 2;
+        gl.horizontalSpacing = 10;
         
         this.container.setLayout(gl);
         
-        final Composite nameField = createNameField(this.container);
-        nameField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        createNameField(this.container);
         
         // Kind
-        final Composite kindField = createKindField(this.container);
-        kindField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        createKindField(this.container);
         
         // Visibility
-        final Composite visibilityField = createVisibilityField(this.container);
-        visibilityField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        createVisibilityField(this.container);
         
         // IsAbstract
-        final Composite abstractField = createIsAbstractField(this.container);
-        abstractField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        createIsAbstractField(this.container);
         
         // IsClass
-        final Composite isclassField = createIsClassField(this.container);
-        isclassField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        createIsClassField(this.container);
         
         // IsFinal
-        final Composite isfinalField = createIsFinalField(this.container);
-        isfinalField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        createIsFinalField(this.container);
         
         // Redefines
         /*
-         * final Composite redefinesField = createRedefinesField(this.container); redefinesField.setLayoutData(new
-         * GridData(SWT.FILL, SWT.CENTER, true, false));
+         * final Composite redefinesField = createRedefinesField(this.container); redefinesField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
          */
         return this.container;
     }
@@ -161,20 +156,16 @@ public class OperationPropertiesPanel implements IPanelProvider {
     }
 
     @objid ("8a316bec-a34d-465e-bf68-b51fe0f0f344")
-    private Composite createNameField(Composite parent) {
-        final Composite field = new Composite(parent, SWT.NONE);
-        final GridLayout l = new GridLayout(2, true);
-        l.marginHeight = 0;
-        field.setLayout(l);
-        
+    private void createNameField(Composite parent) {
         // Label
-        final Label label = new Label(field, SWT.NO_REDRAW_RESIZE);
+        final Label label = new Label(parent, SWT.NO_REDRAW_RESIZE);
         label.setText(EditionDialogs.I18N.getString("OperationEditPanel.opName"));
         GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
         label.setLayoutData(gd);
         
-        this.nameText = new Text(field, SWT.BORDER);
+        this.nameText = new Text(parent, SWT.BORDER);
         gd = new GridData(SWT.FILL, SWT.TOP, true, false);
+        gd.horizontalSpan = 6;
         this.nameText.setLayoutData(gd);
         
         this.nameText.addKeyListener(new KeyAdapter() {
@@ -196,23 +187,17 @@ public class OperationPropertiesPanel implements IPanelProvider {
                 OperationPropertiesPanel.this.opModel.setName(text.getText());
             }
         });
-        return field;
     }
 
     @objid ("87f35b4b-45d1-4403-a4d2-fe5778d6a642")
-    private Composite createKindField(Composite parent) {
-        final Composite field = new Composite(parent, SWT.NONE);
-        final GridLayout l = new GridLayout(2, true);
-        l.marginHeight = 0;
-        field.setLayout(l);
-        
-        final Label label = new Label(field, SWT.NO_REDRAW_RESIZE);
+    private void createKindField(Composite parent) {
+        final Label label = new Label(parent, SWT.NO_REDRAW_RESIZE);
         label.setText(EditionDialogs.I18N.getString("OperationEditPanel.opKind"));
         final GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
         label.setLayoutData(gd);
         
-        this.kindCombo = new ComboViewer(field, SWT.READ_ONLY);
-        this.kindCombo.getCombo().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        this.kindCombo = new ComboViewer(parent, SWT.READ_ONLY);
+        this.kindCombo.getCombo().setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false));
         this.kindCombo.setContentProvider(new ArrayContentProvider());
         this.kindCombo.setInput(Arrays.asList("Operation", "Constructor", "Destructor"));
         
@@ -227,23 +212,17 @@ public class OperationPropertiesPanel implements IPanelProvider {
                 }
             }
         });
-        return field;
     }
 
     @objid ("4db4ec7e-f259-4525-9c87-5d7faf51f5c1")
-    private Composite createVisibilityField(Composite parent) {
-        final Composite field = new Composite(parent, SWT.NONE);
-        final GridLayout l = new GridLayout(2, true);
-        l.marginHeight = 0;
-        field.setLayout(l);
-        
-        final Label label = new Label(field, SWT.NONE);
-        GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
+    private void createVisibilityField(Composite parent) {
+        final Label label = new Label(parent, SWT.NONE);
+        GridData gd = new GridData(SWT.RIGHT, SWT.CENTER, true, false);
         label.setLayoutData(gd);
         label.setText(EditionDialogs.I18N.getString("OperationEditPanel.opVisibility"));
         
-        this.visibilityCombo = new ComboViewer(field, SWT.READ_ONLY);
-        gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        this.visibilityCombo = new ComboViewer(parent, SWT.READ_ONLY);
+        gd = new GridData(SWT.FILL, SWT.CENTER, false, false);
         this.visibilityCombo.getCombo().setLayoutData(gd);
         this.visibilityCombo.setContentProvider(new ArrayContentProvider());
         this.visibilityCombo.setInput(VisibilityMode.VALUES);
@@ -265,103 +244,80 @@ public class OperationPropertiesPanel implements IPanelProvider {
                 }
             }
         });
-        return field;
     }
 
     @objid ("5d000f73-e96a-42eb-8375-8386745ca3ca")
-    private Composite createIsAbstractField(Composite parent) {
-        final Composite field = new Composite(parent, SWT.NONE);
-        final GridLayout l = new GridLayout(2, true);
-        l.marginHeight = 0;
-        field.setLayout(l);
+    private void createIsAbstractField(Composite parent) {
+        //        final Label label = new Label(parent, SWT.NONE);
+        //        GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
+        //        label.setLayoutData(gd);
+        //        //label.setText(EditionDialogs.I18N.getString("OperationEditPanel.opIsAbstract"));
         
-        final Label label = new Label(field, SWT.NONE);
-        GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
-        label.setLayoutData(gd);
-        label.setText(EditionDialogs.I18N.getString("OperationEditPanel.opIsAbstract"));
+                this.isAbstractCheckbox = new Button(parent, SWT.CHECK);
+                GridData gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
+                this.isAbstractCheckbox.setLayoutData(gd);
+                this.isAbstractCheckbox.setText(EditionDialogs.I18N.getString("OperationEditPanel.opIsAbstract"));
         
-        this.isAbstractCheckbox = new Button(field, SWT.CHECK);
-        gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        this.isAbstractCheckbox.setLayoutData(gd);
-        
-        this.isAbstractCheckbox.addSelectionListener(new SelectionAdapter() {
-            @Override
-            public void widgetSelected(SelectionEvent e) {
-                final Button checkbox = (Button) e.getSource();
-                OperationPropertiesPanel.this.opModel.setAbstract(checkbox.getSelection());
-            }
-        });
-        return field;
+                this.isAbstractCheckbox.addSelectionListener(new SelectionAdapter() {
+                    @Override
+                    public void widgetSelected(SelectionEvent e) {
+                        final Button checkbox = (Button) e.getSource();
+                        OperationPropertiesPanel.this.opModel.setAbstract(checkbox.getSelection());
+                    }
+                });
     }
 
     @objid ("32dccd6d-d1e0-4860-bb27-87677461857e")
-    private Composite createIsClassField(Composite parent) {
-        final Composite field = new Composite(parent, SWT.NONE);
-        final GridLayout l = new GridLayout(2, true);
-        l.marginHeight = 0;
-        field.setLayout(l);
+    private void createIsClassField(Composite parent) {
+        //        final Label label = new Label(parent, SWT.NONE);
+        //        GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
+        //        label.setLayoutData(gd);
+        //        label.setText(EditionDialogs.I18N.getString("OperationEditPanel.opIsClass"));
         
-        final Label label = new Label(field, SWT.NONE);
-        GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
-        label.setLayoutData(gd);
-        label.setText(EditionDialogs.I18N.getString("OperationEditPanel.opIsClass"));
-        
-        this.isClassCheckbox = new Button(field, SWT.CHECK);
-        gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        this.isClassCheckbox.setLayoutData(gd);
-        
-        this.isClassCheckbox.addSelectionListener(new SelectionAdapter() {
-            @Override
-            public void widgetSelected(SelectionEvent e) {
-                final Button checkbox = (Button) e.getSource();
-                OperationPropertiesPanel.this.opModel.setClass(checkbox.getSelection());
-            }
-        });
-        return field;
+                this.isClassCheckbox = new Button(parent, SWT.CHECK);
+                GridData gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
+                this.isClassCheckbox.setLayoutData(gd);
+                this.isClassCheckbox.setText(EditionDialogs.I18N.getString("OperationEditPanel.opIsClass"));
+                this.isClassCheckbox.addSelectionListener(new SelectionAdapter() {
+                    @Override
+                    public void widgetSelected(SelectionEvent e) {
+                        final Button checkbox = (Button) e.getSource();
+                        OperationPropertiesPanel.this.opModel.setClass(checkbox.getSelection());
+                    }
+                });
     }
 
     @objid ("99248306-5f8d-4c82-928e-a33a88460d87")
-    private Composite createIsFinalField(Composite parent) {
-        final Composite field = new Composite(parent, SWT.NONE);
-        final GridLayout l = new GridLayout(2, true);
-        l.marginHeight = 0;
-        field.setLayout(l);
+    private void createIsFinalField(Composite parent) {
+        //        final Label label = new Label(parent, SWT.NONE);
+        //        GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
+        //        label.setLayoutData(gd);
+        //        label.setText(EditionDialogs.I18N.getString("OperationEditPanel.opIsFinal"));
         
-        final Label label = new Label(field, SWT.NONE);
-        GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
-        label.setLayoutData(gd);
-        label.setText(EditionDialogs.I18N.getString("OperationEditPanel.opIsFinal"));
+                this.isFinalCheckbox = new Button(parent, SWT.CHECK);
+                GridData gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
+                this.isFinalCheckbox.setLayoutData(gd);
+                this.isFinalCheckbox.setText(EditionDialogs.I18N.getString("OperationEditPanel.opIsFinal"));
         
-        this.isFinalCheckbox = new Button(field, SWT.CHECK);
-        gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        this.isFinalCheckbox.setLayoutData(gd);
-        
-        this.isFinalCheckbox.addSelectionListener(new SelectionAdapter() {
-            @Override
-            public void widgetSelected(SelectionEvent e) {
-                final Button checkbox = (Button) e.getSource();
-                OperationPropertiesPanel.this.opModel.setFinal(checkbox.getSelection());
-            }
-        });
-        return field;
+                this.isFinalCheckbox.addSelectionListener(new SelectionAdapter() {
+                    @Override
+                    public void widgetSelected(SelectionEvent e) {
+                        final Button checkbox = (Button) e.getSource();
+                        OperationPropertiesPanel.this.opModel.setFinal(checkbox.getSelection());
+                    }
+                });
     }
 
     @objid ("6612550a-dd59-42a8-b247-21a353424801")
-    private Composite createRedefinesField(Composite parent) {
-        final Composite field = new Composite(parent, SWT.NONE);
-        final GridLayout l = new GridLayout(2, true);
-        l.marginHeight = 0;
-        field.setLayout(l);
-        
-        final Label label = new Label(field, SWT.NONE);
+    private void createRedefinesField(Composite parent) {
+        final Label label = new Label(parent, SWT.NONE);
         GridData gd = new GridData(SWT.LEFT, SWT.CENTER, false, false);
         label.setLayoutData(gd);
         label.setText(EditionDialogs.I18N.getString("OperationEditPanel.opRedefined"));
         
-        this.redefinitionTextElement = new TextElement(field, SWT.BORDER, true);
+        this.redefinitionTextElement = new TextElement(parent, SWT.BORDER, true);
         gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
         this.redefinitionTextElement.getTextControl().setLayoutData(gd);
-        return field;
     }
 
     @objid ("5e593f1f-3aea-41a1-a60f-7af45789b263")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -125,6 +125,7 @@ public class DeferringCreateNodePolicy extends DefaultCreateNodeEditPolicy {
      * If no child model is found, return <tt>null</tt>.<br>
      * If the found model is not visible, return the host edit part.
      * <p>
+     * 
      * @param metaclass The metaclass to create or drop.
      * @param location The mouse location.
      * @return <ul>

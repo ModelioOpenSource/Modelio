@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -138,6 +138,7 @@ public class R1150 extends AbstractUmlRule {
 
         /**
          * If an InputPin is updated and is on a CallOperationAction, its self attribute potentially change so we need to check the rule on this CallOperationAction.
+         * 
          * @param inputPin The updated pin.
          * @return An audit entry if the pin belongs to a CallOperationAction or a SendSignalAction, null otherwise
          */

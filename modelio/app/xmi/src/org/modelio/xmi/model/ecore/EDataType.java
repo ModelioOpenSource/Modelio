@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class EDataType extends ENamedElement {
 
     /**
      * Constructor with the imported Ecore org.eclipse.uml2.uml.DataType
+     * 
      * @param element : the imported Ecore org.eclipse.uml2.uml.DataType
      */
     @objid ("ac60c550-1ef5-410a-80b1-82ef516c6ee9")

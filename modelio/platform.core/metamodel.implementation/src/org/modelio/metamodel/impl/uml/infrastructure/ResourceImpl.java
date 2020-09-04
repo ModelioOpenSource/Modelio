@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -42,7 +42,7 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("c107e332-ec1c-4f89-adf5-2a740293d9d2")
 public class ResourceImpl extends AbstractResourceImpl implements Resource {
-    @objid ("46d21615-3a32-436c-aae0-835fd26de2be")
+    @objid ("5cc2a1bc-4760-4f52-bd39-34df6fa2c6df")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -50,7 +50,7 @@ public class ResourceImpl extends AbstractResourceImpl implements Resource {
         return super.getCompositionOwner();
     }
 
-    @objid ("9e89ba36-7867-4aaf-badd-994d7cc59749")
+    @objid ("ccfa3c11-6b32-4d4c-b0c8-f24d1c73b05c")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -60,7 +60,7 @@ public class ResourceImpl extends AbstractResourceImpl implements Resource {
         return super.getCompositionRelation();
     }
 
-    @objid ("8f7d104f-06bc-4c05-a38a-02ee8772525e")
+    @objid ("cfadb4f2-35e0-4c89-82fb-88fecfaae331")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitResource(this);

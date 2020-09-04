@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,12 +80,15 @@ public class ONaryLink extends OModelElement {
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
+        
         if (ecoreElt instanceof org.eclipse.uml2.uml.Connector) {
             setConnectorProperties((org.eclipse.uml2.uml.Connector) ecoreElt);
-        } else if (ecoreElt instanceof InstanceSpecification) {
+        }else if (ecoreElt instanceof InstanceSpecification) {
             setName((InstanceSpecification) ecoreElt);
-            setBase((InstanceSpecification) ecoreElt);       
-            ObjingEAnnotation.setIsLink(ecoreElt);       
+            setBase((InstanceSpecification) ecoreElt);  
+            if (GenerationProperties.getInstance().isRoundtripEnabled()){
+                ObjingEAnnotation.setIsLink(ecoreElt);  
+            }
         }
     }
 

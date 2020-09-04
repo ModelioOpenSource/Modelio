@@ -2,9 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
 	<extension id="diagram.composite" point="org.eclipse.e4.workbench.model">
-      <fragment
-            uri="e4model/diagram_composite_editor.e4xmi">
-      </fragment>
+      <fragment uri="e4model/diagram_composite_editor.e4xmi"/>
       <processor beforefragment="true" class="org.modelio.diagram.editor.composite.plugin.CompositeProcessor"/>
    </extension>
    <extension point="org.modelio.diagram.editor.inputprovider">
@@ -25,7 +23,7 @@
     		<scope editorId="org.modelio.diagram.editor.composite.CompositeDiagramEditorID"/>
     	</droppolicyextension>
     </extension>
-	
+
     <extension
           point="org.modelio.diagram.editor.palette">
        <palette

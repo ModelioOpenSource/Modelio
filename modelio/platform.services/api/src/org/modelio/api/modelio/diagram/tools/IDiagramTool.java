@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ public interface IDiagramTool {
 
     /**
      * Get the command's bitmap.
+     * 
      * @return the bitmap ImageDescriptor.
      */
     @objid ("01f41e44-0000-018c-0000-000000000000")
@@ -45,6 +46,7 @@ public interface IDiagramTool {
 
     /**
      * Get the name of the command.
+     * 
      * @return the name of the command.
      */
     @objid ("01f41e44-0000-0186-0000-000000000000")
@@ -61,6 +63,7 @@ public interface IDiagramTool {
 
     /**
      * Gets the tooltip of this command.
+     * 
      * @return the text that will be displayed in the command's tooltip.
      */
     @objid ("01f41e44-0000-0189-0000-000000000000")

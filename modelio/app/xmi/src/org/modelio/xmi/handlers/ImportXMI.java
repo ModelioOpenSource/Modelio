@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.progress.IProgressService;
 import org.modelio.app.core.navigate.IModelioNavigationService;
 import org.modelio.app.project.core.services.IProjectService;
+import org.modelio.gproject.gproject.GProject;
+import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.Profile;
 import org.modelio.metamodel.uml.statik.Package;
@@ -56,6 +58,12 @@ public class ImportXMI {
         revprop.initialize(mmService, projectService.getSession().getMetamodel(), navigationService);
         revprop.setRootElement(this.selectedPackage);
         
+        for (MObject module : GProject.getProject(this.selectedPackage).getFragment(this.selectedPackage).getRoots()){
+            if ((module instanceof ModuleComponent) && (module.getName().equals("LocalModule"))){
+                revprop.setProfileRoot((ModuleComponent)module);
+            }
+        }
+        
         //SWT dialog box
         final SwtWizardImport dialog = new SwtWizardImport(activeShell, progressService, projectService);
         dialog.open();
@@ -78,9 +86,9 @@ public class ImportXMI {
     @objid ("c06bceb2-7b82-4067-927e-b563d9183c44")
     public static boolean isVisible(List<MObject> selectedElements) {
         return ((! selectedElements.isEmpty())
-                                        && (selectedElements.size() == 1)
-                                        && (selectedElements.get(0) instanceof Package)
-                                        && (!(selectedElements.get(0)  instanceof Profile)));
+                && (selectedElements.size() == 1)
+                && (selectedElements.get(0) instanceof Package)
+                && (!(selectedElements.get(0)  instanceof Profile)));
     }
 
 }

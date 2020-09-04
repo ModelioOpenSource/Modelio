@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ public class TextIconConverter extends DisplayConverter {
 
     /**
      * Create a new TextIconConverter.
+     * 
      * @param labelProvider the label provider to use when converting to display.
      */
     @objid ("c4b569c8-6868-419a-9c13-3e2c3d69e3ab")

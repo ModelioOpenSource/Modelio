@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public interface IMetaExpert {
      * Tells whether the owner can own the given composed element using the given dependency name.
      * @param dependency
      * optional: The name of the dependency on the owner used to add the composed.
+     * 
      * @param owner The owner node, must not be null.
      * @param composed The composed element, must not be null
      * @return true if the composed can be added, else false.
@@ -51,6 +52,7 @@ public interface IMetaExpert {
      * Tells whether the owner can own an instance of the given metaclass using the given dependency name.
      * @param dependency
      * optional: The name of the dependency on the owner used to add the composed.
+     * 
      * @param owner The owner node, must not be null.
      * @param composed The metaclass of the composed element, must not be null
      * @return true if the composed can be added, else false.
@@ -62,6 +64,7 @@ public interface IMetaExpert {
      * Tells whether the owner can own the given composed element using the given dependency name.
      * @param dependency
      * optional: The name of the dependency on the owner used to add the composed.
+     * 
      * @param owner The owner node, must not be null.
      * @param composed The composed element, must not be null
      * @return true if the composed can be added, else false.
@@ -74,6 +77,7 @@ public interface IMetaExpert {
      * on their metaclass and stereotypes.
      * @param source
      * @param target
+     * 
      * @param dep @return
      */
     @objid ("00427f84-e50d-1097-bcec-001ec947cd2a")
@@ -83,6 +87,7 @@ public interface IMetaExpert {
      * Whether or not a dependency 'dep' exists between 'source' and 'target' metaclass.
      * @param source
      * @param target
+     * 
      * @param dep @return
      */
     @objid ("004283c6-e50d-1097-bcec-001ec947cd2a")
@@ -93,6 +98,7 @@ public interface IMetaExpert {
      * stereotypes.
      * @param source
      * @param target
+     * 
      * @param dep @return
      */
     @objid ("00428808-e50d-1097-bcec-001ec947cd2a")

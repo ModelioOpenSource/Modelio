@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -302,6 +302,7 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
 
         /**
          * Get the creation expert for the given element.
+         * 
          * @param metaclass a metamodel class.
          * @return the matching creation expert (never returns <code>null</code>)
          */
@@ -317,6 +318,7 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
 
         /**
          * This class has no instances.
+         * 
          * @param mm the metamodel.
          */
         @objid ("00043486-de02-1097-bcec-001ec947cd2a")
@@ -357,6 +359,7 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
 
         /**
          * Get the creation expert for the given element.
+         * 
          * @param metaclass a metamodel class.
          * @return the matching creation expert (never returns <code>null</code>)
          */
@@ -372,6 +375,7 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
 
         /**
          * This class has no instances.
+         * 
          * @param mm the metamodel.
          */
         @objid ("0097fbc6-de01-1097-bcec-001ec947cd2a")

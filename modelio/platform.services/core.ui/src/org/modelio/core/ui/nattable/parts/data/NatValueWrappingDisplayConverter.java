@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public class NatValueWrappingDisplayConverter extends DisplayConverter {
 
     /**
      * Build a new converter.
+     * 
      * @param wrappedConverter the converter to delegate the conversion to after unwrapping the value from the {@link INatValue}.
      */
     @objid ("fbc30964-de4b-4ac3-b951-4484e62a35fc")

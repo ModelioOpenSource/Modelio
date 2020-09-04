@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 public class GetAbsoluteSymbol {
     /**
      * Get the absolute name of an element.
+     * 
      * @param obj an element
      * @return the absolute name .
      */

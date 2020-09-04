@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -37,9 +37,9 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.modules.plugin.AppModules;
-import org.modelio.app.project.core.update.UpdateChecker;
-import org.modelio.app.project.core.update.UpdateDescriptor;
 import org.modelio.app.update.checker.dialog.UpdatePanelDataModel;
+import org.modelio.app.update.repo.UpdateChecker;
+import org.modelio.app.update.repo.UpdateDescriptor;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleStore;
 import org.modelio.ui.progress.IModelioProgressService;

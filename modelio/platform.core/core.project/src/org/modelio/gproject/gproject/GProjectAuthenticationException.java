@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class GProjectAuthenticationException extends Exception {
 
     /**
      * Constructs a new exception.
+     * 
      * @param message a message
      * @param cause a cause
      */
@@ -54,6 +55,7 @@ public class GProjectAuthenticationException extends Exception {
 
     /**
      * Constructs a new exception.
+     * 
      * @param message a message
      */
     @objid ("9712fdf8-2304-40d2-8143-8fce23bcb103")
@@ -63,6 +65,7 @@ public class GProjectAuthenticationException extends Exception {
 
     /**
      * Constructs a new exception.
+     * 
      * @param cause a cause
      */
     @objid ("6119baf5-3bcc-4068-b012-cd7005b134a6")
@@ -72,6 +75,7 @@ public class GProjectAuthenticationException extends Exception {
 
     /**
      * Get authentication data used to try connection.
+     * 
      * @return the failed authentication data.
      */
     @objid ("9340167f-8ff0-4d1c-8d56-03df2bb7e250")
@@ -81,6 +85,7 @@ public class GProjectAuthenticationException extends Exception {
 
     /**
      * Set authentication data used to try connection.
+     * 
      * @param authData the invalid authentication data.
      * @return <i>this</i> as convenience.
      */

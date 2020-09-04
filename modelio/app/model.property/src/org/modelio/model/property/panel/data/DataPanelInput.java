@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public class DataPanelInput {
      * @param modelService service to look for model elements and metamodel extensions.
      * @param pickingService service to activate/deactivate the picking mode.
      * @param activationService service to select elements in the model.
+     * 
      * @param typedElement Model element whose annotations are edited.
      * @param typingElement Part of annotations displayed in the data panel.
      * @param showHiddenAnnotations whether or not the hidden mda annotations should be shown.
@@ -106,6 +107,7 @@ public class DataPanelInput {
 
     /**
      * Build a new panel input from another one.
+     * 
      * @param other another panel input.
      */
     @objid ("9a011839-1861-424b-8af0-13b01fb66a80")

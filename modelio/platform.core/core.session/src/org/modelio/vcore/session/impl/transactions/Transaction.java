@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -84,6 +84,7 @@ public class Transaction implements IAction, ITransaction {
 
     /**
      * Ajout d'une action dans la transaction
+     * 
      * @param action the action to add
      */
     @objid ("006d5010-0d1e-1f20-85a5-001ec947cd2a")
@@ -118,6 +119,7 @@ public class Transaction implements IAction, ITransaction {
 
     /**
      * Get the stack trace recorded when the transaction was created.
+     * 
      * @return the transaction creation stack trace.
      */
     @objid ("c5ab1fcb-83cc-40d0-8d9e-6dc4e8ab5926")
@@ -153,6 +155,7 @@ public class Transaction implements IAction, ITransaction {
     /**
      * Permet de savoir si la transaction est vide, c'est a dire ne contient aucune
      * action.
+     * 
      * @return <i>true</i> si la transaction est vide.
      */
     @objid ("006d531c-0d1e-1f20-85a5-001ec947cd2a")
@@ -162,6 +165,7 @@ public class Transaction implements IAction, ITransaction {
 
     /**
      * Verifie si la derniere action est une transaction.
+     * 
      * @return <i>true</i> si la derniere action est une transaction.
      */
     @objid ("006d53c6-0d1e-1f20-85a5-001ec947cd2a")
@@ -232,6 +236,7 @@ public class Transaction implements IAction, ITransaction {
 
     /**
      * Forget the last registered action.
+     * 
      * @return the removed action.
      */
     @objid ("008ac6cc-702b-1f21-85a5-001ec947cd2a")
@@ -241,6 +246,7 @@ public class Transaction implements IAction, ITransaction {
 
     /**
      * Please do not modify the returned list.
+     * 
      * @return the transaction actions.
      */
     @objid ("008f242e-f11f-1f3c-aafd-001ec947cd2a")

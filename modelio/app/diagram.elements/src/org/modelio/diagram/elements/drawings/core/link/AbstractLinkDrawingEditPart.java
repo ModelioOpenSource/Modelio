@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -145,6 +145,7 @@ public class AbstractLinkDrawingEditPart extends AbstractConnectionEditPart impl
      * <p>
      * Extends {@link AbstractConnectionEditPart#getAdapter(Class)} to support {@link IGmObject}, {@link GmModel} and their subclasses.
      * @see IAdaptable#getAdapter(Class)
+     * 
      * @param adapter the adapter class to look up
      * @return a object castable to the given class, or <code>null</code> if this object does not have an adapter for the given class
      */
@@ -403,6 +404,7 @@ public class AbstractLinkDrawingEditPart extends AbstractConnectionEditPart impl
 
     /**
      * Get the connection router registry.
+     * 
      * @return the connection router registry.
      */
     @objid ("fefb94b4-3d9f-4593-ad40-e49dfa0fcdd4")
@@ -432,6 +434,7 @@ public class AbstractLinkDrawingEditPart extends AbstractConnectionEditPart impl
 
     /**
      * Get the current connection routing mode.
+     * 
      * @return the connection routing mode.
      */
     @objid ("05c5f312-acfa-4d3b-8ca3-9766f29a62f8")
@@ -441,6 +444,7 @@ public class AbstractLinkDrawingEditPart extends AbstractConnectionEditPart impl
 
     /**
      * Refresh source and target decoration line color, width and pattern from the style
+     * 
      * @param connection The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -486,6 +490,7 @@ public class AbstractLinkDrawingEditPart extends AbstractConnectionEditPart impl
      * Refresh the figure from the given style. This implementation updates pen and brush properties if applicable. StyleKey are looked up by MetaKey.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
+     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -694,6 +699,7 @@ public class AbstractLinkDrawingEditPart extends AbstractConnectionEditPart impl
 
     /**
      * Update the connection router, the edit policies and the drag tracker from the model routing style.
+     * 
      * @param cnx The connection figure
      */
     @objid ("7143a829-3140-4d23-abbb-633f281df213")

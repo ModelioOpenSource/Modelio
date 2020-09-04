@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -55,6 +55,7 @@ public class GProjectEvent {
 
     /**
      * Initialize an event.
+     * 
      * @param type the event type
      * @param message the event message. May be <code>null</code>.
      * @param fragment the related fragment, may be <code>null</code>.
@@ -93,6 +94,7 @@ public class GProjectEvent {
 
     /**
      * Instantiate a warning event for a fragment.
+     * 
      * @param f the fragment
      * @param e an exception
      * @return the built warning
@@ -108,6 +110,7 @@ public class GProjectEvent {
 
     /**
      * Instantiate a warning event for a fragment.
+     * 
      * @param f the involved fragment
      * @param e an exception
      * @return the built warning
@@ -123,6 +126,7 @@ public class GProjectEvent {
 
     /**
      * Instantiate an event for a fragment down event.
+     * 
      * @param abstractFragment the fragment that went down.
      * @return the event.
      */
@@ -137,6 +141,7 @@ public class GProjectEvent {
 
     /**
      * Instantiate a fragment added event.
+     * 
      * @param afragment the fragment
      * @return the built event
      */
@@ -151,6 +156,7 @@ public class GProjectEvent {
 
     /**
      * Instantiate a fragment added event.
+     * 
      * @param afragment the fragment
      * @return the built event
      */
@@ -165,6 +171,7 @@ public class GProjectEvent {
 
     /**
      * Instantiate a fragment state changed event.
+     * 
      * @param afragment the changed fragment
      * @return the built event.
      */
@@ -184,6 +191,7 @@ public class GProjectEvent {
 
     /**
      * Instantiate a warning event for the project.
+     * 
      * @param e an exception
      * @return the built warning
      */
@@ -198,6 +206,7 @@ public class GProjectEvent {
 
     /**
      * Instantiate a warning event for a fragment.
+     * 
      * @param f the involved fragment
      * @param message the warning message
      * @return the built warning

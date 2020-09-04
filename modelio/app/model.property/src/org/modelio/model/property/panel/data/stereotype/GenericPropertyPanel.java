@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class GenericPropertyPanel implements IPropertyPanel {
 
     /**
      * Create a new property panel for a ModuleComponent.
+     * 
      * @param parent a widget which will be the parent of the new instance (cannot be null)
      * @param editedElement the element currently edited in the Element's view.
      * @param module the module to load the {@link TagType} & {@link PropertyDefinition} list from.
@@ -73,6 +74,7 @@ public class GenericPropertyPanel implements IPropertyPanel {
 
     /**
      * Create a new property panel for a ModuleComponent.
+     * 
      * @param parent a widget which will be the parent of the new instance (cannot be null)
      * @param editedElement the element currently edited in the Element's view.
      * @param stereotype the stereotype to load the {@link TagType} & {@link PropertyDefinition} list from.

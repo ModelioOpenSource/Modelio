@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,13 +42,17 @@ import org.modelio.xmi.util.ResourceLoader;
 @objid ("9c5477ec-e6ed-4ca7-8692-3f46ee19ee6d")
 public class BannerComposite extends Composite {
     @objid ("f473a0cd-ef40-47a4-8819-8f4d16618f7c")
-    private final String bandeauName = "bandeau110x50.png";
+    private final String bandeauName = "bandeau176x80.png";
+
+    @objid ("59a21a00-61a8-4e6d-a05b-c9f9ab517fca")
+    private final int minHeight = 80;
 
     @objid ("4d2f3f36-3832-41c4-be0e-7daa8ecc2dc9")
     private Label label = null;
 
     /**
      * The constructor of banner itself
+     * 
      * @param parent : the SWT composite owner of the banner
      * @param style : SWT style of the banner
      * @param title : the title of the banner
@@ -92,8 +96,8 @@ public class BannerComposite extends Composite {
         fd_text.left = new FormAttachment(this.label, 0);
         fd_text.top = new FormAttachment(0, 0);
         fd_text.right = new FormAttachment(100, 0);
-        fd_text.bottom = new FormAttachment(0, 50);
-        fd_text.width = 500;
+        fd_text.bottom = new FormAttachment(0, this.minHeight);
+        fd_text.width = 100;
         text.setLayoutData(fd_text);
         
         
@@ -106,6 +110,11 @@ public class BannerComposite extends Composite {
                 }
             }
         });
+    }
+
+    @objid ("90bb77af-3592-4ede-b020-961b7f67f0f1")
+    public int getMinHeight() {
+        return this.minHeight;
     }
 
 }

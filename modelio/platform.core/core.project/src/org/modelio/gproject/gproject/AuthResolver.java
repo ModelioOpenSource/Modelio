@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class AuthResolver {
 
     /**
      * initialize the resolver from a project
+     * 
      * @param project the project
      */
     @objid ("1f3c1fa7-c6bf-4636-afdc-e21f55f5ddf9")
@@ -54,6 +55,7 @@ public class AuthResolver {
 
     /**
      * initialize the resolver from a project descriptor.
+     * 
      * @param projDesc the project descriptor.
      */
     @objid ("a7913fab-cd75-459a-9732-ddf12b3ee788")
@@ -63,6 +65,7 @@ public class AuthResolver {
 
     /**
      * Get the real  authentication data to use for the given fragment.
+     * 
      * @param f the fragment
      * @return the authentication data to use.
      */
@@ -77,6 +80,7 @@ public class AuthResolver {
 
     /**
      * Get the real authentication data to use for the given fragment.
+     * 
      * @param f the fragment
      * @return the authentication data to use.
      */
@@ -91,6 +95,7 @@ public class AuthResolver {
 
     /**
      * Get the real authentication data to use for the given fragment.
+     * 
      * @param f the fragment
      * @return the authentication data to use.
      */
@@ -105,6 +110,7 @@ public class AuthResolver {
 
     /**
      * Get the real  authentication data to use for the given fragment.
+     * 
      * @param f the fragment
      * @return the authentication data to use.
      */
@@ -121,6 +127,7 @@ public class AuthResolver {
      * Get the real authentication data to use a given authentication data.
      * <p>
      * Returns the given data unless it is an {@link InheritedAuthData}.
+     * 
      * @param d the authentication data.
      * @return the authentication data to use.
      */

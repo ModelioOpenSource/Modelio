@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -129,11 +129,11 @@ public class BpmnCollaborationDiagramCreationContributor extends AbstractDiagram
                     input.setVisible(true);
         
                     // Load from the persistence.
-                    input.getPersister().load();
+                    input.load();
         
                     input.unmaskAsChild(participant, null);
         
-                    input.getPersister().save(true);
+                    input.save(true);
                     input.dispose();
                 }
             }

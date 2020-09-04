@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,8 +36,7 @@ import org.modelio.api.module.context.configuration.IModuleUserConfiguration;
 import org.modelio.api.module.context.i18n.I18nSupport;
 import org.modelio.api.module.context.log.ILogService;
 import org.modelio.api.module.context.project.IProjectStructure;
-import org.modelio.api.module.license.ILicenseInfos.Status;
-import org.modelio.api.module.license.LicenseInfos;
+import org.modelio.api.module.license.ILicenseInfos;
 import org.modelio.api.module.lifecycle.IModuleLifeCycleHandler;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.api.module.parameter.IParameterEditionModel;
@@ -79,20 +78,21 @@ public class FakeIModule implements IModule {
     /**
      * Instantiate a fake module.
      * @param modelingSession a modeling session.
+     * 
      * @param gmodule the low level module.
      * @param moduleUserConfiguration the user version of the module configuration
      * @param moduleApiConfiguration the api version of the module configuration
      */
     @objid ("b317e52b-f11c-11e1-af52-001ec947c8cc")
-    public FakeIModule(GModule gmodule, IModuleUserConfiguration moduleUserConfiguration, IModuleAPIConfiguration moduleApiConfiguration) {
+    public FakeIModule(final GModule gmodule, final IModuleUserConfiguration moduleUserConfiguration, final IModuleAPIConfiguration moduleApiConfiguration) {
         this.gmodule = gmodule;
         this.moduleComponent = gmodule.getModuleElement();
         this.moduleConfiguration = moduleUserConfiguration;
         this.lifecyleHandler = new IModuleLifeCycleHandler() {
         
             @Override
-            public void upgrade(Version oldVersion,
-                    Map<String, String> oldParameters) throws ModuleException {
+            public void upgrade(final Version oldVersion,
+                    final Map<String, String> oldParameters) throws ModuleException {
                 // Empty
             }
         
@@ -123,6 +123,7 @@ public class FakeIModule implements IModule {
 
     /**
      * Used to return the module description.
+     * 
      * @return The module description
      */
     @objid ("b317e540-f11c-11e1-af52-001ec947c8cc")
@@ -133,19 +134,20 @@ public class FakeIModule implements IModule {
 
     @objid ("301a2420-ba51-4e56-9bc0-8ff331acd0be")
     @Override
-    public Image getImage(Stereotype stereotype, ImageType type) {
+    public Image getImage(final Stereotype stereotype, final ImageType type) {
         return null;
     }
 
     @objid ("f65c24e8-1a74-400d-9e3d-c87821f680ea")
     @Override
-    public Image getImage(Profile profile, ImageType imageType) {
+    public Image getImage(final Profile profile, final ImageType imageType) {
         return null;
     }
 
     /**
      * Get the module label that is displayed in dialog boxes and other GUIU
      * parts.
+     * 
      * @return The module label.
      */
     @objid ("b317e559-f11c-11e1-af52-001ec947c8cc")
@@ -156,8 +158,8 @@ public class FakeIModule implements IModule {
 
     @objid ("4e7caa03-87cc-47b7-bb2e-0bd4564efc72")
     @Override
-    public LicenseInfos getLicenseInfos() {
-        return new LicenseInfos(Status.UNDEFINED, null, "");
+    public ILicenseInfos getLicenseInfos() {
+        return new UndefinedLicenseInfos();
     }
 
     @objid ("46651944-e116-45ae-bb18-79bc5d48592a")
@@ -174,6 +176,7 @@ public class FakeIModule implements IModule {
 
     /**
      * Always returns null.
+     * 
      * @return null.
      */
     @objid ("b317e567-f11c-11e1-af52-001ec947c8cc")
@@ -194,6 +197,7 @@ public class FakeIModule implements IModule {
      * <p>
      * The module name corresponds to the name of the module, as defined in the
      * <i>MDA Designer<i> tool.
+     * 
      * @return The module name
      */
     @objid ("b31a4782-f11c-11e1-af52-001ec947c8cc")
@@ -206,6 +210,7 @@ public class FakeIModule implements IModule {
      * Returns the peer module, connected to this module.
      * <p>
      * The peer module represents the public services of this current module.
+     * 
      * @return The associated peer module
      */
     @objid ("b31a478e-f11c-11e1-af52-001ec947c8cc")
@@ -222,6 +227,7 @@ public class FakeIModule implements IModule {
 
     /**
      * Used to return the module version.
+     * 
      * @return The module version
      */
     @objid ("b31a47a8-f11c-11e1-af52-001ec947c8cc")
@@ -255,7 +261,7 @@ public class FakeIModule implements IModule {
 
     @objid ("ae9554d9-3eba-4686-938c-99f707ae1107")
     @Override
-    public final void initModulecontext(IModuleContext moduleContext) {
+    public final void initModulecontext(final IModuleContext moduleContext) {
         // Nothing to do. Fake module has no ModuleContext.
     }
 
@@ -280,7 +286,7 @@ public class FakeIModule implements IModule {
     private final class FakeModuleContext implements IModuleContext {
         @objid ("2c36b867-3179-43de-89fc-c6a3e8c1c152")
         @Override
-        public void setModule(IModule iModule) {
+        public void setModule(final IModule iModule) {
             // Nothing to do
         }
 

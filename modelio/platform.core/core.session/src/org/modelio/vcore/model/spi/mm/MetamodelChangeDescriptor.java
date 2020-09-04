@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ public class MetamodelChangeDescriptor {
 
     /**
      * Add a new CMS node
+     * 
      * @param mmFragName the metamodel fragment name
      * @param mClassName the metaclass name
      * @return this instance.
@@ -58,6 +59,7 @@ public class MetamodelChangeDescriptor {
 
     /**
      * Add a new CMS node
+     * 
      * @param mmFragName the metamodel fragment name
      * @param mClassName the metaclass name
      * @return this instance.
@@ -70,6 +72,7 @@ public class MetamodelChangeDescriptor {
 
     /**
      * Add a new metaclass.
+     * 
      * @param mmFragName the metamodel fragment name
      * @param mClassName the metaclass name
      * @return this instance.
@@ -82,6 +85,7 @@ public class MetamodelChangeDescriptor {
 
     /**
      * Register a deleted metaclass.
+     * 
      * @param mmFragName the metamodel fragment name
      * @param mClassName the metaclass name
      * @return this instance.

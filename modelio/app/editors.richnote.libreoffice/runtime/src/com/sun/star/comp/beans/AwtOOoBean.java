@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -117,6 +117,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
 
     /**
      * debugging method
+     * 
      * @param aMessage message to print
      */
     @objid ("e8e76374-865f-4d90-a44f-b6edc0a33aeb")
@@ -175,6 +176,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * Constructor for an OOoBean which uses a specific office connection.
      * 
      * The connection must be established but no document is loaded.
+     * 
      * @param iConnection a specific office connection.
      * @throws com.sun.star.comp.beans.NoConnectionException if the connection is not established.
      * @deprecated Clients could use the getOOoConnection to obtain an OfficeConnection and use it as argument in a
@@ -194,6 +196,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * Sets the timeout for methods which launch OOo in milli seconds.
      * 
      * This method does not need a connection to an OOo instance.
+     * 
      * @param nMilliSecs the timeout
      */
     @objid ("d926496b-108b-4489-9af5-5bba0e788d4b")
@@ -205,6 +208,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * Sets the timeout for normal OOO methods calls in milli seconds.
      * 
      * This method does not need a connection to an OOo instance.
+     * 
      * @param nMilliSecs the timeout
      */
     @objid ("ccaca015-5883-4dc6-ba88-eadd5cf38171")
@@ -216,6 +220,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * Sets the period length in milli seconds to check the OOo connection.
      * 
      * This method does not need a connection to an OOo instance.
+     * 
      * @param nMilliSecs the timeout
      */
     @objid ("8d851c33-9e42-4847-bd11-fed11ecfaca8")
@@ -258,6 +263,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
     /**
      * @requirement FUNC.CON.STRT/0.4
      * Starts a connection to an OOo instance which is launched if not running.
+     * 
      * @param aConnectionURL a connection URL
      * @throws java.net.MalformedURLException if the URL is invalid.
      * @throws com.sun.star.comp.beans.HasConnectionException if a connection was already established.
@@ -274,6 +280,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
     /**
      * Returns true if this OOoBean is connected to an OOo instance, false otherwise.
      * @requirement FUNC.CON.CHK/0.7
+     * 
      * @return <code>true</code> if this OOoBean is connected to an OOo instance, false otherwise
      * @deprecated This method is not useful in a multithreaded environment. Then all threads accessing the instance
      * would have to be synchronized in order to make is method work. It is better to call OOoBean's methods
@@ -321,6 +328,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * when calling {@link #stopOOoConnection()} or other API methods. If other instances share the same
      * connection then they will stop function properly, because they loose their connection as well. <br/>
      * The recommended way to end the connection is calling {@link #stopOOoConnection()}.
+     * 
      * @return a connection to an OOo instance.
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection can be established
      * @requirement FUNC.CON.STOP/0.4 (via XComponent.dispose())
@@ -342,6 +350,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
 
     /**
      * Returns the service factory used by this OOoBean instance.
+     * 
      * @return the service factory used by this OOoBean instance.
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established and no default connection can be established.
      */
@@ -377,6 +386,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
 
     /**
      * Returns the XDesktop interface of the OOo instance used by this OOoBean.
+     * 
      * @return the XDesktop interface
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established and no default connection can be established.
      */
@@ -398,6 +408,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * If a document is loaded and the content modified, the changes are dismissed. Otherwise nothing happens.
      * 
      * This method is intended to be overridden in derived classes. This implementation simply calls clear.
+     * 
      * @param bClearStateToo Not only the document content but also the state of the bean, like visibility of child components is
      * cleared.
      * @deprecated There is currently no way to dismiss changes, except for loading of the unchanged initial document.
@@ -489,6 +500,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * <p>
      * Another scenario is that a OOoBean contains a document and is removed from a Java container and later added
      * again. Then aquireSystemWindow needs to be called after the container window is displayed.
+     * 
      * @throws com.sun.star.comp.beans.SystemWindowException if no system window can be aquired.
      * @throws com.sun.star.comp.beans.NoConnectionException if the connection is not established.
      */
@@ -515,6 +527,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * OOoBean is removed from it's parent container.
      * @requirement FUNC.PAR.RWL/0.4
      * @estimation 16h
+     * 
      * @throws com.sun.star.comp.beans.SystemWindowException if system window is not acquired.
      * @throws com.sun.star.comp.beans.NoConnectionException if the connection is not established.
      * @deprecated When {@link java.awt.Component#removeNotify() Component.removeNotify()} of the parent window of the actual office window is called, then the
@@ -543,6 +556,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * @throws com.sun.star.util.CloseVetoException
      * if the currently displayed document cannot be closed because it is still be used, for example it is
      * printed.
+     * 
      * @param aURL document URL
      * @param aArguments loading arguments
      * @throws java.io.IOException if an IO error occurs reading the resource specified by the URL.
@@ -711,6 +725,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * See loadFromURL() for further information.
      * @throws com.sun.star.util.CloseVetoException if the open document refused to close.
+     * 
      * @param iInStream input stream containing the document.
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
      * @throws java.io.IOException if an IO error occurs reading the resource.
@@ -761,6 +776,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * See loadFromURL() for further information.
      * @throws com.sun.star.util.CloseVetoException if the open document refused to close.
+     * 
      * @param aInBuffer the buffer containing the document.
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
      * @throws java.io.IOException if an IO error occurs reading the resource.
@@ -798,6 +814,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * It is planned to offer a way of specifying startup options in a future version. The property can be used until
      * then. When using this property only one option can be provided.
+     * 
      * @param aURL the destination
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
      * @throws java.lang.IllegalArgumentException if either of the arguments is out of the specified range.
@@ -835,6 +852,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * See {@link #storeToURL storeToURL} for further information.
      * @see #storeToURL storeToURL
+     * 
      * @param aOutStream the destination stream.
      * @param aArguments arguments
      * @return the same output stream.
@@ -874,6 +892,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * See {@link #storeToURL storeToURL} for further information.
      * @see #storeToURL storeToURL
+     * 
      * @param aOutBuffer the byte array.
      * @param aArguments some arguments
      * @return the buffer containing the saved document, should be 'aOutBuffer'.
@@ -912,6 +931,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * @requirement FUNC.BEAN.PROG/0.5
      * @requirement API.SIM.SEAP/0.2
      * returns the <type scope="com::sun::star::frame">Frame</a> of the bean.
+     * 
      * @return a Java class which implements all interfaces which the service <type
      * scope="com::sun::star::frame">Frame</a> implements. Thus, methods can be called directly without
      * queryInterface. This feature might be implemented by UNO or explicitely coded.
@@ -929,6 +949,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * @requirement FUNC.BEAN.PROG/0.5
      * @requirement API.SIM.SEAP/0.2
      * returns the <type scope="com::sun::star::frame::Controller"> of the bean.
+     * 
      * @return a Java class which implements all interfaces which the service &lt;type
      * scope="com::sun::star::frame">Controller&lt;/a> implements. Thus, methods can be called directly without
      * queryInterface. This feature might be implemented by UNO or explicitly coded.
@@ -951,6 +972,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * @requirement FUNC.BEAN.PRNT/0.4
      * @requirement API.SIM.SEAP/0.2
      * returns the <type scope="com::sun::star::document::OfficeDocument"> of the bean.
+     * 
      * @return a Java class which implements all interfaces which the service <type
      * scope="com::sun::star::document">OfficeDocument</a> implements. Thus, methods can be called directly
      * without queryInterface. This feature might be implemented by UNO or explicitely coded.
@@ -975,6 +997,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * <p>
      * If no connection is established or no document is loaded, the setting is memorized until a document is loaded.
      * Same is valid when the connection dies within this function call.
+     * 
      * @param bVisible the toolbars visibility
      * 
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
@@ -1021,6 +1044,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * @param aProperty
      * @param aResourceURL
      * @param bOldValue
+     * 
      * @param bNewValue If false, the tool bar is disabled, If true, the tool bar is visible.
      * @return
      * @throws java.lang.InterruptedException @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
@@ -1070,6 +1094,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * <p>
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
+     * 
      * @param bVisible If false, the menu bar is disabled, If true, the menu bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1092,6 +1117,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * This method works independently from a connetion or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
+     * 
      * @return True if the menu bar is visible, false if the menu bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1109,6 +1135,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
+     * 
      * @param bVisible If false, the main function bar is disabled, If true, the main function bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1131,6 +1158,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * This method works independently from a connetion or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
+     * 
      * @return True if the main function bar is visible, false if the main function bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1148,6 +1176,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
+     * 
      * @param bVisible If false, the tool function bar is disabled, If true, the tool function bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1170,6 +1199,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * This method works independently from a connetion or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
+     * 
      * @return True if the tool function bar is visible, false if the tool function bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1187,6 +1217,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
+     * 
      * @param bVisible If false, the status function bar is disabled, If true, the status function bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1209,6 +1240,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * This method works independently from a connetion or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
+     * 
      * @return True if the status function bar is visible, false if the status function bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1270,6 +1302,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
     /**
      * Creating a correct File URL that OpenOffice can handle. This is
      * necessary to be platform independent.
+     * 
      * @param newfile a file path
      * @return the OpenOffice compatible URL.
      * @throws com.sun.star.comp.beans.NoConnectionException if not connected to OpenOffice
@@ -1321,6 +1354,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * It is planned to offer a way of specifying startup options in a future version. The property can be used until
      * then. When using this property only one option can be provided.
+     * 
      * @param aURL the destination
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
      * @throws java.lang.IllegalArgumentException if either of the arguments is out of the specified range.
@@ -1357,6 +1391,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
 
     /**
      * Get the interaction handler able to handle some problems.
+     * 
      * @return the interaction handler
      * @throws com.sun.star.comp.beans.NoConnectionException if the specified connection cannot be established
      */
@@ -1383,6 +1418,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
 
     /**
      * Store the currently edited document.
+     * 
      * @throws java.lang.IllegalArgumentException if either of the arguments is out of the specified range.
      * @throws java.io.IOException if an IO error occurs reading the resource specified by the URL.
      * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established.

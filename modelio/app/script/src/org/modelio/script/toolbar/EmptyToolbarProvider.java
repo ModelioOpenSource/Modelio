@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class EmptyToolbarProvider extends TrimBarComponent {
 
     /**
      * Initialize the SWT control.
+     * 
      * @param parent a widget which will be the parent of the new SWT components.
      */
     @objid ("d56402b9-2bb3-4c92-a090-44f1ed536a93")

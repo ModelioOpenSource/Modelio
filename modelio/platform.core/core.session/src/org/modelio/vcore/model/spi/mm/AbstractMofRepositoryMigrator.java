@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public abstract class AbstractMofRepositoryMigrator implements IMofRepositoryMig
 
     /**
      * Modify the metamodel so that it can read the {@link #getSourceMetamodel()} repository.
+     * 
      * @param metamodel the metamodel at the {@link #getTargetMetamodel() target} state.
      * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
      */
@@ -91,17 +92,19 @@ public abstract class AbstractMofRepositoryMigrator implements IMofRepositoryMig
 
     /**
      * Migrates the given repository using the given session.
+     * 
      * @param monitor a progress monitor
      * @param session the migration session
      */
     @objid ("544f2651-6490-43c5-973a-e77c2daf7cb4")
     @Override
-    public void run(IModelioProgress monitor, IMofSession session) {
+    public void run(IModelioProgress monitor, IMofSession session) throws MofMigrationException {
         // nothing
     }
 
     /**
      * Set the metamodel changes descriptor.
+     * 
      * @param changes the metamodel changes descriptor.
      * @return this instance
      */

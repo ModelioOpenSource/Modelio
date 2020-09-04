@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class PasteAnnotationHandler {
 
     /**
      * Available only when the selection contains only one modifiable element.
+     * 
      * @param part the E4 part
      * @param currentDisplay the SWT display
      * @return true if the handler can be executed.
@@ -69,6 +70,7 @@ public class PasteAnnotationHandler {
 
     /**
      * Cut the currently selected elements.
+     * 
      * @param part the current E4 view
      * @param currentDisplay the display Modelio runs into.
      */

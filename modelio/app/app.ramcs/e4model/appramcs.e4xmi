@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_-tLWUIkYEeWbO4MnNK7ogg">
-  <imports xsi:type="menu:PopupMenu" xmi:id="_tBnbgJF5EeKahJnWyBbcxA" elementId="org.modelio.model.browser.view.popupmenu"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_COOjMJF6EeKahJnWyBbcxA" featurename="children" parentElementId="org.modelio.model.browser.view.popupmenu">
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_O10V0JF6EeKahJnWyBbcxA" elementId="app.ramcs.package" label="%PackageRamc.label" iconURI="platform:/plugin/org.modelio.app.ramcs/icons/editramc.png" tooltip="%PackageRamc.tooltip" command="_dULc0JF6EeKahJnWyBbcxA">
       <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_O10V0ZF6EeKahJnWyBbcxA" coreExpressionId="app.ramcs.test.package.id"/>

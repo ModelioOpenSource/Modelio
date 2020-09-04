@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -70,6 +70,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
 
     /**
      * Create a composite node.
+     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
@@ -80,6 +81,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
 
     /**
      * Add a child to the children list and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
+     * 
      * @param child The node to add
      */
     @objid ("808c082c-1dec-11e2-8cad-001ec947c8cc")
@@ -98,6 +100,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
      * <p>
      * The default implementation returns <tt>true</tt> in all cases. Subclasses may redefine this method to restrict the kind of
      * node that can be contained.
+     * 
      * @param nodeClass the child node class
      * @return true if this node supports this kind of node, false in the other case.
      */
@@ -135,6 +138,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
      * Fires a {@link org.modelio.diagram.elements.core.model.IGmObject#PROPERTY_CHILDREN PROPERTY_CHILDREN} property change.
      * <p>
      * To be called when the result of {@link #isVisible()} on the given child node changes.
+     * 
      * @param child The child node whose visibility changed.
      */
     @objid ("808c083d-1dec-11e2-8cad-001ec947c8cc")
@@ -144,6 +148,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
 
     /**
      * Get the child element representing the given reference.
+     * 
      * @param ref An element reference
      * @return the graphic model representing the given reference or <tt>null</tt> if none..
      */
@@ -162,6 +167,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
      * <p>
      * The returned list is a copy and may be freely modified.
      * <p>
+     * 
      * @param role The role that returned children must have.
      * @return A list of the child nodes that have the given role. This list may be freely modified.
      */
@@ -183,6 +189,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
      * <p>
      * The returned list is a copy and may be freely modified.
      * </p>
+     * 
      * @return A copy of the child nodes list.
      */
     @objid ("808c084f-1dec-11e2-8cad-001ec947c8cc")
@@ -192,6 +199,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
 
     /**
      * Get the actual node in which an element of the given metaclass must be unmasked.
+     * 
      * @param metaclass a metaclass
      * @return a composite node.
      */
@@ -212,6 +220,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
 
     /**
      * Get the first child node that has the given role.
+     * 
      * @param role The role that returned child must have.
      * @return The first found child that has the needed role or <tt>null</tt> if none found.
      */
@@ -238,6 +247,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
      * In this case you must ensure that {@link #styleChanged(StyleKey, Object)} fires a {@link IGmObject#PROPERTY_CHILDREN}
      * property change event in order for the EditParts to be informed of the change.<br>
      * </p>
+     * 
      * @return A list of the visible child nodes.
      */
     @objid ("808c0867-1dec-11e2-8cad-001ec947c8cc")
@@ -253,6 +263,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
 
     /**
      * Tells whether the node has children, visible or not.
+     * 
      * @return true if the node has children, false in the other case.
      */
     @objid ("808c086e-1dec-11e2-8cad-001ec947c8cc")
@@ -264,6 +275,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
      * Move the given child element to the given position.
      * <p>
      * The element at the given position and all subsequent elements are shifted after the moved element.
+     * 
      * @param child the child node to move
      * @param index the new index. If -1 the element is placed at the end.
      */
@@ -344,6 +356,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
 
     /**
      * Remove a child from the children list and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
+     * 
      * @param child The node to remove
      */
     @objid ("808e6a82-1dec-11e2-8cad-001ec947c8cc")
@@ -381,6 +394,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
      * </ul>
      * <p>
      * The default implementation returns true in all cases.
+     * 
      * @param node A node
      * @return true if the node can be a child of this node, false in the other case.
      */
@@ -392,6 +406,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
 
     /**
      * Add a child to the children list at the given index and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
+     * 
      * @param child The node to add
      * @param index the index where the child will be added.
      */
@@ -407,6 +422,7 @@ public abstract class GmCompositeNode extends GmNodeModel {
     /**
      * Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the
      * element.
+     * 
      * @param child a node model.
      * @return the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the
      * element.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -67,6 +67,7 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef reference to the represented element.
      */
@@ -129,6 +130,7 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
 
     /**
      * Get the stereotype image to display.
+     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("2a6478b9-55b6-11e2-877f-002564c97630")

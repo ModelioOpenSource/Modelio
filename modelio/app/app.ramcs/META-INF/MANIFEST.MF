@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Ramcs
 Bundle-SymbolicName: org.modelio.app.ramcs;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Vendor: modelio.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Localization: plugin
@@ -32,7 +32,8 @@ Require-Bundle: org.eclipse.e4.core.di,
  org.eclipse.core.commands,
  org.modelio.app.core,
  org.modelio.metamodel.emfapi,
- org.modelio.modelermodule
+ org.modelio.modelermodule,
+ org.modelio.core.project.data
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.annotation;version="1.1.0",
  javax.inject;version="1.0.0"

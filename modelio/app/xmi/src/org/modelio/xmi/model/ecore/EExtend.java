@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,14 +29,15 @@ import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCaseDependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 /**
  * This class manages the import of Ecore Named org.eclipse.uml2.uml.Element
  * @author ebrosse
+ * @param <IMModelServices>
  */
 @objid ("1e3af1b3-5b05-4ba0-9b89-0178669ae528")
 public class EExtend extends ENamedElement {
@@ -46,11 +47,21 @@ public class EExtend extends ENamedElement {
     @objid ("9dd36771-66c3-465f-ba2a-6302c8b7996f")
     @Override
     public Element createObjingElt() {
-        return  ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createUseCaseDependency();
+        IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
+        UseCaseDependency result = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createUseCaseDependency();
+        
+        try {
+            Stereotype extendStereo = mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.EXTEND, result.getMClass());
+            result.getExtension().add(extendStereo);
+        } catch (ElementNotUniqueException e) {
+            Xmi.LOG.warning(e);
+        }
+        return  result;
     }
 
     /**
      * Constructor with the imported Ecore org.eclipse.uml2.uml.Extend
+     * 
      * @param element : the imported Ecore org.eclipse.uml2.uml.Extend
      */
     @objid ("7524021f-9aa9-4ee1-831b-07418335f4ad")
@@ -71,19 +82,10 @@ public class EExtend extends ENamedElement {
         UseCase objingOrigin = (UseCase) revProp
                 .getMappedElement(ecoreOrigin);
         
-        if (objingTarget != null && objingOrigin != null) {
+        if ((objingTarget != null) && (objingOrigin != null)) {
             UseCaseDependency objingUseCaseDependency = (UseCaseDependency) objingElt;
             objingUseCaseDependency.setOrigin(objingOrigin);
             objingUseCaseDependency.setTarget(objingTarget);
-        
-            IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-        
-            try {
-                Stereotype extendStereo = mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.EXTEND, objingUseCaseDependency.getMClass());
-                objingUseCaseDependency.getExtension().add(extendStereo);
-            } catch (ElementNotUniqueException e) {
-                Xmi.LOG.warning(e);
-            }
         }
     }
 

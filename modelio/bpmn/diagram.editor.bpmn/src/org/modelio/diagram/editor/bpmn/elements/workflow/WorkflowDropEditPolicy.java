@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -282,6 +282,7 @@ public class WorkflowDropEditPolicy extends DefaultElementDropEditPolicy {
 
         /**
          * Initialize the command.
+         * 
          * @param dropLocation The location of the element in the diagram
          * @param partitionElement element to be referenced by the {@link BpmnLane} as a 'partitionElement'.
          * @param editPart The destination edit part that will own the lane.

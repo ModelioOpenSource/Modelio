@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -103,6 +103,7 @@ public class ConstraintChooserContentProvider implements ITreeContentProvider {
 
     /**
      * Constructor initializing the model service.
+     * 
      * @param modelService the model service needed to find elements.
      */
     @objid ("868017bb-1924-11e2-bc4e-002564c97630")

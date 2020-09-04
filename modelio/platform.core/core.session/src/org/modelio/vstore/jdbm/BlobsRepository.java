@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -106,6 +106,7 @@ class BlobsRepository {
 
     /**
      * Compute the path of a blob file.
+     * 
      * @param blobKey the blob key
      * @return the blob file path relative to the repository path.
      */
@@ -119,6 +120,7 @@ class BlobsRepository {
 
     /**
      * Decode the blob key from a blob file path.
+     * 
      * @param file a blob file path.
      * @return the blob key.
      */

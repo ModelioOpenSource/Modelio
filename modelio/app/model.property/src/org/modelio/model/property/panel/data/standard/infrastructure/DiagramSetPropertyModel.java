@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public class DiagramSetPropertyModel extends AbstractPropertyModel<DiagramSet> {
 
     /**
      * Create a new <i>DiagramSet</i> data model from an <i>DiagramSet</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("9c722067-b495-4eaf-b090-d3e1cb1bbcfb")
@@ -59,6 +60,7 @@ public class DiagramSetPropertyModel extends AbstractPropertyModel<DiagramSet> {
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("458ce944-7d51-4185-a128-c9336081ceb4")
@@ -69,6 +71,7 @@ public class DiagramSetPropertyModel extends AbstractPropertyModel<DiagramSet> {
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("b5dde917-7c46-4085-8d6d-582ea9d46783")
@@ -81,6 +84,7 @@ public class DiagramSetPropertyModel extends AbstractPropertyModel<DiagramSet> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -111,6 +115,7 @@ public class DiagramSetPropertyModel extends AbstractPropertyModel<DiagramSet> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,6 +144,7 @@ public class DiagramSetPropertyModel extends AbstractPropertyModel<DiagramSet> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

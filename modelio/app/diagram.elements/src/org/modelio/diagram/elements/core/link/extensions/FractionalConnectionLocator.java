@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,8 +31,9 @@ import org.eclipse.draw2d.geometry.Rectangle;
 
 /**
  * Align the figure on the Connection, at a a fraction of the line length from the starting point of the line.
- * 
- * @author cmarin
+ * <p>
+ * Replaces {@link ObsoleteFractionalConnectionLocator}.
+ * </p>
  */
 @objid ("7ff83692-1dec-11e2-8cad-001ec947c8cc")
 public class FractionalConnectionLocator implements IResizableFigureLocator {
@@ -61,7 +62,9 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
     private int vDistance;
 
     /**
-     * Rotatable figures orientation: <li>true: toward the target. <li>false: toward the source.
+     * Rotatable figures orientation:
+     * <li>true: toward the target.
+     * <li>false: toward the source.
      */
     @objid ("7ffa98b4-1dec-11e2-8cad-001ec947c8cc")
     private boolean towardTarget;
@@ -78,23 +81,12 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
     @objid ("78daa96c-6695-471c-af4c-b4606a272c1e")
     private int heightConstraint = -1;
 
-    /**
-     * Preallocated local variable used in getReferenceSegment()
-     */
-    @objid ("6731f150-1e83-11e2-8cad-001ec947c8cc")
-    private static final Point P1 = new Point();
-
-    /**
-     * Preallocated local variable used in getReferenceSegment()
-     */
-    @objid ("6731f153-1e83-11e2-8cad-001ec947c8cc")
-    private static final Point P2 = new Point();
-
     @objid ("6731f156-1e83-11e2-8cad-001ec947c8cc")
     private Connection connection;
 
     /**
      * Construct a locator with U and V computed from the given point.
+     * 
      * @param c The Connection
      * @param fraction distance from the starting point of the line as a fraction of the line length.
      * @param figLocation The figure location, in the connection coordinates
@@ -103,44 +95,40 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
      */
     @objid ("7ffa98b6-1dec-11e2-8cad-001ec947c8cc")
     public static FractionalConnectionLocator createFromXyPoint(final Connection c, final double fraction, final Point figLocation, final boolean towardTarget) {
-        final FractionalConnectionLocator ret = new FractionalConnectionLocator(c, fraction);
-        final Point center = new Point();
-        final Point previousPoint = new Point();
+        final FractionalConnectionLocator ret = new FractionalConnectionLocator(c, fraction, towardTarget);
         
-        ret.setTowardTarget(towardTarget);
-        ret.getReferenceSegment(c.getPoints(), center, previousPoint);
+        final Point referencePoint = new Point(); // The reference point on the connection for positioning the label
         
-        final Dimension xy = figLocation.getDifference(center);
+        ret.getReferenceSegment(c.getPoints(), referencePoint, new Point());
         
-        final Dimension segDiff = center.getDifference(previousPoint);
-        final double dist = previousPoint.getDistance(center);
+        final Dimension deltaXY = figLocation.getDifference(referencePoint);
         
-        final double cost = segDiff.width / dist;
-        final double sint = segDiff.height / dist;
-        
-        ret.setUDistance((int) (xy.width * cost + xy.height * sint));
-        ret.setVDistance((int) (-xy.width * sint + xy.height * cost));
+        ret.setUDistance(deltaXY.width);
+        ret.setVDistance(deltaXY.height);
         return ret;
     }
 
     /**
      * Constructs a locator.
+     * 
      * @param c The Connection
      * @param fraction distance from the starting point of the line as a fraction of the line length.
+     * @param towardTarget <code>true</code> to orient toward the target, <code>false</code> for the source
      */
     @objid ("7ffa98c7-1dec-11e2-8cad-001ec947c8cc")
-    public FractionalConnectionLocator(Connection c, final double fraction) {
+    public FractionalConnectionLocator(Connection c, final double fraction, final boolean towardTarget) {
         this.connection = c;
+        this.towardTarget = towardTarget;
         
         if (fraction > 1.0 || fraction < 0.0) {
             throw new IllegalArgumentException("fraction must be 0.0 < f < 1.0");
         }
-        
         this.fraction = fraction;
     }
 
     /**
      * Get the distance from the starting point of the line as a fraction of the line length.
+     * 
      * @return The fractional distance.
      */
     @objid ("7ffa98cf-1dec-11e2-8cad-001ec947c8cc")
@@ -150,6 +138,7 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Get the position where the given figure center would be located if {@link #relocate(IFigure)} was called.
+     * 
      * @param target The figure to relocate
      * @return The figure center location in the figure coordinates
      */
@@ -157,45 +146,45 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
     public Point getLocation(final IFigure target) {
         final Connection conn = getConnection();
         
-        final Point center = new Point();
-        final Point previousPoint = new Point();
+        final Point referencePoint = new Point();
         
-        getReferenceSegment(conn.getPoints(), center, previousPoint);
+        getReferenceSegment(conn.getPoints(), referencePoint, new Point());
         
-        final Dimension t = getUvTranslation(previousPoint, center);
-        
-        center.translate(t);
-        
-        conn.translateToAbsolute(center);
-        target.translateToRelative(center);
-        return center;
+        final Dimension t = getUvTranslation();
+        referencePoint.translate(t);
+        conn.translateToAbsolute(referencePoint);
+        target.translateToRelative(referencePoint);
+        return referencePoint;
     }
 
     /**
-     * Returns in center and next the position the reference point and the connection point following it.
+     * Returns how/where to anchor the label to the connection
+     * 
      * @param points The points in the Connection
-     * @param center Will contain the reference point location, in the connection coordinates.
-     * @param previous Will contain the previous connection point location, in the connection coordinates.
+     * @param referencePoint Will contain the reference point location, in the connection coordinates.
+     * @param orientationPoint Will contain a point used in association with referencePoint above to define the label orientation
      */
     @objid ("7ffa98df-1dec-11e2-8cad-001ec947c8cc")
-    public void getReferenceSegment(final PointList points, final Point center, final Point previous) {
+    public void getReferenceSegment(final PointList points, final Point referencePoint, final Point orientationPoint) {
         final long theLength = length(points);
+        
+        Point P1 = new Point();
+        Point P2 = new Point();
         
         long remainingLength = Math.round(getFraction() * theLength);
         
-        final int n = points.size() - 1;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < points.size() - 1; i++) {
             points.getPoint(P1, i);
             points.getPoint(P2, i + 1);
         
             final long nextLength = Math.round(P2.getDistance(P1));
         
             if (nextLength >= remainingLength) {
-                pointOn(remainingLength, P1, P2, center);
+                pointOn(remainingLength, P1, P2, referencePoint);
                 if (this.towardTarget) {
-                    previous.setLocation(P1);
+                    orientationPoint.setLocation(P1);
                 } else {
-                    previous.setLocation(P2);
+                    orientationPoint.setLocation(P2);
                 }
                 return;
             } else {
@@ -207,8 +196,7 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
     }
 
     /**
-     * Distance from the reference point towards the target
-     * @return Distance from the reference point towards the target
+     * @return The current DeltaX positioning value.
      */
     @objid ("7ffa98ee-1dec-11e2-8cad-001ec947c8cc")
     public int getUDistance() {
@@ -216,8 +204,7 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
     }
 
     /**
-     * Get the distance from the connection.
-     * @return The distance from the connection.
+     * @return The current DeltaY positioning value.
      */
     @objid ("7ffa98f3-1dec-11e2-8cad-001ec947c8cc")
     public int getVDistance() {
@@ -225,8 +212,9 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
     }
 
     /**
-     * Get the rotatable figures orientation.
-     * @return true : toward the target, false: toward the source
+     * Get the figures orientation.
+     * 
+     * @return true : toward the link target anchor, false: toward the link source anchor
      */
     @objid ("7ffcfb0e-1dec-11e2-8cad-001ec947c8cc")
     public boolean isTowardTarget() {
@@ -238,46 +226,42 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
     public void relocate(final IFigure target) {
         final Connection conn = getConnection();
         
-        final Point center = new Point();
-        final Point fromPoint = new Point();
+        final Point referencePoint = new Point(); // The reference point on the connection for positioning the label
+        final Point orientationPoint = new Point(); // In association with referencePoint above, defines the label orientation
         
-        getReferenceSegment(conn.getPoints(), center, fromPoint);
+        getReferenceSegment(conn.getPoints(), referencePoint, orientationPoint);
         
-        final Dimension t = getUvTranslation(fromPoint, center);
+        final Dimension t = getUvTranslation();
         
-        center.translate(t);
-        fromPoint.translate(t);
+        referencePoint.translate(t);
+        orientationPoint.translate(t);
         
         if (target instanceof RotatableDecoration) {
             final RotatableDecoration rot = (RotatableDecoration) target;
         
-            conn.translateToAbsolute(center);
-            target.translateToRelative(center);
+            conn.translateToAbsolute(referencePoint);
+            rot.translateToRelative(referencePoint);
         
-            conn.translateToAbsolute(fromPoint);
-            target.translateToRelative(fromPoint);
+            conn.translateToAbsolute(orientationPoint);
+            rot.translateToRelative(orientationPoint);
         
-            rot.setLocation(center);
-            rot.setReferencePoint(fromPoint);
+            rot.setLocation(referencePoint);
+            rot.setReferencePoint(orientationPoint);
+        
         } else {
+        
+            conn.translateToAbsolute(referencePoint);
+            target.translateToRelative(referencePoint);
+        
             final Dimension prefSize = computeFigureSize(target);
-            conn.translateToAbsolute(center);
-            target.translateToRelative(center);
-            target.setBounds(computeNewBounds(prefSize, center));
+        
+            target.setBounds(computeNewBounds(prefSize, referencePoint));
         }
     }
 
     /**
-     * Set the rotatable figures orientation.
-     * @param towardTarget true to orient toward the target, false for the source
-     */
-    @objid ("7ffcfb1a-1dec-11e2-8cad-001ec947c8cc")
-    public void setTowardTarget(final boolean towardTarget) {
-        this.towardTarget = towardTarget;
-    }
-
-    /**
      * Distance from the reference point towards the target
+     * 
      * @param uDistance The distance from the reference point towards the target
      */
     @objid ("7ffcfb1f-1dec-11e2-8cad-001ec947c8cc")
@@ -287,6 +271,7 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Distance from the connection.
+     * 
      * @param vDistance The distance from the connection
      */
     @objid ("7ffcfb24-1dec-11e2-8cad-001ec947c8cc")
@@ -296,27 +281,28 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Calculates the slope of the line segment (y=ax+b)
+     * 
      * @param start start of segment
      * @param end end of segment
-     * @return <code>float</code> the slope of the segment. If the slope is not defined such as when the line segment is
-     * vertical, then the constant <code>BIGSLOPE</code> is returned to avoid divide by zero errors.
+     * @return <code>float</code> the slope of the segment. If the slope is not defined such as when the line segment is vertical, then the constant <code>BIGSLOPE</code> is returned to avoid divide by zero errors.
      */
     @objid ("7ffcfb29-1dec-11e2-8cad-001ec947c8cc")
-    public final float slope(final Point start, final Point end) {
+    private final float slope(final Point start, final Point end) {
         if (end.x == start.x) {
-            return BIGSLOPE;
+            return FractionalConnectionLocator.BIGSLOPE;
         }
         return (float) (end.y - start.y) / (float) (end.x - start.x);
     }
 
     /**
      * Recalculate the location of the figure according to its desired position relative to the center point.
+     * 
      * @param size The size of the figure
      * @param center The center point
      * @return The new bounds
      */
     @objid ("7ffcfb36-1dec-11e2-8cad-001ec947c8cc")
-    protected Rectangle computeNewBounds(final Dimension size, final Point center) {
+    private Rectangle computeNewBounds(final Dimension size, final Point center) {
         final Rectangle bounds = new Rectangle(center, size);
         
         bounds.x -= bounds.width / 2;
@@ -326,52 +312,45 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Returns Locator's reference point in absolute coordinates.
+     * 
      * @return The reference point
      */
     @objid ("7ffcfb45-1dec-11e2-8cad-001ec947c8cc")
-    protected Point getReferencePoint() {
-        final Point center = new Point();
-        final Point directionPoint = new Point();
-        getReferenceSegment(getConnection().getPoints(), center, directionPoint);
-        getConnection().translateToAbsolute(center);
-        return center;
+    Point getReferencePoint() {
+        final Point referencePoint = new Point();
+        final Point orientationPoint = new Point();
+        getReferenceSegment(getConnection().getPoints(), referencePoint, orientationPoint);
+        getConnection().translateToAbsolute(referencePoint);
+        return referencePoint;
     }
 
     @objid ("7ffcfb4c-1dec-11e2-8cad-001ec947c8cc")
-    private Connection getConnection() {
+    protected Connection getConnection() {
         return this.connection;
     }
 
     /**
-     * Convert {@link #uDistance} and {@link #vDistance} to XY coordinates. The given points give the vector used to
-     * compute the rotation.
-     * @param origin vector origin in the connection coordinates
-     * @param direction vector direction in the connection coordinates
-     * @return The converted coordinates in the connection coordinates.
+     * Get the current deltaX and deltaY as a Dimension object.
      */
     @objid ("7ffcfb52-1dec-11e2-8cad-001ec947c8cc")
-    private Dimension getUvTranslation(final Point origin, final Point direction) {
-        final Dimension diff = direction.getDifference(origin);
-        final double dist = origin.getDistance(direction);
-        
-        final double cost = diff.width / dist;
-        final double sint = diff.height / dist;
-        
-        final double u = this.uDistance * cost - this.vDistance * sint;
-        final double v = this.uDistance * sint + this.vDistance * cost;
-        return new Dimension((int) u, (int) v);
+    private Dimension getUvTranslation() {
+        return new Dimension(this.uDistance, this.vDistance);
     }
 
     /**
      * Get the length of the given point list.
+     * 
      * @param points The point list
      * @return the length
      */
     @objid ("7fff5d66-1dec-11e2-8cad-001ec947c8cc")
     private long length(final PointList points) {
+        Point P1 = new Point();
+        Point P2 = new Point();
+        
         long ret = 0;
-        final int n = points.size() - 1;
-        for (int i = 0; i < n; i++) {
+        
+        for (int i = 0; i < points.size() - 1; i++) {
             points.getPoint(P1, i);
             points.getPoint(P2, i + 1);
         
@@ -382,6 +361,7 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Gets the point on the line segment at the given distance away from the key point.
+     * 
      * @param theDistance <code>long</code> distance along the line
      * @param start start of the segment
      * @param end end of the segment
@@ -424,8 +404,8 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
             dy = -dy;
         }
         
-        ptResult.x = ((startX > otherX) ? startX - dx : startX + dx);
-        ptResult.y = ((startY > otherY) ? startY - dy : startY + dy);
+        ptResult.x = startX > otherX ? startX - dx : startX + dx;
+        ptResult.y = startY > otherY ? startY - dy : startY + dy;
         boolean in_line;
         if (startX > otherX) {
             in_line = ptResult.x >= otherX;
@@ -444,11 +424,12 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Calculate the figure size from this locator
+     * 
      * @param target the figure to relocate.
      * @return the figure size to set.
      */
     @objid ("cc9ba26e-76b9-4773-b907-a8dd3513a4aa")
-    protected Dimension computeFigureSize(final IFigure target) {
+    private Dimension computeFigureSize(final IFigure target) {
         return target.getPreferredSize(getWidthConstraint(), getHeightConstraint());
     }
 
@@ -456,6 +437,7 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
      * Get the width constraint.
      * <p>
      * -1 means no constraint.
+     * 
      * @return the width constraint.
      */
     @objid ("8248410c-a9b7-40df-b4c1-ea0f289561ce")
@@ -468,6 +450,7 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
      * Set the width constraint.
      * <p>
      * -1 means no constraint.
+     * 
      * @param fixedWidth the width constraint.
      */
     @objid ("772ac200-1d89-4269-b999-19f0642351fd")
@@ -480,6 +463,7 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
      * Get the height constraint.
      * <p>
      * -1 means no constraint.
+     * 
      * @return the height constraint.
      */
     @objid ("9c1fb88e-f941-474d-8035-924f514299d9")
@@ -492,6 +476,7 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
      * Set the height constraint.
      * <p>
      * -1 means no constraint.
+     * 
      * @param fixedHeight the height constraint.
      */
     @objid ("a984229c-c551-499f-94ea-1c7480f770b7")

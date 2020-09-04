@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -26,7 +26,9 @@ import org.modelio.app.core.metamodel.MetamodelExtensionPoint;
 import org.modelio.core.ui.swt.images.spi.IElementImageProvider;
 import org.modelio.mda.infra.ModuleI18NService;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.ui.swt.QualifiedImage;
 import org.modelio.vcore.smkernel.DeadObjectException;
+import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -46,14 +48,42 @@ public class ElementImageService {
      * <li>first stereotype icon found on the element. Note that 'first' is the order of the modules as returned by mda.infra, ie based on workbench</li>
      * <li>if no stereotype icon is found, return the metaclass icon</li>
      * </ul>
+     * 
      * @param element a model object.
      * @return an 'application' icon for the element.
      */
     @objid ("00691036-a3a1-100e-835d-001ec947cd2a")
     public static Image getIcon(MObject element) {
+        QualifiedImage qualifiedIcon = getQualifiedIcon(element);
+        return qualifiedIcon != null ? qualifiedIcon.getImage() : null;
+    }
+
+    /**
+     * A so-called 'application' image is defined as follows:
+     * <ul>
+     * <li>first stereotype image found on the element. Note that 'first' is the order of the modules as returned by mda.infra, ie based on workbench</li>
+     * <li>if no stereotype image is found, return the metaclass image</li>
+     * </ul>
+     * 
+     * @param element a model object.
+     * @return an 'application' image for the element.
+     */
+    @objid ("006939f8-a3a1-100e-835d-001ec947cd2a")
+    public static Image getImage(MObject element) {
+        QualifiedImage qualifiedIcon = getQualifiedImage(element);
+        return qualifiedIcon != null ? qualifiedIcon.getImage() : null;
+    }
+
+    @objid ("0069b8b0-a3a1-100e-835d-001ec947cd2a")
+    private static String getFlavor(MObject element) {
+        return null;
+    }
+
+    @objid ("1f5fab9f-cfc7-4323-a4b7-8741425f823f")
+    public static QualifiedImage getQualifiedIcon(MObject element) {
         try {
             // Only model elements can have stereotypes
-            Image icon = element instanceof ModelElement ? ElementImageService.getDisplayedStereotypeIcon((ModelElement) element) : null;
+            QualifiedImage icon = element instanceof ModelElement ? ModuleI18NService.getQualifiedIcon((ModelElement) element, null) : null;
             if (icon != null) {
                 return icon;
             }
@@ -63,26 +93,17 @@ public class ElementImageService {
                 return svc.getIcon(element);
             }
         
-            return MetamodelImageService.getIcon(element.getMClass(), ElementImageService.getFlavor(element));
+            return MetamodelImageService.getQualifiedIcon(element.getMClass(), ElementImageService.getFlavor(element));
         } catch (DeadObjectException e) {
-            return MetamodelImageService.getIcon(element.getMClass(), null);
+            return MetamodelImageService.getQualifiedIcon(element.getMClass(), null);
         }
     }
 
-    /**
-     * A so-called 'application' image is defined as follows:
-     * <ul>
-     * <li>first stereotype image found on the element. Note that 'first' is the order of the modules as returned by mda.infra, ie based on workbench</li>
-     * <li>if no stereotype image is found, return the metaclass image</li>
-     * </ul>
-     * @param element a model object.
-     * @return an 'application' image for the element.
-     */
-    @objid ("006939f8-a3a1-100e-835d-001ec947cd2a")
-    public static Image getImage(MObject element) {
+    @objid ("662f9841-6a96-4b6e-a215-987a71e1a290")
+    public static QualifiedImage getQualifiedImage(MObject element) {
         try {
             // Only model elements can have stereotypes
-            Image image = element instanceof ModelElement ? ElementImageService.getDisplayedStereotypeImage((ModelElement) element) : null;
+            QualifiedImage image = element instanceof ModelElement ? ModuleI18NService.getQualifiedImage((ModelElement) element, null) : null;
             if (image != null) {
                 return image;
             }
@@ -92,33 +113,10 @@ public class ElementImageService {
                 return svc.getImage(element);
             }
         
-            return MetamodelImageService.getImage(element.getMClass(), ElementImageService.getFlavor(element));
+            return MetamodelImageService.getQualifiedImage(element.getMClass(), ElementImageService.getFlavor(element));
         } catch (DeadObjectException e) {
-            return MetamodelImageService.getImage(element.getMClass(), null);
+            return MetamodelImageService.getQualifiedImage(element.getMClass(), null);
         }
-    }
-
-    /**
-     * Returns the icon (usually 16*16) to use for an element having stereotypes.
-     * @see ModuleI18NService#getIcon(ModelElement)
-     */
-    @objid ("006959ec-a3a1-100e-835d-001ec947cd2a")
-    private static Image getDisplayedStereotypeIcon(ModelElement modelElement) {
-        return ModuleI18NService.getIcon(modelElement, null);
-    }
-
-    /**
-     * Returns the image (usually 32*32) to use for an element having stereotypes.
-     * @see ModuleI18NService#getImage(ModelElement)
-     */
-    @objid ("00699790-a3a1-100e-835d-001ec947cd2a")
-    private static Image getDisplayedStereotypeImage(ModelElement modelElement) {
-        return ModuleI18NService.getImage(modelElement, null);
-    }
-
-    @objid ("0069b8b0-a3a1-100e-835d-001ec947cd2a")
-    private static String getFlavor(MObject element) {
-        return null;
     }
 
 }

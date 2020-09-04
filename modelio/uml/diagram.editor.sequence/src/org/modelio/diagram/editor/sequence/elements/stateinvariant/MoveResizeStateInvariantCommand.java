@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class MoveResizeStateInvariantCommand extends Command {
 
     /**
      * Sets the new "end time" of the StateInvariant.
+     * 
      * @param value the new "end time" of the StateInvariant.
      */
     @objid ("d99a98e1-55b6-11e2-877f-002564c97630")
@@ -62,6 +63,7 @@ public class MoveResizeStateInvariantCommand extends Command {
 
     /**
      * Sets the modified StateInvariant.
+     * 
      * @param value the modified StateInvariant.
      */
     @objid ("d99a98e5-55b6-11e2-877f-002564c97630")
@@ -71,6 +73,7 @@ public class MoveResizeStateInvariantCommand extends Command {
 
     /**
      * Sets the new "time" of the StateInvariant.
+     * 
      * @param value the new "time" of the StateInvariant.
      */
     @objid ("d99a98e9-55b6-11e2-877f-002564c97630")

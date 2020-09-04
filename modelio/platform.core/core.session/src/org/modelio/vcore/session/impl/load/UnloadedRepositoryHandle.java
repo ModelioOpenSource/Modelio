@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -130,6 +130,7 @@ public class UnloadedRepositoryHandle implements IRepositoryObject {
 
     /**
      * Try to reload another live instance of the object data with another repository handle.
+     * 
      * @param obj the object to reload.
      * @return true if the object was successfully  else false.
      */

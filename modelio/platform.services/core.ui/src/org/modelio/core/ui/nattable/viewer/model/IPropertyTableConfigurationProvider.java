@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public interface IPropertyTableConfigurationProvider {
 
     /**
      * Get a {@link IConfiguration} with the given datas.
+     * 
      * @param context the table project context
      * @param dataModel the table data model
      * @return the configuration

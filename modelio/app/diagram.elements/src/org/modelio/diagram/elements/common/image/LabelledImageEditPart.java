@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -107,11 +107,12 @@ public class LabelledImageEditPart extends ImageEditPart {
 
     /**
      * Get the image figure from the main figure.
+     * 
      * @param mainFig the main figure.
      * @return the image figure.
      */
     @objid ("f56ba4c0-7f97-4808-9fc0-d1769c771d00")
-    private ImageFigure getImageFigure(IFigure mainFig) {
+    protected ImageFigure getImageFigure(IFigure mainFig) {
         return (ImageFigure) mainFig.getChildren().get(0);
     }
 

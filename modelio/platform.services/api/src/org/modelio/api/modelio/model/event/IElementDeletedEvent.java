@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ public interface IElementDeletedEvent {
 
     /**
      * Used to get the destroyed element.
+     * 
      * @return Returns the deleted element.
      */
     @objid ("a42b640f-0ecc-11e2-96c4-002564c97630")
@@ -41,6 +42,7 @@ public interface IElementDeletedEvent {
      * <p><p>
      * The parent corresponds to the element accessed through the use of the
      * {@link MObject#getCompositionOwner()} method.
+     * 
      * @return Returns the old parent.
      */
     @objid ("a42b8b20-0ecc-11e2-96c4-002564c97630")

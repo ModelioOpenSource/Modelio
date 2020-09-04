@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -28,20 +28,14 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * A simple Logger utility, logging into System.out.
+ * <p>
+ * Ignores the 'log level', all messages are always logged.
+ * </p>
  */
 @objid ("000dece2-e3a3-1f33-b94f-001ec947cd2a")
 class BasicLogger implements IBasicLogger {
     @objid ("000bc43a-e3a3-1f33-b94f-001ec947cd2a")
     private static final String[] PREFIXS = { "INFO: ", "WARN: ", " ERR: " };
-
-    @objid ("0009b1cc-e3a3-1f33-b94f-001ec947cd2a")
-    private static final int TRACE = 0;
-
-    @objid ("000ba2b6-e3a3-1f33-b94f-001ec947cd2a")
-    private static final int WARNING = 1;
-
-    @objid ("000bb436-e3a3-1f33-b94f-001ec947cd2a")
-    private static final int ERROR = 2;
 
     @objid ("77b26ef8-9b64-11e1-94a3-001ec947ccaf")
     private static final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS ");
@@ -50,10 +44,10 @@ class BasicLogger implements IBasicLogger {
     protected void log(final int level, final String message) {
         StringBuilder builder = new StringBuilder(256);
         
-        synchronized(dateFormatter) {
-            builder.append(dateFormatter.format(new Date()));
+        synchronized (BasicLogger.dateFormatter) {
+            builder.append(BasicLogger.dateFormatter.format(new Date()));
         }
-        builder.append(PREFIXS[level]);
+        builder.append(BasicLogger.PREFIXS[level]);
         builder.append(message);
         
         print(builder.toString());
@@ -64,7 +58,6 @@ class BasicLogger implements IBasicLogger {
      * implementation of {@link #log(int, String, String, Throwable)}.
      */
     @objid ("0025ace2-e3a3-1f33-b94f-001ec947cd2a")
-    @SuppressWarnings("static-method")
     protected static void print(final String message) {
         System.out.println(message);
     }
@@ -76,7 +69,7 @@ class BasicLogger implements IBasicLogger {
     @objid ("2b5c050f-004e-4bd8-adec-3fe20d6eff41")
     @Override
     public void warning(final String format, final Object... args) {
-        log(WARNING, String.format(format, args));
+        log(IBasicLogger.WARNING, String.format(format, args));
     }
 
     /**
@@ -86,16 +79,16 @@ class BasicLogger implements IBasicLogger {
     @objid ("9dd71750-5534-4329-8e72-8b14e8f1625b")
     @Override
     public void trace(final String format, final Object... args) {
-        log(TRACE, String.format(format, args));
+        log(IBasicLogger.TRACE, String.format(format, args));
     }
 
     @objid ("d6ebb9f6-43be-4d6c-8754-394186ca0900")
     @Override
     public void error(final Throwable ex) {
-        log(ERROR, ex.getMessage());
+        log(IBasicLogger.ERROR, ex.getMessage());
         final StringWriter stackTrace = new StringWriter();
         ex.printStackTrace(new PrintWriter(stackTrace));
-        log(ERROR, stackTrace.toString());
+        log(IBasicLogger.ERROR, stackTrace.toString());
     }
 
     /**
@@ -104,34 +97,34 @@ class BasicLogger implements IBasicLogger {
     @objid ("82506d9e-a3dc-41b5-bfca-98a993914c50")
     @Override
     public void error(final String message) {
-        log(ERROR, message);
+        log(IBasicLogger.ERROR, message);
     }
 
     @objid ("6055f922-4fa0-48bd-8e6a-9ee0b6d0f535")
     @Override
     public void warning(final String message) {
-        log(WARNING, message);
+        log(IBasicLogger.WARNING, message);
     }
 
     @objid ("7f11df5f-f508-4478-97b8-00ab0ac60d78")
     @Override
     public void trace(final String message) {
-        log(TRACE, message);
+        log(IBasicLogger.TRACE, message);
     }
 
     @objid ("60883a45-ea4d-416b-a59a-1cc61c194733")
     @Override
     public void trace(final Throwable ex) {
-        log(TRACE, ex.getMessage());
+        log(IBasicLogger.TRACE, ex.getMessage());
     }
 
     @objid ("0a3f338c-056b-4936-bdff-e6d0efe84221")
     @Override
     public void warning(final Throwable ex) {
-        log(WARNING, ex.getMessage());
+        log(IBasicLogger.WARNING, ex.getMessage());
         final StringWriter stackTrace = new StringWriter();
         ex.printStackTrace(new PrintWriter(stackTrace));
-        log(WARNING, stackTrace.toString());
+        log(IBasicLogger.WARNING, stackTrace.toString());
     }
 
     /**
@@ -141,7 +134,19 @@ class BasicLogger implements IBasicLogger {
     @objid ("d0f4f4d3-eaa2-4bec-8a33-d576bdbf584c")
     @Override
     public void error(final String format, final Object... args) {
-        log(ERROR, String.format(format, args));
+        log(IBasicLogger.ERROR, String.format(format, args));
+    }
+
+    @objid ("c8faf5f5-c790-4f63-95a0-cbd84cc6c738")
+    @Override
+    public int getLevel() {
+        return IBasicLogger.TRACE;
+    }
+
+    @objid ("12d03153-5267-40e8-a293-d4e2fb054abe")
+    @Override
+    public void setLevel(int level) {
+        // Ignored
     }
 
 }

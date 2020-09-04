@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ public class EmptyModuleHandle implements IModuleHandle {
 
     /**
      * C'tor
+     * 
      * @param moduleName the module name
      * @param moduleVersion the module version
      */

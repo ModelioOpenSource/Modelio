@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class MofSmDependency extends SmMultipleDependency {
 
     /**
      * Create a {noPartOf} 0..* dependency.
+     * 
      * @param srcClass the source metaclass
      * @param dep_name the name
      * @param targetClass the target metaclass
@@ -76,6 +77,7 @@ public class MofSmDependency extends SmMultipleDependency {
      * Get or create a MOF dependency from another dependency .
      * <p>
      * The original and this dependency will share the same opposite.
+     * 
      * @param srcClass the source fake metaclass
      * @param orig a dependency that existed on the metaclass before it becomes fake.
      */
@@ -123,6 +125,7 @@ public class MofSmDependency extends SmMultipleDependency {
 
     /**
      * Set the dependency opposite
+     * 
      * @param symetric the dependency opposite
      */
     @objid ("186024c7-4bdc-490c-a469-c8a061585ea9")
@@ -144,6 +147,7 @@ public class MofSmDependency extends SmMultipleDependency {
 
     /**
      * Put or remove a flag.
+     * 
      * @param flag the flag to modify
      * @param val true to add the flag, false to remove it.
      */
@@ -159,6 +163,7 @@ public class MofSmDependency extends SmMultipleDependency {
 
     /**
      * Get the key  used to look for the dependency content in the SmObject.
+     * 
      * @return the lookup key
      */
     @objid ("4ee0d1bb-6901-49d1-bde6-909a4c1fdd8b")
@@ -172,6 +177,7 @@ public class MofSmDependency extends SmMultipleDependency {
      * <p>
      * Warn : The target should be set at construction time,
      * call only if you know what you are doing !
+     * 
      * @param target the target metaclass.
      */
     @objid ("b0b488dc-c41c-4784-91e9-8a5fbff33d83")
@@ -181,6 +187,7 @@ public class MofSmDependency extends SmMultipleDependency {
 
     /**
      * Add flags to the dependency
+     * 
      * @param flags the flags to add.
      */
     @objid ("b4512f99-4239-4846-b031-c93a207df611")
@@ -191,6 +198,7 @@ public class MofSmDependency extends SmMultipleDependency {
 
     /**
      * Set the cardinality.
+     * 
      * @param minCardinality the minimum cardinality
      * @param maxCardinality the maximum cardinality, -1 for infinite.
      */
@@ -218,6 +226,7 @@ public class MofSmDependency extends SmMultipleDependency {
      * <p>
      * WARNING: This method should be used only with non persisted dependencies, in the other case anything
      * may happen when saving the project.
+     * 
      * @param newName the new dependency name.
      */
     @objid ("1338c5e2-3e43-4800-a801-9abcabf4604c")

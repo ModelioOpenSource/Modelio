@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -28,11 +28,11 @@ import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Enumeration;
 import org.modelio.metamodel.uml.statik.Operation;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.ObjingEAnnotation;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("c564792d-5160-424c-bb5a-53ca0befb1a6")
 public class ETemplateSignature extends EElement {
@@ -54,7 +54,7 @@ public class ETemplateSignature extends EElement {
                 Operation result = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createOperation();
         
                 try {
-                    result.getExtension().add(mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2TEMPLATESIGNATURE, result.getMClass()));
+                    result.getExtension().add(mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TEMPLATESIGNATURE, result.getMClass()));
                 } catch (ElementNotUniqueException e) {
                     Xmi.LOG.warning(e);
                 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -185,6 +185,7 @@ public class StyledTextPainter extends AbstractCellPainter {
      * @param layout
      * @param cell
      * @param applyColors
+     * 
      * @return the text width delta (0 if the text layout contains no other font)
      */
     @objid ("24e93a97-08fa-4f42-9798-b20131190fee")
@@ -238,6 +239,7 @@ public class StyledTextPainter extends AbstractCellPainter {
      * no colors are drawn when the element is selected.
      * The current version of the {@link StyledCellLabelProvider} will also ignore all font settings on the
      * style range. Clients can override.
+     * 
      * @param styleRange the style range to prepare. the style range element must not be modified
      * @param applyColors specifies if colors should be applied.
      * @return

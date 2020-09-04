@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -85,6 +85,7 @@ public abstract class TrimBarComponent {
 
     /**
      * Defines the actual content of the TrimBar component.
+     * 
      * @param parent a composite control which will be the parent of the new instance (cannot be null).
      * @return the created SWT control. Must not be <code>null</code>.
      */
@@ -201,6 +202,7 @@ public abstract class TrimBarComponent {
 
     /**
      * Initialize the SWT toolbar.
+     * 
      * @param parent a widget which will be the parent of the new SWT components.
      */
     @objid ("18b624ec-9978-4af3-b378-8c1823088cf4")

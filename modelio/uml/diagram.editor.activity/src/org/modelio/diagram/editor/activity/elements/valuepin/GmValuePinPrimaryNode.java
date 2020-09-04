@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class GmValuePinPrimaryNode extends GmNoStyleSimpleNode implements IImage
 
     /**
      * Constructor.
+     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param relatedRef represented element reference, must not be null.
      */
@@ -97,6 +98,7 @@ public class GmValuePinPrimaryNode extends GmNoStyleSimpleNode implements IImage
 
     /**
      * Get the stereotype image to display.
+     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("2b6cc11a-55b6-11e2-877f-002564c97630")

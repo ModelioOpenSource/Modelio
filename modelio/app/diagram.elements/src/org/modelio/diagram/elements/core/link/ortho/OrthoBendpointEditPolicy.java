@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -147,6 +147,7 @@ public class OrthoBendpointEditPolicy extends SelectionHandlesEditPolicy impleme
 
     /**
      * Erases all bendpoint feedback. Since the original <code>Connection</code> figure is used for feedback, we just restore the original constraint that was saved before feedback started to show.
+     * 
      * @param request the BendpointRequest
      */
     @objid ("803af846-1dec-11e2-8cad-001ec947c8cc")
@@ -189,6 +190,7 @@ public class OrthoBendpointEditPolicy extends SelectionHandlesEditPolicy impleme
 
     /**
      * Convenience method for obtaining the host's <code>Connection</code> figure.
+     * 
      * @return the Connection figure
      */
     @objid ("803d5a89-1dec-11e2-8cad-001ec947c8cc")
@@ -305,6 +307,7 @@ public class OrthoBendpointEditPolicy extends SelectionHandlesEditPolicy impleme
 
     /**
      * Rebuilds a complete routing constraint for the given connection and returns it.
+     * 
      * @param connection the connection to rebuild a constraint for.
      */
     @objid ("803d5ac6-1dec-11e2-8cad-001ec947c8cc")
@@ -325,6 +328,7 @@ public class OrthoBendpointEditPolicy extends SelectionHandlesEditPolicy impleme
      * <li>VERTICAL if <code>p1.x == p2.x || abs(p1.y - p2.y)/abs(p1.x - p2.x) > 1</code></li>
      * <li>NONE otherwise (ie: either point is <code>null</code> or <code>p1.x != p2.x && p1.y != p2.y && abs(p1.x - p2.x)/abs(p1.y - p2.y) == 1</code></li>
      * </ul>
+     * 
      * @param point1 the first point
      * @param point2 the second point
      * @return the orientation of the segment.

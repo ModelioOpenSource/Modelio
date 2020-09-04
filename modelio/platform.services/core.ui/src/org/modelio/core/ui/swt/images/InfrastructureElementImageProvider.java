@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.eclipse.swt.graphics.Image;
 import org.modelio.core.ui.plugin.CoreUi;
 import org.modelio.core.ui.swt.images.spi.IElementImageProvider;
 import org.modelio.core.ui.swt.images.spi.IMetamodelImageProvider;
+import org.modelio.ui.swt.QualifiedImage;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -50,41 +51,42 @@ public class InfrastructureElementImageProvider implements IElementImageProvider
 
     @objid ("3f0ecbe8-647c-4067-b033-55834dadcb57")
     @Override
-    public Image getIcon(MObject element) {
+    public QualifiedImage getIcon(MObject element) {
         return getIcon(element.getMClass(), getFlavor(element));
     }
 
     /**
      * Get the icon for a metaclass and a flavor
+     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found icon or a default unknown icon.
      */
     @objid ("30cf3d70-5da3-4e2b-b464-ec0354cf28f6")
     @Override
-    public Image getIcon(MClass metaclass, String flavor) {
-        final String key = getIconKey(metaclass, flavor, metaclass.getOrigin().isExtension());
-        return getImageFromKey(key);
+    public QualifiedImage getIcon(MClass metaclass, String flavor) {
+        // since 3.8.1 ALWAYS get metaclass icons by a qualified name
+        return getImageFromKey(getIconKey(metaclass, flavor));
     }
 
     @objid ("b202e11e-8749-4463-9c5c-b16a599e2c41")
     @Override
-    public Image getImage(MObject element) {
+    public QualifiedImage getImage(MObject element) {
         return getImage(element.getMClass(), getFlavor(element));
     }
 
     /**
      * Get the diagram big image for a metaclass and a flavor.
+     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found image or null.
      */
     @objid ("4488c7a2-61ba-43a2-86fc-70b9c50a568f")
     @Override
-    public Image getImage(MClass metaclass, String flavor) {
-        final String key = getImageKey(metaclass, flavor, metaclass.getOrigin().isExtension());
-        Image image = getImageFromKey(key);
-        return image;
+    public QualifiedImage getImage(MClass metaclass, String flavor) {
+        final String key = getImageKey(metaclass, flavor);
+        return getImageFromKey(key);
     }
 
     /**
@@ -96,13 +98,13 @@ public class InfrastructureElementImageProvider implements IElementImageProvider
     }
 
     @objid ("01c155e3-1d37-446b-8f64-645ba72317f1")
-    private String getImageKey(MClass metaclass, String flavor, boolean qualified) {
-        return getIconKey(metaclass, flavor, qualified) + ".image";
+    private String getImageKey(MClass metaclass, String flavor) {
+        return getIconKey(metaclass, flavor) + ".image";
     }
 
     @objid ("ad8224c8-b79e-4570-ace8-094607beb9c8")
-    private String getIconKey(MClass metaclass, String flavor, boolean qualified) {
-        final String className = qualified ? metaclass.getQualifiedName() : metaclass.getName();
+    private String getIconKey(MClass metaclass, String flavor) {
+        final String className = metaclass.getQualifiedName();
         if (flavor == null || flavor.isEmpty()) {
             return className;
         } else {
@@ -138,12 +140,13 @@ public class InfrastructureElementImageProvider implements IElementImageProvider
 
     /**
      * Get the icon for a metaclass.
+     * 
      * @param metaclassName a metaclass name.
      * @return the metaclass icon.
      */
     @objid ("bb19d275-645c-4596-8501-08234dae6f21")
     @Override
-    public Image getIcon(final String metaclassName) {
+    public QualifiedImage getIcon(final String metaclassName) {
         return getImageFromKey(metaclassName);
     }
 
@@ -151,19 +154,21 @@ public class InfrastructureElementImageProvider implements IElementImageProvider
      * Get the image for a given key.
      * <p>
      * The image is loaded into the registry if not yet done.
-     * @param key @return
+     * @return
      */
     @objid ("0ab937a1-a937-4b94-8603-595a64771251")
-    private Image getImageFromKey(final String key) {
+    private QualifiedImage getImageFromKey(final String key) {
         Image image = InfrastructureElementImageProvider.REGISTRY.get(key);
-        
         if (image == null) {
             image = loadImage(key);
             if (image != null) {
                 InfrastructureElementImageProvider.REGISTRY.put(key, image);
+            } else {
+                return null;
             }
         }
-        return image;
+        // Image is not null
+        return new QualifiedImage(image, key);
     }
 
     @objid ("5cf9493e-c699-4def-aa02-e4f560749633")
@@ -187,7 +192,7 @@ public class InfrastructureElementImageProvider implements IElementImageProvider
     @objid ("5d288c1c-899c-433b-aedf-086364532117")
     @Override
     public String getIconCompletePath(MClass metaclass) {
-        final String key = getImageKey(metaclass, null, metaclass.getOrigin().isExtension());
+        final String key = getIconKey(metaclass, null);
         return getIconCompletePath(key);
     }
 

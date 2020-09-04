@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class StandardPropertyPanel implements IPropertyPanel {
 
     /**
      * Create a new instance of the standard property panel.
+     * 
      * @param parent the SWT parent.
      * @param editedElement the element currently edited.
      */
@@ -145,6 +146,7 @@ public class StandardPropertyPanel implements IPropertyPanel {
      * <p>
      * Asks property model providers defined in the extension point, according to the element's metaclass fragment.
      * </p>
+     * 
      * @param element The element to display in the property view.
      * @param context The project context
      * @return The matching property model.

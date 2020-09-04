@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public abstract class VersionedExmlBase extends AbstractExmlRepository {
 
     /**
      * Initialize the repository.
+     * 
      * @param resProvider an EXML resource provider.
      */
     @objid ("979e7140-12de-11e2-816a-001ec947ccaf")
@@ -113,6 +114,7 @@ public abstract class VersionedExmlBase extends AbstractExmlRepository {
 
     /**
      * Get the version status flags initializer.
+     * 
      * @return the status flags initializer.
      */
     @objid ("3e36dd17-1ea1-11e2-90db-001ec947ccaf")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ public interface VTabFolderListener extends SWTEventListener {
      * When the CTabItem is closed, it is disposed.  The contents of the CTabItem (see CTabItem.setControl) will be
      * made not visible when the CTabItem is closed.
      * @see CTabItem#setControl
+     * 
      * @param event an event indicating the item being closed
      */
     @objid ("d6f88066-d32b-49a9-b04e-8983175b6aab")

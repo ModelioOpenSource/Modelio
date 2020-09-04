@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ public interface ILinkPath {
      * The returned list is a copy and can be freely be modified.<br>
      * To apply changes to the returned list, call {@link #setPoints(Collection)} with the returned
      * list as parameter.
+     * 
      * @return the bend points in coordinates relative to the diagram...
      */
     @objid ("6d18692e-69b5-11e0-adf3-002564c97630")
@@ -42,6 +43,7 @@ public interface ILinkPath {
      * Removes the point at the specified position in this point list.
      * <p>
      * Shifts any subsequent elements to the left (subtracts one from their indices).
+     * 
      * @param index the index of the element to be removed.
      */
     @objid ("6d18de62-69b5-11e0-adf3-002564c97630")
@@ -49,6 +51,7 @@ public interface ILinkPath {
 
     /**
      * Discards all points from the point list, then add all specified points in it.
+     * 
      * @param points the new point list for this connection.
      */
     @objid ("6d190573-69b5-11e0-adf3-002564c97630")
@@ -56,6 +59,7 @@ public interface ILinkPath {
 
     /**
      * Change the coordinates of a specific bend point of the connection.
+     * 
      * @param index the index of the point to move in the point list.
      * @param point the new coordinates for this point.
      */
@@ -64,6 +68,7 @@ public interface ILinkPath {
 
     /**
      * Change the coordinates of a specific bend point of the connection.
+     * 
      * @param index the index of the point to move in the point list.
      * @param x the new x coordinate
      * @param y the new y coordinate

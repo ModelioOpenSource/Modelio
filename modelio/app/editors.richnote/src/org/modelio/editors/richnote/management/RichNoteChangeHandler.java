@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ class RichNoteChangeHandler implements IModelChangeListener {
 
     /**
      * Initialize the rich notes handler.
+     * 
      * @param session the modeling session to handle.
      */
     @objid ("ce5a559d-aede-4b4b-a30f-fa5cb234d56a")

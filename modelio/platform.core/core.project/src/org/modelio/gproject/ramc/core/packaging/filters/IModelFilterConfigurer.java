@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public interface IModelFilterConfigurer {
      * Add a filter to the given metaclass and all its sub classes.
      * <p>
      * The filter replaces the previously set one.
+     * 
      * @param mmClass a metamodel class
      * @param objectFilter a filter to add.
      */

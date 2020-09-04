@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IDiagramGraphicFactory {
     /**
      * Creates a drawing rectangle.
+     * 
      * @param layer the layer to use
      * @param drawingIdentifier An identifier unique in the diagram, to be able to look for the graphic later.
      * If <i>null</i>, an identifier will be automatically generated.
@@ -45,6 +46,7 @@ public interface IDiagramGraphicFactory {
 
     /**
      * Creates a drawing ellipse.
+     * 
      * @param layer the layer to use
      * @param drawingIdentifier An identifier unique in the diagram, to be able to look for the graphic later.
      * If <i>null</i>, an identifier will be automatically generated.
@@ -59,6 +61,7 @@ public interface IDiagramGraphicFactory {
 
     /**
      * Creates a drawing rectangle.
+     * 
      * @param layer the layer to use
      * @param drawingIdentifier An identifier unique in the diagram, to be able to look for the graphic later.
      * If <i>null</i>, an identifier will be automatically generated.
@@ -74,6 +77,7 @@ public interface IDiagramGraphicFactory {
 
     /**
      * Creates a drawing line
+     * 
      * @param layer the layer to use
      * @param drawingIdentifier An identifier unique in the diagram, to be able to look for the graphic later.
      * If <i>null</i>, an identifier will be automatically generated.
@@ -90,6 +94,7 @@ public interface IDiagramGraphicFactory {
      * Unmask a model element in a diagram.
      * <p>
      * The model element is unmasked at the given position.
+     * 
      * @param element the model element to unmask.
      * @param x the x coordinates of the unmasking position.
      * @param y the y coordinates of the unmasking position.

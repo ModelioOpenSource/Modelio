@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class SelectAllHandler {
 
     /**
      * Retrieves edit parts which can be selected on the diagram background.
+     * 
      * @param viewer from which the edit parts are to be retrieved
      * @return list of selectable EditParts
      */

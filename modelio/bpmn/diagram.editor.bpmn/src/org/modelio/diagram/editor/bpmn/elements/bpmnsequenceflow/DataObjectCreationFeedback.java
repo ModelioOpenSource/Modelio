@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ class DataObjectCreationFeedback {
 
     /**
      * Shows the creation feedback.
+     * 
      * @param flowFigure the sequence flow to create the data object on.
      * @param mouseLocation the current mouse location.
      */
@@ -164,6 +165,7 @@ class DataObjectCreationFeedback {
 
         /**
          * Compute the center point of a line figure.
+         * 
          * @param flowFigure a flow figure.
          * @return a point.
          */
@@ -195,6 +197,7 @@ class DataObjectCreationFeedback {
 
         /**
          * Gets the point on the line segment at the given distance away from the key point.
+         * 
          * @param theDistance <code>long</code> distance along the line
          * @param start start of the segment
          * @param end end of the segment
@@ -257,6 +260,7 @@ class DataObjectCreationFeedback {
 
         /**
          * Calculates the slope of the line segment (y=ax+b)
+         * 
          * @param start start of segment
          * @param end end of segment
          * @return <code>float</code> the slope of the segment. If the slope is not defined such as when the line segment is
@@ -272,6 +276,7 @@ class DataObjectCreationFeedback {
 
         /**
          * Get the length of the given point list.
+         * 
          * @param points The point list
          * @return the length
          */

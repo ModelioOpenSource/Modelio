@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -144,6 +144,7 @@ public class ColorCellEditor2 extends DialogCellEditor {
     /**
      * Creates a new color cell editor parented under the given control. The cell editor value is black (
      * <code>RGB(0,0,0)</code>) initially, and has no validator.
+     * 
      * @param parent the parent control
      */
     @objid ("6b2c2793-1eba-11e2-9382-bc305ba4815c")
@@ -154,6 +155,7 @@ public class ColorCellEditor2 extends DialogCellEditor {
     /**
      * Creates a new color cell editor parented under the given control. The cell editor value is black (
      * <code>RGB(0,0,0)</code>) initially, and has no validator.
+     * 
      * @param parent the parent control
      * @param style the style bits
      * @since 2.1
@@ -167,6 +169,7 @@ public class ColorCellEditor2 extends DialogCellEditor {
     /**
      * Creates and returns the color image data for the given control and RGB value. The image's size is either the
      * control's item extent or the cell editor's default extent, which is 16 pixels square.
+     * 
      * @param w the control
      * @param color the color
      */

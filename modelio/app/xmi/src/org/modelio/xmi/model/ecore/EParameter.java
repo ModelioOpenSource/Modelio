@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,12 +34,12 @@ import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.metamodel.uml.statik.PassingMode;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.reverse.ReverseProperties;
 import org.modelio.xmi.util.EcoreModelNavigation;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.ObjingEAnnotation;
-import org.modelio.xmi.util.XMIProperties;
 
 /**
  * This class manages the import of Ecore org.eclipse.uml2.uml.Parameter
@@ -63,6 +63,7 @@ public class EParameter extends ENamedElement {
     /**
      * Constructor of EParameter.
      * It takes the imported Ecore org.eclipse.uml2.uml.Parameter as parameter
+     * 
      * @param element : the imported Ecore org.eclipse.uml2.uml.Parameter
      */
     @objid ("7317f0af-0d1c-4839-9c21-3867c7da209e")
@@ -184,7 +185,7 @@ public class EParameter extends ENamedElement {
                     if ((instance != null) && (instance instanceof Instance)) {
                         
                         try {
-                            ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createDependency(objingElt, (Instance) instance, XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2INSTANCEVALUE);
+                            ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createDependency(objingElt, (Instance) instance, IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2INSTANCEVALUE);
                         } catch (ExtensionNotFoundException e) {                          
                             Xmi.LOG.warning(Xmi.PLUGIN_ID, e);       
                         }                          

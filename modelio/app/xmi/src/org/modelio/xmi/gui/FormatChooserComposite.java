@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class FormatChooserComposite extends Composite {
 
     /**
      * This method sets the label of the composite
+     * 
      * @param label : the label of the composite
      */
     @objid ("90ef5b0e-b16b-4df6-a6ac-9bb3726c7dd4")
@@ -70,6 +71,7 @@ public class FormatChooserComposite extends Composite {
      * - the parent composite
      * - its SWT style
      * - the selection type of the SWT FileDialog
+     * 
      * @param parent : the SWT composite owner
      * @param style : the SWT style
      * @param typeSelection : the SWT selection type
@@ -111,6 +113,7 @@ public class FormatChooserComposite extends Composite {
 
     /**
      * This method returns the UML version specified
+     * 
      * @return a UML version of the export
      */
     @objid ("38e50c36-c787-4821-9028-45b52e0ca113")

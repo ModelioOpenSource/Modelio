@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.diagrams;
 
@@ -32,19 +32,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("006e66a8-c4bf-1fd8-97fe-001ec947cd2a")
 public class DiagramSetData extends ModelElementData {
-    @objid ("8a8fe4a9-bd2c-4377-af5f-61daf831a358")
+    @objid ("0845393c-7d44-4998-9556-8aa7dd25512f")
      List<SmObjectImpl> mSub = null;
 
-    @objid ("5c5b7aad-b3ea-437a-88e0-a1b7f8833efc")
+    @objid ("599554b4-301d-48e3-bf86-bfc22909ed4d")
      SmObjectImpl mParent;
 
-    @objid ("ee5c6d42-564c-4544-ae87-3b8cc0c8e75a")
+    @objid ("a21b6d76-462d-4e86-8fa6-8fe1df33e93d")
      List<SmObjectImpl> mReferencedDiagram = null;
 
-    @objid ("feb7b654-3390-4fe4-b73f-d21888610666")
+    @objid ("30aa8352-470a-4f10-bf83-2fce586bff67")
      SmObjectImpl mOwner;
 
-    @objid ("56ad3083-759c-4481-89ff-c012b4f386d2")
+    @objid ("0e7d5c04-c1be-43be-9eed-117ee2af856b")
     public DiagramSetData(DiagramSetSmClass smClass) {
         super(smClass);
     }

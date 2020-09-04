@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ public interface IDiagramConfigurer {
 
     /**
      * Fills the diagram palette
+     * 
      * @param diagram the diagram editor
      * @param toolRegistry the tool registry where you can look for a tool from its identifier.
      * @return the created diagram palette.

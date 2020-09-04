@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.mda;
 
@@ -32,34 +32,34 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("00653042-c4bf-1fd8-97fe-001ec947cd2a")
 public class ModuleParameterData extends ModelElementData {
-    @objid ("57e0e5c2-4e55-4186-b1fb-d931a54a7dff")
+    @objid ("875a5352-981d-495f-b047-2a4904ada79b")
      Object mGroupName = "";
 
-    @objid ("323e02f6-620e-4cab-8513-3b31e1f22226")
+    @objid ("6dd2e620-659f-40bb-a412-ab98c85184e7")
      Object mType = ModuleParameterType.TYPE_PARAM_STRING;
 
-    @objid ("3d033e80-ad75-4122-9c16-f107d7589960")
+    @objid ("426f5b32-711c-4178-9341-9c1b12b82599")
      Object mIsUserRead = true;
 
-    @objid ("9eb70c50-51b0-474c-8042-eda8277d6344")
+    @objid ("50cc351b-ccae-418e-9647-e5c5252853c4")
      Object mIsUserWrite = true;
 
-    @objid ("3d8ecf9d-0748-4f46-b9de-757349ef4b03")
+    @objid ("a1724d18-1934-4fbf-8c60-8cda829b5c79")
      Object mIsApiRead = true;
 
-    @objid ("a967a297-5a1f-4bae-939f-d2dcb886fece")
+    @objid ("7f8c5950-05ce-4c0f-9767-017f461b65f3")
      Object mIsApiWrite = true;
 
-    @objid ("fae4b685-1785-4ab8-979d-44c8f9cd3986")
+    @objid ("f7c23efa-4484-4eb9-bc15-7afc5dbac7d5")
      Object mDefaultValue = "";
 
-    @objid ("b89ebe68-d0cc-45b0-a937-893cd3d58f8a")
+    @objid ("fc423e38-f6c1-42c1-a437-4a8b3381246e")
      SmObjectImpl mOwner;
 
-    @objid ("94b6d6ca-3d5e-469e-930e-d3549abc2cfe")
+    @objid ("83b0a08d-0121-42da-b3f5-d5b7131822dd")
      SmObjectImpl mEnumType;
 
-    @objid ("c5663171-a99d-443a-a625-10265fc17b37")
+    @objid ("c7325aef-917a-4f90-9b7d-361c84d7dac9")
     public ModuleParameterData(ModuleParameterSmClass smClass) {
         super(smClass);
     }

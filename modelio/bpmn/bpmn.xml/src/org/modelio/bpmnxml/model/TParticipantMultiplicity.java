@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -78,6 +78,7 @@ public class TParticipantMultiplicity extends TBaseElement {
 
     /**
      * Sets the value of the minimum property.
+     * 
      * @param value allowed object is
      * {@link Integer }
      */
@@ -103,6 +104,7 @@ public class TParticipantMultiplicity extends TBaseElement {
 
     /**
      * Sets the value of the maximum property.
+     * 
      * @param value allowed object is
      * {@link Integer }
      */

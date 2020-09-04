@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ public class DescriptorServices {
      * Merges a project descriptor into another.
      * <p>
      * Fragments and modules details in the source descriptor override the destination descriptor.
+     * 
      * @param source the descriptor whose content will be merged into the destination descriptor.
      * @param dest the descriptor that will be modified.
      */
@@ -84,6 +85,7 @@ public class DescriptorServices {
 
     /**
      * Remove all {@link DefinitionScope#LOCAL local} parts from the descriptor.
+     * 
      * @param projectDescriptor the project descriptor to clear.
      */
     @objid ("bdc4f09a-2f51-4db4-8321-ba230545f58e")
@@ -119,6 +121,7 @@ public class DescriptorServices {
      * <p>
      * Replaces shared fragments and modules descriptors by references if they contain
      * local properties or authentication data.
+     * 
      * @param projectDescriptor the project descriptor to clear.
      */
     @objid ("e803e272-539a-4eab-9b73-e287e88240f2")
@@ -167,6 +170,7 @@ public class DescriptorServices {
 
     /**
      * Modifies the descriptor to resolve the descriptor URIs against the given URI.
+     * 
      * @param projectDescriptor the descriptor to resolve.
      * @param aRemoteUri the remote project URI
      */
@@ -191,6 +195,7 @@ public class DescriptorServices {
 
     /**
      * Merge the other fragment details into this one.
+     * 
      * @param fd the fragment to merge into this.
      */
     @objid ("0460ce5e-3019-11e2-8f81-001ec947ccaf")
@@ -210,6 +215,7 @@ public class DescriptorServices {
 
     /**
      * Merge the other module descriptor into this one.
+     * 
      * @param source the other module descriptor
      */
     @objid ("046a5765-3019-11e2-8f81-001ec947ccaf")

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Modelio Application Core
 Bundle-SymbolicName: org.modelio.app.core;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: org.modelio.app.core.plugin.AppCore
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime,
@@ -16,7 +16,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.modelio.core.project,
  org.modelio.version,
  org.modelio.app.preferences,
- org.modelio.core.session
+ org.modelio.core.session,
+ org.modelio.core.rcp
 Bundle-Vendor: modelio.org
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin

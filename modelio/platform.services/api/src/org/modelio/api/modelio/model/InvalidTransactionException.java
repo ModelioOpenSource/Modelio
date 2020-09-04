@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,7 @@ public class InvalidTransactionException extends RuntimeException {
 
     /**
      * Constructs a new runtime exception with the specified detail message.
+     * 
      * @param message the detail message.
      */
     @objid ("00d00158-0001-6330-0000-000000000000")
@@ -54,6 +55,7 @@ public class InvalidTransactionException extends RuntimeException {
     /**
      * Constructs a new runtime exception with the specified detail message and
      * cause.
+     * 
      * @param message the detail message.
      * @param cause the cause of the exception.
      */
@@ -64,6 +66,7 @@ public class InvalidTransactionException extends RuntimeException {
 
     /**
      * Constructs a new runtime exception with the specified cause.
+     * 
      * @param cause the cause of the exception.
      */
     @objid ("00d00158-0001-6337-0000-000000000000")

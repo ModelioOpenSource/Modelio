@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ public interface IModuleLifeCycleHandler {
     /**
      * Called when the mdac is selected, which corresponds to the user action
      * "Deploy a mdac...".
+     * 
      * @return if the mdac accepts to be selected
      * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs preventing the module from being
      * selected.
@@ -48,6 +49,7 @@ public interface IModuleLifeCycleHandler {
      * <li>the project has just been opened
      * <li>the mdac has finished to be upgraded from a previous version
      * </ul>
+     * 
      * @return if the mdac accepts to be started
      * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs preventing the module from starting.
      */
@@ -61,6 +63,7 @@ public interface IModuleLifeCycleHandler {
      * <li>the project is being closed
      * <li>the mdac is going to be upgraded to another version
      * </ul>
+     * 
      * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs preventing the module from stopping.
      */
     @objid ("01f40414-0000-3299-0000-000000000000")
@@ -68,6 +71,7 @@ public interface IModuleLifeCycleHandler {
 
     /**
      * Called when the mdac is deselected from the project.
+     * 
      * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs preventing the module from being
      * unselected.
      */
@@ -76,6 +80,7 @@ public interface IModuleLifeCycleHandler {
 
     /**
      * Called when the mdac is being upgraded from a previous version.
+     * 
      * @param oldVersion The previous version of the MDAC
      * @param oldParameters The previous list of parameters (key, value)
      * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs preventing the module from being

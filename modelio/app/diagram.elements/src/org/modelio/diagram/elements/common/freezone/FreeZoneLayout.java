@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class FreeZoneLayout extends XYLayout {
 
     /**
      * Fix the child position so that it is inside the client area rectangle as much as possible
+     * 
      * @param clientArea the area in which the child rectangle must fit.
      * @param childRectangle The rectangle to fix.
      */
@@ -157,6 +158,7 @@ public class FreeZoneLayout extends XYLayout {
 
     /**
      * Truncates the rectangle of its negative part.
+     * 
      * @param rect a Rectangle that on return will start on positive coordinates.
      */
     @objid ("994d820b-a532-4398-9e18-d27680f41399")

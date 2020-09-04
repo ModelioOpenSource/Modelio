@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -30,6 +30,7 @@ import org.modelio.vcore.session.impl.transactions.smAction.smActionInteractions
 public interface IAction {
     /**
      * Visitor pattern
+     * 
      * @param v a visitor
      */
     @objid ("006bd1f4-0d1e-1f20-85a5-001ec947cd2a")
@@ -56,6 +57,7 @@ public interface IAction {
 
     /**
      * Execute le undo de l'action
+     * 
      * @param rollback whether the undo is for a transaction rollback or a 'undo' command.
      */
     @objid ("006b1f98-0d1e-1f20-85a5-001ec947cd2a")

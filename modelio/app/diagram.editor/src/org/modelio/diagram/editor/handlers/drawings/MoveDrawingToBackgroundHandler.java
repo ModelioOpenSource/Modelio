@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ import org.modelio.diagram.elements.drawings.core.MoveToLayerCommand;
 public class MoveDrawingToBackgroundHandler {
     /**
      * Execute the handler
+     * 
      * @param selection the Eclipse selection
      */
     @objid ("8b0961b6-de6a-4e13-a6d5-9656fef0c497")

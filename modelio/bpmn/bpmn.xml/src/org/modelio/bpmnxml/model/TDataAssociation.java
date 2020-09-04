@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -130,6 +130,7 @@ public class TDataAssociation extends TBaseElement {
 
     /**
      * Sets the value of the targetRef property.
+     * 
      * @param value allowed object is
      * {@link Object }
      */
@@ -151,6 +152,7 @@ public class TDataAssociation extends TBaseElement {
 
     /**
      * Sets the value of the transformation property.
+     * 
      * @param value allowed object is
      * {@link TFormalExpression }
      */

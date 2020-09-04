@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -96,6 +96,7 @@ public class CircleLayout {
     /**
      * Sets locations of all dgs, distributed around a circle.
      * The center of each dg is part of the circle itself.
+     * 
      * @param dgs the graphics to layout.
      * @param center The center of the circle.
      * @param radius The radius of the circle.

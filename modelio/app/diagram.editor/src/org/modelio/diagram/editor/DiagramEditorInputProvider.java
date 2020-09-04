@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,10 +23,10 @@ package org.modelio.diagram.editor;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.contexts.ContextFunction;
 import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.eclipse.e4.ui.model.application.ui.basic.MInputPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.diagram.editor.plugin.DiagramEditor;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.ModelManager;
@@ -45,9 +45,9 @@ public class DiagramEditorInputProvider extends ContextFunction {
 
     @objid ("be77b3eb-5a77-11e2-9c97-002564c97630")
     @Override
-    public Object compute(IEclipseContext context, String contextKey) {
-        String diagramUID = context.get(MInputPart.class).getInputURI();
-        IModelManager modelManager = new ModelManager(context);
+    public Object compute(final IEclipseContext context, final String contextKey) {
+        final String diagramUID = context.get(MPart.class).getPersistedState().get("inputURI");
+        final IModelManager modelManager = new ModelManager(context);
         return createEditorInput(diagramUID, modelManager);
     }
 
@@ -56,37 +56,37 @@ public class DiagramEditorInputProvider extends ContextFunction {
      * <p>
      * Scans the {@value #INPUTPROVIDER_ID}INPUTPROVIDER_ID extension point to find a contribution that is able to instantiate a {@link DiagramEditorInput}.
      * </p>
+     * 
      * @param diagram The element to unmask
      * @param modelManager a diagram model manager
      * @return a diagram editor input for the given diagram. <code>null</code> if no contribution supports this diagram's kind.
      */
     @objid ("4c395f09-5c18-43d6-83f5-cbccb98c39f4")
-    public static DiagramEditorInput createEditorInput(AbstractDiagram diagram, IModelManager modelManager) {
-        String diagramUID = diagram.getUuid();
+    public static DiagramEditorInput createEditorInput(final AbstractDiagram diagram, final IModelManager modelManager) {
+        final String diagramUID = diagram.getUuid();
         return createEditorInput(diagramUID, modelManager);
     }
 
     @objid ("a44bb2b0-1820-44e5-9c12-2f56073d042e")
-    private static DiagramEditorInput createEditorInput(String diagramUID, IModelManager modelManager) {
+    private static DiagramEditorInput createEditorInput(final String diagramUID, final IModelManager modelManager) {
         IDiagramEditorInputProvider lastProvider = null;
         
-        IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor(DiagramEditorInputProvider.INPUTPROVIDER_ID);
-        for (IConfigurationElement e : config) {
+        for (final IConfigurationElement e : new ExtensionPointContributionManager(DiagramEditorInputProvider.INPUTPROVIDER_ID).getExtensions("inputprovider")) {
             try {
-                Object o = e.createExecutableExtension("class");
+                final Object o = e.createExecutableExtension("class");
                 if (o instanceof IDiagramEditorInputProvider) {
-                    IDiagramEditorInputProvider provider = (IDiagramEditorInputProvider) o;
+                    final IDiagramEditorInputProvider provider = (IDiagramEditorInputProvider) o;
                     if (provider.getClass().getName().contains("StaticDiagramEditorInputProvider")) {
                         // TODO 'static' editor should always be handled last, but checking the class name is kind of ugly
                         lastProvider = provider;
                     } else {
-                        DiagramEditorInput input = provider.compute(diagramUID, modelManager);
+                        final DiagramEditorInput input = provider.compute(diagramUID, modelManager);
                         if (input != null) {
                             return input;
                         }
                     }
                 }
-            } catch (CoreException e1) {
+            } catch (final CoreException e1) {
                 DiagramEditor.LOG.error(e1);
             }
         }

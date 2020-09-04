@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,9 +42,6 @@ public class PeerModuleConfiguration implements IModuleAPIConfiguration {
     @objid ("fb4a79c3-f1b6-11e1-af52-001ec947c8cc")
     private GModule module;
 
-    @objid ("c8527d19-03ec-11e2-8e1f-001ec947c8cc")
-    private Path projectSpacePath;
-
     @objid ("c8527d1b-03ec-11e2-8e1f-001ec947c8cc")
     private Path deploymentPath;
 
@@ -52,9 +49,8 @@ public class PeerModuleConfiguration implements IModuleAPIConfiguration {
     private List<Path> docpath;
 
     @objid ("fb4a79c4-f1b6-11e1-af52-001ec947c8cc")
-    public PeerModuleConfiguration(GModule module, Path projectSpacePath, Path deploymentPath, final List<Path> docpath) {
+    public PeerModuleConfiguration(GModule module, Path deploymentPath, final List<Path> docpath) {
         this.module = module;
-        this.projectSpacePath = projectSpacePath;
         this.deploymentPath = deploymentPath;
         this.docpath = docpath;
     }
@@ -79,13 +75,14 @@ public class PeerModuleConfiguration implements IModuleAPIConfiguration {
     public Map<String, String> getParameters() {
         Map<String, String> results = new HashMap<>();
         
-        GProperties parameters = this.module.getParameters();
+        GProperties gProperties = this.module.getParameters();
         ModuleComponent moduleElement = this.module.getModuleElement();
         if (moduleElement != null) {
             EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
+        
             for (ModuleParameter configParam : configParams) {
                 if (configParam.isIsApiRead()) {
-                    results.put(configParam.getName(), parameters.getValue(configParam.getName(), ""));
+                    results.put(configParam.getName(), gProperties.getValue(configParam.getName(), ""));
                 }
             }
         }
@@ -100,9 +97,15 @@ public class PeerModuleConfiguration implements IModuleAPIConfiguration {
             EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
             for (ModuleParameter configParam : configParams) {
                 if (configParam.getName().equals(key) && configParam.isIsApiWrite()) {
-                    GProperties parameters = this.module.getParameters();
-                    parameters.setProperty(key, value, DefinitionScope.LOCAL);
-                    return parameters.getProperty(key).getScope() == DefinitionScope.LOCAL;
+                    GProperties gProperties = this.module.getParameters();
+                    Entry gProperty = gProperties.getProperty(key);
+                    if (gProperty == null || gProperty.getScope() == DefinitionScope.LOCAL) {
+                        // Update property value
+                        gProperties.setProperty(key, value, DefinitionScope.LOCAL);
+                        return true;
+                    }
+                    // This property can't be edited
+                    return false;
                 }
             }
         }
@@ -114,11 +117,15 @@ public class PeerModuleConfiguration implements IModuleAPIConfiguration {
     public void updateFrom(Map<String, String> parameters) {
         ModuleComponent moduleElement = this.module.getModuleElement();
         if (moduleElement != null) {
-            EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
-            for (ModuleParameter configParam : configParams) {
-                String parameterName = configParam.getName();
-                if (parameters.containsKey(parameterName) && configParam.isIsApiWrite()) {
-                    this.module.getParameters().setProperty(parameterName, parameters.get(parameterName), DefinitionScope.LOCAL);
+            GProperties gProperties = this.module.getParameters();
+            for (ModuleParameter configParam : moduleElement.getModuleParameter()) {
+                String key = configParam.getName();
+                if (parameters.containsKey(key) && configParam.isIsApiWrite()) {
+                    Entry gProperty = gProperties.getProperty(key);
+                    if (gProperty == null || gProperty.getScope() == DefinitionScope.LOCAL) {
+                        // Update property value
+                        gProperties.setProperty(key, parameters.get(key), DefinitionScope.LOCAL);
+                    }
                 }
             }
         }

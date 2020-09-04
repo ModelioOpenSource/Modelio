@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class DiagramSelectionModel {
 
     /**
      * C'tor initializing the diagram list.
+     * 
      * @param selectableDiagrams all the diagrams that can be selected.
      */
     @objid ("ce6a6e04-ef70-4b23-89f5-4274019ab363")

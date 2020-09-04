@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -734,6 +734,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the classPath property.
+     * 
      * @return possible object is {@link Jxbv2MultiPathes }
      */
     @objid ("ebc399e5-a1d1-43b7-b3d4-5481a4782deb")
@@ -743,6 +744,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the classPath property.
+     * 
      * @param value allowed object is {@link Jxbv2MultiPathes }
      */
     @objid ("961158b5-5382-4de9-9b25-e370ec7e2e6f")
@@ -752,6 +754,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the profiles property.
+     * 
      * @return possible object is {@link Jxbv2Module.Jxbv2Profiles }
      */
     @objid ("5d5b6a11-bd61-48ab-84ea-99fa1908939f")
@@ -761,6 +764,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the profiles property.
+     * 
      * @param value allowed object is {@link Jxbv2Module.Jxbv2Profiles }
      */
     @objid ("2ea9c7a4-5ea2-4e60-b3a3-027180eb5f2a")
@@ -770,6 +774,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the propertyTypes property.
+     * 
      * @return possible object is {@link Jxbv2Module.Jxbv2PropertyTypes }
      */
     @objid ("8d8f5104-956e-4176-b662-1d057c40f2ff")
@@ -779,6 +784,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the propertyTypes property.
+     * 
      * @param value allowed object is {@link Jxbv2Module.Jxbv2PropertyTypes }
      */
     @objid ("49f2754d-2d81-474d-93cc-403e4b306296")
@@ -788,6 +794,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the parameters property.
+     * 
      * @return possible object is {@link Jxbv2Module.Jxbv2Parameters }
      */
     @objid ("773b482e-bd15-476a-a224-bb4166d9fbc7")
@@ -797,6 +804,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the parameters property.
+     * 
      * @param value allowed object is {@link Jxbv2Module.Jxbv2Parameters }
      */
     @objid ("f6805a11-d892-4c86-8c09-86a58f76ed2d")
@@ -806,6 +814,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the gui property.
+     * 
      * @return possible object is {@link Jxbv2Module.Jxbv2Gui }
      */
     @objid ("0fe9909d-a369-46d0-8286-05ba9bee6b19")
@@ -815,6 +824,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the gui property.
+     * 
      * @param value allowed object is {@link Jxbv2Module.Jxbv2Gui }
      */
     @objid ("5d8f1772-bcb0-47e8-bc10-3271f2517efe")
@@ -824,6 +834,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the dependencies property.
+     * 
      * @return possible object is {@link Jxbv2Module.Jxbv2Dependencies }
      */
     @objid ("fd44861d-0e30-4c2b-9753-53de6571e1b7")
@@ -833,6 +844,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the dependencies property.
+     * 
      * @param value allowed object is {@link Jxbv2Module.Jxbv2Dependencies }
      */
     @objid ("18e967a2-aa0b-48ab-a979-cc3a9794fd78")
@@ -842,6 +854,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the resources property.
+     * 
      * @return possible object is {@link Jxbv2Module.Jxbv2Resources }
      */
     @objid ("267a63f3-0f98-4887-a9b2-da830d332b96")
@@ -851,6 +864,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the resources property.
+     * 
      * @param value allowed object is {@link Jxbv2Module.Jxbv2Resources }
      */
     @objid ("ae8ff95c-f201-4073-828d-9654cdb9bdde")
@@ -860,6 +874,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the id property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("3f07c605-32e4-4d21-8bb0-d892a18513f5")
@@ -869,6 +884,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the id property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("4fd6dc08-98d2-40c7-bfc8-ba7372049739")
@@ -878,6 +894,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the clazz property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("96ba2cf9-ab2b-4881-8b9d-530da83c599d")
@@ -887,6 +904,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the clazz property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("d39fa14b-9173-4fca-947d-c6069be67271")
@@ -896,6 +914,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the binaryversion property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("7c456dbc-d4dd-4e3e-919e-175f9ce582f0")
@@ -905,6 +924,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the binaryversion property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("e716b930-4a01-4d7b-9bda-bce1b15dccdd")
@@ -914,6 +934,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the version property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("18a64666-b60c-46d6-8c67-993b0dc18483")
@@ -923,6 +944,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the version property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("c97804a4-59b4-486d-8bdf-b7bbcfb705a0")
@@ -932,6 +954,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the schemaLevel property.
+     * 
      * @return possible object is {@link Long }
      */
     @objid ("76b9bf25-d4ef-4d9d-a84f-62139c746fe3")
@@ -945,6 +968,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the schemaLevel property.
+     * 
      * @param value allowed object is {@link Long }
      */
     @objid ("dca9a920-2780-491a-b5d0-f3833b12c320")
@@ -954,6 +978,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the uid property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("00a5605a-161d-46c3-9063-a94c1c966117")
@@ -963,6 +988,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the uid property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("ba02a321-2b90-4801-b5c2-aa7571d71ddc")
@@ -972,6 +998,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the author property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("f6f259cb-7bc8-4975-ac84-79d66c4eb169")
@@ -981,6 +1008,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the author property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("8da30625-4733-4d09-b245-bd3c27899c49")
@@ -990,6 +1018,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the image property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("2859dbd7-46a9-4daf-9f98-21ae962b8ed6")
@@ -999,6 +1028,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the image property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("b147212c-15ab-4fa8-abb7-781ece9e0d7b")
@@ -1008,6 +1038,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the url property.
+     * 
      * @return possible object is {@link String }
      */
     @objid ("3f8d23e0-9a85-401c-834d-d02ac6254cec")
@@ -1017,6 +1048,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the url property.
+     * 
      * @param value allowed object is {@link String }
      */
     @objid ("7e344c02-9c3e-403e-a72c-f2467951c819")
@@ -1026,6 +1058,7 @@ public class Jxbv2Module {
 
     /**
      * Gets the value of the metamodelFragments property.
+     * 
      * @return possible object is {@link Jxbv2Module.Jxbv2MetamodelFragments }
      */
     @objid ("e9bf567f-12f0-4ff3-aa54-f95423c63a4f")
@@ -1035,6 +1068,7 @@ public class Jxbv2Module {
 
     /**
      * Sets the value of the metamodelFragments property.
+     * 
      * @param value allowed object is {@link Jxbv2Module.Jxbv2MetamodelFragments }
      */
     @objid ("da98cacf-a9a9-4518-901e-89043248a583")
@@ -1436,6 +1470,7 @@ public class Jxbv2Module {
 
         /**
          * Gets the value of the commands property.
+         * 
          * @return possible object is {@link Jxbv2Module.Jxbv2Gui.Jxbv2Commands }
          */
         @objid ("3e3bca8e-4f63-4587-bdca-dbb112c70cd2")
@@ -1445,6 +1480,7 @@ public class Jxbv2Module {
 
         /**
          * Sets the value of the commands property.
+         * 
          * @param value allowed object is {@link Jxbv2Module.Jxbv2Gui.Jxbv2Commands }
          */
         @objid ("286151cd-a72f-4942-a6b1-10114ffe2570")
@@ -1454,6 +1490,7 @@ public class Jxbv2Module {
 
         /**
          * Gets the value of the tools property.
+         * 
          * @return possible object is {@link Jxbv2Module.Jxbv2Gui.Jxbv2Tools }
          */
         @objid ("3ca80cc8-323d-473b-a799-fb5f0a4b9ceb")
@@ -1463,6 +1500,7 @@ public class Jxbv2Module {
 
         /**
          * Sets the value of the tools property.
+         * 
          * @param value allowed object is {@link Jxbv2Module.Jxbv2Gui.Jxbv2Tools }
          */
         @objid ("aa920288-38ac-4d22-bbe0-693e942d6b4e")
@@ -1498,6 +1536,7 @@ public class Jxbv2Module {
 
         /**
          * Gets the value of the diagrams property.
+         * 
          * @return possible object is {@link Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams }
          */
         @objid ("3376cd3f-f8b4-4e74-bbc0-c56f508882fa")
@@ -1507,6 +1546,7 @@ public class Jxbv2Module {
 
         /**
          * Sets the value of the diagrams property.
+         * 
          * @param value allowed object is {@link Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams }
          */
         @objid ("18e429d3-7425-466d-b115-606fbc7a0732")
@@ -1516,6 +1556,7 @@ public class Jxbv2Module {
 
         /**
          * Gets the value of the views property.
+         * 
          * @return possible object is {@link Jxbv2Module.Jxbv2Gui.Jxbv2Views }
          */
         @objid ("bca094da-e68c-4769-8b11-f268e7516c84")
@@ -1525,6 +1566,7 @@ public class Jxbv2Module {
 
         /**
          * Sets the value of the views property.
+         * 
          * @param value allowed object is {@link Jxbv2Module.Jxbv2Gui.Jxbv2Views }
          */
         @objid ("a30b875b-dd87-4afa-8d4a-700876acde40")
@@ -1534,6 +1576,7 @@ public class Jxbv2Module {
 
         /**
          * Gets the value of the matrices property.
+         * 
          * @return possible object is {@link Module.Gui.Matrices }
          */
         @objid ("baeaa164-b591-415d-ab31-60919e34c1ae")
@@ -1543,6 +1586,7 @@ public class Jxbv2Module {
 
         /**
          * Sets the value of the matrices property.
+         * 
          * @param value allowed object is {@link Module.Gui.Matrices }
          */
         @objid ("667993e1-76ce-4e00-a155-fcba09945cfe")
@@ -1684,6 +1728,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the category property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("fb650862-3579-4585-bc73-56ecd9bc59fd")
@@ -1697,6 +1742,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the category property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("7ef2047f-f8d4-44aa-814b-e053e34fee33")
@@ -1920,6 +1966,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the palette property.
+                 * 
                  * @return possible object is {@link Module.Gui.Diagrams.DiagramType.Palette }
                  */
                 @objid ("f0ec1f1d-e6d3-4519-9f9a-222ac637da36")
@@ -1929,6 +1976,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the palette property.
+                 * 
                  * @param value allowed object is {@link Module.Gui.Diagrams.DiagramType.Palette }
                  */
                 @objid ("7326a833-35f4-4e07-8741-ef8f47bc6f4d")
@@ -1938,6 +1986,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the wizard property.
+                 * 
                  * @return possible object is {@link Module.Gui.Diagrams.DiagramType.Wizard }
                  */
                 @objid ("ad6b1d5e-da42-47ce-83ec-af2e9b774ca3")
@@ -1947,6 +1996,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the wizard property.
+                 * 
                  * @param value allowed object is {@link Module.Gui.Diagrams.DiagramType.Wizard }
                  */
                 @objid ("b5296efb-2c40-4ab6-8812-5a01e7aa30b8")
@@ -1956,6 +2006,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the baseDiagram property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("dad6be81-e7de-4866-83f9-26bd7e4576c6")
@@ -1965,6 +2016,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the baseDiagram property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("abf85f01-2f22-48a7-9503-9b2273ad6a5e")
@@ -1974,6 +2026,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the stereotype property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("bae60d68-cab9-407d-88f7-22456815d839")
@@ -1983,6 +2036,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the stereotype property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("d379fd65-2d47-4fde-af94-fa9c1d813351")
@@ -1992,6 +2046,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the handler property.
+                 * 
                  * @return possible object is {@link Jxbv2Handler }
                  */
                 @objid ("64c592b2-b630-4866-b73b-d4ce2dedd53c")
@@ -2001,6 +2056,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the handler property.
+                 * 
                  * @param value allowed object is {@link Jxbv2Handler }
                  */
                 @objid ("53f07350-e0b7-432b-b435-d63a25e03707")
@@ -2077,6 +2133,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the keepBasePalette property.
+                     * 
                      * @return possible object is {@link Boolean }
                      */
                     @objid ("279ec773-081f-40f3-bccd-27cde18b7a48")
@@ -2086,6 +2143,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the keepBasePalette property.
+                     * 
                      * @param value allowed object is {@link Boolean }
                      */
                     @objid ("c3e22f01-c160-4f62-9ce6-374c599df712")
@@ -2210,6 +2268,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the handler property.
+                     * 
                      * @return possible object is {@link Jxbv2Handler }
                      */
                     @objid ("49846d01-5786-4955-a1af-1bfb903d06cc")
@@ -2219,6 +2278,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the handler property.
+                     * 
                      * @param value allowed object is {@link Jxbv2Handler }
                      */
                     @objid ("c8017c82-4d1c-4273-b1ad-a4a61f77d3e7")
@@ -2228,6 +2288,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the label property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("293fd124-bfd0-4a49-9151-6fe4da7dd21f")
@@ -2237,6 +2298,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the label property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("dcf8ef98-9b8e-4077-81e5-321a2d822303")
@@ -2246,6 +2308,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the icon property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("09e97f36-bd1b-495f-86c5-542a9ef15cf0")
@@ -2255,6 +2318,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the icon property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("b7db95b4-6b48-442e-a5f4-f2a073cb82a0")
@@ -2264,6 +2328,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the information property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("b521ab7f-180c-495d-8f46-c6b198912c77")
@@ -2273,6 +2338,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the information property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("1cf2f470-cb56-4233-ae97-a7d77589cb8b")
@@ -2282,6 +2348,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the details property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("17d1b589-714d-40a4-be05-e6e176ca96c3")
@@ -2291,6 +2358,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the details property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("c1e7ab3d-54b6-4044-9d74-f93a8b2f6c33")
@@ -2300,6 +2368,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the helpUrl property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("6fa7a5ce-de12-42e7-8c33-c913870581c3")
@@ -2309,6 +2378,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the helpUrl property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("25038634-9edb-4d82-93bc-8a3c7c898b2a")
@@ -2318,6 +2388,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the previewImage property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("9f0bad58-f86c-4a8d-b139-a2a1f3383599")
@@ -2327,6 +2398,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the previewImage property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("70777fb2-4b9f-403a-a040-bfccbd4cb68d")
@@ -2557,6 +2629,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the id property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("00ee2280-c3be-4b0b-9c7d-bbdbdea26d5b")
@@ -2566,6 +2639,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the id property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("31fa88d3-ccb6-4b18-b41b-d4373dc5988d")
@@ -2575,6 +2649,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the clazz property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("117d6a42-a166-4099-9f94-775f845785b6")
@@ -2584,6 +2659,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the clazz property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("787f70d9-c430-4624-98bb-80296134f6c8")
@@ -2593,6 +2669,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the label property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("9663903c-b8a9-427c-a067-51bec937877f")
@@ -2602,6 +2679,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the label property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("cf18d6ad-7647-4be7-929e-bbbb3ddf66fc")
@@ -2611,6 +2689,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the image property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("3239c277-8767-42e1-9525-d0e905e65fbf")
@@ -2620,6 +2699,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the image property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("fb37c398-bcaa-4175-867a-ec69e96326f7")
@@ -2837,6 +2917,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the x property.
+                 * 
                  * @return possible object is {@link Module.Gui.Matrices.MatrixType.X }
                  */
                 @objid ("c5de3288-f04b-430a-bcda-430fa1151734")
@@ -2846,6 +2927,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the x property.
+                 * 
                  * @param value allowed object is {@link Module.Gui.Matrices.MatrixType.X }
                  */
                 @objid ("0f81c014-bee0-4a89-b3a4-c26af8461063")
@@ -2855,6 +2937,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the y property.
+                 * 
                  * @return possible object is {@link Jxbv2Handler }
                  */
                 @objid ("6559dda3-7e15-4734-afa2-d5367d78bb1c")
@@ -2864,6 +2947,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the y property.
+                 * 
                  * @param value allowed object is {@link Jxbv2Handler }
                  */
                 @objid ("7cc11eb1-b5d5-4ffe-a534-a1f309a653b3")
@@ -2873,6 +2957,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the z property.
+                 * 
                  * @return possible object is {@link Jxbv2Handler }
                  */
                 @objid ("6f5fab9a-4efb-44a8-9267-ac078d310f0d")
@@ -2882,6 +2967,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the z property.
+                 * 
                  * @param value allowed object is {@link Jxbv2Handler }
                  */
                 @objid ("03fd28e2-95d0-4bec-9a68-639148f51468")
@@ -2891,6 +2977,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the val property.
+                 * 
                  * @return possible object is {@link Jxbv2Handler }
                  */
                 @objid ("9132c1a6-d4d5-4660-b8f3-4cd06ab96340")
@@ -2900,6 +2987,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the val property.
+                 * 
                  * @param value allowed object is {@link Jxbv2Handler }
                  */
                 @objid ("7d2c8465-76d4-42f8-855c-58f48687856c")
@@ -2909,6 +2997,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the wizard property.
+                 * 
                  * @return possible object is {@link Module.Gui.Matrices.MatrixType.Wizard }
                  */
                 @objid ("ed8c8c45-a373-40fc-b027-742e5ad1f11e")
@@ -2918,6 +3007,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the wizard property.
+                 * 
                  * @param value allowed object is {@link Module.Gui.Matrices.MatrixType.Wizard }
                  */
                 @objid ("ab946704-97cc-462d-abeb-3b72ef98aa18")
@@ -2927,6 +3017,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the id property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("aff8ef89-138a-449c-9cd1-811d5c4406c2")
@@ -2936,6 +3027,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the id property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("48ee3150-e8ca-46f8-aca0-53c0c014e49f")
@@ -2945,6 +3037,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the stereotype property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("14c21fa1-edfa-4e08-8fbb-e1ed345d882b")
@@ -2954,6 +3047,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the stereotype property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("21acaccb-7e5f-4f25-9aa4-2a91a3063803")
@@ -3054,6 +3148,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the handler property.
+                     * 
                      * @return possible object is {@link Jxbv2Handler }
                      */
                     @objid ("303396ec-8d19-49ba-8a51-c084880e1027")
@@ -3063,6 +3158,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the handler property.
+                     * 
                      * @param value allowed object is {@link Jxbv2Handler }
                      */
                     @objid ("a16816a2-3c85-4efb-a4c8-254f0cfc8454")
@@ -3072,6 +3168,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the label property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("0a7d931c-3387-4f35-8625-40ce3f4d52a3")
@@ -3081,6 +3178,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the label property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("ffa39b1f-ca09-4b04-b52c-c446b511c97f")
@@ -3090,6 +3188,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the icon property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("7b143eba-9c40-4620-9c21-d7ba77c8fbb9")
@@ -3099,6 +3198,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the icon property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("b30ca794-7cc6-4561-bcba-d6a6de078879")
@@ -3108,6 +3208,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the information property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("5f8d4fdf-6ef3-44a2-b3d6-c2b0dd41d6de")
@@ -3117,6 +3218,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the information property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("b76ca53d-9ea1-4991-851a-c0c63b53c299")
@@ -3126,6 +3228,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the details property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("0cc43c60-4320-456b-bc88-3113d96b099b")
@@ -3135,6 +3238,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the details property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("cf390b8b-2b0e-4f95-8fb6-7f242c97bb56")
@@ -3144,6 +3248,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the helpUrl property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("3adbd021-9c22-42dc-a900-63ad94f4dee3")
@@ -3153,6 +3258,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the helpUrl property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("c1545827-8743-4f35-ba5d-54582a804624")
@@ -3162,6 +3268,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the previewImage property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("3ce200d2-895b-440e-9c79-13a046d6dbc3")
@@ -3171,6 +3278,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the previewImage property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("3b7535dd-21e4-4c84-a262-91b27cd7e1d2")
@@ -3373,6 +3481,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the enumeration property.
+             * 
              * @return possible object is {@link Enumeration }
              */
             @objid ("d4dd4bc3-db4b-49fe-a71f-9e3c0a2b1b62")
@@ -3382,6 +3491,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the enumeration property.
+             * 
              * @param value allowed object is {@link Enumeration }
              */
             @objid ("fa4a0e64-4033-4081-91e9-c175b8231a3c")
@@ -3391,6 +3501,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the description property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("706f2be9-6599-4b51-895f-29390225d21b")
@@ -3400,6 +3511,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the description property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("2da7ad75-3271-40eb-945d-fdb8434b466c")
@@ -3409,6 +3521,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the id property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("ba678cd3-b87e-4432-9150-487d0a7ea3e1")
@@ -3418,6 +3531,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the id property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("ac911dcc-a103-46d0-9d9a-21b9258472fd")
@@ -3427,6 +3541,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the group property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("7c5a24ad-85fd-46b9-bd48-0b4643e92d94")
@@ -3436,6 +3551,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the group property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("c3bc1931-dfa0-4b48-8665-6007e7b9328e")
@@ -3445,6 +3561,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the uid property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("26f9fd1a-d410-4c42-b78b-fa7183aef8df")
@@ -3454,6 +3571,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the uid property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("db1fbf92-cf1a-4f65-a11d-0ba806564442")
@@ -3463,6 +3581,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the type property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("1d71d976-c1d1-4f82-912f-e39663c479c2")
@@ -3472,6 +3591,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the type property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("08d20cd6-468b-43c7-b149-80f98c3fcce8")
@@ -3481,6 +3601,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the defaultValue property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("a7408944-1559-4bff-9d81-c4f571c60561")
@@ -3490,6 +3611,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the defaultValue property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("2f3f2e93-8293-42cc-99b6-4489e868b871")
@@ -3499,6 +3621,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the label property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("aace14c7-c769-4b06-850a-10d21b33a247")
@@ -3508,6 +3631,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the label property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("18b14550-918a-454c-b645-e1e86293505a")
@@ -3993,6 +4117,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the uid property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("cbe69ceb-0fce-4594-ae0a-59905f3ad991")
@@ -4002,6 +4127,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the uid property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("ec2d88c1-7976-4657-a67a-489480c30800")
@@ -4011,6 +4137,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the id property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("7f43adc8-4598-4238-8b62-2ef61bc9d639")
@@ -4020,6 +4147,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the id property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("6393d7ea-1011-484d-99bb-d48b194be1d2")
@@ -4029,6 +4157,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the extensions property.
+             * 
              * @return possible object is {@link Jxbv2NoteType.Jxbv2Extensions }
              */
             @objid ("863b9ea1-1b8b-41c2-b850-f520bfc63418")
@@ -4038,6 +4167,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the extensions property.
+             * 
              * @param value allowed object is {@link Jxbv2NoteType.Jxbv2Extensions }
              */
             @objid ("c07183da-00ca-4e2a-a845-374b7cd6d303")
@@ -4136,6 +4266,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the tagTypes property.
+                 * 
                  * @return possible object is {@link Module.Profiles.Profile.MetaclassReference.TagTypes }
                  */
                 @objid ("c24c3b4a-79b0-4cbe-a322-b462833aa78c")
@@ -4145,6 +4276,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the tagTypes property.
+                 * 
                  * @param value allowed object is {@link Module.Profiles.Profile.MetaclassReference.TagTypes }
                  */
                 @objid ("c286a6ca-66d8-4463-bc72-1612cb183b53")
@@ -4154,6 +4286,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the noteTypes property.
+                 * 
                  * @return possible object is {@link Module.Profiles.Profile.MetaclassReference.NoteTypes }
                  */
                 @objid ("e6b2c8a8-eef3-45ee-b185-bebb5caa72d7")
@@ -4163,6 +4296,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the noteTypes property.
+                 * 
                  * @param value allowed object is {@link Module.Profiles.Profile.MetaclassReference.NoteTypes }
                  */
                 @objid ("33d9464b-999f-4df6-9c20-6c43bacd2d8f")
@@ -4172,6 +4306,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the externDocumentTypes property.
+                 * 
                  * @return possible object is {@link Module.Profiles.Profile.MetaclassReference.ExternDocumentTypes }
                  */
                 @objid ("5da4b77c-552a-4848-8eea-020ef920e604")
@@ -4181,6 +4316,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the externDocumentTypes property.
+                 * 
                  * @param value allowed object is {@link Module.Profiles.Profile.MetaclassReference.ExternDocumentTypes }
                  */
                 @objid ("dc3df89b-e4c6-466f-8fcb-aa9feb2de18b")
@@ -4190,6 +4326,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the uid property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("3929595e-bddf-4d35-8523-c2a9f197650f")
@@ -4199,6 +4336,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the uid property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("e508ca67-558f-4c07-badb-f364df490378")
@@ -4208,6 +4346,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the metaclass property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("0dcce346-ad3d-4d67-81d0-aca93bee5fbc")
@@ -4217,6 +4356,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the metaclass property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("63c47334-7a27-44db-8cfc-13aca3230c8f")
@@ -4226,6 +4366,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the propertyTable property.
+                 * 
                  * @return possible object is {@link Jxbv2PropertyTableDefinition }
                  */
                 @objid ("929e32df-88d9-4ef9-a426-d6131500dd4c")
@@ -4235,6 +4376,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the propertyTable property.
+                 * 
                  * @param value allowed object is {@link Jxbv2PropertyTableDefinition }
                  */
                 @objid ("1674a31b-e5f4-42a7-8e21-8c6778217bc7")
@@ -4597,6 +4739,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the icon property.
+                 * 
                  * @return possible object is {@link Module.Profiles.Profile.Stereotype.Icon }
                  */
                 @objid ("5a28a1e0-bfc8-4d48-88ae-d2f1f9a2d524")
@@ -4606,6 +4749,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the icon property.
+                 * 
                  * @param value allowed object is {@link Module.Profiles.Profile.Stereotype.Icon }
                  */
                 @objid ("e92bdf32-6445-47ba-8b88-9cd0a0061c06")
@@ -4615,6 +4759,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the image property.
+                 * 
                  * @return possible object is {@link Module.Profiles.Profile.Stereotype.Image }
                  */
                 @objid ("2e804c47-724a-4def-aaf2-4b98d5395c2d")
@@ -4624,6 +4769,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the image property.
+                 * 
                  * @param value allowed object is {@link Module.Profiles.Profile.Stereotype.Image }
                  */
                 @objid ("ebeb5021-e234-4d04-ae27-77ec1ed81cb2")
@@ -4633,6 +4779,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the propertyTable property.
+                 * 
                  * @return possible object is {@link PropertyTableDefinition }
                  */
                 @objid ("f2c4e74b-a64b-4348-a1c1-02a808316d85")
@@ -4642,6 +4789,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the propertyTable property.
+                 * 
                  * @param value allowed object is {@link PropertyTableDefinition }
                  */
                 @objid ("0f1fa218-0852-4e02-9175-b198a07eb453")
@@ -4651,6 +4799,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the tagTypes property.
+                 * 
                  * @return possible object is {@link Module.Profiles.Profile.Stereotype.TagTypes }
                  */
                 @objid ("d3d74fa0-5461-4402-86a8-8a7ef317982a")
@@ -4660,6 +4809,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the tagTypes property.
+                 * 
                  * @param value allowed object is {@link Module.Profiles.Profile.Stereotype.TagTypes }
                  */
                 @objid ("f87277fa-2ec6-45f3-b5b4-3ada6e66d068")
@@ -4669,6 +4819,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the noteTypes property.
+                 * 
                  * @return possible object is {@link Module.Profiles.Profile.Stereotype.NoteTypes }
                  */
                 @objid ("0b87fc7a-61e0-46f8-b27e-4b88a1bc66e7")
@@ -4678,6 +4829,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the noteTypes property.
+                 * 
                  * @param value allowed object is {@link Module.Profiles.Profile.Stereotype.NoteTypes }
                  */
                 @objid ("f3fd522c-91f2-4071-a0c4-df37c557897e")
@@ -4687,6 +4839,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the externDocumentTypes property.
+                 * 
                  * @return possible object is {@link Module.Profiles.Profile.Stereotype.ExternDocumentTypes }
                  */
                 @objid ("4602ea34-0826-47e2-aee5-a935aed438fd")
@@ -4696,6 +4849,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the externDocumentTypes property.
+                 * 
                  * @param value allowed object is {@link Module.Profiles.Profile.Stereotype.ExternDocumentTypes }
                  */
                 @objid ("88c2a8c0-33f5-4819-ab38-36e571fde931")
@@ -4705,6 +4859,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the name property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("2be21bd5-d8dd-4352-9df4-ad9733dd4257")
@@ -4714,6 +4869,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the name property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("411d810f-1942-4499-88aa-323cc891c535")
@@ -4723,6 +4879,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the metaclass property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("5b028ff6-6349-4e36-a89d-93c2f11862f7")
@@ -4732,6 +4889,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the metaclass property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("e7cb24a7-1308-4a34-8657-f32b3f7ec24d")
@@ -4741,6 +4899,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the ownerStereotype property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("53cb6bb1-5782-4254-bf06-86a6d8dd7abd")
@@ -4750,6 +4909,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the ownerStereotype property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("e983256c-0ffb-4d95-ae1a-e1fa4ac88a1e")
@@ -4759,6 +4919,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the isHidden property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("d509fb29-70f5-4962-af72-c0e7c567c3e9")
@@ -4768,6 +4929,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the isHidden property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("77238813-02dc-4467-a5dc-3643f4e39ed0")
@@ -4777,6 +4939,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the label property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("71a934cf-ce42-466e-8056-4e080018be15")
@@ -4786,6 +4949,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the label property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("ddc311a7-c8e0-4bc3-9265-4188fb859d0b")
@@ -4795,6 +4959,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the uid property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("10170639-10ae-4767-950f-d406ddb9349b")
@@ -4804,6 +4969,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the uid property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("b0e3a3b4-ffb9-49e4-8288-66624bed4393")
@@ -4813,6 +4979,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the description property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("bc23ee3d-94d7-4a48-b1e7-ceb5d35e2eeb")
@@ -4822,6 +4989,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the description property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("a9a462ea-a68d-4346-a37a-1307d079020f")
@@ -4831,6 +4999,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the constraints property.
+                 * 
                  * @return possible object is {@link Module.Profiles.Profile.Stereotype.Constraints }
                  */
                 @objid ("5eebbc61-d491-4e2d-ac47-405a4093dd34")
@@ -4840,6 +5009,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the constraints property.
+                 * 
                  * @param value allowed object is {@link Module.Profiles.Profile.Stereotype.Constraints }
                  */
                 @objid ("6a9a3464-8b6a-4b55-a92b-4b408bd04061")
@@ -4849,6 +5019,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the extensions property.
+                 * 
                  * @return possible object is {@link Module.Profiles.Profile.Stereotype.Extensions }
                  */
                 @objid ("1bfec2ec-f629-4f39-bbfb-d3c09f8d5d01")
@@ -4858,6 +5029,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the extensions property.
+                 * 
                  * @param value allowed object is {@link Module.Profiles.Profile.Stereotype.Extensions }
                  */
                 @objid ("314144c7-9265-4c94-8f80-88ad47aaf5a2")
@@ -4867,6 +5039,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the isAbstract property.
+                 * 
                  * @return possible object is {@link Boolean }
                  */
                 @objid ("c12ad585-da97-42b9-a623-cfa8dcb5e076")
@@ -4880,6 +5053,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the isAbstract property.
+                 * 
                  * @param value allowed object is {@link Boolean }
                  */
                 @objid ("93364dcf-883c-4001-985e-b3d30706603d")
@@ -4971,6 +5145,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the path property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("8b6714a9-0234-4f24-9a00-9eb2166812f3")
@@ -4980,6 +5155,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the path property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("8ed72e90-0f9f-4774-a4da-362ef14467b0")
@@ -5016,6 +5192,7 @@ public class Jxbv2Module {
 
                     /**
                      * Gets the value of the path property.
+                     * 
                      * @return possible object is {@link String }
                      */
                     @objid ("225ad0e3-c399-4af1-9b37-996b8cc53ad5")
@@ -5025,6 +5202,7 @@ public class Jxbv2Module {
 
                     /**
                      * Sets the value of the path property.
+                     * 
                      * @param value allowed object is {@link String }
                      */
                     @objid ("93344058-2d3d-4273-ab93-e9a61d4a252d")
@@ -5553,6 +5731,7 @@ public class Jxbv2Module {
 
         /**
          * Gets the value of the styles property.
+         * 
          * @return possible object is {@link Module.Resources.Styles }
          */
         @objid ("3293e14a-696c-4a2a-a092-a9c9aa89441b")
@@ -5562,6 +5741,7 @@ public class Jxbv2Module {
 
         /**
          * Sets the value of the styles property.
+         * 
          * @param value allowed object is {@link Module.Resources.Styles }
          */
         @objid ("ad5178ad-492d-4022-b12f-ad4631f2ae54")
@@ -5571,6 +5751,7 @@ public class Jxbv2Module {
 
         /**
          * Gets the value of the docFiles property.
+         * 
          * @return possible object is {@link MultiPathes }
          */
         @objid ("19786d94-aea1-4d0f-a51b-2eb86ed54281")
@@ -5580,6 +5761,7 @@ public class Jxbv2Module {
 
         /**
          * Sets the value of the docFiles property.
+         * 
          * @param value allowed object is {@link MultiPathes }
          */
         @objid ("f3cffef9-c0a7-4eda-b1b0-b9cb59402fe5")
@@ -5589,6 +5771,7 @@ public class Jxbv2Module {
 
         /**
          * Gets the value of the macros property.
+         * 
          * @return possible object is {@link Module.Resources.Macros }
          */
         @objid ("c2ed2644-d24f-48b7-aeff-b43e66c79ba5")
@@ -5598,6 +5781,7 @@ public class Jxbv2Module {
 
         /**
          * Sets the value of the macros property.
+         * 
          * @param value allowed object is {@link Module.Resources.Macros }
          */
         @objid ("7f5cfdbb-0d3f-47a1-abab-98f5db6c921f")
@@ -5607,6 +5791,7 @@ public class Jxbv2Module {
 
         /**
          * Gets the value of the patterns property.
+         * 
          * @return possible object is {@link Module.Resources.Patterns }
          */
         @objid ("02151f8b-3dad-473f-abd2-9d79dc269fb8")
@@ -5616,6 +5801,7 @@ public class Jxbv2Module {
 
         /**
          * Sets the value of the patterns property.
+         * 
          * @param value allowed object is {@link Module.Resources.Patterns }
          */
         @objid ("8f476447-faba-4127-baa7-e2b9ce207ff2")
@@ -5625,6 +5811,7 @@ public class Jxbv2Module {
 
         /**
          * Gets the value of the docTemplates property.
+         * 
          * @return possible object is {@link Module.Resources.DocTemplates }
          */
         @objid ("abff6dda-7e75-4de0-b653-73be688d10a3")
@@ -5634,6 +5821,7 @@ public class Jxbv2Module {
 
         /**
          * Sets the value of the docTemplates property.
+         * 
          * @param value allowed object is {@link Module.Resources.DocTemplates }
          */
         @objid ("d7f4bc72-763a-425a-9dc9-03129d28a640")
@@ -5737,6 +5925,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the id property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("a94fa316-f4a7-4bf4-ab72-8791d2773461")
@@ -5746,6 +5935,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the id property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("10d1f957-8c99-4f1f-beda-adb0dcf05026")
@@ -5755,6 +5945,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the path property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("b080bfc0-eec9-4fdc-820c-2fe346d68bb5")
@@ -5764,6 +5955,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the path property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("7bc84ceb-f051-46a6-aebf-a9fc8b704b97")
@@ -5897,6 +6089,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the id property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("0f9bfb26-29b0-470f-a0df-ebc9cfb81eb8")
@@ -5906,6 +6099,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the id property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("79bdc421-bd44-4e58-bbf6-0bd6a78c51fe")
@@ -5915,6 +6109,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the path property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("0f1afb67-d5ea-40fc-9098-a51d3ff1551f")
@@ -5924,6 +6119,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the path property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("bca7da14-27c0-405b-93ae-547df251ebdb")
@@ -5933,6 +6129,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the published property.
+                 * 
                  * @return possible object is {@link Boolean }
                  */
                 @objid ("7d539286-773f-45df-aab8-a3fb26f705b7")
@@ -5946,6 +6143,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the published property.
+                 * 
                  * @param value allowed object is {@link Boolean }
                  */
                 @objid ("fd6faa42-6f76-403e-8cef-ac2978dd6d8c")
@@ -5955,6 +6153,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the lang property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("c52fb4f9-53be-45f4-9d4c-2c698a3ba966")
@@ -5968,6 +6167,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the lang property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("cc80a597-c9b0-40ce-832b-bc241095413a")
@@ -6081,6 +6281,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the id property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("d4b6caaf-9e68-4bbd-9e07-0480f951af8e")
@@ -6090,6 +6291,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the id property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("e7de69f4-6bcb-4522-9260-f2622f9d0223")
@@ -6099,6 +6301,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the path property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("9345d05a-6256-428c-94b2-276d63aed4e7")
@@ -6108,6 +6311,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the path property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("862fc39f-fe81-4538-94e7-bfdfaf9b5c57")
@@ -6117,6 +6321,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the published property.
+                 * 
                  * @return possible object is {@link Boolean }
                  */
                 @objid ("73a48c4a-4a61-464b-8550-74a8ca2dbc85")
@@ -6130,6 +6335,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the published property.
+                 * 
                  * @param value allowed object is {@link Boolean }
                  */
                 @objid ("77594a67-081c-40b4-ae56-e4b0c6938220")
@@ -6243,6 +6449,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the id property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("cfb44d6e-4178-4f8b-bf84-8733e52ebec2")
@@ -6252,6 +6459,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the id property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("7c024515-cc97-4c96-908b-27cbb72c25f9")
@@ -6261,6 +6469,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the path property.
+                 * 
                  * @return possible object is {@link String }
                  */
                 @objid ("9579c422-a36e-4cdb-a050-03d534adf50b")
@@ -6270,6 +6479,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the path property.
+                 * 
                  * @param value allowed object is {@link String }
                  */
                 @objid ("e2c78e50-a142-4543-af76-169bb692ff9c")
@@ -6279,6 +6489,7 @@ public class Jxbv2Module {
 
                 /**
                  * Gets the value of the published property.
+                 * 
                  * @return possible object is {@link Boolean }
                  */
                 @objid ("088b63f1-c221-412e-8f7f-fe638bb1d22b")
@@ -6292,6 +6503,7 @@ public class Jxbv2Module {
 
                 /**
                  * Sets the value of the published property.
+                 * 
                  * @param value allowed object is {@link Boolean }
                  */
                 @objid ("dc1382cd-5af1-41c3-b42b-049ce2e53829")
@@ -6419,6 +6631,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the id property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("adccd5a8-3824-4692-9a85-760e70240b9a")
@@ -6428,6 +6641,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the id property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("374e4eb8-fc34-419d-835a-61d6cb8dfe48")
@@ -6437,6 +6651,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the version property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("bfae1e44-1f31-4480-ae26-a07d01869373")
@@ -6446,6 +6661,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the version property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("34efb21e-4fd9-45d3-a3d9-d7d682ee4de5")
@@ -6455,6 +6671,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the clazz property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("267aafd0-1a56-4cb6-a7c9-0c3be88e5e28")
@@ -6464,6 +6681,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the clazz property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("6890eb4f-74e1-4384-9187-3c33b4cfe1ea")
@@ -6473,6 +6691,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the vendor property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("af9b10f7-656d-4916-b020-7b6e26e5c9a9")
@@ -6482,6 +6701,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the vendor property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("53c562fb-d777-404b-b4eb-a8002db60d31")
@@ -6491,6 +6711,7 @@ public class Jxbv2Module {
 
             /**
              * Gets the value of the vendorVersion property.
+             * 
              * @return possible object is {@link String }
              */
             @objid ("a4759dd8-2a96-44e4-99b6-7ba94030cb93")
@@ -6500,6 +6721,7 @@ public class Jxbv2Module {
 
             /**
              * Sets the value of the vendorVersion property.
+             * 
              * @param value allowed object is {@link String }
              */
             @objid ("0954b662-0832-49ef-8624-21cdead29c6e")

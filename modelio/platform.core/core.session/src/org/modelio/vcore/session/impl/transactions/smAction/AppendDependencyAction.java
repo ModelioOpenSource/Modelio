@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class AppendDependencyAction extends DependencyModificationAction {
      * contenant la dependance dans l'association "Refer", la dependance dans
      * l'association "Dep" et l'objet ?a jouter dasn "Ref". On sauvegarde aussi
      * l'indice de l'objet dans l'association et le mode de propagation.
+     * 
      * @param obj the source model object
      * @param dep the dependency
      * @param ref the appended model object

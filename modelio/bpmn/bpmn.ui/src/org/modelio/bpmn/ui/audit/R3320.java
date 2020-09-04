@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ import org.modelio.metamodel.bpmn.activities.BpmnReceiveTask;
 import org.modelio.metamodel.bpmn.activities.BpmnSendTask;
 import org.modelio.metamodel.bpmn.events.BpmnIntermediateCatchEvent;
 import org.modelio.metamodel.bpmn.events.BpmnIntermediateThrowEvent;
+import org.modelio.metamodel.bpmn.events.BpmnThrowEvent;
 import org.modelio.metamodel.bpmn.flows.BpmnMessageFlow;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
@@ -113,6 +114,7 @@ public class R3320 extends AbstractBpmnRule {
     private static class CheckR3320 extends AbstractControl {
         /**
          * C'tor.
+         * 
          * @param rule the rule to check.
          */
         @objid ("89ff8129-3641-492d-8bed-b189de6d8bfb")
@@ -141,13 +143,25 @@ public class R3320 extends AbstractBpmnRule {
             boolean isFromExternalParticipant = source instanceof BpmnParticipant && ((BpmnParticipant) source).getProcess() == null;
             boolean isToExternalParticipant = target instanceof BpmnParticipant && ((BpmnParticipant) target).getProcess() == null;
             
+            // 
+            // source                      -> recommended targets
+            // ExternalParticipant         -> BpmnIntermediateCatchEvent | BpmnReceiveTask | ExternalParticipant
+            // BpmnIntermediateThrowEvent  -> BpmnIntermediateCatchEvent | ExternalParticipant
+            // BpmnSendTask                -> BpmnReceiveTask | BpmnIntermediateCatchEvent | ExternalParticipant
+            // 
+            
+            BpmnThrowEvent n;
+            BpmnIntermediateThrowEvent b;
+            
             boolean isOk;
             if (isFromExternalParticipant) {
                 isOk = target instanceof BpmnIntermediateCatchEvent || target instanceof BpmnReceiveTask || isToExternalParticipant;
+                
             } else if (source instanceof BpmnIntermediateThrowEvent) {
-                isOk = target instanceof BpmnIntermediateCatchEvent || isToExternalParticipant;
+                isOk = target instanceof BpmnIntermediateCatchEvent || target instanceof BpmnReceiveTask || isToExternalParticipant;
+                
             } else if (source instanceof BpmnSendTask) {
-                isOk = target instanceof BpmnReceiveTask || isToExternalParticipant;
+                isOk = target instanceof BpmnReceiveTask || target instanceof BpmnIntermediateCatchEvent || isToExternalParticipant;
             } else {
                 isOk = false;
             }

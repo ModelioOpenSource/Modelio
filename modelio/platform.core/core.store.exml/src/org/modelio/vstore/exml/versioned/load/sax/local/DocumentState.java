@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,13 +45,13 @@ class DocumentState extends AbstractState {
         case TAG_EXT:
             final String sversion = attrs.getValue(ATT_EXT_VERSION);
             if (sversion==null || sversion.isEmpty()) {
-                throw new SAXParseException(VStoreExml.getMessage("ExmlFormat.unspecified"), this.stateHandler.getLocator());
+                throw new SAXParseException(VStoreExml.I18N.getMessage("ExmlFormat.unspecified"), this.stateHandler.getLocator());
             }
         
             int v = Integer.parseInt(sversion);
             if (v > ExmlTags.FORMAT_VERSION) {
                 throw new SAXParseException(
-                        VStoreExml.getMessage("ExmlFormat.newer", v, ExmlTags.FORMAT_VERSION),
+                        VStoreExml.I18N.getMessage("ExmlFormat.newer", v, ExmlTags.FORMAT_VERSION),
                         this.stateHandler.getLocator());
             }
         

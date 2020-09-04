@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ import org.modelio.vbasic.files.FileUtils;
 public class ColumnHelper {
     /**
      * Create a fragment name table column viewer.
+     * 
      * @param viewer the table viewer
      * @return the column
      */
@@ -72,6 +73,7 @@ public class ColumnHelper {
 
     /**
      * Create a fragment scope table column viewer.
+     * 
      * @param viewer the table viewer
      * @return the column
      */
@@ -96,6 +98,7 @@ public class ColumnHelper {
 
     /**
      * Create a fragment metamodel version table column viewer.
+     * 
      * @param viewer the table viewer
      * @return the column
      */

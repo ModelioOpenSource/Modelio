@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class GmForkJoinPrimaryNode extends GmNoStyleSimpleNode implements IImage
 
     /**
      * Create a fork/join graphic node.
+     * 
      * @param diagram The diagram
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
@@ -112,6 +113,7 @@ public class GmForkJoinPrimaryNode extends GmNoStyleSimpleNode implements IImage
 
     /**
      * Get the parent model representation mode.
+     * 
      * @return the parent representation mode or null if the node has still no parent.
      */
     @objid ("2a8790fa-55b6-11e2-877f-002564c97630")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ class ConfirmMigrationDialog extends ModelioDialog {
 
     /**
      * @param toMigrate the migration informations
+     * 
      * @param parentShell a parent SWT shell
      */
     @objid ("2da6a151-9a2f-4645-b3e2-747e533a77e2")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,13 +56,13 @@ import org.modelio.api.module.context.configuration.IModuleUserConfiguration;
 import org.modelio.api.module.context.i18n.I18nSupport;
 import org.modelio.api.module.context.log.ILogService;
 import org.modelio.api.module.context.project.IProjectStructure;
-import org.modelio.api.module.license.ILicenseInfos.Status;
-import org.modelio.api.module.license.LicenseInfos;
+import org.modelio.api.module.license.ILicenseInfos;
 import org.modelio.api.module.lifecycle.IModuleLifeCycleHandler;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.mda.infra.service.IModuleService;
 import org.modelio.mda.infra.service.IRTModule;
 import org.modelio.mda.infra.service.impl.common.FallbackModuleI18n;
+import org.modelio.mda.infra.service.impl.common.UndefinedLicenseInfos;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.ModuleParameter;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
@@ -75,6 +75,7 @@ import org.modelio.metamodel.uml.infrastructure.TagType;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
 import org.modelio.metamodel.visitors.IAbstractInfrastructureVisitor;
+import org.modelio.ui.swt.QualifiedImage;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.session.api.blob.IBlobInfo;
 import org.modelio.vcore.session.api.repository.IRepository;
@@ -94,38 +95,38 @@ public class ModuleI18NService {
     private static IModuleService moduleService;
 
     @objid ("9f6abd2a-6a8d-4370-a184-049e4a385388")
-    public static String getDescription(PropertyDefinition element) {
-        return getI18n(element).getDescription(element);
+    public static String getDescription(final PropertyDefinition element) {
+        return ModuleI18NService.getI18n(element).getDescription(element);
     }
 
     @objid ("cac3ac76-8932-4f6c-93b2-abd1f2dc8d3b")
-    public static String getDescription(Profile element) {
-        return getI18n(element).getDescription(element);
+    public static String getDescription(final Profile element) {
+        return ModuleI18NService.getI18n(element).getDescription(element);
     }
 
     @objid ("35a3268c-d09c-4762-b3b8-56ddfd139adc")
-    public static String getDescription(Stereotype element) {
-        return getI18n(element).getDescription(element);
+    public static String getDescription(final Stereotype element) {
+        return ModuleI18NService.getI18n(element).getDescription(element);
     }
 
     @objid ("16f2f611-e3b0-4b71-acb6-74c0d753a9f5")
-    public static String getDescription(NoteType element) {
-        return getI18n(element).getDescription(element);
+    public static String getDescription(final NoteType element) {
+        return ModuleI18NService.getI18n(element).getDescription(element);
     }
 
     @objid ("72bc75e4-9482-454a-bf51-2898e5ce906c")
-    public static String getDescription(TagType element) {
-        return getI18n(element).getDescription(element);
+    public static String getDescription(final TagType element) {
+        return ModuleI18NService.getI18n(element).getDescription(element);
     }
 
     @objid ("05e83a62-45b8-402c-90ab-316a7b800b93")
-    public static String getDescription(ResourceType element) {
-        return getI18n(element).getDescription(element);
+    public static String getDescription(final ResourceType element) {
+        return ModuleI18NService.getI18n(element).getDescription(element);
     }
 
     @objid ("1502d196-2790-4403-92f4-363756e18639")
-    public static I18nSupport getI18n(ModelElement mdaElement) {
-        IModule iModule = ModuleI18NService.getIModule(ModuleI18NService.getModule(mdaElement));
+    public static I18nSupport getI18n(final ModelElement mdaElement) {
+        final IModule iModule = ModuleI18NService.getIModule(ModuleI18NService.getModule(mdaElement));
         if (iModule != null) {
             return iModule.getModuleContext().getI18nSupport();
         } else {
@@ -135,6 +136,7 @@ public class ModuleI18NService {
 
     /**
      * Get the icon provided by the module for a given stereotype. The module should return an icon if the stereotype is provided by itself, <code>null</code> in the other case. The image life cycle is handled by the module.
+     * 
      * @param moduleComponent the module to get the image from.
      * @param stereotype a stereotype
      * @return the stereotype image, or <code>null</code> if the module provides none.
@@ -142,29 +144,30 @@ public class ModuleI18NService {
      */
     @objid ("5b4f8fc7-177d-11e2-aa0d-002564c97630")
     @Deprecated
-    public static Image getIcon(ModuleComponent moduleComponent, Stereotype stereotype) {
+    public static Image getIcon(final ModuleComponent moduleComponent, final Stereotype stereotype) {
         IModule iModule = ModuleI18NService.getIModule(moduleComponent);
         if (iModule == null) {
             // No valid module, look for a local module instead
-            iModule = getLocalModule(moduleComponent);
+            iModule = ModuleI18NService.getLocalModule(moduleComponent);
         }
         return iModule.getImage(stereotype, IModule.ImageType.ICON);
     }
 
     /**
      * Get the icon provided by the module for a given stereotype. The life cycle of the returned image is handled by the module and the image should not be disposed.
+     * 
      * @param stereotype a stereotype
      * @return the stereotype image, or <code>null</code> if the module provides none.
      */
     @objid ("110a8a4f-2480-4cad-b8bb-ea28a916f5b6")
-    public static Image getIcon(Stereotype stereotype) {
-        ModuleComponent moduleComponent = stereotype.getModule();
+    public static Image getIcon(final Stereotype stereotype) {
+        final ModuleComponent moduleComponent = stereotype.getModule();
         if (moduleComponent == null) {
             return null;
         }
-        IModule iModule = getIModule(moduleComponent);
+        IModule iModule = ModuleI18NService.getIModule(moduleComponent);
         if (iModule == null) {
-            iModule = getLocalModule(moduleComponent);
+            iModule = ModuleI18NService.getLocalModule(moduleComponent);
         }
         return iModule.getImage(stereotype, IModule.ImageType.ICON);
     }
@@ -177,38 +180,14 @@ public class ModuleI18NService {
      * <p>
      * Otherwise, returns the icon of the first stereotype belonging to the preferred provider if any, or <code>null</code>.
      * </p>
+     * 
      * @param element the element to get the icon for.
      * @param preferredProvider the module the icon must belong to. If <code>null</code>, any module will do.
      */
     @objid ("53d2b34e-f3ed-4974-af3f-d5aab44a7e64")
-    public static Image getIcon(ModelElement element, IPeerModule preferredProvider) {
-        if (preferredProvider == null) {
-            return element.getExtension().stream()
-                    // Ignore shell and orphan stereotypes
-                    .filter(stereotype -> stereotype.isValid() && stereotype.getModule() != null)
-                    // Ignore stereotypes having no image defined
-                    .filter(stereotype -> stereotype.getIcon() != null && !stereotype.getIcon().isEmpty())
-                    // Sort stereotypes according to the "started modules" order
-                    .sorted((stereotype1, stereotype2) -> Integer.compare(ModuleI18NService.getModulePriority(stereotype1.getModule()), ModuleI18NService.getModulePriority(stereotype2.getModule())))
-                    // Get the first stereotype
-                    .findFirst()
-                    // Return its Image
-                    .map(stereotype -> ModuleI18NService.getIcon(stereotype))
-                    .orElse(null);
-        } else {
-            return element.getExtension().stream()
-                    // Ignore shell and orphan stereotypes
-                    .filter(stereotype -> stereotype.isValid() && stereotype.getModule() != null)
-                    // Keep stereotypes from the preferred provider
-                    .filter(stereotype -> stereotype.getModule().getName().equals(preferredProvider.getName()))
-                    // Ignore stereotypes having no image defined
-                    .filter(stereotype -> stereotype.getIcon() != null && !stereotype.getIcon().isEmpty())
-                    // Get the first stereotype
-                    .findFirst()
-                    // Return its Image
-                    .map(stereotype -> ModuleI18NService.getIcon(stereotype))
-                    .orElse(null);
-        }
+    public static Image getIcon(final ModelElement element, final IPeerModule preferredProvider) {
+        QualifiedImage qualifiedImage = getQualifiedIcon(element, preferredProvider);
+        return qualifiedImage != null ? qualifiedImage.getImage() : null;
     }
 
     /**
@@ -219,61 +198,38 @@ public class ModuleI18NService {
      * <p>
      * Otherwise, returns the image of the first stereotype belonging to the preferred provider if any, or <code>null</code>.
      * </p>
+     * 
      * @param element the element to get the image for.
      * @param preferredProvider the module the image must belong to. If <code>null</code>, any module will do.
      */
     @objid ("b2918ff7-de7e-40c3-94db-e5dc63b9d368")
-    public static Image getImage(ModelElement element, IPeerModule preferredProvider) {
-        if (preferredProvider == null) {
-            return element.getExtension().stream()
-                    // Ignore shell and orphan stereotypes
-                    .filter(stereotype -> stereotype.isValid() && stereotype.getModule() != null)
-                    // Ignore stereotypes having no image defined
-                    .filter(stereotype -> stereotype.getImage() != null && !stereotype.getImage().isEmpty())
-                    // Sort stereotypes according to the "started modules" order
-                    .sorted((stereotype1, stereotype2) -> Integer.compare(ModuleI18NService.getModulePriority(stereotype1.getModule()), ModuleI18NService.getModulePriority(stereotype2.getModule())))
-                    // Get the first stereotype
-                    .findFirst()
-                    // Return its Image
-                    .map(stereotype -> ModuleI18NService.getImage(stereotype))
-                    .orElse(null);
-        } else {
-            return element.getExtension().stream()
-                    // Ignore shell and orphan stereotypes
-                    .filter(stereotype -> stereotype.isValid() && stereotype.getModule() != null)
-                    // Keep stereotypes from the preferred provider
-                    .filter(stereotype -> stereotype.getModule().getName().equals(preferredProvider.getName()))
-                    // Ignore stereotypes having no image defined
-                    .filter(stereotype -> stereotype.getImage() != null && !stereotype.getImage().isEmpty())
-                    // Get the first stereotype
-                    .findFirst()
-                    // Return its Image
-                    .map(stereotype -> ModuleI18NService.getImage(stereotype))
-                    .orElse(null);
-        }
+    public static Image getImage(final ModelElement element, final IPeerModule preferredProvider) {
+        QualifiedImage qualifiedImage = getQualifiedImage(element, preferredProvider);
+        return qualifiedImage != null ? qualifiedImage.getImage() : null;
     }
 
     /**
      * Get the image provided by the module for a given stereotype.The life cycle of the returned image is handled by the module and the image should not be disposed.
+     * 
      * @param stereotype a stereotype
      * @return the stereotype image, or <code>null</code> if the module provides none.
      */
     @objid ("1ad81b31-ffd8-4f02-924b-034b5d178672")
-    public static Image getImage(Stereotype stereotype) {
-        ModuleComponent moduleComponent = stereotype.getModule();
+    public static Image getImage(final Stereotype stereotype) {
+        final ModuleComponent moduleComponent = stereotype.getModule();
         if (moduleComponent == null) {
             return null;
         }
-        IModule iModule = getIModule(moduleComponent);
+        IModule iModule = ModuleI18NService.getIModule(moduleComponent);
         if (iModule == null) {
-            iModule = getLocalModule(moduleComponent);
+            iModule = ModuleI18NService.getLocalModule(moduleComponent);
         }
         return iModule.getImage(stereotype, IModule.ImageType.IMAGE);
     }
 
     @objid ("cb0513c4-174f-4258-bae2-d9f886ff7ebe")
-    public static String getLabel(Stereotype stereotype) {
-        IModule iModule = ModuleI18NService.getIModule(stereotype.getModule());
+    public static String getLabel(final Stereotype stereotype) {
+        final IModule iModule = ModuleI18NService.getIModule(stereotype.getModule());
         if (iModule != null) {
             return iModule.getModuleContext().getI18nSupport().getLabel(stereotype);
         }
@@ -281,8 +237,8 @@ public class ModuleI18NService {
     }
 
     @objid ("44ab8de4-e165-4d2c-9bf7-9e873f964013")
-    public static String getLabel(TagType tagType) {
-        IModule iModule = ModuleI18NService.getIModule(tagType.getModule());
+    public static String getLabel(final TagType tagType) {
+        final IModule iModule = ModuleI18NService.getIModule(tagType.getModule());
         if (iModule != null) {
             return iModule.getModuleContext().getI18nSupport().getLabel(tagType);
         }
@@ -290,8 +246,8 @@ public class ModuleI18NService {
     }
 
     @objid ("154229ff-25cf-44a5-8f40-e570921f1e9e")
-    public static String getLabel(NoteType noteType) {
-        IModule iModule = ModuleI18NService.getIModule(noteType.getModule());
+    public static String getLabel(final NoteType noteType) {
+        final IModule iModule = ModuleI18NService.getIModule(noteType.getModule());
         if (iModule != null) {
             return iModule.getModuleContext().getI18nSupport().getLabel(noteType);
         }
@@ -299,8 +255,8 @@ public class ModuleI18NService {
     }
 
     @objid ("d39152b3-5cc1-439f-b438-107b6162e400")
-    public static String getLabel(ResourceType resourceType) {
-        IModule iModule = ModuleI18NService.getIModule(resourceType.getModule());
+    public static String getLabel(final ResourceType resourceType) {
+        final IModule iModule = ModuleI18NService.getIModule(resourceType.getModule());
         if (iModule != null) {
             return iModule.getModuleContext().getI18nSupport().getLabel(resourceType);
         }
@@ -308,8 +264,8 @@ public class ModuleI18NService {
     }
 
     @objid ("a028ae95-45bf-44cc-8ab4-19bab9d7cf2c")
-    public static String getLabel(ModuleComponent module) {
-        IModule iModule = ModuleI18NService.getIModule(module);
+    public static String getLabel(final ModuleComponent module) {
+        final IModule iModule = ModuleI18NService.getIModule(module);
         if (iModule != null) {
             return iModule.getLabel();
         }
@@ -317,23 +273,24 @@ public class ModuleI18NService {
     }
 
     @objid ("1efe5b40-7fd2-4e9c-9a7a-8a347ff1e8bc")
-    public static String getLabel(PropertyDefinition pdef) {
-        return getI18n(pdef).getLabel(pdef);
+    public static String getLabel(final PropertyDefinition pdef) {
+        return ModuleI18NService.getI18n(pdef).getLabel(pdef);
     }
 
     @objid ("6a26aaa7-bf68-492b-86d9-0eb7319e627f")
-    public static String getLabel(Profile element) {
-        return getI18n(element).getLabel(element);
+    public static String getLabel(final Profile element) {
+        return ModuleI18NService.getI18n(element).getLabel(element);
     }
 
     /**
      * Returns an Image for a module. The image life cycle is handled by the module.
+     * 
      * @param moduleComponent the module to get the image from.
      * @return an Image for a module. Might be <code>null</code>.
      */
     @objid ("999e5d4c-178f-11e2-aa0d-002564c97630")
-    public static Image getModuleImage(ModuleComponent moduleComponent) {
-        IModule iModule = ModuleI18NService.getIModule(moduleComponent);
+    public static Image getModuleImage(final ModuleComponent moduleComponent) {
+        final IModule iModule = ModuleI18NService.getIModule(moduleComponent);
         if (iModule != null) {
             return iModule.getModuleImage();
         }
@@ -346,11 +303,12 @@ public class ModuleI18NService {
      * The priority values define an ordering of the modules that allows Modelio to give more importance to some of them, for example to propose their commands or extensions in first positions in the GUI...
      * 
      * Values: 0 is understood as the highest priority
+     * 
      * @return the current functional priority level of the module
      */
     @objid ("15bb57bc-0740-4974-950e-d308d8b2ac39")
-    public static int getPriority(ModuleComponent module) {
-        for (IRTModule rtModule : ModuleI18NService.moduleService.getStartedModules()) {
+    public static int getPriority(final ModuleComponent module) {
+        for (final IRTModule rtModule : ModuleI18NService.moduleService.getStartedModules()) {
             if (rtModule.getModel().equals(module)) {
                 return rtModule.getPriority();
             }
@@ -368,26 +326,26 @@ public class ModuleI18NService {
      * </p>
      */
     @objid ("d1555b10-0138-4ffc-9ed2-80f5b533aae9")
-    public static String getStereotypeLabel(ModelElement modelElement) {
+    public static String getStereotypeLabel(final ModelElement modelElement) {
         return modelElement.getExtension().stream()
-                        // Ignore shell stereotypes
-                        .filter(Stereotype::isValid)
-                        // Ignore orphan stereotypes
-                        .filter(stereotype -> stereotype.getModule() != null)
-                        // Sort stereotypes according to the "started modules" order
-                        .sorted((stereotype1, stereotype2) -> Integer.compare(ModuleI18NService.getModulePriority(stereotype1.getModule()), ModuleI18NService.getModulePriority(stereotype2.getModule())))
-                        // Get the first stereotype
-                        .findFirst()
-                        // Return its label
-                        .map(stereotype -> ModuleI18NService.getLabel(stereotype))
-                        .orElse(null);
+                // Ignore shell stereotypes
+                .filter(Stereotype::isValid)
+                // Ignore orphan stereotypes
+                .filter(stereotype -> stereotype.getModule() != null)
+                // Sort stereotypes according to the "started modules" order
+                .sorted((stereotype1, stereotype2) -> Integer.compare(ModuleI18NService.getModulePriority(stereotype1.getModule()), ModuleI18NService.getModulePriority(stereotype2.getModule())))
+                // Get the first stereotype
+                .findFirst()
+                // Return its label
+                .map(stereotype -> ModuleI18NService.getLabel(stereotype))
+                .orElse(null);
     }
 
     /**
      * Manually initialize the current {@link IModuleService}, as this class is not injected at all.
      */
     @objid ("5b4fdde9-177d-11e2-aa0d-002564c97630")
-    public static void init(IModuleService aModuleService) {
+    public static void init(final IModuleService aModuleService) {
         ModuleI18NService.moduleService = aModuleService;
     }
 
@@ -395,14 +353,14 @@ public class ModuleI18NService {
      * Resolve an {@link IModule} instance from a {@link ModuleComponent}.
      */
     @objid ("d305591b-74aa-4d64-abc3-30ec2715f33c")
-    private static IModule getIModule(ModuleComponent moduleComponent) {
+    private static IModule getIModule(final ModuleComponent moduleComponent) {
         if (moduleComponent == null) {
             return null;
         }
         
         if (ModuleI18NService.moduleService != null) {
             // First, look for started modules
-            for (IRTModule startedModule : ModuleI18NService.moduleService.getStartedModules()) {
+            for (final IRTModule startedModule : ModuleI18NService.moduleService.getStartedModules()) {
                 if (Objects.equals(moduleComponent, startedModule.getModel())) {
                     return startedModule.getIModule();
                 }
@@ -412,7 +370,7 @@ public class ModuleI18NService {
     }
 
     @objid ("f9e608d6-1d97-45b6-82ab-0ab7b4991486")
-    private static IModule getLocalModule(ModuleComponent moduleComponent) {
+    private static IModule getLocalModule(final ModuleComponent moduleComponent) {
         IModule iModule = ModuleI18NService.localModules.get(moduleComponent);
         if (iModule == null) {
             // Create a local module instance
@@ -423,7 +381,7 @@ public class ModuleI18NService {
     }
 
     @objid ("bbdc73f0-a48a-4292-8fe6-3932995de5c4")
-    private static ModuleComponent getModule(ModelElement element) {
+    private static ModuleComponent getModule(final ModelElement element) {
         return (ModuleComponent) element.accept(OwnerModuleGetter.instance);
     }
 
@@ -431,11 +389,11 @@ public class ModuleI18NService {
      * Compute a priority for a module component, according to its position in the "stated modules" list.
      */
     @objid ("46b26347-d716-4ade-8e4e-e938affc07da")
-    private static int getModulePriority(ModuleComponent moduleComponent) {
+    private static int getModulePriority(final ModuleComponent moduleComponent) {
         if (ModuleI18NService.moduleService != null) {
-            List<IRTModule> startedModules = ModuleI18NService.moduleService.getStartedModules();
+            final List<IRTModule> startedModules = ModuleI18NService.moduleService.getStartedModules();
             for (int i = 0; i < startedModules.size(); i++) {
-                IRTModule startedModule = startedModules.get(i);
+                final IRTModule startedModule = startedModules.get(i);
                 if (Objects.equals(moduleComponent, startedModule.getModel())) {
                     return i;
                 }
@@ -446,20 +404,105 @@ public class ModuleI18NService {
 
     /**
      * Get the icon provided by the module for a given profile. The life cycle of the returned image is handled by the module and the image should not be disposed.
+     * 
      * @param profile a profile
      * @return the profile image, or <code>null</code> if the module provides none.
      */
     @objid ("fd174c2b-e697-462f-8a38-8e6b9372ce9d")
-    public static Image getIcon(Profile profile) {
-        ModuleComponent moduleComponent = profile.getOwnerModule();
+    public static Image getIcon(final Profile profile) {
+        final ModuleComponent moduleComponent = profile.getOwnerModule();
         if (moduleComponent == null) {
             return null;
         }
-        IModule iModule = getIModule(moduleComponent);
+        IModule iModule = ModuleI18NService.getIModule(moduleComponent);
         if (iModule == null) {
-            iModule = getLocalModule(moduleComponent);
+            iModule = ModuleI18NService.getLocalModule(moduleComponent);
         }
         return iModule.getImage(profile, IModule.ImageType.ICON);
+    }
+
+    @objid ("c1cbae80-3fd4-42ac-a60b-8408a6ab3f0e")
+    public static QualifiedImage getQualifiedImage(ModelElement element, IPeerModule preferredProvider) {
+        if (preferredProvider == null) {
+            return element.getExtension().stream()
+                    // Ignore shell and orphan stereotypes
+                    .filter(stereotype -> stereotype.isValid() && stereotype.getModule() != null)
+                    // Ignore stereotypes having no image defined
+                    .filter(stereotype -> stereotype.getImage() != null && !stereotype.getImage().isEmpty())
+                    // Sort stereotypes according to the "started modules" order
+                    .sorted((stereotype1, stereotype2) -> Integer.compare(ModuleI18NService.getModulePriority(stereotype1.getModule()), ModuleI18NService.getModulePriority(stereotype2.getModule())))
+                    // Get the first stereotype
+                    .findFirst()
+                    // Return its Image
+                    .map(stereotype -> {
+                        Image image = ModuleI18NService.getImage(stereotype);
+                        return image != null ? new QualifiedImage(image, computeImageQualifier(stereotype)) : null;
+                    })
+                    .orElse(null);
+        } else {
+            return element.getExtension().stream()
+                    // Ignore shell and orphan stereotypes
+                    .filter(stereotype -> stereotype.isValid() && stereotype.getModule() != null)
+                    // Keep stereotypes from the preferred provider
+                    .filter(stereotype -> stereotype.getModule().getName().equals(preferredProvider.getName()))
+                    // Ignore stereotypes having no image defined
+                    .filter(stereotype -> stereotype.getImage() != null && !stereotype.getImage().isEmpty())
+                    // Get the first stereotype
+                    .findFirst()
+                    // Return its Image
+                    .map(stereotype -> {
+                        Image image = ModuleI18NService.getImage(stereotype);
+                        return image != null ? new QualifiedImage(image, computeImageQualifier(stereotype)) : null;
+                    })
+                    .orElse(null);
+        }
+    }
+
+    @objid ("ca79edec-b501-45a3-b036-388cbfc38a82")
+    public static QualifiedImage getQualifiedIcon(ModelElement element, IPeerModule preferredProvider) {
+        if (preferredProvider == null) {
+            return element.getExtension().stream()
+                    // Ignore shell and orphan stereotypes
+                    .filter(stereotype -> stereotype.isValid() && stereotype.getModule() != null)
+                    // Ignore stereotypes having no image defined
+                    .filter(stereotype -> stereotype.getIcon() != null && !stereotype.getIcon().isEmpty())
+                    // Sort stereotypes according to the "started modules" order
+                    .sorted((stereotype1, stereotype2) -> Integer.compare(ModuleI18NService.getModulePriority(stereotype1.getModule()), ModuleI18NService.getModulePriority(stereotype2.getModule())))
+                    // Get the first stereotype
+                    .findFirst()
+                    // Return its QualifiedImage
+                    .map(stereotype -> {
+                        Image icon = ModuleI18NService.getIcon(stereotype);
+                        return icon != null ? new QualifiedImage(icon, computeIconQualifier(stereotype)) : null;
+                    })
+                    .orElse(null);
+        } else {
+            return element.getExtension().stream()
+                    // Ignore shell and orphan stereotypes
+                    .filter(stereotype -> stereotype.isValid() && stereotype.getModule() != null)
+                    // Keep stereotypes from the preferred provider
+                    .filter(stereotype -> stereotype.getModule().getName().equals(preferredProvider.getName()))
+                    // Ignore stereotypes having no image defined
+                    .filter(stereotype -> stereotype.getIcon() != null && !stereotype.getIcon().isEmpty())
+                    // Get the first stereotype
+                    .findFirst()
+                    // Return its QualifiedImage
+                    .map(stereotype -> {
+                        Image icon = ModuleI18NService.getIcon(stereotype);
+                        return icon != null ? new QualifiedImage(icon, computeIconQualifier(stereotype)) : null;
+                    })
+                    .orElse(null);
+        }
+    }
+
+    @objid ("9a3ac14d-7600-4160-ad71-fbb70428ef6c")
+    private static String computeIconQualifier(Stereotype stereotype) {
+        return String.format("ICO_%s", stereotype.getUuid());
+    }
+
+    @objid ("238b04b8-04aa-45f4-bbc0-bebc5dc57875")
+    private static String computeImageQualifier(Stereotype stereotype) {
+        return String.format("IMG_%s", stereotype.getUuid());
     }
 
     /**
@@ -479,7 +522,7 @@ public class ModuleI18NService {
         private final MObject element;
 
         @objid ("41e2ba36-4ebe-44fc-946b-09d342bae94a")
-        public BlobImageDescriptor(MObject element, String blobKey) {
+        public BlobImageDescriptor(final MObject element, final String blobKey) {
             super();
             this.element = element;
             this.blobKey = blobKey;
@@ -492,7 +535,7 @@ public class ModuleI18NService {
                 if (is != null) {
                     return new ImageData(is);
                 }
-            } catch (@SuppressWarnings ("unused") IOException e) {
+            } catch (@SuppressWarnings ("unused") final IOException e) {
                 // ignore
             }
             return null;
@@ -500,30 +543,31 @@ public class ModuleI18NService {
 
         /**
          * Get an InputStream access to the image content.
+         * 
          * @return an InputStream or <i>null</i> if there is no matching blob.
          * @throws java.io.IOException on I/O failure
          */
         @objid ("2d0d7f81-3c70-4aac-9ab8-ce3cc112acaa")
-        private InputStream getImageStreamFromBlob(String aBlobKey) throws IOException {
+        private InputStream getImageStreamFromBlob(final String aBlobKey) throws IOException {
             // Get existing image stored in a blob
-            IRepository repository = GProject.getProject(this.element).getFragment(this.element).getRepository();
+            final IRepository repository = GProject.getProject(this.element).getFragment(this.element).getRepository();
             return repository.readBlob(aBlobKey);
         }
 
         @objid ("de6444a0-f292-4e29-94d2-938671c35f1b")
         @Override
-        public Image createImage(boolean returnMissingImageOnError, Device device) {
+        public Image createImage(final boolean returnMissingImageOnError, final Device device) {
             // Experimental since 3.8: look for zoomed image
             // See UrlImageDescriptor implementation for reference.
             try {
                 return new Image(device, this);
-            } catch (SWTException e) {
+            } catch (final SWTException e) {
                 // ignore SWT.ERROR_INVALID_IMAGE
                 if (e.code != SWT.ERROR_INVALID_IMAGE) {
                     throw e;
                 }
                 // fall through
-            } catch (@SuppressWarnings ("unused") IllegalArgumentException e) {
+            } catch (@SuppressWarnings ("unused") final IllegalArgumentException e) {
                 // fall through
             }
             
@@ -533,7 +577,7 @@ public class ModuleI18NService {
 
         @objid ("809c3dd6-0bb0-4860-9368-d56a4fa82c77")
         @Override
-        public ImageData getImageData(int zoom) {
+        public ImageData getImageData(final int zoom) {
             // See UrlImageDescriptor.getxURL(...) implementation for reference.
             String kzoom;
             if (zoom >= 200) {
@@ -548,7 +592,7 @@ public class ModuleI18NService {
                 if (is != null) {
                     return new ImageData(is);
                 }
-            } catch (@SuppressWarnings ("unused") IOException e) {
+            } catch (@SuppressWarnings ("unused") final IOException e) {
                 // ignore
             }
             return getImageData();
@@ -556,14 +600,15 @@ public class ModuleI18NService {
 
         /**
          * Tells whether the blob exists.
+         * 
          * @return true only if the blob exists.
          */
         @objid ("b875fdc7-a0a3-4d27-a880-6a18f917b3ba")
         public boolean exists() {
-            IRepository repository = GProject.getProject(this.element).getFragment(this.element).getRepository();
+            final IRepository repository = GProject.getProject(this.element).getFragment(this.element).getRepository();
             try {
-                return (repository.readBlobInfo(this.blobKey) != null);
-            } catch (@SuppressWarnings ("unused") IOException e) {
+                return repository != null && repository.readBlobInfo(this.blobKey) != null;
+            } catch (@SuppressWarnings ("unused") final IOException e) {
                 // ignore
             }
             return false;
@@ -602,7 +647,7 @@ public class ModuleI18NService {
          * Default c'tor
          */
         @objid ("64712871-e452-45d4-a01e-114a8f47a4e3")
-        LocalModule(ModuleComponent moduleComponent) {
+        LocalModule(final ModuleComponent moduleComponent) {
             this.moduleComponent = moduleComponent;
             Display.getDefault().syncExec(() -> {
                 this.imageRegistry = new ImageRegistry();
@@ -621,13 +666,13 @@ public class ModuleI18NService {
 
         @objid ("56304137-3a4b-4990-a47d-0b444dcc704a")
         @Override
-        public Image getImage(Stereotype stereotype, ImageType type) {
+        public Image getImage(final Stereotype stereotype, final ImageType type) {
             // If only the stereotype was specified we search directly from it.
             if (stereotype == null) {
                 return null;
             }
             
-            String blobKey = LocalModule.getImageBlobKey(stereotype, type);
+            final String blobKey = LocalModule.getImageBlobKey(stereotype, type);
             
             Image image = this.imageRegistry.get(blobKey);
             
@@ -638,7 +683,7 @@ public class ModuleI18NService {
             
             if (image == null) {
                 // image not yet computed
-                ImageDescriptor desc = getImageDescriptor(stereotype, blobKey);
+                final ImageDescriptor desc = getImageDescriptor(stereotype, blobKey);
                 if (desc != null) {
                     this.imageRegistry.put(blobKey, desc);
                     image = this.imageRegistry.get(blobKey);
@@ -655,19 +700,19 @@ public class ModuleI18NService {
          */
         @objid ("6cd05520-e7ca-48da-8460-bb98acdf732e")
         @Deprecated
-        private static URL getImageUrlFromBlob(MObject element, String blobKey) {
+        private static URL getImageUrlFromBlob(final MObject element, final String blobKey) {
             // Get existing image stored in a blob
-            IRepository repository = GProject.getProject(element).getFragment(element).getRepository();
+            final IRepository repository = GProject.getProject(element).getFragment(element).getRepository();
             try (InputStream stream = repository.readBlob(blobKey)) {
                 if (stream != null) {
-                    File imageFile = File.createTempFile(element.getUuid().toString(), blobKey);
+                    final File imageFile = File.createTempFile(element.getUuid().toString(), blobKey);
                     Files.copy(stream, imageFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                     // Make sure the image is deleted when leaving Modelio
                     imageFile.deleteOnExit();
             
                     return imageFile.toURI().toURL();
                 }
-            } catch (@SuppressWarnings ("unused") IOException e) {
+            } catch (@SuppressWarnings ("unused") final IOException e) {
                 // No image to load, ignore error...
             }
             return null;
@@ -681,8 +726,8 @@ public class ModuleI18NService {
 
         @objid ("63cfca37-7535-411c-ab9d-3e1a06d2bab9")
         @Override
-        public LicenseInfos getLicenseInfos() {
-            return new LicenseInfos(Status.UNDEFINED, null, "");
+        public ILicenseInfos getLicenseInfos() {
+            return new UndefinedLicenseInfos();
         }
 
         @objid ("5d967f9a-f575-4f1a-9230-78dd917045b0")
@@ -722,21 +767,21 @@ public class ModuleI18NService {
         }
 
         @objid ("d30a7aa5-1a7b-4b94-89fc-21ba24df5d1c")
-        public void registerBlobListener(ModuleComponent mc) {
+        public void registerBlobListener(final ModuleComponent mc) {
             GProject.getProject(mc).getSession().getBlobSupport().addBlobChangeListener(ev -> {
-                Set<IBlobInfo> blobs = new HashSet<>();
+                final Set<IBlobInfo> blobs = new HashSet<>();
                 blobs.addAll(ev.getUpdatedBlobs());
                 blobs.addAll(ev.getDeletedBlobs());
             
                 // Remove all modified images from the registry.
-                for (IBlobInfo blob : blobs) {
+                for (final IBlobInfo blob : blobs) {
                     this.imageRegistry.remove(blob.getKey());
                 }
             });
         }
 
         @objid ("6108aa40-2da9-472e-8318-b1ba8b33c081")
-        private static String getImageBlobKey(MObject mdaElement, ImageType imageType) {
+        private static String getImageBlobKey(final MObject mdaElement, final ImageType imageType) {
             // Compute the blob key
             String blobKey = mdaElement.getUuid().toString();
             if (imageType == ImageType.ICON) {
@@ -752,18 +797,19 @@ public class ModuleI18NService {
          * <p>
          * The module should return an image if the stereotype is provided by itself, <i>null</i> in the other case.
          * @param imageType the image type
+         * 
          * @param stereotype a stereotype
          * @return the stereotype image, or <i>null</i> if the module provides none.
          */
         @objid ("df41da1c-7f04-4060-8aca-de16196d1e1b")
-        private ImageDescriptor getImageDescriptor(Stereotype stereotype, String blobKey) {
+        private ImageDescriptor getImageDescriptor(final Stereotype stereotype, final String blobKey) {
             // If the stereotype is not owned by the current module we return
             // null.
             if (!isStereotypeOwner(stereotype)) {
                 return null;
             }
             
-            BlobImageDescriptor desc = new BlobImageDescriptor(stereotype, blobKey);
+            final BlobImageDescriptor desc = new BlobImageDescriptor(stereotype, blobKey);
             
             if (!desc.exists()) {
                 return null;
@@ -773,14 +819,15 @@ public class ModuleI18NService {
 
         /**
          * Returns true if the given stereotype belongs to the module.
+         * 
          * @param stereotype the stereotype to test
          * @return true if the given stereotype belongs to the module.
          */
         @objid ("7c94e616-1917-40fe-a2fe-f70e25963ec1")
-        private boolean isStereotypeOwner(Stereotype stereotype) {
+        private boolean isStereotypeOwner(final Stereotype stereotype) {
             final Profile profile = stereotype.getOwner();
             if (profile != null) {
-                ModuleComponent module = profile.getOwnerModule();
+                final ModuleComponent module = profile.getOwnerModule();
                 if (module != null) {
                     return module.equals(this.moduleComponent);
                 }
@@ -802,21 +849,21 @@ public class ModuleI18NService {
 
         @objid ("d859bf39-15eb-4fab-b650-d25d661bc851")
         @Override
-        public final void initModulecontext(IModuleContext moduleContext) {
+        public final void initModulecontext(final IModuleContext moduleContext) {
             // Nothing to do. Fake module has no ModuleContext.
         }
 
         @objid ("b7a5898d-ed40-4b67-bace-846de15a9c3c")
         @Override
-        public Image getImage(Profile profile, ImageType imageType) {
+        public Image getImage(final Profile profile, final ImageType imageType) {
             // If only the stereotype was specified we search directly from it.
             if (profile != null) {
-                String blobKey = LocalModule.getImageBlobKey(profile, imageType);
+                final String blobKey = LocalModule.getImageBlobKey(profile, imageType);
             
                 Image image = this.imageRegistry.get(blobKey);
             
                 if (image == null) {
-                    ImageDescriptor desc = getImageDescriptor(profile, blobKey);
+                    final ImageDescriptor desc = getImageDescriptor(profile, blobKey);
                     if (desc != null) {
                         this.imageRegistry.put(blobKey, desc);
                         image = this.imageRegistry.get(blobKey);
@@ -828,7 +875,7 @@ public class ModuleI18NService {
         }
 
         @objid ("f1de4374-e345-425b-8acb-7cd466d8739a")
-        private ImageDescriptor getImageDescriptor(Profile profile, String blobKey) {
+        private ImageDescriptor getImageDescriptor(final Profile profile, final String blobKey) {
             // If the stereotype is not owned by the current module we return
             // null.
             if (!Objects.equals(this.moduleComponent, profile.getOwnerModule())) {
@@ -841,7 +888,7 @@ public class ModuleI18NService {
         private final class LocalModuleContext implements IModuleContext {
             @objid ("7408a9bb-ab1b-42ba-aaac-27a42d653b5f")
             @Override
-            public void setModule(IModule iModule) {
+            public void setModule(final IModule iModule) {
                 // Nothing to do
             }
 
@@ -925,8 +972,8 @@ public class ModuleI18NService {
 
         @objid ("47ac8b02-54c5-475c-adc0-4c8ab9d152de")
         @Override
-        public Object visitStereotype(Stereotype obj) {
-            Profile prof = obj.getOwner();
+        public Object visitStereotype(final Stereotype obj) {
+            final Profile prof = obj.getOwner();
             if (prof != null) {
                 return visitProfile(prof);
             }
@@ -935,8 +982,8 @@ public class ModuleI18NService {
 
         @objid ("8e009208-f4c6-4dc2-a7fa-9c3bf520bc62")
         @Override
-        public Object visitMetaclassReference(MetaclassReference obj) {
-            Profile prof = obj.getOwnerProfile();
+        public Object visitMetaclassReference(final MetaclassReference obj) {
+            final Profile prof = obj.getOwnerProfile();
             if (prof != null) {
                 return visitProfile(prof);
             }
@@ -945,26 +992,26 @@ public class ModuleI18NService {
 
         @objid ("0046309c-ded2-4c30-a967-5c444207c612")
         @Override
-        public Object visitProfile(Profile obj) {
+        public Object visitProfile(final Profile obj) {
             return obj.getOwnerModule();
         }
 
         @objid ("fdcf91d7-34ee-4e91-b90d-774e4fcf194d")
         @Override
-        public Object visitModuleComponent(ModuleComponent obj) {
+        public Object visitModuleComponent(final ModuleComponent obj) {
             return obj;
         }
 
         @objid ("9d0b4224-cd66-4cc6-92f6-00e7e7fe17fc")
         @Override
-        public Object visitModuleParameter(ModuleParameter obj) {
+        public Object visitModuleParameter(final ModuleParameter obj) {
             return obj.getOwner();
         }
 
         @objid ("57eed509-7912-4c82-87c4-d20d5c3d1609")
         @Override
-        public Object visitTagType(TagType obj) {
-            MObject owner = obj.getCompositionOwner();
+        public Object visitTagType(final TagType obj) {
+            final MObject owner = obj.getCompositionOwner();
             if (owner != null) {
                 return owner.accept(this);
             }
@@ -973,8 +1020,8 @@ public class ModuleI18NService {
 
         @objid ("3cecc167-b3b7-4896-a72d-2dff82d8a98e")
         @Override
-        public Object visitNoteType(NoteType obj) {
-            MObject owner = obj.getCompositionOwner();
+        public Object visitNoteType(final NoteType obj) {
+            final MObject owner = obj.getCompositionOwner();
             if (owner != null) {
                 return owner.accept(this);
             }
@@ -983,14 +1030,14 @@ public class ModuleI18NService {
 
         @objid ("11d3f5e6-43fe-4b6c-a642-f1c033539055")
         @Override
-        public Object visitResourceType(ResourceType obj) {
+        public Object visitResourceType(final ResourceType obj) {
             return obj.getModule();
         }
 
         @objid ("e7d3f412-f2f9-463f-a7d5-be95c0969b37")
         @Override
-        public Object visitPropertyDefinition(PropertyDefinition obj) {
-            PropertyTableDefinition tableDef = obj.getOwner();
+        public Object visitPropertyDefinition(final PropertyDefinition obj) {
+            final PropertyTableDefinition tableDef = obj.getOwner();
             if (tableDef != null) {
                 return visitPropertyTableDefinition(tableDef);
             }
@@ -999,8 +1046,8 @@ public class ModuleI18NService {
 
         @objid ("4d1c4f0f-e7b2-4312-b468-4beadadcbbe1")
         @Override
-        public Object visitPropertyTableDefinition(PropertyTableDefinition obj) {
-            MObject owner = obj.getCompositionOwner();
+        public Object visitPropertyTableDefinition(final PropertyTableDefinition obj) {
+            final MObject owner = obj.getCompositionOwner();
             if (owner != null) {
                 return owner.accept(this);
             }

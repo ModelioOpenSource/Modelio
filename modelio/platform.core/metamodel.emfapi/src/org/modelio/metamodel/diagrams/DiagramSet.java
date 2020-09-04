@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.diagrams;
 
@@ -43,13 +43,13 @@ public interface DiagramSet extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("ace088d7-b9c9-4343-8e41-116f1d18449c")
+    @objid ("e4989381-3743-48f7-812c-6f2fd6b51dfc")
     public static final String MNAME = "DiagramSet";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("d2fc045e-5d16-41fa-b849-b2d4375c6355")
+    @objid ("4be710ea-dae4-4b20-9041-009721928225")
     public static final String MQNAME = "Infrastructure.DiagramSet";
 
     /**
@@ -58,7 +58,7 @@ public interface DiagramSet extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("20d432d8-faf7-4d03-a406-cb0a6a93e420")
+    @objid ("761229bd-7312-44d7-aee4-83a5a68797d4")
     EList<DiagramSet> getSub();
 
     /**
@@ -67,7 +67,7 @@ public interface DiagramSet extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("ab3aef82-6e5a-437c-b7f6-46ecd9820c62")
+    @objid ("62c8187a-3506-4719-bac3-c974e46df613")
     <T extends DiagramSet> List<T> getSub(java.lang.Class<T> filterClass);
 
     /**
@@ -76,7 +76,7 @@ public interface DiagramSet extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("1dc8b8b5-5ae0-4e60-81c9-a664fbcb7b98")
+    @objid ("27604e88-764f-47d3-8c8e-abbbb05301b9")
     DiagramSet getParent();
 
     /**
@@ -85,7 +85,7 @@ public interface DiagramSet extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("67d1d257-0f36-43c0-9129-41cd37178614")
+    @objid ("4e11123c-896c-4874-a1da-a8fb4606960c")
     void setParent(DiagramSet value);
 
     /**
@@ -94,7 +94,7 @@ public interface DiagramSet extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("61c61e35-4c8a-4a8b-8a84-7b4319e277d6")
+    @objid ("a92db1e5-1b2d-4e4b-b28e-6f32ddd682bc")
     EList<AbstractDiagram> getReferencedDiagram();
 
     /**
@@ -103,7 +103,7 @@ public interface DiagramSet extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("4ed34ba1-857e-44be-8af4-f3dfc04533f9")
+    @objid ("4161ef4e-20a0-4aaa-b11c-1025489f575a")
     <T extends AbstractDiagram> List<T> getReferencedDiagram(java.lang.Class<T> filterClass);
 
     /**
@@ -112,7 +112,7 @@ public interface DiagramSet extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("1cbe46ac-f548-44fd-92a4-67432886914f")
+    @objid ("49e5fc7b-9d0b-41f4-b179-2b31951b8233")
     AbstractProject getOwner();
 
     /**
@@ -121,7 +121,7 @@ public interface DiagramSet extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("6f8d9352-555d-4ee8-8f1b-2ae830353ddf")
+    @objid ("8586acbd-d937-4641-a86a-9f41271254ee")
     void setOwner(AbstractProject value);
 
 }

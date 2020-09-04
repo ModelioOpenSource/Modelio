@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public class LineSegMoveInvisibleHandle extends BendpointCreationInvisibleHandle
     /**
      * Creates a new BendpointCreationHandle, sets its owner to <code>owner</code> and its index to <code>index</code>,
      * and sets its locator to a new {@link org.eclipse.draw2d.MidpointLocator}.
+     * 
      * @param owner the moved connection
      * @param index the index of the moved bend point
      */
@@ -57,6 +58,7 @@ public class LineSegMoveInvisibleHandle extends BendpointCreationInvisibleHandle
 
     /**
      * Creates and returns a new {@link ConnectionBendpointTracker}.
+     * 
      * @return the new ConnectionBendpointTracker
      */
     @objid ("805ebb9a-1dec-11e2-8cad-001ec947c8cc")

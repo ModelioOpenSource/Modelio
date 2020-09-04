@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class SmartTypeMessageCommand extends Command {
 
     /**
      * Constructor to type the message with a called operation
+     * 
      * @param messageToType the message to type
      * @param operation the operation to call
      */
@@ -59,6 +60,7 @@ public class SmartTypeMessageCommand extends Command {
 
     /**
      * Constructor to type the message with a called operation
+     * 
      * @param messageToType the message to type
      * @param signal the signal to send
      */

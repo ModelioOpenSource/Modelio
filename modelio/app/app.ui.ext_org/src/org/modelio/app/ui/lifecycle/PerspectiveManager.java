@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -28,9 +28,10 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPerspective;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPerspectiveStack;
-import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
+import org.eclipse.e4.ui.model.application.ui.basic.MPartSashContainerElement;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.modelio.app.core.events.ModelioEventTopics;
 import org.modelio.app.project.core.services.IProjectService;
@@ -45,8 +46,11 @@ import org.osgi.service.event.EventHandler;
 @objid ("8c71273a-9f27-4da1-9262-50cc3dccfc54")
 @Creatable
 public class PerspectiveManager implements EventHandler, IModelioUiService {
-    @objid ("e8d6123c-0b74-4f2d-b3c5-7459ff1cfae9")
-    private static final String WELCOME_PERSPECTIVE_ID = "org.modelio.app.ui.welcome.perspective";
+    @objid ("a1f341f6-8692-4bd4-ac19-66478189bd91")
+    private static final String WELCOME_STACK_ID = "org.modelio.app.ui.welcome.view";
+
+    @objid ("ff753ef5-0577-4329-ac61-33fd7fbf75c1")
+    private static final String PERSPECTIVE_STACK_ID = "org.modelio.app.ui.stack.perspectives";
 
     @objid ("69e0498b-55e8-4e01-b765-cae30f8b57f8")
     @Inject
@@ -60,12 +64,9 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
     @Inject
      IProjectService projectService;
 
-    /**
-     * {@inheritDoc}
-     */
     @objid ("3e3731c9-ac74-42a3-8a6b-7ecc5fcc7517")
     @Override
-    public void switchToPerspective(MPerspective perspective) {
+    public void switchToPerspective(final MPerspective perspective) {
         showWelcome(false);
         
         final MPerspectiveStack stack = getPerspectiveStack();
@@ -73,35 +74,29 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
             return;
         }
         
-        final MPerspective switchTo = (perspective != null) ? perspective : getDefaultPerspective();
+        final MPerspective switchTo = perspective != null ? perspective : getDefaultPerspective();
         
         stack.setSelectedElement(switchTo);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @objid ("7a04d6e5-0c96-4c45-bec1-7d14095edb1a")
     @Override
     public void switchToWorkspace() {
-        MPerspective workspacePerspective = getWorkspacePerspectives().get(0);
+        final MPerspective workspacePerspective = getWorkspacePerspectives().get(0);
         switchToPerspective(workspacePerspective);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @objid ("242445c1-b0ac-4807-ad59-8713310fecda")
     @Override
-    public void showWelcome(boolean onOff) {
-        MPartStack welcome = getWelcomeStack();
-        MPerspectiveStack pstack = getPerspectiveStack();
+    public void showWelcome(final boolean onOff) {
+        final MUIElement welcomeStack = getWelcomeStack();
+        final MPerspectiveStack pStack = getPerspectiveStack();
         
-        if (welcome != null) {
-            welcome.setVisible(onOff);
+        if (welcomeStack != null) {
+            welcomeStack.setVisible(onOff);
         }
-        if (pstack != null) {
-            pstack.setVisible(!onOff);
+        if (pStack != null) {
+            pStack.setVisible(!onOff);
         }
     }
 
@@ -113,12 +108,12 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
 
     @objid ("d2449a37-b73a-413e-8f86-2e416ee41ebb")
     @Override
-    public void handleEvent(Event event) {
+    public void handleEvent(final Event event) {
         switch (event.getTopic()) {
         
         case ModelioEventTopics.PROJECT_OPENING:
             // Switch to a 'workable' perspective on project openING to give chance to views to benefit from an available 'workable' perspective when listening to openED event
-            for (MPerspective p : getProjectPerspectives()) {
+            for (final MPerspective p : getProjectPerspectives()) {
                 if (p.getTags().contains("default")) {
                     switchToPerspective(p);
                     return;
@@ -126,7 +121,7 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
             }
             break;
         case ModelioEventTopics.PROJECT_CLOSED:
-            for (MPerspective p : getWorkspacePerspectives()) {
+            for (final MPerspective p : getWorkspacePerspectives()) {
                 if (p.getTags().contains("default")) {
                     switchToPerspective(p);
                     return;
@@ -138,31 +133,50 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
         }
     }
 
+    /**
+     * Get the application perspective stack
+     * 
+     * @return the current perspective stack.
+     */
     @objid ("8dedeadf-68a8-420d-a605-bdc755f2fffc")
     private MPerspectiveStack getPerspectiveStack() {
-        EModelService modelService = this.application.getContext().get(EModelService.class);
-        List<MPerspectiveStack> perspectivestacks = modelService.findElements(this.application,
-                "org.modelio.app.ui.stack.perspectives", MPerspectiveStack.class, null);
-        for (MPerspectiveStack p : perspectivestacks) {
-            if (p.getElementId().equals("org.modelio.app.ui.stack.perspectives")) {
+        final EModelService modelService = this.application.getContext().get(EModelService.class);
+        final List<MPerspectiveStack> perspectivestacks = modelService.findElements(this.application, PERSPECTIVE_STACK_ID, MPerspectiveStack.class, null);
+        for (final MPerspectiveStack p : perspectivestacks) {
+            if (p.getElementId().equals(PERSPECTIVE_STACK_ID)) {
                 return p;
             }
         }
         return null;
     }
 
+    /**
+     * Get the workspace perspective, ie the (unique) perspective tagged "workspace"
+     * 
+     * @return the workspace perspective.
+     */
     @objid ("3b0b48a7-b3ea-414f-a2c9-76386b635d7c")
     private List<MPerspective> getWorkspacePerspectives() {
-        EModelService modelService = this.application.getContext().get(EModelService.class);
+        final EModelService modelService = this.application.getContext().get(EModelService.class);
         return modelService.findElements(this.application, null, MPerspective.class, Arrays.asList("workspace"));
     }
 
+    /**
+     * Get the "workable" perspective, ie all the perspectives tagged "project"
+     * 
+     * @return the project perspective
+     */
     @objid ("0174474f-003b-4ffb-97e8-68c83a723cc4")
     private List<MPerspective> getProjectPerspectives() {
-        EModelService modelService = this.application.getContext().get(EModelService.class);
+        final EModelService modelService = this.application.getContext().get(EModelService.class);
         return modelService.findElements(this.application, null, MPerspective.class, Arrays.asList("project"));
     }
 
+    /**
+     * Get the default perspective
+     * 
+     * @return the "workspace" perspective if a project is already opened is <code>null</code>, the "project" perspective otherwise.
+     */
     @objid ("1ec8ab45-99b4-4a0e-9334-e4ba1e0e8349")
     private MPerspective getDefaultPerspective() {
         if (this.projectService != null && this.projectService.getOpenedProject() != null) {
@@ -172,14 +186,16 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
         }
     }
 
+    /**
+     * @return the "Welcome" part
+     */
     @objid ("a59b6624-52d0-480d-87ae-7506b1736b43")
-    private MPartStack getWelcomeStack() {
-        EModelService modelService = this.application.getContext().get(EModelService.class);
-        List<MPartStack> views = modelService.findElements(this.application, "org.modelio.app.ui.welcome.view", MPartStack.class,
-                null);
-        for (MPartStack p : views) {
-            if (p.getElementId().equals("org.modelio.app.ui.welcome.view")) {
-                return p;
+    private MUIElement getWelcomeStack() {
+        final EModelService modelService = this.application.getContext().get(EModelService.class);
+        final List<MPartSashContainerElement> partStacks = modelService.findElements(this.application, WELCOME_STACK_ID, MPartSashContainerElement.class, null);
+        for (final MPartSashContainerElement ps : partStacks) {
+            if (ps.getElementId().equals(WELCOME_STACK_ID)) {
+                return ps;
             }
         }
         return null;

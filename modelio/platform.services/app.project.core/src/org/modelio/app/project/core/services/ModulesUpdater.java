@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class ModulesUpdater {
 
     /**
      * C'tor
+     * 
      * @param project the project to work on.
      * @param withConfirmation whether to ask user for confirmation.
      */
@@ -89,6 +90,7 @@ public class ModulesUpdater {
 
     /**
      * Update all modules to last version and add missing mandatory modules.
+     * 
      * @param monitor a progress monitor
      */
     @objid ("481caa61-d023-4be9-8475-dbbbf9ba8cc9")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.modelio.diagram.editor.AbstractDiagramEditor;
 import org.modelio.diagram.editor.plugin.DiagramEditor;
+import org.modelio.diagram.elements.common.abstractdiagram.ImageBuilder;
 
 @objid ("65c52b24-33f7-11e2-95fe-001ec947c8cc")
 public class SaveImageHandler {

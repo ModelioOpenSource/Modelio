@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -44,6 +44,7 @@ public class UnknownMetaclassException extends IllegalArgumentException {
 
     /**
      * Get the name of the missing metaclass.
+     * 
      * @return the metaclass not found.
      */
     @objid ("109a8931-16e7-11e2-b24b-001ec947ccaf")

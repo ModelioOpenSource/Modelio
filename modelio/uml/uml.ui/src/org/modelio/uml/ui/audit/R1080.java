@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -176,6 +176,7 @@ public class R1080 extends AbstractUmlRule {
 
         /**
          * Check the homogeneity of the siblings of a partition.
+         * 
          * @param partition The partition to check
          * @return True is the partition's siblings partitions are homogeneous, false otherwise
          */
@@ -190,6 +191,7 @@ public class R1080 extends AbstractUmlRule {
 
         /**
          * Check the homogeneity of the children partitions of a partition
+         * 
          * @param partition The partition to check
          * @return True is the activity's children are homogeneous or if there are no children, false otherwise
          */
@@ -205,6 +207,7 @@ public class R1080 extends AbstractUmlRule {
 
         /**
          * Check the homogeneity of the children partitions of an activity
+         * 
          * @param activity The activity to check
          * @return True is the activity's children are homogeneous or if there are no children, false otherwise
          */
@@ -224,6 +227,7 @@ public class R1080 extends AbstractUmlRule {
 
         /**
          * Check if a list of partitions are homogeneous (that they represent parts of the same Classifier)
+         * 
          * @param partitions partitions of the same level
          * @return true if partitions are homogeneous , false otherwise
          */
@@ -249,6 +253,7 @@ public class R1080 extends AbstractUmlRule {
 
         /**
          * Check if a partition needs to be checked by the rule (if it's not external and if it's represented by a part.
+         * 
          * @param partition The partition to check.
          * @return True if the partition needs to be checked, else otherwise.
          */
@@ -263,6 +268,7 @@ public class R1080 extends AbstractUmlRule {
         /**
          * Checks is the Classifier is represented in any partition, and check the rule on these partitions.
          * @param classifier The classifier to check
+         * 
          * @return A list of audit entries for each partition that was checked
          */
         @objid ("c3f22d64-0274-48dc-95e2-b5f54c3a8fb3")
@@ -353,6 +359,7 @@ public class R1080 extends AbstractUmlRule {
 
         /**
          * In this case we need to check the siblings partition of our updated partition, and the children partitions in case the partition was updated after a moved partition event.
+         * 
          * @param partition The partition to check
          * @return The result of the audit
          */

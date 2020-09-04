@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -134,6 +134,7 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
 
     /**
      * Sets the tools state.
+     * 
      * @param state the new state
      */
     @objid ("b1ffed17-fb68-4da7-a12c-12df0a387d31")
@@ -150,6 +151,7 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
      * Updates the target editpart and returns <code>true</code> if the target changes. The target is updated by using
      * the target conditional and the target request. If the target has been locked, this method does nothing and
      * returns <code>false</code>.
+     * 
      * @return <code>true</code> if the target was changed
      */
     @objid ("26522056-d773-4c52-b5ff-e2d68c9e5cf1")

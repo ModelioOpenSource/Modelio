@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class GmExtensionPoint extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
+     * 
      * @param diagram the diagram model.
      * @param el the represented element, may be <i>null</i>.
      * @param ref the represented element reference, must not be <i>null</i>.

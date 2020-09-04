@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -149,6 +149,7 @@ public class TRelationship extends TBaseElement {
 
     /**
      * Sets the value of the type property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -170,6 +171,7 @@ public class TRelationship extends TBaseElement {
 
     /**
      * Sets the value of the direction property.
+     * 
      * @param value allowed object is
      * {@link TRelationshipDirection }
      */

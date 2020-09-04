@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -165,6 +165,7 @@ public class BySetContentProvider implements ITreeContentProvider {
     /**
      * Constructor initializing the project.
      * @param showFragments
+     * 
      * @param project an opened GProject.
      */
     @objid ("0046b8ce-0d4f-10c6-842f-001ec947cd2a")

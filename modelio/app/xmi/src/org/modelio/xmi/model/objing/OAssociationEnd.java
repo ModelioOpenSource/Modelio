@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -28,14 +28,14 @@ import org.modelio.metamodel.uml.statik.Association;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Feature;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.ModelUtils;
 import org.modelio.xmi.util.NotFoundException;
 import org.modelio.xmi.util.ObjingEAnnotation;
-import org.modelio.xmi.util.XMIProperties;
 
 /**
  * This class manages the export of AssociationEnd elements
@@ -53,7 +53,7 @@ public class OAssociationEnd extends OStructuralFeature {
         Association assoc = getObjingElement().getAssociation();
         
         if (!AbstractObjingModelNavigation.isOwnedByActor(assoc)) {
-            if (getObjingElement().isStereotyped(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXTENSIONEND)) {
+            if (getObjingElement().isStereotyped(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXTENSIONEND)) {
                 return UMLFactory.eINSTANCE.createExtensionEnd();
             }
             return UMLFactory.eINSTANCE.createProperty();
@@ -69,6 +69,7 @@ public class OAssociationEnd extends OStructuralFeature {
     /**
      * Constructor of OAssociationEnd.
      * It takes the exported Modelio AssociationEnd as parameter
+     * 
      * @param element : the exported AssociationEnd
      */
     @objid ("d1d36f06-cad9-4a90-9e14-bec68e3cd9f7")
@@ -313,6 +314,7 @@ public class OAssociationEnd extends OStructuralFeature {
                     }
                 } catch (UnsupportedOperationException e) {
                     ecoreAssoc.getOwnedEnds().add(ecoreProperty);
+                    Xmi.LOG.warning(e);
                 }
             } else if (ecoreOwner instanceof org.eclipse.uml2.uml.Actor) {// org.eclipse.uml2.uml.Actor
                 ecoreAssoc.getOwnedEnds().add(ecoreProperty);
@@ -423,6 +425,7 @@ public class OAssociationEnd extends OStructuralFeature {
                     }
                 } catch (UnsupportedOperationException e) {
                     ecoreAssoc.getOwnedEnds().add(ecoreProperty);
+                    Xmi.LOG.warning(e);
                 }
             } else if (ecoreOwner instanceof org.eclipse.uml2.uml.Actor) {// org.eclipse.uml2.uml.Actor
                 ecoreAssoc.getOwnedEnds().add(ecoreProperty);

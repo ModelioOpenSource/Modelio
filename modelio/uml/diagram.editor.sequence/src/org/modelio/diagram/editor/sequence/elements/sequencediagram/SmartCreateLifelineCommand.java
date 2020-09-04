@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -190,6 +190,7 @@ public class SmartCreateLifelineCommand extends Command {
 
     /**
      * Copy the Ports of the base class to the instance.
+     * 
      * @param part the part where Ports are to be added.
      * @return the created ports.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class ModuleCommandsRegistry {
 
     /**
      * Returns the {@link MCommand} with the given ID, creating it in not found in the application.
+     * 
      * @param commandId ID of the requested command.
      * @return the MCommand with the given ID.
      */
@@ -117,6 +118,7 @@ public class ModuleCommandsRegistry {
      * Returns the {@link MCommand} corresponding to the given module/action pair, creating it in not found in the application.
      * @param commandId
      * ID of the requested command.
+     * 
      * @return the MCommand corresponding to the given module/action pair.
      */
     @objid ("4f5c55e8-1449-11e2-a678-001ec947c8cc")

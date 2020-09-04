@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ class MasterExecutionOccurrenceSpecificationAnchor extends AbstractConnectionAnc
 
     /**
      * C'tor.
+     * 
      * @param owner the owner figure on which bounds this anchor will be placed.
      */
     @objid ("d8deea36-55b6-11e2-877f-002564c97630")

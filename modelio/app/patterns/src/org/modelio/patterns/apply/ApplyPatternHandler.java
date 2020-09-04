@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class ApplyPatternHandler {
     /**
      * Apply a pattern on the selection.
      * @param pickingService
+     * 
      * @param selection the current modelio selection.
      * @param patternService the pattern service.
      * @param patternName name of a pattern to apply.
@@ -105,6 +106,7 @@ public class ApplyPatternHandler {
     /**
      * Available only when the selection contains only a ModelElement that is neither a project, nor a <<Pattern>> Package.
      * Pattern name must be neither empty nor null.
+     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class DeleteInDiagramCommand extends Command {
 
     /**
      * Set the graphic element to delete.
+     * 
      * @param el the graphic element to delete.
      */
     @objid ("7f3e3f1f-1dec-11e2-8cad-001ec947c8cc")
@@ -61,7 +62,7 @@ public class DeleteInDiagramCommand extends Command {
     @Override
     public boolean canExecute() {
         IGmDiagram gmDiagram = this.toDelete.getDiagram();
-        return gmDiagram == null || gmDiagram.getRelatedElement() == null || gmDiagram.getRelatedElement().getStatus().isModifiable();
+        return gmDiagram == null || gmDiagram.getRelatedElement() == null || gmDiagram.isUserEditable();
     }
 
 }

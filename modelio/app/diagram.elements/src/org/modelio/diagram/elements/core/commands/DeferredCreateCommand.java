@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class DeferredCreateCommand extends Command {
 
     /**
      * Create a deferred command.
+     * 
      * @param req The creation request.
      * @param sender The edit part sending the request
      */
@@ -103,6 +104,7 @@ public class DeferredCreateCommand extends Command {
 
     /**
      * Get the composite node on which the new node must be created.
+     * 
      * @return the child node
      * @throws java.lang.IllegalArgumentException if the metaclass name does not exist.
      */
@@ -118,6 +120,7 @@ public class DeferredCreateCommand extends Command {
 
     /**
      * Get the parent composite node.
+     * 
      * @return the main node.
      */
     @objid ("7f3bdce6-1dec-11e2-8cad-001ec947c8cc")

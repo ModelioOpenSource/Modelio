@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,19 +20,16 @@
 
 package org.modelio.xmi.model.ecore;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
+import org.eclipse.uml2.uml.NamedElement;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
+import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.xmi.plugin.Xmi;
+import org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2Deployment;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.EcoreModelNavigation;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("b3b7c823-6857-4231-9af8-58b42da2b277")
 public class EDeployment extends EDependency {
@@ -47,55 +44,47 @@ public class EDeployment extends EDependency {
 
     @objid ("b680fed5-ab3b-44cb-9ae8-eba2d1ea8abb")
     @Override
-    public void attach(List<Object> objingElts) {
-        EList<?> clientList = this.ecoreElement.getClients();
-        EList<?> supplierList = this.ecoreElement.getSuppliers();
+    public void attach(Element objingElts) {
+        //Done during creation
+    }
+
+    @objid ("4c64f967-7a0f-4d96-ad11-54292dece368")
+    @Override
+    public List<Element> createObjingElt() {
+        return createDeployment();
+    }
+
+    @objid ("18099666-7beb-40ec-90ba-bb5873ddd360")
+    private List<Element> createDeployment() {
+        List<Element> objingElts = new ArrayList<>();
+        EList<NamedElement> clientList = this.ecoreElement.getClients();
+        EList<NamedElement> supplierList = this.ecoreElement.getSuppliers();
         ReverseProperties revProp = ReverseProperties.getInstance();
         
-        for (Object eClient : clientList) {
-            if (eClient instanceof org.eclipse.uml2.uml.NamedElement) {
-                org.eclipse.uml2.uml.NamedElement ecoreClient = (org.eclipse.uml2.uml.NamedElement) eClient;
+        for (NamedElement ecoreClient : clientList) {
         
-                ModelElement objingClient = (ModelElement) revProp.getMappedElement(ecoreClient);
+            Object objingClient = revProp.getMappedElement(ecoreClient);
         
-                if (objingClient != null) {
-                    for (Object eSupplier : supplierList) {
-                        if (eSupplier instanceof org.eclipse.uml2.uml.NamedElement) {
-                            org.eclipse.uml2.uml.NamedElement ecoreSupplier = (org.eclipse.uml2.uml.NamedElement) eSupplier;
+            if ((objingClient != null) && (objingClient instanceof ModelElement )) {
         
-                            ModelElement objingSupplier = (ModelElement) revProp.getMappedElement(ecoreSupplier);
+                for (NamedElement eSupplier : supplierList) {
         
-                            if (objingSupplier != null) {
-                                // Warning : unlike in UML2, in Ijing,
-                                // org.eclipse.uml2.uml.Manifestation does no inherit from org.eclipse.uml2.uml.Dependency
-                                IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
-                                
-                                Dependency objingTypeOfDependency = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createDependency();
+                    Object objingSupplier = revProp.getMappedElement(eSupplier);
         
-                                try {
-                                    objingTypeOfDependency.getExtension().add(mmServices.getStereotype(XMIProperties.modelerModuleName, 
-                                            IModelerModuleStereotypes.UML2DEPLOYMENT, objingTypeOfDependency.getMClass()));
-                                } catch (ElementNotUniqueException e) {
-                                   Xmi.LOG.warning(e);                               
-                                }
+                    if ((objingSupplier != null) && (objingSupplier instanceof ModelElement )) {
+                        // Warning : unlike in UML2, in Modelio,
+                        // org.eclipse.uml2.uml.Manifestation does no inherit from org.eclipse.uml2.uml.Dependency
+                        Dependency objingTypeOfDependency = UML2Deployment.create().getElement();
+                        objingTypeOfDependency.setImpacted((ModelElement) objingClient);
+                        objingTypeOfDependency.setDependsOn((ModelElement) objingSupplier);
         
-                                String name = this.ecoreElement.getName();
-                                if (EcoreModelNavigation.isNotNull(name))
-                                    objingTypeOfDependency.setName(name);
-                                else 
-                                    objingTypeOfDependency.setName("");
-        
-                                objingTypeOfDependency.setImpacted(objingClient);
-                                objingTypeOfDependency.setDependsOn(objingSupplier);
-        
-                                if (!objingElts.contains(objingTypeOfDependency))
-                                    objingElts.add(objingTypeOfDependency);
-                            }
-                        }
+                        if (!objingElts.contains(objingTypeOfDependency))
+                            objingElts.add(objingTypeOfDependency);
                     }
                 }
             }
         }
+        return objingElts;
     }
 
 }

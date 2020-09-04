@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,13 +68,13 @@ import org.modelio.metamodel.uml.statik.Node;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
+import org.modelio.module.modelermodule.api.IModelerModuleStereotypes;
 import org.modelio.xmi.plugin.Xmi;
 import org.modelio.xmi.util.EcoreModelNavigation;
 import org.modelio.xmi.util.EcorePrimitiveTypeMapper;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
 import org.modelio.xmi.util.ObjingEAnnotation;
 import org.modelio.xmi.util.ProfileUtils;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("aba6ace8-c1f5-4bb7-8751-6d25a5e5d550")
 public class PartialCreationImportVisitor {
@@ -202,7 +202,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 result.getExtension().add(this.mmServices
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ACTIONINPUTPIN, result.getMClass()));
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ACTIONINPUTPIN, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -253,7 +253,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ADDSTRUCTURALFEATUREVALUEACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ADDSTRUCTURALFEATUREVALUEACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -270,7 +270,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2ADDVARIABLEVALUEACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2ADDVARIABLEVALUEACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -336,7 +336,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 result.getExtension().add(this.mmServices
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2BROADCASTSIGNALACTION, result.getMClass()));
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2BROADCASTSIGNALACTION, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -413,7 +413,7 @@ public class PartialCreationImportVisitor {
             UmlModelElement result = this.factory.createTemplateParameter();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLASSIFIERTEMPLATEPARAMETER, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLASSIFIERTEMPLATEPARAMETER, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -435,7 +435,7 @@ public class PartialCreationImportVisitor {
             OpaqueAction result = this.factory.createOpaqueAction();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLEARASSOCIATIONACTION, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLEARASSOCIATIONACTION, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -449,7 +449,7 @@ public class PartialCreationImportVisitor {
             OpaqueAction result = this.factory.createOpaqueAction();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLEARSTRUCTURALFEATUREACTION, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLEARSTRUCTURALFEATUREACTION, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -463,7 +463,7 @@ public class PartialCreationImportVisitor {
             OpaqueAction result = this.factory.createOpaqueAction();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLEARVARIABLEACTION, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CLEARVARIABLEACTION, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -510,7 +510,7 @@ public class PartialCreationImportVisitor {
             
                 try {
                     result.getExtension().add(
-                            this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2COMMUNICATIONPATH, result.getMClass()));
+                            this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2COMMUNICATIONPATH, result.getMClass()));
                 } catch (IllegalArgumentException | ElementNotUniqueException e) {
                     Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
                 }
@@ -549,7 +549,7 @@ public class PartialCreationImportVisitor {
             TemplateParameter result = this.factory.createTemplateParameter();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CONNECTABLEELEMENTTEMPLATEPARAMETER, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CONNECTABLEELEMENTTEMPLATEPARAMETER, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -647,7 +647,7 @@ public class PartialCreationImportVisitor {
             OpaqueAction result = this.factory.createOpaqueAction();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CREATELINKACTION, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CREATELINKACTION, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -661,7 +661,7 @@ public class PartialCreationImportVisitor {
             OpaqueAction result = this.factory.createOpaqueAction();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CREATELINKOBJECTACTION, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CREATELINKOBJECTACTION, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -675,7 +675,7 @@ public class PartialCreationImportVisitor {
             OpaqueAction result = this.factory.createOpaqueAction();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CREATEOBJECTACTION, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CREATEOBJECTACTION, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -690,7 +690,7 @@ public class PartialCreationImportVisitor {
             org.modelio.metamodel.uml.behavior.commonBehaviors.Event result = this.factory.createEvent();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CREATIONEVENT, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2CREATIONEVENT, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -736,7 +736,7 @@ public class PartialCreationImportVisitor {
             Dependency result = this.factory.createDependency();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DEPLOYMENT, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DEPLOYMENT, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -751,7 +751,7 @@ public class PartialCreationImportVisitor {
             Artifact result = this.factory.createArtifact();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DEPLOYMENTSPECIFICATION, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DEPLOYMENTSPECIFICATION, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -766,7 +766,7 @@ public class PartialCreationImportVisitor {
             OpaqueAction result = this.factory.createOpaqueAction();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DESTROYLINKACTION, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DESTROYLINKACTION, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -781,7 +781,7 @@ public class PartialCreationImportVisitor {
             OpaqueAction result = this.factory.createOpaqueAction();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DESTROYOBJECTACTION, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DESTROYOBJECTACTION, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -797,7 +797,7 @@ public class PartialCreationImportVisitor {
             org.modelio.metamodel.uml.behavior.commonBehaviors.Event result = this.factory.createEvent();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DESTRUCTIONEVENT, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DESTRUCTIONEVENT, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -812,7 +812,7 @@ public class PartialCreationImportVisitor {
             Node result = this.factory.createNode();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2DEVICE, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2DEVICE, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -857,7 +857,7 @@ public class PartialCreationImportVisitor {
             org.eclipse.uml2.uml.PackageableElement ecoreImported = ecoreElt.getImportedElement();
             ecoreElt.getImportingNamespace();
             
-            // with the ecore  take de IjingElement
+            // with the ecore  take de ModelioElement
             NameSpace objingImported = (NameSpace) revProp
                     .getMappedElement(ecoreImported);
             //  set to the PartialCreationImportVisitor.this.objingElt Imported Importing previousely find
@@ -898,7 +898,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 result.getExtension().add(this.mmServices
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXECUTIONENVIRONMENT, result.getMClass()));
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXECUTIONENVIRONMENT, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -914,7 +914,7 @@ public class PartialCreationImportVisitor {
             org.modelio.metamodel.uml.behavior.commonBehaviors.Event result = this.factory.createEvent();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXECUTIONEVENT, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2EXECUTIONEVENT, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -1409,7 +1409,7 @@ public class PartialCreationImportVisitor {
             Parameter result = this.factory.createParameter();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2OPERATIONTEMPLATEPARAMETER, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2OPERATIONTEMPLATEPARAMETER, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -1600,7 +1600,7 @@ public class PartialCreationImportVisitor {
             Dependency result = this.factory.createDependency();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2PROTOCOLCONFORMANCE, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2PROTOCOLCONFORMANCE, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -1690,7 +1690,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2RAISEEXCEPTIONACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2RAISEEXCEPTIONACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1707,7 +1707,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READEXTENTACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READEXTENTACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1724,7 +1724,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READISCLASSIFIEROBJECTACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READISCLASSIFIEROBJECTACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1741,7 +1741,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READLINKACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READLINKACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1758,7 +1758,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READLINKOBJECTENDQUALIFIERACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READLINKOBJECTENDQUALIFIERACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1775,7 +1775,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READLINKOBJECTENDQUALIFIERACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READLINKOBJECTENDQUALIFIERACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1792,7 +1792,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READSELFACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READSELFACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1809,7 +1809,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READSTRUCTURALFEATUREACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READSTRUCTURALFEATUREACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1826,7 +1826,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2READVARIABLEACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2READVARIABLEACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1863,7 +1863,7 @@ public class PartialCreationImportVisitor {
             Operation result = this.factory.createOperation();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2RECEPTION, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2RECEPTION, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -1879,7 +1879,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2RECLASSIFYOBJECTACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2RECLASSIFYOBJECTACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1899,7 +1899,7 @@ public class PartialCreationImportVisitor {
                 Operation result = this.factory.createOperation();
             
                 try {
-                    result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REDEFINABLETEMPLATESIGNATURE, result.getMClass()));
+                    result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REDEFINABLETEMPLATESIGNATURE, result.getMClass()));
                 } catch (IllegalArgumentException | ElementNotUniqueException e) {
                     Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
                 }
@@ -1917,7 +1917,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REDUCEACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REDUCEACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1946,7 +1946,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REMOVESTRUCTURALFEATUREACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REMOVESTRUCTURALFEATUREACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1963,7 +1963,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REMOVEVARIABLEVALUEACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REMOVEVARIABLEVALUEACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -1979,7 +1979,7 @@ public class PartialCreationImportVisitor {
             OpaqueAction result = this.factory.createOpaqueAction();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2REPLYACTION,   result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2REPLYACTION,   result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -1995,7 +1995,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2SENDOBJECTACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2SENDOBJECTACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -2032,7 +2032,7 @@ public class PartialCreationImportVisitor {
             StructuredActivityNode result =  this.factory.createStructuredActivityNode();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2SEQUENCENODE, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2SEQUENCENODE, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -2119,7 +2119,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2STARTCLASSIFIERBEHAVIORACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2STARTCLASSIFIERBEHAVIORACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -2212,7 +2212,7 @@ public class PartialCreationImportVisitor {
                     Operation result = this.factory.createOperation();
             
                     try {
-                        result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2TEMPLATESIGNATURE, result.getMClass()));
+                        result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TEMPLATESIGNATURE, result.getMClass()));
                     } catch (ElementNotUniqueException e) {
                         Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
                     }
@@ -2231,7 +2231,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2TESTIDENTITYACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2TESTIDENTITYACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -2304,7 +2304,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2UNMARSHALLACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2UNMARSHALLACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -2340,7 +2340,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2VALUESPECIFICATIONACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2VALUESPECIFICATIONACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
@@ -2354,7 +2354,7 @@ public class PartialCreationImportVisitor {
             InstanceNode result = this.factory.createInstanceNode();
             
             try {
-                result.getExtension().add(this.mmServices.getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2VARIABLE, result.getMClass()));
+                result.getExtension().add(this.mmServices.getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2VARIABLE, result.getMClass()));
             } catch (IllegalArgumentException | ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
             }
@@ -2374,7 +2374,7 @@ public class PartialCreationImportVisitor {
             
             try {
                 Stereotype stereo = ReverseProperties.getInstance().getMModelServices()
-                        .getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2STARTOBJECTBEHAVIORACTION, result.getMClass());
+                        .getStereotype(IModelerModulePeerModule.MODULE_NAME, IModelerModuleStereotypes.UML2STARTOBJECTBEHAVIORACTION, result.getMClass());
                 result.getExtension().add(stereo);
             } catch (ElementNotUniqueException e) {
                 Xmi.LOG.warning(Xmi.PLUGIN_ID, e);

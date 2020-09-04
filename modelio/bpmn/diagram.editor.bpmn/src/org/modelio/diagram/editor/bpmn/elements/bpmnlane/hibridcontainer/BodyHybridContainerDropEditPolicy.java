@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -340,6 +340,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
 
     /**
      * Sets the behaviour to adopt.
+     * 
      * @param value the new behaviour.
      */
     @objid ("612fe042-55b6-11e2-877f-002564c97630")
@@ -400,6 +401,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
      * <p>
      * Basically, if the request concerns the creation of sub lanes, then the lane container policy should handle it. Otherwise, the free zone policy is concerned.
      * </p>
+     * 
      * @param request @return
      */
     @objid ("612fe04d-55b6-11e2-877f-002564c97630")
@@ -415,6 +417,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
 
     /**
      * Returns the current behaviour.
+     * 
      * @return the current behaviour.
      */
     @objid ("612fe056-55b6-11e2-877f-002564c97630")

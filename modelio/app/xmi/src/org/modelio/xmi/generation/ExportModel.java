@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,7 @@ public class ExportModel {
 
     /**
      * A constructor with a given progress bar
+     * 
      * @param progressBar : the given progress bar
      */
     @objid ("2a876bbb-84e9-4f01-af2b-707ec30ea781")
@@ -65,6 +66,7 @@ public class ExportModel {
 
     /**
      * The export method is in charge of the export sequence for a given IOElement
+     * 
      * @param ioelem : the IOElement to export
      */
     @objid ("a8f52dfc-a415-46e4-8049-14b04aa5bdb4")

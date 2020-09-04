@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ public interface IElementNamerService extends IElementNamer {
      * Get the metamodel extensions point.
      * <p>
      * Use it to register metamodel extensions to this service.
+     * 
      * @return the metamodel extensions point.
      */
     @objid ("a959e243-6474-40f2-b062-535ab878e5c0")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,7 +23,7 @@ package org.modelio.editors.richnote.plugin;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.ContextFunction;
 import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.eclipse.e4.ui.model.application.ui.basic.MInputPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.editors.richnote.editor.IRichNoteFileRepository;
 import org.modelio.editors.richnote.editor.IRichNoteInput;
@@ -34,18 +34,18 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 
 /**
  * Eclipse context function that generates a {@link IRichNoteInput}
- * from an eclipse context containing an {@link MInputPart}.
+ * from an eclipse context containing an {@link MPart}.
  */
 @objid ("8841037e-0bca-4a2b-88b5-b425c31e3aba")
 public class RichNoteInputProviderFunction extends ContextFunction {
     @objid ("501dafad-abd0-4e0f-8f01-be75955ad2bb")
     @Override
     public Object compute(IEclipseContext context, String contextKey) {
-        MInputPart inputPart = context.get(MInputPart.class);
+        MPart inputPart = context.get(MPart.class);
         IProjectService ps = context.get(IProjectService.class);
         ICoreSession session = ps.getOpenedProject().getSession();
-                
-        String uri = inputPart.getInputURI();
+        
+        String uri = inputPart.getPersistedState().get("inputURI");
         IRichNoteFileRepository fileManager = RichNotesSession.get(ps.getOpenedProject()).getFileRepository();
         return new RichNoteInput(session, fileManager, uri);
     }

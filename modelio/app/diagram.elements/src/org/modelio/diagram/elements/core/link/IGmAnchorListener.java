@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IGmAnchorListener {
     /**
      * Called by the anchor when its location changes.
+     * 
      * @param gmLinkAnchor The moved anchor.
      */
     @objid ("3747adba-574a-43a2-8ec6-8eeaa0e259b0")

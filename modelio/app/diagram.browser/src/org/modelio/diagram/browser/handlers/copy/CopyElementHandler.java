@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public class CopyElementHandler {
 
     /**
      * Available only when the selected elements is not empty.
+     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -75,6 +76,7 @@ public class CopyElementHandler {
 
     /**
      * Copy the currently selected elements.
+     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public class ReportManager {
 
     /**
      * This method opens the XMI report dialog
+     * 
      * @param report : the report model exposed in report dialog
      */
     @objid ("d287868e-137b-44cd-9cc7-c5df08abf99a")
@@ -74,6 +75,7 @@ public class ReportManager {
 
     /**
      * This method creates a new Report Model
+     * 
      * @return the created Report Model
      */
     @objid ("fd6e5f07-72e9-42c3-864c-26c2c3e9ebfa")

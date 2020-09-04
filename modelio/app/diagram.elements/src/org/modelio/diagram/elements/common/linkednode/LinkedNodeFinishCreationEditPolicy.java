@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -155,6 +155,7 @@ public class LinkedNodeFinishCreationEditPolicy extends AbstractLinkedNodeCreati
      * Create the feed back figure.
      * <p>
      * Should create a ghost node to display where the node will be unmasked.
+     * 
      * @param req The create linked node request
      */
     @objid ("7ebd8015-1dec-11e2-8cad-001ec947c8cc")
@@ -190,6 +191,7 @@ public class LinkedNodeFinishCreationEditPolicy extends AbstractLinkedNodeCreati
      * on link creation.
      * <p>
      * Then a note figure could be displayed when creating a linked note.
+     * 
      * @param req the connection creation request
      * @param createMissing if <code>true</code>, instantiate the edit policy if not already done.
      * @return the found feedback policy or <code>null</code> if none found.

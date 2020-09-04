@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IRichNoteEditorProvider {
     /**
      * Create an empty document for the given element.
+     * 
      * @param target a model element
      * @param format the new rich note format
      * @throws java.io.IOException in case of failure
@@ -43,6 +44,7 @@ public interface IRichNoteEditorProvider {
      * Get the document comparison service.
      * <p>
      * The provider may return <code>null</code> if document comparison is not supported.<br/>
+     * 
      * @return the diff/merge service if comparison is supported, <code>null</code> if none is available.
      */
     @objid ("fe0e3253-ffb4-43ec-addc-21a0bacc20bc")
@@ -53,6 +55,7 @@ public interface IRichNoteEditorProvider {
      * <p>
      * The provider may answer <code>false</code> if a required software is not installed.<br/>
      * eg: The LibreOffice editor provider can't work if LibreOffice is not installed.
+     * 
      * @return <code>true</code> if the editor provider is usable, <code>false</code> if it must be forgotten.
      */
     @objid ("bfa0f51a-ea8a-445d-b53d-c71413ee0d66")
@@ -60,6 +63,7 @@ public interface IRichNoteEditorProvider {
 
     /**
      * Get the Eclipse editor ID to use to open a new editor.
+     * 
      * @param target the edited element.
      * @return the Eclipse editor ID
      */

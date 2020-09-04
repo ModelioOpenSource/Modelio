@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.modelio.diagram.elements.core.figures.GradientFigure;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
+import org.modelio.metamodel.uml.infrastructure.Element;
 
 /**
  * Base class for edit part of {@link GmPartitionContainer}.
@@ -123,6 +124,10 @@ public class PartitionContainerEditPart extends AbstractNodeEditPart {
     public Object getAdapter(final Class type) {
         if (type == SnapToHelper.class) {
             return new SnapEditPartAdapter(this).getSnapToHelper();
+        }
+        
+        if (Element.class.isAssignableFrom(type)) {
+            return null;
         }
         return super.getAdapter(type);
     }

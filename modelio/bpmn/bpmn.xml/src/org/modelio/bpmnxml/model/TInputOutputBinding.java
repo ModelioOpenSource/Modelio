@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -86,6 +86,7 @@ public class TInputOutputBinding extends TBaseElement {
 
     /**
      * Sets the value of the operationRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -107,6 +108,7 @@ public class TInputOutputBinding extends TBaseElement {
 
     /**
      * Sets the value of the inputDataRef property.
+     * 
      * @param value allowed object is
      * {@link Object }
      */
@@ -128,6 +130,7 @@ public class TInputOutputBinding extends TBaseElement {
 
     /**
      * Sets the value of the outputDataRef property.
+     * 
      * @param value allowed object is
      * {@link Object }
      */

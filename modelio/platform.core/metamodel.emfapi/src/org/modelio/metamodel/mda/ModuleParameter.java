@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.mda;
 
@@ -42,13 +42,13 @@ public interface ModuleParameter extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("95f67209-1900-47d3-81dc-c60b0c1647e2")
+    @objid ("344bac36-aa6d-46bc-bd07-a93ddf00bef2")
     public static final String MNAME = "ModuleParameter";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("99291a25-4e1b-490d-b76c-c519396173ad")
+    @objid ("c77aa07a-bf5c-4c54-87dc-b1cf1184b509")
     public static final String MQNAME = "Infrastructure.ModuleParameter";
 
     /**
@@ -59,7 +59,7 @@ public interface ModuleParameter extends ModelElement {
      * 
      * Allow module parameters to be sorted by groups.</i>
      */
-    @objid ("e2817930-cd58-45d3-aace-f3c5970ee2cd")
+    @objid ("2435e8e4-7c2d-4cad-a841-3483ffc62d7e")
     String getGroupName();
 
     /**
@@ -70,7 +70,7 @@ public interface ModuleParameter extends ModelElement {
      * 
      * Allow module parameters to be sorted by groups.</i>
      */
-    @objid ("86570587-f9f5-4e09-9f2c-4cc6684bcc96")
+    @objid ("19437e1d-640a-4c7c-aed9-24d30cf97cbe")
     void setGroupName(String value);
 
     /**
@@ -79,7 +79,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>Type of the parameter. If the type is TYPE_PARAM_ENUM, the 'EnumType' association must refer to an Enumeration.</i>
      */
-    @objid ("0727707a-f1dc-4abe-b6c1-44a0539ba666")
+    @objid ("f94c297f-b66b-4908-a441-bfa0b2b1f070")
     ModuleParameterType getType();
 
     /**
@@ -88,7 +88,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>Type of the parameter. If the type is TYPE_PARAM_ENUM, the 'EnumType' association must refer to an Enumeration.</i>
      */
-    @objid ("dc02ad8d-8379-49d0-a756-4c36ef6fb30d")
+    @objid ("c81a5b26-00c8-4515-8f92-af271e7ef3c9")
     void setType(ModuleParameterType value);
 
     /**
@@ -97,7 +97,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>If true, the parameter is visible in the module configuration dialog.</i>
      */
-    @objid ("69633e7a-25ca-42b5-9acd-6298468452e0")
+    @objid ("abfddb57-05a9-4d21-b4b2-c2eba9034b12")
     boolean isIsUserRead();
 
     /**
@@ -106,7 +106,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>If true, the parameter is visible in the module configuration dialog.</i>
      */
-    @objid ("8b376a21-7ff2-4547-a571-57b3f5c87c10")
+    @objid ("1fa70565-3966-427c-9d49-e214eacdd74a")
     void setIsUserRead(boolean value);
 
     /**
@@ -115,7 +115,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>If true and IsUserRead is true, the parameter is modifiable in the module configuration dialog.</i>
      */
-    @objid ("8b5794d9-2791-4451-b273-d0a66c37e9a4")
+    @objid ("6daa7012-126f-416f-862f-65f956c28663")
     boolean isIsUserWrite();
 
     /**
@@ -124,7 +124,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>If true and IsUserRead is true, the parameter is modifiable in the module configuration dialog.</i>
      */
-    @objid ("b12bd379-8be3-40da-89f6-f174ba393955")
+    @objid ("9dbbe8a8-b9fb-40b7-8df5-e4a09f90e65b")
     void setIsUserWrite(boolean value);
 
     /**
@@ -133,7 +133,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>if true, the parameter can be read with the modules API.</i>
      */
-    @objid ("c6a6c974-aa46-4153-98f7-3f73782895fd")
+    @objid ("220d0a30-7daf-4148-b246-a5eb5ce97027")
     boolean isIsApiRead();
 
     /**
@@ -142,7 +142,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>if true, the parameter can be read with the modules API.</i>
      */
-    @objid ("984d05ec-4bea-410f-a02d-053306c1a73a")
+    @objid ("1ba55eac-77ec-4730-bc70-8769cb5c6093")
     void setIsApiRead(boolean value);
 
     /**
@@ -151,7 +151,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>if true, the parameter can be set with the modules API.</i>
      */
-    @objid ("2a8d3c5c-159e-4358-8e97-62631b408c4c")
+    @objid ("b1e794e6-f3f6-4df4-b524-8883cc0b72a2")
     boolean isIsApiWrite();
 
     /**
@@ -160,7 +160,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>if true, the parameter can be set with the modules API.</i>
      */
-    @objid ("805674bd-74d0-411c-ab91-3db4cb646626")
+    @objid ("1a9164d8-c1f9-4025-bef5-6f209eeecc3c")
     void setIsApiWrite(boolean value);
 
     /**
@@ -170,7 +170,7 @@ public interface ModuleParameter extends ModelElement {
      * <i><p>Default value for the module parameter, written as a string.</p>
      * </i>
      */
-    @objid ("d4b4cd10-0862-4450-812c-4b7ad4edddd4")
+    @objid ("783231bf-b5e6-47ca-ad5d-90a1616fa897")
     String getDefaultValue();
 
     /**
@@ -180,7 +180,7 @@ public interface ModuleParameter extends ModelElement {
      * <i><p>Default value for the module parameter, written as a string.</p>
      * </i>
      */
-    @objid ("36a1ab6e-d9f5-436a-9182-11740dbb6d57")
+    @objid ("17aea010-4c0d-45ad-898f-44ad069ed166")
     void setDefaultValue(String value);
 
     /**
@@ -189,7 +189,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("a5b11ae5-e322-4b46-8153-5818f719d4b5")
+    @objid ("b103ee2c-c118-461c-aa19-1dde2b1b1ea4")
     ModuleComponent getOwner();
 
     /**
@@ -198,7 +198,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("0b8a435c-8546-4b1d-a6e0-55025ca3bdc8")
+    @objid ("d7b7675f-4ac2-4210-85d3-563fd0f4614a")
     void setOwner(ModuleComponent value);
 
     /**
@@ -207,7 +207,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>Enumeration used by the parameter. when the attribute "Type" is TYPE_PARAM_ENUM.</i>
      */
-    @objid ("c8129680-b3cc-4f82-bebb-fbe539f2e63e")
+    @objid ("09ee2c71-96ff-4863-87b7-6ead44df9ae7")
     EnumeratedPropertyType getEnumType();
 
     /**
@@ -216,7 +216,7 @@ public interface ModuleParameter extends ModelElement {
      * Metamodel description:
      * <i>Enumeration used by the parameter. when the attribute "Type" is TYPE_PARAM_ENUM.</i>
      */
-    @objid ("9ad4e832-bceb-4d01-9600-3c2cac35d16f")
+    @objid ("12630e33-813a-4edc-86e9-86cfec69d1cb")
     void setEnumType(EnumeratedPropertyType value);
 
 }

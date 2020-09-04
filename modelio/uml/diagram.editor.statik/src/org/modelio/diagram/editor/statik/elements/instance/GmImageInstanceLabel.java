@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class GmImageInstanceLabel extends GmDefaultModelElementLabel {
 
     /**
      * Creates an instance label.
+     * 
      * @param diagram the owning graphic diagram, may not be <tt>null</tt>.
      * @param el the represented instance, may be <tt>null</tt>.
      * @param ref the represented instance reference, may not be <tt>null</tt>.

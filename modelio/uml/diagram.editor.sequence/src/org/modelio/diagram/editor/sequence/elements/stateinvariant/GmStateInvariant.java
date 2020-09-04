@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class GmStateInvariant extends GmCompositeNode {
 
     /**
      * Create an StateInvariant
+     * 
      * @param diagram The owning diagram
      * @param element the represented StateInvariant, may be null
      * @param ref the represented StateInvariant reference, may not be null

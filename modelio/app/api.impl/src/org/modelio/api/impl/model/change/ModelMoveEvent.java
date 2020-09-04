@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class ModelMoveEvent implements IElementMovedEvent {
 
     /**
      * Used to get the moved element.
+     * 
      * @return Returns the moved element
      */
     @objid ("885f46c6-27ee-40a7-ad75-e2eaf872da63")
@@ -72,6 +73,7 @@ public class ModelMoveEvent implements IElementMovedEvent {
      * <p><p>
      * The parent corresponds to the element accessed through the use of the
      * {@link MObject#getCompositionOwner()} method.
+     * 
      * @return Returns the new parent of the moved element
      */
     @objid ("aedd91e6-4131-4840-aa86-72d9611842cd")
@@ -85,6 +87,7 @@ public class ModelMoveEvent implements IElementMovedEvent {
      * <p><p>
      * The parent corresponds to the element accessed through the use of the
      * {@link MObject#getCompositionOwner()} method.
+     * 
      * @return Returns the old parent of the moved element
      */
     @objid ("e1f5b700-99a1-4b92-9281-6c0b20d2669a")

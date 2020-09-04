@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,17 +21,13 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
-import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.xmi.plugin.Xmi;
+import org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2StructuralFeatureReference;
+import org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearStructuralFeatureAction;
 import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
 
 @objid ("9cba02d9-9650-4947-b0b6-a81f3d8ce77a")
 public class EClearStructuralFeatureAction extends EActivityNode {
@@ -41,16 +37,7 @@ public class EClearStructuralFeatureAction extends EActivityNode {
     @objid ("9ba410fa-10d5-4415-ad63-5a8f0516fbea")
     @Override
     public Element createObjingElt() {
-        IMModelServices mmService = ReverseProperties.getInstance().getMModelServices();
-        
-        OpaqueAction element = mmService.getModelFactory().getFactory(IStandardModelFactory.class).createOpaqueAction();
-        
-        try {
-            element.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2CLEARSTRUCTURALFEATUREACTION);
-        } catch (ExtensionNotFoundException e) {
-            Xmi.LOG.warning(e);
-        }
-        return element;
+        return UML2ClearStructuralFeatureAction.create().getElement();
     }
 
     @objid ("db7ce6cc-7550-458f-9241-7d27c8acb875")
@@ -68,19 +55,18 @@ public class EClearStructuralFeatureAction extends EActivityNode {
 
     @objid ("c3d18153-4016-4f8e-b618-b49e41c4d201")
     private void setFeature(OpaqueAction objingElt) {
-        IMModelServices mmServices  = ReverseProperties.getInstance().getMModelServices();
-        Dependency dependency = mmServices.getModelFactory().getFactory(IStandardModelFactory.class).createDependency();
-        
-        try {
-            dependency.addStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2STRUCTURALFEATUREREFERENCE);
-        } catch (ExtensionNotFoundException e) {
-            Xmi.LOG.warning(e);
-        }
-        
         org.eclipse.uml2.uml.StructuralFeature feature = this.ecoreElement.getStructuralFeature();
-        ModelElement obBehavior = (ModelElement)ReverseProperties.getInstance().getMappedElement(feature);
-        dependency.setDependsOn(obBehavior);
-        dependency.setImpacted(objingElt);
+        
+        if (feature != null) {
+        
+            Object obBehavior = ReverseProperties.getInstance().getMappedElement(feature);
+        
+            if ((obBehavior != null) && (obBehavior instanceof ModelElement)) {
+                Dependency dependency =  UML2StructuralFeatureReference.create().getElement();        
+                dependency.setDependsOn((ModelElement) obBehavior);
+                dependency.setImpacted(objingElt);
+            }
+        }
     }
 
 }

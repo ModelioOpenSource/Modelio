@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,6 +45,7 @@ public interface IPickingClient {
 
     /**
      * Returns whether the field accepts the element as a value.
+     * 
      * @param target the new value candidate.
      * @return true if the new value is valid, false in the other case.
      */
@@ -54,6 +55,7 @@ public interface IPickingClient {
     /**
      * Set the field value to the given element and end the picking session
      * if the given element is valid.
+     * 
      * @param target The new represented element in the field
      * @return true if the new value is valid, false in the other case.
      */

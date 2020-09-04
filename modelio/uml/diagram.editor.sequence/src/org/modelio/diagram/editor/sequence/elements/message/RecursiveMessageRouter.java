@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class RecursiveMessageRouter extends BendpointConnectionRouter {
 
     /**
      * Returns the instance of this router.
+     * 
      * @return the instance of this router.
      */
     @objid ("d96b4b8f-55b6-11e2-877f-002564c97630")

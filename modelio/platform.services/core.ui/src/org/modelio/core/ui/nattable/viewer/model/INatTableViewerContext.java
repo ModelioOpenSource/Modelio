@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public interface INatTableViewerContext {
 
     /**
      * Get the core session model access.
+     * 
      * @return the IModel or null if there is no session.
      */
     @objid ("b1622837-ac57-47bb-bba4-af81710925ad")
@@ -73,5 +74,8 @@ public interface INatTableViewerContext {
 
     @objid ("9d51e2a7-bae0-407c-8ab2-34470af63962")
     IMdaExpert getMdaExpert();
+
+    @objid ("5dd41070-2e14-4c14-b5b9-8d11211e1439")
+    <T> T getService(Class<T> clazz);
 
 }

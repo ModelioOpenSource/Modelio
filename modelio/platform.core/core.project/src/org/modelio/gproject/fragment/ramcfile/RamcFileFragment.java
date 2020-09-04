@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -83,6 +83,7 @@ public class RamcFileFragment extends AbstractFragment {
 
     /**
      * Initialize the RAMC fragment.
+     * 
      * @param id the fragment ID.
      * @param uri the ramc file location as an URI
      * @param definitionScope definition scope
@@ -90,7 +91,7 @@ public class RamcFileFragment extends AbstractFragment {
      * @param authConf authentication configuration
      */
     @objid ("7420cc9c-cc3e-11e1-87f1-001ec947ccaf")
-    RamcFileFragment(String id, URI uri, DefinitionScope definitionScope, GProperties properties, GAuthConf authConf) {
+    RamcFileFragment(final String id, final URI uri, final DefinitionScope definitionScope, final GProperties properties, final GAuthConf authConf) {
         super(id, definitionScope, properties, authConf);
         Objects.requireNonNull(uri, "URI must be non null");
         
@@ -99,12 +100,14 @@ public class RamcFileFragment extends AbstractFragment {
 
     /**
      * Get the model component informations such as the version, the description, the dependencies...
+     * 
      * @return the model component description.
      * @throws java.io.IOException in case of I/O failure.
      */
     @objid ("cc07bd6d-d668-4067-b513-b7afaac79182")
+    @Override
     public IModelComponentInfos getInformations() throws IOException {
-        Path archivePath = extractRamcToLocal(null);
+        final Path archivePath = extractRamcToLocal(null);
         return new ModelComponentArchive(archivePath, false).getInfos();
     }
 
@@ -117,7 +120,7 @@ public class RamcFileFragment extends AbstractFragment {
     @objid ("7420ccaf-cc3e-11e1-87f1-001ec947ccaf")
     @Override
     public FragmentType getType() {
-        return TYPE;
+        return RamcFileFragment.TYPE;
     }
 
     @objid ("7420ccb4-cc3e-11e1-87f1-001ec947ccaf")
@@ -128,20 +131,19 @@ public class RamcFileFragment extends AbstractFragment {
 
     @objid ("7420cca1-cc3e-11e1-87f1-001ec947ccaf")
     @Override
-    protected IRepository doMountInitRepository(IModelioProgress aMonitor) throws IOException {
+    protected IRepository doMountInitRepository(final IModelioProgress aMonitor) throws IOException {
         // Look for a local path and create the directory if needed
-        Path runtimePath = getRuntimeDirectory();
+        final Path runtimePath = getRuntimeDirectory();
         Files.createDirectories(runtimePath);
         
         // Copy the RAMC into the data directory if needed
-        Path localUri = extractRamcToLocal(aMonitor);
+        final Path localUri = extractRamcToLocal(aMonitor);
         
         // The RAMC model is in a "model" sub directory.
         this.modelLocation = localUri.resolve("model");
         
         // Instantiate the repository.
-        LocalExmlResourceProvider resProvider = new LocalExmlResourceProvider(this.modelLocation, this.modelLocation);
-        resProvider.setName(getId());
+        final LocalExmlResourceProvider resProvider = new LocalExmlResourceProvider(this.modelLocation, this.modelLocation, getId());
         
         this.repository = new ExmlBase(resProvider);
         return this.repository;
@@ -166,21 +168,21 @@ public class RamcFileFragment extends AbstractFragment {
         if (this.roots == null) {
             this.roots = new ArrayList<>();
         
-            IModelComponentInfos infos = ModelComponentArchive.getRamcDirectoryInfos(getContentDirectory());
-            for (ModelRef mref : infos.getRoots()) {
-                MObject obj = getRepository().findById(getProjectMetamodel().getMClass(mref.mc), mref.uuid);
+            final IModelComponentInfos infos = ModelComponentArchive.getRamcDirectoryInfos(getContentDirectory());
+            for (final ModelRef mref : infos.getRoots()) {
+                final MObject obj = getRepository().findById(getProjectMetamodel().getMClass(mref.mc), mref.uuid);
                 if (obj != null) {
                     this.roots.add(obj);
                 }
             }
         }
-        return ((this.roots != null)? this.roots : new ArrayList<>());
+        return this.roots != null ? this.roots : new ArrayList<>();
     }
 
     @objid ("dd691981-395a-11e2-a6db-001ec947ccaf")
     @Override
     protected IAccessManager doInitAccessManager() {
-        BasicAccessManager ret = new BasicAccessManager();
+        final BasicAccessManager ret = new BasicAccessManager();
         ret.setWriteable(false);
         ret.setRamc(true);
         return ret;
@@ -191,10 +193,10 @@ public class RamcFileFragment extends AbstractFragment {
      */
     @objid ("4e9cb211-21ec-4f64-9002-87e35edc1543")
     @Override
-    protected void doDelete(IModelioProgress monitor) {
+    protected void doDelete(final IModelioProgress monitor) {
         try {
             removeExportedFilesOfFragment(monitor);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             getProject().getMonitorSupport().fireMonitors(GProjectEvent.buildWarning(this, e));
         }
     }
@@ -202,13 +204,14 @@ public class RamcFileFragment extends AbstractFragment {
     /**
      * Copy the RAMC file into the fragment data directory if the URI is not
      * relative to the data directory.
+     * 
      * @param monitor a progress monitor
      * @return the local ramc file location
      * @throws java.io.IOException in case of failure.
      */
     @objid ("b419188e-0baa-11e2-bed6-001ec947ccaf")
-    private Path extractRamcToLocal(IModelioProgress monitor) throws IOException {
-        Path localRamcPath = getContentDirectory();
+    private Path extractRamcToLocal(final IModelioProgress monitor) throws IOException {
+        final Path localRamcPath = getContentDirectory();
         
         if (Files.isDirectory(localRamcPath)) {
             return localRamcPath;
@@ -217,25 +220,25 @@ public class RamcFileFragment extends AbstractFragment {
             Files.createDirectories(getDataDirectory());
         
             try (UriPathAccess acc = new UriPathAccess(this.uri, getAuthData())) {
-                SubProgress mon = SubProgress.convert(monitor,2);
-                String progressLabel = CoreProject.getMessage("RamcFileFragment.ExtractRamcFrom", getId(), this.uri);
+                final SubProgress mon = SubProgress.convert(monitor, 2);
+                final String progressLabel = CoreProject.I18N.getMessage("RamcFileFragment.ExtractRamcFrom", getId(), this.uri);
                 mon.subTask(progressLabel);
-                
+        
                 new Unzipper()
                 .setProgressLabelPrefix(progressLabel)
                 .unzip(acc.getPath(), localRamcPath, mon.newChild(1));
         
                 // Deploy exported files
-                mon.subTask(CoreProject.getMessage("RamcFileFragment.DeployRamcFiles", getId(), this.uri));
+                mon.subTask(CoreProject.I18N.getMessage("RamcFileFragment.DeployRamcFiles", getId(), this.uri));
                 new ModelComponentArchive(localRamcPath, false)
-                .installExportedFiles(getProject().getProjectPath(), mon.newChild(1));
+                .installExportedFiles(getProject().getProjectFileStructure().getProjectPath(), mon.newChild(1));
         
                 return localRamcPath;
-            } catch (MalformedURLException e1) {
-                String msg = CoreProject.getMessage("RamcFileFragment.InvalidUri",this.uri, e1.getLocalizedMessage());
+            } catch (final MalformedURLException e1) {
+                final String msg = CoreProject.I18N.getMessage("RamcFileFragment.InvalidUri", this.uri, e1.getLocalizedMessage());
                 throw new IOException(msg, e1);
-            } catch (IllegalArgumentException e1) {
-                String msg = CoreProject.getMessage("RamcFileFragment.InvalidUri",this.uri, e1.getLocalizedMessage());
+            } catch (final IllegalArgumentException e1) {
+                final String msg = CoreProject.I18N.getMessage("RamcFileFragment.InvalidUri", this.uri, e1.getLocalizedMessage());
                 throw new IOException(msg, e1);
             }
         }
@@ -244,18 +247,20 @@ public class RamcFileFragment extends AbstractFragment {
     /**
      * Delete other files deployed with the RAMC such as extern libraries
      * or source files.
+     * 
      * @param monitor a progress monitor
      * @throws java.io.IOException in case of failure.
      */
     @objid ("85eb632b-e430-41b1-8852-4e6635050d84")
-    private void removeExportedFilesOfFragment(IModelioProgress monitor) throws IOException {
-        ModelComponentArchive modelComponentArchive = new ModelComponentArchive(getContentDirectory(), false);
-        Path deploymentPath = getProject().getProjectDataPath();
+    private void removeExportedFilesOfFragment(final IModelioProgress monitor) throws IOException {
+        final ModelComponentArchive modelComponentArchive = new ModelComponentArchive(getContentDirectory(), false);
+        final Path deploymentPath = getProject().getProjectFileStructure().getProjectDataPath();
         modelComponentArchive.removeExportedFiles(deploymentPath, monitor);
     }
 
     /**
      * Get the directory where the RAMC archive is extracted.
+     * 
      * @return the extracted RAMC directory.
      */
     @objid ("0614b2bc-cefb-436d-9be2-84630005c75e")
@@ -266,32 +271,32 @@ public class RamcFileFragment extends AbstractFragment {
     @objid ("39044ea2-7a39-47c3-b400-404b03190ea0")
     @Override
     public MetamodelVersionDescriptor getRequiredMetamodelDescriptor() throws IOException {
-        MetamodelVersionDescriptor mmDesc = new MetamodelVersionDescriptor();
+        final MetamodelVersionDescriptor mmDesc = new MetamodelVersionDescriptor();
         
         boolean found = false;
-        for (VersionedItem<?> versionedItem : getInformations().getRequiredMetamodelFragments()) {
-            VersionedItem<Void> v = new VersionedItem<>(versionedItem.getName(), versionedItem.getVersion());
+        for (final VersionedItem<?> versionedItem : getInformations().getRequiredMetamodelFragments()) {
+            final VersionedItem<Void> v = new VersionedItem<>(versionedItem.getName(), versionedItem.getVersion());
             mmDesc.addDescriptor(v);
             found = true;
         }
         
-        if (! found) {
+        if (!found) {
             // Old RAMC with no metamodel version info.
             // Try to guess from file presence.
             Version v;
-            Path modelio2_model = getContentDirectory().resolve("model.xml");
-            Path modelio3_stamp = getContentDirectory().resolve("model").resolve(IExmlRepositoryGeometry.ADMIN_DIRNAME).resolve("stamp.dat");
-            Path modelio3_format_version = getContentDirectory().resolve("model").resolve(IExmlRepositoryGeometry.FORMAT_VERSION_PATH);
+            final Path modelio2_model = getContentDirectory().resolve("model.xml");
+            final Path modelio3_stamp = getContentDirectory().resolve("model").resolve(IExmlRepositoryGeometry.ADMIN_DIRNAME).resolve("stamp.dat");
+            final Path modelio3_format_version = getContentDirectory().resolve("model").resolve(IExmlRepositoryGeometry.FORMAT_VERSION_PATH);
             if (Files.isRegularFile(modelio3_format_version)) {
-                // Assume last Modelio 3.1.x - 8020 :  24/04/2012
-                // Modelio 3.1 - 9020: 28/11/2013 
+                // Assume last Modelio 3.1.x - 8020 : 24/04/2012
+                // Modelio 3.1 - 9020: 28/11/2013
                 v = VersionHelper.convert(9020);
             } else if (Files.isRegularFile(modelio3_stamp)) {
                 // Assume last Modelio 3.0.x :
                 // Modelio Phoenix 3.0 - 9017: 04/09/2013
                 v = VersionHelper.convert(9017);
             } else if (Files.isRegularFile(modelio2_model)) {
-                // Assume last Modelio 2.2 - 8020 :  24/04/2012
+                // Assume last Modelio 2.2 - 8020 : 24/04/2012
                 v = VersionHelper.convert(8020);
             } else {
                 // Set to Modelio 2.0 by default
@@ -305,7 +310,7 @@ public class RamcFileFragment extends AbstractFragment {
 
     @objid ("e420b280-dd1d-4461-8997-22577d535d18")
     @Override
-    public void rename(String name, IModelioProgress aMonitor) throws IOException {
+    public void rename(final String name, final IModelioProgress aMonitor) throws IOException {
         throw new UnsupportedOperationException();
     }
 

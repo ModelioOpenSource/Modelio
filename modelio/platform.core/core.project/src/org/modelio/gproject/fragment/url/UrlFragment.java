@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,8 +29,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.util.Collection;
+import java.util.Properties;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.data.project.DefinitionScope;
+import org.modelio.gproject.data.project.FragmentInfos;
 import org.modelio.gproject.data.project.FragmentType;
 import org.modelio.gproject.data.project.GAuthConf;
 import org.modelio.gproject.data.project.GProperties;
@@ -42,6 +44,7 @@ import org.modelio.vbasic.log.Log;
 import org.modelio.vbasic.net.UriConnections;
 import org.modelio.vbasic.net.UriUtils;
 import org.modelio.vbasic.progress.IModelioProgress;
+import org.modelio.vbasic.version.Version;
 import org.modelio.vbasic.version.VersionedItem;
 import org.modelio.vcore.session.api.IAccessManager;
 import org.modelio.vcore.session.api.repository.IRepository;
@@ -49,6 +52,7 @@ import org.modelio.vcore.session.impl.permission.BasicAccessManager;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
 import org.modelio.vcore.smkernel.meta.SmMetamodel;
+import org.modelio.version.ModelioVersion;
 import org.modelio.vstore.exml.local.ExmlBase;
 import org.modelio.vstore.exml.resource.UriExmlResourceProvider;
 
@@ -66,13 +70,14 @@ public class UrlFragment extends AbstractFragment {
     public static final FragmentType TYPE = FragmentType.EXML_URL;
 
     @objid ("e77deceb-03f8-11e2-9ef9-001ec947ccaf")
-    private URI repoUrl;
+    private final URI repoUrl;
 
     @objid ("e77ded08-03f8-11e2-9ef9-001ec947ccaf")
     private IRepository repository;
 
     /**
      * Instantiate an URL based EXML fragment.
+     * 
      * @param id the fragment name
      * @param url the repository location as a URL
      * @param definitionScope definition scope
@@ -80,7 +85,7 @@ public class UrlFragment extends AbstractFragment {
      * @param authConf authentication configuration
      */
     @objid ("e77dec8d-03f8-11e2-9ef9-001ec947ccaf")
-    public UrlFragment(final String id, final URI url, DefinitionScope definitionScope, final GProperties properties, GAuthConf authConf) {
+    public UrlFragment(final String id, final URI url, final DefinitionScope definitionScope, final GProperties properties, final GAuthConf authConf) {
         super(id, definitionScope, properties, authConf);
         
         this.repoUrl = url;
@@ -88,12 +93,12 @@ public class UrlFragment extends AbstractFragment {
 
     @objid ("e77ded0e-03f8-11e2-9ef9-001ec947ccaf")
     @Override
-    protected IRepository doMountInitRepository(IModelioProgress aMonitor) {
+    protected IRepository doMountInitRepository(final IModelioProgress aMonitor) {
         // Compute a local path to copy the index to.
-        Path localPath = getRuntimeDirectory();
+        final Path localPath = getRuntimeDirectory();
         
         // instantiate the repository from the URL
-        UriExmlResourceProvider resProvider = new UriExmlResourceProvider(this.repoUrl, localPath, getAuthData());
+        final UriExmlResourceProvider resProvider = new UriExmlResourceProvider(this.repoUrl, localPath, getAuthData());
         resProvider.setName(getId());
         
         this.repository = new ExmlBase(resProvider);
@@ -127,8 +132,8 @@ public class UrlFragment extends AbstractFragment {
     @objid ("e77ded00-03f8-11e2-9ef9-001ec947ccaf")
     @Override
     public Collection<MObject> doGetRoots() {
-        SmMetamodel mm = getProjectMetamodel();
-        Collection<MObject> roots = this.repository.findByClass(mm.getMClass(AbstractProject.class), true);
+        final SmMetamodel mm = getProjectMetamodel();
+        final Collection<MObject> roots = this.repository.findByClass(mm.getMClass(AbstractProject.class), true);
         return roots;
     }
 
@@ -150,7 +155,7 @@ public class UrlFragment extends AbstractFragment {
     @objid ("9e5e011e-35c0-47c4-ba4f-9b3f87bdb652")
     @Override
     public MetamodelVersionDescriptor getRequiredMetamodelDescriptor() throws IOException {
-        URI mmuri = UriUtils.asDirectoryUri(this.repoUrl).resolve("admin/").resolve(MMVERSION_FILE_NAME);
+        final URI mmuri = UriUtils.asDirectoryUri(this.repoUrl).resolve("admin/").resolve(MMVERSION_FILE_NAME);
         
         try (InputStream is = UriConnections.openInputStream(mmuri, getAuthData());
                 InputStreamReader in = new InputStreamReader(is, StandardCharsets.UTF_8)) {
@@ -164,8 +169,62 @@ public class UrlFragment extends AbstractFragment {
 
     @objid ("6eb6c578-bbb3-4189-8e0a-06071d706b7b")
     @Override
-    public void rename(String name, IModelioProgress aMonitor) throws IOException {
+    public void rename(final String name, final IModelioProgress aMonitor) throws IOException {
         throw new UnsupportedOperationException();
+    }
+
+    @objid ("cad02cc5-ecea-4d99-a678-6460fa6b9b69")
+    @Override
+    public UrlFragmentInfos getInformations() throws IOException {
+        Properties p = getPropertyFile();
+        if (p != null) {
+            return new UrlFragmentInfos(p.getProperty("name"), p.getProperty("description"), new Version(p.getProperty("version")), new Version(p.getProperty("modelioversion")));
+        } else {
+            return new UrlFragmentInfos(getId(), "", new Version("0.0.0"), ModelioVersion.VERSION);
+        }
+    }
+
+    @objid ("fe570c78-5d20-4d1b-a966-01d7426d394c")
+    private Properties getPropertyFile() throws IOException {
+        final URI infosUri = UriUtils.asDirectoryUri(this.repoUrl).resolve("manifest.properties");
+        try (InputStream is = UriConnections.openInputStream(infosUri, getAuthData());
+                InputStreamReader in = new InputStreamReader(is, StandardCharsets.UTF_8)) {
+            final Properties p = new Properties();
+            p.load(in);
+            return p;
+        } catch (FileNotFoundException | NoSuchFileException e) {
+            Log.warning("No '"+infosUri+"' infos version file, use default values.");
+            return null;
+        }
+    }
+
+    @objid ("3efd75da-0c7f-446e-a640-516dd04167a0")
+    public class UrlFragmentInfos extends FragmentInfos {
+        @objid ("b060b084-1473-423d-af5d-6cecc82ff8e8")
+        public UrlFragmentInfos(final String name, final String description, final Version version, final Version modelioVersion) {
+            super(name, description, version, modelioVersion);
+        }
+
+        @objid ("41c8c2f0-ed3d-4799-b90f-d50a4218c6c6")
+        public String getProvider() throws IOException {
+            Properties p = getPropertyFile();
+            if (p != null) {
+                return p.getProperty("provider");
+            } else {
+                return "";
+            }
+        }
+
+        @objid ("9efe9b09-a21f-45f2-af9c-8e3b5b4ec893")
+        public String getDate() throws IOException {
+            Properties p = getPropertyFile();
+            if (p != null) {
+                return p.getProperty("date");
+            } else {
+                return "";
+            }
+        }
+
     }
 
 }

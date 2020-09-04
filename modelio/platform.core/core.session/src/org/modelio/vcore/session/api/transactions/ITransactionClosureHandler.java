@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface ITransactionClosureHandler {
     /**
      * Called during the transaction commit process.
+     * 
      * @param transaction the transaction
      */
     @objid ("bb9589d6-a5ba-418c-9a17-dd6b0ad73c41")

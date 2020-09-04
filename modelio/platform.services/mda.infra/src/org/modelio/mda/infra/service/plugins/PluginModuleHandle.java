@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -22,7 +22,9 @@ package org.modelio.mda.infra.service.plugins;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
@@ -60,7 +62,13 @@ public class PluginModuleHandle implements IModuleHandle {
         this.isMandatory = isMandatory;
         
         try {
-            this.resourcesPath = Paths.get(FileLocator.toFileURL(plugin.getEntry("/")).toURI());
+            URL pluginURL = plugin.getEntry("/");
+            URL entryURL = FileLocator.toFileURL(pluginURL);
+            String entryStr = entryURL.toString();
+            entryStr = entryStr.replace(" ", "%20");
+            URL entryURLfixed = new URL(entryStr);
+            URI entryURI = entryURLfixed.toURI();
+            this.resourcesPath = Paths.get(entryURI);
         } catch (URISyntaxException e) {
             throw (MalformedURLException) new MalformedURLException(e.getMessage()).initCause(e);
         }
@@ -177,6 +185,48 @@ public class PluginModuleHandle implements IModuleHandle {
             throw new IllegalStateException(String.format("%s is in %s state.", this.plugin, this.plugin.adapt(Module.class).getState()));
         }
         return wiring.getClassLoader();
+    }
+
+    @objid ("e0ddf16a-055a-4123-932e-22dfc1164def")
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.fileHandle == null) ? 0 : this.fileHandle.hashCode());
+        result = prime * result + (this.isMandatory ? 1231 : 1237);
+        result = prime * result + ((this.plugin == null) ? 0 : this.plugin.hashCode());
+        result = prime * result + ((this.resourcesPath == null) ? 0 : this.resourcesPath.hashCode());
+        return result;
+    }
+
+    @objid ("5bfe524a-5373-4b6b-b19c-cfff3ddd4864")
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        PluginModuleHandle other = (PluginModuleHandle) obj;
+        if (this.fileHandle == null) {
+            if (other.fileHandle != null)
+                return false;
+        } else if (!this.fileHandle.equals(other.fileHandle))
+            return false;
+        if (this.isMandatory != other.isMandatory)
+            return false;
+        if (this.plugin == null) {
+            if (other.plugin != null)
+                return false;
+        } else if (!this.plugin.equals(other.plugin))
+            return false;
+        if (this.resourcesPath == null) {
+            if (other.resourcesPath != null)
+                return false;
+        } else if (!this.resourcesPath.equals(other.resourcesPath))
+            return false;
+        return true;
     }
 
 }

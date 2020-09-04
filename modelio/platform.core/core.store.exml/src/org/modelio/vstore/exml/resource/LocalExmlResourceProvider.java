@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,19 +68,7 @@ public class LocalExmlResourceProvider extends AbstractExmlResourceProvider {
 
     /**
      * Initialize the resource provider.
-     * @param repositoryPath a path on the local file system.
-     * @param runtimePath a path on the local file system containing repository data
-     * that may be discarded. This directory will usually contain the EXML indexes.
-     * @deprecated use {@link #LocalExmlResourceProvider(Path, Path, String)}
-     */
-    @objid ("4a42dd38-085f-49f2-85c6-5b9eb651c672")
-    @Deprecated
-    public LocalExmlResourceProvider(Path repositoryPath, Path runtimePath) {
-        this(repositoryPath, runtimePath, repositoryPath.toString());
-    }
-
-    /**
-     * Initialize the resource provider.
+     * 
      * @param repositoryPath a path on the local file system.
      * @param runtimePath a path on the local file system containing repository data
      * that may be discarded. This directory will usually contain the EXML indexes.
@@ -212,6 +200,7 @@ public class LocalExmlResourceProvider extends AbstractExmlResourceProvider {
 
     /**
      * Set the repository name.
+     * 
      * @param name the repository name.
      */
     @objid ("7a4eab85-01fe-4946-96f6-c458bb62e242")

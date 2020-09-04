@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,6 +63,7 @@ public abstract class DefaultMultiLinkTool extends DefaultDiagramTool implements
      * If the interaction is not allowed the method return <code>new InteractionStatus(false, "Tooltip message");</code> . In this
      * case the acceptLastElement method is called with the same arguments, to check if the pointed element could be the last of the
      * interaction.<br>
+     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param targetNode the graphic that is below the mouse pointer.
      * @return an InteractionStatus that represents the result of the acceptFirstElement method.
@@ -80,6 +81,7 @@ public abstract class DefaultMultiLinkTool extends DefaultDiagramTool implements
      * If the interaction is not allowed the method return <code>new InteractionStatus(false, "Tooltip message");</code> . In this
      * case the acceptLastElement method is called with the same arguments, to check if the pointed element could be the last of the
      * interaction.<br>
+     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param previousNodes the graphics accepted until now (might be empty).
      * @param targetNode the graphic that is below the mouse pointer.
@@ -98,6 +100,7 @@ public abstract class DefaultMultiLinkTool extends DefaultDiagramTool implements
      * If the interaction is not allowed the method return <code>new InteractionStatus(false, "Tooltip message");</code> . In this
      * case the mouse pointer is changed to a "forbidden" icon and the tooltip message is displayed in a tooltip near the mouse
      * pointer<br>
+     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param otherNodes the graphics accepted until now (might be empty).
      * @param targetNode the graphic that is below the mouse pointer.
@@ -125,6 +128,7 @@ public abstract class DefaultMultiLinkTool extends DefaultDiagramTool implements
      * 
      * <code>otherNodes</code> are all the graphics accepted by calls to acceptFirstNode and acceptAdditionalNode.
      * @see IDiagramHandle#unmask(MObject, int, int)
+     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param lastNode the last graphic accepted.
      * @param otherNodes all previous accepted graphics.

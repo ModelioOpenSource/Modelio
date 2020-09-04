@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -38,6 +38,7 @@ public abstract class AbstractRichNoteEditorProvider implements IRichNoteEditorP
      * <p>
      * It is assumed that the editor provider supports the given element.
      * In the other case the provider is allowed to throw an {@link IllegalArgumentException}.
+     * 
      * @param target the element to edit.
      * @return an editor ID.
      */

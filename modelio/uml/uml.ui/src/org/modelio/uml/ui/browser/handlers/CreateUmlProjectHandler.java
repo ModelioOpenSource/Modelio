@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateUmlProjectHandler {
     /**
      * Creates a UML project in the selected editable fragment.
+     * 
      * @param selection the current platform selection.
      * @param projectService the project service, to get session and metamodel from.
      * @param selectionService the selection service, to update the platform selection with.

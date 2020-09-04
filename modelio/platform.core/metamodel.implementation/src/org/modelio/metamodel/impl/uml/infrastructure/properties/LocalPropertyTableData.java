@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
@@ -30,10 +30,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("006d9110-ec87-1098-b22e-001ec947cd2a")
 public class LocalPropertyTableData extends PropertyTableData {
-    @objid ("5d21a7f1-41bc-469b-a4b9-b339db0bdbb8")
+    @objid ("c41352b9-7e6e-488f-bbe9-c78538a2977f")
      SmObjectImpl mLocalAnnoted;
 
-    @objid ("24aa5c5d-3e59-4a03-b3c8-0ed2eff8b57d")
+    @objid ("cb001162-ec36-48dd-b7e6-da858e999253")
     public LocalPropertyTableData(LocalPropertyTableSmClass smClass) {
         super(smClass);
     }

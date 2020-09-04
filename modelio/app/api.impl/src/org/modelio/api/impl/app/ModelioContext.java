@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class ModelioContext implements IModelioContext {
      * <p>
      * The returned value is the value that Locale.getDefault().getLanguage()
      * returns if this value is supported by Modelio. Otherwise 'us' is returned.
+     * 
      * @return a String containing the language used for Modelio resources.
      */
     @objid ("8b3ba8b8-4d09-4d8e-9064-983191cc6b26")
@@ -71,13 +72,14 @@ public class ModelioContext implements IModelioContext {
     public File getProjectSpacePath() {
         GProject openedProject = this.projectService.getOpenedProject();
         if (openedProject != null) {
-            return openedProject.getProjectPath().toFile();
+            return openedProject.getProjectFileStructure().getProjectPath().toFile();
         }
         return null;
     }
 
     /**
      * Get the version of the current Modelio
+     * 
      * @return an object of the Version class that represents the version of the current Modelio.
      */
     @objid ("1fac425c-de46-4e1e-b4d3-45a97af65df0")

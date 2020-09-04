@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public class Xmi extends AbstractUIPlugin {
 
     /**
      * Returns the shared instance
+     * 
      * @return the shared instance
      */
     @objid ("addbe9a5-6b4c-459b-9204-55778cf90708")

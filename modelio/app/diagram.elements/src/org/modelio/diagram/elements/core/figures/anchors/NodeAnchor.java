@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class NodeAnchor extends AbstractConnectionAnchor {
 
     /**
      * Create an anchor.
+     * 
      * @param owner The owner node of the anchor
      * @param anchorLocation The location of the anchor relative to the owner node location.
      */
@@ -93,6 +94,7 @@ public class NodeAnchor extends AbstractConnectionAnchor {
      * Get the offset to the reference point.
      * <p>
      * The offset is returned by reference and must not be directly modified.
+     * 
      * @return the reference offset.
      */
     @objid ("7f58791a-1dec-11e2-8cad-001ec947c8cc")
@@ -110,6 +112,7 @@ public class NodeAnchor extends AbstractConnectionAnchor {
 
     /**
      * Modifies the anchor reference offset.
+     * 
      * @param d The new offset to locate the reference point.
      */
     @objid ("7f5adb2b-1dec-11e2-8cad-001ec947c8cc")
@@ -120,6 +123,7 @@ public class NodeAnchor extends AbstractConnectionAnchor {
 
     /**
      * Correct the point position so that it is inside or touches the given rectangle.
+     * 
      * @param p a point
      * @param r the point location limits.
      */

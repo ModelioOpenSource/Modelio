@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.app.core.metamodel.MetamodelExtensionPoint;
 import org.modelio.core.ui.swt.images.spi.IMetamodelImageProvider;
 import org.modelio.ui.CoreFontRegistry;
 import org.modelio.ui.UIImages;
+import org.modelio.ui.swt.QualifiedImage;
 import org.modelio.vcore.smkernel.mapi.MClass;
 
 /**
@@ -71,62 +72,33 @@ public class MetamodelImageService {
 
     /**
      * Get the icon for a metaclass and a flavor
+     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found icon or a default 'unknown' icon.
      */
     @objid ("003a5c1e-6af9-100d-835d-001ec947cd2a")
     public static Image getIcon(MClass metaclass, String flavor) {
-        Image icon = null;
-        IMetamodelImageProvider svc = MetamodelImageService.EXTENSIONPOINT.get(metaclass.getOrigin());
-        if (svc != null) {
-            icon = svc.getIcon(metaclass, flavor);
-        }
-        
-        if (icon == null) {
-            // No image defined by contributors, return an 'unknown' icon instead.
-            String key = getRegistryKey(metaclass, flavor, "icon");
-            icon = MetamodelImageService.REGISTRY.get(key);
-            if (icon == null) {
-                icon = createUnknownImage(key, metaclass.getName(), UIImages.PLACEHOLDER);
-                if (icon != null) {
-                    MetamodelImageService.REGISTRY.put(key, icon);
-                }
-            }
-        }
-        return icon;
+        QualifiedImage qualifiedIcon = getQualifiedIcon(metaclass, flavor);
+        return qualifiedIcon != null ? qualifiedIcon.getImage() : null;
     }
 
     /**
      * Get the diagram big image for a metaclass and a flavor.
+     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found image or a default 'unknown' image.
      */
     @objid ("003aa3f4-6af9-100d-835d-001ec947cd2a")
     public static Image getImage(MClass metaclass, String flavor) {
-        Image image = null;
-        IMetamodelImageProvider svc = MetamodelImageService.EXTENSIONPOINT.get(metaclass.getOrigin());
-        if (svc != null) {
-            image = svc.getImage(metaclass, flavor);
-        }
-        
-        if (image == null) {
-            // No image defined by contributors, return an 'unknown' image instead.
-            String key = getRegistryKey(metaclass, flavor, "image");
-            image = MetamodelImageService.REGISTRY.get(key);
-            if (image == null) {
-                image = createUnknownImage(key, metaclass.getName(), UIImages.PLACEHOLDER_48);
-                if (image != null) {
-                    MetamodelImageService.REGISTRY.put(key, image);
-                }
-            }
-        }
-        return image;
+        QualifiedImage qualifiedImage = getQualifiedImage(metaclass, flavor);
+        return qualifiedImage != null ? qualifiedImage.getImage() : null;
     }
 
     /**
      * Get the icon for a metaclass.
+     * 
      * @param metaclassName a metaclass name.
      * @return the metaclass icon.
      * @deprecated this method is not compatible with metamodel extensions, use {@link #getIcon(MClass)} instead.
@@ -136,9 +108,9 @@ public class MetamodelImageService {
     public static Image getIcon(final String metaclassName) {
         // first, ask every extension
         for (IMetamodelImageProvider svc : MetamodelImageService.EXTENSIONPOINT.getAll()) {
-            Image icon = svc.getIcon(metaclassName);
+            QualifiedImage icon = svc.getIcon(metaclassName);
             if (icon != null) {
-                return icon;
+                return icon.getImage();
             }
         }
         return null;
@@ -146,6 +118,7 @@ public class MetamodelImageService {
 
     /**
      * Get the icon for a metaclass
+     * 
      * @param metaclass a metaclass
      * @return the metaclass icon.
      */
@@ -156,6 +129,7 @@ public class MetamodelImageService {
 
     /**
      * Get the diagram big image for a metaclass
+     * 
      * @param metaclass a metaclass
      * @return the diagram image
      */
@@ -169,6 +143,7 @@ public class MetamodelImageService {
      * <p>
      * Usually needed when programmatically building e4 contributions.
      * </p>
+     * 
      * @param metaclass a metaclass
      * @return path to the found icon or <code>null</code>.
      * @since 3.8
@@ -187,6 +162,7 @@ public class MetamodelImageService {
      * <p>
      * Usually needed when programmatically building e4 contributions.
      * </p>
+     * 
      * @param metaclassName name of a metaclass
      * @return path to the found icon or <code>null</code>.
      * @since 3.8
@@ -227,6 +203,7 @@ public class MetamodelImageService {
      * Compute and record an image displaying the given label for the given unknown key.
      * <p>
      * This method will make best effort to draw the label into the image but it will probably not fit the image.
+     * 
      * @param key a key.
      * @param label a string to draw in the image.
      * @param baseImage an existing image to define the size of the unknown image and initialize the {@link Device}.
@@ -255,6 +232,54 @@ public class MetamodelImageService {
             tl.dispose();
         }
         return image;
+    }
+
+    @objid ("8f898cdb-4885-4b3e-8324-17d4f8dfb9c5")
+    public static QualifiedImage getQualifiedIcon(MClass metaclass, String flavor) {
+        QualifiedImage qualifiedIcon = null;
+        IMetamodelImageProvider svc = MetamodelImageService.EXTENSIONPOINT.get(metaclass.getOrigin());
+        if (svc != null) {
+            qualifiedIcon = svc.getIcon(metaclass, flavor);
+        }
+        
+        if (qualifiedIcon != null && qualifiedIcon.getImage() != null) {
+            return qualifiedIcon;
+        }
+        
+        // No image defined by contributors, return an 'unknown' icon instead.
+        String key = getRegistryKey(metaclass, flavor, "icon");
+        Image icon = MetamodelImageService.REGISTRY.get(key);
+        if (icon == null) {
+            icon = createUnknownImage(key, metaclass.getName(), UIImages.PLACEHOLDER);
+            if (icon != null) {
+                MetamodelImageService.REGISTRY.put(key, icon);
+            }
+        }
+        return new QualifiedImage(icon, key);
+    }
+
+    @objid ("bad72761-9a8e-4aca-bbdd-51fa8e854334")
+    public static QualifiedImage getQualifiedImage(MClass metaclass, String flavor) {
+        QualifiedImage qualifiedImage = null;
+        IMetamodelImageProvider svc = MetamodelImageService.EXTENSIONPOINT.get(metaclass.getOrigin());
+        if (svc != null) {
+            qualifiedImage = svc.getImage(metaclass, flavor);
+        }
+        
+        if (qualifiedImage != null && qualifiedImage.getImage() != null) {
+            return qualifiedImage;
+        }
+        
+        // No image defined by contributors, return an 'unknown' image instead.
+        String key = getRegistryKey(metaclass, flavor, "image");
+        Image image = MetamodelImageService.REGISTRY.get(key);
+        if (image == null) {
+            image = createUnknownImage(key, metaclass.getName(), UIImages.PLACEHOLDER_48);
+            if (image != null) {
+                MetamodelImageService.REGISTRY.put(key, image);
+            }
+        }
+        return new QualifiedImage(image, key);
     }
 
 }

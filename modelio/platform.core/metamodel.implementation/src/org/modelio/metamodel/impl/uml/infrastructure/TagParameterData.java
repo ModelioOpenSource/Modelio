@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -30,16 +30,16 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 
 @objid ("008f0606-c4be-1fd8-97fe-001ec947cd2a")
 public class TagParameterData extends ElementData {
-    @objid ("7375818b-4c8f-49b3-b2e2-53977b9bd29d")
+    @objid ("46876727-abf9-4a33-b1b4-a73f9dabb3e0")
      Object mValue = "";
 
-    @objid ("b6d8aca8-5c88-4d1b-8886-a99074e245ab")
+    @objid ("bd2b0bd3-ae99-4d48-a09b-ee49b19ee50a")
      SmObjectImpl mAnnoted;
 
-    @objid ("99fc29a2-ea4b-4393-a4f2-57428540704d")
+    @objid ("904ed36e-44cb-4bb9-9d3b-5735cf65eecb")
      SmObjectImpl mQualified;
 
-    @objid ("89e1879e-fa8e-4a2c-872f-00647f15f28c")
+    @objid ("677ca835-ec97-41ce-b4dd-2bd2a3d5f280")
     public TagParameterData(TagParameterSmClass smClass) {
         super(smClass);
     }

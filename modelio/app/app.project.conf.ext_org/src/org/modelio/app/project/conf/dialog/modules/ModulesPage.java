@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ import org.modelio.app.project.conf.dialog.IProjectConfPage;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.dialog.modules.list.ModulesSection;
 import org.modelio.app.project.conf.dialog.modules.parameters.ParameterSection;
+import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.gproject.module.GModule;
 
 /**
@@ -72,7 +73,7 @@ public class ModulesPage implements IProjectConfPage {
         IEclipseContext applicationContext = application.getContext();
         this.mainComposite = toolkit.createComposite(parent, SWT.NONE);
         this.mainComposite.setLayout(new GridLayout());
-                
+        
         // The form
         ScrolledForm form = toolkit.createScrolledForm(this.mainComposite);
         form.getBody().setLayout(new TableWrapLayout());
@@ -121,6 +122,7 @@ public class ModulesPage implements IProjectConfPage {
 
     /**
      * Set the data model.
+     * 
      * @param projectAdapter the project data model.
      */
     @objid ("c453de73-acd7-4147-b72f-bf91ce833a18")
@@ -140,6 +142,12 @@ public class ModulesPage implements IProjectConfPage {
     @Override
     public Control getControl() {
         return this.mainComposite;
+    }
+
+    @objid ("50af6bd1-924f-437e-981d-1aa54f538e4e")
+    @Override
+    public String getHelpTopic() {
+        return AppProjectConfExt.I18N.getString("ModulesPages.HelpId");
     }
 
 }

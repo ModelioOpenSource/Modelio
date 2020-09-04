@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -27,10 +27,10 @@ import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
+import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
 import org.modelio.xmi.generation.GenerationProperties;
 import org.modelio.xmi.util.AbstractObjingModelNavigation;
 import org.modelio.xmi.util.ObjingEAnnotation;
-import org.modelio.xmi.util.XMIProperties;
 
 /**
  * Export Constraint
@@ -41,7 +41,7 @@ public class OConstraint extends OModelElement {
     @objid ("14724b00-156d-46ea-ad8d-a79ca2f7bf4d")
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
-        if (getObjingElement().isStereotyped(XMIProperties.modelerModuleName, "DurationObservation_Constraint")){
+        if (getObjingElement().isStereotyped(IModelerModulePeerModule.MODULE_NAME, "DurationObservation_Constraint")){
             return UMLFactory.eINSTANCE.createDurationObservation();
         }
         return UMLFactory.eINSTANCE.createConstraint();

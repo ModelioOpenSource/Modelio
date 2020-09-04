@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public interface IGmModelRelated extends IGmObject {
      * Get the element this {@link GmModel} is related to.
      * <p>
      * <b>Note:</b> May return <i>null</i> if the element is not resolved.
+     * 
      * @return the represented element or <i>null</i> if the element is not resolved.
      */
     @objid ("80827ec8-1dec-11e2-8cad-001ec947c8cc")
@@ -70,6 +71,7 @@ public interface IGmModelRelated extends IGmObject {
      * Default implementation returns <code>null</code>. Subclasses may override this method to provide an actual
      * MObject if they are the GmModel representing the element.
      * </p>
+     * 
      * @return <i>null</i> or the represented element if this GmModel is in charge of representing an element.
      */
     @objid ("80827ecb-1dec-11e2-8cad-001ec947c8cc")
@@ -82,6 +84,7 @@ public interface IGmModelRelated extends IGmObject {
      * <p>
      * <strong>Note:</strong> This method should never return <code>null</code> and is not intended to be overridden.
      * </p>
+     * 
      * @return a {@link MRef reference} to the represented element if this GmModel is in charge of representing an
      * element.
      */

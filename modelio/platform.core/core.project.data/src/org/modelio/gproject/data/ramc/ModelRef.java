@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -61,6 +61,7 @@ public class ModelRef implements Serializable {
 
     /**
      * Creates a reference.
+     * 
      * @param mc The metaclass name.
      * @param tuuid The UUID
      */
@@ -73,6 +74,7 @@ public class ModelRef implements Serializable {
 
     /**
      * Creates a reference.
+     * 
      * @param mc The metaclass name.
      * @param tuuid The object universal identifier
      * @param name an object name, may be <code>null</code>.
@@ -87,6 +89,7 @@ public class ModelRef implements Serializable {
     /**
      * Construct a MRef instance from a String whose format is the MRef.toString() format so that:<br>
      * given <i>mref</i> a MRef, <code>new MRef(mref.toString()).equals(mref)</code> is guaranteed to be <code>true</code>.
+     * 
      * @param s a string
      */
     @objid ("eac2fcf2-4526-4ab0-ab84-4b201533281e")

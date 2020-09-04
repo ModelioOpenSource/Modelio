@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -105,6 +105,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
 
     /**
      * Creates the background layer.
+     * 
      * @return the background layer
      */
     @objid ("66923541-33f7-11e2-95fe-001ec947c8cc")
@@ -123,6 +124,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
 
     /**
      * Creates a layered pane and the layers that should be scaled.
+     * 
      * @return a new freeform layered pane containing the scalable layers
      */
     @objid ("6692353b-33f7-11e2-95fe-001ec947c8cc")

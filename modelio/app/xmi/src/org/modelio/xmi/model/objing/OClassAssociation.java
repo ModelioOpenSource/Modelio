@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,7 +36,7 @@ public class OClassAssociation extends OModelElement {
     @Override
     public org.eclipse.uml2.uml.Element createEcoreElt() {
         // The Ecore org.eclipse.uml2.uml.AssociationClass can be created when parsing the related
-        // Ijing org.eclipse.uml2.uml.Association, Class or
+        // Modelio org.eclipse.uml2.uml.Association, Class or
         // current ClassAssociation.
         return getOrCreateEcoreAssociationClass();
     }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public class GmActivityEdgeGuard extends GmElementLabel {
 
     /**
      * Creates an activity edge guard label.
+     * 
      * @param diagram The diagram.
      * @param relatedRef related element reference, must not be <code>null</code>.
      */

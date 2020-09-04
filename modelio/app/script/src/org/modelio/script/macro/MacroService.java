@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,9 @@ import org.osgi.framework.Bundle;
 @objid ("5c36035b-5a91-4d8a-8bf6-f08dd97ed7ae")
 @Creatable
 public class MacroService implements IMacroService {
+    @objid ("cb391d72-178c-4d89-9613-88d1605a3a03")
+    private static final String MACROS_SUBDIR = "macros";
+
     @objid ("95d2dce6-6676-4535-a8cc-abe8a22e6ab4")
      Catalog modelioCatalog;
 
@@ -73,18 +76,18 @@ public class MacroService implements IMacroService {
             }
         }
         this.modelioCatalog = new Catalog("Modelio", env.getMacroCatalogPath(), true, null); // The modelio catalog is readonly
-        this.workspaceCatalog = new Catalog("Workspace", projectService.getWorkspace().resolve("macros"), false, null);
+        this.workspaceCatalog = new Catalog("Workspace", projectService.getWorkspace().resolve(MacroService.MACROS_SUBDIR), false, null);
     }
 
     @objid ("33adeb7e-96fa-46dd-ab8d-2e4fb15ca60b")
     @Inject
     @Optional
-    void onProjectOpened(@EventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject project) {
+    void onProjectOpened(@EventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject project) {
         if (project != null) {
             MMetamodel metamodel = project.getSession().getMetamodel();
             this.projectCatalog = new Catalog(
-                    project.getName(), 
-                    project.getProjectDataPath().resolve(GProject.DATA_SUBDIR).resolve(GProject.CONFIG_SUBDIR).resolve("macros"), 
+                    project.getName(),
+                    project.getProjectFileStructure().getProjectDataConfigPath().resolve(MacroService.MACROS_SUBDIR),
                     false, metamodel);
             this.workspaceCatalog.setMetamodel(metamodel);
         }
@@ -93,7 +96,7 @@ public class MacroService implements IMacroService {
     @objid ("c1325c8e-a2f4-4248-a5f5-b9eac5a721af")
     @Inject
     @Optional
-    void onProjectClosed(@SuppressWarnings("unused") @EventTopic(ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
+    void onProjectClosed(@SuppressWarnings ("unused") @EventTopic (ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
         this.projectCatalog = null;
         this.workspaceCatalog.setMetamodel(null);
     }
@@ -131,7 +134,7 @@ public class MacroService implements IMacroService {
         case WORSPACE:
             return this.workspaceCatalog.getMacros();
         case PROJECT:
-            return (this.projectCatalog != null) ? this.projectCatalog.getMacros() : new ArrayList<>();
+            return this.projectCatalog != null ? this.projectCatalog.getMacros() : new ArrayList<>();
         default:
             return Collections.emptyList();
         }
@@ -194,6 +197,7 @@ public class MacroService implements IMacroService {
 
     /**
      * Create modelio macro catalog file by extracting the macros embedded in the plugin archive.
+     * 
      * @param macrosCatalogPath the Modelio macros catalog directory
      */
     @objid ("461e569c-ff21-41af-b990-4dc0e7827a73")

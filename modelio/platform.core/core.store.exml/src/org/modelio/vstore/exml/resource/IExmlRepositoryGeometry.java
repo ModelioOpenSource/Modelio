@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -88,6 +88,7 @@ public interface IExmlRepositoryGeometry {
 
     /**
      * Get the blob key stored in the given file.
+     * 
      * @param relativePath a blob file path relative to the repository root.
      * @return the blob key.
      */
@@ -96,6 +97,7 @@ public interface IExmlRepositoryGeometry {
 
     /**
      * Get the path where the given blob should be stored.
+     * 
      * @param blobKey a Blob key
      * @return the path where the blob is stored.
      */
@@ -106,6 +108,7 @@ public interface IExmlRepositoryGeometry {
      * Get the directories that should exist on an empty repository.
      * <p>
      * The returned paths are relative to the repository root.
+     * 
      * @param metamodel the metamodel
      * @return the list of directories.
      */
@@ -114,6 +117,7 @@ public interface IExmlRepositoryGeometry {
 
     /**
      * Get the non versioned part EXML file path of an element reference relative to the repository path.
+     * 
      * @param ref an element reference.
      * @return the EXML file path relative to the repository path.
      */
@@ -122,6 +126,7 @@ public interface IExmlRepositoryGeometry {
 
     /**
      * Get the path where the metamodel descriptor XMl file is stored.
+     * 
      * @return the metamodel descriptor path
      * @since 3.6
      */
@@ -130,6 +135,7 @@ public interface IExmlRepositoryGeometry {
 
     /**
      * Get the 'model' directory containing a sub directory per metaclass.
+     * 
      * @return the model directory path relative to the repository root.
      */
     @objid ("3bc1e08d-fa36-457b-8a48-e3ad0f2cc2bb")
@@ -137,6 +143,7 @@ public interface IExmlRepositoryGeometry {
 
     /**
      * Get the element reference representing the given EXML file.
+     * 
      * @param relativePath an EXML file path relative to the repository root.
      * @return the represented element reference.
      */
@@ -145,6 +152,7 @@ public interface IExmlRepositoryGeometry {
 
     /**
      * Get the EXML file path of an element reference relative to the repository path.
+     * 
      * @param ref an element reference.
      * @return the EXML file path relative to the repository path.
      */
@@ -163,6 +171,7 @@ public interface IExmlRepositoryGeometry {
      * <p>
      * The answer is based on the file extension.
      * Returns <i>false</i> if it is a {@link IExmlRepositoryGeometry#EXT_LOCAL_EXML ".local.exml"} file.
+     * 
      * @param relativePath a file path relative to the repository root.
      * @return <i>true</i> if it is an EXML file, else <i>false</i>.
      */

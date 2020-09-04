@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class CloneGmLinkDrawingCommand extends Command implements RequestConstan
 
     /**
      * Initialize the command
+     * 
      * @param editPartToClone the connection edit part to move
      * @param moveDelta the move delta in absolute coordinates
      */

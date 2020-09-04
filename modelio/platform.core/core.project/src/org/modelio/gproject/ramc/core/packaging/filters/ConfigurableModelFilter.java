@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ public class ConfigurableModelFilter implements IModelFilterConfigurer, IObjectF
 
     /**
      * Initialize the filter.
+     * 
      * @param metamodel the modelio metamodel.
      */
     @objid ("871694ab-1b3f-4889-abb6-e0122ae97e3a")

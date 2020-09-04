@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -92,6 +92,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
 
     /**
      * Create a serializable anchor model from the given anchor.
+     * 
      * @param anchor a figure anchor
      * @return an anchor model.
      */
@@ -115,6 +116,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
      * Extends {@link AbstractGraphicalEditPart#getAdapter(Class)} to support {@link IGmObject},
      * {@link GmDrawing} and their subclasses.
      * @see IAdaptable#getAdapter(Class)
+     * 
      * @param adapter the adapter class to look up
      * @return a object castable to the given class, or <code>null</code> if this object does not have an adapter for
      * the given class
@@ -180,6 +182,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
 
     /**
      * To be redefined if the node should not be resizeable.
+     * 
      * @return <code>true</code> if the figure should be resizeable else <code>false</code>.
      */
     @objid ("0f435f58-46af-4b9c-b75a-4437e2c3b03e")
@@ -285,6 +288,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
 
     /**
      * Changes the current {@link IDragTrackerProvider} used by this edit part.
+     * 
      * @param value the new {@link IDragTrackerProvider} to be used by this edit part.
      */
     @objid ("63e477d3-574c-417e-b3e2-16a2fdbb4bb0")
@@ -323,6 +327,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
 
     /**
      * Convenience method to retrieve the model style.
+     * 
      * @return the model style.
      */
     @objid ("3b360802-5569-4c7c-8557-885271bec8e8")
@@ -341,6 +346,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
      * StyleKey are looked up by MetaKey.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
+     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -441,6 +447,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
 
     /**
      * Tells whether the figure of the given edit part contains the given point.
+     * 
      * @param editPart A graphic edit part
      * @param aPoint a point in absolute coordinates
      * @return <i>true</i> if the edit part figure contains the point, else <i>false</i>

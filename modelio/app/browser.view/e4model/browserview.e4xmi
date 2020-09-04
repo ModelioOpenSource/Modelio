@@ -36,9 +36,6 @@
       <handlers xmi:id="_erC7QPOYEeayp8OnJtnQEw" elementId="org.modelio.model.browser.handler.rename" contributionURI="bundleclass://org.modelio.model.browser.view/org.modelio.model.browser.view.handlers.RenameElementHandler" command="_btUl4POYEeayp8OnJtnQEw"/>
       <menus xsi:type="menu:PopupMenu" xmi:id="_vcqKgO-3EeaNjrSz_amczA" elementId="org.modelio.model.browser.view.popupmenu">
         <tags>popup:org.modelio.popupmenu.cms</tags>
-        <children xsi:type="menu:Menu" xmi:id="_aM4gIPOTEeayp8OnJtnQEw" elementId="org.modelio.model.browser.view.menu.createelement" label="%CreateElementMenu.label" iconURI="platform:/plugin/org.modelio.model.browser.view/icons/createuml.png">
-          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_d1aGAPOTEeayp8OnJtnQEw" coreExpressionId="app.project.ui.expression.isMObject"/>
-        </children>
         <children xsi:type="menu:Menu" xmi:id="_i-ijAPOTEeayp8OnJtnQEw" elementId="org.modelio.model.browser.view.menu.createroot" label="%CreateSubProjectMenu.label" iconURI="platform:/plugin/org.modelio.model.browser.view/icons/createsubproject.png">
           <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_i-ijAfOTEeayp8OnJtnQEw" coreExpressionId="app.project.ui.expression.isModelFragment"/>
           <children xsi:type="menu:DirectMenuItem" xmi:id="_pTAxwPOTEeayp8OnJtnQEw" elementId="org.modelio.model.browser.view.item.createlocalmoduleproject" label="%CreateElementMenu.CreateLocalModuleProject.label" iconURI="platform:/plugin/org.modelio.model.browser.view/icons/localmodule.png" tooltip="%CreateElementMenu.CreateLocalModuleProject.tooltip" contributionURI="bundleclass://org.modelio.model.browser.view/org.modelio.model.browser.view.handlers.create.CreateLocalModuleHandler"/>

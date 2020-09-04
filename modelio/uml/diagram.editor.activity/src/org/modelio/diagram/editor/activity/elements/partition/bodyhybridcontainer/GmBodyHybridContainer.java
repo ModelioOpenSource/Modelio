@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class GmBodyHybridContainer extends GmPartitionContainer {
 
     /**
      * Initialize the container.
+     * 
      * @param diagram the diagram in which this partition container is used.
      * @param relatedRef represented element reference, must not be null.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ public interface IPickingSession {
     /**
      * Ask the picking client whether it accepts the given element. <br>
      * This method is called by a picking provider when the mouse is moved on a model element.
+     * 
      * @param target The model element
      * @return true if the element is accepted, false in the other case
      */
@@ -35,6 +36,7 @@ public interface IPickingSession {
      * Tell the picking client to pick the given element. <br>
      * This method is called by a picking provider when the user click on a model element. <br>
      * The picking client may either accept the element and close the picking session, or refuse it.
+     * 
      * @param target The model element
      */
     @objid ("a3ef1cd5-0ecc-11e2-96c4-002564c97630")

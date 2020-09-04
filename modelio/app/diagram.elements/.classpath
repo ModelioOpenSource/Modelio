@@ -6,6 +6,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry excluding=".svn/" kind="src" path="src"/>
-	<classpathentry kind="lib" path="/lib/javadesigner.jar"/>
+	<classpathentry kind="lib" path="/compilation-env/javadesigner.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

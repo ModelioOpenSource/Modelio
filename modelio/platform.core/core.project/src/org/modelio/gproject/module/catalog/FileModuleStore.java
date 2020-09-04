@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -91,6 +91,7 @@ public class FileModuleStore implements IModuleStore {
 
     /**
      * Instantiate a new FileModuleCatalog.
+     * 
      * @param metamodelFragments the metamodel fragments to use
      * @param cachePath the path to store unzipped .jmdacs into. Needs to be a writable directory.
      */
@@ -180,7 +181,7 @@ public class FileModuleStore implements IModuleStore {
         // Unzip module
         Path extractionDir = Files.createTempDirectory("temp");
         new Unzipper()
-                .setProgressLabelPrefix(CoreProject.getMessage("FileModuleStore.unzippingJMdac", archive.getFileName()))
+                .setProgressLabelPrefix(CoreProject.I18N.getMessage("FileModuleStore.unzippingJMdac", archive.getFileName()))
                 .unzip(archive, extractionDir, m.newChild(60));
         
         // Create a temporary ModuleHandle
@@ -198,6 +199,7 @@ public class FileModuleStore implements IModuleStore {
 
     /**
      * Find all modules with the given name.
+     * 
      * @return the module cache path
      */
     @objid ("e9f4408c-6779-4901-ba99-2d54c726e6b4")
@@ -231,7 +233,7 @@ public class FileModuleStore implements IModuleStore {
         // Unzip module archive in a temporary directory
         Path extractionDir = Files.createTempDirectory("temp");
         new Unzipper()
-                .setProgressLabelPrefix(CoreProject.getMessage("FileModuleStore.unzippingJMdac", archive.getFileName()))
+                .setProgressLabelPrefix(CoreProject.I18N.getMessage("FileModuleStore.unzippingJMdac", archive.getFileName()))
                 .unzip(archive, extractionDir, m.newChild(60));
         
         // Get the temporary store entry and module handle
@@ -311,6 +313,7 @@ public class FileModuleStore implements IModuleStore {
 
     /**
      * Instantiate a new ModuleHandle from a .jmdac archive file. Returns a zip file system
+     * 
      * @param zipPath to construct the file system from
      * @param create true if the zip file should be created
      * @return a zip file system
@@ -501,6 +504,7 @@ public class FileModuleStore implements IModuleStore {
 
         /**
          * Get the module handle for this entry
+         * 
          * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that
          * the
          * operation cannot be cancelled.
@@ -532,7 +536,7 @@ public class FileModuleStore implements IModuleStore {
             }
             
             throw new NoSuchFileException(aPath.toString(), null,
-                    CoreProject.getMessage("FileModuleStoreEntry.doesNotContainDirectory", aPath));
+                    CoreProject.I18N.getMessage("FileModuleStoreEntry.doesNotContainDirectory", aPath));
         }
 
         /**

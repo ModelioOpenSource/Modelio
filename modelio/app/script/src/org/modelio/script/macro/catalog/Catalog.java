@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -101,6 +101,7 @@ public class Catalog {
 
     /**
      * Add a macro to the catalog.
+     * 
      * @param macro the macro to add.
      */
     @objid ("008f9850-b6e0-106a-bf4f-001ec947cd2a")
@@ -134,6 +135,7 @@ public class Catalog {
 
     /**
      * Get the macros in the catalog.
+     * 
      * @return the stored macros.
      */
     @objid ("008f9792-b6e0-106a-bf4f-001ec947cd2a")
@@ -143,6 +145,7 @@ public class Catalog {
 
     /**
      * Get the catalog name.
+     * 
      * @return the name
      */
     @objid ("008f9986-b6e0-106a-bf4f-001ec947cd2a")
@@ -152,6 +155,7 @@ public class Catalog {
 
     /**
      * Get the catalog base path. The base path is the location where all macros should be stored.
+     * 
      * @return the catalog base path.
      */
     @objid ("008f9bd4-b6e0-106a-bf4f-001ec947cd2a")
@@ -161,6 +165,7 @@ public class Catalog {
 
     /**
      * The catalog is modifiable if the file is modifiable or can be created.
+     * 
      * @return whether the catalog is modifiable.
      */
     @objid ("008f9aa8-b6e0-106a-bf4f-001ec947cd2a")
@@ -207,6 +212,7 @@ public class Catalog {
 
     /**
      * Remove the macro from the catalog.
+     * 
      * @param macro a macro owned by the catalog.
      */
     @objid ("00269ada-fb5e-106b-bf4f-001ec947cd2a")
@@ -224,6 +230,7 @@ public class Catalog {
 
     /**
      * Set the current metamodel.
+     * 
      * @param metamodel a metamodel instance.
      */
     @objid ("dfe7f87c-080a-4b9b-a4e0-60b11b414f7c")

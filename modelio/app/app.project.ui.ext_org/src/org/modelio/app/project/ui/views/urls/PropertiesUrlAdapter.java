@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class PropertiesUrlAdapter {
 
     /**
      * C'tor.
+     * 
      * @param gProperties the properties to display
      */
     @objid ("d1c0a705-515b-4539-979c-7d1e42b4ef7f")
@@ -75,6 +76,7 @@ public class PropertiesUrlAdapter {
 
     /**
      * Add an URL entry.
+     * 
      * @param entry the entry to add.
      */
     @objid ("f9a4d13d-d415-4678-b31b-a5a31d7cae41")
@@ -85,6 +87,7 @@ public class PropertiesUrlAdapter {
 
     /**
      * Remove an URL entry.
+     * 
      * @param entry the entry to remove
      */
     @objid ("3feb19d0-33ae-4112-bf77-adf7b9095e2c")

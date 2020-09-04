@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -179,6 +179,7 @@ public class VTabFolderRenderer {
     /**
      * Constructs a new instance of this class given its parent.
      * @see Widget#getStyle
+     * 
      * @param parent CTabFolder
      * 
      * @exception IllegalArgumentException
@@ -222,6 +223,7 @@ public class VTabFolderRenderer {
      * <li>SWT.SELECTED - whether the part is selected</li>
      * </ul>
      * </p>
+     * 
      * @param part a part constant
      * @param state current state
      * @param gc the gc to use for measuring
@@ -333,6 +335,7 @@ public class VTabFolderRenderer {
      * @see CTabFolderRenderer#computeSize(int, int, GC, int, int) valid part and state values
      * 
      * @since 3.6
+     * 
      * @param part one of the part constants
      * @param state the state of the part
      * @param x the desired x coordinate of the client area
@@ -441,6 +444,7 @@ public class VTabFolderRenderer {
      * <li>SWT.HOT - whether the part is hot (i.e. mouse is over the part)</li>
      * </ul>
      * </p>
+     * 
      * @param part part to draw
      * @param state state of the part
      * @param bounds the bounds of the part

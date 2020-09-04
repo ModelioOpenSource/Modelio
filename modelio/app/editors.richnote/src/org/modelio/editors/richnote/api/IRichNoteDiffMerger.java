@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ public interface IRichNoteDiffMerger {
      * Compare the first element with the second one.
      * <p>
      * The merge result is saved in the first element.
+     * 
      * @param element The element to diff/merge into.
      * @param compareWith The element compared with.
      */

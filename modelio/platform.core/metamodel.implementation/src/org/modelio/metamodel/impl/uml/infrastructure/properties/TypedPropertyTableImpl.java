@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
@@ -78,20 +78,20 @@ public class TypedPropertyTableImpl extends PropertyTableImpl implements TypedPr
         setProperty(pdef, storedValue);
     }
 
-    @objid ("0b3c206c-a9c2-4a9a-987b-170b7b78ff74")
+    @objid ("268f7fd8-f06d-4e57-9c91-f1bca9975dc7")
     @Override
     public PropertyTableDefinition getType() {
         Object obj = getDepVal(((TypedPropertyTableSmClass)getClassOf()).getTypeDep());
         return (obj instanceof PropertyTableDefinition)? (PropertyTableDefinition)obj : null;
     }
 
-    @objid ("750e847f-b740-4eab-8d81-214418898b63")
+    @objid ("69fca55f-f217-485e-9bc6-635385465719")
     @Override
     public void setType(PropertyTableDefinition value) {
         appendDepVal(((TypedPropertyTableSmClass)getClassOf()).getTypeDep(), (SmObjectImpl)value);
     }
 
-    @objid ("96d329b7-a20e-4731-ab39-575c1e64c653")
+    @objid ("5f109030-0010-456f-b7ba-a612835886a9")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -99,16 +99,17 @@ public class TypedPropertyTableImpl extends PropertyTableImpl implements TypedPr
         return super.getCompositionOwner();
     }
 
-    @objid ("3545cfd3-ae6c-490b-b1cc-4041fecf1b03")
+    @objid ("b8d8be86-933b-4cfe-b96b-91efb678dd85")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
         SmObjectImpl obj;
         SmDependency dep;
+        
         return super.getCompositionRelation();
     }
 
-    @objid ("c03329a3-380c-4aa0-aa1f-772dd5609f4a")
+    @objid ("e9b0e875-af6f-489a-bc54-a36ec93b3d69")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitTypedPropertyTable(this);

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -419,6 +419,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
 
     /**
      * Convert an AWT Shape to an SWT Path.
+     * 
      * @param shape an AWT Shape
      * @return the SWT Path or <code>null</code> if <code>shape == null</code>
      */

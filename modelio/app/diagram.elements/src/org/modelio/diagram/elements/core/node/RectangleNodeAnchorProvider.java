@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -95,6 +95,7 @@ public class RectangleNodeAnchorProvider {
      * <p>
      * This is the only way to get an anchor provider. The returned provider should be used then discarded. It is not
      * intended to be cached.
+     * 
      * @return an anchor provider.
      */
     @objid ("80a3dfaa-1dec-11e2-8cad-001ec947c8cc")
@@ -111,6 +112,7 @@ public class RectangleNodeAnchorProvider {
 
     /**
      * Create a serializable anchor model from the given anchor.
+     * 
      * @param anchor a figure anchor
      * @return an anchor model.
      */
@@ -195,6 +197,7 @@ public class RectangleNodeAnchorProvider {
      * <P>
      * The anchor may be a function of the connection's model, the node's model, a combination of both, or it may not
      * depend on anything all.
+     * 
      * @param nodeEditPart The rectangular node to anchor from
      * @param connEditpart The connection to anchor from.
      * @return the ConnectionAnchor for the given rectangular EditPart
@@ -217,6 +220,7 @@ public class RectangleNodeAnchorProvider {
      * Returns the <i>source</i> <code>ConnectionAnchor</code> for the specified Request on the given node. The returned
      * ConnectionAnchor is used only when displaying <i>feedback</i>. The Request is usually a
      * {@link org.eclipse.gef.requests.LocationRequest}, which provides the current mouse location.
+     * 
      * @param nodeEditPart The rectangular node to anchor from
      * @param request a Request describing the current interaction
      * @return the ConnectionAnchor to use during feedback
@@ -255,6 +259,7 @@ public class RectangleNodeAnchorProvider {
      * Returns the <i>target</i> <code>ConnectionAnchor</code> for the specified Request on the given node. The returned
      * ConnectionAnchor is used only when displaying <i>feedback</i>. The Request is usually a
      * {@link org.eclipse.gef.requests.LocationRequest}, which provides the current mouse location.
+     * 
      * @param nodeEditPart The rectangular node to anchor from
      * @param request a Request describing the current interaction
      * @return the ConnectionAnchor to use during feedback
@@ -297,6 +302,7 @@ public class RectangleNodeAnchorProvider {
      * <P>
      * The anchor may be a function of the connection's model, the node's model, a combination of both, or it may not
      * depend on anything all.
+     * 
      * @param nodeEditPart The rectangular node to anchor to
      * @param connEditpart The connection to anchor to.
      * @return the ConnectionAnchor for the given rectangular EditPart
@@ -322,6 +328,7 @@ public class RectangleNodeAnchorProvider {
      * <p>
      * May return the same connection anchor or another one. In the last case the returned anchor must be used and the
      * other should be discarded.
+     * 
      * @param anchor the draw2d anchor to update
      * @param gmLinkAnchor The anchor model.
      * @param nodeEditPart The rectangular node to anchor to
@@ -387,6 +394,7 @@ public class RectangleNodeAnchorProvider {
      * Returns the <code>ConnectionAnchor</code> for the specified Request. The returned ConnectionAnchor is used only
      * when displaying <i>feedback</i>. The Request is usually a {@link org.eclipse.gef.requests.LocationRequest} ,
      * which provides the current mouse location.
+     * 
      * @param request a Request describing the current interaction
      * @param source Whether an anchor is needed for a source or a target side.
      * @return the ConnectionAnchor to use during feedback
@@ -452,6 +460,7 @@ public class RectangleNodeAnchorProvider {
     /**
      * Returns the <code>ConnectionAnchor</code> for the specified Request. The returned ConnectionAnchor is used only
      * when displaying <i>feedback</i>.
+     * 
      * @param request a Request describing the current interaction
      * @param source Whether an anchor is needed for a source or a target side.
      * @return the ConnectionAnchor to use during feedback
@@ -478,6 +487,7 @@ public class RectangleNodeAnchorProvider {
      * Tells whether a slidable anchor is needed.
      * <p>
      * A slidable anchor is needed for orthogonal mode, except for rake mode.
+     * 
      * @param router the router id.
      * @return <code>true</code> if a slidable anchor is needed, else <code>false</code>.
      */
@@ -491,6 +501,7 @@ public class RectangleNodeAnchorProvider {
      * <p>
      * May return the same connection anchor or another one. In the last case the returned anchor must be used and the
      * other should be discarded.
+     * 
      * @param anchor the draw2d anchor to update or discard
      * @param pos reference position relative to the node figure location
      * @param nodeFigure the node figure to anchor to
@@ -526,6 +537,7 @@ public class RectangleNodeAnchorProvider {
 
     /**
      * Get the routing mode from the connection figure.
+     * 
      * @return the connection routing mode
      */
     @objid ("80a64246-1dec-11e2-8cad-001ec947c8cc")

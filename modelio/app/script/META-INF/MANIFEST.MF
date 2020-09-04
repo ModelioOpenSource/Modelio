@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Script
 Bundle-SymbolicName: org.modelio.script;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Vendor: modelio.org
 Bundle-Activator: org.modelio.script.plugin.Script
 Bundle-Localization: plugin
@@ -32,7 +32,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.ui.model.workbench,
  org.modelio.core.session,
  org.modelio.model.browser.view,
- org.modelio.app.preferences
+ org.modelio.app.preferences,
+ org.modelio.core.project.data
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
  res/

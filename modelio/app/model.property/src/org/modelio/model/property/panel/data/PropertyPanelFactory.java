@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.modelio.model.property.panel.data.standard.StandardPropertyPanel;
 public class PropertyPanelFactory {
     /**
      * Create a panel displaying standard UML properties.
+     * 
      * @param parent the graphical parent.
      * @param element the element to display in the panel.
      * @return a new instance of IPropertyPanel.

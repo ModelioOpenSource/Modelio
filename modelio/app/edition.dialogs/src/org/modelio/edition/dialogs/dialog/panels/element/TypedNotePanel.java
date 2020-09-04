@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class TypedNotePanel implements IPanelProvider {
 
     /**
      * C'tor.
+     * 
      * @param moduleName name of the module providing the note type. Might be <code>null</code>.
      * @param noteTypeName a note type name. Might be <code>null</code>.
      */
@@ -176,6 +177,7 @@ public class TypedNotePanel implements IPanelProvider {
 
         /**
          * Widget structure: container=[label, mime mode selector, stack=[plain text,html text]]
+         * 
          * @param parent the parent SWT composite
          * @param controller the view controller
          */
@@ -361,6 +363,7 @@ public class TypedNotePanel implements IPanelProvider {
 
         /**
          * Get the ModelElement whose note is being edited
+         * 
          * @return the edited element
          */
         @objid ("7de0a6f7-d232-4874-b36b-91bfd40feee8")
@@ -370,6 +373,7 @@ public class TypedNotePanel implements IPanelProvider {
 
         /**
          * Set the view controlled by this controller
+         * 
          * @param view the view
          */
         @objid ("69a29631-e94b-44af-9e46-8484834bc204")
@@ -381,6 +385,7 @@ public class TypedNotePanel implements IPanelProvider {
          * Set the ModelElemen whose note is being edited.
          * <p>
          * This method also refreshes the view contents.
+         * 
          * @param aModelElement the edited element
          */
         @objid ("e4df6d61-dccb-4c12-87bc-026ba7306348")
@@ -432,6 +437,7 @@ public class TypedNotePanel implements IPanelProvider {
 
         /**
          * Called by the GUI to change the effective mime type of the note
+         * 
          * @param mode the edition mode to use for the note. Can be either {@link MimeType#HTML} or {@link MimeType#PLAIN}.
          */
         @objid ("24db9c6d-ab16-41f9-b3dd-8b62755895a2")
@@ -493,6 +499,7 @@ public class TypedNotePanel implements IPanelProvider {
 
         /**
          * C'tor
+         * 
          * @param owner MUST not be null
          * @param moduleName name of the module providing the note type. Might be <code>null</code>.
          * @param noteTypeName a note type name. Might be <code>null</code>.
@@ -560,6 +567,7 @@ public class TypedNotePanel implements IPanelProvider {
 
         /**
          * Change a Note content in the model within a Transaction. Called by the view.
+         * 
          * @param value the new content for the edited note.
          */
         @objid ("877f171b-ad60-4e2e-8cbd-80d21efba5cc")
@@ -601,6 +609,7 @@ public class TypedNotePanel implements IPanelProvider {
         /**
          * Find the note of given type on modelElement.
          * @param modelElement
+         * 
          * @param type a note type.
          * @return null if no note could be found
          */
@@ -623,6 +632,7 @@ public class TypedNotePanel implements IPanelProvider {
          * @param me
          * @param moduleName
          * @param noteTypeName
+         * 
          * @return null if no matching NoteType could be found
          */
         @objid ("53596f0d-cf36-4586-abb6-df75e8156ba7")

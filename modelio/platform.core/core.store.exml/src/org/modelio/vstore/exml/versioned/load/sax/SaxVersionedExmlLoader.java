@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class SaxVersionedExmlLoader extends SaxExmlLoader implements IVersionedE
 
     /**
      * Initialize the SAX loader.
+     * 
      * @param loadHelper a load helper
      */
     @objid ("c7fa47e0-3fbb-11e2-87cb-001ec947ccaf")
@@ -55,6 +56,7 @@ public class SaxVersionedExmlLoader extends SaxExmlLoader implements IVersionedE
 
     /**
      * Load an EXML resource from an XML {@link InputSource}.
+     * 
      * @param is the EXML source.
      * @param localIs the EXML local data resource
      * @param loader the API to use to load the content.

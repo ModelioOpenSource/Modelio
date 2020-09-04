@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -97,6 +97,7 @@ public class TOperation extends TBaseElement {
 
     /**
      * Sets the value of the inMessageRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -118,6 +119,7 @@ public class TOperation extends TBaseElement {
 
     /**
      * Sets the value of the outMessageRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */
@@ -167,6 +169,7 @@ public class TOperation extends TBaseElement {
 
     /**
      * Sets the value of the name property.
+     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -188,6 +191,7 @@ public class TOperation extends TBaseElement {
 
     /**
      * Sets the value of the implementationRef property.
+     * 
      * @param value allowed object is
      * {@link QName }
      */

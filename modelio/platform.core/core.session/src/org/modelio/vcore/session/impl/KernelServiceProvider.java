@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -94,6 +94,7 @@ final class KernelServiceProvider implements IKernelServiceProvider {
 
     /**
      * Get the underlying CoreSession.
+     * 
      * @return the CoreSession.
      */
     @objid ("6c4d3cac-176e-11e2-ac36-001ec947ccaf")

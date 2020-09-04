@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -76,6 +76,7 @@ public class DefaultDeleteNodeEditPolicy extends AbstractEditPolicy {
      * Create a DeleteInDiagramCommand if the edit part is selectable.
      * <p>
      * Forwards the request to its parent if the edit part is not selectable.
+     * 
      * @param request the DeleteRequest
      * @return a delete command
      */

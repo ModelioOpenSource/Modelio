@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -583,6 +583,7 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
 
     /**
      * Build a new attached {@link Document} or {@link Resource}.
+     * 
      * @return an attached resource builder.
      */
     @objid ("1264191e-3666-4607-931f-7dee756285d1")
@@ -631,6 +632,7 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
     /**
      * Find a stereotype by name and metaclass.
      * @throws IllegalArgumentException when resolution is ambiguous and several stereotypes match the given parameters
+     * 
      * @param moduleName the name of the module owing the stereotype, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass a metaclass the stereotype must be applicable to.
@@ -651,6 +653,7 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
 
     /**
      * Answer to the question: is 'stereotype' a child of the stereotype named by 'stereotypeName' Companion method of the public isStereoyped() method
+     * 
      * @param stereotype a stereotype
      * @param stereotypeName the name of another stereotype.
      * @return <code>true</code> if 'stereotype' a child of the stereotype named by 'stereotypeName' else <code>false</code>.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,7 +23,6 @@ package org.modelio.xmi.gui;
 import java.io.File;
 import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.progress.IProgressService;
 import org.modelio.app.project.core.services.IProjectService;
@@ -36,27 +35,14 @@ import org.modelio.xmi.reverse.ReverseProperties;
  * @author ebrosse
  */
 @objid ("30022f89-f8c6-4cf6-828b-bc9524177272")
-public class SwtWizardImportProfile extends AbstractSwtWizardWindow {
-    /**
-     * @param parent : the parent shell
-     * @param style : the SWT style
-     */
-    @objid ("1e73d71c-0264-4b3b-855b-e58b49dd21d4")
-    public SwtWizardImportProfile(final Shell parent, final int style) {
-        super(parent, style);
-        setSelectedType(SWT.OPEN);
-        this.exportWindows = false;
-    }
-
+public class SwtWizardImportProfile extends AbstractSwtWizardImport {
     /**
      * @param parent : the parent shell
      */
     @objid ("0004a637-cf94-4ba0-a895-ae9f0e082d99")
     @Inject
     public SwtWizardImportProfile(final Shell parent, IProgressService progressService, IProjectService projectService) {
-        this(parent, SWT.NONE);
-        this.progressService = progressService;
-        this.projectService = projectService;
+        super(parent, progressService, projectService);
     }
 
     @objid ("68407f30-ae58-4821-b8b8-1afc183a6504")
@@ -109,32 +95,6 @@ public class SwtWizardImportProfile extends AbstractSwtWizardWindow {
         setFrametitle(Xmi.I18N.getString("fileChooser.frame.importProfile.title"));
         setCancelButton(Xmi.I18N.getString("fileChooser.buttons.import.cancel.name"));
         setValidateButton(Xmi.I18N.getString("fileChooser.buttons.import.import.name"));
-    }
-
-    @objid ("416dce2a-b299-4d6b-a30c-2f679e8dd313")
-    @Override
-    public void setOptionComposite(final Shell shell, IProjectService projectService) {
-        this.optionComposite = null;
-    }
-
-    @objid ("bee3722e-1342-4601-aa92-92db403bafb2")
-    @Override
-    public void setDefaultDialog() {
-        this.fileChooserComposite.getDialog().setFilterNames(new String[] {"All Files (*.xmi; *.uml; *.xml)", "XMI Files (*.xmi)", "UML Files (*.uml)", "XML Files (*.xml)" });
-        this.fileChooserComposite.getDialog().setFilterExtensions(new String[] { "*.xmi; *.uml; *.xml", "*.xmi", "*.uml", "*.xml" }); 
-        
-        setPath();
-    }
-
-    @objid ("bf943d1a-4da7-4e00-985c-5abbcebceda4")
-    @Override
-    public void setPath() {
-        if (this.path.equals(""))
-            this.path = ReverseProperties.getInstance().getXMIFolder();
-        
-        this.fileChooserComposite.getDialog().setFilterPath(this.path);
-        this.fileChooserComposite.getDialog().setFileName("");
-        this.fileChooserComposite.setText(this.path);
     }
 
 }

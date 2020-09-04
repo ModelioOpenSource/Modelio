@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class GmMessage extends GmLink {
 
     /**
      * Create a message link
+     * 
      * @param diagram The owning diagram
      * @param obMessage The represented message, may be null.
      * @param ref The represented message reference, may not be null.

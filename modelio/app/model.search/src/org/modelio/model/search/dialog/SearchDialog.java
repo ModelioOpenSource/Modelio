@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -170,6 +170,7 @@ public class SearchDialog extends ModelioDialog {
 
     /**
      * Set the informations the dialog will display once ready.
+     * 
      * @param panelClass the panel to show
      * @param searchCriteria the search criteria to show
      * @param found the results to show
@@ -275,6 +276,7 @@ public class SearchDialog extends ModelioDialog {
 
     /**
      * Register a search tool tab in the tab folder.
+     * 
      * @param label the tool label, to display as tab title
      * @param panel the panel
      * @param engine the search engine used by the tool.
@@ -312,6 +314,7 @@ public class SearchDialog extends ModelioDialog {
      * Get the search dialog.
      * <p>
      * Displays the existing dialog if one already exists, create it in the other case.
+     * 
      * @param parentShell a parent SWT shell if a dialog needs to be created
      * @param session the modeling session
      * @param navigationService the navigation service

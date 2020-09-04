@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -80,6 +80,7 @@ public class GmConditional extends GmPinContainer {
 
     /**
      * Constructor.
+     * 
      * @param diagram the diagram in which the conditional is unmasked.
      * @param el the unmasked conditional.
      * @param ref a reference to the unmasked conditional.
@@ -255,6 +256,7 @@ public class GmConditional extends GmPinContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -268,6 +270,7 @@ public class GmConditional extends GmPinContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
+     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

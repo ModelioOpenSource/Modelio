@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ public class KernelRegistry {
 
     /**
      * Get the kernel provider service for a live id.
+     * 
      * @param liveId a live id
      * @return the kernel provider service
      * @throws org.modelio.vcore.smkernel.KernelRegistry.NoSuchKernelException if the live id does not match a current or previous service, or the found service is no longer active. (The project is closed)
@@ -57,6 +58,7 @@ public class KernelRegistry {
      * Register the kernel provider service.
      * <p>
      * Calls {@link IKernelServiceProvider#setId(short)} with its identifier.
+     * 
      * @param service the kernel provider service to register.
      */
     @objid ("00416e78-8b3b-1f21-85a5-001ec947cd2a")
@@ -86,6 +88,7 @@ public class KernelRegistry {
      * Get the kernel provider service for a live id.
      * <p>
      * Returns <code>null</code> if the service provider is no longer registered.
+     * 
      * @param liveId a live id
      * @return the kernel provider service or <code>null</code> if the service has been unregistered.
      * @throws org.modelio.vcore.smkernel.KernelRegistry.NoSuchKernelException if the live id does not match a current or previous service.

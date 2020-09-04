@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ import org.modelio.diagram.styles.core.IStyle;
 public interface IDynamicStyler {
     /**
      * Dynamically redefine a diagram's style.
+     * 
      * @param gmModel the Gm being analyzed.
      * @param originalStyle the current style of the Gm.
      * @return the redefined style.

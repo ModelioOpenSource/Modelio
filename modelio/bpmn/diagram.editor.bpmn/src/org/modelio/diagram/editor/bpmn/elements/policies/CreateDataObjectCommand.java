@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class CreateDataObjectCommand extends Command {
 
     /**
      * Initialize the command.
+     * 
      * @param dropLocation The location of the element in the diagram
      * @param type The element to be used as type.
      * @param editPart The destination edit part that will own the data object.
@@ -142,6 +143,7 @@ public class CreateDataObjectCommand extends Command {
 
     /**
      * Unmask the given element in the destination edit part.
+     * 
      * @param el The element to unmask
      */
     @objid ("b5307f74-e28b-4207-a709-59c94af7ea3c")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -88,19 +88,23 @@ public class OConnectorEnd extends OLinkEnd {
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         if (ecoreElt != null) {
+            
             if (ecoreElt instanceof org.eclipse.uml2.uml.Slot) {
+                
                 setLinked((org.eclipse.uml2.uml.Slot) ecoreElt);
                 setDefiningFeature((org.eclipse.uml2.uml.Slot) ecoreElt);
+                
             } else if (ecoreElt instanceof org.eclipse.uml2.uml.ConnectorEnd) {
+                
                 setIsOrdered((org.eclipse.uml2.uml.ConnectorEnd) ecoreElt);
                 setIsUnique((org.eclipse.uml2.uml.ConnectorEnd) ecoreElt);
                 setMax((org.eclipse.uml2.uml.ConnectorEnd) ecoreElt);
                 setMin((org.eclipse.uml2.uml.ConnectorEnd) ecoreElt);
                 setPartWithPort((org.eclipse.uml2.uml.ConnectorEnd) ecoreElt);
+                
                 if (GenerationProperties.getInstance().isRoundtripEnabled()) {
                     setName((org.eclipse.uml2.uml.ConnectorEnd) ecoreElt);
-                    setIsNavigable((org.eclipse.uml2.uml.ConnectorEnd) ecoreElt);
-        
+                    setIsNavigable((org.eclipse.uml2.uml.ConnectorEnd) ecoreElt);       
                 }
         
                 ordered((org.eclipse.uml2.uml.ConnectorEnd) ecoreElt);

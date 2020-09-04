@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Api
 Bundle-SymbolicName: org.modelio.api;singleton:=true
-Bundle-Version: 3.8.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Require-Bundle: org.modelio.core.kernel,
  org.modelio.core.utils,
  org.modelio.metamodel.emfapi,
@@ -15,7 +15,8 @@ Require-Bundle: org.modelio.core.kernel,
  org.modelio.ui,
  org.modelio.utils,
  org.eclipse.ui.forms,
- org.modelio.core.session
+ org.modelio.core.session,
+ org.modelio.core.project.data
 Export-Package: org.modelio.api.astyle,
  org.modelio.api.modelio,
  org.modelio.api.modelio.audit,

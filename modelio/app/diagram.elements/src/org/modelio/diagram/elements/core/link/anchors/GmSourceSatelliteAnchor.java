@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ public class GmSourceSatelliteAnchor extends GmAbstractLinkAnchor {
 
     /**
      * Creates the anchor
+     * 
      * @param destinationLocation distance from the connection source.
      */
     @objid ("7fe2c14f-1dec-11e2-8cad-001ec947c8cc")

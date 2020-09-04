@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ import org.modelio.metamodel.uml.statik.AssociationEnd;
 public class CreateInfoFlowEditPolicy extends DefaultCreateInfoFlowOnLinkEditPolicy {
     /**
      * Redefined to return the {@link GmInfoFlowsGroup} for the nearest association role from the mouse.
+     * 
      * @param gmLink The association model
      * @param location The mouse location
      * @return The nearest {@link GmInfoFlowsGroup} from the mouse.

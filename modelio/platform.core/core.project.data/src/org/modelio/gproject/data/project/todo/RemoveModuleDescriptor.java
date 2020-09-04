@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,7 +35,7 @@ public class RemoveModuleDescriptor extends TodoActionDescriptor {
     @objid ("1fdb9d39-59df-418f-ab49-2d2120e10420")
     @Override
     public String getLocalizedLabel() {
-        return GProjectData.getMessage("TodoDescriptor.remove",
+        return GProjectData.I18N.getMessage("TodoDescriptor.remove",
                                 this.moduleName);
     }
 

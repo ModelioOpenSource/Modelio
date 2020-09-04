@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class GmCollaborationUsePrimaryNode extends GmNoStyleCompositeNode implem
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param ref a reference to the represented object node.
      */
@@ -101,6 +102,7 @@ public class GmCollaborationUsePrimaryNode extends GmNoStyleCompositeNode implem
 
     /**
      * Get the stereotype image to display.
+     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("347e6b6c-55b7-11e2-877f-002564c97630")
@@ -168,6 +170,7 @@ public class GmCollaborationUsePrimaryNode extends GmNoStyleCompositeNode implem
 
     /**
      * Migration constructor.
+     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("347e6b92-55b7-11e2-877f-002564c97630")

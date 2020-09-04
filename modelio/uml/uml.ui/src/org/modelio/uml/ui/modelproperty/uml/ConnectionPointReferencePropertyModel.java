@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class ConnectionPointReferencePropertyModel extends AbstractPropertyModel
     /**
      * Create a new <i>ConnectionPointReference</i> data model from an
      * <i>ConnectionPointReference</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("3b4a5ad8-fce4-45ca-8776-8e6a72ed510f")
@@ -66,6 +67,7 @@ public class ConnectionPointReferencePropertyModel extends AbstractPropertyModel
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("e1c2c3ee-7f9c-4d2b-bf49-4645d3c9532f")
@@ -86,6 +88,7 @@ public class ConnectionPointReferencePropertyModel extends AbstractPropertyModel
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("134ca817-567c-41af-b927-b5ba0eefa34e")
@@ -98,6 +101,7 @@ public class ConnectionPointReferencePropertyModel extends AbstractPropertyModel
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -130,6 +134,7 @@ public class ConnectionPointReferencePropertyModel extends AbstractPropertyModel
      * of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -190,6 +195,7 @@ public class ConnectionPointReferencePropertyModel extends AbstractPropertyModel
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

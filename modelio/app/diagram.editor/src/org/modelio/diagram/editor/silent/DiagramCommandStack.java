@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -35,6 +35,7 @@ class DiagramCommandStack extends CommandStack {
 
     /**
      * Initialise the command stack.
+     * 
      * @param session a modelling session
      */
     @objid ("6694978a-33f7-11e2-95fe-001ec947c8cc")

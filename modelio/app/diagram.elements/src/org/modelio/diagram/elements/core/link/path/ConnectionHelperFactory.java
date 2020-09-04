@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 public final class ConnectionHelperFactory {
     /**
      * Convert a path to another routing mode.
+     * 
      * @param toConvert the path to convert.
      * @param mode the new mode
      * @param connection the connection for which to create a helper.
@@ -64,6 +65,7 @@ public final class ConnectionHelperFactory {
     /**
      * Create a new connection helper from the given raw path data.
      * @see #createFromRawData(CreateBendedConnectionRequest, Connection) if you have a request.
+     * 
      * @param rawData the data given by the creation tool in absolute coordinates.
      * @param connection the connection for which to create a helper.
      * @return the new connection helper.
@@ -88,6 +90,7 @@ public final class ConnectionHelperFactory {
     /**
      * Create a new connection helper from the given request .
      * @see #getUpdatedConnectionHelper(CreateBendedConnectionRequest, Connection)
+     * 
      * @param request a connection creation request
      * @param connection the connection figure (usually the feed back figure)
      * @return the new connection helper.
@@ -100,6 +103,7 @@ public final class ConnectionHelperFactory {
 
     /**
      * Create a new connection helper from the graphic model serialized data.
+     * 
      * @param router The connection router to use
      * @param connectionEp the edit part whose model contains the serialized data.
      * @return a connection helper.
@@ -131,6 +135,7 @@ public final class ConnectionHelperFactory {
      * Get the helper cached in the given request or create a new connection helper from the request and cache it in the request data .
      * @param request a connection creation request
      * @see #getUpdatedConnectionHelper(CreateBendedConnectionRequest, Connection)
+     * 
      * @param connection the connection figure (usually the feed back figure)
      * @return the new connection helper.
      */

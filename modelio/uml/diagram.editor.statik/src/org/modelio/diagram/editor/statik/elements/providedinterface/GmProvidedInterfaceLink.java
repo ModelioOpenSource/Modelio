@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -83,6 +83,7 @@ public class GmProvidedInterfaceLink extends GmLink {
 
     /**
      * Creates a new GmNoteLink
+     * 
      * @param diagram The diagram containing the link.
      * @param el the represented element, may be null.
      * @param relatedRef a reference to the represented Note.
@@ -139,6 +140,7 @@ public class GmProvidedInterfaceLink extends GmLink {
 
     /**
      * Get the lollipop image for the stereotype image mode.
+     * 
      * @return the lollipop stereotype image.
      */
     @objid ("3655eab4-55b7-11e2-877f-002564c97630")
@@ -155,6 +157,7 @@ public class GmProvidedInterfaceLink extends GmLink {
 
     /**
      * Get all connections to provided interfaces in the model.
+     * 
      * @return all provided interface connections.
      */
     @objid ("3657711f-55b7-11e2-877f-002564c97630")
@@ -169,6 +172,7 @@ public class GmProvidedInterfaceLink extends GmLink {
 
     /**
      * Get the lollipop connection between this required interface and connected provided interfaces.
+     * 
      * @return the lollipop connection
      */
     @objid ("36577128-55b7-11e2-877f-002564c97630")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -132,6 +132,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Creates a GmClass.
+     * 
      * @param diagram The owner diagram.
      * @param ref a reference to the element this GmModel is related to, must not be null.
      */
@@ -177,6 +178,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the group where <tt>GmAttributes</tt> are unmasked.
+     * 
      * @return the attributes group.
      */
     @objid ("973d7654-55b6-11e2-877f-002564c97630")
@@ -212,6 +214,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the internal structure.
+     * 
      * @return the internal structure.
      */
     @objid ("973efccc-55b6-11e2-877f-002564c97630")
@@ -221,6 +224,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the group where {@link Operation} are unmasked.
+     * 
      * @return the operations group.
      */
     @objid ("973efcd1-55b6-11e2-877f-002564c97630")

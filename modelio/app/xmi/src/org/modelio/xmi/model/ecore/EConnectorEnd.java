@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,6 +20,7 @@
 
 package org.modelio.xmi.model.ecore;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.uml2.uml.Property;
@@ -27,7 +28,6 @@ import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Collaboration;
@@ -104,7 +104,8 @@ public class EConnectorEnd extends EElement {
         
                     boolean exist = false;
                     BindableInstance objOwner = null;
-                    for (Element objingTemp : (List<? extends Element>) obOwner){
+                    List<? extends Object> alist = (List<?>) obOwner;
+                    for (Object objingTemp : alist){
                         if (objingTemp instanceof BindableInstance){
                             exist = true;
                             objOwner = (BindableInstance) objingTemp;
@@ -116,9 +117,12 @@ public class EConnectorEnd extends EElement {
                         objOwner = revProp.getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createBindableInstance();
                         attachBindableInstance(objOwner);
                         setBindableInstanceProperties(objOwner);
-                        ((List<ModelElement>)obOwner).add(objOwner);
-                        PartialImportMap.getInstance().put(this.role, obOwner);
-                        TotalImportMap.getInstance().put(this.role, obOwner);
+                        
+                        List<Object> newOwners = new ArrayList<>();
+                        newOwners.addAll(alist);
+                        newOwners.add(objOwner);
+                        PartialImportMap.getInstance().put(this.role, newOwners);
+                        TotalImportMap.getInstance().put(this.role, newOwners);
                     }
         
                     if (objOwner != null)

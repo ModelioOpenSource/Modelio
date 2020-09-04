@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class LifelinePlacementConstraint extends PlacementConstraint {
 
     /**
      * Constructor.
+     * 
      * @param lifeline the represented lifeline
      * @param x the desired X coordinate in relative coordinates.
      * @param y the desired Y coordinate in relative coordinates.

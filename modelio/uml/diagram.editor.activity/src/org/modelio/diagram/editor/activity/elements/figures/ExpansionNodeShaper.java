@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -87,6 +87,7 @@ public class ExpansionNodeShaper implements IOrientableShaper {
 
     /**
      * Sets the orientation of the shaper.
+     * 
      * @param orientation the new orientation. Must be either {@link IOrientableShaper.Orientation#NorthSouth NorthSouth} or {@link IOrientableShaper.Orientation#WestEast WestEast}
      */
     @objid ("2a6c19ee-55b6-11e2-877f-002564c97630")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.diagrams;
 
@@ -46,13 +46,13 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("006e3d9a-c4bf-1fd8-97fe-001ec947cd2a")
 public class DiagramSetImpl extends ModelElementImpl implements DiagramSet {
-    @objid ("6eb1588f-6487-4e49-918b-3d8723380591")
+    @objid ("cff91786-c571-418c-8b3d-b50b25f938fb")
     @Override
     public EList<DiagramSet> getSub() {
         return new SmList<>(this, ((DiagramSetSmClass)getClassOf()).getSubDep());
     }
 
-    @objid ("f9150837-543d-45f9-bd67-1b31cab8f61b")
+    @objid ("9c5b7559-e85a-4b5e-aa53-22f2840b2a95")
     @Override
     public <T extends DiagramSet> List<T> getSub(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -67,26 +67,26 @@ public class DiagramSetImpl extends ModelElementImpl implements DiagramSet {
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("066d1472-9661-4ebb-87bf-541012d7502a")
+    @objid ("5abfd184-b45c-406e-b461-705b4df1bd9d")
     @Override
     public DiagramSet getParent() {
         Object obj = getDepVal(((DiagramSetSmClass)getClassOf()).getParentDep());
         return (obj instanceof DiagramSet)? (DiagramSet)obj : null;
     }
 
-    @objid ("eb1f514c-03a6-40fc-a902-5ef087be4048")
+    @objid ("29368247-ae5b-4900-ac1d-4ec0912e80a5")
     @Override
     public void setParent(DiagramSet value) {
         appendDepVal(((DiagramSetSmClass)getClassOf()).getParentDep(), (SmObjectImpl)value);
     }
 
-    @objid ("fa468b2f-507f-411a-a675-af4d452aa7f0")
+    @objid ("8b08ab21-dd20-49d1-8678-d7f91ac82e71")
     @Override
     public EList<AbstractDiagram> getReferencedDiagram() {
         return new SmList<>(this, ((DiagramSetSmClass)getClassOf()).getReferencedDiagramDep());
     }
 
-    @objid ("2b90c69c-9f35-4319-a543-bed1d1c42a07")
+    @objid ("7146574a-41cb-4aab-ad03-e12e39993d80")
     @Override
     public <T extends AbstractDiagram> List<T> getReferencedDiagram(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -101,20 +101,20 @@ public class DiagramSetImpl extends ModelElementImpl implements DiagramSet {
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("2f89258b-d6f3-4032-a719-3bec7aefbeb2")
+    @objid ("4419e2eb-ad7d-43a3-920c-ff972ce42df2")
     @Override
     public AbstractProject getOwner() {
         Object obj = getDepVal(((DiagramSetSmClass)getClassOf()).getOwnerDep());
         return (obj instanceof AbstractProject)? (AbstractProject)obj : null;
     }
 
-    @objid ("4144ffc4-4af9-44d4-bcc1-561fa0debe41")
+    @objid ("4eff5ddd-a375-4ef4-a10c-236fe0498b20")
     @Override
     public void setOwner(AbstractProject value) {
         appendDepVal(((DiagramSetSmClass)getClassOf()).getOwnerDep(), (SmObjectImpl)value);
     }
 
-    @objid ("c252c9c9-9a9d-45da-bd85-73f4cd396cee")
+    @objid ("01b80d55-737d-41c6-a8d6-0d504568fc8f")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -130,7 +130,7 @@ public class DiagramSetImpl extends ModelElementImpl implements DiagramSet {
         return super.getCompositionOwner();
     }
 
-    @objid ("94da7f20-cd4a-41a0-bac8-71cfa858d2ef")
+    @objid ("a801c390-c3bd-4499-bee5-d5d154af29e0")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -150,7 +150,7 @@ public class DiagramSetImpl extends ModelElementImpl implements DiagramSet {
         return super.getCompositionRelation();
     }
 
-    @objid ("a1c05859-2281-4668-b1b8-d6a973b6f8ab")
+    @objid ("e0a7c825-f144-45f7-ad83-53852bc058ea")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitDiagramSet(this);

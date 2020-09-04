@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -73,6 +73,7 @@ final class SynchronousUpdateManager extends UpdateManager {
     /**
      * Adds a dirty region (defined by the rectangle <i>x, y, w, h</i>) to the update queue. If the figure isn't visible
      * or either the width or height are 0, the method returns without queueing the dirty region.
+     * 
      * @param figure the figure that contains the dirty region
      * @param x the x coordinate of the dirty region
      * @param y the y coordinate of the dirty region
@@ -99,6 +100,7 @@ final class SynchronousUpdateManager extends UpdateManager {
 
     /**
      * Validates immediately the figure and schedule repaint.
+     * 
      * @param f the invalid figure
      */
     @objid ("66a08350-33f7-11e2-95fe-001ec947c8cc")
@@ -137,6 +139,7 @@ final class SynchronousUpdateManager extends UpdateManager {
 
     /**
      * Returns a Graphics object for the given region.
+     * 
      * @param region the region to be repainted
      * @return the Graphics object
      */
@@ -203,6 +206,7 @@ final class SynchronousUpdateManager extends UpdateManager {
 
     /**
      * Adds the given exposed region to the update queue and then performs the update.
+     * 
      * @param exposed the exposed region
      */
     @objid ("66a08368-33f7-11e2-95fe-001ec947c8cc")
@@ -237,6 +241,7 @@ final class SynchronousUpdateManager extends UpdateManager {
 
     /**
      * Releases the graphics object, which causes the GraphicsSource to flush.
+     * 
      * @param graphics the graphics object
      */
     @objid ("66a08375-33f7-11e2-95fe-001ec947c8cc")
@@ -293,6 +298,7 @@ final class SynchronousUpdateManager extends UpdateManager {
 
     /**
      * Adds the given runnable and queues an update if an update is not under progress.
+     * 
      * @param runnable the runnable
      */
     @objid ("66a0837d-33f7-11e2-95fe-001ec947c8cc")
@@ -306,6 +312,7 @@ final class SynchronousUpdateManager extends UpdateManager {
 
     /**
      * Sets the graphics source.
+     * 
      * @param gs the graphics source
      */
     @objid ("66a08384-33f7-11e2-95fe-001ec947c8cc")
@@ -316,6 +323,7 @@ final class SynchronousUpdateManager extends UpdateManager {
 
     /**
      * Sets the root figure.
+     * 
      * @param figure the root figure
      */
     @objid ("66a0838a-33f7-11e2-95fe-001ec947c8cc")
@@ -340,6 +348,7 @@ final class SynchronousUpdateManager extends UpdateManager {
 
     /**
      * Enable or disable synchronous validation.
+     * 
      * @param syncValidationEnabled whether synchronous validation must be enabled.
      */
     @objid ("5e138dd2-d3a7-4f4a-8fe7-ba6c6f312f14")

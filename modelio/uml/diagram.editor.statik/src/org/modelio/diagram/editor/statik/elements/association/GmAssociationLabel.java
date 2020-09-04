@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -58,6 +58,7 @@ public class GmAssociationLabel extends GmDefaultModelElementLabel {
      * Creates an association name label.
      * @param assoc The represented assoc, may be null.
      * @param ref the represented assoc reference, must not be null.
+     * 
      * @param gmDiagram the owning diagram.
      */
     @objid ("e58e6b69-ac38-44fc-8dfe-77e12dbb68ed")

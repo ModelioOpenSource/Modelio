@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,7 +24,7 @@ import java.io.File;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.ContextFunction;
 import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.eclipse.e4.ui.model.application.ui.basic.MInputPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.modelio.editors.texteditors.input.FileDocumentInput;
 import org.modelio.editors.texteditors.input.IInput.Listener;
 import org.modelio.editors.texteditors.input.IInput;
@@ -34,9 +34,8 @@ public class IDocumentInputProviderFunction extends ContextFunction {
     @objid ("7b502692-2a77-11e2-9fb9-bc305ba4815c")
     @Override
     public Object compute(IEclipseContext context) {
-        final MInputPart inputPart = context.get(MInputPart.class);
-        
-        String uri = inputPart.getInputURI();
+        final MPart part = context.get(MPart.class);
+        final String uri = part.getPersistedState().get("inputURI");
         File file = new File(uri);
         FileDocumentInput input = new FileDocumentInput(file);
         
@@ -45,7 +44,7 @@ public class IDocumentInputProviderFunction extends ContextFunction {
             @Override
             public void propertyChanged(String property, Object oldValue, Object newValue) {
                 if (IInput.DIRTY == property) {
-                    inputPart.setDirty((Boolean) newValue);
+                    part.setDirty((Boolean) newValue);
                 }
             }
         });

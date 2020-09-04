@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -132,6 +132,7 @@ public abstract class AbstractField implements IField {
 
     /**
      * Create the edition control.
+     * 
      * @param tk the {@link FormToolkit}
      * @param p the parent composite
      * @return the created control.

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -92,6 +92,7 @@ public class GModule {
 
     /**
      * Initialize the GModule.
+     * 
      * @param project the project
      * @param originalArchiveUri the original location of the archive as a URI
      * @param moduleHandle the base structure defining the module.
@@ -120,6 +121,7 @@ public class GModule {
 
     /**
      * Get the model fragment representing the module MDA model.
+     * 
      * @return the module fragment.
      * @throws java.lang.IllegalStateException if the module is not mount
      */
@@ -140,6 +142,7 @@ public class GModule {
 
     /**
      * Get the Module model element.
+     * 
      * @return the module model element.
      */
     @objid ("8a39ceb7-f377-11e1-9173-001ec947ccaf")
@@ -160,6 +163,7 @@ public class GModule {
 
     /**
      * Get the base structure defining the module.
+     * 
      * @return the IModuleHandle for this GModule. Might be <code>null</code> if the module has been unmounted.
      */
     @objid ("5ffb02ca-f2bb-11e1-90ff-002564c97630")
@@ -171,6 +175,7 @@ public class GModule {
 
     /**
      * Get the name of the GModule.
+     * 
      * @return the module's name.
      */
     @objid ("aa6f19d6-ec75-11e1-912e-001ec947ccaf")
@@ -180,6 +185,7 @@ public class GModule {
 
     /**
      * Get the module parameters.
+     * 
      * @return the module parameters.
      */
     @objid ("10c03dd4-f1b3-11e1-993d-001ec947ccaf")
@@ -197,6 +203,7 @@ public class GModule {
 
     /**
      * Get the version of the GModule.
+     * 
      * @return the module's version.
      */
     @objid ("aa717c30-ec75-11e1-912e-001ec947ccaf")
@@ -206,6 +213,7 @@ public class GModule {
 
     /**
      * Indicates whether or not this module is activated.
+     * 
      * @return <code>true</code> when the module is active, <code>false</code> otherwise.
      */
     @objid ("2c91845b-f2b0-11e1-8543-001ec947ccaf")
@@ -215,6 +223,7 @@ public class GModule {
 
     /**
      * Activate/deactivate the module.
+     * 
      * @param activated <code>true</code> when the module must be activated, <code>false</code> otherwise.
      */
     @objid ("2c91845f-f2b0-11e1-8543-001ec947ccaf")
@@ -239,6 +248,7 @@ public class GModule {
 
     /**
      * Returns the project this module is installed into.
+     * 
      * @return a GProject.
      */
     @objid ("f889b2a8-3ed5-11e2-a0a4-002564c97630")
@@ -248,6 +258,7 @@ public class GModule {
 
     /**
      * Set the definition scope.
+     * 
      * @param aScope the definition scope.
      */
     @objid ("a1a826d9-509f-442e-86f0-a1f1c0f36647")
@@ -276,6 +287,7 @@ public class GModule {
     /**
      * Get the fragment authentication informations.
      * Never <code>null</code>.
+     * 
      * @return authentication configuration.
      */
     @objid ("d0d7e210-e059-4765-a54d-ae762597ec35")
@@ -285,6 +297,7 @@ public class GModule {
 
     /**
      * Set the module URI authentication data.
+     * 
      * @param auth authentication data, must not be <code>null</code>.
      */
     @objid ("3891d0d6-9a66-4fa4-a459-4092354e877b")
@@ -294,6 +307,7 @@ public class GModule {
 
     /**
      * Set the original archive URI.
+     * 
      * @param originalArchiveUri the original archive URI.
      */
     @objid ("3c5da208-d95a-4ff8-ac18-c141075077a4")

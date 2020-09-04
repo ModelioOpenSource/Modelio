@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,11 +36,12 @@ import org.modelio.audit.preferences.model.AuditRule;
  */
 @objid ("739f155e-5fb7-4f92-93cf-6dcc3dc30e9e")
 public class AuditActivationEditingSupport extends EditingSupport {
-    @objid ("afc2355c-4f68-4620-ad6d-8419591cb3f5")
+    @objid ("6e95936c-a015-4d79-90f1-5fb7fedc6120")
     private TreeViewer viewer;
 
     /**
      * Initialize the StylePropertyEditingSupport.
+     * 
      * @param viewer The style viewer.
      */
     @objid ("ab284d50-5496-4420-9574-e6f975e2108f")

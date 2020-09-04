@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,17 +24,18 @@ import java.net.Authenticator;
 import java.util.ResourceBundle;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.net.proxy.IProxyService;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.equinox.log.ExtendedLogService;
+import org.eclipse.jface.preference.IPersistentPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.modelio.app.preferences.AppSharedPreferencesKeys;
-import org.modelio.app.preferences.plugin.AppPreferences;
+import org.eclipse.ui.preferences.ScopedPreferenceStore;
+import org.modelio.app.preferences.LogLevelUpdater;
 import org.modelio.utils.i18n.BundledMessages;
 import org.modelio.utils.log.writers.PluginLogger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
-import org.osgi.service.log.LogService;
 
 /**
  * Bundle activator.
@@ -64,14 +65,50 @@ public class AppUi implements BundleActivator {
     @objid ("002e2c46-d6b6-1ff2-a7f4-001ec947cd2a")
     public static PluginLogger LOG;
 
+    /**
+     * Access to preferences store.
+     */
+    @objid ("1abc42ec-f7a8-4a41-bf0c-381ec5f7e41e")
+    private static ScopedPreferenceStore PREFERENCES;
+
+    /**
+     * @return the bundle context.
+     */
+    @objid ("002e276e-d6b6-1ff2-a7f4-001ec947cd2a")
+    public static BundleContext getContext() {
+        return AppUi.context;
+    }
+
+    /**
+     * Returns an image descriptor for the image file at the given plug-in relative path
+     * 
+     * @param path the path
+     * @return the image descriptor
+     */
+    @objid ("b8c640b3-af95-486d-ac31-6c927ce87c16")
+    public static ImageDescriptor getImageDescriptor(final String path) {
+        return AbstractUIPlugin.imageDescriptorFromPlugin(AppUi.PLUGIN_ID, path);
+    }
+
+    /**
+     * Access to preferences store.
+     * 
+     * @return the {@link AppUi#PLUGIN_ID} plugin preferences store.
+     */
+    @objid ("6a5ec005-b829-45f9-8879-45b31bca9a4c")
+    public static IPersistentPreferenceStore getPreferences() {
+        return PREFERENCES;
+    }
+
     @objid ("002e225a-d6b6-1ff2-a7f4-001ec947cd2a")
     @Override
     public void start(BundleContext bundleContext) throws Exception {
         AppUi.context = bundleContext;
         ServiceReference<ExtendedLogService> ref = bundleContext.getServiceReference(ExtendedLogService.class);
         ExtendedLogService service = bundleContext.getService(ref);
-        AppUi.LOG = new PluginLogger(service.getLogger(null));
+        AppUi.LOG = new PluginLogger(service.getLogger((String)null));
         AppUi.I18N = new BundledMessages(AppUi.LOG, ResourceBundle.getBundle("appui"));
+        AppUi.PREFERENCES = new ScopedPreferenceStore(InstanceScope.INSTANCE, AppUi.PLUGIN_ID);
         
         initializeLogLevel();
         
@@ -85,12 +122,9 @@ public class AppUi implements BundleActivator {
         AppUi.context = null;
     }
 
-    /**
-     * @return the bundle context.
-     */
-    @objid ("002e276e-d6b6-1ff2-a7f4-001ec947cd2a")
-    public static BundleContext getContext() {
-        return AppUi.context;
+    @objid ("eefce8a5-0669-45c7-ac22-4213c958dbb9")
+    private void initializeLogLevel() {
+        LogLevelUpdater.setLogLevelFromPreferences();
     }
 
     /**
@@ -100,6 +134,7 @@ public class AppUi implements BundleActivator {
      * <p>
      * We don't need it and it does not work because we don't start the Eclipse 3 workbench.
      * @see org.eclipse.ui.internal.net.auth.NetAuthenticator
+     * 
      * @param bundleContext the bundle context.
      * 
      * 
@@ -116,29 +151,6 @@ public class AppUi implements BundleActivator {
         
         // remove its ugly authenticator
         Authenticator.setDefault(null);
-    }
-
-    @objid ("eefce8a5-0669-45c7-ac22-4213c958dbb9")
-    private void initializeLogLevel() {
-        // Initalize log level from preferences
-        int logLevel = AppPreferences.getPreferences().getInt(AppSharedPreferencesKeys.LOGLEVEL_PREFKEY);
-        if (logLevel == 0) {
-            logLevel = PluginLogger.logLevel;
-        }
-        
-        PluginLogger.logLevel = LogService.LOG_INFO;
-        AppUi.LOG.info("Log level: %d", logLevel);
-        PluginLogger.logLevel = logLevel;
-    }
-
-    /**
-     * Returns an image descriptor for the image file at the given plug-in relative path
-     * @param path the path
-     * @return the image descriptor
-     */
-    @objid ("b8c640b3-af95-486d-ac31-6c927ce87c16")
-    public static ImageDescriptor getImageDescriptor(final String path) {
-        return AbstractUIPlugin.imageDescriptorFromPlugin(AppUi.PLUGIN_ID, path);
     }
 
 }

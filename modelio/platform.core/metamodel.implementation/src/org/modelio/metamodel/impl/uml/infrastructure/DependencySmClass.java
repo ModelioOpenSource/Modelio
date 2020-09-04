@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure;
 
@@ -44,48 +44,48 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 
 @objid ("0363e7b8-f4aa-486c-99ad-34c234137424")
 public class DependencySmClass extends ModelElementSmClass {
-    @objid ("c5235f0d-770a-46cf-8f4a-2a0eda96b5ad")
+    @objid ("1fa8a108-ffd5-4bce-80cc-9aeb1e9079b1")
     private SmDependency impactedDep;
 
-    @objid ("4db5acd0-c1b1-4124-b245-91e9e0199089")
+    @objid ("03a48602-cbc6-4a9f-8c4b-932a67db359b")
     private SmDependency dependsOnDep;
 
-    @objid ("91ac6090-f9b5-4c0a-8383-1022ba2a8202")
+    @objid ("ef8ac736-3e46-4e90-b1e5-6053e00f6c8e")
     public DependencySmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
-    @objid ("f3a5fa12-c85e-4bcb-86d1-3580d78a222c")
+    @objid ("4e2d8892-81b2-43b5-a321-7b77f9fc325a")
     @Override
     public String getName() {
         return "Dependency";
     }
 
-    @objid ("a5b68fa7-b36f-42d5-b527-28fb11637a65")
+    @objid ("45b1a1f1-e0eb-4cb2-a942-6a1d89807bbc")
     @Override
     public Version getVersion() {
         return new Version("0.0.9054");
     }
 
-    @objid ("b0d1c5dd-fd16-4c2e-a343-f88d32ede108")
+    @objid ("dc507f64-3dd5-4497-8f47-a5a3ab30fbb3")
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Dependency.class;
     }
 
-    @objid ("4e6d585b-a6de-4818-971d-f272daa17b15")
+    @objid ("f38c7348-7beb-4435-a9c5-685b5526c19d")
     @Override
     public boolean isCmsNode() {
         return false;
     }
 
-    @objid ("c4276f4d-c736-46e5-8aa7-d6023539edd4")
+    @objid ("6f511881-d4d2-441a-b75f-34baf963a3d8")
     @Override
     public boolean isAbstract() {
         return false;
     }
 
-    @objid ("36334e08-bf66-4f38-a081-e1da1b919e20")
+    @objid ("ad6c6acf-312b-4f12-ab4b-4e051f22e151")
     @Override
     public void load(SmMetamodel metamodel) {
         this.parentClass = metamodel.getMClass(ModelElement.MQNAME);
@@ -104,7 +104,7 @@ public class DependencySmClass extends ModelElementSmClass {
         registerDependency(this.dependsOnDep);
     }
 
-    @objid ("0d52870d-4b1c-43f9-baf3-de3e1a49edc3")
+    @objid ("6d436f53-a07a-454d-b525-43b05ade843b")
     public SmDependency getImpactedDep() {
         if (this.impactedDep == null) {
         	this.impactedDep = this.getDependencyDef("Impacted");
@@ -112,7 +112,7 @@ public class DependencySmClass extends ModelElementSmClass {
         return this.impactedDep;
     }
 
-    @objid ("f1ce0452-8c0c-47e2-bbc9-a3107acf3f63")
+    @objid ("1e2e520c-5b5d-40a7-bb91-021117d7385c")
     public SmDependency getDependsOnDep() {
         if (this.dependsOnDep == null) {
         	this.dependsOnDep = this.getDependencyDef("DependsOn");
@@ -120,7 +120,7 @@ public class DependencySmClass extends ModelElementSmClass {
         return this.dependsOnDep;
     }
 
-    @objid ("02c9865e-ff5e-4ab2-9e81-cacab76bc0f2")
+    @objid ("61852405-23c0-4869-b407-70ba0a079c2e")
     @Override
     public boolean isLinkMetaclass() {
         return true;
@@ -128,21 +128,21 @@ public class DependencySmClass extends ModelElementSmClass {
 
     @objid ("c16fdd68-3545-4462-a32f-ae7657f7c6d5")
     private static class DependencyObjectFactory implements ISmObjectFactory {
-        @objid ("3975b24c-9cf3-40b0-bc72-e7ec6f978c51")
+        @objid ("3292bae4-517a-4362-a0c1-829648b71c34")
         private DependencySmClass smClass;
 
-        @objid ("07e5cf2c-0396-4ab4-a993-e682b72e77af")
+        @objid ("9daf02e7-cbb0-4a31-a5f9-544e144b538a")
         public DependencyObjectFactory(DependencySmClass smClass) {
             this.smClass = smClass;
         }
 
-        @objid ("ac712c7c-c708-45c6-984c-5ae3f301ff4a")
+        @objid ("d203f490-39e7-49b8-b176-10406601a65d")
         @Override
         public ISmObjectData createData() {
             return new DependencyData(this.smClass);
         }
 
-        @objid ("b2b98f5f-1ad5-4869-b4a1-d4a5db2b1f7b")
+        @objid ("817f1469-69d3-4ccc-978e-7c598d6a3f98")
         @Override
         public SmObjectImpl createImpl() {
             return new DependencyImpl();
@@ -152,22 +152,22 @@ public class DependencySmClass extends ModelElementSmClass {
 
     @objid ("b8bc052c-05ea-46a4-af66-746d62c47880")
     public static class DependsOnSmDependency extends SmSingleDependency {
-        @objid ("61a4eb8c-23d9-4284-8820-19fa563d8d44")
+        @objid ("7a0d9a91-5069-4d4e-b855-e4a95c0c988c")
         private SmDependency symetricDep;
 
-        @objid ("191f6526-bd60-44af-8714-47e8eab7ed0a")
+        @objid ("a55b922e-739f-4d5b-b5c5-8f8b4883d35f")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((DependencyData) data).mDependsOn;
         }
 
-        @objid ("f7499575-4074-40d3-93a2-c0e27ddf8a4b")
+        @objid ("85b4aa4c-e0ba-46c9-93ca-729cdb2caede")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((DependencyData) data).mDependsOn = value;
         }
 
-        @objid ("cd72ebfa-b88b-43f6-8cac-78cb58b4df7c")
+        @objid ("f3232bb5-17c0-4752-8638-14cac750cae4")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {
@@ -180,22 +180,22 @@ public class DependencySmClass extends ModelElementSmClass {
 
     @objid ("c8421b45-927d-4825-9a44-fd6aabb10c5b")
     public static class ImpactedSmDependency extends SmSingleDependency {
-        @objid ("41854cef-fa9a-4ec4-b77b-3152f34efff8")
+        @objid ("a6184af0-d562-4dd0-bc2f-6758196dd1e5")
         private SmDependency symetricDep;
 
-        @objid ("8fba0ed7-1ffc-45f7-be89-b7f284c0965e")
+        @objid ("d0463647-02cd-4071-b27b-50a3e40207a5")
         @Override
         public SmObjectImpl getValue(ISmObjectData data) {
             return ((DependencyData) data).mImpacted;
         }
 
-        @objid ("338d80a0-7175-4a58-8444-b1e0f6bb3cc1")
+        @objid ("ad1a2de7-5dad-48fc-a172-1c5b7e4977f9")
         @Override
         public void setValue(ISmObjectData data, SmObjectImpl value) {
             ((DependencyData) data).mImpacted = value;
         }
 
-        @objid ("7c319f65-0afd-41a3-8db7-e6636777def0")
+        @objid ("097635c9-734f-4853-b74e-46426960a457")
         @Override
         public SmDependency getSymetric() {
             if (this.symetricDep == null) {

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -40,6 +40,7 @@ public interface INatValue extends Cloneable {
 
     /**
      * Gets the data associated with the cell.
+     * 
      * @return the cell's underlying value. Might be <code>null</code> as long as {@link #acceptNullValue()} is set to <code>true</code>.
      */
     @objid ("d1bdab27-fa30-480c-a5df-afc5e598fb91")
@@ -48,6 +49,7 @@ public interface INatValue extends Cloneable {
     /**
      * Sets the data associated with the cell.
      * Arbitrary objects may be put in this field.
+     * 
      * @param value the new cell's value.
      * @throws java.security.InvalidParameterException if value is <code>null</code> and {@link #acceptNullValue()} is set to <code>false</code>.
      */
@@ -56,6 +58,7 @@ public interface INatValue extends Cloneable {
 
     /**
      * Get the argument value if it is a {@link INatValue}.
+     * 
      * @param valueOrNatValue may be a {@link INatValue} or anything else.
      * @return the {@link INatValue#getValue()} or the argument if it is not a {@link INatValue}.
      */

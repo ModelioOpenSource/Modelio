@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class TemplateParameterSubstitutionPropertyModel extends AbstractProperty
 
     /**
      * Create a new <i>TemplateParameterSubstitution</i> data model from an <i>TemplateParameterSubstitution</i>.
+     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("1000e6c8-3ed4-4019-a1c7-2b392de91525")
@@ -78,6 +79,7 @@ public class TemplateParameterSubstitutionPropertyModel extends AbstractProperty
 
     /**
      * The number of columns that the properties table must display.
+     * 
      * @return the number of columns
      */
     @objid ("f22868e8-86a1-4fb7-a3a7-e347ba004072")
@@ -88,6 +90,7 @@ public class TemplateParameterSubstitutionPropertyModel extends AbstractProperty
 
     /**
      * The number of rows that the properties table must display.
+     * 
      * @return the number of rows
      */
     @objid ("5af4fb0a-0321-499c-b060-24790963611e")
@@ -100,6 +103,7 @@ public class TemplateParameterSubstitutionPropertyModel extends AbstractProperty
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -131,6 +135,7 @@ public class TemplateParameterSubstitutionPropertyModel extends AbstractProperty
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -166,6 +171,7 @@ public class TemplateParameterSubstitutionPropertyModel extends AbstractProperty
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
+     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -197,6 +203,7 @@ public class TemplateParameterSubstitutionPropertyModel extends AbstractProperty
 
     /**
      * Get all types that a template substitution value must match.
+     * 
      * @param t a template parameter
      * @return all namespaces a substitution must sub type to be allowed.
      */
@@ -243,6 +250,7 @@ public class TemplateParameterSubstitutionPropertyModel extends AbstractProperty
      * Get the metaclasses allowed for {@link TemplateParameterSubstitution} on the given {@link TemplateParameter}.
      * <p>
      * By default allow anything that can type an attribute/association/parameter. If the template parameter type is an Interface, accept Interface, Classes and Signals (exceptions classes might be modeled as Signals) .
+     * 
      * @param param a TemplateParameter
      * @return the allowed substitutions value metaclasses.
      */

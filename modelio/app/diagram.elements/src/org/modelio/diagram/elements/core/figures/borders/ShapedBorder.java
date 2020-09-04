@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -26,6 +26,7 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.geometry.Insets;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.modelio.diagram.elements.core.figures.IShaper;
 
@@ -39,6 +40,7 @@ public class ShapedBorder extends LineBorder {
 
     /**
      * Constructs a ShapedBorder with the specified color and of the specified line width and shaped by the shaper
+     * 
      * @param color The color of the border.
      * @param width The width of the border in pixels.
      * @param shaper the border shape
@@ -53,6 +55,9 @@ public class ShapedBorder extends LineBorder {
     @objid ("7f62025c-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void paint(IFigure figure, Graphics graphics, Insets insets) {
+        graphics.setAdvanced(true);
+        graphics.setAntialias(SWT.ON);
+        
         AbstractBorder.tempRect.setBounds(getPaintRectangle(figure, insets));
         if (getWidth() % 2 != 0) {
             AbstractBorder.tempRect.width--;
@@ -72,6 +77,7 @@ public class ShapedBorder extends LineBorder {
 
     /**
      * Returns the space used by the border for the figure provided as input. In this border all sides always have equal width.
+     * 
      * @param figure The figure this border belongs to
      * @return This border's insets
      */

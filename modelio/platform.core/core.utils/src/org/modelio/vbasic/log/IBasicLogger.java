@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -24,13 +24,24 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * Modelio kernel logging interface.
+ * 
  * @author cmarin
  * @since 3.4
  */
 @objid ("cdb3e727-8f58-4c2d-b6a9-1424dc772176")
 public interface IBasicLogger {
+    @objid ("0009b1cc-e3a3-1f33-b94f-001ec947cd2a")
+    public static final int TRACE = 0;
+
+    @objid ("000ba2b6-e3a3-1f33-b94f-001ec947cd2a")
+    public static final int WARNING = 1;
+
+    @objid ("000bb436-e3a3-1f33-b94f-001ec947cd2a")
+    public static final int ERROR = 2;
+
     /**
      * Log a trace message
+     * 
      * @param message the message
      */
     @objid ("059b4666-134c-46fb-8b1d-d5b9bf90444d")
@@ -38,6 +49,7 @@ public interface IBasicLogger {
 
     /**
      * Log an error
+     * 
      * @param message the message
      */
     @objid ("523fb65e-89d7-4ef2-859f-b4a2bbefe713")
@@ -52,6 +64,7 @@ public interface IBasicLogger {
 
     /**
      * Log an exception with its stack trace as warning.
+     * 
      * @param ex the exception
      */
     @objid ("785fe325-c699-4c64-a8ee-e6fa3d02e786")
@@ -72,6 +85,7 @@ public interface IBasicLogger {
 
     /**
      * Log an exception with its stack trace as trace.
+     * 
      * @param ex the exception
      */
     @objid ("35d11840-e0e8-4279-9d98-9af6900d98ad")
@@ -86,9 +100,24 @@ public interface IBasicLogger {
 
     /**
      * Log an exception with its stack trace as error.
+     * 
      * @param ex the exception
      */
     @objid ("d4a96221-1974-44a6-bfb4-3bc6bc738077")
     void error(final Throwable ex);
+
+    /**
+     * @return the current log level to use.
+     */
+    @objid ("543894af-f251-4d62-839b-549a1db67330")
+    int getLevel();
+
+    /**
+     * Set the current log level to use.
+     * 
+     * @param level a log level equal to {@link #TRACE}, {@link #WARNING} or {@link #ERROR}.
+     */
+    @objid ("e72d8ed3-1dc5-4240-928e-fdda390dbc80")
+    void setLevel(int level);
 
 }

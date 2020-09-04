@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impact;
 
@@ -43,13 +43,13 @@ public interface ImpactLink extends ModelElement {
     /**
      * The metaclass simple name.
      */
-    @objid ("1c2c8121-b7e6-4247-8357-e2d7514af442")
+    @objid ("5819abe6-b296-4e25-937c-b837a5c4a51c")
     public static final String MNAME = "ImpactLink";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("5f88d1ae-7251-4ba6-8814-b3221935e521")
+    @objid ("e5b2b8be-b876-4dcd-b85d-36be6996ba85")
     public static final String MQNAME = "Infrastructure.ImpactLink";
 
     /**
@@ -59,7 +59,7 @@ public interface ImpactLink extends ModelElement {
      * <i><p>Impact link Target : the link source depends on the referenced element</p>
      * </i>
      */
-    @objid ("13bbd204-82ea-4e7b-b70e-074d0ab9d677")
+    @objid ("1175d3d5-fc51-433d-a22e-02396977d61c")
     ModelElement getDependsOn();
 
     /**
@@ -69,7 +69,7 @@ public interface ImpactLink extends ModelElement {
      * <i><p>Impact link Target : the link source depends on the referenced element</p>
      * </i>
      */
-    @objid ("4190625e-1935-4d91-9d68-c2657a6f7e9e")
+    @objid ("c1242773-0d31-4f52-91c0-2e5f61167416")
     void setDependsOn(ModelElement value);
 
     /**
@@ -79,7 +79,7 @@ public interface ImpactLink extends ModelElement {
      * <i><p>Source: the referenced&nbsp;impacted element depends on the imapct link target</p>
      * </i>
      */
-    @objid ("71d3c7fb-c639-4fe9-9ebe-95fad5e87635")
+    @objid ("77a32748-cb3d-49c8-8815-84a973825734")
     ModelElement getImpacted();
 
     /**
@@ -89,7 +89,7 @@ public interface ImpactLink extends ModelElement {
      * <i><p>Source: the referenced&nbsp;impacted element depends on the imapct link target</p>
      * </i>
      */
-    @objid ("304b6af2-1c16-45bd-b3e9-bcaf0153ee90")
+    @objid ("c172ae6b-afef-48ba-a89b-63851abfa5d2")
     void setImpacted(ModelElement value);
 
     /**
@@ -98,7 +98,7 @@ public interface ImpactLink extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("d70603e6-e651-46db-b617-fda1b6e6bef2")
+    @objid ("97be4523-ca13-4137-bd97-1e1a55ea8e49")
     EList<Element> getCauses();
 
     /**
@@ -107,7 +107,7 @@ public interface ImpactLink extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("cf9a06c8-477c-4282-bd0d-7faf791d17b3")
+    @objid ("b18bb62b-d9b6-47b0-9434-780b49cc2267")
     <T extends Element> List<T> getCauses(java.lang.Class<T> filterClass);
 
     /**
@@ -116,7 +116,7 @@ public interface ImpactLink extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("68cf12c7-2e54-4730-aa81-7ba0e66b9252")
+    @objid ("850650b8-b991-44ec-9a1f-b41c54a73f58")
     ImpactModel getOwner();
 
     /**
@@ -125,7 +125,7 @@ public interface ImpactLink extends ModelElement {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("fcc6ce18-c8a7-4e53-a84c-5697b17c6a8b")
+    @objid ("7b4550d4-9300-4bca-a4de-b11ba29d41dd")
     void setOwner(ImpactModel value);
 
 }

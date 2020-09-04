@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public interface IModelioProgress {
     /**
      * Notifies that the main task is beginning.  This must only be called once
      * on a given progress monitor instance.
+     * 
      * @param name the name (or description) of the main task
      * @param totalWork the total number of work units into which
      * the main task is been subdivided. If the value is <code>UNKNOWN</code>
@@ -86,6 +87,7 @@ public interface IModelioProgress {
      * Internal method to handle scaling correctly. This method
      * must not be called by a client. Clients should
      * always use the method </code>worked(int)</code>.
+     * 
      * @param work the amount of work done
      */
     @objid ("c98a8cc3-a5a3-11e1-aa98-001ec947ccaf")
@@ -96,6 +98,7 @@ public interface IModelioProgress {
      * Long-running operations should poll to see if cancelation
      * has been requested.
      * @see #setCanceled(boolean)
+     * 
      * @return <code>true</code> if cancellation has been requested,
      * and <code>false</code> otherwise
      */
@@ -105,6 +108,7 @@ public interface IModelioProgress {
     /**
      * Sets the cancel state to the given value.
      * @see #isCanceled()
+     * 
      * @param value <code>true</code> indicates that cancelation has
      * been requested (but not necessarily acknowledged);
      * <code>false</code> clears this flag
@@ -117,6 +121,7 @@ public interface IModelioProgress {
      * restore the task label after a nested operation was executed.
      * Normally there is no need for clients to call this method.
      * @see #beginTask(java.lang.String, int)
+     * 
      * @param name the name (or description) of the main task
      */
     @objid ("c98a8ccc-a5a3-11e1-aa98-001ec947ccaf")
@@ -125,6 +130,7 @@ public interface IModelioProgress {
     /**
      * Notifies that a subtask of the main task is beginning.
      * Subtasks are optional; the main task might not have subtasks.
+     * 
      * @param name the name (or description) of the subtask
      */
     @objid ("c98a8ccf-a5a3-11e1-aa98-001ec947ccaf")
@@ -135,6 +141,7 @@ public interface IModelioProgress {
      * has been completed. Note that this amount represents an
      * installment, as opposed to a cumulative amount of work done
      * to date.
+     * 
      * @param work a non-negative number of work units just completed
      */
     @objid ("c98a8cd2-a5a3-11e1-aa98-001ec947ccaf")

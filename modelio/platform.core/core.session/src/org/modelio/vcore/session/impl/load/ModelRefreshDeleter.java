@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -39,6 +39,7 @@ class ModelRefreshDeleter {
 
     /**
      * Initialize the deleter.
+     * 
      * @param loader the model refresher
      */
     @objid ("23849fba-2b5c-4985-bd30-3e9a7524e23a")
@@ -48,6 +49,7 @@ class ModelRefreshDeleter {
 
     /**
      * Delete the given model objects
+     * 
      * @param rootsToDelete the objects to delete.
      */
     @objid ("d54ae311-3237-40ee-afa6-db6a40bf0a76")
@@ -96,6 +98,7 @@ class ModelRefreshDeleter {
 
     /**
      * Get the already loaded composition tree.
+     * 
      * @param obj the root object
      * @param toDelete the collection where to add the composition tree
      */

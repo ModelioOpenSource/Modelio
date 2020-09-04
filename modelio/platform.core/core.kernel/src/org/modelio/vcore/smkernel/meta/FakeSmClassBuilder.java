@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -71,6 +71,7 @@ public class FakeSmClassBuilder {
      * <p>
      * The qualified name must have be formated like "mm.fragment.metaclass name"
      * with the dot as separator.
+     * 
      * @param qualifiedName the metaclass qualified name
      * @return the receiver for further invocations
      */
@@ -86,6 +87,7 @@ public class FakeSmClassBuilder {
      * Set whether the metaclass is a CMS node.
      * <p>
      * By default it is not a CMS node.
+     * 
      * @param val whether the metaclass is a CMS node.
      * @return the receiver for further invocations
      */
@@ -97,6 +99,7 @@ public class FakeSmClassBuilder {
 
     /**
      * Create and register the metaclass in the metamodel.
+     * 
      * @return the built fake metaclass.
      * @throws org.modelio.vcore.smkernel.mapi.MetaclassAlreadyExistException if the metaclass already exists.
      */

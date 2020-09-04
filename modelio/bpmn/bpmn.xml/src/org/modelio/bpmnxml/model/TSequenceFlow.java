@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -93,6 +93,7 @@ public class TSequenceFlow extends TFlowElement {
 
     /**
      * Sets the value of the conditionExpression property.
+     * 
      * @param value allowed object is
      * {@link TExpression }
      */
@@ -114,6 +115,7 @@ public class TSequenceFlow extends TFlowElement {
 
     /**
      * Sets the value of the sourceRef property.
+     * 
      * @param value allowed object is
      * {@link Object }
      */
@@ -135,6 +137,7 @@ public class TSequenceFlow extends TFlowElement {
 
     /**
      * Sets the value of the targetRef property.
+     * 
      * @param value allowed object is
      * {@link Object }
      */
@@ -156,6 +159,7 @@ public class TSequenceFlow extends TFlowElement {
 
     /**
      * Sets the value of the isImmediate property.
+     * 
      * @param value allowed object is
      * {@link Boolean }
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -137,10 +137,11 @@ public class GenericLinkTool extends DefaultLinkTool {
                 final List<IDiagramGraphic> graph = diagramHandle.unmask(newElement, 0, 0);
                 final IDiagramLink link = (IDiagramLink) graph.get(0);
                 link.setRouterKind(routerType);
+                link.setFrom(originNode);
+                link.setTo(targetNode);
                 link.setPath(path);
         
-                postConfigure(diagramHandle, originNode, targetNode, source, target, newElement, link, graph,
-                        routerType, path);
+                postConfigure(diagramHandle, originNode, targetNode, source, target, newElement, link, graph, routerType, path);
         
                 diagramHandle.save();
             }
@@ -290,6 +291,7 @@ public class GenericLinkTool extends DefaultLinkTool {
      * Hook called once the element is created, configured, unmasked and before the transaction is committed.
      * <p>
      * Does nothing by default. Sub classes may redefine this method to make additional modifications.
+     * 
      * @param diagramHandle the diagram handle
      * @param originNode the source graphic node
      * @param targetNode the target graphic node

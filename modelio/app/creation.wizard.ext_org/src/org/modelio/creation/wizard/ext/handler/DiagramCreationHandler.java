@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -114,6 +114,7 @@ public class DiagramCreationHandler {
 
     /**
      * The command has been executed, so extract the needed information from the application context.
+     * 
      * @param selection the E4 selection
      * @param contributorName the asked "contributor" name
      * @param activeShell the application's active shell.

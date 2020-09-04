@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -238,6 +238,7 @@ class CacheEntrySerializer implements Serializer<JdbmSwap.CacheEntry> {
 
     /**
      * Get all possible enumeration values of an enumerate type.
+     * 
      * @param type a enumerate class.
      * @return all possible values, ordered.
      */

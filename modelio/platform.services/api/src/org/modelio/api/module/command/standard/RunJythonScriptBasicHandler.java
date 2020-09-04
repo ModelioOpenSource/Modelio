@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -83,6 +83,7 @@ public class RunJythonScriptBasicHandler extends DefaultModuleCommandHandler {
      * <li> modelingSession : the modeling session.
      * <li> and all command parameters.
      * </ul>
+     * 
      * @param engine the script engine that will be used.
      * @param selectedElements the Modelio selection.
      * @param module the module owning the command
@@ -106,6 +107,7 @@ public class RunJythonScriptBasicHandler extends DefaultModuleCommandHandler {
      * Returns false if the script does not return a boolean or fails.
      * <p>
      * Does nothing and returns true if no script is present for the given command parameter.
+     * 
      * @param scriptParamName the command parameter where the script is stored.
      * @param selectedElements the current Modelio selection
      * @param module the module owing the command

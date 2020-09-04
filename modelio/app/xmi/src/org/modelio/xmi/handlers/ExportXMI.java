@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,18 +48,17 @@ import org.modelio.xmi.gui.SwtWizardExport;
 @objid ("ce38f353-e8f9-44dc-b2f1-8b8359a4ec87")
 public class ExportXMI {
     @objid ("6dc138e9-b109-4bf9-bb79-a5dcb838f8bf")
-    private List<ModelElement> selectedPackage = null;
+    private List<ModelElement> selectedPackages = null;
 
     @objid ("bdce6cd6-25d3-47aa-a390-532adf3b5f53")
     @Execute
     public void execute(@Named(IServiceConstants.ACTIVE_SHELL) final Shell activeShell, IProgressService progressService, IProjectService projectService, IMModelServices modelServices, final IModelioNavigationService navigationService) {
         GenerationProperties genProp = GenerationProperties.getInstance();
         genProp.initialize(modelServices, projectService.getSession().getMetamodel(), navigationService);
-        genProp.setRootElements(this.selectedPackage);
-        
+        genProp.setRootElements(this.selectedPackages);
         
         final SwtWizardExport dialog = new SwtWizardExport(activeShell, progressService, projectService);
-        dialog.setSelectedElt(this.selectedPackage.get(0));
+        dialog.setSelectedElt(this.selectedPackages.get(0));
         dialog.open();
     }
 
@@ -67,26 +66,25 @@ public class ExportXMI {
     @CanExecute
     public boolean isEnabled(@Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
         Iterator<?> itr = selection.iterator();
-        this.selectedPackage = new ArrayList<>();
+        this.selectedPackages = new ArrayList<>();
         while(itr.hasNext()) {
             Object element = itr.next();
             if ((element instanceof Package)
                     && (!(element instanceof Profile))){
-                this.selectedPackage.add((Package) element);
-        
+                this.selectedPackages.add((Package) element);
             }
         }
-        return (!(this.selectedPackage.isEmpty()));
+        return (!(this.selectedPackages.isEmpty()));
     }
 
     @objid ("0aeb5e59-fc8f-4655-9622-774aa665326c")
     public static boolean isVisible(List<MObject> selectedElements) {
-        if (! selectedElements.isEmpty()){
+        if (!(selectedElements.isEmpty())){
             for (MObject selectedElement : selectedElements ){
-                if ((selectedElement instanceof Profile)
-                        && (!(selectedElement instanceof Package)))
+                if (!(selectedElement instanceof Package))
                     return false;
             }
+            //All elements are UML Package
             return true;
         }
         return false;

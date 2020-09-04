@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -171,6 +171,7 @@ public class States {
 
     /**
      * Initialize the state machine.
+     * 
      * @param rtModule the module controller
      */
     @objid ("99cea2e7-63bf-4465-b0bd-6b2667966f65")
@@ -333,6 +334,7 @@ public class States {
 
     /**
      * Add the transition to the state graph
+     * 
      * @param tb the transition descriptor
      */
     @objid ("1cd3721f-4434-4d85-a89c-347f7eb9c3d0")
@@ -346,6 +348,7 @@ public class States {
      * <p>
      * Executes all exit() and enter() on state change.
      * @param newState
+     * 
      * @throws org.modelio.api.module.lifecycle.ModuleException on failure
      */
     @objid ("53444d26-82fb-4297-9ae3-55bd6657b82e")
@@ -418,6 +421,7 @@ public class States {
 
     /**
      * Force the current state.
+     * 
      * @param newState the new state
      */
     @objid ("a68aa1b7-8856-40e4-bc94-a3c6433bd3bd")
@@ -428,6 +432,7 @@ public class States {
 
     /**
      * Handle a message.
+     * 
      * @param message the received message
      * @throws org.modelio.api.module.lifecycle.ModuleException on failure
      */
@@ -513,6 +518,7 @@ public class States {
 
     /**
      * Update currently activated features from the new state.
+     * 
      * @param newState the new state
      * @throws org.modelio.api.module.lifecycle.ModuleException if state change is refused by a feature, in case of breaking error
      */

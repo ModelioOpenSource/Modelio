@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,7 +43,6 @@ import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramGraphicFactory;
 import org.modelio.api.modelio.diagram.dg.IDiagramDrawingsLayer;
 import org.modelio.diagram.api.plugin.DiagramApi;
-import org.modelio.diagram.elements.common.root.ScalableFreeformRootEditPart2;
 import org.modelio.diagram.elements.core.commands.DrawingObjectFactory;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
@@ -209,9 +208,6 @@ class DiagramGraphicFactory implements IDiagramGraphicFactory {
         GraphicalEditPart diagramEditPart = this.diagramHandle.getEditPart(this.diagramHandle.getDiagramEditorInput().getGmDiagram());
         GraphicalViewer viewer = (GraphicalViewer) diagramEditPart.getViewer();
         Point dropLocation = new Point(x, y);
-        
-        // Adapt the given coordinates if necessary
-        ((ScalableFreeformRootEditPart2) diagramEditPart.getViewer().getRootEditPart()).getFigure().translateToParent(dropLocation);
         
         final ModelElementDropRequest req = new ModelElementDropRequest();
         req.setDroppedElements(new MObject[] { element });

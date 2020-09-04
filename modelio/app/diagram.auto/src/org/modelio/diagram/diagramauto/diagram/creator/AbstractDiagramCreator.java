@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -129,8 +129,9 @@ public abstract class AbstractDiagramCreator implements IDiagramCreator {
             return null;
         }
         
+        //
+        AbstractDiagram diagram = createDiagramElement(standardFactory);
         Stereotype stereotype = this.modelServices.findStereotypes("ModelerModule", "AutoDiagram", ClassDiagram.MQNAME).get(0);
-        AbstractDiagram diagram = standardFactory.createClassDiagram();
         diagram.setName(main.getName() + " (" + getAutoDiagramName() + ")");
         diagram.getExtension().add(stereotype);
         context.getProduct().add(diagram);
@@ -203,5 +204,8 @@ public abstract class AbstractDiagramCreator implements IDiagramCreator {
         DiagramSet autogroup = infrastructureFactory.createDiagramSet(getAutoDiagramGroup(), autoSet);
         return autogroup;
     }
+
+    @objid ("6a8cce36-ce9e-46f5-ae6c-94c7c8778eec")
+    protected abstract AbstractDiagram createDiagramElement(IStandardModelFactory standardFactory);
 
 }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -79,6 +79,7 @@ public class CreateBpmnParticipantCommand extends Command {
 
     /**
      * Creates a node creation command.
+     * 
      * @param parentCollaboration the element that lead to this command.
      * @param parentNode The parent editPart
      * @param elementToUnmask The element to unmask. Might be <code>null</code>.

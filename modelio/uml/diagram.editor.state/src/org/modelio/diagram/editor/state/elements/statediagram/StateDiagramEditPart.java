@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -25,7 +25,6 @@ import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.EditPolicy;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
-import org.modelio.diagram.elements.common.abstractdiagram.DiagramElementDropEditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeFinishCreationEditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
@@ -71,7 +70,7 @@ public class StateDiagramEditPart extends AbstractDiagramEditPart {
                 new CreateLinkIntermediateEditPolicy());
         
         // Override drop policy to add smart interactions
-        installEditPolicy(ModelElementDropRequest.TYPE, new DiagramElementDropEditPolicy());
+        installEditPolicy(ModelElementDropRequest.TYPE, new StateDiagramElementDropEditPolicy());
     }
 
 }

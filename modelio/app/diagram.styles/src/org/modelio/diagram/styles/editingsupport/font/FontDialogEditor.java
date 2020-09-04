@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class FontDialogEditor extends CellEditor {
     /**
      * Creates a new color cell editor parented under the given control. The cell editor value is black (
      * <code>Font(0,0,0)</code>) initially, and has no validator.
+     * 
      * @param parent the parent control
      */
     @objid ("85a23439-1926-11e2-92d2-001ec947c8cc")
@@ -66,6 +67,7 @@ public class FontDialogEditor extends CellEditor {
     /**
      * Creates a new font cell editor parented under the given control.
      * The cell editor value is null initially, and has no validator.
+     * 
      * @param parent the parent control
      * @param style the style bits
      * @since 2.1

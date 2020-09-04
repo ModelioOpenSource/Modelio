@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -23,6 +23,7 @@ package org.modelio.diagram.elements.core.figures;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.SWT;
 
 /**
  * A shaped figure filled with a gradient.
@@ -44,6 +45,7 @@ public class ShapedFigure extends GradientFigure implements IClonableFigure {
 
     /**
      * Builds a ShapedFigure with a specific Shaper.
+     * 
      * @param shaper A shaper.
      */
     @objid ("7fcd4c16-1dec-11e2-8cad-001ec947c8cc")
@@ -54,6 +56,7 @@ public class ShapedFigure extends GradientFigure implements IClonableFigure {
 
     /**
      * Get the current shaper.
+     * 
      * @return A shaper.
      */
     @objid ("7fcd4c1a-1dec-11e2-8cad-001ec947c8cc")
@@ -64,6 +67,7 @@ public class ShapedFigure extends GradientFigure implements IClonableFigure {
 
     /**
      * Set the current shaper.
+     * 
      * @param value The new shaper.
      */
     @objid ("7fcd4c1f-1dec-11e2-8cad-001ec947c8cc")
@@ -76,6 +80,8 @@ public class ShapedFigure extends GradientFigure implements IClonableFigure {
     @Override
     protected void paintFigure(Graphics graphics) {
         if (this.shaper != null) {
+            graphics.setAdvanced(true);
+            graphics.setAntialias(SWT.ON);
             graphics.clipPath(this.shaper.getShapePath(getBounds()));
         }
         super.paintFigure(graphics);
@@ -83,6 +89,7 @@ public class ShapedFigure extends GradientFigure implements IClonableFigure {
 
     /**
      * Copy constructor.
+     * 
      * @param orig the original figure
      */
     @objid ("3c379a6e-6344-4ea1-a8c8-c954fa4e5654")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -77,6 +77,7 @@ public class GmDiagramView extends GmCompositeNode {
 
     /**
      * Creates a diagram model.
+     * 
      * @param diagram The diagram owning this diagram view
      * @param viewedDiagram The represented diagram.
      * @param ref The represented diagram reference.
@@ -113,16 +114,10 @@ public class GmDiagramView extends GmCompositeNode {
         return null;
     }
 
-    @objid ("814ac44d-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    public MObject getRelatedElement() {
-        return this.viewedDiagram;
-    }
-
     @objid ("814ac452-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public AbstractDiagram getRepresentedElement() {
-        return null;
+        return this.viewedDiagram;
     }
 
     @objid ("814ac461-1dec-11e2-8cad-001ec947c8cc")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -84,6 +84,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
 
     /**
      * Constructor
+     * 
      * @param ownerDiagram the diagram owning this reference, the diagram who needs a reference toward <i>delegate</i>.
      * @param target the target graphic model
      */
@@ -226,6 +227,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
 
     /**
      * Remove the element from a collection of GmReferences.
+     * 
      * @param coll the collection to modify
      * @param toRemove the element to remove.
      */
@@ -311,6 +313,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
 
     /**
      * Helper to read the graphic model minor version from the {@value #MINOR_VERSION_PROPERTY} property.
+     * 
      * @param in a reader to read the version from.
      * @param prefix the prefix : usually the simple name of java class calling this method + ".".
      * @return the read version, defaults to 0 if not found
@@ -325,6 +328,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
 
     /**
      * Helper method to write the graphic model minor version.
+     * 
      * @param out the writer to use
      * @param prefix the prefix to use. Usually the java simple name of the class calling this method. Use the same as the matching {@link #readMinorVersion(String, IDiagramReader)}.
      * @param theMinorVersion the minor version to write

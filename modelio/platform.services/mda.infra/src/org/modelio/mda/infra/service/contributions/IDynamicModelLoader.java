@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -34,6 +34,7 @@ import org.modelio.mda.infra.service.IRTModule;
 public interface IDynamicModelLoader {
     /**
      * Load the dynamic model part.
+     * 
      * @param module the loading module
      * @param model the dynamic model JAXB model
      * @throws java.io.IOException to abort loading.
@@ -43,6 +44,7 @@ public interface IDynamicModelLoader {
 
     /**
      * Unload the loaded dynamic model.
+     * 
      * @param module the unloaded module.
      */
     @objid ("89ff9c7a-ccd1-4d92-91e7-07ba8e553669")

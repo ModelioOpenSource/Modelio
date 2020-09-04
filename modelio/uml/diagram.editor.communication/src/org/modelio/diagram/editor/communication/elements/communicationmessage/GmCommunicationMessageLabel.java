@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class GmCommunicationMessageLabel extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
+     * 
      * @param diagram The diagram
      * @param el The represented element, may be null.
      * @param ref The represented element reference, may not be null.

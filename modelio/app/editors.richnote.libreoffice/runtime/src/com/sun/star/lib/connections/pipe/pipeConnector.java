@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public final class pipeConnector implements XConnector {
      * 
      * <p>This method is called by the <code>JavaLoader</code>.</p>
      * @see com.sun.star.comp.loader.JavaLoader
+     * 
      * @param implName the name of the implementation for which a service is
      * requested.
      * @param multiFactory the service manager to be used (if needed).
@@ -101,6 +102,7 @@ public final class pipeConnector implements XConnector {
      * </p>
      * @see com.sun.star.connections.XAcceptor
      * @see com.sun.star.connections.XConnection
+     * 
      * @param connectionDescription the description of the connection.
      * @return an <code>XConnection</code> to the server.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -53,6 +53,7 @@ public class DiagramFactoryRegistry {
 
     /**
      * Register factory extensions.
+     * 
      * @param factoryId the identifier for the factory extensions.
      * @param nodeFactory the node factory extension.
      * @param linkFactory the link factory extension.
@@ -67,6 +68,7 @@ public class DiagramFactoryRegistry {
 
     /**
      * Get the node factory for this identifier.
+     * 
      * @param factoryId the identifier for the factory extension.
      * @return the node factory extension.
      */
@@ -77,6 +79,7 @@ public class DiagramFactoryRegistry {
 
     /**
      * Get the link factory for this identifier.
+     * 
      * @param factoryId the identifier for the factory extension.
      * @return the link factory extension.
      */
@@ -87,6 +90,7 @@ public class DiagramFactoryRegistry {
 
     /**
      * Get the edit part factory for this identifier.
+     * 
      * @param factoryId the identifier for the factory extension.
      * @return the edit part factory extension.
      */
@@ -97,25 +101,27 @@ public class DiagramFactoryRegistry {
 
     /**
      * Register a factory extension.
-     * @param factoryId the identifier for the factory extension.
+     * 
+     * @param extensionId the identifier for the factory extension.
      * @param extendedFactoryIds identifiers of all extended factories.
      */
     @objid ("04b6da04-84db-45c7-9723-a2c76724a547")
-    public void registerExtensions(String factoryId, String... extendedFactoryIds) {
+    public void registerExtensions(String extensionId, String... extendedFactoryIds) {
         for (String extendedFactoryId : extendedFactoryIds) {
-            List<String> extensions = this.factoryExtensions.get(extendedFactoryId);
-            if (extensions == null) {
-                extensions = new ArrayList<>();
-                this.factoryExtensions.put(extendedFactoryId, extensions);
-            }
-            if (!extensions.contains(factoryId)) {
-                extensions.add(factoryId);
+            List<String> extensions = this.factoryExtensions.computeIfAbsent(extendedFactoryId, k-> new ArrayList<>());
+        
+            if (!extensions.contains(extensionId)) {
+                extensions.add(extensionId);
             } else {
-                DiagramElements.LOG.debug("Factory extension already registered : %s -> %s" + factoryId, extendedFactoryId);
+                DiagramElements.LOG.debug("'%s' Factory extension already registered for '%s'" , extensionId, extendedFactoryId);
             }
         }
     }
 
+    /**
+     * @param factoryId a factory id
+     * @return the factory extensions
+     */
     @objid ("18265996-9f83-4b47-bd79-52b2d2686ee5")
     public List<String> getExtensions(String factoryId) {
         return this.factoryExtensions.getOrDefault(factoryId, Collections.emptyList());

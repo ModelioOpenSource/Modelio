@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -93,6 +93,7 @@ public class JarExporter {
 
     /**
      * Generate a Pattern.java file from a <<Pattern>> Package.
+     * 
      * @return the generated file.
      */
     @objid ("28c273e9-0968-4c34-82a5-d7a7da0892e3")

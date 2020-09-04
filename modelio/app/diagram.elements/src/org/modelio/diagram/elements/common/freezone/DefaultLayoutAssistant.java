@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -134,6 +134,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Record a node bounds change and compute all changes to do to avoid new intersections.
+     * 
      * @param node the moved edit part
      * @param oldBounds the old node bounds in absolute coordinates.
      * @param newBounds the new node bounds in absolute coordinates.
@@ -173,6 +174,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Add an involved child edit part
+     * 
      * @param part the edit part
      * @param bounds the edit part bounds in absolute coords
      */
@@ -218,6 +220,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Get the requests to apply to avoid connection intersections with changed nodes.
+     * 
      * @return the bend point requests to apply.
      */
     @objid ("7573ab46-ab1a-4803-8efd-a4a02016d25c")
@@ -239,6 +242,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Get the requests to apply to avoid node intersections.
+     * 
      * @return the requests to apply.
      */
     @objid ("1c391f20-8a37-4c01-9bf1-95c7e0ff25e7")
@@ -268,6 +272,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Set the minimum distance between nodes.
+     * 
      * @param d the minimum distance between nodes.
      */
     @objid ("ddae834f-9d01-48d3-8c1d-a6371d671639")
@@ -344,6 +349,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
      * Tells whether a connection is to exclude.
      * <p>
      * A connection is to exclude if it is initially moved or joins to initially moved nodes.
+     * 
      * @param cp a connection edit part.
      * @return whether the connection is to exclude.
      */
@@ -551,6 +557,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Compute the direction in which childRect must be pushed to avoid intersection with newBounds.
+     * 
      * @param newBounds a rectangle
      * @param childRect the rectangle that intersects with the first.
      * @return the direction in which childRect must be pushed to avoid intersection with newBounds.
@@ -573,6 +580,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Compute bounding box of all movable edit part parent edit parts.
+     * 
      * @return the global bounding box
      */
     @objid ("4b24cf4e-3dd5-4be9-94a8-1ba9408cc381")
@@ -601,6 +609,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Compute the move needed to keep the 'tpPush' rectangle at least at {@link #minDist} from 'ref' rectangle.
+     * 
      * @param cause the reference edit part that causes the move
      * @param toPush the rectangle to move to keep minimal distance
      * @param ref the reference new rectangle (the one that was moved/resized)
@@ -643,6 +652,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Compute the orthogonal direction in which the point must be moved to escape the rectangle.
+     * 
      * @param toMove the point to move
      * @param rect the rectangle to escape
      * @return the shortest orthogonal direction
@@ -672,6 +682,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Compute the direction in which childRect must be pushed to avoid the given intersection rectangle.
+     * 
      * @param childRect a rectangle
      * @param intersection the intersection with the first rectangle
      * @return the direction in which childRect must be pushed to avoid the intersection.
@@ -769,6 +780,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
      * Same thing for height.
      * <p>
      * If both width and height are 0, the rectangles intersect.
+     * 
      * @param from a rectangle
      * @param to another rectangle
      * @return the orthogonal distance vector between the 2 rectangles borders.
@@ -819,6 +831,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
     /**
      * Return a copy of this Rectangle expanded on horizontal and vertical sides with at least the given value
      * while keeping the width/height ratio.
+     * 
      * @param toExpand the rectangle to expand
      * @param minValue the minimum expand
      * @return the expanded rectangle.
@@ -854,6 +867,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * If true collision will be avoided with connection bend points too.
+     * 
      * @param avoidBendPoints true to avoid collision with bend points.
      */
     @objid ("fe6d2b03-50f5-4835-beea-ada01d4f748e")
@@ -872,6 +886,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
     /**
      * If true all nodes will keep same distance.
      * If false a minimal distance will be kept.
+     * 
      * @param keepSameDistance true to keep same distance between all nodes
      */
     @objid ("bcd7434c-005e-453f-9559-ca1369be680e")
@@ -1156,6 +1171,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
         /**
          * Get the same move with fields that does not match the given vector directions reset.
+         * 
          * @param oldDist old vector from ref to push.
          * @return a filtered copy
          */
@@ -1168,6 +1184,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
         /**
          * Reset fields that do not match the given vector directions.
+         * 
          * @param oldDist old vector from ref to push.
          */
         @objid ("e450ae8f-8684-4a76-a6ee-d5a46d08858b")
@@ -1196,6 +1213,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
         /**
          * Get the same move with fields that does not match the target rectangle position reset.
+         * 
          * @param toPush the rectangle to apply this move.
          * @return a filtered copy
          */
@@ -1208,6 +1226,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
         /**
          * Reset fields that don't apply to the given rectangle to push.
+         * 
          * @param target the rectangle to push.
          */
         @objid ("634b79bc-f6a9-4342-b950-52dde0bc4077")

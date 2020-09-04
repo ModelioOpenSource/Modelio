@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -64,6 +64,7 @@ public final class StyleManager {
      * <p>
      * Includes element styles and diagram themes.
      * </p>
+     * 
      * @return the names of the available named styles
      */
     @objid ("85cabc41-1926-11e2-92d2-001ec947c8cc")
@@ -77,6 +78,7 @@ public final class StyleManager {
 
     /**
      * Get a style or theme by name.
+     * 
      * @param name the name of the named style to get
      * @return the 'name' NamedStyle or null if not found
      */
@@ -95,6 +97,7 @@ public final class StyleManager {
      * Create a new named style along with its persistence file.<br>
      * The new file is placed in $PROJECTSPACE/.config/styles directory and named 'name'.style or 'name'.theme.<br>
      * The cascaded style is FactoryStyle.
+     * 
      * @param name then name of the style to create
      * @param isTheme whether or not the created {@link NamedStyle} should be flagged as a diagram theme.
      * @return then newly created NamedStyle or null if the style could not be created. When the style already exists it is simply returned.
@@ -137,6 +140,7 @@ public final class StyleManager {
 
     /**
      * Loads the styles found in the specified directories. The style cache is cleared each time this method is called (ie no accumulation)
+     * 
      * @param stylesDir the directories where to fetch the style files from.
      */
     @objid ("85cabc5b-1926-11e2-92d2-001ec947c8cc")
@@ -166,6 +170,7 @@ public final class StyleManager {
 
     /**
      * Write the current named style contents to the disk.
+     * 
      * @param style the style to be saved.
      */
     @objid ("85cabc63-1926-11e2-92d2-001ec947c8cc")
@@ -181,6 +186,7 @@ public final class StyleManager {
 
     /**
      * Normalizing a style consists in removing from its local definitions the values that are currently the same as the value in cascaded style.
+     * 
      * @param editedStyle the style to normalize.
      */
     @objid ("85cabc67-1926-11e2-92d2-001ec947c8cc")
@@ -211,6 +217,7 @@ public final class StyleManager {
      * Create a new named style along with its persistence file.<br>
      * The new file is placed in $PROJECTSPACE/.config/styles directory and named 'name'.style.<br>
      * The cascaded style is the named style "parentStyleName" or default style if "parentStyleName" cannot be resolved.
+     * 
      * @param name then name of the style to create
      * @param parentStyleName then name of the parent style of the created style. May be null, in which case 'default' style is used as parent for the newly created style.
      * @param isTheme whether or not the created {@link NamedStyle} should be flagged as a diagram theme.
@@ -231,6 +238,7 @@ public final class StyleManager {
      * Create a new named style along with its persistence file.<br>
      * The new file is placed in $PROJECTSPACE/.config/styles directory and named 'name'.style.<br>
      * The cascaded style is the named style "parentStyleName" or default style if "parentStyleName" cannot be resolved.
+     * 
      * @param name then name of the style to create
      * @param parentStyleName then name of the parent style of the created style. May be null, in which case 'default' style is used as parent for the newly created style.
      * @param styleData the url of the file to initialize the style from.
@@ -280,6 +288,7 @@ public final class StyleManager {
 
     /**
      * Set the default theme to be used for diagrams.
+     * 
      * @param themeName a style name.
      */
     @objid ("dd6d507b-5e14-443c-b6ec-6a1cfb8f6124")
@@ -307,6 +316,7 @@ public final class StyleManager {
      * Process the deferred cascade bindings.
      * <p>
      * The rule is to create stub styles if the parent style does not exist.
+     * 
      * @param deferredBindings a map with 'child'/'parent' style names as 'key'/'value' entries.
      */
     @objid ("c6dbe853-5d1c-485a-9cd9-a2104c7fc445")
@@ -355,6 +365,7 @@ public final class StyleManager {
 
     /**
      * Import a style in the current style directory.
+     * 
      * @param styleFile the style's persistence file, to be copied in the current style directory. Musn't be <code>null</code>.
      * @return a {@link NamedStyle} instanciated from the style file.
      * @throws java.io.IOException if an I/O error occurs.
@@ -379,6 +390,7 @@ public final class StyleManager {
 
     /**
      * Get a style by name.
+     * 
      * @param name the name of the named style to get
      * @return the 'name' NamedStyle or null if not found
      */

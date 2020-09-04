@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -88,7 +88,7 @@ public class BrowserView {
 
     @objid ("e515f626-907b-4a4c-8def-10f7b28483a8")
     @PostConstruct
-    public void postConstruct(Composite parent) {
+    public void postConstruct(final Composite parent) {
         // Read the extensions to find the effective browser panel
         // As only one panel is currently expected, just pick the first available one and post a LOG warning message for ignored definitions.
         this.contributedPanel = null;
@@ -115,9 +115,9 @@ public class BrowserView {
             BrowserViewActivator.LOG.error("No browser view contributed panel found !");
         }
         
-        IProjectService projectService = this.eclipseContext.get(IProjectService.class);
+        final IProjectService projectService = this.eclipseContext.get(IProjectService.class);
         if (projectService != null) {
-            GProject project = projectService.getOpenedProject();
+            final GProject project = projectService.getOpenedProject();
         
             if (project != null) {
                 onProjectOpened(project);
@@ -137,7 +137,12 @@ public class BrowserView {
     @objid ("041f6a72-ce7c-43ba-ac6e-cb5f41b0f0f9")
     @Focus
     public void setFocus() {
-        // FIXME Do something
+        if (this.contributedPanel != null) {
+            final Control panel = (Control) this.contributedPanel.getPanel();
+            if (panel.isDisposed()) {
+                panel.setFocus();
+            }
+        }
     }
 
     @objid ("b8580884-a6ce-4f91-85a4-49bd00f91fa3")
@@ -145,7 +150,7 @@ public class BrowserView {
     @SuppressWarnings("unused")
     @Optional
     void onFragmentEvents(@UIEventTopic(ModelioEventTopics.FRAGMENT_EVENTS) final IProjectFragment fragment) {
-        if ((this.contributedPanel != null)
+        if (this.contributedPanel != null
                 && !((Control) this.contributedPanel.getPanel()).isDisposed()) {
             this.contributedPanel.setInput(BrowserView.this.contributedPanel.getInput());
         }
@@ -156,7 +161,7 @@ public class BrowserView {
     @SuppressWarnings("unused")
     @Optional
     void onModuleEvents(@UIEventTopic(ModelioEventTopics.MODULE_EVENTS) final GModule module) {
-        if ((this.contributedPanel != null)
+        if (this.contributedPanel != null
                 && !((Control) this.contributedPanel.getPanel()).isDisposed()) {
             this.contributedPanel.setInput(BrowserView.this.contributedPanel.getInput());
         }

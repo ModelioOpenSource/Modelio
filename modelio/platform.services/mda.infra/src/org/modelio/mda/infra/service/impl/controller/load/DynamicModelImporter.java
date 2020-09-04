@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,12 +31,11 @@ import java.util.concurrent.CompletionException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.api.modelio.diagram.ContributorCategory;
 import org.modelio.api.module.command.IModuleAction;
 import org.modelio.api.module.lifecycle.ModuleException;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.gproject.data.module.JaxbModelPersistence;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Command;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Commands;
@@ -77,7 +76,7 @@ public class DynamicModelImporter {
     private final IRTModuleAccess module;
 
     @objid ("f13a1f3d-59b9-477b-8899-f18559c4c60d")
-    private List<IDynamicModelLoader> loaders = new ArrayList<>();
+    private final List<IDynamicModelLoader> loaders = new ArrayList<>();
 
     /**
      * Load the dynamic GUI model of a module from its path.
@@ -95,6 +94,7 @@ public class DynamicModelImporter {
      * <li>{@link MatrixWizardReader} for matrix contributions to the creation wizard.</li>
      * </ul>
      * </p>
+     * 
      * @param dynamicModelPath the xml file to load.
      * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs during the parsing.
      */
@@ -106,17 +106,17 @@ public class DynamicModelImporter {
         
             // Use a CompletableFuture to avoid syncExec catching our exceptions...
             CompletableFuture.runAsync(() -> runRegisterDynamicFeatures(jaxbModule), Display.getDefault()::syncExec)
-                    .join();
-        } catch (IOException e) {
-            String msg = MdaInfra.I18N.getMessage("DynamicModelFeature.readFailed",
+            .join();
+        } catch (final IOException e) {
+            final String msg = MdaInfra.I18N.getMessage("DynamicModelFeature.readFailed",
                     this.module.getName(), FileUtils.getLocalizedMessage(e));
             throw new ModuleException(msg, e);
-        } catch (CompletionException e) {
-            String msg = MdaInfra.I18N.getMessage("DynamicModelFeature.readFailed",
+        } catch (final CompletionException e) {
+            final String msg = MdaInfra.I18N.getMessage("DynamicModelFeature.readFailed",
                     this.module.getName(), e.getLocalizedMessage());
             throw new ModuleException(msg, e);
-        } catch (RuntimeException e) {
-            String msg = MdaInfra.I18N.getMessage("DynamicModelFeature.readFailed",
+        } catch (final RuntimeException e) {
+            final String msg = MdaInfra.I18N.getMessage("DynamicModelFeature.readFailed",
                     this.module.getName(), e.toString());
         
             throw new ModuleException(msg, e);
@@ -127,19 +127,16 @@ public class DynamicModelImporter {
      * @param module the module to build GUI elements for.
      */
     @objid ("9c6d98a8-9ff5-4876-8745-9b0604586e20")
-    public DynamicModelImporter(IRTModuleAccess module) {
+    public DynamicModelImporter(final IRTModuleAccess module) {
         this.module = module;
         
         // Load all dynamic loaders from extension registry.
-        IExtensionRegistry reg = Platform.getExtensionRegistry();
-        for (IConfigurationElement configEl : reg.getConfigurationElementsFor(DynamicModelImporter.EXTENSION_POINT_ID)) {
-            if (configEl.getName().equals("loader")) {
-                try {
-                    IDynamicModelLoader loader = (IDynamicModelLoader) configEl.createExecutableExtension("class");
-                    this.loaders.add(loader);
-                } catch (CoreException e) {
-                    MdaInfra.LOG.warning(e);
-                }
+        for (final IConfigurationElement configEl : new ExtensionPointContributionManager(DynamicModelImporter.EXTENSION_POINT_ID).getExtensions("loader")) {
+            try {
+                final IDynamicModelLoader loader = (IDynamicModelLoader) configEl.createExecutableExtension("class");
+                this.loaders.add(loader);
+            } catch (final CoreException e) {
+                MdaInfra.LOG.warning(e);
             }
         }
     }
@@ -148,12 +145,13 @@ public class DynamicModelImporter {
      * Load the dynamic GUI model of a module from its path.
      * <p>
      * This method must be run in the SWT thread and is meant to be passed as lambda to {@link Display#syncExec(Runnable)}.
+     * 
      * @param jaxbModule the dynamic model
      * @throws java.util.concurrent.CompletionException on IOException, the message is already translated.
      */
     @objid ("bd1f9154-89b6-4c86-a314-f9c52af0e04e")
-    private void runRegisterDynamicFeatures(Jxbv2Module jaxbModule) throws CompletionException {
-        Map<String, IModuleAction> commandCache = new HashMap<>();
+    private void runRegisterDynamicFeatures(final Jxbv2Module jaxbModule) throws CompletionException {
+        final Map<String, IModuleAction> commandCache = new HashMap<>();
         
         final CommandReader commandReader = new CommandReader();
         final ContextualMenuReader contextualMenuReader = new ContextualMenuReader();
@@ -165,12 +163,12 @@ public class DynamicModelImporter {
         
         try {
             final Jxbv2Parameters parameters = jaxbModule.getParameters();
-            IRTModuleAccess lmodule = DynamicModelImporter.this.module;
+            final IRTModuleAccess lmodule = DynamicModelImporter.this.module;
             if (parameters != null) {
                 parameterReader.registerParameterModel(parameters, lmodule);
             }
         
-            Jxbv2Gui gui = jaxbModule.getGui();
+            final Jxbv2Gui gui = jaxbModule.getGui();
             if (gui == null) {
                 return;
             }
@@ -178,22 +176,22 @@ public class DynamicModelImporter {
             // Jxbv2Commands: module commands
             final Jxbv2Commands commands = gui.getCommands();
             if (commands != null) {
-                for (Jxbv2Command cmdDef : commands.getCommand()) {
+                for (final Jxbv2Command cmdDef : commands.getCommand()) {
                     // standard command, described by a handler class.
-                    IModuleAction action = commandReader.createCommand(cmdDef, lmodule);
+                    final IModuleAction action = commandReader.createCommand(cmdDef, lmodule);
                     commandCache.put(cmdDef.getId(), action);
                 }
             }
         
             // Jxbv2ContextualMenu: Module contextual menu contributions
-            for (Jxbv2ContextualMenu menu : gui.getContextualMenu()) {
+            for (final Jxbv2ContextualMenu menu : gui.getContextualMenu()) {
                 contextualMenuReader.registerContextualMenu(lmodule, menu, commandCache);
             }
         
             // Jxbv2PropertyPage: module property pages
             final Jxbv2Views views = gui.getViews();
             if (views != null) {
-                for (Jxbv2PropertyPage pp : views.getPropertyPage()) {
+                for (final Jxbv2PropertyPage pp : views.getPropertyPage()) {
                     propertyPageReader.registerPropertyPanel(pp, lmodule, commandCache);
                 }
             }
@@ -203,7 +201,7 @@ public class DynamicModelImporter {
             // qualified Java class name. Keyword values are used as shortcuts for default implementation of tools.
             final Jxbv2Tools tools = gui.getTools();
             if (tools != null) {
-                for (Jxbv2Tool toolDef : tools.getTool()) {
+                for (final Jxbv2Tool toolDef : tools.getTool()) {
                     // Register the tool
                     diagramToolReader.registerTool(toolDef, lmodule);
                 }
@@ -212,8 +210,8 @@ public class DynamicModelImporter {
             // Jxbv2Diagrams: module defined diagram types
             final Jxbv2Diagrams diagrams = gui.getDiagrams();
             if (diagrams != null) {
-                ContributorCategory wizardCategory = new ContributorCategory(lmodule.getLabel(), lmodule.getLabel(), lmodule.getModuleImage());
-                for (Jxbv2DiagramType diagramDef : diagrams.getDiagramType()) {
+                final ContributorCategory wizardCategory = new ContributorCategory(lmodule.getLabel(), lmodule.getLabel(), lmodule.getModuleImage());
+                for (final Jxbv2DiagramType diagramDef : diagrams.getDiagramType()) {
                     // Create and Register the diagram type
                     diagramTypeReader.registerDiagramType(diagramDef, lmodule);
         
@@ -226,13 +224,13 @@ public class DynamicModelImporter {
             }
         
             // call dynamic loaders
-            for (IDynamicModelLoader loader : DynamicModelImporter.this.loaders) {
+            for (final IDynamicModelLoader loader : DynamicModelImporter.this.loaders) {
                 loader.loadDynamicModel(lmodule, gui);
             }
-        } catch (IOException e) {
+        } catch (final IOException e) {
             // Wrap into CompletionException.
             throw new CompletionException(FileUtils.getLocalizedMessage(e), e);
-        } catch (ModuleException e) {
+        } catch (final ModuleException e) {
             // Wrap into CompletionException.
             throw new CompletionException(e.getLocalizedMessage(), e);
         }

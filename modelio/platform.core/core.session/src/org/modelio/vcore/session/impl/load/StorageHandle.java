@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -60,6 +60,7 @@ public class StorageHandle implements IStorageHandle {
 
     /**
      * initialize the storage helper.
+     * 
      * @param repoSupport a view of all connected repositories.
      * @param blobSupport the BLOB support
      */
@@ -161,6 +162,7 @@ public class StorageHandle implements IStorageHandle {
 
     /**
      * Fix the repository handler of 'obj' and its composition tree to be contained in 'destRepo' repository.
+     * 
      * @param toMove the object to fix
      * @param destRepoHandle the destination repository object.
      */
@@ -182,6 +184,7 @@ public class StorageHandle implements IStorageHandle {
     /**
      * Tells whether appending the given object to the given dependency means
      * moving the object to another IRepository.
+     * 
      * @param dep the dependency where the object will be appended
      * @param appended the appended object
      * @return <code>true</code> if it is a move across repositories else <code>false</code>.
@@ -197,6 +200,7 @@ public class StorageHandle implements IStorageHandle {
 
     /**
      * Tells whether any IRepository should store the given {@link SmDependency}.
+     * 
      * @param dep a dependency
      * @return <code>true</code> if the dependency is stored for sure, else <code>false</code>.
      */
@@ -218,6 +222,7 @@ public class StorageHandle implements IStorageHandle {
     /**
      * Tells whether appending the given object to the given dependency means
      * moving the object.
+     * 
      * @param dep the dependency where the object will be appended
      * @param appended the appended object
      * @return <code>true</code> if it is a move else <code>false</code>.
@@ -251,6 +256,7 @@ public class StorageHandle implements IStorageHandle {
      * To be called only by {@link #moveToRepository(SmObjectImpl, IRepositoryObject)}.
      * <p>
      * Fix the repository handler of 'obj' and its composition tree to be contained in 'destRepo' repository.
+     * 
      * @param toMove the object to fix
      * @param destRepoHandle the destination repository object.
      * @param moved will contain all objects moved by this method. Shield against composition cycles.

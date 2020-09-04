@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -29,6 +29,8 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.modelio.diagram.editor.handlers.MaskHandler;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
+import org.modelio.diagram.elements.common.genericlink.GenericLinkEditPart;
+import org.modelio.diagram.elements.common.genericnode.GenericNodeEditPart;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.metamodel.bpmn.flows.BpmnMessage;
 import org.modelio.metamodel.bpmn.flows.BpmnMessageFlow;
@@ -57,6 +59,9 @@ public class BpmnMaskHandler extends MaskHandler {
                 for (Object selectedObject : ((IStructuredSelection) selection).toList()) {
                     if (selectedObject instanceof GraphicalEditPart && !(selectedObject instanceof AbstractDiagramEditPart)) {
                         GraphicalEditPart editPart = (GraphicalEditPart) selectedObject;
+                        if (editPart instanceof GenericNodeEditPart || editPart instanceof GenericLinkEditPart) {
+                            continue;
+                        }
                         Object model = editPart.getModel();
                         if (model instanceof GmModel) {
                             GmModel gmModel = ((GmModel) model);

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.impact;
 
@@ -45,13 +45,13 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("000072b9-ab70-4ace-abf6-01cac9042a1c")
 public class ImpactProjectImpl extends AbstractProjectImpl implements ImpactProject {
-    @objid ("529eedf4-984b-4d1c-8fc5-c4f3a5fe6d20")
+    @objid ("b6533047-a5fe-4223-943e-886d51127504")
     @Override
     public EList<ImpactModel> getModel() {
         return new SmList<>(this, ((ImpactProjectSmClass)getClassOf()).getModelDep());
     }
 
-    @objid ("844cfa4c-8fd3-4870-8940-2d44f6a5e1f7")
+    @objid ("3f93ec69-ebae-45f5-bf18-4ed5cee16a50")
     @Override
     public <T extends ImpactModel> List<T> getModel(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -66,7 +66,7 @@ public class ImpactProjectImpl extends AbstractProjectImpl implements ImpactProj
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("6c3804f5-da13-4b21-a3f1-826a6bc7875b")
+    @objid ("ee2c0da4-4bcf-4efe-b279-2118d12c3d49")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -74,7 +74,7 @@ public class ImpactProjectImpl extends AbstractProjectImpl implements ImpactProj
         return super.getCompositionOwner();
     }
 
-    @objid ("adc7c520-df1b-4095-8299-da12c9cd24bd")
+    @objid ("4844420c-139e-42e0-85b2-f592e27c46ce")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -84,7 +84,7 @@ public class ImpactProjectImpl extends AbstractProjectImpl implements ImpactProj
         return super.getCompositionRelation();
     }
 
-    @objid ("f7630654-9a12-4b72-902b-9bc03c8e3edf")
+    @objid ("8984234c-641a-450b-b7cc-39312892e3c5")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitImpactProject(this);

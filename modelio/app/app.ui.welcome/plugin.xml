@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+   <extension id="appui.welcome" point="org.eclipse.e4.workbench.model">
+      <fragment uri="e4model/welcome.e4xmi"/>
+   </extension>
+</plugin>

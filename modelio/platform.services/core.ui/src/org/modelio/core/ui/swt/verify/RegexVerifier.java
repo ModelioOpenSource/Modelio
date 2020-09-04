@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ public class RegexVerifier implements ITextVerifier {
 
     /**
      * Build a new instance of RegexValidator.
+     * 
      * @param regex the regular expression to be matched during validation.
      */
     @objid ("d7eead28-9a1c-4037-9797-4868268b54d4")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,26 +47,26 @@ import org.modelio.xmi.plugin.Xmi;
  */
 @objid ("8a07ec2e-d98c-4c20-b70c-be9b3af9d491")
 class ReportDialog extends ModelioDialog {
-    @objid ("b8e2fbc5-1360-4cbe-8df1-987c14f18868")
-    private Image warningImage;
-
-    @objid ("bb03c743-6095-4a38-82bd-269782a8badc")
-    private Image errorImage;
-
-    @objid ("284c3fc6-6d2b-4306-be1e-531acd854129")
-     Table table;
-
-    @objid ("3e0a0154-09b8-4870-ad1e-96b489f3d061")
-    private Image infoImage;
-
-    @objid ("987616fe-82a1-4c6f-8b8d-26b3eebfc641")
-     Text descriptionText;
-
     @objid ("a62b65d3-6c64-4c7e-b84c-3cc733d0824d")
     private ReportModel model;
 
     @objid ("89a54956-dcbb-4cd4-b6d8-b162f5abd7d4")
      IModelioNavigationService navigationService;
+
+    @objid ("4b35c0e3-b802-4907-a0c4-f75735c3aeda")
+    private Image warningImage;
+
+    @objid ("9405ebb9-de58-4e18-8e3f-42fdd61ed4f8")
+    private Image errorImage;
+
+    @objid ("fe4eab92-7654-4879-aee9-de8ecf1d4bde")
+     Table table;
+
+    @objid ("2a9e4d7e-66d3-425e-961c-8f89f5d24588")
+    private Image infoImage;
+
+    @objid ("18c99799-5cf0-42cd-87ea-ba205ca90e37")
+     Text descriptionText;
 
     @objid ("4320b9da-9b24-4f43-a607-4ef8aa345f07")
     public ReportDialog(Shell parentShell, final IModelioNavigationService iModelioNavigationService) {

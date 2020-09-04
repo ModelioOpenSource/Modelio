@@ -3,6 +3,11 @@
 <plugin>
 	<extension point="org.modelio.app.project.conf.page">
 		<confpage
+			label="%InfosTab.label"
+			name="INFOS"
+			page="org.modelio.app.project.conf.dialog.projectinfo.ProjectInfosPage" >
+		</confpage>
+		<confpage
 			label="%WorkModelTab.label"
 			name="WORK_MODEL"
 			page="org.modelio.app.project.conf.dialog.workmodel.WorkModelPage" >
@@ -11,6 +16,16 @@
 			label="%ModuleTab.label"
 			name="MODULES"
 			page="org.modelio.app.project.conf.dialog.modules.ModulesPage" >
+		</confpage>
+		<confpage
+			label="%LibrariesTab.label"
+			name="LIBRARIES"
+			page="org.modelio.app.project.conf.dialog.libraries.LibrariesPage" >
+		</confpage>
+		<confpage
+			label="%UrlsTab.label"
+			name="URLS"
+			page="org.modelio.app.project.conf.dialog.urls.ReferencedUrlsPage" >
 		</confpage>
 	</extension>
 </plugin>

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -45,6 +45,10 @@ public class ExtReferenceResolver implements IExtReferenceResolver {
         
             return resolveReference(clazz, extId);
         } catch (ClassNotFoundException e) {
+            // Old migration case, diagram namespacing changed a long time ago...
+            if (type.startsWith("com.modeliosoft.modelio.diagram")) {
+                return resolveReference(type.replace("com.modeliosoft.modelio.diagram", "org.modelio.diagram"), dbId, extId);
+            }
             throw new PersistenceException(e);
         }
     }

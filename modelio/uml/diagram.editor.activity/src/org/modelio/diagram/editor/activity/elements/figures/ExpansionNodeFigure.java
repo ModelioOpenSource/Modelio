@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class ExpansionNodeFigure extends ShapedFigure {
 
     /**
      * Sets the reference border for this figure and returns the new orientation of the figure.
+     * 
      * @param b the border on which this figure will be "attached".
      * @return the new {@link Orientation} of the figure.
      */

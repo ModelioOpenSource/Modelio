@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class ExmlRepositoryGeometry2 implements IExmlRepositoryGeometry {
      * <p>
      * The answer is based on the file extension.
      * Returns <i>false</i> if it is a {@link IExmlRepositoryGeometry#EXT_LOCAL_EXML ".local.exml"} file.
+     * 
      * @param relativePath a file path relative to the repository root.
      * @return <i>true</i> if it is an EXML file, else <i>false</i>.
      */

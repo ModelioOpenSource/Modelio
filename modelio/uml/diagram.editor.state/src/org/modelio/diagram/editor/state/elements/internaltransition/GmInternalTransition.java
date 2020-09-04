@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -62,6 +62,7 @@ public class GmInternalTransition extends GmModelElementLabel {
 
     /**
      * Creates an internal transition graphic.
+     * 
      * @param diagram The diagram.
      * @param theInternalTransition The represented element, may be null.
      * @param ref The represented element reference, may not be null.

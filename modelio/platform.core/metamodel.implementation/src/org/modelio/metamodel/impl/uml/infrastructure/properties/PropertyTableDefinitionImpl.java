@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
@@ -68,13 +68,13 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         return pDef;
     }
 
-    @objid ("392460fe-94e7-44f1-be54-932a9a59abfc")
+    @objid ("6c69c6fd-4846-4028-b7c5-ffb90f8dd947")
     @Override
     public EList<TypedPropertyTable> getTypedTable() {
         return new SmList<>(this, ((PropertyTableDefinitionSmClass)getClassOf()).getTypedTableDep());
     }
 
-    @objid ("3f11eec1-6f8b-493d-8ad0-cd0a1a25c647")
+    @objid ("1f77a021-1259-4069-a733-5ebf42b7af38")
     @Override
     public <T extends TypedPropertyTable> List<T> getTypedTable(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -89,39 +89,39 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("e8f2704e-3978-4808-aa27-56d93d43ce8c")
+    @objid ("5326e862-1e97-4f3f-bf0d-6ee67acf8355")
     @Override
     public MetaclassReference getOwnerReference() {
         Object obj = getDepVal(((PropertyTableDefinitionSmClass)getClassOf()).getOwnerReferenceDep());
         return (obj instanceof MetaclassReference)? (MetaclassReference)obj : null;
     }
 
-    @objid ("632f04ae-e28c-45d7-9cfc-b51eb03f8acd")
+    @objid ("188f7369-6551-47ec-bb0e-eb6e44cc16ef")
     @Override
     public void setOwnerReference(MetaclassReference value) {
         appendDepVal(((PropertyTableDefinitionSmClass)getClassOf()).getOwnerReferenceDep(), (SmObjectImpl)value);
     }
 
-    @objid ("32cc426b-5f3d-4f43-bc52-a96adb8c148e")
+    @objid ("e40103f6-21d6-4942-86f3-4ee7e9e79bf4")
     @Override
     public Stereotype getOwnerStereotype() {
         Object obj = getDepVal(((PropertyTableDefinitionSmClass)getClassOf()).getOwnerStereotypeDep());
         return (obj instanceof Stereotype)? (Stereotype)obj : null;
     }
 
-    @objid ("26e1ce6a-6a86-4abe-b7a1-45e04b81d655")
+    @objid ("4d661679-f6c3-43a3-9a60-bd9aa3f95feb")
     @Override
     public void setOwnerStereotype(Stereotype value) {
         appendDepVal(((PropertyTableDefinitionSmClass)getClassOf()).getOwnerStereotypeDep(), (SmObjectImpl)value);
     }
 
-    @objid ("b8e1532e-04f8-4b3d-8066-c6f95fed9b69")
+    @objid ("30777145-32b4-41a6-b456-3821347b3f90")
     @Override
     public EList<PropertyDefinition> getOwned() {
         return new SmList<>(this, ((PropertyTableDefinitionSmClass)getClassOf()).getOwnedDep());
     }
 
-    @objid ("90d2621c-5063-4c70-9f19-ce8bd899524a")
+    @objid ("4d099719-4cc9-46da-887a-d2fc5322bb8e")
     @Override
     public <T extends PropertyDefinition> List<T> getOwned(java.lang.Class<T> filterClass) {
         if (filterClass == null) {
@@ -136,7 +136,7 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         return Collections.unmodifiableList(results);
     }
 
-    @objid ("5eb7e7df-5520-4b3c-8248-81cf6b8acabf")
+    @objid ("2edf994c-6513-46fb-9342-425c7ee2e03a")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -152,7 +152,7 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         return super.getCompositionOwner();
     }
 
-    @objid ("c0d8394d-e9e8-4a96-b16c-947f919acf2f")
+    @objid ("dceab729-b69b-41d7-af0d-3ad46acba84c")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -172,7 +172,7 @@ public class PropertyTableDefinitionImpl extends ModelElementImpl implements Pro
         return super.getCompositionRelation();
     }
 
-    @objid ("65ff0ee4-50e6-4447-9f23-3b27f890d35b")
+    @objid ("b6d1573b-88c2-402b-864a-61b1138031c3")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitPropertyTableDefinition(this);

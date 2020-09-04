@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -36,6 +36,7 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 public class DeploymentDiagramDG extends DiagramDG {
     /**
      * Initialize the activity diagram graphic element.
+     * 
      * @param diagramHandle The diagram handle
      * @param node The internal graphic node representing the diagram.
      */

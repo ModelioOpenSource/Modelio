@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,6 +21,7 @@
 package org.modelio.editors.texteditors;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.jface.text.TextViewer;
 import org.modelio.editors.texteditors.input.IDocumentInput;
 
 @objid ("7b502698-2a77-11e2-9fb9-bc305ba4815c")
@@ -30,5 +31,12 @@ public interface IDocumentEditor {
 
     @objid ("c1d84aef-2e5d-11e2-a8ff-bc305ba4815c")
     void setReadonlyMode(boolean readOnly);
+
+    /**
+     * Get the TextViewer that supports this editor. The exact nature of the TextViewer depends on the kind of editor.
+     * @return
+     */
+    @objid ("f917d94f-d4c3-443d-a40e-82e02a9b5eb0")
+    TextViewer getViewer();
 
 }

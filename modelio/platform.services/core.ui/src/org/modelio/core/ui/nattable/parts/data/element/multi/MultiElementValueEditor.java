@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -48,6 +48,7 @@ public class MultiElementValueEditor extends AbstractCellEditor {
 
     /**
      * Build a new editor.
+     * 
      * @param session a model session, needed to look for elements.
      */
     @objid ("1fba6f04-4a81-4268-a9fe-b75ee9f3a7b9")

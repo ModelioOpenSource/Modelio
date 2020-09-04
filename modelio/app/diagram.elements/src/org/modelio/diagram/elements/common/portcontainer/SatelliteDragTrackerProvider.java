@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -43,6 +43,7 @@ public class SatelliteDragTrackerProvider implements IDragTrackerProvider {
 
     /**
      * Constructor.
+     * 
      * @param editPart the EditPart for which DragTracker are to be returned.
      */
     @objid ("7f050681-1dec-11e2-8cad-001ec947c8cc")

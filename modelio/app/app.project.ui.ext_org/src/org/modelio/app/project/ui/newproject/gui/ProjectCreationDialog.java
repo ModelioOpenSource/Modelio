@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -63,6 +63,7 @@ public class ProjectCreationDialog extends ModelioDialog {
     /**
      * Initialize the dialog.
      * @param moduleCatalog
+     * 
      * @param parentShell The parent shell.
      * @param dataModel The dialog data model.
      */
@@ -124,6 +125,7 @@ public class ProjectCreationDialog extends ModelioDialog {
 
     /**
      * Update buttons state.
+     * 
      * @param dataOk ??
      */
     @objid ("0048e540-cc35-1ff2-a7f4-001ec947cd2a")

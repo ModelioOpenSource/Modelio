@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -78,6 +78,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
 
     /**
      * initialize the figure with a child and a rotation angle.
+     * 
      * @param f the contained figure
      * @param angle the rotation angle in counter clockwise degrees.
      */
@@ -100,6 +101,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
 
     /**
      * Get the contained figure.
+     * 
      * @return the contained figure.
      */
     @objid ("ae659e59-00d6-48bc-a9af-3de7e9fc79ab")
@@ -113,6 +115,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
 
     /**
      * Get the orientation angle in counter-clockwise degrees.
+     * 
      * @return the orientation angle in degrees. 0 means horizontal.
      */
     @objid ("ba1fde2d-8ea7-4a89-8f72-bd2ae1d98900")
@@ -144,6 +147,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
      * A positive value indicates a counter-clockwise rotation while a negative value
      * indicates a clockwise rotation.
      * </p>
+     * 
      * @param orientation the orientation in degrees.
      */
     @objid ("9c9f7fcc-e63d-49c8-9a35-f90cb79ee048")
@@ -162,6 +166,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
      * {@link PositionConstants#EAST} is the default horizontal direction,
      * {@link PositionConstants#NORTH} is the default vertical direction.
      * </p>
+     * 
      * @param orientation the label orientation
      */
     @objid ("51a16d0a-0c17-43e9-ad64-afac60677a03")
@@ -293,6 +298,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
 
     /**
      * Called by the layout manager.
+     * 
      * @param w The width hint
      * @param h The height hint
      * @return The minimum size
@@ -320,6 +326,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
 
     /**
      * Called by the layout manager.
+     * 
      * @param wHint The width hint
      * @param hHint The height hint
      * @return The preferred size
@@ -368,6 +375,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
      * <p>
      * The returned dimension may be by <i>reference</i>, and it must not be modified by the caller.
      * A hint value of -1 indicates that there is no constraint in that direction.
+     * 
      * @param wHint a width hint
      * @param hHint a height hint
      * @return The preferred size
@@ -398,7 +406,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
     }
 
     @objid ("ec257de0-b173-4297-99fb-55e8fb5179c7")
-    protected PrecisionRectangle getInnerRectangle() {
+    public PrecisionRectangle getInnerRectangle() {
         if (this.innerRectangle == null) {
             PrecisionRectangle r = new PrecisionRectangle();
             Dimension size = getSize();
@@ -496,6 +504,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
     /**
      * Calculate the max size of a rectangle inside the given rectangle size rotated by the labelum angle .
      * <p>
+     * 
      * @param w rectangle width
      * @param h rectangle height
      * @return the inner rotated rectangle dimension
@@ -517,6 +526,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
      * Get the size of the given rectangle after rotation.
      * <p>
      * The returned dimension is always a copy and may be freely modified.
+     * 
      * @param d the initial size. the size won't be modified.
      * @return the bounds of the rotated dimension
      */
@@ -541,6 +551,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
 
     /**
      * Guess the ideal child width for the given bounds dimensions.
+     * 
      * @param angle the rotation angle in degrees
      * @param boundsWidth the constrained bounds width.
      * @param boundsHeight the constrained bounds height

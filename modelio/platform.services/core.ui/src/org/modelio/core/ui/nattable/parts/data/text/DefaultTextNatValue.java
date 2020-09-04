@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.core.ui.nattable.parts.data.DefaultNatValue;
 public class DefaultTextNatValue extends DefaultNatValue implements ITextNatValue {
     /**
      * Creates a new instance.
+     * 
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
      */
@@ -41,6 +42,7 @@ public class DefaultTextNatValue extends DefaultNatValue implements ITextNatValu
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("67523413-3486-4ba5-a453-2ffc1e6e397e")

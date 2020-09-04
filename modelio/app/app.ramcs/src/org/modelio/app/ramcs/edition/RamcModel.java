@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -57,6 +57,7 @@ public class RamcModel extends ModelComponent {
 
     /**
      * Replace the current contributors.
+     * 
      * @param contributorCandidates the module contributors to the model component packaging.
      */
     @objid ("2ca9927b-cda5-4edf-9835-4e3ad6a9b02d")

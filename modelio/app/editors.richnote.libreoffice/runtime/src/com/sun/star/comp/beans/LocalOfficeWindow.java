@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -65,6 +65,7 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
 
     /**
      * Constructor.
+     * 
      * @param connection The office connection object the window
      * belongs to.
      */
@@ -76,6 +77,7 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
 
     /**
      * Retrieves an AWT component object associated with the OfficeWindow.
+     * 
      * @return The AWT component object associated with the OfficeWindow.
      * @deprecated
      */
@@ -88,6 +90,7 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
 
     /**
      * Retrieves an UNO XWindowPeer object associated with the OfficeWindow.
+     * 
      * @return The UNO XWindowPeer object associated with the OfficeWindow.
      * @deprecated
      */
@@ -256,6 +259,7 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
 
     /**
      * Retrives a platform dependant system window identifier.
+     * 
      * @return The system window identifier.
      */
     @objid ("eecaeef6-39d6-417f-873f-73e669a4c144")
@@ -263,6 +267,7 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
 
     /**
      * Retrives a platform dependant system window type.
+     * 
      * @return The system window type.
      */
     @objid ("f4530b30-89c1-4eca-b47a-18b1684ae846")

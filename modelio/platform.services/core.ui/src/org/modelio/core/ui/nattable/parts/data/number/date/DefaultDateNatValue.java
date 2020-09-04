@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -32,6 +32,7 @@ import org.modelio.core.ui.nattable.parts.data.DefaultNatValue;
 public class DefaultDateNatValue extends DefaultNatValue implements IDateNatValue {
     /**
      * Creates a new instance.
+     * 
      * @param value the wrapped value.
      */
     @objid ("4aa07473-bd53-414c-b6fd-11677ff2c58b")
@@ -41,6 +42,7 @@ public class DefaultDateNatValue extends DefaultNatValue implements IDateNatValu
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("cee72ea3-b28d-4ca4-8d5f-1174efad4d9c")

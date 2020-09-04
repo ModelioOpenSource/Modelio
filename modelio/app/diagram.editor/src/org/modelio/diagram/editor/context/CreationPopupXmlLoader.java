@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,7 +49,7 @@ class CreationPopupXmlLoader {
     private Map<String, List<CreationPopupEntryDescriptor>> popupEntries;
 
     @objid ("9d71eb98-4fed-4f98-b7e4-3ecb77225396")
-    public Map<String, List<CreationPopupEntryDescriptor>> parseCreationPopupEntries(URL url) {
+    public Map<String, List<CreationPopupEntryDescriptor>> parseCreationPopupEntries(final URL url) {
         this.popupEntries = new HashMap<>();
         
         try (InputStream xmlStream = url.openStream()) {
@@ -76,7 +76,7 @@ class CreationPopupXmlLoader {
     }
 
     @objid ("ea3c58cb-72d7-4e0b-9559-1104662ded05")
-    private void parseMenus(Element rootElement) {
+    private void parseMenus(final Element rootElement) {
         // Explore nodes under the root node:
         final NodeList childNodes = rootElement.getChildNodes();
         
@@ -90,7 +90,7 @@ class CreationPopupXmlLoader {
     }
 
     @objid ("ed7e838c-6313-4194-a697-caded32ad654")
-    private void parsePopupNode(Node popupNode) {
+    private void parsePopupNode(final Node popupNode) {
         // Get the metaclass name
         final NamedNodeMap attributes = popupNode.getAttributes();
         String metaclassName = "";
@@ -108,10 +108,6 @@ class CreationPopupXmlLoader {
             }
         }
         
-        // final List<ItemModel> entriesList = new ArrayList<ItemModel>();
-        // this.itemsMetaclassMap.put(metaclassName + stereotypeName,
-        // entriesList);
-        
         // Explore items and menus
         final NodeList menuNodes = popupNode.getChildNodes();
         final int nNodes = menuNodes.getLength();
@@ -119,38 +115,27 @@ class CreationPopupXmlLoader {
             final Node node = menuNodes.item(i);
         
             if (node.getNodeName().equals("command")) {
-                CreationPopupEntryDescriptor entryDescriptor = parseCommandNode(node);
+                final CreationPopupEntryDescriptor entryDescriptor = parseCommandNode(node);
                 entryDescriptor.sourceMetaclass = metaclassName;
                 entryDescriptor.sourceStereotype = stereotypeName;
         
                 registerPopupEntry(metaclassName, entryDescriptor);
-        
+            } else if (node.getNodeName().equals("separator")) {
+                // Use an empty popup entry for separators
+                registerPopupEntry(metaclassName, new CreationPopupEntryDescriptor());
             }
-            // if (node.getNodeName().equals("item")) {
-            // final CommandModel commandModel = parseItemNode(node);
-            // if (commandModel != null) {
-            // entriesList.add(commandModel);
-            // }
-            // } else if (node.getNodeName().equals("menu")) {
-            // final MenuModel menuModel = parseMenuNode(node);
-            // if (menuModel != null) {
-            // entriesList.add(menuModel);
-            // }
-            // FIXME separators
-            // } else if (node.getNodeName().equals("separator")) {
-            // entriesList.add(parseSeparatorNode(node));
-            // }
         
         }
     }
 
     /**
      * Add a popup entry to display on a specific metaclass.
+     * 
      * @param sourceMetaclass The metaclass to display the popup for.
      * @param item the entry to add.
      */
     @objid ("e42ce501-75f8-44ae-bd3a-500b71c69602")
-    private void registerPopupEntry(String sourceMetaclass, CreationPopupEntryDescriptor item) {
+    private void registerPopupEntry(final String sourceMetaclass, final CreationPopupEntryDescriptor item) {
         if (!this.popupEntries.containsKey(sourceMetaclass)) {
             this.popupEntries.put(sourceMetaclass, new ArrayList<CreationPopupEntryDescriptor>());
         }
@@ -159,7 +144,7 @@ class CreationPopupXmlLoader {
     }
 
     @objid ("2bb01469-c094-470a-a3b3-0f575e69e44f")
-    private CreationPopupEntryDescriptor parseCommandNode(Node itemNode) {
+    private CreationPopupEntryDescriptor parseCommandNode(final Node itemNode) {
         final CreationPopupEntryDescriptor entryDescriptor = new CreationPopupEntryDescriptor();
         
         final NamedNodeMap attributes = itemNode.getAttributes();
@@ -188,7 +173,7 @@ class CreationPopupXmlLoader {
     }
 
     @objid ("f532f5d6-6cf5-4523-951d-10187adfd8d7")
-    private void parseParameterNode(Node parameterNode, CreationPopupEntryDescriptor entryDescriptor) {
+    private void parseParameterNode(final Node parameterNode, final CreationPopupEntryDescriptor entryDescriptor) {
         final NamedNodeMap attributes = parameterNode.getAttributes();
         String name = "";
         String value = "";

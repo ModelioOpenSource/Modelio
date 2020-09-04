@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -185,6 +185,7 @@ class SymbolContributionFactory {
 
     /**
      * Escape mnemonics from the given string
+     * 
      * @param s a string
      * @return a string where all '&' are escaped to '&&'.
      */
@@ -238,6 +239,7 @@ class SymbolContributionFactory {
 
     /**
      * Command that extract a style from modified style keys
+     * 
      * @param allLocals if true, use all modified style keys, if false use only selected style keys.
      */
     @objid ("74c042c5-7415-4b78-8ad0-f36038ed1a14")

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class ExmlRepositoryGeometry1 implements IExmlRepositoryGeometry {
 
     /**
      * Get the EXML file local path of an element reference relative to the project space.
+     * 
      * @param ref an element reference.
      * @return the EXML file path relative to the project space directory.
      */
@@ -52,6 +53,7 @@ public class ExmlRepositoryGeometry1 implements IExmlRepositoryGeometry {
 
     /**
      * Get the element reference representing the given file.
+     * 
      * @param exmlFile an EXML file
      * @return the represented element reference.
      */
@@ -69,6 +71,7 @@ public class ExmlRepositoryGeometry1 implements IExmlRepositoryGeometry {
      * <p>
      * The answer is based on the file extension.
      * Returns <i>false</i> if it is a {@link IExmlRepositoryGeometry#EXT_LOCAL_EXML ".local.exml"} file.
+     * 
      * @param relativePath a file
      * @return <i>true</i> if it is an EXML file, else <i>false</i>.
      */
@@ -135,6 +138,7 @@ public class ExmlRepositoryGeometry1 implements IExmlRepositoryGeometry {
 
     /**
      * Get the directory name where the metaclass instances are stored.
+     * 
      * @param cls a metaclass
      * @return its directory name.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -112,6 +112,7 @@ public class MetamodelWriter {
 
     /**
      * Produce a {@link MetamodelDescriptor} from a {@link MMetamodel}.
+     * 
      * @param metamodel the metamodel to write
      * @return the metamodel descriptor.
      */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -97,6 +97,7 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Create a serializable path model from the given connection creation request.
+     * 
      * @param req a connection creation request.
      * @param gmTargetLink the link to rake to.
      * @return A serializable path model.
@@ -266,6 +267,7 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Get the anchor model for the given anchor.
+     * 
      * @param editpart a node edit part.
      * @param anchor a draw2d anchor
      * @return the anchor model, may be <code>null</code>

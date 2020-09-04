@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.uml.infrastructure;
 
@@ -42,13 +42,13 @@ public interface MetaclassReference extends Element {
     /**
      * The metaclass simple name.
      */
-    @objid ("feee3bb2-bf20-4cf6-931d-4c53135d412f")
+    @objid ("07ca4698-4b04-40a6-8a59-1d8a15a03e06")
     public static final String MNAME = "MetaclassReference";
 
     /**
      * The metaclass qualified name.
      */
-    @objid ("698f65dc-3507-49b9-b255-e17537b50772")
+    @objid ("bc8d9d22-68be-485f-bd72-85617d365e30")
     public static final String MQNAME = "Infrastructure.MetaclassReference";
 
     /**
@@ -57,7 +57,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("f3f8fb41-47e8-4136-9889-fc34aac3d3f9")
+    @objid ("94600e31-6bd7-4df3-8c64-eb42dbd27585")
     String getReferencedClassName();
 
     /**
@@ -66,7 +66,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("59808615-06b0-48b7-a027-38d78fc10bd5")
+    @objid ("e55c7596-6d13-44b8-832c-a2cd79640d0a")
     void setReferencedClassName(String value);
 
     /**
@@ -75,7 +75,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("818dee09-2959-443b-9223-8a8a24ff4879")
+    @objid ("0542363a-ada9-4709-b3c5-17c51cd0a09e")
     PropertyTableDefinition getDefinedTable();
 
     /**
@@ -84,7 +84,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("e6f7930d-e513-40f5-a7a6-044fb7df6be5")
+    @objid ("d50b240e-7f50-4f14-8470-c0a15d79d034")
     void setDefinedTable(PropertyTableDefinition value);
 
     /**
@@ -93,7 +93,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("4c85b6a2-3431-4b71-8fba-640038bf6503")
+    @objid ("c8de6707-ee53-4bde-bda1-f3303ad95370")
     EList<NoteType> getDefinedNoteType();
 
     /**
@@ -102,7 +102,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("c0f45f25-c014-4565-b8f7-097143d498b4")
+    @objid ("3426ce0b-3b71-4507-b8e8-57683c05dcd6")
     <T extends NoteType> List<T> getDefinedNoteType(java.lang.Class<T> filterClass);
 
     /**
@@ -111,7 +111,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("5292c322-23d0-4a99-9d8c-234433b5b53c")
+    @objid ("34d80486-6da4-40c5-a434-210e9e3a3225")
     EList<ResourceType> getDefinedResourceType();
 
     /**
@@ -120,7 +120,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("be13c135-d5bf-4f14-9794-2c2fbdc9e900")
+    @objid ("a5d521aa-5f78-405d-975e-5e6a5278cbd0")
     <T extends ResourceType> List<T> getDefinedResourceType(java.lang.Class<T> filterClass);
 
     /**
@@ -129,7 +129,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("d7af9849-7951-4020-8339-9057fcec6b89")
+    @objid ("b087a16e-62d4-4979-871e-8dde9875b3df")
     Profile getOwnerProfile();
 
     /**
@@ -138,7 +138,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i>null</i>
      */
-    @objid ("6680b948-597e-4df9-b9a2-de8dc499acb3")
+    @objid ("ad7fca5a-0ed0-4031-8120-01c6706b69cc")
     void setOwnerProfile(Profile value);
 
     /**
@@ -147,7 +147,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("753c2248-3bab-43d5-85ef-45491e275ea2")
+    @objid ("9f6e3bd7-5f14-4bca-af52-cd9d46f14721")
     EList<TagType> getDefinedTagType();
 
     /**
@@ -156,7 +156,7 @@ public interface MetaclassReference extends Element {
      * Metamodel description:
      * <i></i>
      */
-    @objid ("a7278f67-4bb6-43b3-b137-cb7f649fd404")
+    @objid ("710a4fe8-32f1-4ed3-8615-46b6526206c5")
     <T extends TagType> List<T> getDefinedTagType(java.lang.Class<T> filterClass);
 
 }

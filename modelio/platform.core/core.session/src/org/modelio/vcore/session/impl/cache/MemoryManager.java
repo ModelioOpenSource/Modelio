@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -82,6 +82,7 @@ public class MemoryManager implements IMemoryManager, Runnable {
 
     /**
      * Get the memory watcher instance.
+     * 
      * @return the memory watcher.
      */
     @objid ("50d9dd95-51b3-4f18-9b03-37d5f236d667")
@@ -168,6 +169,7 @@ public class MemoryManager implements IMemoryManager, Runnable {
 
     /**
      * Add a managed data cache.
+     * 
      * @param dataCache a data cache.
      */
     @objid ("57b5a26f-c1d1-4692-9c85-2b36339343cf")
@@ -178,6 +180,7 @@ public class MemoryManager implements IMemoryManager, Runnable {
 
     /**
      * Remove a managed cache.
+     * 
      * @param dataCache a data cache.
      */
     @objid ("e3999d4b-9483-47f4-b0ed-c0a49a9e6578")
@@ -222,6 +225,7 @@ public class MemoryManager implements IMemoryManager, Runnable {
 
     /**
      * Swaps and free entries in the given data cache.
+     * 
      * @param cache an object data cache.
      * @param toRemoveIdx the access "time" below which an object must be freed.
      * @return the number of swapped objects.
@@ -275,6 +279,7 @@ public class MemoryManager implements IMemoryManager, Runnable {
 
     /**
      * Enable or disable the swap.
+     * 
      * @param enable <code>true</code> to anable swapping, <code>false</code> to disable it.
      */
     @objid ("ef3f463f-9d04-4ad7-87f4-2c012a05b041")

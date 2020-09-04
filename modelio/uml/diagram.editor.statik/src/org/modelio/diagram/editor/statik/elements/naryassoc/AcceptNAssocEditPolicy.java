@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -41,6 +41,7 @@ public class AcceptNAssocEditPolicy extends MultiPointCreationEditPolicy {
      * C'tor.
      * @see MultiPointCreationEditPolicy#MultiPointCreationEditPolicy(boolean) for details on the effect of isOpaque
      * parameter.
+     * 
      * @param isOpaque whether this policy is opaque or not.
      */
     @objid ("35beda9b-55b7-11e2-877f-002564c97630")

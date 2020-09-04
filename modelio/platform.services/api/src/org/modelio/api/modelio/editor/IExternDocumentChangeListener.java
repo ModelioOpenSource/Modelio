@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ public interface IExternDocumentChangeListener {
      * Called when the original content or the model object has been externally deleted.
      * <p>
      * The edited file is still here and won't be touched.
+     * 
      * @param model the deleted model object
      */
     @objid ("1909fa58-5ca4-463f-acc9-dfa3ab6bc3a3")
@@ -51,6 +52,7 @@ public interface IExternDocumentChangeListener {
      * <li> ask the user for what to do,
      * <li> ...
      * </ul>
+     * 
      * @param model the deleted model object
      */
     @objid ("51b2df11-f620-4dbb-ad22-13efa5c905d3")

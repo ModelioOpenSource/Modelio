@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -49,6 +49,7 @@ public class GmExceptionHandlerHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor
+     * 
      * @param diagram the diagram
      * @param relatedRef related element reference, must not be <code>null</code>.
      */

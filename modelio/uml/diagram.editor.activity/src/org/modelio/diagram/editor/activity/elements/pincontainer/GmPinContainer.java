@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public abstract class GmPinContainer extends GmPortContainer {
 
     /**
      * Constructor.
+     * 
      * @param diagram The diagram in which this port container will be unmasked.
      * @param relatedRef a reference to the element this GmModel is related to.
      */

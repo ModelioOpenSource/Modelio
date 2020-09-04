@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -72,6 +72,7 @@ public class ClassifierInternalStructureKeys extends StaticAbstractStyleKeyProvi
 
     /**
      * Instantiates a Classifier attributes group style key provider.
+     * 
      * @param prefix a prefix for style key names.
      * It is advised to use the upper case metaclass name as prefix.
      */

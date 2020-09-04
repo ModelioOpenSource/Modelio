@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,6 +69,7 @@ public class GmDiagramHolderLink extends GmLink {
 
     /**
      * Creates a new GmNoteLink
+     * 
      * @param diagram The diagram containing the link.
      * @param relatedRef a reference to the related dependency.
      * @param el the related dependency
@@ -117,6 +118,7 @@ public class GmDiagramHolderLink extends GmLink {
 
     /**
      * Updates the proxy style to point to the given node style.
+     * 
      * @param ref the reference node, may be null.
      */
     @objid ("81413ade-1dec-11e2-8cad-001ec947c8cc")

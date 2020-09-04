@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -169,6 +169,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
 
     /**
      * Get the zoom manager for the embedded diagram.
+     * 
      * @return the local zoom manager.
      */
     @objid ("e5c93b60-67c1-4f11-a0f3-46686b3a99a9")
@@ -187,6 +188,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
 
     /**
      * Get the root edit part of the parent EditPart.
+     * 
      * @return the owner RootEditPart.
      */
     @objid ("2654b85b-27cf-441c-8d34-b7520aca414e")
@@ -206,6 +208,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
 
     /**
      * Get the zoom manager for the embedded diagram.
+     * 
      * @return the local zoom manager.
      */
     @objid ("ebeb7434-8418-48a6-b1eb-8844c6850bec")
@@ -311,6 +314,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
 
     /**
      * Creates a layered pane and the layers that should be scaled.
+     * 
      * @return a new freeform layered pane containing the scalable layers
      */
     @objid ("c790bb2d-745e-488d-a220-28ed7106edb0")
@@ -351,6 +355,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
 
     /**
      * Responsible of creating a {@link ZoomManager} to be used by this {@link ScalableRootEditPart}.
+     * 
      * @return A new {@link ZoomManager} bound to the given {@link ScalableFigure} and {@link Viewport}.
      * @since 3.10
      */

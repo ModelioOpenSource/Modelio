@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -33,6 +33,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class NamespaceSymbolProvider {
     /**
      * Compute a fully qualified name.
+     * 
      * @param c a namespace
      * @param withVisibility true to show visibility.
      * @return the computed symbol.
@@ -56,6 +57,7 @@ public class NamespaceSymbolProvider {
 
     /**
      * Compute a qualified name.
+     * 
      * @param c a namespace
      * @param withVisibility true to show visibility.
      * @return the computed symbol.
@@ -71,6 +73,7 @@ public class NamespaceSymbolProvider {
 
     /**
      * Compute a simple name.
+     * 
      * @param c a namespace
      * @param withVisibility true to show visibility.
      * @return the computed symbol.
@@ -102,6 +105,7 @@ public class NamespaceSymbolProvider {
 
     /**
      * Tells whether the given element is the root package a the project.
+     * 
      * @param el the element to test
      * @return true if the given element is the root package a the project, else false.
      */

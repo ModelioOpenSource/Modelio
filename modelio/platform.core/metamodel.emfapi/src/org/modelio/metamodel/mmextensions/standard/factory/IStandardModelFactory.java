@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -185,6 +185,8 @@ import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.informationFlow.InformationItem;
 import org.modelio.metamodel.uml.infrastructure.Abstraction;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
+import org.modelio.metamodel.uml.infrastructure.ExternElement;
+import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.Substitution;
@@ -366,6 +368,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * 
      * This method create a binary aggregation between two classifiers and give a name to the destination role. The created
      * aggregation has a navigable role.
+     * 
      * @param source the source Classifier of the aggregation.
      * @param destination the destination Classifier of the aggregation.
      * @param destinationRoleName the Name of the destination role.
@@ -376,6 +379,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates a new {@link Artifact}.
+     * 
      * @return a new {@link Artifact}.
      */
     @objid ("52df4bf7-4f56-42a0-9edb-04b53ca87b13")
@@ -403,6 +407,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create an new {@link Association} without any {@link AssociationEnd role}.
+     * 
      * @return a new Association.
      */
     @objid ("4b4b0d9d-057a-4110-b35b-f7fa8d40b5fd")
@@ -413,6 +418,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * 
      * This method create a binary association between two classifiers and give a name to the destination role. The created
      * association has a navigable role.
+     * 
      * @param source the source Classifier of the Association.
      * @param destination the destination Classifier of the Association.
      * @param destinationRoleName the Name of the destination role.
@@ -423,6 +429,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create an new association role.
+     * 
      * @return a new {@link AssociationEnd}.
      */
     @objid ("fef657f1-b890-4669-83be-b221392845f5")
@@ -430,6 +437,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates an new {@link Attribute}
+     * 
      * @return a new attribute.
      */
     @objid ("5b344e17-f4c7-430e-8bce-25596c4c7445")
@@ -903,6 +911,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates an empty, unnamed {@link Class UML class}.
+     * 
      * @return a new Class.
      */
     @objid ("2cf6bb7d-ff45-4cd7-94e5-39392096c1d4")
@@ -930,6 +939,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create a {@link ClassAssociation}
+     * 
      * @return a Class association.
      */
     @objid ("7d4b1edf-e39e-4381-885f-088180cf8622")
@@ -937,6 +947,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create a Class Diagram.
+     * 
      * @return a Class diagram
      */
     @objid ("c4a87ecb-90d9-4ea0-951b-fa51b31194ca")
@@ -944,6 +955,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create a Class Diagram.
+     * 
      * @param name the name of the Class diagram to be created.
      * @param contextElement the element representing the Object Diagram 'background' for element creation in the diagram. null is not allowed.
      * @param stereotype the Stereotype that will be referred by the diagram.
@@ -954,6 +966,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates a {@link ConditionalNode} {@link Clause}.
+     * 
      * @return a new {@link Clause}.
      */
     @objid ("9025c368-4c1b-4977-a10d-a4283a9dadbf")
@@ -1000,6 +1013,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * Create a Communication Diagram.
      * 
      * The returned object is a CommunicationDiagram stereotyped <<communication>> named by 'name'
+     * 
      * @param name the name of the Communication diagram to be created.
      * @param contextElement the element representing the Object Diagram 'background' for element creation in the diagram. null is not allowed.
      * @return An CommunicationDiagram representing the diagram in the Model.
@@ -1009,6 +1023,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create a Communication Diagram.
+     * 
      * @param name the name of the Communication diagram to be created.
      * @param contextElement the element representing the Object Diagram 'background' for element creation in the diagram. null is not allowed.
      * @param stereotype the Stereotype that will be referred by the diagram.
@@ -1063,6 +1078,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create an empty Component realization link.
+     * 
      * @return a ComponentRealization.
      */
     @objid ("1ac0bdc7-00a1-4f1c-ad0b-2c433bbc6efc")
@@ -1072,6 +1088,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * Create a {@link ComponentRealization} from a {@link Classifier} to a {@link Component} realizing the Component.
      * <p>
      * Note : a ComponentRelaization is owned by the target {@link Component}.
+     * 
      * @param source the origin of the ComponentRealization.
      * @param destination the destination of the ComponentRealization
      * @return An ComponentRealization representing the ComponentRealization in the Model.
@@ -1087,6 +1104,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create a CompositeStructure Diagram.
+     * 
      * @param name the name of the CompositeStructure diagram to be created.
      * @param contextElement the element representing the CompositeStructure Diagram 'background' for element creation in the diagram. null is
      * not allowed.
@@ -1101,6 +1119,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * 
      * This method create a binary composition between two classifiers and give a name to the destination role. The created
      * composition has a navigable role.
+     * 
      * @param source the source Classifier of the composition.
      * @param destination the destination Classifier of the composition.
      * @param destinationRoleName the Name of the destination role.
@@ -1123,6 +1142,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates a defined {@link Connector}.
+     * 
      * @param source the source {@link BindableInstance part}
      * @param destination the destination {@link BindableInstance part}
      * @param destinationRoleName the target connector role name.
@@ -1169,6 +1189,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates a new {@link DataType data type}
+     * 
      * @return a new {@link DataType}.
      */
     @objid ("745ed4d4-0838-4c23-97e3-b6c8f297cc69")
@@ -1176,6 +1197,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates a new {@link DataType data type}
+     * 
      * @param name the name of the DataType to create.
      * @param owner the NameSpace that will contain the DataType.
      * @return An DataType representing the DataType in the Model.
@@ -1185,6 +1207,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates a new {@link DataType data type}
+     * 
      * @param name the name of the DataType to create.
      * @param owner the NameSpace that will contain the DataType.
      * @param stereotype the stereotype that will extend the DataType.
@@ -1210,6 +1233,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates a new {@link DeploymentDiagram deployment diagram}.
+     * 
      * @return a new {@link DeploymentDiagram}.
      */
     @objid ("e7489d79-611e-4e95-bce3-27a2c277c4a1")
@@ -1219,6 +1243,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * Create a Deployment Diagram.
      * 
      * The returned object is a DeploymentDiagram stereotyped <<deployment>> named by 'name'
+     * 
      * @param name the name of the Deployment diagram to be created.
      * @param contextElement the element representing the Deployment Diagram 'background' for element creation in the diagram. null is not
      * allowed.
@@ -1229,6 +1254,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create a Deployment Diagram.
+     * 
      * @param name the name of the Deployment diagram to be created.
      * @param contextElement the element representing the Deployment Diagram 'background' for element creation in the diagram. null is not
      * allowed.
@@ -1374,6 +1400,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates an "extends" stereotyped {@link UseCaseDependency}.
+     * 
      * @param source the origin of the UseCaseDependency
      * @param destination the destination of the UseCaseDependency
      * @return An UseCaseDependency representing the UseCaseDependency in the Model.
@@ -1384,6 +1411,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates a use case extension point.
+     * 
      * @return a new {@link ExtensionPoint}.
      */
     @objid ("75e6cbc7-67d3-4c45-8f6e-55a2700fe8ec")
@@ -1434,6 +1462,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates an inheritance link.
+     * 
      * @return a new {@link Generalization}.
      */
     @objid ("8498f9f4-33bc-4e63-ba3c-cc6c7c871fca")
@@ -1441,6 +1470,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates an inheritance link.
+     * 
      * @param source the child element of the Generalization
      * @param destination the parent element of the Generalization
      * @return An Generalization representing the Generalization in the Model.
@@ -1450,6 +1480,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates an {@link Operation operation} {@link Parameter}.
+     * 
      * @param name the name of the Parameter to create.
      * @param type the type of the Parameter to create.
      * @param owner the Operation that will contain the Parameter.
@@ -1460,6 +1491,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates an {@link Operation operation} {@link Parameter}.
+     * 
      * @param name the name of the Parameter to create.
      * @param type the type of the Parameter to create.
      * @param owner the Operation that will contain the Parameter.
@@ -1652,6 +1684,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates an {@link Link instance link}.
+     * 
      * @param source the source instance
      * @param destination the target instance
      * @param destinationRoleName the name of the role towards the target.
@@ -1680,6 +1713,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates a new {@link Artifact artifact} {@link Manifestation}.
+     * 
      * @return a new {@link Manifestation}.
      */
     @objid ("11f6fd20-9e55-4684-8b3a-caa70acb0659")
@@ -1730,6 +1764,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * Create a nary association.
      * 
      * This method create a nary association between classifiers. The created association has no navigable role.
+     * 
      * @param ends the Classifiers linked by the nary association.
      * @return A NaryAssociation representing the NaryAssociation in the Model.
      */
@@ -1752,6 +1787,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * Create a nary connector.
      * 
      * This method create a nary connector between bindable instances.
+     * 
      * @param ends the BindableInstances bound by the NaryConnector.
      * @return A NaryConnector representing the NaryConnector in the Model.
      */
@@ -1774,6 +1810,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * Create a nary link.
      * 
      * This method create a nary link between instances.
+     * 
      * @param ends the Instances bound by the NaryLink.
      * @return A NaryLink representing the NaryLink in the Model.
      */
@@ -1802,6 +1839,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * Create an Object Diagram.
      * 
      * The returned object is an ObjectDiagram stereotyped <<object>> named by 'name'
+     * 
      * @param name the name of the Object diagram to be created.
      * @param contextElement the element representing the Object Diagram 'background' for element creation in the diagram. null is not allowed.
      * @return An ObjectDiagram representing the diagram in the Model.
@@ -1811,6 +1849,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create an Object Diagram.
+     * 
      * @param name the name of the Object diagram to be created.
      * @param contextElement the element representing the Object Diagram 'background' for element creation in the diagram. null is not allowed.
      * @param stereotype the Stereotype that will be referred by the diagram.
@@ -1871,6 +1910,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates an {@link Package UML package}.
+     * 
      * @return a new {@link Package}.
      */
     @objid ("82aba8cf-365a-46d3-937a-c2ceae9ba205")
@@ -1878,6 +1918,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates an {@link Package UML package}.
+     * 
      * @param name the name of the Package to create.
      * @param owner the NameSpace that will contain the Package.
      * @return An Package representing the Package in the Model.
@@ -1887,6 +1928,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates an {@link Package UML package}.
+     * 
      * @param name the name of the Package to create.
      * @param owner the NameSpace that will contain the Package.
      * @param stereotype the Stereotype will extend the Package.
@@ -1969,6 +2011,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates a {@link Project}.
+     * 
      * @param repository the repository where the model object will be stored.
      * @return a new {@link Project}.
      */
@@ -2045,6 +2088,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Creates a new.
+     * 
      * @return a new {@link SequenceDiagram}.
      */
     @objid ("05d3eccf-fb39-46c7-b8fb-5c7d1825bf90")
@@ -2054,6 +2098,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * Create a {@linkplain SequenceDiagram sequence diagram}.
      * 
      * The returned object is a SequenceDiagram named by 'name'.
+     * 
      * @param name the name of the SequenceDiagram to be created.
      * @param contextElement the element representing the Static Diagram 'background' for element creation in the diagram. null is not allowed.
      * @return An SequenceDiagram representing the diagram in the Model.
@@ -2106,6 +2151,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create a StateMachine Diagram.
+     * 
      * @param name the name of the StateMachine diagram to be created.
      * @param contextElement the element representing the StateMachine Diagram 'background' for element creation in the diagram. null is not
      * allowed.
@@ -2237,6 +2283,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      * Create a UseCase Diagram.
      * 
      * The returned object is a UseCaseDiagram stereotyped &lt;&lt;usecase>> named by 'name'
+     * 
      * @param diagramName the name of the UseCase diagram to be created.
      * @param contextElement the element representing the UseCase Diagram 'background' for element creation in the diagram. null is not
      * allowed.
@@ -2247,6 +2294,7 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
 
     /**
      * Create a UseCase Diagram.
+     * 
      * @param name the name of the UseCase diagram to be created.
      * @param contextElement the element representing the UseCase Diagram 'background' for element creation in the diagram. null is not
      * allowed.
@@ -2261,5 +2309,45 @@ public interface IStandardModelFactory extends IInfrastructureModelFactory {
      */
     @objid ("9fa1f464-cabc-413c-b8c7-0fd70d298092")
     ValuePin createValuePin();
+
+    /**
+     * Creates an empty, unnamed {@link ExternElement UML class}.
+     * 
+     * @return a new Class.
+     */
+    @objid ("5648f64b-d273-422f-8dd3-d42589b327fa")
+    ExternElement createExternElement();
+
+    /**
+     * @param name the name of the ExternElement to create.
+     * @param owner the MethodologicalLink that will contain the ExternElement.
+     * @param stereotype the Stereotype to refer on the ExternElement.
+     * @return An ExternElement representing the ExternElement in the Model.
+     */
+    @objid ("68e0fe2b-9e7c-4f20-99f1-f4a4e1b05b7b")
+    ExternElement createExternElement(String name, MethodologicalLink owner, Stereotype stereotype);
+
+    @objid ("52cf4627-7351-43a1-bbc0-7ede234a4391")
+    ExternElement createExternElement(String name, MethodologicalLink owner, String moduleName, String stereotypeName);
+
+    /**
+     * Creates {@link MethodologicalLink}.
+     * 
+     * @return a new Class.
+     */
+    @objid ("0755764b-4d8c-4cf1-ae1e-3cb1883e1fa8")
+    MethodologicalLink createMethodologicalLink();
+
+    /**
+     * @param source the origin of the MethodologicalLink.
+     * @param destination the destination of the MethodologicalLink.
+     * @param stereotype the Stereotype that extends the MethodologicalLink.
+     * @return An MethodologicalLink representing the MethodologicalLink in the Model.
+     */
+    @objid ("0392dcaa-4340-4aad-bd36-268301692e01")
+    MethodologicalLink createMethodologicalLink(ModelElement source, ModelElement destination, Stereotype stereotype);
+
+    @objid ("935759a9-18cd-4a35-b0e1-57b911dd8891")
+    MethodologicalLink createMethodologicalLink(ModelElement source, ModelElement destination, String moduleName, String stereotypeName);
 
 }

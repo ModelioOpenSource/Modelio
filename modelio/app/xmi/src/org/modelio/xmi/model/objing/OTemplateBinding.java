@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -42,6 +42,7 @@ public class OTemplateBinding extends OElement implements IOElement {
 
     /**
      * constructor
+     * 
      * @param param : the exported Modelio TemplateBinding
      */
     @objid ("367bd5bd-c0a5-4d3a-9bbc-60f9f996f743")
@@ -103,6 +104,7 @@ public class OTemplateBinding extends OElement implements IOElement {
                     String message = Xmi.I18N.getMessage("logFile.warning.export.unsupportedRelation.wrongEcoreType",
                                                         "instanciedTemplate", objElt.getName(), " TemplateBinding",  "TemplateableElement");
                     GenerationProperties.getInstance().addWarning(message, objElt);
+                    Xmi.LOG.error(e);
                 }
                
             }

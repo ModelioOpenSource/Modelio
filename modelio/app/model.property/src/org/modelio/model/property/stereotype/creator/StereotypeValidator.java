@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -52,6 +52,7 @@ public class StereotypeValidator implements ModifyListener {
 
     /**
      * Instantiates a new stereotype validator for this dialog and data model.
+     * 
      * @param dialog the dialog containing the text to color red or green, and the button to enable/disable.
      * @param dataModel the data model of the dialog, to save the infos into.
      * @param mmServices model services
@@ -93,6 +94,7 @@ public class StereotypeValidator implements ModifyListener {
 
     /**
      * @param stereotypeMetaclass
+     * 
      * @param stereotypeName @return
      */
     @objid ("6ca03d00-d66a-4ba6-950e-47dc079b5c0c")

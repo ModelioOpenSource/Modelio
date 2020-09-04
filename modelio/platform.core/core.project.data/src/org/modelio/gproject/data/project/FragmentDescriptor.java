@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -116,6 +116,7 @@ public class FragmentDescriptor implements Serializable {
 
     /**
      * Set the fragment properties.
+     * 
      * @param properties the fragment properties.
      */
     @objid ("f47b4b68-aa5a-11e1-8392-001ec947ccaf")
@@ -139,6 +140,7 @@ public class FragmentDescriptor implements Serializable {
 
     /**
      * Copy constructor
+     * 
      * @param fd the descriptor to copy.
      */
     @objid ("6b4a75e3-115c-11e2-8a4f-001ec947ccaf")
@@ -164,6 +166,7 @@ public class FragmentDescriptor implements Serializable {
      * Get the definition scope.
      * <p>
      * The fragment may be defined locally or on a server.
+     * 
      * @return the definition scope.
      */
     @objid ("630dc62c-3004-11e2-8f81-001ec947ccaf")
@@ -173,6 +176,7 @@ public class FragmentDescriptor implements Serializable {
 
     /**
      * Set the definition scope.
+     * 
      * @param scope the definition scope.
      */
     @objid ("630dc631-3004-11e2-8f81-001ec947ccaf")
@@ -183,6 +187,7 @@ public class FragmentDescriptor implements Serializable {
     /**
      * Tells whether this descriptor is a complete fragment descriptor or only
      * a reference to a fragment with local level properties.
+     * 
      * @return <code>true</code> if the descriptor is complete enough to instantiate a fragment.
      */
     @objid ("0460ce59-3019-11e2-8f81-001ec947ccaf")
@@ -252,6 +257,7 @@ public class FragmentDescriptor implements Serializable {
 
     /**
      * Get the authentication data descriptor.
+     * 
      * @return the authentication data descriptor.
      */
     @objid ("00238e3d-503a-4efa-b1e0-f5349c670cc4")
@@ -261,6 +267,7 @@ public class FragmentDescriptor implements Serializable {
 
     /**
      * set the authentication descriptor.
+     * 
      * @param auth the authentication descriptor
      */
     @objid ("75dd71ac-5ac1-4463-920e-9371a68a63ba")

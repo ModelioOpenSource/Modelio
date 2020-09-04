@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -21,28 +21,15 @@
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException;
-import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.metamodel.uml.statik.Node;
-import org.modelio.xmi.plugin.Xmi;
-import org.modelio.xmi.reverse.ReverseProperties;
-import org.modelio.xmi.util.IModelerModuleStereotypes;
-import org.modelio.xmi.util.XMIProperties;
+import org.modelio.module.modelermodule.api.xmi.standard.node.UML2ExecutionEnvironment;
 
 @objid ("5d6b6e99-e4d0-4289-a0b7-4c05cc54872b")
 public class EExecutionEnvironment extends ENode {
     @objid ("42203a0f-9cd1-4c7b-8e57-43730f823695")
     @Override
     public Element createObjingElt() {
-        Node result = ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createNode();
-        
-        try {
-            result.getExtension().add(ReverseProperties.getInstance().getMModelServices().getStereotype(XMIProperties.modelerModuleName, IModelerModuleStereotypes.UML2EXECUTIONENVIRONMENT, result.getMClass()));
-        } catch (ElementNotUniqueException e) {
-            Xmi.LOG.error(e);
-        }
-        return result;
+        return UML2ExecutionEnvironment.create().getElement();
     }
 
     @objid ("5cf4351b-ef8a-4aec-a884-01e1cd616533")

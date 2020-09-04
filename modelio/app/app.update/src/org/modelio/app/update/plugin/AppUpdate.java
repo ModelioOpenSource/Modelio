@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,7 +51,7 @@ public class AppUpdate implements BundleActivator {
         AppUpdate.context = bundleContext;
         ServiceReference<ExtendedLogService> ref = bundleContext.getServiceReference(ExtendedLogService.class);
         ExtendedLogService service = bundleContext.getService(ref);
-        AppUpdate.LOG = new PluginLogger(service.getLogger(null));
+        AppUpdate.LOG = new PluginLogger(service.getLogger((String)null));
         AppUpdate.I18N = new BundledMessages(AppUpdate.LOG, ResourceBundle.getBundle("appupdate"));
     }
 
@@ -68,6 +68,7 @@ public class AppUpdate implements BundleActivator {
 
     /**
      * Get the image descriptor for an image stored in this plugin.
+     * 
      * @param path a path relative to the plugin
      * @return the image descriptor.
      */

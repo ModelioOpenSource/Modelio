@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -68,6 +68,7 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
 
     /**
      * Default constructor.
+     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param ref a reference to the represented data store.
      */
@@ -112,6 +113,7 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
 
     /**
      * Get the stereotype image to display.
+     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("2a2d8a27-55b6-11e2-877f-002564c97630")
@@ -198,6 +200,7 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
 
     /**
      * Migration constructor.
+     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("2a2f10b9-55b6-11e2-877f-002564c97630")

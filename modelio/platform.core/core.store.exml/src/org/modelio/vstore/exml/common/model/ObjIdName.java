@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -50,6 +50,7 @@ public final class ObjIdName {
 
     /**
      * Constructor.
+     * 
      * @param classof the metaclass
      * @param name the object name
      * @param id the object identifier.
@@ -63,6 +64,7 @@ public final class ObjIdName {
 
     /**
      * Indicates whether some other ObjId is "equal to" this one.
+     * 
      * @param other another ObjId
      * @return <code>true</code> if they are equal else <code>false</code>
      */
@@ -137,6 +139,7 @@ public final class ObjIdName {
      * <p>
      * Warning : this access the object SmObjectData which may invoke restoration from swap
      * or the repository. Don't use this constructor in repository loading.
+     * 
      * @param object a model object.
      * @return an initialized ObjId.
      * @deprecated this access the object SmObjectData which may invoke restoration from swap
@@ -156,6 +159,7 @@ public final class ObjIdName {
 
     /**
      * Convert to MRef.
+     * 
      * @return a MRef.
      */
     @objid ("fc91e0f2-26eb-45f7-904a-a194c4c1f1c2")
@@ -165,6 +169,7 @@ public final class ObjIdName {
 
     /**
      * Convert to {@link ObjId}.
+     * 
      * @return an {@link ObjId}
      */
     @objid ("2217dac8-c73d-4077-9e28-ba0d162222cb")

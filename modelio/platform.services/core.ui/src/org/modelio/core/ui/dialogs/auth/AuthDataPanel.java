@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -260,6 +260,7 @@ public class AuthDataPanel implements IPanelProvider {
 
         /**
          * Called when the user selects another scheme
+         * 
          * @param selection selected scheme
          */
         @objid ("f33eb41e-6157-423d-9ec6-e5f38e9abb96")

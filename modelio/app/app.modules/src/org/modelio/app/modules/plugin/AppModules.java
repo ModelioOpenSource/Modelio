@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,7 +51,7 @@ public class AppModules implements BundleActivator {
         context = bundleContext;
         final ServiceReference<ExtendedLogService> ref = bundleContext.getServiceReference(ExtendedLogService.class);
         final ExtendedLogService service = bundleContext.getService(ref);
-        LOG = new PluginLogger(service.getLogger(null));
+        LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("appmodules"));
     }
 
@@ -68,6 +68,7 @@ public class AppModules implements BundleActivator {
 
     /**
      * Get the image descriptor for an image stored in this plugin.
+     * 
      * @param path a path relative to the plugin
      * @return the image descriptor.
      */

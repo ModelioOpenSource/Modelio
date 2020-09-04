@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -51,6 +51,7 @@ public class GmForkStatePrimaryNode extends GmNoStyleSimpleNode implements IImag
 
     /**
      * Constructor.
+     * 
      * @param diagram the diagram in which the sendSignal is unmasked.
      * @param relatedRef related element reference, must not be <code>null</code>.
      */

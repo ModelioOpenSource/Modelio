@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,6 +46,7 @@ public class OCombinedFragment extends OInteractionFragment {
     @objid ("f9b66f87-fc24-4a22-9744-fe1902fee957")
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
+        super.setProperties(ecoreElt);
         if (ecoreElt instanceof org.eclipse.uml2.uml.CombinedFragment){
             setInteractionOperator( (org.eclipse.uml2.uml.CombinedFragment) ecoreElt);
         }

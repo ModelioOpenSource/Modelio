@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -122,8 +122,7 @@ public class OElementImport extends OElement implements IOElement {
             ecoreElt.setVisibility(org.eclipse.uml2.uml.VisibilityKind.PROTECTED_LITERAL);
             break;
         case PUBLIC:
-            // It is the Default Value
-        //          ecoreElt.setVisibility(org.eclipse.uml2.uml.VisibilityKind.PUBLIC_LITERAL);
+            // It is the Default Values
             break;
         case VISIBILITYUNDEFINED:
             ObjingEAnnotation.setIsUndefined(ecoreElt);

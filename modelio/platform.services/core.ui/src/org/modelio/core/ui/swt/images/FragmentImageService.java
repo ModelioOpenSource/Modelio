@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -75,6 +75,7 @@ public class FragmentImageService {
 
     /**
      * Get the image for a model fragment, taking its {@link FragmentState} into account.
+     * 
      * @param fragment a model fragment.
      * @return an image or <code>null</code> for a <code>null</code> fragment.
      */
@@ -125,6 +126,7 @@ public class FragmentImageService {
 
     /**
      * Get the image for {@link FragmentState}.
+     * 
      * @param fragmentState a fragment state.
      * @return an image or <code>null</code> for a <code>null</code> state.
      */
@@ -151,6 +153,7 @@ public class FragmentImageService {
 
     /**
      * Get the image for a fragment descriptor.
+     * 
      * @param fragment a fragment descriptor.
      * @return an image or <code>null</code> for a <code>null</code> descriptor.
      */
@@ -166,6 +169,7 @@ public class FragmentImageService {
 
     /**
      * Get the image for a fragment type.
+     * 
      * @param type a fragment type.
      * @return an image.
      */

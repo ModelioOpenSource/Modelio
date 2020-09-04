@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -105,6 +105,7 @@ public class DefaultCompositionDependencyUpdater implements IDependencyUpdater {
 
     /**
      * Update a dependency
+     * 
      * @param localObject the local object to modify
      * @param refDep the dependency in the reference model
      * @param localDep the dependency in the local model

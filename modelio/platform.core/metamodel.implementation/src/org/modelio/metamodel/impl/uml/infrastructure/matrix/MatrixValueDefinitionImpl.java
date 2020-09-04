@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -19,9 +19,9 @@
  */
 
 /* WARNING: GENERATED FILE -  DO NOT EDIT
-     Metamodel: Infrastructure, version 2.1.02, by Modeliosoft
+     Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
-     Generated on: Apr 17, 2018
+     Generated on: Dec 13, 2018
 */
 package org.modelio.metamodel.impl.uml.infrastructure.matrix;
 
@@ -46,46 +46,46 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("2fb6d68e-b51f-429d-a006-2a9a07892168")
 public class MatrixValueDefinitionImpl extends ElementImpl implements MatrixValueDefinition {
-    @objid ("d5019e0b-cc95-4eeb-b3bb-46db79c25dab")
+    @objid ("aa8f4ded-740a-4fb6-ad5c-2b79e018079f")
     @Override
     public ExternProcessor getProcessor() {
         Object obj = getDepVal(((MatrixValueDefinitionSmClass)getClassOf()).getProcessorDep());
         return (obj instanceof ExternProcessor)? (ExternProcessor)obj : null;
     }
 
-    @objid ("74e41c8b-2748-4efd-b255-24879886eb43")
+    @objid ("1fb3ed63-b4ce-4c5b-bcdc-a9dee3e71372")
     @Override
     public void setProcessor(ExternProcessor value) {
         appendDepVal(((MatrixValueDefinitionSmClass)getClassOf()).getProcessorDep(), (SmObjectImpl)value);
     }
 
-    @objid ("9a2d206f-3460-4eed-a970-3f697db07958")
+    @objid ("852bb08b-fbac-45cc-951b-53d5a5b800c7")
     @Override
     public PropertyTable getParameters() {
         Object obj = getDepVal(((MatrixValueDefinitionSmClass)getClassOf()).getParametersDep());
         return (obj instanceof PropertyTable)? (PropertyTable)obj : null;
     }
 
-    @objid ("244db63a-694a-4d18-a6de-b9d532ea036f")
+    @objid ("c7897394-f23f-4f7c-a2bb-f99b93bc593b")
     @Override
     public void setParameters(PropertyTable value) {
         appendDepVal(((MatrixValueDefinitionSmClass)getClassOf()).getParametersDep(), (SmObjectImpl)value);
     }
 
-    @objid ("c28c8a90-05d0-443c-8764-fec04dd569e9")
+    @objid ("592939e8-805e-4964-ae8b-44a505af942a")
     @Override
     public MatrixDefinition getMatrix() {
         Object obj = getDepVal(((MatrixValueDefinitionSmClass)getClassOf()).getMatrixDep());
         return (obj instanceof MatrixDefinition)? (MatrixDefinition)obj : null;
     }
 
-    @objid ("92d6966e-d01a-41da-be86-3e95ada6b4b4")
+    @objid ("acfd4b08-3fc8-4b9b-bd86-bb109448e9e5")
     @Override
     public void setMatrix(MatrixDefinition value) {
         appendDepVal(((MatrixValueDefinitionSmClass)getClassOf()).getMatrixDep(), (SmObjectImpl)value);
     }
 
-    @objid ("d183a414-6ab0-4aea-a5c1-d539e951777f")
+    @objid ("e343c43f-568e-471e-a503-a1680cf75358")
     @Override
     public SmObjectImpl getCompositionOwner() {
         // Generated implementation
@@ -97,7 +97,7 @@ public class MatrixValueDefinitionImpl extends ElementImpl implements MatrixValu
         return super.getCompositionOwner();
     }
 
-    @objid ("5bfea7aa-8e1b-4b2b-bfd9-f9bab429293e")
+    @objid ("783dbe56-d478-482d-a64c-7f2c5ccd13ae")
     @Override
     public SmDepVal getCompositionRelation() {
         // Generated implementation
@@ -112,7 +112,7 @@ public class MatrixValueDefinitionImpl extends ElementImpl implements MatrixValu
         return super.getCompositionRelation();
     }
 
-    @objid ("dae8c13c-b4f9-49a8-92a0-e7ab4f820a9e")
+    @objid ("c1b1e8bc-c450-4ffd-9450-01037dfe4069")
     @Override
     public Object accept(IInfrastructureVisitor v) {
         return v.visitMatrixValueDefinition(this);

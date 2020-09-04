@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -59,6 +59,7 @@ public class ConcurrentTransactionException extends TransactionCreationException
 
     /**
      * Initialize the exception.
+     * 
      * @param trName the failed transaction name
      * @param runningTransaction the still running transaction
      * @param otherTread the thread already running a transaction
@@ -77,7 +78,7 @@ public class ConcurrentTransactionException extends TransactionCreationException
         this.concurrentThread = otherTread;
         StackTraceElement[] runningStack = this.concurrentThread.getStackTrace();
         
-        String msg = VCoreSession.getMessage("ConcurrentTransactionException.st", 
+        String msg = VCoreSession.I18N.getMessage("ConcurrentTransactionException.st", 
                 runningTransaction.getName(), 
                 otherTread.getName());
         Throwable t = new Throwable(msg);
@@ -90,7 +91,7 @@ public class ConcurrentTransactionException extends TransactionCreationException
     @objid ("fabc1e53-9c6e-4db2-95a6-c110aefb3211")
     @Override
     public String getMessage() {
-        String msg = VCoreSession.getMessage("ConcurrentTransactionException", 
+        String msg = VCoreSession.I18N.getMessage("ConcurrentTransactionException", 
                 this.failedName, 
                 this.waitedTime, 
                 this.waitedTimeUnit, this.concurrentThread, this.runningTransaction.getName() );
@@ -103,6 +104,7 @@ public class ConcurrentTransactionException extends TransactionCreationException
 
     /**
      * Get the name of the transaction that couldn't be created.
+     * 
      * @return the unborn transaction name.
      */
     @objid ("779f7b75-c194-4143-a601-72cab3ae8731")
@@ -112,6 +114,7 @@ public class ConcurrentTransactionException extends TransactionCreationException
 
     /**
      * Get the running transaction that prevents this thread from creating a transaction.
+     * 
      * @return the concurrent thread.
      */
     @objid ("5e968d38-1c5a-4406-b06e-8e0e84b1d1b8")
@@ -137,6 +140,7 @@ public class ConcurrentTransactionException extends TransactionCreationException
 
     /**
      * Get the concurrent transaction running the blocking {@link #getRunningTransaction() transaction}.
+     * 
      * @return the concurrent transaction.
      */
     @objid ("a8a50c15-f67d-4671-8eff-ae8571b6180f")

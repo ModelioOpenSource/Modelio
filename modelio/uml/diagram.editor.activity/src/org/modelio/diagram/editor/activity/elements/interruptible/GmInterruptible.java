@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -56,6 +56,7 @@ public class GmInterruptible extends GmCompositeNode {
 
     /**
      * Initializes an Interruptible region.
+     * 
      * @param diagram The diagram owning the node.
      * @param theInterruptible The represented element,may be null .
      * @param ref The represented element reference, may not be null.

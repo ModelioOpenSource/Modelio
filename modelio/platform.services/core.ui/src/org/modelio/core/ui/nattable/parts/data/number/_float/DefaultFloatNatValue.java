@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -31,6 +31,7 @@ import org.modelio.core.ui.nattable.parts.data.DefaultNatValue;
 public class DefaultFloatNatValue extends DefaultNatValue implements IFloatNatValue {
     /**
      * Creates a new instance.
+     * 
      * @param value the wrapped value.
      */
     @objid ("59a997cf-7dfc-4963-a8cf-784c68143a15")
@@ -40,6 +41,7 @@ public class DefaultFloatNatValue extends DefaultNatValue implements IFloatNatVa
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
+     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("6c7d114f-0e50-4c70-8c63-be031f4ff4aa")

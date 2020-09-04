@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -47,6 +47,7 @@ public abstract class DiagramEditorInput {
      * Initialize the editor input.
      * <p>
      * Creates the diagram graphic model and load it from the diagram model element.
+     * 
      * @param diagram the diagram to edit.
      * @param modelManager the link between the Gm model and the Ob model.
      * @param gmDiagramCreator a small factory to instanciate the Gm diagram itself.
@@ -60,7 +61,7 @@ public abstract class DiagramEditorInput {
             this.model.setVisible(true);
         
             // Load from the persistence.
-            this.model.getPersister().load();
+            this.model.load();
         }
     }
 
@@ -134,6 +135,7 @@ public abstract class DiagramEditorInput {
 
     /**
      * Get the editor ID this input is destined to.
+     * 
      * @return the e4xmi ID of a diagram editor.
      */
     @objid ("f258f912-3996-43fc-9fdf-cb5cb5321893")

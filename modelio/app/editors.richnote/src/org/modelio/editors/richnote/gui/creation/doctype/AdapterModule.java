@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -46,9 +46,8 @@ class AdapterModule implements IAdaptable {
     }
 
     @objid ("f0ad5cd6-3b4d-4b94-9b09-9b4c5e7184ec")
-    @SuppressWarnings("rawtypes")
     @Override
-    public Object getAdapter(Class adapter) {
+    public <T> T getAdapter(Class<T> adapter) {
         return null;
     }
 
@@ -56,7 +55,7 @@ class AdapterModule implements IAdaptable {
     public AdapterStereotype getAdapter(Stereotype stereotype) {
         for (IAdaptable adpater : this.adapters) {
             if (adpater instanceof AdapterStereotype) {
-                AdapterStereotype stereotypeAdapter = (AdapterStereotype)adpater;
+                AdapterStereotype stereotypeAdapter = (AdapterStereotype) adpater;
                 if (stereotypeAdapter.getStereotype().equals(stereotype)) {
                     return stereotypeAdapter;
                 }
@@ -67,6 +66,7 @@ class AdapterModule implements IAdaptable {
 
     /**
      * Get accessor for adapters
+     * 
      * @return the child document type adapters.
      */
     @objid ("0069b6ef-88e8-400c-bb83-c14ed9bc157e")
@@ -76,6 +76,7 @@ class AdapterModule implements IAdaptable {
 
     /**
      * Get accessor for mdac
+     * 
      * @return the module.
      */
     @objid ("92a24bc6-b13c-4f0c-8273-13f40f6f0b8c")
@@ -100,7 +101,7 @@ class AdapterModule implements IAdaptable {
                 if (adapter instanceof AdapterStereotype) {
                     AdapterStereotype stereotypeAdapter = (AdapterStereotype) adapter;
                     Stereotype currentStereotype = stereotypeAdapter.getStereotype();
-                    if (isSubStereotype(documented, currentStereotype)){
+                    if (isSubStereotype(documented, currentStereotype)) {
                         stereotypeAdapter.addDocType(noteType);
                     }
                 }
@@ -123,8 +124,8 @@ class AdapterModule implements IAdaptable {
         } else {
             Stereotype stereotype = currentStereotype.getParent();
             boolean result = false;
-            if(stereotype != null) {
-                 result = isSubStereotype(parentStereotype, stereotype);
+            if (stereotype != null) {
+                result = isSubStereotype(parentStereotype, stereotype);
             }
             return result;
         }

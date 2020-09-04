@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -54,6 +54,7 @@ public abstract class GmAbstractLinkAnchor implements IPersistent {
 
     /**
      * Creates a link anchor.
+     * 
      * @param location The anchor reference point location relative to the anchored node location.
      */
     @objid ("800dabbf-1dec-11e2-8cad-001ec947c8cc")
@@ -70,6 +71,7 @@ public abstract class GmAbstractLinkAnchor implements IPersistent {
 
     /**
      * Get the anchor reference point location.
+     * 
      * @return the anchor reference point location.
      */
     @objid ("800dabc8-1dec-11e2-8cad-001ec947c8cc")
@@ -98,6 +100,7 @@ public abstract class GmAbstractLinkAnchor implements IPersistent {
 
     /**
      * Set the anchor reference point location relative to the node.
+     * 
      * @param location the anchor reference point location.
      */
     @objid ("80100de9-1dec-11e2-8cad-001ec947c8cc")
@@ -117,6 +120,7 @@ public abstract class GmAbstractLinkAnchor implements IPersistent {
 
     /**
      * Called by the link on deserialization
+     * 
      * @param l a link
      */
     @objid ("80100df3-1dec-11e2-8cad-001ec947c8cc")

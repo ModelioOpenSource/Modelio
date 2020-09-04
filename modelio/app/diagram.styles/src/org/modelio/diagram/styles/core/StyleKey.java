@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -131,6 +131,7 @@ public class StyleKey {
 
     /**
      * Return the StyleKey instance for a given string key.
+     * 
      * @param key the key string value
      * @return the StyleKey for the given string key or null if none found.
      */
@@ -141,6 +142,7 @@ public class StyleKey {
 
     /**
      * Get all instances of StyleKey.
+     * 
      * @return all created style keys.
      */
     @objid ("8580d356-1926-11e2-92d2-001ec947c8cc")
@@ -150,6 +152,7 @@ public class StyleKey {
 
     /**
      * Creates a style key.
+     * 
      * @param id The style key id.
      * @param type The type of the style key.
      * @param label the key I18n label
@@ -169,6 +172,7 @@ public class StyleKey {
 
     /**
      * Creates a StyleKey based on a MetaKey.
+     * 
      * @param id The style id
      * @param metakey the base meta key.
      * @param label the key I18n label
@@ -211,6 +215,7 @@ public class StyleKey {
 
     /**
      * Get the meta key if any.
+     * 
      * @return the meta key or null if the style key is not based on a meta key.
      */
     @objid ("858335ad-1926-11e2-92d2-001ec947c8cc")
@@ -232,6 +237,7 @@ public class StyleKey {
      * Compare this style key with the given one for matching.
      * <p>
      * The style keys match if they are the same or have the same meta key.
+     * 
      * @param k The style key to compare with.
      * @return true if the style keys are the same or have the same meta key.
      */
@@ -251,6 +257,7 @@ public class StyleKey {
      * <p>
      * Throws an exception explaining the problem if the value is not valid.
      * The exception message may be directly displayed in the GUI so must be human readable.
+     * 
      * @param value the style key value to check
      * @throws java.lang.IllegalArgumentException if the value is not valid. The message tells why.
      */
@@ -434,6 +441,7 @@ public class StyleKey {
 
         /**
          * Convert the enumerate to its {@link org.eclipse.swt.SWT} matching line style constant.
+         * 
          * @return the SWT matching line style constant.
          */
         @objid ("85859831-1926-11e2-92d2-001ec947c8cc")
@@ -443,6 +451,7 @@ public class StyleKey {
 
         /**
          * Convert the given {@link org.eclipse.swt.SWT} constant to a LinePattern
+         * 
          * @param i an SWT line style constant
          * @return The matching line pattern.
          */

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -20,8 +20,6 @@
 
 package org.modelio.diagram.editor;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -35,7 +33,6 @@ import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.draw2d.BendpointConnectionRouter;
@@ -50,6 +47,7 @@ import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.EContextService;
 import org.eclipse.e4.ui.services.EMenuService;
+import org.eclipse.e4.ui.workbench.IPresentationEngine;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.e4.ui.workbench.modeling.IPartListener;
@@ -77,8 +75,6 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.DecorationOverlayIcon;
 import org.eclipse.jface.viewers.IDecoration;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.CTabFolder;
-import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.graphics.Image;
@@ -90,7 +86,8 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.modelio.api.modelio.picking.IPickingProvider;
 import org.modelio.app.core.events.ModelioEventTopics;
 import org.modelio.app.core.picking.IPickingSession;
-import org.modelio.app.project.core.services.IProjectService;
+import org.modelio.app.core.project.ICurrentProjectService;
+import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.core.ui.swt.images.ElementImageService;
 import org.modelio.diagram.editor.plugin.DiagramEditor;
 import org.modelio.diagram.editor.plugin.DiagramEditorsManager;
@@ -122,6 +119,7 @@ import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.ui.panel.IPanelProvider;
 import org.modelio.vcore.session.api.ICoreSession;
+import org.modelio.vcore.session.api.model.IModel;
 import org.modelio.vcore.session.api.model.change.IModelChangeEvent;
 import org.modelio.vcore.session.api.model.change.IModelChangeListener;
 import org.modelio.vcore.session.api.model.change.IModelChangeSupport;
@@ -182,7 +180,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
     private EditDomain editDomain;
 
     @objid ("dd9a4a49-a40c-46c2-a2db-b864f7c4a310")
-    private Collection<IPanelProvider> flyoutPanels = new ArrayList<>();
+    private final Collection<IPanelProvider> flyoutPanels = new ArrayList<>();
 
     @objid ("1b01ad6e-4a3d-4804-ae36-f172d233e3b2")
     private GraphicalViewer graphicalViewer;
@@ -226,7 +224,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     @objid ("569296b9-13e3-41d8-92b0-cb308fdfcc10")
     @Inject
-    private IProjectService projectService;
+    private ICurrentProjectService projectService;
 
     @objid ("d98e225f-ece6-4889-adb3-3f27cd31cb32")
     private PaletteViewerProvider provider;
@@ -249,7 +247,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
      * The selection synchronizer object, which can be used to sync the selection of 2 or more EditPartViewers.
      */
     @objid ("4a3d9915-24a2-49eb-b7f7-71e3e67f564c")
-    private SelectionSynchronizer synchronizer = new SelectionSynchronizer();
+    private final SelectionSynchronizer synchronizer = new SelectionSynchronizer();
 
     @objid ("b6687038-cd75-4b98-85ef-942b439f7a43")
     @Inject
@@ -265,11 +263,11 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     @objid ("159b1cbf-9d86-457e-a7b9-95f85f0f5c3f")
     @PreDestroy
-    public void dispose(DiagramEditorsManager manager) {
+    public void dispose(final DiagramEditorsManager manager) {
         try {
             // Unregister as model change listener
             if (getModelingSession() != null) {
-                IModelChangeSupport modelChangeSupport = getModelingSession().getModelChangeSupport();
+                final IModelChangeSupport modelChangeSupport = getModelingSession().getModelChangeSupport();
                 if (modelChangeSupport != null) {
                     modelChangeSupport.removeStatusChangeListener(this.modelChangeController);
                     modelChangeSupport.removeModelChangeListener(this.modelChangeController);
@@ -334,7 +332,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
     @objid ("42aa9234-878c-44e1-aa52-a8e4e49173bb")
     @SuppressWarnings ("unchecked")
     @Override
-    public <T> T getAdapter(Class<T> type) {
+    public <T> T getAdapter(final Class<T> type) {
         if (type == ZoomManager.class) {
             return (T) ((ScalableFreeformRootEditPart2) getGraphicalViewer().getRootEditPart()).getZoomManager();
         }
@@ -365,6 +363,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Returns the graphical viewer.
+     * 
      * @return the graphical viewer
      */
     @objid ("defd22b5-d3fa-46d8-9105-e9aae99739a1")
@@ -374,6 +373,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Get the diagram's {@link MPart}.
+     * 
      * @return the eclipse part displaying the diagram.
      */
     @objid ("4a025d78-9396-4c09-9300-947cabb6bbcb")
@@ -383,6 +383,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Return the root edit part of this editor.
+     * 
      * @return the root edit part of this editor.
      */
     @objid ("23af25bb-115b-41fa-9aba-8d08ba22e371")
@@ -412,6 +413,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Make the {@link PickingSelectionTool} active when a picking session starts.
+     * 
      * @param session the picking session.
      */
     @objid ("db0fd136-fd76-421c-bd86-648ca6f148b3")
@@ -423,6 +425,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Make the {@link PanSelectionTool} active when a picking session ends.
+     * 
      * @param session the picking session.
      */
     @objid ("254c7d48-b2d3-41fe-910f-2413833b4eed")
@@ -434,7 +437,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     @objid ("a81962dc-ac08-4e93-b3af-cc887a6dd829")
     @PostConstruct
-    public final void postConstruct(Composite composite, DiagramEditorInput diagramEditorInput) {
+    public final void postConstruct(final Composite composite, final DiagramEditorInput diagramEditorInput) {
         if (diagramEditorInput != null) {
             this.input = diagramEditorInput;
         
@@ -455,13 +458,13 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         
             // Configure the edit domain
             // Set the active and default tool
-            SelectionTool selectionTool = new PanSelectionTool();
+            final SelectionTool selectionTool = new PanSelectionTool();
             this.editDomain.setActiveTool(selectionTool);
             this.editDomain.setDefaultTool(selectionTool);
             this.editDomain.addViewer(this.graphicalViewer);
         
             // Register as a model and status change listener
-            IModelChangeSupport modelChangeSupport = getModelingSession().getModelChangeSupport();
+            final IModelChangeSupport modelChangeSupport = getModelingSession().getModelChangeSupport();
             this.modelChangeController = new ModelChangeController(this);
             modelChangeSupport.addModelChangeListener(this.modelChangeController);
             modelChangeSupport.addStatusChangeListener(this.modelChangeController);
@@ -478,7 +481,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
             this.partListener = new IPartListener() {
         
                 @Override
-                public void partActivated(MPart activatedPart) {
+                public void partActivated(final MPart activatedPart) {
                     if (activatedPart.equals(AbstractDiagramEditor.this.part)) {
                         // System.out.printf(" => partActivated %s - %s\n",
                         // activatedPart.getLabel(),
@@ -488,19 +491,19 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
                 }
         
                 @Override
-                public void partBroughtToTop(MPart topPart) {
+                public void partBroughtToTop(final MPart topPart) {
                     // noop
                 }
         
                 @Override
-                public void partDeactivated(MPart deactivatedPart) {
+                public void partDeactivated(final MPart deactivatedPart) {
                     // noop
                 }
         
                 @Override
-                public void partHidden(MPart hiddenPart) {
+                public void partHidden(final MPart hiddenPart) {
                     if (hiddenPart.equals(AbstractDiagramEditor.this.part)) {
-                        IGmDiagram gmDiagram = AbstractDiagramEditor.this.getEditorInput().getGmDiagram();
+                        final IGmDiagram gmDiagram = AbstractDiagramEditor.this.getEditorInput().getGmDiagram();
                         if (gmDiagram != null) {
                             gmDiagram.enableRefresh(false);
                         }
@@ -509,11 +512,11 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
                 }
         
                 @Override
-                public void partVisible(MPart visiblePart) {
+                public void partVisible(final MPart visiblePart) {
                     if (visiblePart.equals(AbstractDiagramEditor.this.part)) {
                         // System.out.printf(" => partVisible %s\n",
                         // part.getLabel());
-                        IGmDiagram gmDiagram = AbstractDiagramEditor.this.getEditorInput().getGmDiagram();
+                        final IGmDiagram gmDiagram = AbstractDiagramEditor.this.getEditorInput().getGmDiagram();
                         if (gmDiagram != null) {
                             gmDiagram.enableRefresh(true);
                             AbstractDiagramEditor.this.modifIndicator.update(visiblePart, AbstractDiagramEditor.this.input.getDiagram());
@@ -552,10 +555,11 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Hide/show the diagram's palette.
+     * 
      * @param onOff <code>true</code> to display the palette, <code>false</code> otherwise.
      */
     @objid ("48f48e41-34e8-46c8-8d75-aba77e3ba3ed")
-    public void showPalette(boolean onOff) {
+    public void showPalette(final boolean onOff) {
         this.splitter.setState(onOff ? FlyoutPaletteComposite2.STATE_PINNED_OPEN : FlyoutPaletteComposite2.STATE_HIDDEN);
     }
 
@@ -589,30 +593,30 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
     }
 
     @objid ("1450de0f-6bd3-4e5d-ab43-25d8bf2840d6")
-    protected void configureGraphicalViewer(GraphicalViewer viewer) {
+    protected void configureGraphicalViewer(final GraphicalViewer viewer) {
         viewer.getControl().addFocusListener(new FocusListener() {
             private ArrayList<String> activeContexts = new ArrayList<>();
         
             @Override
-            public void focusGained(FocusEvent e) {
+            public void focusGained(final FocusEvent e) {
                 // Restore previously deactivated contexts
-                for (String contextId : this.activeContexts) {
+                for (final String contextId : this.activeContexts) {
                     AbstractDiagramEditor.this.contextService.activateContext(contextId);
                 }
                 this.activeContexts = new ArrayList<>();
             }
         
             @Override
-            public void focusLost(FocusEvent e) {
+            public void focusLost(final FocusEvent e) {
                 // We must deactivate the active contexts when losing focus, to
                 // avoid the editor's shortcuts to be triggered when editing
                 // elsewhere...
         
                 // Store those contexts for further reactivation
-                Collection<String> activeContextIds = AbstractDiagramEditor.this.contextService.getActiveContextIds();
+                final Collection<String> activeContextIds = AbstractDiagramEditor.this.contextService.getActiveContextIds();
                 if (activeContextIds != null) {
                     this.activeContexts = new ArrayList<>(activeContextIds);
-                    for (String contextId : this.activeContexts) {
+                    for (final String contextId : this.activeContexts) {
                         AbstractDiagramEditor.this.contextService.deactivateContext(contextId);
                     }
                 }
@@ -626,38 +630,40 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         viewer.setEditPartFactory(createEditPartFactory());
         
         // D&D support
-        viewer.addDropTargetListener(
-                new ModelElementDropTargetListener(viewer, this.projectService.getSession().getModel()));
+        IModel imodel = this.projectService.getSession().getModel();
+        viewer.addDropTargetListener(ModelElementDropTargetListener.forLocalSelectionTransfer(viewer, imodel));
+        viewer.addDropTargetListener(ModelElementDropTargetListener.forModelElementTransfer(viewer, imodel));
         
         // Configure zoom levels
-        ZoomManager zoomManager = ((ScalableFreeformRootEditPart2) viewer.getRootEditPart()).getZoomManager();
+        final ZoomManager zoomManager = ((ScalableFreeformRootEditPart2) viewer.getRootEditPart()).getZoomManager();
         zoomManager.setZoomLevels(AbstractDiagramEditor.ZOOM_LEVELS);
         
         // Scroll-wheel Zoom
         viewer.setProperty(MouseWheelHandler.KeyGenerator.getKey(SWT.MOD1), MouseWheelZoomHandler.SINGLETON);
         
         // Add the contextual menu
-        String popupId = getPopupId();
+        final String popupId = getPopupId();
         if (popupId != null) {
             this.menuService.registerContextMenu(viewer.getControl(), popupId);
         }
         
         // Add handler to move elements with arrow keys
-        MoveKeyHandler kh = new MoveKeyHandler(viewer);
+        final MoveKeyHandler kh = new MoveKeyHandler(viewer);
         kh.setParent(viewer.getKeyHandler());
         viewer.setKeyHandler(kh);
     }
 
     /**
      * Creates the GraphicalViewer on the specified <code>Composite</code>.
+     * 
      * @param parent the parent composite
      */
     @objid ("52976cc9-9bbc-48a0-a74b-307caff0bd62")
-    protected GraphicalViewer createGraphicalViewer(Composite parent) {
-        ScrollingGraphicalViewer viewer = new ScrollingGraphicalViewer() {
+    protected GraphicalViewer createGraphicalViewer(final Composite parent) {
+        final ScrollingGraphicalViewer viewer = new ScrollingGraphicalViewer() {
             @Override
             protected LightweightSystem createLightweightSystem() {
-                LightweightSystem ls = super.createLightweightSystem();
+                final LightweightSystem ls = super.createLightweightSystem();
                 ls.setUpdateManager(new DeferredUpdateManagerWithWatchDog());
                 return ls;
             }
@@ -671,7 +677,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
     }
 
     @objid ("b9dc6bce-d5af-4198-893f-b4be65a47e4e")
-    protected void createPartControl(Composite parent) {
+    protected void createPartControl(final Composite parent) {
         this.sashContainer = new SidePanelsContainerPanel(parent);
         
         this.splitter = new FlyoutPaletteComposite2(this.sashContainer.getMainPanel(),
@@ -682,11 +688,9 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         
         this.splitter.setGraphicalControl(getGraphicalControl());
         
-        for (IConfigurationElement configurationElement : Platform
-                .getExtensionRegistry()
-                .getConfigurationElementsFor(AbstractDiagramEditor.DIAGRAM_EDITOR_FLYOUT_EXENSION_ID)) {
+        for (final IConfigurationElement configurationElement : new ExtensionPointContributionManager(AbstractDiagramEditor.DIAGRAM_EDITOR_FLYOUT_EXENSION_ID).getExtensions("panel")) {
             try {
-                IPanelProvider panelProv = (IPanelProvider) configurationElement.createExecutableExtension("class");
+                final IPanelProvider panelProv = (IPanelProvider) configurationElement.createExecutableExtension("class");
                 this.sashContainer.addFlyout(panelProv, "Symbol", null);
                 this.flyoutPanels.add(panelProv);
                 this.selectionService.addPostSelectionListener((p, selection) -> panelProv.setInput(selection));
@@ -706,6 +710,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Get the modeling session.
+     * 
      * @return The modeling session.
      */
     @objid ("2a2f72a2-0cbf-4b52-9d34-40bc9422593d")
@@ -726,19 +731,19 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
      * PartSite.
      */
     @objid ("f4580294-57b0-4760-9658-2bcf0aff7fc0")
-    protected void hookGraphicalViewer(GraphicalViewer viewer) {
+    protected void hookGraphicalViewer(final GraphicalViewer viewer) {
         this.synchronizer.addViewer(viewer);
         
         viewer.addSelectionChangedListener(event -> {
             this.selectionService.setSelection(event.getSelection());
-            for (IPanelProvider p : this.flyoutPanels) {
+            for (final IPanelProvider p : this.flyoutPanels) {
                 p.setInput(event.getSelection());
             }
         });
     }
 
     @objid ("4ab61e21-a719-49f7-a91f-fd0309ecaa22")
-    protected void initializeGraphicalViewer(GraphicalViewer viewer) {
+    protected void initializeGraphicalViewer(final GraphicalViewer viewer) {
         this.splitter.hookDropTargetListener(viewer);
         
         // Initialize connection routers
@@ -750,7 +755,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         
         // Set the viewer content
         if (getEditorInput() != null) {
-            IGmDiagram gmDiagram = getEditorInput().getGmDiagram();
+            final IGmDiagram gmDiagram = getEditorInput().getGmDiagram();
             viewer.setContents(gmDiagram);
             viewer.setProperty(DiagramElementDropEditPolicy.DROP_EXTENSIONS, loadDropExtensions());
         
@@ -780,12 +785,12 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
      */
     @objid ("53dae48f-fa16-437e-a988-a56f680ee2d0")
     private void configureDiagram() {
-        AbstractDiagram editedDiagram = this.input.getDiagram();
+        final AbstractDiagram editedDiagram = this.input.getDiagram();
         
         // Ensure figures are layouted before beginning firing notifications in the Gm model (mantis 0013360)
         ((GraphicalEditPart) getGraphicalViewer().getRootEditPart()).getFigure().getUpdateManager().performValidation();
         
-        Stereotype firstStereotype = editedDiagram.getExtension().stream()
+        final Stereotype firstStereotype = editedDiagram.getExtension().stream()
                 // Ignore shell stereotypes
                 .filter(Stereotype::isValid)
                 // Ignore orphan stereotypes
@@ -798,14 +803,14 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         
         if (firstStereotype == null) {
             // Use metaclass configurer
-            IDiagramConfigurer diagramConfigurer = this.configurerRegistry.getConfigurer(editedDiagram.getMClass().getName());
+            final IDiagramConfigurer diagramConfigurer = this.configurerRegistry.getConfigurer(editedDiagram.getMClass().getName());
             if (diagramConfigurer != null) {
                 changePaletteContents(diagramConfigurer.initPalette(this, this.toolRegistry));
                 this.input.getGmDiagram().setDynamicStyler(diagramConfigurer.getDynamicStyler());
             }
         } else {
             // Use configurer from metaclass and first stereotype
-            for (IDiagramConfigurer configurer : this.configurerRegistry.getConfigurers(editedDiagram.getMClass().getName(), Arrays.asList(firstStereotype.getName()))) {
+            for (final IDiagramConfigurer configurer : this.configurerRegistry.getConfigurers(editedDiagram.getMClass().getName(), Arrays.asList(firstStereotype.getName()))) {
                 changePaletteContents(configurer.initPalette(this, this.toolRegistry));
                 this.input.getGmDiagram().setDynamicStyler(configurer.getDynamicStyler());
             }
@@ -814,9 +819,9 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     @objid ("413b80f2-9075-4ffe-a195-fd108e45df76")
     private ToolEntry getFirstToolEntry(final PaletteRoot value) {
-        for (Object child : value.getChildren()) {
+        for (final Object child : value.getChildren()) {
             if (child instanceof PaletteContainer) {
-                for (Object child2 : (((PaletteContainer) child).getChildren())) {
+                for (final Object child2 : ((PaletteContainer) child).getChildren()) {
                     if (child2 instanceof ToolEntry) {
                         return (ToolEntry) child2;
                     }
@@ -832,11 +837,11 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
      * Compute a priority for a module component, according to its position in the "stated modules" list.
      */
     @objid ("f926ecb6-3d83-418f-9549-00540697b1cb")
-    private int getModulePriority(ModuleComponent moduleComponent) {
+    private int getModulePriority(final ModuleComponent moduleComponent) {
         if (this.moduleService != null) {
-            List<IRTModule> startedModules = this.moduleService.getStartedModules();
+            final List<IRTModule> startedModules = this.moduleService.getStartedModules();
             for (int i = 0; i < startedModules.size(); i++) {
-                IRTModule startedModule = startedModules.get(i);
+                final IRTModule startedModule = startedModules.get(i);
                 if (Objects.equals(moduleComponent, startedModule.getModel())) {
                     return i;
                 }
@@ -848,6 +853,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
     /**
      * Returns the palette viewer provider that is used to create palettes for the view and the flyout. Creates one if it doesn't already exist.
      * @see #createPaletteViewerProvider()
+     * 
      * @return the PaletteViewerProvider that can be used to create PaletteViewers for this editor
      */
     @objid ("abe78536-b635-463a-9292-d189d52f43c6")
@@ -855,8 +861,8 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         if (this.provider == null) {
             this.provider = new PaletteViewerProvider(this.editDomain) {
                 @Override
-                public PaletteViewer createPaletteViewer(Composite parent) {
-                    PaletteViewer pViewer = new PaletteViewer();
+                public PaletteViewer createPaletteViewer(final Composite parent) {
+                    final PaletteViewer pViewer = new PaletteViewer();
                     pViewer.getPaletteViewerPreferences().setLayoutSetting(PaletteViewerPreferences.LAYOUT_ICONS);
                     pViewer.createControl(parent);
                     configurePaletteViewer(pViewer);
@@ -870,22 +876,21 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     @objid ("f7c321c3-64cc-4416-b6ca-84a77c01a595")
     private List<IDiagramElementDropEditPolicyExtension> loadDropExtensions() {
-        List<IDiagramElementDropEditPolicyExtension> ret = new ArrayList<>();
+        final List<IDiagramElementDropEditPolicyExtension> ret = new ArrayList<>();
         // Infra contribution is ALWAYS registered
         ret.add(new InfraDiagramElementDropEditPolicyExtension());
         
-        IConfigurationElement[] config = Platform.getExtensionRegistry().getConfigurationElementsFor(AbstractDiagramEditor.DROPPOLICYEXTENSION_ID);
-        for (IConfigurationElement dropExtensionElement : config) {
-            for (IConfigurationElement scope : dropExtensionElement.getChildren("scope")) {
-                String editorId = scope.getAttribute("editorId");
+        for (final IConfigurationElement dropExtensionElement : new ExtensionPointContributionManager(AbstractDiagramEditor.DROPPOLICYEXTENSION_ID).getExtensions("droppolicyextension")) {
+            for (final IConfigurationElement scope : dropExtensionElement.getChildren("scope")) {
+                final String editorId = scope.getAttribute("editorId");
                 if (editorId.equals(getPart().getElementId())) {
                     // TODO handle metaclass & stereotype
                     try {
-                        Object o = dropExtensionElement.createExecutableExtension("class");
+                        final Object o = dropExtensionElement.createExecutableExtension("class");
                         if (o instanceof IDiagramElementDropEditPolicyExtension) {
                             ret.add((IDiagramElementDropEditPolicyExtension) o);
                         }
-                    } catch (CoreException e1) {
+                    } catch (final CoreException e1) {
                         DiagramEditor.LOG.error(e1);
                     }
                 }
@@ -895,17 +900,17 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         if (this.input.getGmDiagram().canUnmaskGenericElements()) {
             ret.add(new AbstractDiagramElementDropEditPolicyExtension() {
                 @Override
-                public boolean isToBeAddedToHierarchy(IGmDiagram context, Deque<MObject> hierarchy, MObject candidate) {
+                public boolean isToBeAddedToHierarchy(final IGmDiagram context, final Deque<MObject> hierarchy, final MObject candidate) {
                     return hierarchy.isEmpty();
                 }
         
                 @Override
-                public boolean canUnmask(DiagramElementDropEditPolicy dropPolicy, MObject candidate) {
+                public boolean canUnmask(final DiagramElementDropEditPolicy dropPolicy, final MObject candidate) {
                     return true;
                 }
         
                 @Override
-                public MObject getParentInGraphicalHierarchy(IGmDiagram context, MObject element) {
+                public MObject getParentInGraphicalHierarchy(final IGmDiagram context, final MObject element) {
                     return null;
                 }
             });
@@ -924,16 +929,16 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
     @objid ("55833e5e-f67b-4645-8906-0303d9ceaf1a")
     private static class EditorFlyoutPreferences implements FlyoutPreferences {
         @objid ("b750f45b-6dd9-47fe-a376-1dd83614247d")
-        private String locationKey;
+        private final String locationKey;
 
         @objid ("30d32154-459f-4f4d-b697-f970f36c60e2")
-        private String sizeKey;
+        private final String sizeKey;
 
         @objid ("2f758001-e0ea-436a-853e-ee7309b63d29")
-        private String stateKey;
+        private final String stateKey;
 
         @objid ("53004142-b4fc-4c4d-a018-02bad01bcc50")
-        EditorFlyoutPreferences(String locationKey, String sizeKey, String stateKey) {
+        EditorFlyoutPreferences(final String locationKey, final String sizeKey, final String stateKey) {
             this.locationKey = locationKey;
             this.sizeKey = sizeKey;
             this.stateKey = stateKey;
@@ -965,7 +970,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
         @objid ("207fafec-3a75-4fc9-a943-bceaffe6ceba")
         @Override
-        public void setDockLocation(int location) {
+        public void setDockLocation(final int location) {
             if (location == PositionConstants.WEST || location == PositionConstants.EAST) {
                 getDiagramPreferences().putInt(
                         this.locationKey,
@@ -975,13 +980,13 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
         @objid ("ba8c4ceb-0a44-4e87-90fa-0c1b04eab7cc")
         @Override
-        public void setPaletteState(int state) {
+        public void setPaletteState(final int state) {
             getDiagramPreferences().putInt(this.stateKey, state);
         }
 
         @objid ("45661c5c-a782-41c4-a7f7-8ea4d7ae1e6f")
         @Override
-        public void setPaletteWidth(int width) {
+        public void setPaletteWidth(final int width) {
             getDiagramPreferences().putInt(this.sizeKey, width);
         }
 
@@ -1006,7 +1011,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         }
 
         @objid ("20ac098f-d20a-434e-a255-c15ebea408c5")
-        protected void update(MPart part, AbstractDiagram diagram) {
+        protected void update(final MPart part, final AbstractDiagram diagram) {
             if (diagram != null) {
                 if (diagram.isModifiable()) {
                     setIcon(part, ElementImageService.getIcon(diagram));
@@ -1025,10 +1030,10 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         }
 
         @objid ("e55e207f-9cd9-4a2d-a607-0fd225311619")
-        private Image getReadOnlylDecoratedIcon(AbstractDiagram diagram) {
+        private Image getReadOnlylDecoratedIcon(final AbstractDiagram diagram) {
             if (this.decoratedIcon == null) {
-                Image baseImage = ElementImageService.getIcon(diagram);
-                ImageDescriptor overlay = AbstractUIPlugin.imageDescriptorFromPlugin(DiagramEditor.PLUGIN_ID, "icons/readonly_overlay.png");
+                final Image baseImage = ElementImageService.getIcon(diagram);
+                final ImageDescriptor overlay = AbstractUIPlugin.imageDescriptorFromPlugin(DiagramEditor.PLUGIN_ID, "icons/readonly_overlay.png");
             
                 this.decoratedIcon = new DecorationOverlayIcon(baseImage, overlay, IDecoration.TOP_LEFT).createImage();
             }
@@ -1036,39 +1041,11 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         }
 
         /**
-         * This method is an 'ugly' hack that directly manipulates the tab folder icon for the part.
+         * Set an icon for the part.
          */
         @objid ("da5c7ef6-145f-41fd-a3c0-913295a78249")
-        private void setIcon(MPart part, Image icon) {
-            Display.getDefault().asyncExec(() -> {
-            
-                // Set icon
-                // Hack: we only have an Image, not an URL. We have to get
-                // the SWT widget (in an ugly way) and set it manually.
-                Object widget = part.getWidget();
-                if (widget == null) {
-                    return;
-                }
-            
-                try {
-                    Method m = widget.getClass().getMethod("getParent");
-                    if (m != null) {
-                        Object parent = m.invoke(widget);
-                        if (parent instanceof CTabFolder) {
-                            CTabFolder tabFolder = (CTabFolder) parent;
-                            for (CTabItem tabItem : tabFolder.getItems()) {
-                                if (part.getLabel().equals(tabItem.getText())) {
-                                    // Note: do not deal with disposing previous icon, this is carried out outside.
-                                    tabItem.setImage(icon);
-                                }
-                            }
-                        }
-                    }
-                } catch (NoSuchMethodException | SecurityException | IllegalAccessException
-                        | IllegalArgumentException | InvocationTargetException e) {
-                    // Implementation probably changed, image isn't set
-                }
-            });
+        private void setIcon(final MPart part, final Image icon) {
+            part.getTransientData().put(IPresentationEngine.OVERRIDE_ICON_IMAGE_KEY, icon);
         }
 
     }
@@ -1093,14 +1070,14 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         private final AbstractDiagramEditor editor;
 
         @objid ("57bf5df2-61d4-42b4-a455-3da9ff5ceacb")
-        public ModelChangeController(AbstractDiagramEditor editor) {
+        public ModelChangeController(final AbstractDiagramEditor editor) {
             this.editor = editor;
         }
 
         @objid ("11288bfc-3216-43fd-9258-709e33173139")
-        private List<String> getDiagramStereotypes(AbstractDiagram editedDiagram) {
-            List<String> stereotypes = new ArrayList<>();
-            for (Stereotype stereotype : editedDiagram.getExtension()) {
+        private List<String> getDiagramStereotypes(final AbstractDiagram editedDiagram) {
+            final List<String> stereotypes = new ArrayList<>();
+            for (final Stereotype stereotype : editedDiagram.getExtension()) {
                 stereotypes.add(stereotype.getName());
             }
             return stereotypes;
@@ -1109,10 +1086,12 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         /**
          * Invoked when the model has changed.
          * <p>
-         * <li>Refresh the diagram title
-         * <li>Reload the diagram if the saved string has changed (to be done)
-         * <li>Set the view read only if the model becomes read only (to be done)
-         * <li>Close the diagram if deleted from the model. // - close editor if the diagram (or an ancestor) is deleted // - update tab's name if the diagram is renamed // - refresh the palette if needed
+         * <ul>
+         * <li>Refresh the diagram title</li>
+         * <li>Refresh the 'read-only' indicator in th eeditor tab </li>
+         * <li>Close the diagram editor if deleted from the model.</li>
+         * <li>Refresh the palette (configurers) if needed</li>
+         * </ul>
          * <p>
          */
         @objid ("b03c079e-7124-44bf-ada6-05faa721a7dc")
@@ -1141,17 +1120,21 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
             
                 // Refresh the configurers if the stereotype list has
                 // changed
-                List<String> newStereotypes = getDiagramStereotypes(diagram);
+                final List<String> newStereotypes = getDiagramStereotypes(diagram);
                 if (stereotypesChanged(newStereotypes)) {
                     this.editor.configureDiagram();
                     this.referenceStereotypes = newStereotypes;
                 }
+            
+            
+            
+            
             });
         }
 
         @objid ("ea32a405-82c5-43fc-a2f6-395caeb326b3")
         @Override
-        public void statusChanged(IStatusChangeEvent event) {
+        public void statusChanged(final IStatusChangeEvent event) {
             final AbstractDiagram diagram = this.editor.getEditorInput().getDiagram();
             
             // Re enter the UI thread
@@ -1176,20 +1159,21 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         }
 
         @objid ("52f15bf9-523e-463d-b4bb-bcb6bed6b8c6")
-        private boolean stereotypesChanged(List<String> newStereotypes) {
+        private boolean stereotypesChanged(final List<String> newStereotypes) {
             return !this.referenceStereotypes.equals(newStereotypes);
         }
 
         /**
          * Execute the runnable asynchronously in the SWT thread unless no SWT control for the editor exist.
+         * 
          * @param r the code to execute in the SWT thread.
          */
         @objid ("9595b16a-d5da-4d4b-ac39-f0daa0c16fb7")
-        private void swtAsyncExec(Runnable r) {
+        private void swtAsyncExec(final Runnable r) {
             java.util.Optional.ofNullable(this.editor.getGraphicalViewer())
-                    .map(GraphicalViewer::getControl)
-                    .map(Control::getDisplay)
-                    .ifPresent(d -> d.asyncExec(r));
+            .map(GraphicalViewer::getControl)
+            .map(Control::getDisplay)
+            .ifPresent(d -> d.asyncExec(r));
         }
 
     }

@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -84,6 +84,7 @@ public class SidePanelsContainerPanel {
      * Get the main panel composite.
      * <p>
      * This composite is never collapsed.
+     * 
      * @return the main panel.
      */
     @objid ("d4efd66f-f8ab-45bf-bd35-99fcc376041c")
@@ -93,6 +94,7 @@ public class SidePanelsContainerPanel {
 
     /**
      * Add a lateral panel.
+     * 
      * @param panel the panel provider
      * @param title the panel title
      * @param icon an optional icon
@@ -148,6 +150,7 @@ public class SidePanelsContainerPanel {
 
     /**
      * Listener method called when dragging {@link Sash}.
+     * 
      * @param event the drag event
      * @param holder the resized side pane.
      */
@@ -475,6 +478,7 @@ public class SidePanelsContainerPanel {
 
         /**
          * Return the client area.
+         * 
          * @return the panel that contain client SWT component.
          */
         @objid ("3aea081e-dd52-4c85-b762-0bbeebfc3e62")

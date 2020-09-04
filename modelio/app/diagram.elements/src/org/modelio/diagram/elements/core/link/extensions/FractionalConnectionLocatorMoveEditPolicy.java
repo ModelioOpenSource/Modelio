@@ -1,5 +1,5 @@
 /* 
- * Copyright 2013-2018 Modeliosoft
+ * Copyright 2013-2019 Modeliosoft
  * 
  * This file is part of Modelio.
  * 
@@ -69,7 +69,7 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
         final Point moveDelta0 = request.getMoveDelta();
         
         final FractionalConnectionLocator oldLoc = (FractionalConnectionLocator) connection.getLayoutManager()
-                                                                                           .getConstraint(extension);
+                .getConstraint(extension);
         
         final ChangeExtensionLocationCommand cmd = new ChangeExtensionLocationCommand();
         
@@ -79,9 +79,9 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
         connection.translateToRelative(figLocation);
         
         final FractionalConnectionLocator newLoc = FractionalConnectionLocator.createFromXyPoint(connection,
-                                                                                                 oldLoc.getFraction(),
-                                                                                                 figLocation,
-                                                                                                 oldLoc.isTowardTarget());
+                oldLoc.getFraction(),
+                figLocation,
+                oldLoc.isTowardTarget());
         
         final GmNodeModel gmExtension = (GmNodeModel) getHost().getModel();
         final IGmLocator oldGmLoc = gmExtension.getParentLink().getLayoutContraint(gmExtension);
@@ -109,7 +109,7 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
         final IFigure extension = ((GraphicalEditPart) getHost()).getFigure();
         final Connection connection = (Connection) extension.getParent();
         final FractionalConnectionLocator loc = (FractionalConnectionLocator) connection.getLayoutManager()
-                                                                                        .getConstraint(extension);
+                .getConstraint(extension);
         
         this.focuslink = new PolylineConnection();
         ConnectionAnchor srcAnchor = new ChopboxAnchor(extension);
@@ -117,6 +117,8 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
         this.focuslink.setSourceAnchor(srcAnchor);
         this.focuslink.setTargetAnchor(targetAnchor);
         this.focuslink.setLineStyle(org.eclipse.swt.SWT.LINE_DOT);
+        
+        
         addFeedback(this.focuslink);
     }
 
@@ -152,7 +154,7 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
      */
     @objid ("9210a3c6-209a-436c-af87-cadc7ab53da3")
     public FractionalConnectionLocatorMoveEditPolicy() {
-        //setResizeDirections(PositionConstants.EAST_WEST);
+        // setResizeDirections(PositionConstants.EAST_WEST);
     }
 
     /**
@@ -173,11 +175,11 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
     @Override
     protected List createSelectionHandles() {
         return new SelectionHandlesBuilder((GraphicalEditPart) getHost())
-                        .withDragAllowed(isDragAllowed())
-                        .withResizeDirections(getResizeDirections())
-                        .withMoveDragTracker(getDragTracker())
-                        .addResizeableHandles()
-                        .getHandles();
+                .withDragAllowed(isDragAllowed())
+                .withResizeDirections(getResizeDirections())
+                .withMoveDragTracker(getDragTracker())
+                .addResizeableHandles()
+                .getHandles();
     }
 
     /**
