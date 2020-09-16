@@ -1,12 +1,12 @@
 [![Modelio Modeler](README/logo-modelio-v4.png)](https://www.modelio.org)
 
-Modelio is a modeling solution offering a wide range of functionalities based on the main standards of enterprise architecture, software development and systems engineering.
+Modelio is a modeling solution offering a wide range of functionality based on commonly used standards for enterprise architecture, software development and systems engineering.
 
 
 
 [![Modelio Documentations](README/documentation-link.png)](https://github.com/ModelioOpenSource/Modelio/wiki)
 
-Dedicated to developers, analysts and software and systems architects, Modelio is first and foremost a modeling environment, supporting a wide range of models and diagrams and providing many services facilitating the modeling of your architectures such as as model consistency checking features. Support for modeling and business processes (BPMN) is integrated into Modelio. These BPMN models can be linked to other standards supported by the tool, for example UML, so as to integrate these business processes into a larger context such as an enterprise architecture.
+Written for developers, analysts and software and systems architects, Modelio is first and foremost a modeling environment, supporting a wide range of models and diagrams and providing many services facilitating the modeling of your architectures, such as as model consistency-checking. Support for modeling and business processes (BPMN) is integrated into Modelio. These BPMN models can be linked to other standards supported by the tool, for example UML, so as to integrate these business processes into a larger context such as an enterprise architecture.
 **https://www.modelio.org**
 
 [![Modelio Overview](README/modelio-video-link.png)](https://www.youtube.com/watch?v=GQKqQaL_m5g)
@@ -18,7 +18,7 @@ Dedicated to developers, analysts and software and systems architects, Modelio i
 
 # Main Features
 
-* **UML Modeler** : Modelio is a first and foremost a modeling environment, supporting a wide range of models and diagrams, and providing model assistance and consistency checking features.
+* **UML Modeler** : Modelio is a first and foremost a modeling environment, supporting a wide range of models and diagrams, and providing model assistance and consistency-checking features.
 * **BPMN support** integrated with UML : Modelio combines BPMN support and UML support in one tool, with dedicated diagrams to support business process modeling.
 
 * **Java code generator** : The Java Designer module uses an RCP/Eclipse-style project file structure, and supports Java code generation and reverse, Javadoc generation and Java automation.
@@ -43,10 +43,10 @@ Dedicated to developers, analysts and software and systems architects, Modelio i
 </table>
 
 
-# Build form Source
-To understand how to compile the Modelio Modeling tool form source, please refer to the [Building Modelio from Source Guide](https://github.com/ModelioOpenSource/Modelio/wiki/Build-Modelio-Index).
+# Build from Source
+To understand how to compile the Modelio Modeling tool from source, please refer to the [Building Modelio from Source Guide](https://github.com/ModelioOpenSource/Modelio/wiki/Build-Modelio-Index).
 
-# Contribution
+# Contribute
 
 There are many ways to get involved in the Modelio community, on whatever level you choose. For each type of contribution, we recommend a certain level of knowledge as a user (someone who has some knowledge of the Modelio tool, as well as modeling or standards such as UML, SOA, BPM, ...) or a developer (someone with some knowledge of programming)
 
@@ -67,7 +67,7 @@ Steps:
 
 1. Enter a project name
 2. Enter a description
-3. You can choose to deploy the Java Designer module in your project by checking or not checking the Java project tickbox.
+3. You can choose whether to deploy the Java Designer module in your project by checking or not checking the Java project tickbox.
 4. Click on "Create"
 
 
@@ -106,6 +106,8 @@ Creating elements
 
 ![Element Creation](README/create-element-diagram.jpg)
 
+(Note: if you don't see the Modelio layout above, but wish to continue with this Quick Start, expand your project in the Model pane until you see a folder icon with the same name as your project, and select "Create diagram..." from the context menu, typically by right-clicking on that icon.)
+ 
 Key:
 
 1. Choose the type of element you want to create from the diagram palette
