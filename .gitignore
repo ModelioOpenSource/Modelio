@@ -1,0 +1,4 @@
+.metadata
+modelio/*/*/bin
+modelio/*/*/target
+modelio/*/*/runtime/bin
