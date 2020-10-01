@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= The life cycle of a model component
+
+=== The model component life cycle
+
+The life cycle of a model component can be broken down into four distinct stages:
+
+1.  The <<Modeler-_modeler_local_libraries_model_components_development.adoc#,development phase>>, during which a model component developer prepares a model component for packaging. This phase includes the construction of the UML model, and the creation and definition of the future model component itself, as well as the modeling of its dependency on other model components.
+2.  The <<Modeler-_modeler_local_libraries_model_components_development.adoc#,packaging phase>>, during which the model component is actually produced by a model component developer. This phase sees the definition of packaging information, and the production of a unique model component file, suffixed ".ramc".
+3.  The <<Modeler-_modeler_local_libraries_model_components_deployment.adoc#,deployment phase>>, during which a model component is deployed by a user in a user project. If the deployment operation should encounter any deployment issues, these can be solved here, before re-running the deployment command.
+
+=== Model component versions and dependencies between model components
+
+When a model component is developed, it is assigned a version number. This version number can be incremented each time a model component is subsequently repackaged (either following modifications made to it or when making scheduled deliveries).
+
+The dependencies that exist between Modelio model components are so-called strict dependencies. This means that a model component depends on a specific version of another model component. This version must be respected during model component deployment in a project.
+
+For example, let's imagine that we have two model components, "A" and "B", both of which are in version 1.0.0. If version 1.0.0 of the "B" model component depends on version 1.0.0 of the "A" model component, and if the "B" model component is to be deployed in a project, the following steps must be carried out:
+
+* Version 1.0.0 of the "A" model component must first be deployed in the project.
+* Version 1.0.0 of the "B" model component can then be deployed.
+
+Now let's imagine that the "A" model component is modified and subsequently repackaged, with a new version number, 2.0.0. We still want to deploy both the "A" and the "B" model components in our project. The following steps must be carried out:
+
+* First, the original dependency between the "B" model component and version 1.0.0 of the "A" model component must be deleted.
+* Next, a new dependency must be created between the "B" model component and version 2.0.0 of the "A" model component.
+* The "A" model component must then be repackaged, and its version number incremented.
+* Version 2.0.0 of the "A" model component can now be deployed in a project, followed by the new version of the "B" model component.
+
+

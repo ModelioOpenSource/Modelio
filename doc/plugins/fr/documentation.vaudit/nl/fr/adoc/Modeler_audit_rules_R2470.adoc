@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2470]]
+
+[[r2470]]
+= R2470
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Il ne devrait y avoir qu'un _PackageImport_ entre un _NameSpace_ et un _Package_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Il n'est généralement pas utile d'importer un _Package_ plus d'une fois.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Supprimez tous les liens d'import en trop.
+
+

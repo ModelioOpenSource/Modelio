@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.modelio.platform.project.services.IFragmentMigrationContributor" name="Metamodel migration class" schema="schema/org.modelio.platform.project.services.IFragmentMigrationContributor.exsd"/>
+</plugin>

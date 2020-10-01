@@ -1,0 +1,34 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1410]]
+
+[[r1410]]
+= R1410
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Seule une _AssociationEnd_ d'une _Association_ doit être de type agrégation ou
+
+composition.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+L'agrégation et la composition représentent une responsabilité de l'élément portant _l'AssociationEnd_ vers l'élément ciblé. Cette responsabilité ne peut exister dans les deux sens.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une _Association_ avec plusieurs _AssociationEnd_ de type composition ou agrégation, vous devriez changer le type d'un de ces
+
+_AssociationEnd_ ou bien faire une nouvelle association.
+
+

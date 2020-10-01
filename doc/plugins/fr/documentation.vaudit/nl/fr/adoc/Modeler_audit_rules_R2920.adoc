@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2920]]
+
+[[r2920]]
+= R2920
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un _Extension Point_ ne peut être référencé que par une _relation d'extension_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _Extension Point_ est une fonctionnalité des _Use Case_ qui identifie un certain point à partir duquel le comportement d'un _Use Case_ peut être étendu par des éléments d'un autre _Use Case_. Il n'y a donc que des _relations d'extension_ qui peuvent référencer des _Extension Points_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Remplacez les _relations d'inclusion_ par des _relations d'extension_.
+
+

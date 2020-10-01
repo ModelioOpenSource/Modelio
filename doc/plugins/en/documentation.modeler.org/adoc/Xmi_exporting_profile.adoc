@@ -1,0 +1,50 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Exporting-a-profile-in-XMI-format]]
+
+[[exporting-a-profile-in-xmi-format]]
+= Exporting a profile in XMI format
+
+[[Introduction]]
+
+[[introduction]]
+===== Introduction
+
+The Modelio export profile operation is used to generate XMI files from profiles built in Modelio.
+
+The "Profile export" command can only be run from a profile.
+
+image::images/Xmi_exporting_profile_ExportProfileCommand.png[image]
+
+[[The-XMI-Export-profile-command]]
+
+[[the-xmi-export-profile-command]]
+The XMI Export profile command
+
+*Keys:*
+
+1. Right-click on a profile to open the context menu.
+1. Run the "Import/Export \ Import \Profile export" command.
+
+[[The-ldquoXMI-profile-exportrdquo-window]]
+
+[[the-xmi-profile-export-window]]
+===== The "XMI profile export" window
+
+image::images/Xmi_exporting_profile_ExportProfileWindow.png[image]
+
+[[The-XMI-profile-export-window]]
+
+[[the-xmi-profile-export-window-1]]
+The XMI profile export window
+
+*Keys:*
+
+1. In this field, select the path of the file (which may or may not already exist) to which you want to export.
+2. When the "Adding Modelio annotations" option has been activated, more information will be exported, ensuring maximum compatibility in the case of a re-import into Modelio. Some information available in Modelio but not present in UML2 can be retrieved in this way.
+3. In the "Compatibility" field, select a format for the export. Choose between UML2.1.1, UML2.2, UML2.3, UML2.4.1 and EMF210.
+4. In the "Extension" field, define the extension that will be assigned to the file you are going to export (either ".xmi" ou ".uml").
+5. The progress bar shows the progress of the export operation
+
+

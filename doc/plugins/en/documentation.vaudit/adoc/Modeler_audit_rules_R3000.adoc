@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3000]]
+
+[[r3000]]
+= R3000
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A «+influence» and «-influence» _Dependency_ must link two _Goals_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A «+influence» _Dependency_ illustrates the fact that the advent or success of the origin _Goal_ helps or contributes to the target _Goal_.
+
+A «-influence» _Dependency_ indicates that the advent or success of the origin _Goal_ hinders or prevents the target _Goal_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have an influence _Dependency_ which is not between two _Goals_, you should delete it.
+
+

@@ -1,0 +1,34 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1450]]
+
+[[r1450]]
+= R1450
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+If an association is a composition, then the opposite maximum multiplicity must be 1.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A composition is a strong association that implies that a model element (the composite) is reponsible for the life cycle of another model element (the part). Therefore, an instance of the part element cannot be linked to more than one instance of the composite element.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a composite model element with an association end maximum multiplicity different than 1, you should consider revising your association and either:
+
+* remove the composition
+* change the composition into an aggregation
+* correct the cardinality
+
+

@@ -193,24 +193,33 @@ public class ModelerModuleModule extends AbstractJavaModule {
     @objid ("de8b875d-0802-4ecb-862f-ba2ec7d10f33")
     private IMdaExpert getGeneratedMdaExpert(Stereotype st) {
         switch (st.getUuid()) {
-        case "e5076ee8-b071-4433-a25d-4d8cdddead0a":
-            return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.AllocatedExpert();
-        case "c3862c6c-5983-4d1a-b0e2-58dd2685eda0":
-            return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.CalledExpert();
-        case "143b4e00-fe2e-44d0-9c64-5a95e385ec5a":
-            return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.EventExpert();
-        case "5de33d2a-ed28-439c-aa09-d11bf1a6d878":
-            return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.PartitionElementExpert();
-        case "616b72d4-1d47-49e1-a381-2e6ecfea637c":
-            return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.ProcessExpert();
-        case "3b4dc351-ccaa-47b8-af57-8434f8e0e5f5":
-            return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.ReferenceExpert();
-        case "f5d2927d-46d6-4d87-9cf2-adb4a47ca929":
-            return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.RepresentsExpert();
-        case "c2d2a1ec-2c29-453c-a79c-19e4f2d27f13":
-            return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.StateExpert();
-        default:
-            return null;
+            case "2961d57b-5120-11de-bbaf-00218648fa3d": return new org.modelio.module.modelermodule.api.default_.infrastructure.dependency.RelatedDiagramExpert();
+            case "01ec12fc-0000-0247-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.PlusInfluenceExpert();
+            case "01ec12fc-0000-024c-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.MinusInfluenceExpert();
+            case "01ec12fc-0000-0233-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.AntonymExpert();
+            case "01ec12fc-0000-025b-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.AssignedExpert();
+            case "01ec12fc-0000-0242-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.ContextExpert();
+            case "01ec12fc-0000-021a-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.DeriveExpert();
+            case "01ec12fc-0000-0251-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.GuaranteeExpert();
+            case "01ec12fc-0000-0238-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.HomonymExpert();
+            case "01ec12fc-0000-0260-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.ImplementExpert();
+            case "01ec1228-0000-12f8-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.KindOfExpert();
+            case "01ec12fc-0000-0256-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.MeasureExpert();
+            case "01ec12fc-0000-00b7-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.PartExpert();
+            case "01ec12fc-0000-0265-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.RefersExpert();
+            case "01ec12fc-0000-023d-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.RelatedExpert();
+            case "01ec12fc-0000-0224-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.SatisfyExpert();
+            case "01ec12fc-0000-022e-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.SynonymExpert();
+            case "01ec12fc-0000-0229-0000-000000000000": return new org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.VerifyExpert();
+            case "e5076ee8-b071-4433-a25d-4d8cdddead0a": return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.AllocatedExpert();
+            case "c3862c6c-5983-4d1a-b0e2-58dd2685eda0": return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.CalledExpert();
+            case "143b4e00-fe2e-44d0-9c64-5a95e385ec5a": return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.EventExpert();
+            case "5de33d2a-ed28-439c-aa09-d11bf1a6d878": return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.PartitionElementExpert();
+            case "616b72d4-1d47-49e1-a381-2e6ecfea637c": return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.ProcessExpert();
+            case "3b4dc351-ccaa-47b8-af57-8434f8e0e5f5": return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.ReferenceExpert();
+            case "f5d2927d-46d6-4d87-9cf2-adb4a47ca929": return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.RepresentsExpert();
+            case "c2d2a1ec-2c29-453c-a79c-19e4f2d27f13": return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.StateExpert();
+            default: return null;
         }
     }
 

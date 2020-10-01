@@ -1,0 +1,35 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1250]]
+
+[[r1250]]
+= R1250
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Si un _ForkJoinNode_ a un _ObjectFlow_ dans ses flow d'entrée, il doit avoir un _ObjectFlow_ dans ses flow de sortie et vice versa. Cela s'applique aussi aux _ControlFlow_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+_Contraintes UML_:
+
+* Les flux entrants et sortants d'un nœud d'embranchement doivent être soit tous des _ControlFlow_ soit tous des _ObjectFlow_.
+* Si un nœud de jonction a un _ObjectFlow_ en entrée alors il doit avoir un _ObjectFlow_ en sortie, sinon il doit avoir un _ControlFlow_ en sortie.
+
+Tous les types d'information qui rentrent dans un _ForkJoinNode_ ne doivent pas se perdre. De la même manière, toutes les informations sortantes d'un _ForkJoinNode_ ne doivent pas se créer.
+
+[[Astuces]]
+
+[[astuces]]
+===== Astuces
+
+Si vous avez un avertissement concernant la règle R1250, vérifiez la cohérence des flux entrants et sortants du _ForkJoinNode_.
+
+

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2270]]
+
+[[r2270]]
+= R2270
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+All an _Operation_'s _Collaborations_ must have a different name.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The _Collaborations_ inside an _Operation_ must all have a different name in order to distinguish them.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Rename the conflicting _Collaborations_.
+
+

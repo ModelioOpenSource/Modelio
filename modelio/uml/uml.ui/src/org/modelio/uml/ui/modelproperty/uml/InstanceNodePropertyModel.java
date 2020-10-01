@@ -25,13 +25,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.core.ui.nattable.parts.data.INatValue;
-import org.modelio.core.ui.nattable.parts.data.bool.DefaultBooleanNatValue;
-import org.modelio.core.ui.nattable.parts.data.element.single.DefaultElementNatValue;
-import org.modelio.core.ui.nattable.parts.data.javaenum.DefaultJavaEnumNatValue;
-import org.modelio.core.ui.nattable.parts.data.string.choice.DefaultStringChoiceNatValue;
-import org.modelio.core.ui.nattable.parts.data.string.single.DefaultStringNatValue;
-import org.modelio.core.ui.nattable.viewer.model.AbstractPropertyModel;
 import org.modelio.metamodel.uml.behavior.activityModel.InstanceNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNodeOrderingKind;
@@ -42,6 +35,13 @@ import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Attribute;
 import org.modelio.metamodel.uml.statik.GeneralClass;
 import org.modelio.metamodel.uml.statik.Instance;
+import org.modelio.platform.model.ui.nattable.parts.data.INatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.bool.DefaultBooleanNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.element.single.DefaultElementNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.javaenum.DefaultJavaEnumNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.string.choice.DefaultStringChoiceNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.string.single.DefaultStringNatValue;
+import org.modelio.platform.model.ui.nattable.viewer.model.AbstractPropertyModel;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**

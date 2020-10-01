@@ -1,0 +1,20 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de démasquage sur les parts
+
+Le tableau suivant présente les raccourcis clavier permettant de démasquer certains éléments associés ou appartenant à la part sélectionnée dans le diagramme.
+
+[%header]
+|===========================
+|Elément démasqué |Raccourci
+|Constraints |SHIFT + N
+|Notes |SHIFT + N
+|Parts |SHIFT + I
+|Ports |SHIFT + P
+|Attribute links |SHIFT + A
+|Connectors |SHIFT + L
+|Dependencies |SHIFT + D
+|===========================
+
+

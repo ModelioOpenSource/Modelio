@@ -1,0 +1,202 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Liste-des-règles-daudit]]
+
+[[liste-des-règles-daudit]]
+= Liste des règles d'audit
+
+* *<<Modeler_audit_rules_R1000.adoc#,R1000>>* : Un Model Element ne peut pas s'abstraire lui-même.
+* *<<Modeler_audit_rules_R1010.adoc#,R1010>>* : Les Partitions racines d'une Activity ne doivent pas avoir de Super-Partition.
+* *<<Modeler_audit_rules_R1020.adoc#,R1020>>* : La source et la cible d'un Flow doivent être contenues dans le même Structured Activity Node.
+* *<<Modeler_audit_rules_R1030.adoc#,R1030>>* : La source et la cible d'un Flow doivent appartenir à la même Activity.
+* *<<Modeler_audit_rules_R1040.adoc#,R1040>>* : Un Activity Parameter Node doit être représenté par un Behavior Parameter appartenant à la même Activity.
+* *<<Modeler_audit_rules_R1050.adoc#,R1050>>* : Un Activity Parameter Node doit avoir soit des flux entrants, soit des flux sortants.
+* *<<Modeler_audit_rules_R1060.adoc#,R1060>>* : Un Activity Parameter Node sans flux entrant et ayant un ou plusieurs flux sortants doit avoir un Behavior Parameter avec passage de paramètres "Entrée" ou "Entrée/Sortie".
+* *<<Modeler_audit_rules_R1070.adoc#,R1070>>* : Un Activity Parameter Node sans flux sortant et ayant un ou plusieurs flux entrants doit avoir un Behavior Parameter avec passage de paramètres "Sortie" ou "Entrée/Sortie".
+* *<<Modeler_audit_rules_R1080.adoc#,R1080>>* : Les Partitions de même niveau doivent représenter des Parts appartenant au même Classifier.
+* *<<Modeler_audit_rules_R1090.adoc#,R1090>>* : Si une Sub-Partition est non-externe et représente un Classifier alors le Classifier représenté doit être imbriqué dans le Classifier représenté par sa Super-Partition ou être l'extrémité d'une composition avec celui-ci.
+* *<<Modeler_audit_rules_R1100.adoc#,R1100>>* : Si une Sub-Partition représente une Part imbriqué dans un Classifier alors sa Super-Partition doit représenter le Classifier ou une instance de celui-ci.
+* *<<Modeler_audit_rules_R1110.adoc#,R1110>>* : Les Pins d'un Call Behavior Action doivent correspondre un pour un à des paramètres "in", "out", "inout" ou "return" du Behaviour appelé.
+* *<<Modeler_audit_rules_R1130.adoc#,R1130>>* : Le type et la cardinalité maximum du Pin d'un Call Action doivent correspondre au type et à la cardinalité maximum du paramètre représenté.
+* *<<Modeler_audit_rules_R1140.adoc#,R1140>>* : Les Pins d'un Call Operation Action doivent correspondre un pour un à des paramètres "in", "inout", "out" ou "return" de l''opération appelée.
+* *<<Modeler_audit_rules_R1150.adoc#,R1150>>* : Le Call Operation Action ou le Send Signal Action ne doit pas avoir plus d'un Pin cible.
+* *<<Modeler_audit_rules_R1160.adoc#,R1160>>* : Un Pin cible ne peut être contenu que par un Call Operation Action ou un Send Signal Action.
+* *<<Modeler_audit_rules_R1170.adoc#,R1170>>* : Le type du Pin cible doit être le propiétaire de l''operation.
+* *<<Modeler_audit_rules_R1180.adoc#,R1180>>* : Les Control Flows ne doivent pas avoir d'Object Node à leurs extrémités, sauf dans le cas des Object Nodes de type control.
+* *<<Modeler_audit_rules_R1190.adoc#,R1190>>* : Le Decision-Merge Node est à la fois utilisé en tant que noeud de Decision et en tant que noeud de Merge.
+* *<<Modeler_audit_rules_R1200.adoc#,R1200>>* : Les flux entrants et sortants d'un Decision-Merge Node doivent être tous des Object Flows ou tous des Control Flows.
+* *<<Modeler_audit_rules_R1230.adoc#,R1230>>* : Seuls les Control Flows peuvent avoir des Initial Nodes comme source.
+* *<<Modeler_audit_rules_R1250.adoc#,R1250>>* : Si un Fork/Join Node a un Object Flow dans ses flux d'entrée, il doit avoir un Object Flow dans ses flux de sortie et vice versa. (Même chose pour les Control Flows)
+* *<<Modeler_audit_rules_R1280.adoc#,R1280>>* : Les Object Flows ne peuvent pas connecter des Actions.
+* *<<Modeler_audit_rules_R1290.adoc#,R1290>>* : Les Object Nodes connectés par un Object Flow, avec des Control Nodes intervenants facultatifs, doivent avoir des types compatibles. En particulier, le type de l'Object Node en aval doit être le même ou un super-type du type de l'Object Node en amont.
+* *<<Modeler_audit_rules_R1300.adoc#,R1300>>* : Les Object Nodes connectés par un Object Flow, avec des Control Nodes intervenants facultatifs, doivent avoir les mêmes limites supérieures.
+* *<<Modeler_audit_rules_R1310.adoc#,R1310>>* : Un flux à poids constant ne peut pas cibler un Object Node ni mener à un Object Node en aval sans action d'intervention et ayant une limite supérieure inférieure au poids.
+* *<<Modeler_audit_rules_R1320.adoc#,R1320>>* : Un Object Flow ne doit pas être à la fois multi-cast et multi-receive.
+* *<<Modeler_audit_rules_R1350.adoc#,R1350>>* : Si un Object Node a un 'Filtre de séléction' alors l'Object Node doit être ordonné et vice versa.
+* *<<Modeler_audit_rules_R1360.adoc#,R1360>>* : Les Input Pins ne peuvent avoir des flux sortants que si les deux conditions suivantes sont remplies : (1) Ils se trouvent sur des Actions qui sont des Structured Nodes, et (2) Ces flux doivent cibler un noeud contenu par le Structured Node.
+* *<<Modeler_audit_rules_R1370.adoc#,R1370>>* : Les Output Pins ne peuvent avoir des flux entrants que si les deux conditions suivants sont remplies : (1) Ils se trouvent sur des Actions qui sont des Structured Nodes, et (2) Ces flux doivent partir d'un noeud contenu par le Structured Node.
+* *<<Modeler_audit_rules_R1380.adoc#,R1380>>* : Les Pins d'un Send Signal Action doivent correspondre un pour un à des Attributs du Signal envoyé.
+* *<<Modeler_audit_rules_R1390.adoc#,R1390>>* : La cardinalité maximum d'un Pin d'argument doit être la même que pour l'Attribut représenté.
+* *<<Modeler_audit_rules_R1400.adoc#,R1400>>* : Un Activity Parameter Node doit appartenir à une Activity.
+* *<<Modeler_audit_rules_R1410.adoc#,R1410>>* : Sur une Association, seule une des extrémités peut ête de type agregation ou composition.
+* *<<Modeler_audit_rules_R1420.adoc#,R1420>>* : Un Acteur ou un UseCase ne peut pas avoir d'associations n-aire.
+* *<<Modeler_audit_rules_R1430.adoc#,R1430>>* : Les multiplicités doivent être cohérentes: La multiplicité min ne peut être * et doit être inférieur à la multiplicité max.
+* *<<Modeler_audit_rules_R1450.adoc#,R1450>>* : Si une association est une composition, alors la multiplicité max de l'autre extrémité doit être 1.
+* *<<Modeler_audit_rules_R1460.adoc#,R1460>>* : Une association publique venant d'un Classifier publique ne peut pas cibler un Classifier privé ou protégé.
+* *<<Modeler_audit_rules_R1470.adoc#,R1470>>* : Le nom des qualifieurs d'une association doivent être uniques.
+* *<<Modeler_audit_rules_R1480.adoc#,R1480>>* : Un Attribut doit être typé par un type primitif.
+* *<<Modeler_audit_rules_R1490.adoc#,R1490>>* : Dans une instance, le type d'un attribute instancié doit être dans la class instantiée ou dans ses classes parentes.
+* *<<Modeler_audit_rules_R1500.adoc#,R1500>>* : Dans une instance, le nom d'un attribut instancié doit être le même que l'attribut correspondant.
+* *<<Modeler_audit_rules_R1520.adoc#,R1520>>* : Le nom d'une BindableInstance doit être unique dans son Classifier.
+* *<<Modeler_audit_rules_R1530.adoc#,R1530>>* : Une association ou un port devrait avoir un nom.
+* *<<Modeler_audit_rules_R1540.adoc#,R1540>>* : Une Bindable Instance ne peut se reprèsenter elle même, directement ou indirectement.
+* *<<Modeler_audit_rules_R1550.adoc#,R1550>>* : Si une Bindable Instance a un type et représente une Feature, alors le type de l'instance doit être compatible avec cette Feature.
+* *<<Modeler_audit_rules_R1560.adoc#,R1560>>* : Les sous classes d'une classe active doivent être actives.
+* *<<Modeler_audit_rules_R1580.adoc#,R1580>>* : Les Attributs, les Associations et les Operations ne peuvent pas être à la fois abstraits et de classe.
+* *<<Modeler_audit_rules_R1590.adoc#,R1590>>* : Les General Class primitives ne peuvent pas avoir d'associations.
+* *<<Modeler_audit_rules_R1600.adoc#,R1600>>* : Une classe primitive ne peut avoir de collaboration.
+* *<<Modeler_audit_rules_R1610.adoc#,R1610>>* : Une classe primitive ne peux pas avoir de machine à états.
+* *<<Modeler_audit_rules_R1620.adoc#,R1620>>* : Un Classifier non abtsrait ne peut pas avoir de méthodes abstraites.
+* *<<Modeler_audit_rules_R1640.adoc#,R1640>>* : Il ne peut y avoir plus d'un ElementImport entre deux NameSpace ou entre une Operation et un NameSPace.
+* *<<Modeler_audit_rules_R1650.adoc#,R1650>>* : Une énumération ne peut pas être abstraite.
+* *<<Modeler_audit_rules_R1660.adoc#,R1660>>* : Une énumération est toujours primitive.
+* *<<Modeler_audit_rules_R1670.adoc#,R1670>>* : Les Enumeration Litteral d'une énumération doivent avoir un nom unique.
+* *<<Modeler_audit_rules_R1680.adoc#,R1680>>* : Le champ 'Called operation' doit être défini pour un Event de type Call, tandis que le champ 'Instanciated signal' doit être vide.
+* *<<Modeler_audit_rules_R1690.adoc#,R1690>>* : Le champ 'Expression' d'un Event de type Change doit être défini, tandis que les champs 'Called operation' et 'Instanciated signal' doivent être vides.
+* *<<Modeler_audit_rules_R1700.adoc#,R1700>>* : Le champ 'Instantiated signal' d'un Event de type Signal doit être défini, tandis que les champs 'Called operation' et 'Expression' doivent être vides.
+* *<<Modeler_audit_rules_R1710.adoc#,R1710>>* : Le champ 'Expression' d'un Event de type Time doit être défini, tandis que les champs 'Called operation' et 'Instanciated signal' doivent être vides.
+* *<<Modeler_audit_rules_R1720.adoc#,R1720>>* : Un Namespace abstrait devrait seulement hériter d'un autre Namespace abstrait.
+* *<<Modeler_audit_rules_R1730.adoc#,R1730>>* : Une généralisation doit être créée entre deux éléments de modèles du même type, sauf dans le cas d'un signal, qui peut spécialiser soit un signal soit une classe.
+* *<<Modeler_audit_rules_R1740.adoc#,R1740>>* : Un Information Flow doit convoyer de l'information.
+* *<<Modeler_audit_rules_R1750.adoc#,R1750>>* : Les répétitions de noms sont interdites pour les Atrribute Links.
+* *<<Modeler_audit_rules_R1760.adoc#,R1760>>* : Il ne peut y avoir d'incohérénce dans les multiplictés d'une instance.
+* *<<Modeler_audit_rules_R1780.adoc#,R1780>>* : Le nom d'une instance doit être unique dans son Namespace.
+* *<<Modeler_audit_rules_R1790.adoc#,R1790>>* : Une instance doit avoir un nom ou l'association d'instanciation doit être définie.
+* *<<Modeler_audit_rules_R1800.adoc#,R1800>>* : Si l'Operator est opt, loop, break, ou neg, il ne peut y avoir plus d'une Operand.
+* *<<Modeler_audit_rules_R1810.adoc#,R1810>>* : Une Gate (réelle) sur un InteractionUse doit référencer une Gate (formelle) de l'interaction référencée.
+* *<<Modeler_audit_rules_R1820.adoc#,R1820>>* : Une Gate ne peut pas couvrir une lifeline.
+* *<<Modeler_audit_rules_R1830.adoc#,R1830>>* : Une PartDecompoistion ne peut pas recevoir de messages de type 'create' ou 'destroy'.
+* *<<Modeler_audit_rules_R1860.adoc#,R1860>>* : Sur une Interface, la visibilité des Features doit être publique.
+* *<<Modeler_audit_rules_R1870.adoc#,R1870>>* : Une Interface ne peut pas être implémentée deux fois par la même classe ou le même composant.
+* *<<Modeler_audit_rules_R1910.adoc#,R1910>>* : Un lien qui instancie une association doit être cohérent avec cette association.
+* *<<Modeler_audit_rules_R1950.adoc#,R1950>>* : Les messages de type 'reply' ne peuvent pas invoquer une opération.
+* *<<Modeler_audit_rules_R1960.adoc#,R1960>>* : Un Message doit porter le même nom que l'opération qu'il invoque.
+* *<<Modeler_audit_rules_R1970.adoc#,R1970>>* : Un TemplateParameterSubsitution doit référencer un TemplateParameter.
+* *<<Modeler_audit_rules_R1980.adoc#,R1980>>* : Les noms des attributs et des extrémité d'association d'un Classifier doivent être uniques.
+* *<<Modeler_audit_rules_R1990.adoc#,R1990>>* : Les noms des attributs et des rôles hérités par un Classifier doivent être uniques.
+* *<<Modeler_audit_rules_R2010.adoc#,R2010>>* : Dans un Dictionaire, le nom de chaque élément doit être unique.
+* *<<Modeler_audit_rules_R2030.adoc#,R2030>>* : Dans un PropertyContainer, le nom de chaque EnumeratedPropertyType doit être unique.
+* *<<Modeler_audit_rules_R2050.adoc#,R2050>>* : Certains éléments doivent avoir un nom.
+* *<<Modeler_audit_rules_R2060.adoc#,R2060>>* : Le nom d'un Namespace doit être unique dans son Namespace.
+* *<<Modeler_audit_rules_R2080.adoc#,R2080>>* : Dans un PropertySet, le nom de chaque Property doit être unique.
+* *<<Modeler_audit_rules_R2100.adoc#,R2100>>* : Dans un EnumeratedPropertyType, le nom de chaque PropertyEnumerationLiteral doit être unique.
+* *<<Modeler_audit_rules_R2120.adoc#,R2120>>* : Dans un PropertyContainer, le nom de chaque PropertySet doit être unique.
+* *<<Modeler_audit_rules_R2140.adoc#,R2140>>* : Dans un PropertyContainer, le nom de chaque PropertyType doit être unique.
+* *<<Modeler_audit_rules_R2160.adoc#,R2160>>* : Dans un Conteneur Analyste, le nom de chaque élément doit être unique.
+* *<<Modeler_audit_rules_R2170.adoc#,R2170>>* : Le nom d'un comportement doit être unique dans son NameSpace.
+* *<<Modeler_audit_rules_R2180.adoc#,R2180>>* : Il ne peut y avoir de cycles dans le graphe d'héritage d'un Namespace.
+* *<<Modeler_audit_rules_R2190.adoc#,R2190>>* : Il ne peut y avoir qu'une généralisation entre deux Namespaces.
+* *<<Modeler_audit_rules_R2200.adoc#,R2200>>* : Un NameSPace ne peut pas dériver et importer un autre Namespace.
+* *<<Modeler_audit_rules_R2210.adoc#,R2210>>* : Un Namespace feuille ne peut pas être dérivé.
+* *<<Modeler_audit_rules_R2220.adoc#,R2220>>* : Un Namespace feuille ne peut pas être abstrait
+* *<<Modeler_audit_rules_R2230.adoc#,R2230>>* : Un Namespace racine ne peut pas hériter d'un autre Namespace.
+* *<<Modeler_audit_rules_R2240.adoc#,R2240>>* : Il ne peut y avoir de cycle de dépendance inter-package/inter-component.
+* *<<Modeler_audit_rules_R2250.adoc#,R2250>>* : Toutes les opérations d'un Classifier doivent avoir des signatures diffèrentes des opérations publiques et protègèes hèritèes. Sauf en ce qui concerne les constructeurs, les destructeurs, et les opérations dèrivèes.
+* *<<Modeler_audit_rules_R2260.adoc#,R2260>>* : Chaque opération d'un Classifier doivent avoir une signature différente.
+* *<<Modeler_audit_rules_R2270.adoc#,R2270>>* : Toutes les collaborations d'une opération doivent avoir des noms différents.
+* *<<Modeler_audit_rules_R2330.adoc#,R2330>>* : Tous les paramètres d'une opération doivent avoir des noms différents.
+* *<<Modeler_audit_rules_R2340.adoc#,R2340>>* : Un opération redéfinie doit appartenir a un parent on a une interface implémentée par le parent de l'opération.
+* *<<Modeler_audit_rules_R2350.adoc#,R2350>>* : Une Opération privée ne peut être redéfinie.
+* *<<Modeler_audit_rules_R2360.adoc#,R2360>>* : La visibilité d'une opération ne peut être plus grande que la visbilité de l'opération qu'elle redéfinie.
+* *<<Modeler_audit_rules_R2370.adoc#,R2370>>* : Une opération de classe (statique) ne peut être redéfinie.
+* *<<Modeler_audit_rules_R2380.adoc#,R2380>>* : Une opération abstraite ne peut redéfinir une opération concrete.
+* *<<Modeler_audit_rules_R2390.adoc#,R2390>>* : Un constructeur ne peut pas avoir de paramètre de retour.
+* *<<Modeler_audit_rules_R2400.adoc#,R2400>>* : Un destructeur ne peux pas avoir de paramètre.
+* *<<Modeler_audit_rules_R2410.adoc#,R2410>>* : Une opération ne peut pas avoir les deux stéréotypes 'create' et 'destroy' à la fois.
+* *<<Modeler_audit_rules_R2420.adoc#,R2420>>* : Une opération doit avoir la même signature que l'opération qu'elle redéfinie.
+* *<<Modeler_audit_rules_R2430.adoc#,R2430>>* : Toutes les machines à états d'une opération doivent avoir des noms différents.
+* *<<Modeler_audit_rules_R2440.adoc#,R2440>>* : Une opération ne peut pas appartenir a une énumération
+* *<<Modeler_audit_rules_R2450.adoc#,R2450>>* : Un Package ne peut pas avoir de liens d'héritage.
+* *<<Modeler_audit_rules_R2470.adoc#,R2470>>* : Un NameSpace ne peut avoir plus d'un lien PackageImport vers un package.
+* *<<Modeler_audit_rules_R2500.adoc#,R2500>>* : Un paramètre 'out' ne peut pas avoir de valeur par défaut.
+* *<<Modeler_audit_rules_R2510.adoc#,R2510>>* : Il ne peut y avoir de lien direct entre deux ports.
+* *<<Modeler_audit_rules_R2520.adoc#,R2520>>* : Si un Port a une delegation vers une part, il doit fournir au moins une interface.
+* *<<Modeler_audit_rules_R2530.adoc#,R2530>>* : Si un port reçoit une delegation d'une part, il doit fournir au moins une interface.
+* *<<Modeler_audit_rules_R2540.adoc#,R2540>>* : Les Interfaces fournies par un port doivent être implèmentèes par la classe qui type ce port.
+* *<<Modeler_audit_rules_R2550.adoc#,R2550>>* : Si un Port est un Behavior Port, les Interfaces qu'il fourni doivent être implèmentèes par la classe auquel il appartient.
+* *<<Modeler_audit_rules_R2560.adoc#,R2560>>* : Un Behaviour Port doit fournir au moins une Interface.
+* *<<Modeler_audit_rules_R2570.adoc#,R2570>>* : Le type d'un Behavior Port doit être soit la classe auquel il appartient soit non dèfini.
+* *<<Modeler_audit_rules_R2580.adoc#,R2580>>* : Une région ne peut pas contenir plus d'un état de type deep history.
+* *<<Modeler_audit_rules_R2590.adoc#,R2590>>* : Une région ne peut pas contenir plus d'un état initial.
+* *<<Modeler_audit_rules_R2600.adoc#,R2600>>* : Une machine à états ou un état ne peut pas contenir deux états ayant le même nom.
+* *<<Modeler_audit_rules_R2610.adoc#,R2610>>* : Seul les états représentant une sous machine peuvent avoir des états de type connection point reference.
+* *<<Modeler_audit_rules_R2620.adoc#,R2620>>* : Les états représentant une sous machine ne peuvent avoir d'états de type entry ou exit point définis.
+* *<<Modeler_audit_rules_R2630.adoc#,R2630>>* : Une région ne peut pas contenir plus d'un état de type shallow history.
+* *<<Modeler_audit_rules_R2640.adoc#,R2640>>* : Le contexte d'une machine à états ne peut pas être une Interface.
+* *<<Modeler_audit_rules_R2650.adoc#,R2650>>* : Le contexte d'une machine à états protocolaire doit être un Classifier.
+* *<<Modeler_audit_rules_R2660.adoc#,R2660>>* : Un état d'une machine à états protocolaire ne doit pas avoir de 'entry', 'exit', ou 'do' actions d'activité.
+* *<<Modeler_audit_rules_R2670.adoc#,R2670>>* : Une machine à états protocolaire ne peut pas avoir d'états historiques.
+* *<<Modeler_audit_rules_R2680.adoc#,R2680>>* : Le nombre de paramètres d'une TaggedValue doit être égal au nombr de paramètres définis dans la déclaration de la TaggedValue.
+* *<<Modeler_audit_rules_R2690.adoc#,R2690>>* : Un élément ne peut avoir un TemplateBindind vers lui même.
+* *<<Modeler_audit_rules_R2700.adoc#,R2700>>* : Un TemplateBinding ne peut substituer un TemplateParameter de l'élément instancié qu'une seule fois.
+* *<<Modeler_audit_rules_R2720.adoc#,R2720>>* : Un TemplateBinding doit être entre deux éléments de même type ou entre une Class et un DataType.
+* *<<Modeler_audit_rules_R2730.adoc#,R2730>>* : Un TemplateBinding doit substituer tous les TemplateParameters de l'élément instantié, et les TemplateParameterSubstitution doivent être définis dans le même ordre que les TemplateParameters.
+* *<<Modeler_audit_rules_R2740.adoc#,R2740>>* : Dans un TemplateBinding, les TemplateParameterSubstitution doivent appartenir à l'élement instancié;
+* *<<Modeler_audit_rules_R2750.adoc#,R2750>>* : Une transition ayant pour origine un état de fork ou join ne doit pas avoir de guard ou de trigger.
+* *<<Modeler_audit_rules_R2760.adoc#,R2760>>* : Une transition partant d'un fork doit toujours ciblé un état.
+* *<<Modeler_audit_rules_R2770.adoc#,R2770>>* : Une transition ciblant un join doit toujour partir d'un état.
+* *<<Modeler_audit_rules_R2780.adoc#,R2780>>* : Les transitions ciblant des pseudo états ne peuvent pas avoir de trigger (à l'exception de ceux venant du pseudostate initial).
+* *<<Modeler_audit_rules_R2790.adoc#,R2790>>* : Une transiton d'une région à une autre dans le mêmé état n'est pas autorisée.
+* *<<Modeler_audit_rules_R2800.adoc#,R2800>>* : Un état initial ne peut pas avoir plus d'une transition sortante.
+* *<<Modeler_audit_rules_R2810.adoc#,R2810>>* : Les états historiques ne peuvent pas avoir plus d'une transition sortante.
+* *<<Modeler_audit_rules_R2820.adoc#,R2820>>* : La cible d'une transition ne peut pas êtres un état initial.
+* *<<Modeler_audit_rules_R2830.adoc#,R2830>>* : La source d'une transition ne peut pas être un état final.
+* *<<Modeler_audit_rules_R2840.adoc#,R2840>>* : Une transition ne devrait avoir qu'un des éléments suivants definis: Processed, Effects, or BehaviorEffet.
+* *<<Modeler_audit_rules_R2850.adoc#,R2850>>* : Un élément ne peut avoir une dépendence de type usage vers lui-même.
+* *<<Modeler_audit_rules_R2860.adoc#,R2860>>* : Il ne peut y avoir qu'une seule relation d'extension/inclusion entre deux Use Cases.
+* *<<Modeler_audit_rules_R2870.adoc#,R2870>>* : Il ne peut y avoir de cycle de relation d'extension entre Use Cases.
+* *<<Modeler_audit_rules_R2880.adoc#,R2880>>* : Il ne peut y avoir de cycle de relation d'inclusion entre Use Cases.
+* *<<Modeler_audit_rules_R2890.adoc#,R2890>>* : Un lien de communication ne peut avoir le même élément pour source et pour cible.
+* *<<Modeler_audit_rules_R2900.adoc#,R2900>>* : Une relation d'extension doit référencer au moins un Extension Point.
+* *<<Modeler_audit_rules_R2910.adoc#,R2910>>* : Une relation d'extension ne peut référencer que des Extension Points appartenant au Use Case cible.
+* *<<Modeler_audit_rules_R2920.adoc#,R2920>>* : Un Extension Point ne peut être référencé que par une relation d'extension.
+* *<<Modeler_audit_rules_R2930.adoc#,R2930>>* : Un Message ou CommunicationMessage ne peut pas avoir un Signal et une Opération défini en même temps.
+* *<<Modeler_audit_rules_R2940.adoc#,R2940>>* : Toutes les transitions arrivant sur un join doivent venir d'état de différentes régions au sein d'un même état.
+* *<<Modeler_audit_rules_R2950.adoc#,R2950>>* : Toutes les transitions sortant d'un fork doivent cibler difrérentes régions au sein d'un même état.
+* *<<Modeler_audit_rules_R2960.adoc#,R2960>>* : Les dépendances de type 'synonyme', 'antonyme', 'contexte', et 'type de', doivent relier deux termes.
+* *<<Modeler_audit_rules_R2970.adoc#,R2970>>* : Une dépendance de type 'assignation' doit venir d'un acteur,d'une interface, d'un paquet, ou d'un processus, et cibler un objectif.
+* *<<Modeler_audit_rules_R2980.adoc#,R2980>>* : Une dépendance de type 'mesure' doit partir d'un élément de modèle et ciblé un objectif.
+* *<<Modeler_audit_rules_R2990.adoc#,R2990>>* : Une dépendance de type 'garantie' doit partir d'une exigence et cibler un objectif.
+* *<<Modeler_audit_rules_R3000.adoc#,R3000>>* : Une dépendance de type 'influence' doit relier deux objectifs.
+* *<<Modeler_audit_rules_R3010.adoc#,R3010>>* : Une dépendance de type 'reference' doit partir d'une règle métier et cibler un terme.
+* *<<Modeler_audit_rules_R3020.adoc#,R3020>>* : Une dépendance de type 'relation' doit relier deux règles métier ou deux termes.
+* *<<Modeler_audit_rules_R3030.adoc#,R3030>>* : Une dépendance de type 'rafine' doit soit: 1) partir d'un élément de model et cibler une exigence 2) partir d'une règle d'exigence, d'une activité ou d'une opération et cibler un règle métier.
+* *<<Modeler_audit_rules_R3040.adoc#,R3040>>* : Une dépendance de type 'implémente' doit partir d'un processus ou d'une classe et cibler une règle métier.
+* *<<Modeler_audit_rules_R3050.adoc#,R3050>>* : Une dépendance de type 'partie' doit relier deux exigences ou deux objectifs.
+* *<<Modeler_audit_rules_R3060.adoc#,R3060>>* : Une dépendance de type 'satisfait' ou 'vérifie' doit partir d'une élément de modèle et cibler une exigence.
+* *<<Modeler_audit_rules_R3070.adoc#,R3070>>* : Une dépendance de type 'derive' doit partir d'un cas d'utilisation ou d'une exigence et cibler une exigence.
+* *<<Modeler_audit_rules_R3080.adoc#,R3080>>* : Tout les FlowNodes doivent faire partie d'une séquence commençant par un StartEvent et finissant par un EndEvent.
+* *<<Modeler_audit_rules_R3090.adoc#,R3090>>* : Un SequenceFlow ne peut avoir sa source et sa destination dans des Process différents.
+* *<<Modeler_audit_rules_R3100.adoc#,R3100>>* : Un SequenceFlow dans un SubProcess doit avoir sa source et sa destination dans ce SubProcess.
+* *<<Modeler_audit_rules_R3110.adoc#,R3110>>* : Un SequenceFlow ne peut pas cibler un StartEvent ou venir d'un EndEvent.
+* *<<Modeler_audit_rules_R3120.adoc#,R3120>>* : Un LinkThrowEvent doit toujours être relié à un LinkCatchEvent.
+* *<<Modeler_audit_rules_R3130.adoc#,R3130>>* : Un MessageFlow ne peut cibler un EndEvent ou un IntermediateThrowEvent, ni venir d'un StartEvent ou d'un IntermediateCatchEvent.
+* *<<Modeler_audit_rules_R3140.adoc#,R3140>>* : Un SequenceFlow sortant doit avoir une garde nulle.
+* *<<Modeler_audit_rules_R3150.adoc#,R3150>>* : Un MessageFlow ne peut lier deux éléments d'un même Process.
+* *<<Modeler_audit_rules_R3160.adoc#,R3160>>* : Un MessageFlow ne peut avoir une Gateway comme source ou comme cible.
+* *<<Modeler_audit_rules_R3180.adoc#,R3180>>* : Un FlowElement (et respectivement un BaseElement) ne peut avoir un SequenceFlow (respectivement un MessageFlow) vers lui-même.
+* *<<Modeler_audit_rules_R3190.adoc#,R3190>>* : Un DataAssociation ne peut avoir un DataOutput comme source et ne peut cibler un DataInput.
+* *<<Modeler_audit_rules_R3200.adoc#,R3200>>* : Un LinkThrowEvent doit avoir le même nom que le LinkCatchEvent auquel il est relié.
+* *<<Modeler_audit_rules_R3220.adoc#,R3220>>* : Un SequenceFlow sortant d'un EventBasedGateway doit cibler un IntermediaryCatchEvent.
+* *<<Modeler_audit_rules_R3230.adoc#,R3230>>* : Tous les SequenceFlows sortant d'une ExclusiveGateway doivent avoir une garde sauf pour celui par defaut.
+* *<<Modeler_audit_rules_R3250.adoc#,R3250>>* : Les Process et SubProcess doivent avoir au moins un StartEvent et un EndEvent.
+* *<<Modeler_audit_rules_R3260.adoc#,R3260>>* : Le modèle ne doit pas réferencer d'éléments manquants.
+* *<<Modeler_audit_rules_R3270.adoc#,R3270>>* : Le State d'un BpmnItemAwareElement doit appartenir à la GeneralClass qu'il représente.
+* *<<Modeler_audit_rules_R3300.adoc#,R3300>>* : Les éléments Analyste ne peuvent pas avoir un nom vide.
+* *<<Modeler_audit_rules_R3310.adoc#,R3310>>* : Les dépendances doivent être créées dans le sens recommandé.
+* *<<Modeler_audit_rules_R3320.adoc#,R3320>>* : Un MessageFlow doit partir d'un SendTask/ThrowEvent/Participant et arriver sur un ReceiveTask/CatchEvent/Participant.
+* *<<Modeler_audit_rules_R4000.adoc#,R4000>>* : Les relations doivent respecter la norme ArchiMate.
+* *<<Modeler_audit_rules_R4010.adoc#,R4010>>* : Les relations entrantes et/ou sortantes d'une Jonction doivent être de même type.
+
+

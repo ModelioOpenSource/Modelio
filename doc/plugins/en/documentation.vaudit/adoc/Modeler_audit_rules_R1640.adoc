@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1640]]
+
+[[r1640]]
+= R1640
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A maximum of one _ElementImport_ should exist between a _NameSpace_ and another _NameSpace_ or between an _Operation_ and a _NameSpace_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Importing the same _NameSpace_ several times is useless in UML.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+You should remove all the spare import links but one.
+
+

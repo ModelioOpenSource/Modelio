@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2340]]
+
+[[r2340]]
+= R2340
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A redefined _Operation_ must belong to a parent or an implemented _Interface_
+
+of the owner of the _Operation_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An _Operation_ can only redefine an _Operation_ from implemented _Interfaces_ and parent _Classifiers_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Remove the redefinition status if it was not intended.
+* Implement or inherit the _Classifier_ or _Interface_ that contains the redefined method.
+
+

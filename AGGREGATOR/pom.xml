@@ -9,7 +9,7 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 	<parent>
 		<groupId>org.modelio</groupId>
 		<artifactId>modelio-parent</artifactId>
-		<version>4.0.1-SNAPSHOT</version>
+		<version>4.1.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>modelio-aggregator</artifactId>
@@ -17,102 +17,103 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 
 	<modules>
 		<module>..</module>
-		<module>../modelio/app/admtool</module>
-		<module>../modelio/app/admtool.ext_org</module>
-		<module>../modelio/app/api.impl</module>
-		<module>../modelio/app/api.impl.ext_org</module>
+		<module>../modelio/app/app.admtool</module>
+		<module>../modelio/app/app.admtool.ext_org</module>
+		<module>../modelio/app/app.api.impl</module>
+		<module>../modelio/app/app.api.impl.ext_org</module>
+		<module>../modelio/app/app.audit</module>
+		<module>../modelio/app/app.audit.ext_org</module>
+		<module>../modelio/app/app.creation.wizard</module>
+		<module>../modelio/app/app.creation.wizard.ext_org</module>
+		<module>../modelio/app/app.diagram.api</module>
+		<module>../modelio/app/app.diagram.browser</module>
+		<module>../modelio/app/app.diagram.diagramauto</module>
+		<module>../modelio/app/app.diagram.editor</module>
+		<module>../modelio/app/app.diagram.elements</module>
+		<module>../modelio/app/app.diagram.outline</module>
+		<module>../modelio/app/app.diagram.persistence</module>
+		<module>../modelio/app/app.diagram.styles</module>
+		<module>../modelio/app/app.diagram.styles.ext_org</module>
+		<module>../modelio/app/app.diagram.symbol</module>
+		<module>../modelio/app/app.edition.dialogs</module>
+		<module>../modelio/app/app.edition.notes</module>
+		<module>../modelio/app/app.editors.richnote</module>
+		<module>../modelio/app/app.editors.richnote.libreoffice</module>
+		<module>../modelio/app/app.editors.richnote.microsoft</module>
+		<module>../modelio/app/app.editors.texteditors</module>
+		<module>../modelio/app/app.link.editor</module>
+		<module>../modelio/app/app.link.editor.ext_org</module>
+		<module>../modelio/app/app.model.browser.view</module>
+		<module>../modelio/app/app.model.browser.view.ext_org</module>
 		<module>../modelio/app/app.model.import.org</module>
-		<module>../modelio/app/app.modules</module>
+		<module>../modelio/app/app.model.property</module>
+		<module>../modelio/app/app.model.search.ui</module>
+		<module>../modelio/app/app.module.catalog</module>
+		<module>../modelio/app/app.module.propertytab</module>
+		<module>../modelio/app/app.patterns</module>
 		<module>../modelio/app/app.project.conf</module>
 		<module>../modelio/app/app.project.conf.ext_org</module>
 		<module>../modelio/app/app.project.ui</module>
 		<module>../modelio/app/app.project.ui.ext_org</module>
+		<module>../modelio/app/app.propertyview</module>
 		<module>../modelio/app/app.ramcs</module>
+		<module>../modelio/app/app.script.ui</module>
+		<module>../modelio/app/app.semantic.browser</module>
 		<module>../modelio/app/app.ui</module>
 		<module>../modelio/app/app.ui.ext_org</module>
 		<module>../modelio/app/app.ui.perspective.org</module>
 		<module>../modelio/app/app.ui.welcome</module>
 		<module>../modelio/app/app.update</module>
 		<module>../modelio/app/app.update.ext_org</module>
-		<module>../modelio/app/audit</module>
-		<module>../modelio/app/audit.ext_org</module>
-		<module>../modelio/app/browser.view</module>
-		<module>../modelio/app/browser.view.ext_org</module>
-		<module>../modelio/app/creation.wizard</module>
-		<module>../modelio/app/creation.wizard.ext_org</module>
-		<module>../modelio/app/diagram.api</module>
-		<module>../modelio/app/diagram.auto</module>
-		<module>../modelio/app/diagram.browser</module>
-		<module>../modelio/app/diagram.editor</module>
-		<module>../modelio/app/diagram.elements</module>
-		<module>../modelio/app/diagram.outline</module>
-		<module>../modelio/app/diagram.persistence</module>
-		<module>../modelio/app/diagram.styles</module>
-		<module>../modelio/app/diagram.styles.ext_org</module>
-		<module>../modelio/app/diagram.symbol</module>
-		<module>../modelio/app/edition.dialogs</module>
-		<module>../modelio/app/edition.notes</module>
-		<module>../modelio/app/editors</module>
-		<module>../modelio/app/editors.richnote</module>
-		<module>../modelio/app/editors.richnote.libreoffice</module>
-		<module>../modelio/app/editors.richnote.microsoft</module>
-		<module>../modelio/app/link.editor</module>
-		<module>../modelio/app/link.editor.ext_org</module>
-		<module>../modelio/app/model.property</module>
-		<module>../modelio/app/model.search</module>
-		<module>../modelio/app/module.propertytab</module>
-		<module>../modelio/app/patterns</module>
-		<module>../modelio/app/propertyview</module>
-		<module>../modelio/app/script</module>
-		<module>../modelio/app/semantic.browser</module>
-		<module>../modelio/app/xmi</module>
-		<module>../modelio/bpmn/bpmn.extensions</module>
+		<module>../modelio/app/app.xmi</module>
+		<module>../modelio/bpmn/bpmn.diagram.editor</module>
 		<module>../modelio/bpmn/bpmn.metamodel.api</module>
-		<module>../modelio/bpmn/bpmn.metamodel.impl</module>
+		<module>../modelio/bpmn/bpmn.metamodel.contribution</module>
+		<module>../modelio/bpmn/bpmn.metamodel.implementation</module>
 		<module>../modelio/bpmn/bpmn.ui</module>
 		<module>../modelio/bpmn/bpmn.xml</module>
-		<module>../modelio/bpmn/diagram.editor.bpmn</module>
-		<module>../modelio/platform.core/core.kernel</module>
-		<module>../modelio/platform.core/core.project</module>
-		<module>../modelio/platform.core/core.project.data</module>
-		<module>../modelio/platform.core/core.session</module>
-		<module>../modelio/platform.core/core.store.exml</module>
-		<module>../modelio/platform.core/core.utils</module>
-		<module>../modelio/platform.core/metamodel.emfapi</module>
-		<module>../modelio/platform.core/metamodel.implementation</module>
-		<module>../modelio/platform.core/modelio.version</module>
-		<module>../modelio/platform.core/vaudit</module>
-		<module>../modelio/platform.services/api</module>
-		<module>../modelio/platform.services/app.core</module>
-		<module>../modelio/platform.services/app.preferences</module>
-		<module>../modelio/platform.services/app.project.core</module>
-		<module>../modelio/platform.services/app.project.core.ext_org</module>
-		<module>../modelio/platform.services/app.update.repo</module>
-		<module>../modelio/platform.services/core.rcp</module>
-		<module>../modelio/platform.services/core.ui</module>
-		<module>../modelio/platform.services/mda.infra</module>
-		<module>../modelio/platform.services/metamodel.extensions</module>
-		<module>../modelio/platform.services/model.search.engine</module>
-		<module>../modelio/platform.services/module.browser.commands</module>
-		<module>../modelio/platform.services/module.commands</module>
-		<module>../modelio/platform.services/script.engine</module>
-		<module>../modelio/platform.services/ui</module>
-		<module>../modelio/platform.services/utils</module>
+		<module>../modelio/core/core.kernel</module>
+		<module>../modelio/core/core.metamodel.api</module>
+		<module>../modelio/core/core.metamodel.impl</module>
+		<module>../modelio/core/core.modelshield</module>
+		<module>../modelio/core/core.project</module>
+		<module>../modelio/core/core.project.data</module>
+		<module>../modelio/core/core.session</module>
+		<module>../modelio/core/core.store.exml</module>
+		<module>../modelio/core/core.utils</module>
+		<module>../modelio/core/version</module>
+		<module>../modelio/platform/platform.api</module>
+		<module>../modelio/platform/platform.core</module>
+		<module>../modelio/platform/platform.mda.infra</module>
+		<module>../modelio/platform/platform.metamodel.extensions</module>
+		<module>../modelio/platform/platform.model.ui</module>
+		<module>../modelio/platform/platform.model.view.template</module>
+		<module>../modelio/platform/platform.module.browser.commands</module>
+		<module>../modelio/platform/platform.module.commands</module>
+		<module>../modelio/platform/platform.preferences</module>
+		<module>../modelio/platform/platform.project</module>
+		<module>../modelio/platform/platform.project.ext_org</module>
+		<module>../modelio/platform/platform.rcp</module>
+		<module>../modelio/platform/platform.script.engine</module>
+		<module>../modelio/platform/platform.search.engine</module>
+		<module>../modelio/platform/platform.ui</module>
+		<module>../modelio/platform/platform.update.repo</module>
+		<module>../modelio/platform/platform.utils</module>
 		<module>../modelio/plugdule/modelermodule</module>
-		<module>../modelio/uml/diagram.editor.activity</module>
-		<module>../modelio/uml/diagram.editor.communication</module>
-		<module>../modelio/uml/diagram.editor.composite</module>
-		<module>../modelio/uml/diagram.editor.deployment</module>
-		<module>../modelio/uml/diagram.editor.object</module>
-		<module>../modelio/uml/diagram.editor.sequence</module>
-		<module>../modelio/uml/diagram.editor.state</module>
-		<module>../modelio/uml/diagram.editor.statik</module>
-		<module>../modelio/uml/diagram.editor.usecase</module>
-		<module>../modelio/uml/uml.extensions</module>
+		<module>../modelio/uml/uml.activitydiagram.editor</module>
+		<module>../modelio/uml/uml.communicationdiagram.editor</module>
+		<module>../modelio/uml/uml.compositediagram.editor</module>
+		<module>../modelio/uml/uml.deploymentdiagram.editor</module>
 		<module>../modelio/uml/uml.metamodel.api</module>
-		<module>../modelio/uml/uml.metamodel.impl</module>
+		<module>../modelio/uml/uml.metamodel.contribution</module>
+		<module>../modelio/uml/uml.metamodel.implementation</module>
+		<module>../modelio/uml/uml.objectdiagram.editor</module>
+		<module>../modelio/uml/uml.sequencediagram.editor</module>
+		<module>../modelio/uml/uml.statediagram.editor</module>
+		<module>../modelio/uml/uml.statikdiagram.editor</module>
 		<module>../modelio/uml/uml.ui</module>
 		<module>../modelio/uml/uml.ui.ext_org</module>
+		<module>../modelio/uml/uml.usecasediagram.editor</module>
 		<module>../features/opensource/org.modelio.application.core</module>
 		<module>../features/opensource/org.modelio.application.perspective</module>
 		<module>../features/opensource/org.modelio.application.plugdule</module>
@@ -134,6 +135,7 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 		<module>../features/opensource/org.modelio.functions.fle</module>
 		<module>../features/opensource/org.modelio.functions.modelbrowser</module>
 		<module>../features/opensource/org.modelio.functions.modelimport</module>
+		<module>../features/opensource/org.modelio.functions.modelviewtemplate</module>
 		<module>../features/opensource/org.modelio.functions.modules</module>
 		<module>../features/opensource/org.modelio.functions.patterns</module>
 		<module>../features/opensource/org.modelio.functions.script</module>
@@ -142,6 +144,7 @@ This pom executes a maven target on ALL the (eclipse) features that compose the 
 		<module>../features/opensource/org.modelio.functions.xmi</module>
 		<module>../features/opensource/org.modelio.platform.feature</module>
 		<module>../features/opensource/org.modelio.platform.libraries</module>
+		<module>../doc/aggregator</module>
 		<module>../products</module>
 	</modules>
 </project>

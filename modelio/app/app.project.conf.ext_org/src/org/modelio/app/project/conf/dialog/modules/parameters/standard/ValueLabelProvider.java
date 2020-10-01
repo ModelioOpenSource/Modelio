@@ -27,8 +27,8 @@ import org.eclipse.swt.graphics.Image;
 import org.modelio.api.module.parameter.impl.BoolParameterModel;
 import org.modelio.api.module.parameter.impl.EnumParameterModel;
 import org.modelio.api.module.parameter.impl.ParameterModel;
-import org.modelio.ui.UIColor;
-import org.modelio.ui.UIImages;
+import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.UIImages;
 
 /**
  * Label provider for the parameter value column.

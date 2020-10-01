@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.generalization;
 
@@ -50,27 +50,27 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("6f03c25c-fcc3-4bd8-8f86-1f1194db1551")
 public class UML2GeneralizationSet {
-    @objid ("93fc0ff3-42f6-49ae-8e51-8b62154e8202")
+    @objid ("b75a0190-159a-45b9-8a35-7759d1aa081f")
     public static final String STEREOTYPE_NAME = "UML2GeneralizationSet";
 
-    @objid ("1576c7ec-7aa3-440d-bd3c-5cea8053b3fc")
+    @objid ("80c04701-8c0e-485f-81a5-202f2cf8048b")
     public static final String ID_TAGTYPE = "Id";
 
     /**
      * The underlying {@link Generalization} represented by this proxy, never null.
      */
-    @objid ("0f30a937-18f9-4fe2-b3c8-846320e7d888")
+    @objid ("b39934cb-2ef2-4204-b306-588a7f76b03c")
     protected final Generalization elt;
 
     /**
-     * Tells whether a {@link UML2GeneralizationSet proxy} can be instantiated from a {@link MObject} checking it is a {@link Generalization} stereotyped << UML2GeneralizationSet >>. 
+     * Tells whether a {@link UML2GeneralizationSet proxy} can be instantiated from a {@link MObject} checking it is a {@link Generalization} stereotyped << UML2GeneralizationSet >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("b55aa0f4-fdbd-414b-aab8-afd20878acc8")
+    @objid ("dda7bafd-64bb-4642-83c5-a38f50187d6a")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Generalization) && ((Generalization) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2GeneralizationSet.STEREOTYPE_NAME));
     }
@@ -80,7 +80,7 @@ public class UML2GeneralizationSet {
      * 
      * @return a {@link UML2GeneralizationSet} proxy on the created {@link Generalization}.
      */
-    @objid ("a4a6a01d-c571-4200-8b71-37407bd219fd")
+    @objid ("ff6efadb-1ade-43f8-9267-f402bb960679")
     public static UML2GeneralizationSet create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Generalization");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2GeneralizationSet.STEREOTYPE_NAME);
@@ -88,13 +88,13 @@ public class UML2GeneralizationSet {
     }
 
     /**
-     * Tries to instantiate a {@link UML2GeneralizationSet} proxy from a {@link Generalization} stereotyped << UML2GeneralizationSet >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2GeneralizationSet} proxy from a {@link Generalization} stereotyped << UML2GeneralizationSet >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Generalization
      * @return a {@link UML2GeneralizationSet} proxy or <i>null</i>.
      */
-    @objid ("2aa24b5a-9059-40f7-8f3c-e5c619a19ccf")
+    @objid ("27895daa-c920-453e-a9fd-965087c5c0b9")
     public static UML2GeneralizationSet instantiate(Generalization obj) {
         return UML2GeneralizationSet.canInstantiate(obj) ? new UML2GeneralizationSet(obj) : null;
     }
@@ -107,7 +107,7 @@ public class UML2GeneralizationSet {
      * @return a {@link UML2GeneralizationSet} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("4c5e5da6-6c25-4693-af86-9ab830fa222b")
+    @objid ("529c293b-89bb-4a9d-9426-bcbbe96bb983")
     public static UML2GeneralizationSet safeInstantiate(Generalization obj) throws IllegalArgumentException {
         if (UML2GeneralizationSet.canInstantiate(obj))
         	return new UML2GeneralizationSet(obj);
@@ -115,7 +115,7 @@ public class UML2GeneralizationSet {
         	throw new IllegalArgumentException("UML2GeneralizationSet: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("f70c78cd-afa6-4f1e-80aa-c8110ef205d0")
+    @objid ("27466bba-243f-420e-abf4-413a43e92401")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -135,7 +135,7 @@ public class UML2GeneralizationSet {
      * Get the underlying {@link Generalization}. 
      * @return the Generalization represented by this proxy, never null.
      */
-    @objid ("1b49489d-50c5-4521-93a6-57f5c35adb3c")
+    @objid ("c66df426-cf96-446e-ba2e-7ed50b1a6f88")
     public Generalization getElement() {
         return this.elt;
     }
@@ -145,12 +145,12 @@ public class UML2GeneralizationSet {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("57cb48cb-d7ab-49fd-bc8d-123fd1c1c235")
+    @objid ("5bbbc5e5-eaac-4f33-a820-cd9262e2ce6c")
     public String getId() {
         return this.elt.getTagValue(UML2GeneralizationSet.MdaTypes.ID_TAGTYPE_ELT);
     }
 
-    @objid ("c5e41480-6456-4ef0-b48b-3aca465b3e17")
+    @objid ("f47f02f6-5d25-4d3e-9729-f6a8dec0fc48")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
@@ -161,31 +161,31 @@ public class UML2GeneralizationSet {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("283a2bc9-b686-4c21-be1a-1052b7946406")
+    @objid ("720c63f0-4858-4a73-a66c-dd031a4c70f9")
     public void setId(String value) {
         this.elt.putTagValue(UML2GeneralizationSet.MdaTypes.ID_TAGTYPE_ELT, value);
     }
 
-    @objid ("02ace8ab-22cf-4107-af4b-7dd6f621eabe")
+    @objid ("d6e09aac-e014-4747-8c12-98d65c1311bf")
     protected UML2GeneralizationSet(Generalization elt) {
         this.elt = elt;
     }
 
     @objid ("fd725dfe-dab3-4c76-a9dc-aaa1a63b1b0b")
     public static final class MdaTypes {
-        @objid ("54847052-bd21-4b46-bb83-66e461b2d39b")
+        @objid ("03b4fb65-caa8-4660-87de-99a8bf6f12ab")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("d83689d6-6841-4294-8650-957e309206e9")
+        @objid ("b6503e66-d05d-4527-bd44-9f0de09a5954")
         public static TagType ID_TAGTYPE_ELT;
 
-        @objid ("1625a404-b34b-4003-b794-3954088ec974")
+        @objid ("1ccd5e37-05ee-48c7-9316-c446fca9e448")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("807d3536-0a55-4835-811a-65915eb9dac0")
+        @objid ("21a0574a-e782-4f71-af4d-cb05b053d851")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("bb6d1d25-5679-46c3-ba29-06650a8954a0")
+        @objid ("29f4b3fb-65a0-48e5-a29d-6c49d739e8e9")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "40400bbd-0b5d-11df-8680-001302895b2b");
             ID_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "c2c549ec-26ab-11df-ac88-001302895b2b");

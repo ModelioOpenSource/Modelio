@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.standard.staticdiagram;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("b8e1e546-cae7-4787-a2ae-463c7c107079")
 public class BusinessRuleDiagram {
-    @objid ("c76a9406-84f9-4511-b457-e0e9752a75ac")
+    @objid ("271ddb9f-fee0-4568-9bc4-a31f67cf855e")
     public static final String STEREOTYPE_NAME = "business_rule_diagram";
 
     /**
      * The underlying {@link StaticDiagram} represented by this proxy, never null.
      */
-    @objid ("ddb9dfbc-9dad-424f-9471-90b7bb9e1822")
+    @objid ("d447dd5d-8f7c-4337-8452-cac8e7a75d0e")
     protected final StaticDiagram elt;
 
     /**
-     * Tells whether a {@link BusinessRuleDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link StaticDiagram} stereotyped << business_rule_diagram >>. 
+     * Tells whether a {@link BusinessRuleDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link StaticDiagram} stereotyped << business_rule_diagram >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("b34b9e1c-fa4c-4227-80ea-f42b00ac8977")
+    @objid ("60cf7c43-ae12-4dd8-af55-b409c2fbe15b")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof StaticDiagram) && ((StaticDiagram) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, BusinessRuleDiagram.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class BusinessRuleDiagram {
      * 
      * @return a {@link BusinessRuleDiagram} proxy on the created {@link StaticDiagram}.
      */
-    @objid ("b561142e-97b5-41d9-8c07-6793950c307f")
+    @objid ("3b77d56a-5343-4bc5-a197-834d6f0f4486")
     public static BusinessRuleDiagram create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("StaticDiagram");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, BusinessRuleDiagram.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class BusinessRuleDiagram {
     }
 
     /**
-     * Tries to instantiate a {@link BusinessRuleDiagram} proxy from a {@link StaticDiagram} stereotyped << business_rule_diagram >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link BusinessRuleDiagram} proxy from a {@link StaticDiagram} stereotyped << business_rule_diagram >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a StaticDiagram
      * @return a {@link BusinessRuleDiagram} proxy or <i>null</i>.
      */
-    @objid ("4784d46f-1539-4668-9501-90c529533f60")
+    @objid ("ac8abc8c-d9ac-4fb5-8877-37d34c18f193")
     public static BusinessRuleDiagram instantiate(StaticDiagram obj) {
         return BusinessRuleDiagram.canInstantiate(obj) ? new BusinessRuleDiagram(obj) : null;
     }
@@ -104,7 +104,7 @@ public class BusinessRuleDiagram {
      * @return a {@link BusinessRuleDiagram} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("b03af01c-8004-4a79-a1a3-d6c993aec381")
+    @objid ("d7f66ae6-1e06-410f-828e-90fb995faf37")
     public static BusinessRuleDiagram safeInstantiate(StaticDiagram obj) throws IllegalArgumentException {
         if (BusinessRuleDiagram.canInstantiate(obj))
         	return new BusinessRuleDiagram(obj);
@@ -112,7 +112,7 @@ public class BusinessRuleDiagram {
         	throw new IllegalArgumentException("BusinessRuleDiagram: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("bcf8f7e1-6eb7-4f6c-b719-539696e11f3b")
+    @objid ("9f080792-b63e-45ab-a5bc-55099abd755e")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class BusinessRuleDiagram {
      * Get the underlying {@link StaticDiagram}. 
      * @return the StaticDiagram represented by this proxy, never null.
      */
-    @objid ("7f97c2f5-af4a-40a4-bf4d-4756356bee5c")
+    @objid ("13aca57e-17a3-4153-9994-44a5d542b593")
     public StaticDiagram getElement() {
         return this.elt;
     }
 
-    @objid ("dcc96eeb-1c4c-445f-95ac-a32e200b2924")
+    @objid ("7d398614-77f0-441a-ba8e-2eda7e130bd0")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("2d211db2-57fd-4a53-9e44-ee93c687efec")
+    @objid ("e9702495-8c19-47b1-9a03-eed08cfe1631")
     protected BusinessRuleDiagram(StaticDiagram elt) {
         this.elt = elt;
     }
 
     @objid ("cb89aa15-04f6-45ea-9d10-613b4dc93dc4")
     public static final class MdaTypes {
-        @objid ("2daac03d-2c7f-44da-a337-2dab73fc7707")
+        @objid ("cfa24201-cdbf-4c81-916d-e2f0026729ad")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("b6e85e6f-388c-409d-aa66-96a2ec1ff870")
+        @objid ("5cb3155d-381f-4827-9fb5-9fa37b3bc458")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("aa4e0d4f-cfd7-42b5-a2f9-d9ff049483fd")
+        @objid ("9753054a-0178-4840-9484-9ece624c4a25")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("2c5ca61e-a7f9-4cb4-a386-6f59e403ed02")
+        @objid ("c5a23c47-4ef8-41bc-803c-26570fc56b4f")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-0aca-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

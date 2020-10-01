@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1290]]
+
+[[r1290]]
+= R1290
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Les _ObjectNode_ connectés par un _ObjectFlow_, avec potentiellement des _ControlNode_ les séparant, doivent avoir des types compatibles.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les _ObjectNode_ connectés par un _ObjectFlow_, avec potentiellement des _ControlNode_ les séparant, doivent avoir des types compatibles. En particulier, les _ObjectNode_ en aval doivent être soit du même type ou d'un super type du type des _ObjectNode_ en amont.
+
+[[Astuces]]
+
+[[astuces]]
+===== Astuces
+
+Si vous rencontrez un avertissement concernant  la règle R1290 sur un _ObjectFlow_, assurez-vous que tous les _ObjectNode_ en aval sont du même type ou des super types de tous les types des _ObjectNode_ en amont.
+
+

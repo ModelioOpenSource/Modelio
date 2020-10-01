@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension id="id1" point="org.eclipse.e4.workbench.model">
+      <processor beforefragment="true" class="org.modelio.api.impl.module.ModelioImpl" />
+      <processor beforefragment="true" class="org.modelio.api.impl.services.ModelioServices" />
+   </extension>
+
+   <extension point="org.modelio.platform.script.engine.classloaders">
+      <jython-api-provider  classloaderprovider="org.modelio.api.impl.plugin.JythonClassLoaderProvider" />
+   </extension>
+</plugin>

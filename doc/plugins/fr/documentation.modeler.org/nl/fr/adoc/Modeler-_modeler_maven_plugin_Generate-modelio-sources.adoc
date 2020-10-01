@@ -1,0 +1,60 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= generate-modelio-sources
+
+
+== Nom complet
+
+....
+org.modelio:modelio-maven-plugin:4.1.0.00:generate-modelio-sources
+....
+
+== Description
+
+Génère les sources Java du projet Modelio. Il exécute la commande "Generate sources" du module Java Designer sur GitHub (voir https://github.com/ModelioOpenSource/ExtensionsForModelio#java-designer).
+
+Lié par défaut à la phase : generate-sources.
+
+
+== Paramètres obligatoires
+
+[width="100%",cols="25%,25%,25%,25%",options="header",]
+|==========================================================
+|Nom        |Type    |Depuis    |Description
+//------------------
+|modelioDir |Fichier |2.2.0.01 a| Répertoire d'installation de Modelio. +
+Exemple :
+....
+<modelioDir>C:\Program Files\modelio 2.2</modelioDir>
+....
+//------------------
+|workspaceDir |Fichier |2.2.0.01 a| Espace de travail. +
+Exemple :
+....
+<workspaceDir>C:\Users\XXX\modelio\workspace</workspaceDir>
+....
+//------------------
+|projectName |Nom |2.2.0.01 a| Nom du projet à utiliser. +
+Exemple :
+....
+<projectName>JavaProject</projectName>
+....
+
+|==========================================================
+
+
+== Paramètres optionnels
+
+[width="100%",cols="25%,25%,25%,25%",options="header",]
+|===================================================================================================
+|Nom                    |Type    |Depuis    |Description
+//------------------
+|updateBeforeGeneration |Booléen |2.2.0.01 a| Si vrai, lance une mise à jour SVN avant de générer les sources. La valeur par défaut est 'false'. +
+Exemple :
+....
+<updateBeforeGeneration>true</updateBeforeGeneration>
+....
+
+|===================================================================================================
+

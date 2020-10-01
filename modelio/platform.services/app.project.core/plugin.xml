@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
-<plugin>
-   <extension-point id="org.modelio.app.project.core.services.IFragmentMigrationContributor" name="Metamodel migration contributor" schema="schema/org.modelio.app.project.core.services.IFragmentMigrationContributor.exsd"/>
-</plugin>

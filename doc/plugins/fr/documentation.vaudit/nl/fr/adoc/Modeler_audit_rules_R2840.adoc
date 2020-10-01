@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2840]]
+
+[[r2840]]
+= R2840
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une transition doit avoir un seul des éléments suivants défini : Processed, Effects ou BehaviorEffet.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une transition peut définir un comportement à effectuer lorsque la transition est activée, mais il ne peut y en avoir qu'un.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez plusieurs comportements définis, supprimez ceux en trop.
+
+

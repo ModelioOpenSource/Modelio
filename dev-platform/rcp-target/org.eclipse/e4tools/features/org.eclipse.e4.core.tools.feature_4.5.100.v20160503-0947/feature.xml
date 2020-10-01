@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.e4.core.tools.feature"
+      label="%featureName"
+      version="4.5.100.v20160503-0947"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.e4.tools.emf.editor3x"
+         download-size="67"
+         install-size="139"
+         version="4.5.0.v20160503-0947"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.e4.tools.emf.ui"
+         download-size="1537"
+         install-size="3354"
+         version="4.5.100.v20160503-0947"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.e4.tools.compat"
+         download-size="38"
+         install-size="72"
+         version="4.5.0.v20160503-0947"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.e4.tools.services"
+         download-size="35"
+         install-size="65"
+         version="4.5.0.v20160503-0947"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.e4.tools"
+         download-size="119"
+         install-size="238"
+         version="4.5.0.v20160503-0947"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.e4.tools.jdt.templates"
+         download-size="16"
+         install-size="31"
+         version="4.5.0.v20160503-0947"
+         unpack="false"/>
+
+</feature>

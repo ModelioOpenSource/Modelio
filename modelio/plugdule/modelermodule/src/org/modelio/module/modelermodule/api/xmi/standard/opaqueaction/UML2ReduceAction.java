@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.opaqueaction;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("f1c94473-28e1-4fe7-ac2d-cd800cd05029")
 public class UML2ReduceAction {
-    @objid ("915921fd-8582-42f3-9c92-26caa1207d92")
+    @objid ("9c37b901-282d-46a1-b045-bb9d552f72b2")
     public static final String STEREOTYPE_NAME = "UML2ReduceAction";
 
     /**
      * The underlying {@link OpaqueAction} represented by this proxy, never null.
      */
-    @objid ("004907f3-a782-4263-8f9b-87c4b76e9af5")
+    @objid ("cb69d7da-cb03-4ba9-9f42-2c82ba146b8d")
     protected final OpaqueAction elt;
 
     /**
-     * Tells whether a {@link UML2ReduceAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2ReduceAction >>. 
+     * Tells whether a {@link UML2ReduceAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2ReduceAction >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("f4aa5959-b83a-44e9-8c06-e9c8bf61dab5")
+    @objid ("d14cfcbd-4af7-499d-8625-4af8eee69701")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof OpaqueAction) && ((OpaqueAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ReduceAction.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2ReduceAction {
      * 
      * @return a {@link UML2ReduceAction} proxy on the created {@link OpaqueAction}.
      */
-    @objid ("4a80a35d-955e-462a-9c85-889507fd5577")
+    @objid ("0e711e66-f0c9-4e6e-b63f-4b5e54a4fc80")
     public static UML2ReduceAction create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("OpaqueAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ReduceAction.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2ReduceAction {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ReduceAction} proxy from a {@link OpaqueAction} stereotyped << UML2ReduceAction >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ReduceAction} proxy from a {@link OpaqueAction} stereotyped << UML2ReduceAction >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a OpaqueAction
      * @return a {@link UML2ReduceAction} proxy or <i>null</i>.
      */
-    @objid ("63371e0b-4737-45ec-93a0-808a59b4e912")
+    @objid ("9b7a9136-ce60-41d5-bd9a-0050611abe28")
     public static UML2ReduceAction instantiate(OpaqueAction obj) {
         return UML2ReduceAction.canInstantiate(obj) ? new UML2ReduceAction(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2ReduceAction {
      * @return a {@link UML2ReduceAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("e31a3a9d-b831-411a-a658-41bd65fe7f35")
+    @objid ("b2680c20-23e5-4fa8-a5f6-baa6a8b37eca")
     public static UML2ReduceAction safeInstantiate(OpaqueAction obj) throws IllegalArgumentException {
         if (UML2ReduceAction.canInstantiate(obj))
         	return new UML2ReduceAction(obj);
@@ -112,7 +112,7 @@ public class UML2ReduceAction {
         	throw new IllegalArgumentException("UML2ReduceAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("07a17ce7-4563-455b-b0bd-3be518055d3e")
+    @objid ("b3896935-6261-4f61-9785-b4a115f68fb6")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2ReduceAction {
      * Get the underlying {@link OpaqueAction}. 
      * @return the OpaqueAction represented by this proxy, never null.
      */
-    @objid ("a44eba18-3a41-4bbf-8675-a34aa1f25834")
+    @objid ("c116c2c7-64bf-48d4-9f81-f9590ffa760b")
     public OpaqueAction getElement() {
         return this.elt;
     }
 
-    @objid ("6275edf0-8fb7-4923-a516-69752543c591")
+    @objid ("ac03ce90-4c58-4a28-a365-01abc95dd201")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("a21f4add-d179-472c-9ba7-93399cd4b1cb")
+    @objid ("b39c72b4-93ea-47b7-bfd5-ac9e4b75cb40")
     protected UML2ReduceAction(OpaqueAction elt) {
         this.elt = elt;
     }
 
     @objid ("bb02c893-e717-4243-aea0-fd3720614737")
     public static final class MdaTypes {
-        @objid ("c5ba57a7-b7a6-4a69-8c7d-68800d16decf")
+        @objid ("2464947e-3063-41c7-9fd7-bc0107aa2f17")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("7426adcc-3c63-4c40-935d-dae0615b141a")
+        @objid ("8865909c-b721-4a39-a82c-abf8213dd742")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("e46db692-35f6-4467-a981-205499c55dd5")
+        @objid ("11d146b5-43e1-41f2-9938-48c56ecefb38")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("7a349939-c836-4ba9-a288-2537acef1da7")
+        @objid ("96676766-c3f3-445c-82d7-c0141260c319")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "2eb4ec1b-c2fd-11de-8ac8-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

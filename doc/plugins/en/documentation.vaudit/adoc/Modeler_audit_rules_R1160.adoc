@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1160]]
+
+[[r1160]]
+= R1160
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A target _Pin_ can only be owned by a _CallOperationAction_ or a _SendSignalAction_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The target _Pin_ is an _InputPin_ that represents the target object to which the request or signal is sent. Only _CallOperationActions_ or _SendSignalActions_ can own such a _Pin_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+This rule is triggered when the "_Self"_ property of a _Pin_ is checked and the owner of the _Pin_ in question is neither a _CallOperationAction_ nor a _SendSignalAction_.
+
+This property can be modified through the "Element" view when the _Pin_ is selected.
+
+

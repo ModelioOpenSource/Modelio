@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.operation;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("c64395f8-85c2-42fe-9a80-f23505af725e")
 public class UML2TemplateSignature {
-    @objid ("09228e69-269c-4f5f-9307-a7bd625830c7")
+    @objid ("5d60bcd1-85e8-47e2-8830-1809036774ee")
     public static final String STEREOTYPE_NAME = "UML2TemplateSignature";
 
     /**
      * The underlying {@link Operation} represented by this proxy, never null.
      */
-    @objid ("3634094f-0c6c-4cba-81ca-517037dd3bf3")
+    @objid ("ab0beb78-f297-473f-9d20-358757762477")
     protected final Operation elt;
 
     /**
-     * Tells whether a {@link UML2TemplateSignature proxy} can be instantiated from a {@link MObject} checking it is a {@link Operation} stereotyped << UML2TemplateSignature >>. 
+     * Tells whether a {@link UML2TemplateSignature proxy} can be instantiated from a {@link MObject} checking it is a {@link Operation} stereotyped << UML2TemplateSignature >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("7558c28c-22eb-4184-8c69-22f0b954ded4")
+    @objid ("905a8b38-9969-4d6f-af01-5e44c30fe9ef")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Operation) && ((Operation) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2TemplateSignature.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2TemplateSignature {
      * 
      * @return a {@link UML2TemplateSignature} proxy on the created {@link Operation}.
      */
-    @objid ("1621d450-f861-4a92-b433-29ad5abaab13")
+    @objid ("1d6fe458-2a93-443e-a81f-425e27080252")
     public static UML2TemplateSignature create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Operation");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2TemplateSignature.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2TemplateSignature {
     }
 
     /**
-     * Tries to instantiate a {@link UML2TemplateSignature} proxy from a {@link Operation} stereotyped << UML2TemplateSignature >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2TemplateSignature} proxy from a {@link Operation} stereotyped << UML2TemplateSignature >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Operation
      * @return a {@link UML2TemplateSignature} proxy or <i>null</i>.
      */
-    @objid ("168fc902-8fcf-4201-996c-1b70815b8ed3")
+    @objid ("70e37375-beb6-45ae-a872-9c482ade2415")
     public static UML2TemplateSignature instantiate(Operation obj) {
         return UML2TemplateSignature.canInstantiate(obj) ? new UML2TemplateSignature(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2TemplateSignature {
      * @return a {@link UML2TemplateSignature} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("c9eec4a1-65da-4a83-a375-2994b9f4e7c9")
+    @objid ("10438812-5bbc-430c-afad-bb961fbf163d")
     public static UML2TemplateSignature safeInstantiate(Operation obj) throws IllegalArgumentException {
         if (UML2TemplateSignature.canInstantiate(obj))
         	return new UML2TemplateSignature(obj);
@@ -112,7 +112,7 @@ public class UML2TemplateSignature {
         	throw new IllegalArgumentException("UML2TemplateSignature: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("fcb67990-5db4-4741-9a49-e28164c44b04")
+    @objid ("94dab24b-8d68-4718-a240-b2d4c3314fcc")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2TemplateSignature {
      * Get the underlying {@link Operation}. 
      * @return the Operation represented by this proxy, never null.
      */
-    @objid ("3aada9b1-3cac-47dd-ae9d-350f491731ee")
+    @objid ("eca4ae65-a3a5-4df2-835e-e9ba6cecfbf1")
     public Operation getElement() {
         return this.elt;
     }
 
-    @objid ("dca3493a-6107-42ce-a475-d6b11e9e4543")
+    @objid ("ab7acd64-9c25-4704-84a0-4044ed0f6d6d")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("2a6c6dda-7387-4e2c-b286-474997d4d697")
+    @objid ("9af3c7e8-1fa8-4b2b-9645-1a7ec011446b")
     protected UML2TemplateSignature(Operation elt) {
         this.elt = elt;
     }
 
     @objid ("bd5513f3-a00c-4eb5-a954-b968c48149ed")
     public static final class MdaTypes {
-        @objid ("48fe98ed-3f79-4645-b659-4587d525d50d")
+        @objid ("830c9c38-65dc-46e6-a2cc-5740edd7b577")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("d1906539-8583-46ba-a3d8-660433dd79b1")
+        @objid ("1840a8bc-09a2-4c85-991e-5fdd233ef671")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("eafb113f-ad7b-428f-8d6e-623c939a2ae3")
+        @objid ("e595aa4c-bd3a-40f0-8da6-494f2891da95")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("e9cae42d-4401-439e-a21c-590f7f40de27")
+        @objid ("42ad137a-ad0c-4754-b8ec-5d15ec07378d")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "554cb8bb-5d0e-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

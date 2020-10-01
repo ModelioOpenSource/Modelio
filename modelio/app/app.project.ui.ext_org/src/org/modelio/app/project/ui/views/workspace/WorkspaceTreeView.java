@@ -61,15 +61,15 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.core.events.ModelioEventTopics;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.ui.closeproject.CloseProjectHandler;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.gproject.data.project.ProjectDescriptor;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.gproject.GProjectFactory;
-import org.modelio.ui.progress.IModelioProgressService;
+import org.modelio.platform.core.events.ModelioEventTopics;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.progress.IModelioProgressService;
 
 /**
  * Workspace tree viewer

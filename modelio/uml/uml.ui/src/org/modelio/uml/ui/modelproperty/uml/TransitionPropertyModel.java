@@ -22,15 +22,15 @@ package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Arrays;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.core.ui.nattable.parts.data.INatValue;
-import org.modelio.core.ui.nattable.parts.data.hybrid.DefaultHybridNatValue;
-import org.modelio.core.ui.nattable.parts.data.string.single.DefaultStringNatValue;
-import org.modelio.core.ui.nattable.viewer.model.AbstractPropertyModel;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Event;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Transition;
 import org.modelio.metamodel.uml.statik.Operation;
+import org.modelio.platform.model.ui.nattable.parts.data.INatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.hybrid.DefaultHybridNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.string.single.DefaultStringNatValue;
+import org.modelio.platform.model.ui.nattable.viewer.model.AbstractPropertyModel;
 
 /**
  * <i>Transition</i> data model.
@@ -153,7 +153,7 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
                 return new DefaultStringNatValue((String) getValue(row, col), false);
             case 2:
                 // ReceivedEvents
-                return new DefaultHybridNatValue(getValue(row, col), true, Arrays.asList(Operation.class, Event.class), true);
+                return new DefaultHybridNatValue(getValue(row, col), true, Arrays.asList(Event.class), true);
             case 3:
                 // Guard
                 return new DefaultStringNatValue((String) getValue(row, col), false);

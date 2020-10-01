@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2900]]
+
+[[r2900]]
+= R2900
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _relation d'extension_ doit référencer au moins un _Extension Point_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _Extension Point_ est une fonctionnalité des _Use Cases_ qui identifie un certain point à partir duquel le comportement d'un _Use Case_ peut être étendu par des éléments d'un autre _Use Case_. Une _relation d'extension_ devrait donc toujours référencer au moins un _Extension Point_ du _Use Case_ étendu.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Ajoutez un _Extension Point_ au _Use Case_ à étendre s'il n'en possède pas déjà, et/ou référencez l'_Extension Point_ dans les propriétés de la _relation d'extension_.
+
+

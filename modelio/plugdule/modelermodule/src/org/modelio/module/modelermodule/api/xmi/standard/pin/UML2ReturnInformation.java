@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.pin;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("a592276c-6700-4520-af3c-8bb54ab17733")
 public class UML2ReturnInformation {
-    @objid ("66e01874-e194-464d-ae20-89b4fd3d3062")
+    @objid ("0979c765-f9e6-499d-9583-129d62b94616")
     public static final String STEREOTYPE_NAME = "UML2ReturnInformation";
 
     /**
      * The underlying {@link Pin} represented by this proxy, never null.
      */
-    @objid ("35d52282-22c6-4619-b110-9ecab2502c1f")
+    @objid ("24e316bf-47f9-4742-a351-42a92fd617bf")
     protected final Pin elt;
 
     /**
-     * Tells whether a {@link UML2ReturnInformation proxy} can be instantiated from a {@link MObject} checking it is a {@link Pin} stereotyped << UML2ReturnInformation >>. 
+     * Tells whether a {@link UML2ReturnInformation proxy} can be instantiated from a {@link MObject} checking it is a {@link Pin} stereotyped << UML2ReturnInformation >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("97643dd8-111a-4ba0-9de0-f6b03b9189ff")
+    @objid ("4dca34bb-b35d-40cd-8ce4-03e0c3663e04")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Pin) && ((Pin) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ReturnInformation.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2ReturnInformation {
      * 
      * @return a {@link UML2ReturnInformation} proxy on the created {@link Pin}.
      */
-    @objid ("40f8abab-636a-4f66-a247-029ce08f92ff")
+    @objid ("c2fc7caa-591e-444b-93c6-e631965838c2")
     public static UML2ReturnInformation create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Pin");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ReturnInformation.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2ReturnInformation {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ReturnInformation} proxy from a {@link Pin} stereotyped << UML2ReturnInformation >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ReturnInformation} proxy from a {@link Pin} stereotyped << UML2ReturnInformation >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Pin
      * @return a {@link UML2ReturnInformation} proxy or <i>null</i>.
      */
-    @objid ("714b105b-9b88-4d12-af6b-e099eb9fd40b")
+    @objid ("5d895e9d-50e9-484a-851a-d1f1116c6cf6")
     public static UML2ReturnInformation instantiate(Pin obj) {
         return UML2ReturnInformation.canInstantiate(obj) ? new UML2ReturnInformation(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2ReturnInformation {
      * @return a {@link UML2ReturnInformation} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("fec23293-e47d-45e0-88c0-5641e9611081")
+    @objid ("88a28725-22ff-4fe9-b1f8-01afddd13a11")
     public static UML2ReturnInformation safeInstantiate(Pin obj) throws IllegalArgumentException {
         if (UML2ReturnInformation.canInstantiate(obj))
         	return new UML2ReturnInformation(obj);
@@ -112,7 +112,7 @@ public class UML2ReturnInformation {
         	throw new IllegalArgumentException("UML2ReturnInformation: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("df3bcdfe-c91e-4c6e-bb49-ba881d97a9e2")
+    @objid ("d9643c14-235c-4a99-ac55-f8a6ac614273")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2ReturnInformation {
      * Get the underlying {@link Pin}. 
      * @return the Pin represented by this proxy, never null.
      */
-    @objid ("0ffb9f7e-7400-464c-955d-e53efd6ed38a")
+    @objid ("5815908c-0fc9-4ef2-af28-8a6076ff2431")
     public Pin getElement() {
         return this.elt;
     }
 
-    @objid ("1ad3511b-b38b-482f-b468-6ab981836c95")
+    @objid ("11b13369-e61b-4f80-ba39-745c5084bb42")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("38ba69ca-488e-4970-894a-ac203f5ef5c7")
+    @objid ("d9948178-146c-4470-b683-fa52f7b402e4")
     protected UML2ReturnInformation(Pin elt) {
         this.elt = elt;
     }
 
     @objid ("4350d302-8b4a-4b36-9f3e-09cc98ca12e6")
     public static final class MdaTypes {
-        @objid ("d018af8f-9323-482f-a480-369790d455d5")
+        @objid ("8a0346c8-a7ec-4b6e-9360-a9eea1af4c31")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("48e397ec-2841-4ebc-b426-5b71b7f92b7d")
+        @objid ("c435cde3-18a9-44eb-a0e0-0b9c4c7e9362")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("ab0c3226-e1c3-4eea-bd40-249227c4c115")
+        @objid ("6eb01646-788e-43bf-ab33-09d0f089aafd")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("e219668a-7872-4003-bbf8-4aa2e51f9693")
+        @objid ("8f80b9cb-0bed-421a-9794-0745fef601d1")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "0936024c-9d51-4bc0-99b5-e8f72ae60007");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

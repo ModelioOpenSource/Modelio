@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1010]]
+
+[[r1010]]
+= R1010
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _ActivityPartition_ ne peut pas être contenue à  la fois par une _Activity_ et par une _ActivityPartition_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+L'_ActivityPartition_ en cause est à la fois contenue dans une autre _ActivityPartition_ à (via la relation _SuperPartition_) et dans une _Activity_ (via la relation _InActivity_), alors que ces deux relations doivent être exclusives l'une de l'autre.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Cette rêgle est le plus souvent activée par un module (ou une macro) défaillant. Veuillez contacter l'auteur du module pour qu'il procèdde à une correction.
+
+Cette erreur peut être corrigée manuellement en déplaçant l'_ActivityPartition_ concernée afin qu'elle soit directement sous l'_Activity_ puis en la déplaçant à nouveau à sa place.
+
+

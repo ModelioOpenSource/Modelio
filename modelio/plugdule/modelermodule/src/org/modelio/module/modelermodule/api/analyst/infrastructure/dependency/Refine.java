@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("065ef2c0-b7f4-4881-9acb-45b54c44a00d")
 public class Refine {
-    @objid ("06db12bf-a352-446f-ac56-76b72bb61678")
+    @objid ("44e216da-8a0d-486d-8e85-746c77c0d60e")
     public static final String STEREOTYPE_NAME = "refine";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("15808d13-b073-455e-96f6-a78b606a4a97")
+    @objid ("8fd61005-ec0c-4b93-8a08-d9dc763d3fe2")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link Refine proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << refine >>. 
+     * Tells whether a {@link Refine proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << refine >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("4771b844-5125-49c4-a4c3-884aad35f323")
+    @objid ("8848029c-ef0a-4bfe-b815-91e4fd0a8ab4")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Refine.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class Refine {
      * 
      * @return a {@link Refine} proxy on the created {@link Dependency}.
      */
-    @objid ("e98f27c1-3d37-4010-89f4-4ca5c6273184")
+    @objid ("c1285a39-d779-4365-8fa4-91978cc1be6e")
     public static Refine create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Refine.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class Refine {
     }
 
     /**
-     * Tries to instantiate a {@link Refine} proxy from a {@link Dependency} stereotyped << refine >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Refine} proxy from a {@link Dependency} stereotyped << refine >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link Refine} proxy or <i>null</i>.
      */
-    @objid ("3a932dc3-de77-470a-9073-d7432550abc9")
+    @objid ("ae280b1c-40bf-4d96-ba25-3e0acee0440a")
     public static Refine instantiate(Dependency obj) {
         return Refine.canInstantiate(obj) ? new Refine(obj) : null;
     }
@@ -103,7 +103,7 @@ public class Refine {
      * @return a {@link Refine} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("9c66631e-395f-4ae8-92f1-1831219a0c64")
+    @objid ("a705db40-6b2a-40d0-a587-cadf50bb9ae2")
     public static Refine safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (Refine.canInstantiate(obj))
         	return new Refine(obj);
@@ -111,7 +111,7 @@ public class Refine {
         	throw new IllegalArgumentException("Refine: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("a459145f-38d9-4da7-8b12-66f265e66bd4")
+    @objid ("9a4b73d2-a789-4f7a-8361-6ccc86cd0cc2")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class Refine {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("961a6ed8-4b3e-48f0-a791-2a8a6410930d")
+    @objid ("95d617e2-0e33-4800-afbd-d303c6444173")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("1299caa9-e8b4-4f62-b1b3-85288df7f584")
+    @objid ("1e00b642-d81c-4ac8-80fa-505a4930c091")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("0c080904-a818-4f5d-bf69-2faf46b87582")
+    @objid ("a69b8911-30e5-476a-b8b8-98fdb753aa61")
     protected Refine(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("6828706b-4056-48b1-9924-ed9cdf5d7d8d")
     public static final class MdaTypes {
-        @objid ("15be993e-62f9-440d-a437-57aa66d07a93")
+        @objid ("33fc5bbc-b888-4f2c-9d7d-7803550a222b")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("6c7cab0c-5b23-4d92-b249-da46b80629d6")
+        @objid ("a3fe99d4-0ad6-474c-b446-7454a416b28a")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("5efd8123-c45e-460e-8202-b1ac80dcab0a")
+        @objid ("649f7317-8f55-4ac3-bf36-ffdcd5b43ab2")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("da4d51bf-7086-40f0-90d3-ac1f4041077c")
+        @objid ("dd5917b6-fe38-438c-8c45-494acd33e955")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-021f-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

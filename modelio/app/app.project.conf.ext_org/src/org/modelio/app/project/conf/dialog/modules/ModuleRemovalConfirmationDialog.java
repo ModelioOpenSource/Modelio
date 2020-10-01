@@ -37,7 +37,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.ui.dialog.ModelioDialog;
+import org.modelio.platform.ui.dialog.ModelioDialog;
 import org.osgi.framework.Bundle;
 
 @objid ("27698d42-4b5b-4785-aaa5-ffa8d7eaafe3")

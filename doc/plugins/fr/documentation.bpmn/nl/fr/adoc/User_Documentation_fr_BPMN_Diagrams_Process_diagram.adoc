@@ -1,0 +1,16 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+=  Diagramme de Processus image:images/attachment/bpmn41/User_Documentation_fr/BPMN_Diagrams/Process_diagram/WebHome/bpmnprocessdesigndiagram.png[bpmnprocessdesigndiagram.png]
+
+
+Les diagrammes de processus BPMN sont dédiés à la modélisation des processus, ils sont attachés aux processus.
+
+[[HExemple22PizzaVendor22]]
+=== Exemple "Pizza Vendor"
+
+.Diagramme de processus "Pizza Vendor"
+image::images/attachment/bpmn41/User_Documentation_fr/BPMN_Diagrams/Process_diagram/WebHome/Process_Design_Diagram_2.png[Process Design Diagram 2.png]
+
+
+Ce diagramme de processus attaché au processus "Pizza Vendor" détaille le fonctionnement du processus.

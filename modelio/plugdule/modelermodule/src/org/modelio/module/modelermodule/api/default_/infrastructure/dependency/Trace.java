@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("deb1d430-370d-47a6-83f9-89eae36b4475")
 public class Trace {
-    @objid ("516c2c33-c86b-4b49-b50e-243691811e8a")
+    @objid ("e106f20f-b424-43bc-a28c-8c5fb5bba61d")
     public static final String STEREOTYPE_NAME = "trace";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("a87cbb09-2384-44a3-926e-5baf82f66d1f")
+    @objid ("d85123f7-990f-4e30-89c4-e2dfbcf07f60")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link Trace proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << trace >>. 
+     * Tells whether a {@link Trace proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << trace >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("1f928f64-dcab-4c6b-8ac5-d1e29c261ff2")
+    @objid ("6420abcb-f8ef-4c85-89b6-425c47e6c851")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Trace.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class Trace {
      * 
      * @return a {@link Trace} proxy on the created {@link Dependency}.
      */
-    @objid ("efdacb13-8958-4980-bae4-d9f61edf4b82")
+    @objid ("11d4c924-f3ed-471c-a7f1-4f3353084481")
     public static Trace create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Trace.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class Trace {
     }
 
     /**
-     * Tries to instantiate a {@link Trace} proxy from a {@link Dependency} stereotyped << trace >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Trace} proxy from a {@link Dependency} stereotyped << trace >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link Trace} proxy or <i>null</i>.
      */
-    @objid ("db6e512c-a3be-4338-a4d0-51698d01eda2")
+    @objid ("a9b83a71-8139-4759-9e12-4e511773cbe3")
     public static Trace instantiate(Dependency obj) {
         return Trace.canInstantiate(obj) ? new Trace(obj) : null;
     }
@@ -103,7 +103,7 @@ public class Trace {
      * @return a {@link Trace} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("98707736-1ed1-416e-b8ae-8f6c39355b8c")
+    @objid ("a2663d87-1e58-4d6e-808e-23d6849eca58")
     public static Trace safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (Trace.canInstantiate(obj))
         	return new Trace(obj);
@@ -111,7 +111,7 @@ public class Trace {
         	throw new IllegalArgumentException("Trace: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("f1a9d77d-f3a2-4fc2-b548-3844d9f6483b")
+    @objid ("a9827933-91e3-42ba-aed9-50e763b5189c")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class Trace {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("5791df1e-d282-48f4-b5e5-39952aa7d184")
+    @objid ("76615f72-6620-44a8-a1f1-f8c57e5f4989")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("5487ef98-10c0-49d3-8f0f-08f767ee7c53")
+    @objid ("41518c5f-d68a-4c0d-a8ea-34c002f88104")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("d522ca5a-3900-4967-98f0-51eb62002e47")
+    @objid ("5c73f0c8-ceb7-425e-9a4f-4e31c6a583a4")
     protected Trace(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("1335f40a-5185-493c-ac4b-6745cea1855f")
     public static final class MdaTypes {
-        @objid ("5ea32054-927f-4cc5-9b86-b3d480735888")
+        @objid ("1a7d5adc-8339-4050-a032-8e885c99aa3e")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("e6ed91d6-63ab-43d7-b6db-0a1f27328363")
+        @objid ("a75c4cdb-4583-498d-8d55-d9d9dbec1770")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("aea9dad7-6c1a-40a4-9027-2be343f5c371")
+        @objid ("09aa1193-454a-410f-a753-09e0a703b87a")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("d945169a-768f-41b5-9c94-1c6bad958378")
+        @objid ("0c212ccf-386d-489f-9f5b-bbf90d09f99f")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01280500-0000-0b37-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

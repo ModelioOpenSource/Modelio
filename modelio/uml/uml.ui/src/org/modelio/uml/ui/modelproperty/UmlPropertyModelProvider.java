@@ -21,9 +21,6 @@
 package org.modelio.uml.ui.modelproperty;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.core.ui.nattable.viewer.model.INatTableViewerContext;
-import org.modelio.core.ui.nattable.viewer.model.IPropertyModel;
-import org.modelio.core.ui.nattable.viewer.model.IPropertyModelProvider;
 import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.activities.BpmnAdHocSubProcess;
 import org.modelio.metamodel.bpmn.activities.BpmnBusinessRuleTask;
@@ -234,6 +231,9 @@ import org.modelio.metamodel.uml.statik.TemplateBinding;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
 import org.modelio.metamodel.uml.statik.TemplateParameterSubstitution;
 import org.modelio.metamodel.visitors.DefaultModelVisitor;
+import org.modelio.platform.model.ui.nattable.viewer.model.INatTableViewerContext;
+import org.modelio.platform.model.ui.nattable.viewer.model.IPropertyModel;
+import org.modelio.platform.model.ui.nattable.viewer.model.IPropertyModelProvider;
 import org.modelio.uml.ui.modelproperty.bpmn.BpmnActivityPropertyModel;
 import org.modelio.uml.ui.modelproperty.bpmn.BpmnAdHocSubProcessPropertyModel;
 import org.modelio.uml.ui.modelproperty.bpmn.BpmnArtifactPropertyModel;

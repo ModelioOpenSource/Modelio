@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("0a2b7f32-1cd2-44cd-b61d-f4464bbf91de")
 public class Derive {
-    @objid ("2c64365f-89dc-47b3-b6ff-eb23e87aa331")
+    @objid ("1d3514d7-6246-415b-ba7f-f4a300fd9d45")
     public static final String STEREOTYPE_NAME = "derive";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("90e9459e-f46d-40a3-950b-464458a53985")
+    @objid ("2fb3cf08-ad45-4771-abc6-208a35cce63a")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link Derive proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << derive >>. 
+     * Tells whether a {@link Derive proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << derive >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("4942595d-66c1-44a8-b7f0-283a2205648d")
+    @objid ("ad237fb9-abce-4404-9d36-e38ca321f9e6")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Derive.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class Derive {
      * 
      * @return a {@link Derive} proxy on the created {@link Dependency}.
      */
-    @objid ("b9d65e9f-ffc2-4d8a-bbc9-862c11f1718c")
+    @objid ("668f9993-e499-4535-9704-8560fe702290")
     public static Derive create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Derive.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class Derive {
     }
 
     /**
-     * Tries to instantiate a {@link Derive} proxy from a {@link Dependency} stereotyped << derive >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Derive} proxy from a {@link Dependency} stereotyped << derive >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link Derive} proxy or <i>null</i>.
      */
-    @objid ("0c93cffa-646f-4fa3-8dcf-b388f2645876")
+    @objid ("9fbdfe54-7001-4eaa-9d80-eb511df4933e")
     public static Derive instantiate(Dependency obj) {
         return Derive.canInstantiate(obj) ? new Derive(obj) : null;
     }
@@ -103,7 +103,7 @@ public class Derive {
      * @return a {@link Derive} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("f9cfa02c-7286-4154-a0b1-7451062ab859")
+    @objid ("a5a5c17a-b14e-4645-9121-7e946932c246")
     public static Derive safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (Derive.canInstantiate(obj))
         	return new Derive(obj);
@@ -111,7 +111,7 @@ public class Derive {
         	throw new IllegalArgumentException("Derive: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("fae3f91a-f918-48b7-a7cc-9d7ed70540ab")
+    @objid ("ca69150b-f8c8-4571-8521-9f1e3f5f328f")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class Derive {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("e61e344e-27ef-4ce6-96a4-fc612bfc3e1e")
+    @objid ("0bb1a27b-8472-4900-b9f7-e2c4a892df98")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("46adf623-3502-423b-9a66-ae527487b81b")
+    @objid ("9cdc897e-cdf0-4304-b763-9980cbde4e16")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("00a90fcd-cd77-4dae-ae2a-2c0899358ac1")
+    @objid ("4774022c-4bb8-4ad0-8a87-19dcfdae6195")
     protected Derive(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("7dea825e-1f89-4805-9f37-7ff8a5c37024")
     public static final class MdaTypes {
-        @objid ("2f8c00a0-ac01-4a97-b641-b73b8858c950")
+        @objid ("b0ca3f24-f090-4dc1-b672-e697794d1286")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("5dc4a3e3-fe21-4849-9268-9e9bf5988b75")
+        @objid ("2088cbfa-fd92-498c-a856-edd2f956c80f")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("536b9eea-5fd5-4f94-b93a-cd806680cb8b")
+        @objid ("42a96aa6-1890-4c2f-84f9-7ff3c22afb6a")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("846ac25f-ad1b-4a14-98a7-5b59008298ad")
+        @objid ("4872e769-65c0-4271-b162-ae71ce773f7d")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-021a-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension id="diagram.deployment" point="org.eclipse.e4.workbench.model">
+      <fragment uri="e4model/diagram_deployment_editor.e4xmi"/>
+      <processor beforefragment="true" class="org.modelio.uml.deploymentdiagram.editor.plugin.DeploymentProcessor"/>
+   </extension>
+   <extension point="org.modelio.app.diagram.editor.inputprovider">
+      <inputprovider class="org.modelio.uml.deploymentdiagram.editor.editor.DeploymentDiagramEditorInputProvider"/>
+   </extension>
+   <extension point="org.modelio.app.diagram.editor.toolregistry">
+   		<tools>
+			<creationtool id="CREATE_ARTIFACT" label="%Artifact.label" tooltip="%Artifact.tooltip" interactor="node">
+				<context metaclass="Standard.Artifact" />
+			</creationtool>
+			<creationtool id="CREATE_NODE" label="%Node.label" tooltip="%Node.tooltip" interactor="node">
+				<context metaclass="Standard.Node" />
+			</creationtool>
+			<creationtool id="CREATE_MANIFESTATION" label="%Manifestation.label" tooltip="%Manifestation.tooltip" interactor="link">
+				<context metaclass="Standard.Manifestation" router="MANIFESTATION_ROUTINGMODE"/>
+			</creationtool>
+		</tools>
+	</extension>
+
+	<extension point="org.modelio.platform.model.view.template">
+		<viewtemplate id="DeploymentDiagramTemplate" class="org.modelio.uml.deploymentdiagram.editor.contributor.DeploymentDiagramTemplate"/>
+	</extension>
+
+	<extension point="org.modelio.app.creation.wizard.contributor">
+		<wizard
+				categoryId = "%ContributorCategoryType.UML"
+				categoryLabel = "%ContributorCategoryLabel.UML"
+				categoryIcon = "./icons/uml.png"
+				class="org.modelio.uml.deploymentdiagram.editor.contributor.DeploymentDiagramCreationContributor"
+				label = "%CreationWizard.Deployment.Name"
+				details = "%CreationWizard.Deployment.Details"
+				information = "%CreationWizard.Deployment.Information"
+				helpUrl = "HELP_URL"
+				previewImage = "images/deploimentdiagrampreview400x300.png"
+				modelViewTemplateId = "DeploymentDiagramTemplate">
+		</wizard>
+	</extension>
+
+    <extension name="Deployment drop extension" point="org.modelio.app.diagram.editor.droppolicy.extensions">
+    	<droppolicyextension class="org.modelio.uml.statikdiagram.editor.editor.StaticDiagramDropEditPolicyExtension">
+    		<scope editorId="org.modelio.uml.deploymentdiagram.editor.DeploymentDiagramEditorID"/>
+    	</droppolicyextension>
+    </extension>
+
+    <extension
+          point="org.modelio.app.diagram.editor.palette">
+       <palette
+             id="org.modelio.uml.deploymentdiagram.editor.DeploymentDiagramEditorID">
+          <palette_group
+                collapsible="false"
+                label="main">
+             <selection_tool default="true"/>
+             <marquee_tool/>
+             <universal_link_tool/>
+          </palette_group>
+          <palette_group label="%DeploymentPaletteGroup.Nodes" initialState="open">
+             <creation_tool id="CREATE_PACKAGE"/>
+             <creation_tool id="CREATE_NODE"/>
+             <creation_tool id="CREATE_ARTIFACT"/>
+             <creation_tool id="CREATE_OPERATION"/>
+             <creation_tool id="CREATE_ATTRIBUTE"/>
+             <creation_tool id="CREATE_PORT"/>
+             <creation_tool id="CREATE_INSTANCE"/>
+             <creation_tool id="CREATE_ATTRIBUTELINK"/>
+          </palette_group>
+          <palette_group label="%DeploymentPaletteGroup.Links" initialState="open">
+             <creation_tool id="CREATE_GENERALIZATION"/>
+             <creation_tool id="CREATE_ASSOCIATION"/>
+             <creation_tool id="CREATE_AGGREGATION"/>
+             <creation_tool id="CREATE_COMPOSITION"/>
+             <creation_tool id="CREATE_USE"/>
+             <creation_tool id="CREATE_MANIFESTATION"/>
+             <creation_tool id="CREATE_INSTANCELINK"/>
+             <creation_tool id="CREATE_NARY_INSTANCELINK"/>
+             <creation_tool id="CREATE_PROVIDED_INTERFACE"/>
+             <creation_tool id="CREATE_REQUIRED_INTERFACE"/>
+             <creation_tool id="CREATE_DELEGATELINK"/>
+             <creation_tool id="CREATE_TEMPLATEBINDING"/>
+             <creation_tool id="CREATE_PACKAGEIMPORT"/>
+          </palette_group>
+          <palette_group label="%DeploymentPaletteGroup.InformationFlow">
+             <creation_tool id="CREATE_INFORMATIONFLOW"/>
+             <creation_tool id="CREATE_INFORMATIONFLOWNODE"/>
+             <creation_tool id="CREATE_INFORMATIONITEM"/>
+          </palette_group>
+          <palette_group label="%DeploymentPaletteGroup.Common">
+             <creation_tool id="CREATE_NOTE"/>
+             <creation_tool id="CREATE_CONSTRAINT"/>
+             <creation_tool id="CREATE_EXTERNDOCUMENT"/>
+             <creation_tool id="CREATE_DEPENDENCY"/>
+             <creation_tool id="CREATE_TRACEABILITY"/>
+             <creation_tool id="CREATE_RELATED_DIAGRAM_LINK"/>
+          </palette_group>
+          <palette_group label="%DeploymentPaletteGroup.Drawings">
+             <creation_tool id="CREATE_DRAWING_LINE"/>
+             <creation_tool id="CREATE_DRAWING_TEXT"/>
+             <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
+             <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+          </palette_group>
+       </palette>
+    </extension>
+
+
+</plugin>

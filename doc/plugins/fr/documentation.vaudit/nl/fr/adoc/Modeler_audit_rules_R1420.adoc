@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1420]]
+
+[[r1420]]
+= R1420
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Il ne peut y avoir que des associations binaires entre des acteurs et des cas d'utilisation.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les diagrammes de cas d'utilisation utilisent seulement des associations binaires. Pour relier un acteur à plusieurs cas d'utilisation, plusieurs
+
+associations sont utilisées.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une association n-aire dans un diagramme de cas d'utilisation, vous devriez la séparer en plusieurs associations.
+
+

@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.constraint;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("b8be14f7-5bfd-4614-81be-eb12e3be42a2")
 public class Incomplete {
-    @objid ("165bc515-7da5-47fd-bcd7-1091a9fe8c00")
+    @objid ("8ab51ea2-146e-4f3a-8df7-596e24e636c6")
     public static final String STEREOTYPE_NAME = "incomplete";
 
     /**
      * The underlying {@link Constraint} represented by this proxy, never null.
      */
-    @objid ("64f16ae0-67ab-49a7-b734-96436b1abfaa")
+    @objid ("d4d85644-2a0a-4d81-9cff-49224c2f01f5")
     protected final Constraint elt;
 
     /**
-     * Tells whether a {@link Incomplete proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << incomplete >>. 
+     * Tells whether a {@link Incomplete proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << incomplete >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("a37d3345-a055-42b2-b9bb-2e1b4d51f8e2")
+    @objid ("49343a88-c8d5-4195-ab43-79328df8a466")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Constraint) && ((Constraint) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Incomplete.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Incomplete {
      * 
      * @return a {@link Incomplete} proxy on the created {@link Constraint}.
      */
-    @objid ("dcd0e5a4-229b-430d-a0fb-1f4664ead14e")
+    @objid ("84e7afd4-df19-468b-962b-81b4805c4c1a")
     public static Incomplete create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Constraint");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Incomplete.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Incomplete {
     }
 
     /**
-     * Tries to instantiate a {@link Incomplete} proxy from a {@link Constraint} stereotyped << incomplete >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Incomplete} proxy from a {@link Constraint} stereotyped << incomplete >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Constraint
      * @return a {@link Incomplete} proxy or <i>null</i>.
      */
-    @objid ("8efc22cf-baf3-4cd6-86cc-4c424c76ca42")
+    @objid ("1e7fd8eb-f998-4094-8341-11d4d16f48f7")
     public static Incomplete instantiate(Constraint obj) {
         return Incomplete.canInstantiate(obj) ? new Incomplete(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Incomplete {
      * @return a {@link Incomplete} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("9b34cc2b-0ba6-4b51-ba42-f0e487ec0798")
+    @objid ("7253fd1f-1e55-4fef-9024-f1c35fe79191")
     public static Incomplete safeInstantiate(Constraint obj) throws IllegalArgumentException {
         if (Incomplete.canInstantiate(obj))
         	return new Incomplete(obj);
@@ -112,7 +112,7 @@ public class Incomplete {
         	throw new IllegalArgumentException("Incomplete: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("dbc5423d-bf5f-4cb7-9a27-ee8ff74a7e4d")
+    @objid ("cb2bb433-9c40-4118-aa64-a0233973875f")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Incomplete {
      * Get the underlying {@link Constraint}. 
      * @return the Constraint represented by this proxy, never null.
      */
-    @objid ("ce6f6fb5-41e1-4af6-9170-a093e0e77849")
+    @objid ("b8112057-5bb8-4cf2-957c-035d6752b191")
     public Constraint getElement() {
         return this.elt;
     }
 
-    @objid ("eb0d2586-44bb-403c-80ba-b70c8eee4430")
+    @objid ("0acf573f-0129-4510-9ce7-5fb0fa27a883")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("6d6662fc-7dea-42d1-a692-89819f354297")
+    @objid ("0acadd5e-e3fb-4c95-a7ee-37de01b1515f")
     protected Incomplete(Constraint elt) {
         this.elt = elt;
     }
 
     @objid ("73e28435-6124-4305-92ec-992d4d7fdbe1")
     public static final class MdaTypes {
-        @objid ("729ddd6a-74cc-4e1b-af3c-431db15b72c2")
+        @objid ("38bb5088-a135-4eb1-a433-a28323c71cac")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("e661a25f-5cb8-45b8-b194-c9a0fb1feecf")
+        @objid ("ac17a610-a613-4fb0-bdeb-a4e5979ca274")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("5ae88851-f2c2-4126-9a8a-9a452e5afafc")
+        @objid ("2eb368e9-4655-4709-a7ae-1dbf618c2ba3")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("09bb5c70-7eb3-430d-a613-9c75f465edc7")
+        @objid ("c8d254bc-89db-44b8-b2c0-7d1c3b17d896")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01f7-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

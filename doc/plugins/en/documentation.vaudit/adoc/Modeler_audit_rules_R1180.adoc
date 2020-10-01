@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1180]]
+
+[[r1180]]
+= R1180
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _ControlFlow_ cannot have an _ObjectNode_ at one of its ends.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+All edges coming into or going out of _ObjectNodes_ must be _ObjectFlows_.
+
+However, _ObjectNodes_ can be marked as "Control type", in which case they can have _ControlFlows_ going in or out.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+The "Control type" property of an _ObjectNode_ can be modified through the "Element" view when said _ObjectNode_ is selected.
+
+

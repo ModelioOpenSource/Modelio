@@ -28,8 +28,8 @@ import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
+import org.modelio.platform.project.services.IProjectService;
 
 @objid ("00455d8a-6b88-10b3-9941-001ec947cd2a")
 public class SwitchWorkspaceHandler {

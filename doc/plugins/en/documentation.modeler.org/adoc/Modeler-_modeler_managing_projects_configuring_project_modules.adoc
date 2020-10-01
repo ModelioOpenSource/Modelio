@@ -1,0 +1,92 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Configuring-project-modules]]
+
+[[configuring-project-modules]]
+= Configuring project modules
+
+[[What-are-Modelio-modules]]
+
+[[what-are-modelio-modules]]
+===== What are Modelio modules?
+
+Modelio modules are complementary components, each of which provides specific services tailored to a particular modeling need.
+
+Modelio provides a number of modules, all of which exploit a model for a specialized need (for example, documentation or Java code generation).
+
+When a module is installed, it provides specific menus, icons and specialized annotations. Some modules also add their own property view, designed to make it even easier to enter module-specific elements, such as dedicated notes and tagged values.
+
+*Note:* To open the "Modules" tab of the Project Configurator, just run the "image:images/Modeler-_modeler_managing_projects_configuring_project_modules_module.png[9] Modules..." command from the "Configuration" menu.
+
+[[Installing-modules-in-a-project]]
+
+[[installing-modules-in-a-project]]
+===== Installing modules in a project
+
+image::images/Modeler-_modeler_managing_projects_configuring_project_modules_configuring_project_modules_1.png[2]
+
+image::images/Modeler-_modeler_managing_projects_configuring_project_modules_configuring_project_modules_2.png[3]
+
+.Installing a module in a project
+image::images/Modeler-_modeler_managing_projects_configuring_project_modules_configuring_project_modules_3.png[4]
+
+*Steps:*
+
+1. Click on the "Add" button to show the catalog's modules +
+2. In the 'Deploy modules' window, select the module you want to deploy in the project +
+3. Click on the "Deploy in the project" button to validate your choice +
+4. Click on the "Close" button to quit the 'Project configuration' window
+
+[[ActivatingDeactivating-modules]]
+
+[[activatingdeactivating-modules]]
+===== Activating/Deactivating modules
+
+Modelio provides a module activation/deactivation feature that enables you to activate or deactivate any and all of the modules installed in your project at any time.
+
+When you install a module in your project, it is automatically activated (active module tickboxes are checked).
+
+When modules are deactivated, they remain available for subsequent activation in your project, meaning you can still see and use module-specific extensions. This can be useful for team members who do not actually need to work with a given module, but who still need to be able to see dedicated module annotations used by other team members, for example.
+
+To activate or deactivate a module in your project, just check/uncheck the relevant tick box, as shown below.
+
+.Activating/Deactivating modules in your project
+image::images/Modeler-_modeler_managing_projects_configuring_project_modules_configuring_project_modules_4.png[5]
+
+*Steps:*
+
+1. Check/uncheck the tick box of the module you want to activate/deactivate
+
+[[Removing-modules-from-a-project]]
+
+[[removing-modules-from-a-project]]
+===== Removing modules from a project
+
+Removing a module will delete all its annotations and disable all its commands and functionalities. This cannot be undone, meaning that even reinstallation of the module will not restore the annotations.
+
+.Removing a module from a project
+image::images/Modeler-_modeler_managing_projects_configuring_project_modules_configuring_project_modules_5.png[6]
+
+*Steps:*
+
+1. Select the module you want to remove. 
+2. Click on the "Remove..." button to remove the module from the project.
+
+[[Setting-module-parameters]]
+
+[[setting-module-parameters]]
+===== Setting module parameters
+
+Each module installed in your project provides a set of parameters used to define various specific options, typically generation directories, edition tools and default selections.
+
+.Setting module parameters
+image::images/Modeler-_modeler_managing_projects_configuring_project_modules_configuring_project_modules_6.png[8]
+ 
+*Steps:*
+
+1. Select a module
+2. Expand a parameter category
+3. Set the desired parameter values
+
+

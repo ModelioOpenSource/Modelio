@@ -1,0 +1,36 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1490]]
+
+[[r1490]]
+= R1490
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+In an _Instance_, the type of an instanciated _Attribute_ must be part of the instanciated class or one of its parent classes.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The related _Attribute_ of an _AttributeLink_ must be owned by:
+
+* the _Classifier_ typing the _Instance_
+* one of the parent Classifiers of the _Classifier_ typing the _Instance_
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a slot related to an attribute that is not accessible from the instance's classifier, you should either:
+
+* Change the related attribute to one of the classifier's attributes
+* Make the attribute accessible to the classifier, by adding an inheritance link for example
+
+

@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.opaqueaction;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("1072f154-5793-424b-9dbf-2eaa07f6a142")
 public class UML2ReplyAction {
-    @objid ("50f4d307-6df0-421e-89bd-c30911ebbdb8")
+    @objid ("b1b55b0c-5890-41c2-9d7f-e0776121021a")
     public static final String STEREOTYPE_NAME = "UML2ReplyAction";
 
     /**
      * The underlying {@link OpaqueAction} represented by this proxy, never null.
      */
-    @objid ("518df155-52ad-4387-becf-0c5c9be6dbd5")
+    @objid ("23a7ffa6-b8aa-4863-a352-c12250d755b8")
     protected final OpaqueAction elt;
 
     /**
-     * Tells whether a {@link UML2ReplyAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2ReplyAction >>. 
+     * Tells whether a {@link UML2ReplyAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2ReplyAction >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("1976d9f0-7656-4326-9ac4-714ea4887af7")
+    @objid ("852ae60a-ca7c-4663-91af-89f66a1fb87f")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof OpaqueAction) && ((OpaqueAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ReplyAction.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2ReplyAction {
      * 
      * @return a {@link UML2ReplyAction} proxy on the created {@link OpaqueAction}.
      */
-    @objid ("36e4d722-800b-4ef7-aa30-86e44fac40aa")
+    @objid ("7dda509a-26d4-4dad-8a9e-bfa19dd9e5c7")
     public static UML2ReplyAction create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("OpaqueAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ReplyAction.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2ReplyAction {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ReplyAction} proxy from a {@link OpaqueAction} stereotyped << UML2ReplyAction >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ReplyAction} proxy from a {@link OpaqueAction} stereotyped << UML2ReplyAction >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a OpaqueAction
      * @return a {@link UML2ReplyAction} proxy or <i>null</i>.
      */
-    @objid ("137a39b4-faaf-4ab2-b721-d6489fb6384c")
+    @objid ("da9c528b-6502-4f1a-8846-b481ea856b1e")
     public static UML2ReplyAction instantiate(OpaqueAction obj) {
         return UML2ReplyAction.canInstantiate(obj) ? new UML2ReplyAction(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2ReplyAction {
      * @return a {@link UML2ReplyAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("e8a864fc-46f9-4cc1-bc5b-49aabac50c35")
+    @objid ("bba5ecdb-dd4c-4ce2-8bd7-31d4657b92d3")
     public static UML2ReplyAction safeInstantiate(OpaqueAction obj) throws IllegalArgumentException {
         if (UML2ReplyAction.canInstantiate(obj))
         	return new UML2ReplyAction(obj);
@@ -112,7 +112,7 @@ public class UML2ReplyAction {
         	throw new IllegalArgumentException("UML2ReplyAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("6f9a417d-d891-428b-8add-ddeaa869da27")
+    @objid ("bf382871-66c7-463b-8626-1c6fd7f38260")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2ReplyAction {
      * Get the underlying {@link OpaqueAction}. 
      * @return the OpaqueAction represented by this proxy, never null.
      */
-    @objid ("ef1823de-c489-435b-a796-fc1a7986e468")
+    @objid ("fdc0954c-5944-40cc-8a49-ac71642b94d7")
     public OpaqueAction getElement() {
         return this.elt;
     }
 
-    @objid ("5042d5e4-6bf9-451d-838c-eb660855f9d3")
+    @objid ("89087385-8dd1-4140-b846-d1dffd580b78")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("a7789934-63f5-415d-a71a-67dee5247616")
+    @objid ("4ab1b99f-8ec4-476b-9608-dbcb75215a5d")
     protected UML2ReplyAction(OpaqueAction elt) {
         this.elt = elt;
     }
 
     @objid ("e3df1d05-1797-48da-8ef8-fa4d80b22d66")
     public static final class MdaTypes {
-        @objid ("cbb8b704-100a-4706-8fe0-09c4113f6a09")
+        @objid ("b1ea75da-ac57-49e1-9656-e637dfe402cc")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("4b07aa4a-0d22-4c6a-b86e-9ec0f35801ab")
+        @objid ("d2b42008-23bc-41f0-b71d-d27718978922")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("2146ce8a-189a-43be-9760-784f11585192")
+        @objid ("f8c6bb2f-f416-447d-a3cb-ade2f7ecd9d0")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("000dfe51-f471-41cb-b6a0-2c5a8401ab82")
+        @objid ("14a04578-d47a-485a-b762-7bc40e05b7b2")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "c6a579b6-5d0d-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

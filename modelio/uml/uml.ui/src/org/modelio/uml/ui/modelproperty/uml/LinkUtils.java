@@ -24,8 +24,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.core.ui.nattable.parts.data.INatValue;
-import org.modelio.core.ui.nattable.parts.data.element.choice.DefaultElementChoiceNatValue;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Classifier;
@@ -35,6 +33,8 @@ import org.modelio.metamodel.uml.statik.Interface;
 import org.modelio.metamodel.uml.statik.InterfaceRealization;
 import org.modelio.metamodel.uml.statik.LinkEnd;
 import org.modelio.metamodel.uml.statik.NameSpace;
+import org.modelio.platform.model.ui.nattable.parts.data.INatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.element.choice.DefaultElementChoiceNatValue;
 
 /**
  * Utilities for {@link LinkEnd} related property models.

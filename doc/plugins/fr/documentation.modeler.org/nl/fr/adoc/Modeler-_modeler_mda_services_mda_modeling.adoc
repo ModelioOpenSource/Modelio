@@ -1,0 +1,15 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Modélisation-MDA-avec-Modelio-Modeler]]
+
+[[modélisation-mda-avec-modelio-modeler]]
+= Modélisation MDA avec Modelio Modeler
+
+Modelio propose trois niveaux de services MDA :
+
+* <<Modeler-_modeler_mda_services_basic.adoc#,Le niveau basique – Création de stéréotypes dans la vue "Modèle">>.
+* <<Modeler-_modeler_mda_services_advanced.adoc#,Le niveau avancé – Création de profils et de stéréotypes, et définition de types de notes et de tagged values>>.
+* Le niveau expert – Développement de modules Modelio sous Eclipse. Ce mode expert est détaillé dans un guide dédié.
+
+

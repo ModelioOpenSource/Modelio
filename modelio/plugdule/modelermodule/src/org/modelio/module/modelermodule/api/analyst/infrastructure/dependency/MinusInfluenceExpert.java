@@ -15,6 +15,12 @@
  * 
  */
 
+/*
+ * WARNING: GENERATED FILE - DO NOT EDIT
+ * Module: ModelerModule v9.1.00
+
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
 import java.util.Collection;
@@ -39,94 +45,91 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * </p>
  * <table summary="Creation rules" border="1">
  * <tr>
- * <th>Possible source</th>
- * <th>Possible target</th>
+ *   <th>Possible source</th>
+ *   <th>Possible target</th>
  * </tr>
- * <tr>
- * <td>Goal</td>
- * <td>Goal</td>
- * </tr>
+ * <tr><td>Goal</td><td>Goal</td></tr>
  * 
  * </table>
  */
 @objid ("ca42615b-90d0-4690-90bd-6d80d1424ef1")
 public class MinusInfluenceExpert implements IMdaExpert {
-    @objid ("db83458f-8ae9-4e48-ab6f-3b93ecccfca3")
-    @Override
-    public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass, MClass toMetaclass) {
-        MMetamodel metamodel = linkMetaclass.getMetamodel();
-        return ((fromMetaclass.hasBase(metamodel.getMClass("Analyst.Goal"))) && (toMetaclass.hasBase(metamodel.getMClass("Analyst.Goal"))));
-    }
-
-    @objid ("43b2bd64-d652-4c64-8508-45ec08e68390")
-    @Override
-    public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MObject fromElement, MObject toElement) {
-        MMetamodel metamodel = linkMetaclass.getMetamodel();
-        return ((fromElement.getMClass().hasBase(metamodel.getMClass("Analyst.Goal"))) && (toElement.getMClass().hasBase(metamodel.getMClass("Analyst.Goal"))));
-    }
-
-    @objid ("76c8cd25-df95-4249-974f-09ce75f00db8")
+    @objid ("8a99abf0-1dd0-455a-bcc4-18ba0b136b9e")
     @Override
     public boolean canSource(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return (fromMetaclass.hasBase(metamodel.getMClass("Analyst.Goal")));
     }
 
-    @objid ("9655a09c-2915-4540-a3c9-b6bba6fd6c42")
+    @objid ("1c02b406-b2ab-4678-a130-437073c22f73")
     @Override
     public boolean canSource(Stereotype linkStereotype, MObject linkElement, MObject fromElement) {
         MMetamodel metamodel = linkElement.getMClass().getMetamodel();
         return (fromElement.getMClass().hasBase(metamodel.getMClass("Analyst.Goal")));
     }
 
-    @objid ("6e1c8e33-97d7-4662-bc67-a47308d98a18")
-    @Override
-    public boolean canTarget(Stereotype linkStereotype, MClass linkMetaclass, MClass toMetaclass) {
-        MMetamodel metamodel = linkMetaclass.getMetamodel();
-        return (toMetaclass.hasBase(metamodel.getMClass("Analyst.Goal")));
-    }
-
-    @objid ("870ece74-bb18-4957-b68a-995b01dd8804")
-    @Override
-    public boolean canTarget(Stereotype linkStereotype, MObject linkElement, MObject toElement) {
-        MMetamodel metamodel = linkElement.getMClass().getMetamodel();
-        return (toElement.getMClass().hasBase(metamodel.getMClass("Analyst.Goal")));
-    }
-
-    @objid ("59a442e3-5866-4e08-adbe-12f0a54cc531")
+    @objid ("4c274c1b-db95-4332-9a44-be201719d14c")
     @Override
     public boolean canSource(ElementScope linkScope, MObject fromElement) {
         MMetamodel metamodel = linkScope.getMetaclass().getMetamodel();
         return (fromElement.getMClass().hasBase(metamodel.getMClass("Analyst.Goal")));
     }
 
-    @objid ("71e9182e-19ff-4c23-97bb-2f6e81e2b942")
+    @objid ("e1642449-e8b5-492e-9118-76c5fa3658f8")
+    @Override
+    public boolean canTarget(Stereotype linkStereotype, MClass linkMetaclass, MClass toMetaclass) {
+        MMetamodel metamodel = linkMetaclass.getMetamodel();
+        return (toMetaclass.hasBase(metamodel.getMClass("Analyst.Goal")));
+    }
+
+    @objid ("2ac8c370-eeaf-411d-a9f5-b24c5c52a585")
+    @Override
+    public boolean canTarget(Stereotype linkStereotype, MObject linkElement, MObject toElement) {
+        MMetamodel metamodel = linkElement.getMClass().getMetamodel();
+        return (toElement.getMClass().hasBase(metamodel.getMClass("Analyst.Goal")));
+    }
+
+    @objid ("8db4f266-ea77-4129-99d0-e96191c44735")
+    @Override
+    public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass, MClass toMetaclass) {
+        MMetamodel metamodel = linkMetaclass.getMetamodel();
+        return ((fromMetaclass.hasBase(metamodel.getMClass("Analyst.Goal"))) && (toMetaclass.hasBase(metamodel.getMClass("Analyst.Goal"))));
+    }
+
+    @objid ("a71a702d-a881-4b0c-a250-e48b509eb0b6")
+    @Override
+    public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MObject fromElement, MObject toElement) {
+        MMetamodel metamodel = linkMetaclass.getMetamodel();
+        return ((fromElement.getMClass().hasBase(metamodel.getMClass("Analyst.Goal"))) && (toElement.getMClass().hasBase(metamodel.getMClass("Analyst.Goal"))));
+    }
+
+    @objid ("48169038-fbfb-4771-b542-07ef781d5b73")
     @Override
     public Collection<MClass> getPossibleSourceMetaclasses(Stereotype linkStereotype, MClass targetMetaclass) {
         MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
         Set<MClass> metaclasses = new HashSet<>();
         if ((targetMetaclass.hasBase(metamodel.getMClass("Analyst.Goal")))) {
-            MClass mc = metamodel.getMClass("Analyst.Goal");
-            metaclasses.add(mc);
-            metaclasses.addAll(mc.getSub(true));
+        	MClass mc = metamodel.getMClass("Analyst.Goal");
+        	metaclasses.add(mc);
+        	metaclasses.addAll(mc.getSub(true));
         }
         return metaclasses;
     }
 
-    @objid ("ac1be4d2-d271-44c4-b91b-f7c160d2e64a")
+    @objid ("dc6199d6-dc45-4f3c-b6ff-af6fe5c51750")
     @Override
     public Collection<MClass> getPossibleTargetMetaclasses(Stereotype linkStereotype, MClass sourceMetaclass) {
         MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
         Set<MClass> metaclasses = new HashSet<>();
         if ((sourceMetaclass.hasBase(metamodel.getMClass("Analyst.Goal")))) {
-            MClass mc = metamodel.getMClass("Analyst.Goal");
-            metaclasses.add(mc);
-            metaclasses.addAll(mc.getSub(true));
+        	MClass mc = metamodel.getMClass("Analyst.Goal");
+        	metaclasses.add(mc);
+        	metaclasses.addAll(mc.getSub(true));
         }
         return metaclasses;
     }
 
-    @objid ("b3a16b40-9ca4-43bb-8599-b42a0ba523b7")
+    @objid ("75ccb2f4-c5c9-4b93-858a-d2b9049c8171")
     @Override
     public boolean isMultiple(Stereotype linkStereotype) {
         return false;

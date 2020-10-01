@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Project Ui
 Bundle-SymbolicName: org.modelio.app.project.ui;singleton:=true
-Bundle-Version: 4.0.1.qualifier
+Bundle-Version: 4.1.0.qualifier
 Bundle-ClassPath: res/,
  .
 Bundle-Activator: org.modelio.app.project.ui.plugin.AppProjectUi
@@ -18,37 +18,30 @@ Require-Bundle: org.modelio.core.project,
  org.eclipse.e4.ui.workbench,
  org.eclipse.e4.core.di.extensions,
  org.eclipse.e4.ui.services,
- org.modelio.utils,
- org.modelio.ui,
+ org.modelio.platform.utils,
+ org.modelio.platform.ui,
  org.modelio.core.utils,
- org.modelio.app.core,
+ org.modelio.platform.core,
  org.eclipse.core.runtime,
  org.eclipse.e4.core.contexts,
- org.modelio.api,
- org.modelio.ui,
+ org.modelio.platform.ui,
  org.modelio.core.project,
- org.modelio.utils,
+ org.modelio.platform.utils,
  org.modelio.core.utils,
- org.modelio.app.core,
- org.modelio.app.project.core,
+ org.modelio.platform.core,
+ org.modelio.platform.project,
  org.modelio.core.session,
- org.modelio.mda.infra,
  org.eclipse.e4.core.commands,
- org.eclipse.e4.ui.di,
- org.modelio.core.ui,
- org.modelio.metamodel.emfapi,
+ org.modelio.platform.model.ui,
+ org.modelio.core.metamodel.api,
  org.modelio.core.kernel,
  org.eclipse.e4.core.di.extensions,
  org.eclipse.e4.core.services,
  org.eclipse.e4.ui.model.workbench,
- org.modelio.core.store.exml,
- org.modelio.core.project.data,
- org.modelio.version,
- org.modelio.app.preferences,
  org.modelio.app.ui,
- org.eclipse.jface,
- org.eclipse.core.expressions,
- org.eclipse.e4.ui.workbench.renderers.swt
+ org.eclipse.e4.ui.workbench.renderers.swt,
+ org.modelio.platform.preferences,
+ org.modelio.core.project.data
 Import-Package: javax.annotation;version="1.1.0",
  javax.inject;version="1.0.0"
 Bundle-ActivationPolicy: lazy

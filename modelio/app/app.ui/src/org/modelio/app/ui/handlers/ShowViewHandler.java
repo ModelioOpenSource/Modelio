@@ -31,8 +31,8 @@ import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenuItem;
 import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.ui.plugin.AppUi;
+import org.modelio.platform.project.services.IProjectService;
 
 /**
  * Command handler to show a clicked view from the view menu To not show a view

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point
+      id="org.modelio.core.metamodelprovider"
+      name="Modelio metamodel fragment provider"
+      schema="schema/org.modelio.core.metamodelprovider.exsd"/>
+
+	<extension point="org.eclipse.core.expressions.definitions">
+      <definition id="org.modelio.platform.core.edition.opensource">
+         <with variable="org.modelio.platform.core.edition">
+            <equals value="OpenSource" />
+         </with>
+      </definition>
+	</extension>
+</plugin>

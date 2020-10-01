@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2930]]
+
+[[r2930]]
+= R2930
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+_Message_ and _CommunicationMessage_ cannot have both the "Signal" and "invoked Operation" properties defined.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The _Message_ signature can either be a _Signal_ or an _Operation_, but not both at the same time.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If a _Message_ has both _Operation_ and _Signal_ defined, you should consider splitting it into two different Messages instead.
+
+

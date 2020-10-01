@@ -1,0 +1,199 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Modelio-Modeler]]
+
+[[modelio-modeler]]
+= Modelio Modeler
+
+[[Modelio-Modeler-interface]]
+
+[[modelio-modeler-interface]]
+== Modelio Modeler interface
+
+* *<<Modeler-_modeler_interface_main_window.adoc#,Main window>>*
+* *<<Modeler-_modeler_interface_workspace_view.adoc#,Workspace view>>*
+* *<<Modeler-_modeler_interface_uml_view.adoc#,Model view>>*
+* *<<Modeler-_modeler_interface_properties_view.adoc#,Properties view>>*
+* *<<Modeler-_modeler_interface_uml_prop_view.adoc#,Element view>>*
+* *<<Modeler-_modeler_interface_annot_view.adoc#,Notes and Constraints view>>*
+* *<<Modeler-_modeler_interface_diagrams_view.adoc#,Diagrams view>>*
+* *<<Modeler-_modeler_interface_edition_view.adoc#,Diagram Edition view>>*
+* *<<Modeler-_modeler_interface_symbol_view.adoc#,Symbol view>>*
+* *<<Modeler-_modeler_interface_outline_view.adoc#,Outline view>>*
+* *<<Modeler-_modeler_interface_linkeditor_view.adoc#,Links Editor view>>*
+* *<<Modeler-_modeler_interface_audit_view.adoc#,Audit view>>*
+* *<<Modeler-_modeler_interface_script_view.adoc#,Script view>>*
+
+[[Managing-your-Modelio-projects]]
+
+[[managing-your-modelio-projects]]
+== Managing your Modelio projects
+
+* *<<Modeler-_modeler_managing_projects_migration.adoc#,Migrating earlier Modelio projects>>*
+* *<<Modeler-_modeler_managing_projects_create_project.adoc#,Creating a project>>*
+* *<<Modeler-_modeler_managing_projects_configuring_project_informations.adoc#,Configuring project information>>*
+* *<<Modeler-_modeler_managing_projects_configuring_project_work_models.adoc#,Configuring project work models>>*
+* *<<Modeler-_modeler_managing_projects_configuring_project_libraries.adoc#,Configuring project libraries>>*
+* *<<Modeler-_modeler_managing_projects_configuring_project_modules.adoc#,Configuring project modules>>*
+* *<<Modeler-_modeler_managing_projects_configuring_project_audit.adoc#,Configuring project audit>>*
+* *<<Modeler-_modeler_managing_projects_configuring_project_URL.adoc#,Configuring project URLs>>*
+* *<<Modeler-_modeler_managing_projects_subprojects.adoc#,Projects, work models and sub-projects>>*
+
+[[Building-your-models]]
+
+[[building-your-models]]
+== Building your models
+
+* *<<Modeler-_modeler_building_models_creating_elements.adoc#,Creating elements>>*
+** *<<Modeler-_modeler_creating_elements_in_diagrams.adoc#,Creating elements in diagrams>>*
+*** *<<Modeler-_modeler_building_models_creating_elements_diagpalette.adoc#,Creating node-type elements>>*
+*** *<<Modeler-_modeler_building_models_creating_links_diagrams.adoc#,Creating link-type elements>>*
+*** *<<Modeler-_modeler_building_models_creating_elements_dragdrop.adoc#,Unmasking elements using the drag and drop>>*
+** *<<Modeler-_modeler_building_models_creating_elements_cmcommand.adoc#,Creating elements in the model browser>>*
+** *<<Modeler-_modeler_building_models_creating_links_linkeditor.adoc#,Creating links in the links editor>>*
+* *<<Modeler-_modeler_building_models_modifying_element_props.adoc#,Modifying element properties>>*
+* *<<Modeler-_modeler_building_models_annotating_elements.adoc#,Annotating elements>>*
+** *<<Modeler-_modeler_building_models_add_stereotypes.adoc#,Adding stereotypes to elements>>*
+** *<<Modeler-_modeler_building_models_add_notes.adoc#,Adding notes/constraints to elements>>*
+** *<<Modeler-_modeler_building_models_add_richnotes.adoc#,Adding rich notes to elements>>*
+** *<<Modeler-_modeler_building_models_add_tv.adoc#,Adding tagged values to elements>>*
+* *<<Modeler-_modeler_building_models_editing_elements.adoc#,Editing elements using edition boxes>>*
+* *<<Modeler-_modeler_building_models_shortcuts.adoc#,Using shortcuts>>*
+
+[[Modelio-diagrams]]
+
+[[modelio-diagrams]]
+== Modelio diagrams
+
+* *<<Modeler-_modeler_diagrams_creating_diagram.adoc#,Creating a diagram>>*
+* *<<Modeler-_modeler_diagrams_opening_diagram.adoc#,Opening a diagram>>*
+* *<<Modeler-_modeler_diagrams_creating_elements.adoc#,Creating elements in a diagram>>*
+* *<<Modeler-_modeler_diagrams_handling_elements.adoc#,Handling diagram elements>>*
+* *<<Modeler-_modeler_diagrams_drawing_links.adoc#,Drawing links in a diagram>>*
+* *<<Modeler-_modeler_diagrams_handling_links.adoc#,Handling links>>*
+* *<<Modeler-_modeler_diagrams_showing_masking_elements.adoc#,Showing and masking elements in a diagram>>*
+* *<<Modeler-_modeler_diagrams_free_drawing.adoc#,Free drawing>>*
+* *<<Modeler-_modeler_diagrams_changing_element_size.adoc#,Changing an element size in a diagram>>*
+* *<<Modeler-_modeler_diagrams_graphic_options.adoc#,Setting graphic options in diagrams>>*
+* *<<Modeler-_modeler_diagrams_cloning.adoc#,Cloning graphic options>>*
+* *<<Modeler-_modeler_diagrams_grab.adoc#,Using the grab function>>*
+* *<<Modeler-_modeler_diagrams_zoom.adoc#,Using the zoom function>>*
+* *<<Modeler-_modeler_diagrams_grid.adoc#,Activating the grid>>*
+* *<<Modeler-_modeler_diagrams_aligning.adoc#,Aligning elements>>*
+* *<<Modeler-_modeler_diagrams_copying.adoc#,Copying a diagram as an image>>*
+* *<<Modeler-_modeler_diagrams_saving_diagram_in_file.adoc#,Saving a diagram in a file>>*
+
+[[ImportExport]]
+
+[[importexport]]
+== Import/Export
+
+* *<<Modeler-_modeler_managing_projects_importing_elements.adoc#,Import from Modelio projects>>*
+* *<<Xmi_intro.adoc#,Import/export XMI>>*
+** *<<Xmi_gloss.adoc#,Glossary>>*
+** *<<Xmi_importing.adoc#,Importing a model in XMI format>>*
+** *<<Xmi_exporting.adoc#,Exporting a model in XMI format>>*
+** *<<Xmi_importing_profile.adoc#,Importing a profile in XMI format>>*
+** *<<Xmi_exporting_profile.adoc#,Exporting a profile in XMI format>>*
+** *<<Xmi_config.adoc#,Modelio XMI Import/Export options>>*
+** *<<Xmi_coverage.adoc#,Coverage of UML2>>*
+
+[[Modelio-settings]]
+
+[[modelio-settings]]
+== Modelio settings
+
+* *<<Modeler-_modeler_modelio_settings_modules_catalog.adoc#,Modules catalog>>*
+* *<<Modeler-_modeler_modelio_settings_macros_catalog.adoc#,Macros catalog>>*
+* *<<Modeler-_modeler_modelio_settings_preferences.adoc#,Preferences>>*
+* *<<Modeler-_modeler_modelio_settings_diagram_styles.adoc#,Diagrams styles>>*
+
+[[Local-libraries]]
+
+[[local-libraries]]
+== Local libraries
+
+* *<<Modeler-_modeler_local_libraries_model_components_presentation.adoc#,Introducing model components>>*
+* *<<Modeler-_modeler_local_libraries_model_components_lifecycle.adoc#,Life-cycle of a model component>>*
+* *<<Modeler-_modeler_local_libraries_model_components_development.adoc#,Developing and packaging model components>>*
+* *<<Modeler-_modeler_local_libraries_model_components_deployment.adoc#,Deploying model components>>*
+
+[[Remote-libraries]]
+
+[[remote-libraries]]
+== Remote libraries
+
+* *<<Modeler-_modeler_remote_libraries_distant_libraries_presentation.adoc#,Introducing remote libraries>>*
+* *<<Modeler-_modeler_remote_libraries_distant_libraries_lifecycle.adoc#,Creating and publishing a remote library>>*
+
+[[MDA-services]]
+
+[[mda-services]]
+== MDA services
+
+* *<<Modeler-_modeler_mda_services_mda_modeling.adoc#,MDA modeling in Modelio Modeler>>*
+* *<<Modeler-_modeler_mda_services_basic.adoc#,Basic level – Creating a stereotype>>*
+* *<<Modeler-_modeler_mda_services_advanced.adoc#,Advanced level – Working in the MDA model>>*
+
+[[Handy-tools]]
+
+[[handy-tools]]
+== Handy tools
+
+* *<<Modeler-_modeler_handy_tools_advanced_search.adoc#,Modelio search tool>>*
+* *<<Modeler-_modeler_handy_tools_model_audit.adoc#,Model audit>>*
+* *<<Modeler-_modeler_handy_tools_automatic_diagrams.adoc#,Automatic diagrams>>*
+* *<<Modeler-_modeler_handy_tools_modeling_wizard_patterns.adoc#,Modeling assistant>>*
+* *<<Modeler-_modeler_handy_tools_scripts_macros.adoc#,Scripts>>*
+* *<<Modeler-_modeler_handy_tools_command_line_options.adoc#,Command line options>>*
+* *<<Modeler-_modeler_maven_plugin.adoc#,Modelio Maven plugin>>*
+* *<<Modeler-_modeler_patterns.adoc#,Model patterns>>*
+
+[[Appendix-1-Unmasking-shortcuts-in-diagrams]]
+
+[[appendix-1-unmasking-shortcuts-in-diagrams]]
+== Appendix 1 Unmasking shortcuts in diagrams
+
+* *<<Modeler-_modeler_shortcuts_actors.adoc#,Unmasking shortcuts on actors>>*
+* *<<Modeler-_modeler_shortcuts_artifacts.adoc#,Unmasking shortcuts on artifacts>>*
+* *<<Modeler-_modeler_shortcuts_attributes.adoc#,Unmasking shortcuts on attributes>>*
+* *<<Modeler-_modeler_shortcuts_bindable_instances.adoc#,Unmasking shortcuts on parts>>*
+* *<<Modeler-_modeler_shortcuts_bindings.adoc#,Unmasking shortcuts on bindings>>*
+* *<<Modeler-_modeler_shortcuts_classes.adoc#,Unmasking shortcuts on classes>>*
+* *<<Modeler-_modeler_shortcuts_collaborations.adoc#,Unmasking shortcuts on collaborations>>*
+* *<<Modeler-_modeler_shortcuts_collaboration_uses.adoc#,Unmasking shortcuts on collaboration uses>>*
+* *<<Modeler-_modeler_shortcuts_components.adoc#,Unmasking shortcuts on components>>*
+* *<<Modeler-_modeler_shortcuts_dataflows.adoc#,Unmasking shortcuts on information flows>>*
+* *<<Modeler-_modeler_shortcuts_datatypes.adoc#,Unmasking shortcuts on datatypes>>*
+* *<<Modeler-_modeler_shortcuts_enumerations.adoc#,Unmasking shortcuts on enumerations>>*
+* *<<Modeler-_modeler_shortcuts_instances.adoc#,Unmasking shortcuts on instances>>*
+* *<<Modeler-_modeler_shortcuts_interfaces.adoc#,Unmasking shortcuts on interfaces>>*
+* *<<Modeler-_modeler_shortcuts_nodes.adoc#,Unmasking shortcuts on nodes>>*
+* *<<Modeler-_modeler_shortcuts_operations.adoc#,Unmasking shortcuts on operations>>*
+* *<<Modeler-_modeler_shortcuts_packages.adoc#,Unmasking shortcuts on packages>>*
+* *<<Modeler-_modeler_shortcuts_ports.adoc#,Unmasking shortcuts on ports>>*
+* *<<Modeler-_modeler_shortcuts_signals.adoc#,Unmasking shortcuts on signals>>*
+
+[[Appendix-2-Creation-shortcuts-in-diagrams]]
+
+[[appendix-2-creation-shortcuts-in-diagrams]]
+== Appendix 2 Creation shortcuts in diagrams
+
+* *<<Modeler-_modeler_shortcuts_activity_diagram.adoc#,Creation shortcuts in Activity diagrams>>*
+* *<<Modeler-_modeler_shortcuts_class_diagram.adoc#,Creation shortcuts in Class diagrams>>*
+* *<<Modeler-_modeler_shortcuts_communication_diagram.adoc#,Creation shortcuts in Communication diagrams>>*
+* *<<Modeler-_modeler_shortcuts_composite_structure_diagram.adoc#,Creation shortcuts in Composite Structure diagrams>>*
+* *<<Modeler-_modeler_shortcuts_deployment_diagram.adoc#,Creation shortcuts in Deployment diagrams>>*
+* *<<Modeler-_modeler_shortcuts_object_diagram.adoc#,Creation shortcuts in Object diagrams>>*
+* *<<Modeler-_modeler_shortcuts_state_diagram.adoc#,Creation shortcuts in State diagrams>>*
+* *<<Modeler-_modeler_shortcuts_usecase_diagram.adoc#,Creation shortcuts in Use Case diagrams>>*
+
+[[Appendix-3-Diagrams-specificities]]
+
+[[appendix-3-diagrams-specificities]]
+== Appendix 3 Diagrams specificities
+
+* *<<Modeler-_modeler_usecase_diagram_system_boundaries.adoc#,Use Case diagram System Boundaries>>*
+
+

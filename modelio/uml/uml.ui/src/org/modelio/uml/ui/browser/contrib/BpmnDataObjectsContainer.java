@@ -22,8 +22,8 @@ package org.modelio.uml.ui.browser.contrib;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.core.ui.swt.labelprovider.AbstractContainer;
 import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
+import org.modelio.platform.model.ui.swt.labelprovider.AbstractContainer;
 import org.modelio.uml.ui.plugin.UmlUi;
 import org.modelio.vcore.smkernel.mapi.MObject;
 

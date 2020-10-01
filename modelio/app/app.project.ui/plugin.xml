@@ -5,7 +5,7 @@
       <fragment uri="e4model/projectui.e4xmi"/>
   </extension>
 
-  <extension point="org.modelio.app.preferencepages">
+  <extension point="org.modelio.platform.preferencespages">
     <page id="org.modelio.app.project.ui.preferences"
     	  name="%Project.preferences.label"
     	  class="org.modelio.app.project.ui.prefs.ProjectPreferencesPage"

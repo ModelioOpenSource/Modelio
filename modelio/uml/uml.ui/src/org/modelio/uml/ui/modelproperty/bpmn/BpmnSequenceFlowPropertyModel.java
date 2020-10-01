@@ -27,11 +27,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.core.ui.nattable.parts.data.INatValue;
-import org.modelio.core.ui.nattable.parts.data.bool.DefaultBooleanNatValue;
-import org.modelio.core.ui.nattable.parts.data.element.multi.DefaultMultiElementNatValue;
-import org.modelio.core.ui.nattable.parts.data.string.single.DefaultStringNatValue;
-import org.modelio.core.ui.nattable.viewer.model.AbstractPropertyModel;
 import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.events.BpmnCatchEvent;
 import org.modelio.metamodel.bpmn.events.BpmnThrowEvent;
@@ -46,6 +41,11 @@ import org.modelio.metamodel.bpmn.objects.BpmnSequenceFlowDataAssociation;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
+import org.modelio.platform.model.ui.nattable.parts.data.INatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.bool.DefaultBooleanNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.element.multi.DefaultMultiElementNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.string.single.DefaultStringNatValue;
+import org.modelio.platform.model.ui.nattable.viewer.model.AbstractPropertyModel;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**

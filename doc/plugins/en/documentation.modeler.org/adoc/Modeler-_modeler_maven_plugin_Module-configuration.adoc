@@ -1,0 +1,25 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= module-configuration
+
+== Full name
+
+org.modelio:modelio-maven-plugin:3.0.0.00:module-configuration
+
+== Description
+
+Updates the content of a module definition file, module.xml. It basically fills all the invalid `uid` attributes from stereotype, tag type and note type definitions.
+
+Binds by default to the generate-sources phase.
+
+== Optional parameters
+
+[cols=",,,",options="header",]
+|=========================================================================
+|Name |Type |Since |Description
+|moduleFile |File |2.2.0.01 |Location of the file to generate UIDs into. +
+The default value is "res/module.xml".
+|=========================================================================
+
+

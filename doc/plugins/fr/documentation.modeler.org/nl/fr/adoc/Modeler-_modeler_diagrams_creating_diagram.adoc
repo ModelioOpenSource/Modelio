@@ -1,0 +1,58 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Créer-un-diagramme]]
+
+[[créer-un-diagramme]]
+= Créer un diagramme
+
+[[Comment-créer-un-diagramme-dans-Modelio-]]
+
+[[comment-créer-un-diagramme-dans-modelio]]
+===== Comment créer un diagramme dans Modelio ?
+
+* En utilisant la commande '*Créer un diagramme...*' du menu contextuel.
+
+[[Assitant-de-création-de-diagrammes]]
+
+[[assitant-de-création-de-diagrammes]]
+===== Assitant de création de diagrammes
+
+.Création d'un diagramme de classes en utilisant l'Assistant de création de diagramme.
+image::images/Modeler-_modeler_diagrams_creating_diagram_CreateDiagram.png[3]
+
+*Légende :*
+
+1. Sélectionnez l'élément sous lequel vous souhaitez créer un diagramme.
+2. Cliquez sur le bouton "image:images/Modeler-_modeler_diagrams_creating_diagram_diagramwizard.png[4]Créer un diagramme..." du menu contextuel de l'élément sélectionné.
+3. Sélectionnez le type de diagramme que vous souhaitez créer.
+4. Saisissez un nom pour votre nouveau diagramme, ou bien laissez le nom proposé par défaut.
+5. Si le propriétaire du diagramme n'est pas l'élément de modèle sélectionné, indiquez un nouveau propriétaire.
+6. Cliquez sur "OK" pour valider la création de votre nouveau diagramme.
+7. Les diagrammes qui ne sont pas applicables sont grisés, et peuvent être masqués en cochant la case "Montrer seulement les diagrammes applicables".
+
+[[Diagrammes-supportés-par-Modelio]]
+
+[[diagrammes-supportés-par-modelio]]
+===== Diagrammes supportés par Modelio
+
+Modelio supporte les types de diagrammes suivants en standard :
+
+* Les diagrammes de classes, qui présentent la structure interne des éléments et leur relations aux autre éléments.
+* Les diagrammes de structure composite, qui montrent la structure interne d'une classe, ainsi que les collaborations qui rendent possible cette structure.
+* Les diagrammes de composants, qui présentent l'implémentation d'un système.
+* Les diagrammes de déploiement, qui représentent l'architecture de l'exécution physique du système.
+* Les diagrammes d'objets, qui montrent les instances et leurs relations à un instant donné.
+* Les diagrammes de package, qui ne montrent que les packages et leurs dépendances, afin d'illustrer l'organisation des éléments de modèle.
+* Les diagrammes d'activités, qui modélisent les procédures ou les workflows.
+* Les diagrammes de séquence, qui montrent la modélisation d'une logique séquentielle afin d'illustrer la façon dont les différents objets coopèrent.
+* Les diagrammes de communication, qui montrent la coopération entre les différents noeuds, en se concentrant sur l'architecture de la structure interne et le passage des messages.
+* Les diagrammes de vue globale d'interaction, qui montrent la logique d'orchestration à travers les mécanismes classiques du diagramme d'activités.
+* Les diagrammes de cas d'utilisation, qui montrent les cas d'utilisation, les acteurs et les transitions, afin de décrire les services principaux rendus par le système.
+* Les diagrammes d'états, qui décrivent les différents états d'un objet, ainsi que les transitions entre les états.
+* Les diagrammes BPMN, qui supportent la modélisation de processus métier à travers les flux d'activités associés aux éléments de contrôle de flux.
+* Les diagrammes de structure composite, qui montrent la structure interne d'un classifieur, ainsi que le détail interne d'une collaboration.
+
+D'autres diagrammes sont fournis par des modules spécifiques, tels que Analyst, TOGAF Architect, et ainsi de suite.
+
+

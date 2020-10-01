@@ -24,179 +24,160 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramLink;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.bpmn.diagram.editor.elements.bpmnadhocsubprocess.GmBpmnAdHocSubProcess;
+import org.modelio.bpmn.diagram.editor.elements.bpmnboundaryevent.GmBpmnBoundaryEvent;
+import org.modelio.bpmn.diagram.editor.elements.bpmnbusinessruletask.GmBpmnBusinessRuleTask;
+import org.modelio.bpmn.diagram.editor.elements.bpmncallactivity.GmBpmnCallActivity;
+import org.modelio.bpmn.diagram.editor.elements.bpmncomplexgateway.GmBpmnComplexGateway;
+import org.modelio.bpmn.diagram.editor.elements.bpmndataassociation.GmBpmnDataAssociation;
+import org.modelio.bpmn.diagram.editor.elements.bpmndataobject.datainput.GmBpmnDataInput;
+import org.modelio.bpmn.diagram.editor.elements.bpmndataobject.dataobject.GmBpmnDataObject;
+import org.modelio.bpmn.diagram.editor.elements.bpmndataobject.dataoutput.GmBpmnDataOutput;
+import org.modelio.bpmn.diagram.editor.elements.bpmndataobject.datastore.GmBpmnDataStore;
+import org.modelio.bpmn.diagram.editor.elements.bpmnendevent.GmBpmnEndEvent;
+import org.modelio.bpmn.diagram.editor.elements.bpmneventbasedgateway.GmBpmnEventBasedGateway;
+import org.modelio.bpmn.diagram.editor.elements.bpmnexclusivegateway.GmBpmnExclusiveGateway;
+import org.modelio.bpmn.diagram.editor.elements.bpmninclusivegateway.GmBpmnInclusiveGateway;
+import org.modelio.bpmn.diagram.editor.elements.bpmnintermediatecatchevent.GmBpmnIntermediateCatchEvent;
+import org.modelio.bpmn.diagram.editor.elements.bpmnintermediatethrowevent.GmBpmnIntermediateThrowEvent;
+import org.modelio.bpmn.diagram.editor.elements.bpmnlane.GmBpmnLane;
+import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.GmBpmnLaneSetContainer;
+import org.modelio.bpmn.diagram.editor.elements.bpmnmanualtask.GmBpmnManualTask;
+import org.modelio.bpmn.diagram.editor.elements.bpmnmessage.GmBpmnMessage;
+import org.modelio.bpmn.diagram.editor.elements.bpmnmessageflow.GmBpmnMessageFlow;
+import org.modelio.bpmn.diagram.editor.elements.bpmnnodefooter.GmBpmnNodeFooter;
+import org.modelio.bpmn.diagram.editor.elements.bpmnnodeheader.GmBpmnNodeHeader;
+import org.modelio.bpmn.diagram.editor.elements.bpmnparallelgateway.GmBpmnParallelGateway;
+import org.modelio.bpmn.diagram.editor.elements.bpmnreceivetask.GmBpmnReceiveTask;
+import org.modelio.bpmn.diagram.editor.elements.bpmnsendtask.GmBpmnSendTask;
+import org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.GmBpmnSequenceFlow;
+import org.modelio.bpmn.diagram.editor.elements.bpmnservicetask.GmBpmnServiceTask;
+import org.modelio.bpmn.diagram.editor.elements.bpmnsripttask.GmBpmnScriptTask;
+import org.modelio.bpmn.diagram.editor.elements.bpmnstartevent.GmBpmnStartEvent;
+import org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess.GmBpmnSubProcess;
+import org.modelio.bpmn.diagram.editor.elements.bpmntask.GmBpmnTask;
+import org.modelio.bpmn.diagram.editor.elements.bpmntransaction.GmBpmnTransaction;
+import org.modelio.bpmn.diagram.editor.elements.bpmnusertask.GmBpmnUserTask;
+import org.modelio.bpmn.diagram.editor.elements.diagrams.processcollaboration.GmBpmnProcessCollaborationDiagram;
+import org.modelio.bpmn.diagram.editor.elements.diagrams.processdesign.GmBpmnProcessDesignDiagram;
+import org.modelio.bpmn.diagram.editor.elements.diagrams.subprocess.GmBpmnSubProcessDiagram;
+import org.modelio.bpmn.diagram.editor.elements.participant.GmBpmnParticipantPortContainer;
 import org.modelio.diagram.api.dg.IDGFactory;
-import org.modelio.diagram.api.dg.common.ConstraintDG;
-import org.modelio.diagram.api.dg.common.DependencyDG;
-import org.modelio.diagram.api.dg.common.DiagramHolderDG;
-import org.modelio.diagram.api.dg.common.ImpactLinkDG;
 import org.modelio.diagram.api.dg.common.LabelDG;
 import org.modelio.diagram.api.dg.common.LeafNodeDG;
 import org.modelio.diagram.api.dg.common.LeafPortContainerDG;
-import org.modelio.diagram.api.dg.common.NoteDG;
-import org.modelio.diagram.api.dg.common.UsageDG;
 import org.modelio.diagram.api.services.DiagramHandle;
-import org.modelio.diagram.editor.activity.elements.acceptsignal.GmAcceptSignal;
-import org.modelio.diagram.editor.activity.elements.action.GmAction;
-import org.modelio.diagram.editor.activity.elements.activitydiagram.GmActivityDiagram;
-import org.modelio.diagram.editor.activity.elements.activityfinal.GmActivityFinal;
-import org.modelio.diagram.editor.activity.elements.callbehavior.GmCallBehavior;
-import org.modelio.diagram.editor.activity.elements.callevent.GmCallEvent;
-import org.modelio.diagram.editor.activity.elements.calloperation.GmCallOperation;
-import org.modelio.diagram.editor.activity.elements.centralbuffer.GmCentralBuffer;
-import org.modelio.diagram.editor.activity.elements.changeevent.GmChangeEvent;
-import org.modelio.diagram.editor.activity.elements.clause.GmClause;
-import org.modelio.diagram.editor.activity.elements.conditional.GmConditional;
-import org.modelio.diagram.editor.activity.elements.controlflow.GmControlFlow;
-import org.modelio.diagram.editor.activity.elements.datastore.GmDataStore;
-import org.modelio.diagram.editor.activity.elements.decisionmerge.GmDecisionMerge;
-import org.modelio.diagram.editor.activity.elements.exceptionhandler.GmExceptionHandler;
-import org.modelio.diagram.editor.activity.elements.expansionnode.GmExpansionNode;
-import org.modelio.diagram.editor.activity.elements.expansionregion.GmExpansionRegion;
-import org.modelio.diagram.editor.activity.elements.flowfinal.GmFlowFinal;
-import org.modelio.diagram.editor.activity.elements.forkjoin.GmForkJoin;
-import org.modelio.diagram.editor.activity.elements.initial.GmInitial;
-import org.modelio.diagram.editor.activity.elements.inputpin.GmInputPin;
-import org.modelio.diagram.editor.activity.elements.interruptible.GmInterruptible;
-import org.modelio.diagram.editor.activity.elements.loopnode.GmLoopNode;
-import org.modelio.diagram.editor.activity.elements.objectflow.GmObjectFlow;
-import org.modelio.diagram.editor.activity.elements.objectnode.GmObjectNode;
-import org.modelio.diagram.editor.activity.elements.outputpin.GmOutputPin;
-import org.modelio.diagram.editor.activity.elements.partition.GmPartition;
-import org.modelio.diagram.editor.activity.elements.partitioncontainer.GmDiagramPartitionContainer;
-import org.modelio.diagram.editor.activity.elements.sendsignal.GmSendSignal;
-import org.modelio.diagram.editor.activity.elements.structuredactivity.GmStructuredActivity;
-import org.modelio.diagram.editor.activity.elements.timeevent.GmTimeEvent;
-import org.modelio.diagram.editor.activity.elements.valuepin.GmValuePin;
-import org.modelio.diagram.editor.bpmn.elements.bpmnadhocsubprocess.GmBpmnAdHocSubProcess;
-import org.modelio.diagram.editor.bpmn.elements.bpmnboundaryevent.GmBpmnBoundaryEvent;
-import org.modelio.diagram.editor.bpmn.elements.bpmnbusinessruletask.GmBpmnBusinessRuleTask;
-import org.modelio.diagram.editor.bpmn.elements.bpmncallactivity.GmBpmnCallActivity;
-import org.modelio.diagram.editor.bpmn.elements.bpmncomplexgateway.GmBpmnComplexGateway;
-import org.modelio.diagram.editor.bpmn.elements.bpmndataassociation.GmBpmnDataAssociation;
-import org.modelio.diagram.editor.bpmn.elements.bpmndataobject.datainput.GmBpmnDataInput;
-import org.modelio.diagram.editor.bpmn.elements.bpmndataobject.dataobject.GmBpmnDataObject;
-import org.modelio.diagram.editor.bpmn.elements.bpmndataobject.dataoutput.GmBpmnDataOutput;
-import org.modelio.diagram.editor.bpmn.elements.bpmndataobject.datastore.GmBpmnDataStore;
-import org.modelio.diagram.editor.bpmn.elements.bpmnendevent.GmBpmnEndEvent;
-import org.modelio.diagram.editor.bpmn.elements.bpmneventbasedgateway.GmBpmnEventBasedGateway;
-import org.modelio.diagram.editor.bpmn.elements.bpmnexclusivegateway.GmBpmnExclusiveGateway;
-import org.modelio.diagram.editor.bpmn.elements.bpmninclusivegateway.GmBpmnInclusiveGateway;
-import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatecatchevent.GmBpmnIntermediateCatchEvent;
-import org.modelio.diagram.editor.bpmn.elements.bpmnintermediatethrowevent.GmBpmnIntermediateThrowEvent;
-import org.modelio.diagram.editor.bpmn.elements.bpmnlane.GmBpmnLane;
-import org.modelio.diagram.editor.bpmn.elements.bpmnlanesetcontainer.GmBpmnLaneSetContainer;
-import org.modelio.diagram.editor.bpmn.elements.bpmnmanualtask.GmBpmnManualTask;
-import org.modelio.diagram.editor.bpmn.elements.bpmnmessage.GmBpmnMessage;
-import org.modelio.diagram.editor.bpmn.elements.bpmnmessageflow.GmBpmnMessageFlow;
-import org.modelio.diagram.editor.bpmn.elements.bpmnnodefooter.GmBpmnNodeFooter;
-import org.modelio.diagram.editor.bpmn.elements.bpmnnodeheader.GmBpmnNodeHeader;
-import org.modelio.diagram.editor.bpmn.elements.bpmnparallelgateway.GmBpmnParallelGateway;
-import org.modelio.diagram.editor.bpmn.elements.bpmnreceivetask.GmBpmnReceiveTask;
-import org.modelio.diagram.editor.bpmn.elements.bpmnsendtask.GmBpmnSendTask;
-import org.modelio.diagram.editor.bpmn.elements.bpmnsequenceflow.GmBpmnSequenceFlow;
-import org.modelio.diagram.editor.bpmn.elements.bpmnservicetask.GmBpmnServiceTask;
-import org.modelio.diagram.editor.bpmn.elements.bpmnsripttask.GmBpmnScriptTask;
-import org.modelio.diagram.editor.bpmn.elements.bpmnstartevent.GmBpmnStartEvent;
-import org.modelio.diagram.editor.bpmn.elements.bpmnsubprocess.GmBpmnSubProcess;
-import org.modelio.diagram.editor.bpmn.elements.bpmntask.GmBpmnTask;
-import org.modelio.diagram.editor.bpmn.elements.bpmntransaction.GmBpmnTransaction;
-import org.modelio.diagram.editor.bpmn.elements.bpmnusertask.GmBpmnUserTask;
-import org.modelio.diagram.editor.bpmn.elements.diagrams.processcollaboration.GmBpmnProcessCollaborationDiagram;
-import org.modelio.diagram.editor.bpmn.elements.diagrams.processdesign.GmBpmnProcessDesignDiagram;
-import org.modelio.diagram.editor.bpmn.elements.diagrams.subprocess.GmBpmnSubProcessDiagram;
-import org.modelio.diagram.editor.bpmn.elements.participant.GmBpmnParticipantPortContainer;
-import org.modelio.diagram.editor.communication.elements.communicationchannel.GmCommunicationChannel;
-import org.modelio.diagram.editor.communication.elements.communicationdiagram.GmCommunicationDiagram;
-import org.modelio.diagram.editor.communication.elements.communicationnode.GmCommunicationNode;
-import org.modelio.diagram.editor.deployment.elements.artifact.GmArtifact;
-import org.modelio.diagram.editor.deployment.elements.deploymentdiagram.GmDeploymentDiagram;
-import org.modelio.diagram.editor.deployment.elements.manifestation.GmManifestation;
-import org.modelio.diagram.editor.deployment.elements.node.GmNode;
-import org.modelio.diagram.editor.object.elements.objectdiagram.GmObjectDiagram;
-import org.modelio.diagram.editor.sequence.elements.combinedfragment.GmCombinedFragment;
-import org.modelio.diagram.editor.sequence.elements.executionoccurencespecification.GmExecutionOccurenceSpecification;
-import org.modelio.diagram.editor.sequence.elements.executionspecification.GmExecutionSpecification;
-import org.modelio.diagram.editor.sequence.elements.gate.GmGate;
-import org.modelio.diagram.editor.sequence.elements.interactionoperand.GmInteractionOperand;
-import org.modelio.diagram.editor.sequence.elements.interactionuse.GmInteractionUse;
-import org.modelio.diagram.editor.sequence.elements.lifeline.GmLifeline;
-import org.modelio.diagram.editor.sequence.elements.message.GmMessage;
-import org.modelio.diagram.editor.sequence.elements.sequencediagram.GmSequenceDiagram;
-import org.modelio.diagram.editor.sequence.elements.stateinvariant.GmStateInvariant;
-import org.modelio.diagram.editor.state.elements.choice.GmChoice;
-import org.modelio.diagram.editor.state.elements.connectionpoint.GmConnectionPoint;
-import org.modelio.diagram.editor.state.elements.deephistory.GmDeepHistory;
-import org.modelio.diagram.editor.state.elements.entry.GmEntry;
-import org.modelio.diagram.editor.state.elements.exit.GmExitPoint;
-import org.modelio.diagram.editor.state.elements.finalstate.GmFinalState;
-import org.modelio.diagram.editor.state.elements.fork.GmForkState;
-import org.modelio.diagram.editor.state.elements.initialstate.GmInitialState;
-import org.modelio.diagram.editor.state.elements.internaltransition.GmInternalTransition;
-import org.modelio.diagram.editor.state.elements.join.GmJoin;
-import org.modelio.diagram.editor.state.elements.junction.GmJunction;
-import org.modelio.diagram.editor.state.elements.region.GmRegion;
-import org.modelio.diagram.editor.state.elements.shallowhistory.GmShallowHistory;
-import org.modelio.diagram.editor.state.elements.state.GmState;
-import org.modelio.diagram.editor.state.elements.statediagram.GmStateDiagram;
-import org.modelio.diagram.editor.state.elements.terminal.GmTerminal;
-import org.modelio.diagram.editor.state.elements.transition.GmTransition;
-import org.modelio.diagram.editor.statik.elements.activity.GmActivity;
-import org.modelio.diagram.editor.statik.elements.association.GmAssociation;
-import org.modelio.diagram.editor.statik.elements.associationclass.GmClassAssociationLink;
-import org.modelio.diagram.editor.statik.elements.attribute.GmAttribute;
-import org.modelio.diagram.editor.statik.elements.binding.GmBindingLabel;
-import org.modelio.diagram.editor.statik.elements.bindinglink.GmBindingLink;
-import org.modelio.diagram.editor.statik.elements.bpmnbehavior.GmBpmnBehavior;
-import org.modelio.diagram.editor.statik.elements.bpmncollaboration.GmBpmnCollaboration;
-import org.modelio.diagram.editor.statik.elements.bpmnprocess.GmBpmnProcess;
-import org.modelio.diagram.editor.statik.elements.bpmnsharedefinition.GmBpmnSharedDefinitions;
-import org.modelio.diagram.editor.statik.elements.clazz.GmClass;
-import org.modelio.diagram.editor.statik.elements.collab.GmCollaboration;
-import org.modelio.diagram.editor.statik.elements.collabuse.GmCollaborationUse;
-import org.modelio.diagram.editor.statik.elements.communicationinteraction.GmCommunicationInteraction;
-import org.modelio.diagram.editor.statik.elements.component.GmComponent;
-import org.modelio.diagram.editor.statik.elements.connector.GmConnectorLink;
-import org.modelio.diagram.editor.statik.elements.constraint.GmConstraintBody;
-import org.modelio.diagram.editor.statik.elements.datatype.GmDataType;
-import org.modelio.diagram.editor.statik.elements.elementimport.GmElementImport;
-import org.modelio.diagram.editor.statik.elements.enumeration.GmEnum;
-import org.modelio.diagram.editor.statik.elements.enumliteral.GmEnumLitteral;
-import org.modelio.diagram.editor.statik.elements.generalization.GmGeneralization;
-import org.modelio.diagram.editor.statik.elements.informationflowlink.GmInformationFlowLink;
-import org.modelio.diagram.editor.statik.elements.informationitem.GmInformationItem;
-import org.modelio.diagram.editor.statik.elements.instance.GmInstance;
-import org.modelio.diagram.editor.statik.elements.instancelink.GmInstanceLink;
-import org.modelio.diagram.editor.statik.elements.interaction.GmInteraction;
-import org.modelio.diagram.editor.statik.elements.interfaze.GmInterface;
-import org.modelio.diagram.editor.statik.elements.operation.GmOperation;
-import org.modelio.diagram.editor.statik.elements.packageimport.GmPackageImport;
-import org.modelio.diagram.editor.statik.elements.packagemerge.GmPackageMerge;
-import org.modelio.diagram.editor.statik.elements.packaze.GmPackage;
-import org.modelio.diagram.editor.statik.elements.ports.GmPort;
-import org.modelio.diagram.editor.statik.elements.providedinterface.GmProvidedInterfaceLink;
-import org.modelio.diagram.editor.statik.elements.raisedexception.GmRaisedException;
-import org.modelio.diagram.editor.statik.elements.realization.GmInterfaceRealization;
-import org.modelio.diagram.editor.statik.elements.requiredinterface.GmRequiredInterfaceLink;
-import org.modelio.diagram.editor.statik.elements.signal.GmSignal;
-import org.modelio.diagram.editor.statik.elements.slot.GmSlot;
-import org.modelio.diagram.editor.statik.elements.statemachine.GmStateMachine;
-import org.modelio.diagram.editor.statik.elements.staticdiagram.GmStaticDiagram;
-import org.modelio.diagram.editor.statik.elements.templatebinding.GmTemplateBinding;
-import org.modelio.diagram.editor.usecase.elements.actor.GmActor;
-import org.modelio.diagram.editor.usecase.elements.extensionpoint.GmExtensionPoint;
-import org.modelio.diagram.editor.usecase.elements.system.GmSystem;
-import org.modelio.diagram.editor.usecase.elements.usecase.GmUseCase;
-import org.modelio.diagram.editor.usecase.elements.usecasedependency.GmUseCaseDependency;
-import org.modelio.diagram.editor.usecase.elements.usecasediagram.GmUseCaseDiagram;
-import org.modelio.diagram.elements.common.header.GmModelElementHeader;
-import org.modelio.diagram.elements.common.label.base.GmElementLabel;
 import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
-import org.modelio.diagram.elements.umlcommon.dependency.GmDependency;
-import org.modelio.diagram.elements.umlcommon.diagramview.GmDiagramView;
-import org.modelio.diagram.elements.umlcommon.namespaceuse.GmNamespaceUse;
-import org.modelio.diagram.elements.umlcommon.note.GmNote;
-import org.modelio.diagram.elements.umlcommon.usage.GmUsage;
+import org.modelio.uml.activitydiagram.editor.elements.acceptsignal.GmAcceptSignal;
+import org.modelio.uml.activitydiagram.editor.elements.action.GmAction;
+import org.modelio.uml.activitydiagram.editor.elements.activitydiagram.GmActivityDiagram;
+import org.modelio.uml.activitydiagram.editor.elements.activityfinal.GmActivityFinal;
+import org.modelio.uml.activitydiagram.editor.elements.callbehavior.GmCallBehavior;
+import org.modelio.uml.activitydiagram.editor.elements.callevent.GmCallEvent;
+import org.modelio.uml.activitydiagram.editor.elements.calloperation.GmCallOperation;
+import org.modelio.uml.activitydiagram.editor.elements.centralbuffer.GmCentralBuffer;
+import org.modelio.uml.activitydiagram.editor.elements.changeevent.GmChangeEvent;
+import org.modelio.uml.activitydiagram.editor.elements.clause.GmClause;
+import org.modelio.uml.activitydiagram.editor.elements.conditional.GmConditional;
+import org.modelio.uml.activitydiagram.editor.elements.controlflow.GmControlFlow;
+import org.modelio.uml.activitydiagram.editor.elements.datastore.GmDataStore;
+import org.modelio.uml.activitydiagram.editor.elements.decisionmerge.GmDecisionMerge;
+import org.modelio.uml.activitydiagram.editor.elements.exceptionhandler.GmExceptionHandler;
+import org.modelio.uml.activitydiagram.editor.elements.expansionnode.GmExpansionNode;
+import org.modelio.uml.activitydiagram.editor.elements.expansionregion.GmExpansionRegion;
+import org.modelio.uml.activitydiagram.editor.elements.flowfinal.GmFlowFinal;
+import org.modelio.uml.activitydiagram.editor.elements.forkjoin.GmForkJoin;
+import org.modelio.uml.activitydiagram.editor.elements.initial.GmInitial;
+import org.modelio.uml.activitydiagram.editor.elements.inputpin.GmInputPin;
+import org.modelio.uml.activitydiagram.editor.elements.interruptible.GmInterruptible;
+import org.modelio.uml.activitydiagram.editor.elements.loopnode.GmLoopNode;
+import org.modelio.uml.activitydiagram.editor.elements.objectflow.GmObjectFlow;
+import org.modelio.uml.activitydiagram.editor.elements.objectnode.GmObjectNode;
+import org.modelio.uml.activitydiagram.editor.elements.outputpin.GmOutputPin;
+import org.modelio.uml.activitydiagram.editor.elements.partition.GmPartition;
+import org.modelio.uml.activitydiagram.editor.elements.partitioncontainer.GmDiagramPartitionContainer;
+import org.modelio.uml.activitydiagram.editor.elements.sendsignal.GmSendSignal;
+import org.modelio.uml.activitydiagram.editor.elements.structuredactivity.GmStructuredActivity;
+import org.modelio.uml.activitydiagram.editor.elements.timeevent.GmTimeEvent;
+import org.modelio.uml.activitydiagram.editor.elements.valuepin.GmValuePin;
+import org.modelio.uml.communicationdiagram.editor.elements.communicationchannel.GmCommunicationChannel;
+import org.modelio.uml.communicationdiagram.editor.elements.communicationdiagram.GmCommunicationDiagram;
+import org.modelio.uml.communicationdiagram.editor.elements.communicationnode.GmCommunicationNode;
+import org.modelio.uml.deploymentdiagram.editor.elements.artifact.GmArtifact;
+import org.modelio.uml.deploymentdiagram.editor.elements.deploymentdiagram.GmDeploymentDiagram;
+import org.modelio.uml.deploymentdiagram.editor.elements.manifestation.GmManifestation;
+import org.modelio.uml.deploymentdiagram.editor.elements.node.GmNode;
+import org.modelio.uml.objectdiagram.editor.elements.objectdiagram.GmObjectDiagram;
+import org.modelio.uml.sequencediagram.editor.elements.combinedfragment.GmCombinedFragment;
+import org.modelio.uml.sequencediagram.editor.elements.executionoccurencespecification.GmExecutionOccurenceSpecification;
+import org.modelio.uml.sequencediagram.editor.elements.executionspecification.GmExecutionSpecification;
+import org.modelio.uml.sequencediagram.editor.elements.gate.GmGate;
+import org.modelio.uml.sequencediagram.editor.elements.interactionoperand.GmInteractionOperand;
+import org.modelio.uml.sequencediagram.editor.elements.interactionuse.GmInteractionUse;
+import org.modelio.uml.sequencediagram.editor.elements.lifeline.GmLifeline;
+import org.modelio.uml.sequencediagram.editor.elements.message.GmMessage;
+import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.GmSequenceDiagram;
+import org.modelio.uml.sequencediagram.editor.elements.stateinvariant.GmStateInvariant;
+import org.modelio.uml.statediagram.editor.elements.choice.GmChoice;
+import org.modelio.uml.statediagram.editor.elements.connectionpoint.GmConnectionPoint;
+import org.modelio.uml.statediagram.editor.elements.deephistory.GmDeepHistory;
+import org.modelio.uml.statediagram.editor.elements.entry.GmEntry;
+import org.modelio.uml.statediagram.editor.elements.exit.GmExitPoint;
+import org.modelio.uml.statediagram.editor.elements.finalstate.GmFinalState;
+import org.modelio.uml.statediagram.editor.elements.fork.GmForkState;
+import org.modelio.uml.statediagram.editor.elements.initialstate.GmInitialState;
+import org.modelio.uml.statediagram.editor.elements.internaltransition.GmInternalTransition;
+import org.modelio.uml.statediagram.editor.elements.join.GmJoin;
+import org.modelio.uml.statediagram.editor.elements.junction.GmJunction;
+import org.modelio.uml.statediagram.editor.elements.region.GmRegion;
+import org.modelio.uml.statediagram.editor.elements.shallowhistory.GmShallowHistory;
+import org.modelio.uml.statediagram.editor.elements.state.GmState;
+import org.modelio.uml.statediagram.editor.elements.statediagram.GmStateDiagram;
+import org.modelio.uml.statediagram.editor.elements.terminal.GmTerminal;
+import org.modelio.uml.statediagram.editor.elements.transition.GmTransition;
+import org.modelio.uml.statikdiagram.editor.elements.activity.GmActivity;
+import org.modelio.uml.statikdiagram.editor.elements.association.GmAssociation;
+import org.modelio.uml.statikdiagram.editor.elements.associationclass.GmClassAssociationLink;
+import org.modelio.uml.statikdiagram.editor.elements.attribute.GmAttribute;
+import org.modelio.uml.statikdiagram.editor.elements.binding.GmBindingLabel;
+import org.modelio.uml.statikdiagram.editor.elements.bindinglink.GmBindingLink;
+import org.modelio.uml.statikdiagram.editor.elements.bpmnbehavior.GmBpmnBehavior;
+import org.modelio.uml.statikdiagram.editor.elements.bpmncollaboration.GmBpmnCollaboration;
+import org.modelio.uml.statikdiagram.editor.elements.bpmnprocess.GmBpmnProcess;
+import org.modelio.uml.statikdiagram.editor.elements.bpmnsharedefinition.GmBpmnSharedDefinitions;
+import org.modelio.uml.statikdiagram.editor.elements.clazz.GmClass;
+import org.modelio.uml.statikdiagram.editor.elements.collab.GmCollaboration;
+import org.modelio.uml.statikdiagram.editor.elements.collabuse.GmCollaborationUse;
+import org.modelio.uml.statikdiagram.editor.elements.communicationinteraction.GmCommunicationInteraction;
+import org.modelio.uml.statikdiagram.editor.elements.component.GmComponent;
+import org.modelio.uml.statikdiagram.editor.elements.connector.GmConnectorLink;
+import org.modelio.uml.statikdiagram.editor.elements.constraint.GmConstraintBody;
+import org.modelio.uml.statikdiagram.editor.elements.datatype.GmDataType;
+import org.modelio.uml.statikdiagram.editor.elements.elementimport.GmElementImport;
+import org.modelio.uml.statikdiagram.editor.elements.enumeration.GmEnum;
+import org.modelio.uml.statikdiagram.editor.elements.enumliteral.GmEnumLitteral;
+import org.modelio.uml.statikdiagram.editor.elements.generalization.GmGeneralization;
+import org.modelio.uml.statikdiagram.editor.elements.informationflowlink.GmInformationFlowLink;
+import org.modelio.uml.statikdiagram.editor.elements.informationitem.GmInformationItem;
+import org.modelio.uml.statikdiagram.editor.elements.instance.GmInstance;
+import org.modelio.uml.statikdiagram.editor.elements.instancelink.GmInstanceLink;
+import org.modelio.uml.statikdiagram.editor.elements.interaction.GmInteraction;
+import org.modelio.uml.statikdiagram.editor.elements.interfaze.GmInterface;
+import org.modelio.uml.statikdiagram.editor.elements.operation.GmOperation;
+import org.modelio.uml.statikdiagram.editor.elements.packageimport.GmPackageImport;
+import org.modelio.uml.statikdiagram.editor.elements.packagemerge.GmPackageMerge;
+import org.modelio.uml.statikdiagram.editor.elements.packaze.GmPackage;
+import org.modelio.uml.statikdiagram.editor.elements.ports.GmPort;
+import org.modelio.uml.statikdiagram.editor.elements.providedinterface.GmProvidedInterfaceLink;
+import org.modelio.uml.statikdiagram.editor.elements.raisedexception.GmRaisedException;
+import org.modelio.uml.statikdiagram.editor.elements.realization.GmInterfaceRealization;
+import org.modelio.uml.statikdiagram.editor.elements.requiredinterface.GmRequiredInterfaceLink;
+import org.modelio.uml.statikdiagram.editor.elements.signal.GmSignal;
+import org.modelio.uml.statikdiagram.editor.elements.slot.GmSlot;
+import org.modelio.uml.statikdiagram.editor.elements.statemachine.GmStateMachine;
+import org.modelio.uml.statikdiagram.editor.elements.staticdiagram.GmStaticDiagram;
+import org.modelio.uml.statikdiagram.editor.elements.templatebinding.GmTemplateBinding;
 import org.modelio.uml.ui.dg.activity.ActivityDiagramDG;
 import org.modelio.uml.ui.dg.activity.ActivityPartitionDG;
 import org.modelio.uml.ui.dg.activity.ClauseDG;
@@ -245,6 +226,7 @@ import org.modelio.uml.ui.dg.common.PackageDG;
 import org.modelio.uml.ui.dg.communication.CommunicationChannelDG;
 import org.modelio.uml.ui.dg.communication.CommunicationDiagramDG;
 import org.modelio.uml.ui.dg.communication.CommunicationNodeDG;
+import org.modelio.uml.ui.dg.constraint.ConstraintDG;
 import org.modelio.uml.ui.dg.deployment.ArtifactDG;
 import org.modelio.uml.ui.dg.deployment.DeploymentDiagramDG;
 import org.modelio.uml.ui.dg.deployment.ManifestationDG;
@@ -303,6 +285,12 @@ import org.modelio.uml.ui.dg.usecase.SystemDG;
 import org.modelio.uml.ui.dg.usecase.UseCaseDG;
 import org.modelio.uml.ui.dg.usecase.UseCaseDependencyDG;
 import org.modelio.uml.ui.dg.usecase.UseCaseDiagramDG;
+import org.modelio.uml.usecasediagram.editor.elements.actor.GmActor;
+import org.modelio.uml.usecasediagram.editor.elements.extensionpoint.GmExtensionPoint;
+import org.modelio.uml.usecasediagram.editor.elements.system.GmSystem;
+import org.modelio.uml.usecasediagram.editor.elements.usecase.GmUseCase;
+import org.modelio.uml.usecasediagram.editor.elements.usecasedependency.GmUseCaseDependency;
+import org.modelio.uml.usecasediagram.editor.elements.usecasediagram.GmUseCaseDiagram;
 
 /**
  * Diagram graphic factory for the Uml metamodel fragment.
@@ -340,10 +328,6 @@ public class UmlDGFactory implements IDGFactory {
         
         if (ret == null) {
             ret = getBpmnLink((DiagramHandle) diagramHandle, gmLink);
-        }
-        
-        if (ret == null) {
-            ret = getCommonLink((DiagramHandle) diagramHandle, gmLink);
         }
         return ret;
     }
@@ -767,50 +751,11 @@ public class UmlDGFactory implements IDGFactory {
         return null;
     }
 
-    @objid ("b3ae9226-fcb0-4041-a55b-7649b22b5fda")
-    private IDiagramLink getCommonLink(final DiagramHandle diagramHandle, final IGmLink gmLink) {
-        // GmDependency
-        if (gmLink instanceof GmDependency) {
-            return new DependencyDG(diagramHandle, gmLink);
-        }
-        
-        // GmImpactLink
-        if (gmLink instanceof GmNamespaceUse) {
-            return new ImpactLinkDG(diagramHandle, gmLink);
-        }
-        
-        // GmUsage
-        if (gmLink instanceof GmUsage) {
-            return new UsageDG(diagramHandle, gmLink);
-        }
-        return null;
-    }
-
     @objid ("db7c60e2-9345-460e-a49a-8e19e7e3919d")
     private IDiagramNode getCommonNode(final DiagramHandle diagramHandle, final GmNodeModel gmNodeModel) {
         // GmConstraint
         if (gmNodeModel instanceof GmConstraintBody) {
             return new ConstraintDG(diagramHandle, gmNodeModel);
-        }
-        
-        // GMNote
-        if (gmNodeModel instanceof GmNote) {
-            return new NoteDG(diagramHandle, gmNodeModel);
-        }
-        
-        // GmDiagramView
-        if (gmNodeModel instanceof GmDiagramView) {
-            return new DiagramHolderDG(diagramHandle, gmNodeModel);
-        }
-        
-        // Generic labels
-        if (gmNodeModel instanceof GmModelElementHeader) {
-            return new LabelDG(diagramHandle, gmNodeModel);
-        }
-        
-        // GmElementLabel
-        if (gmNodeModel instanceof GmElementLabel) {
-            return new LabelDG(diagramHandle, gmNodeModel);
         }
         return null;
     }

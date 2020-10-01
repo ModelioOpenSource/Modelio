@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("20892636-39d2-4f82-9ef5-673a7149b405")
 public class UML2ComponentRealization {
-    @objid ("76bf7164-4816-4d0e-9f0c-7c4474b8c87b")
+    @objid ("0e323b32-6101-4ebf-b301-087bc37bd15b")
     public static final String STEREOTYPE_NAME = "UML2ComponentRealization";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("d5c92ddc-53b1-4553-9560-487fc7abbeb3")
+    @objid ("7dea6a11-2985-4587-9fdc-2f8ffd2d8df4")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link UML2ComponentRealization proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2ComponentRealization >>. 
+     * Tells whether a {@link UML2ComponentRealization proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2ComponentRealization >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("6dd161d7-0089-413b-aeab-b768cd9c7244")
+    @objid ("130abf5c-880e-458e-adba-13b2ea0581bf")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ComponentRealization.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class UML2ComponentRealization {
      * 
      * @return a {@link UML2ComponentRealization} proxy on the created {@link Dependency}.
      */
-    @objid ("907e2584-8e2a-4e1a-a89e-1547164c17d2")
+    @objid ("8af631e0-258c-49a5-aeab-027e22f19a01")
     public static UML2ComponentRealization create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ComponentRealization.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class UML2ComponentRealization {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ComponentRealization} proxy from a {@link Dependency} stereotyped << UML2ComponentRealization >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ComponentRealization} proxy from a {@link Dependency} stereotyped << UML2ComponentRealization >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link UML2ComponentRealization} proxy or <i>null</i>.
      */
-    @objid ("ed2beeab-fde8-442b-98ec-269846108651")
+    @objid ("2d1532d3-8df3-4d2f-9548-46608a8a7533")
     public static UML2ComponentRealization instantiate(Dependency obj) {
         return UML2ComponentRealization.canInstantiate(obj) ? new UML2ComponentRealization(obj) : null;
     }
@@ -103,7 +103,7 @@ public class UML2ComponentRealization {
      * @return a {@link UML2ComponentRealization} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("7c0bdff9-a5bd-4486-a915-f21258424848")
+    @objid ("fd23de31-61d6-4282-963e-0d4bc41cd8fc")
     public static UML2ComponentRealization safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (UML2ComponentRealization.canInstantiate(obj))
         	return new UML2ComponentRealization(obj);
@@ -111,7 +111,7 @@ public class UML2ComponentRealization {
         	throw new IllegalArgumentException("UML2ComponentRealization: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("a4ffa396-4b74-453e-9198-e2ea68d9cb30")
+    @objid ("d7328515-188b-4889-ba50-c5fceadc7d45")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class UML2ComponentRealization {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("a1533f10-e753-4651-a8b4-bc755a9b965b")
+    @objid ("f47b8ce4-417a-4e7f-b356-fa92d64719da")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("ff417bea-fa24-4602-8c37-7c5f4155b111")
+    @objid ("2e11864d-2921-49c5-8170-5ebe2b2ed91e")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("5f02c8de-1d15-4d49-9a0f-ae8b63caf312")
+    @objid ("a267e7b2-00aa-450d-a71d-07a3b5772e17")
     protected UML2ComponentRealization(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("c07294a9-7636-4649-a593-5c852a1a29bd")
     public static final class MdaTypes {
-        @objid ("9e4c6ae6-69d6-4f3f-b305-a8f144416fda")
+        @objid ("d28adcaf-e2ad-4b53-87b3-1d1c23c4f8d8")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("11624801-9cd7-49cb-a230-cc75e034d70f")
+        @objid ("3986ac8c-41d5-42a9-aa63-44f937d63e4d")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("7a724d1c-7624-4b40-aaeb-fef55f1cc4bd")
+        @objid ("93e154bf-7fcc-4ccb-bb52-5a7e404a268e")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("367229a2-e94c-4d1a-bb01-ef1c7923556c")
+        @objid ("17ed631b-6a91-4745-b94a-b543537d3a90")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "99bf7919-5d09-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

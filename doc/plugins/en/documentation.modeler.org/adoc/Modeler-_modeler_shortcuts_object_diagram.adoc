@@ -1,0 +1,21 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Creation shortcuts in Object diagrams
+
+Two kind of shortcuts are available:
+
+* to activate a creation tool as if clicking on the diagram palette.
+* to directly create and unmask an element in the diagram.
+
+[%header]
+|===
+2+|Activate creation tool  2+| Created element
+|*Shortcut*|*Activated tool*|*Shortcut*|*Created element*
+|N |Note |CTRL-N CTRL-N |Note
+|A |Attribute link |CTRL-N CTRL-A |Attribute link
+|I |Instance |CTRL-N CTRL-I |Instance
+|L |Link |CTRL-N CTRL-L |Link
+|R |Related Diagram |CTRL-N CTRL-R |Related Diagram
+|SPACE |Link |CTRL-N CTRL-SPACE |Link
+|===

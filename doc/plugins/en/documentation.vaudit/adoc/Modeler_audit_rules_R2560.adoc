@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2560]]
+
+[[r2560]]
+= R2560
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A behavior _Port_ must provide at least one _Interface_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A behavior _Port_ must provide at least one _Interface_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Add a provided _Interface_ to the _Port_.
+* Remove the 'behavior' flag from the _Port_.
+
+

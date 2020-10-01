@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2160]]
+
+[[r2160]]
+= R2160
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Dans un _RequirementContainer_, le nom de chaque élément doit être unique.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Avoir plusieurs éléments portant les mêmes noms peut être déroutant.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Renommez chaque élément ayant un nom dupliqué.
+
+

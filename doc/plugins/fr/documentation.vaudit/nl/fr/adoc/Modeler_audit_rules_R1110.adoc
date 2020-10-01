@@ -1,0 +1,39 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1110]]
+
+[[r1110]]
+= R1110
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Les _Pin_ d'une _CallBehaviorAction_ doivent correspondre aux _BehaviorParameter_ du _Behavior_ appelé.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+* Le nombre de _InputPin_ du _CallBehaviorAction_ et le nombre de _BehaviorParameter_ de type " _in »_ et " _inout »_ du _Behavior_ doivent être égaux.
+* Le nombre de _OutputPin_ du _CallBehaviorAction_ et le nombre de _BehaviorParameter_ de retour et de type " _out »_ et " _inout »_ du _Behavior_ doivent être égaux.
+
+*Exemple :*
+
+image::images/Modeler_audit_rules_R1110_modeler_fig_1110.gif[image]
+
+Le  _CallBehaviorAction_  "*ITService*" est invalide car le _BehaviorParameter_ "*nbDevelopers*" de l'_Activity_ "*ITServiceActivity*" appelée ne correspond à aucun de ses _Pin_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Les _BehaviorParameter_ dont la valeur est donnée par une constante peuvent être représentés par un _ValuePin_ plutôt qu'un simple _InputPin_.
+* Les _BehaviorParameter_ de type " _inout_ " doivent être représentés par un _InputPin_ pour l'aspect " in " et un _OutputPin_ pour l'aspect " _out_ ".
+* Les _BehaviorParameter_ de retour doivent être représentés par un _OutputPin_.
+
+

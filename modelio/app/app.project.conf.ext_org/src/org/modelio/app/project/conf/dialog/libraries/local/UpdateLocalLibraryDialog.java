@@ -30,7 +30,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.app.update.checker.dialog.UpdatePanel;
 import org.modelio.app.update.checker.dialog.UpdatePanelDataModel;
-import org.modelio.ui.dialog.ModelioDialog;
+import org.modelio.platform.ui.dialog.ModelioDialog;
 
 @objid ("6ba6153d-d20d-4710-806b-4ac07b39d44d")
 class UpdateLocalLibraryDialog extends ModelioDialog {

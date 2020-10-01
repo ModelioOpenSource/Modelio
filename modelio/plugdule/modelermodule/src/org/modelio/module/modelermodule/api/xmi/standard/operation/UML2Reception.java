@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.operation;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("33ec2a3b-ce08-4728-96a1-13288d8a2e8d")
 public class UML2Reception {
-    @objid ("bf0a4e51-c6cd-4725-be9e-b691ad256045")
+    @objid ("bf03b1bb-9b58-46c0-a3b3-172509788749")
     public static final String STEREOTYPE_NAME = "UML2Reception";
 
     /**
      * The underlying {@link Operation} represented by this proxy, never null.
      */
-    @objid ("0beae0ce-b1af-41c2-a7ff-73d005ef0b22")
+    @objid ("411e7410-eef8-41e2-b7ec-1a18068455bc")
     protected final Operation elt;
 
     /**
-     * Tells whether a {@link UML2Reception proxy} can be instantiated from a {@link MObject} checking it is a {@link Operation} stereotyped << UML2Reception >>. 
+     * Tells whether a {@link UML2Reception proxy} can be instantiated from a {@link MObject} checking it is a {@link Operation} stereotyped << UML2Reception >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("a7154623-564a-434d-b873-5d3156a78a46")
+    @objid ("a3b19ae8-80e8-43ca-b3d2-d8d5f4b38587")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Operation) && ((Operation) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2Reception.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2Reception {
      * 
      * @return a {@link UML2Reception} proxy on the created {@link Operation}.
      */
-    @objid ("2cb3fcb5-7487-4fff-bc6e-5137dfd8b535")
+    @objid ("378386f9-6a6c-4e6c-b68e-9485468698f8")
     public static UML2Reception create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Operation");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2Reception.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2Reception {
     }
 
     /**
-     * Tries to instantiate a {@link UML2Reception} proxy from a {@link Operation} stereotyped << UML2Reception >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2Reception} proxy from a {@link Operation} stereotyped << UML2Reception >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Operation
      * @return a {@link UML2Reception} proxy or <i>null</i>.
      */
-    @objid ("ca801717-930d-41f1-bb8c-8e9f6808d0fe")
+    @objid ("2a2ac83e-3371-49db-a63d-e6471b24f87a")
     public static UML2Reception instantiate(Operation obj) {
         return UML2Reception.canInstantiate(obj) ? new UML2Reception(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2Reception {
      * @return a {@link UML2Reception} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("39f002d0-4c1e-4429-89ea-7aaa9ee71538")
+    @objid ("3248f6b4-485d-4119-85c3-826ac319c2e3")
     public static UML2Reception safeInstantiate(Operation obj) throws IllegalArgumentException {
         if (UML2Reception.canInstantiate(obj))
         	return new UML2Reception(obj);
@@ -112,7 +112,7 @@ public class UML2Reception {
         	throw new IllegalArgumentException("UML2Reception: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("ef0a5bc9-d78a-481e-80c2-43115dd2903c")
+    @objid ("1d3796c4-1dd8-4bc5-995c-5263fda761bc")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2Reception {
      * Get the underlying {@link Operation}. 
      * @return the Operation represented by this proxy, never null.
      */
-    @objid ("1c328ee2-e84c-478b-9151-35963f34d9c0")
+    @objid ("3fc0ee44-f363-411f-8fa8-536696213a05")
     public Operation getElement() {
         return this.elt;
     }
 
-    @objid ("deadd28d-8cec-4f08-8588-6d7d68be74f5")
+    @objid ("f98d5be9-5841-49ff-adea-07de80cdb990")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("f369c753-41e4-4066-bf2e-9d5a4bc53e7d")
+    @objid ("9400b55c-ee82-40ca-94da-516ccc5967d9")
     protected UML2Reception(Operation elt) {
         this.elt = elt;
     }
 
     @objid ("0ae1c0c7-22eb-45ec-a199-bcb1a4c8b8ef")
     public static final class MdaTypes {
-        @objid ("e870bf79-da57-4332-84cd-d8b69057fbf3")
+        @objid ("cb1f4a1e-b392-4d89-ab30-b42b9858e30d")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("b0631c8a-3dd5-4186-a704-a26b84e27d76")
+        @objid ("dc6be373-90b1-4932-8169-b6cb4e00b1fd")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("221d3804-1e09-48d5-aab8-22e592bad8cb")
+        @objid ("b0e94f63-3f68-44a9-bdb3-2945ed0510fd")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("a6ad06bd-07e0-4c0a-bf02-8f470f9542b7")
+        @objid ("f1de3429-8e89-4a79-8d42-88f8f14a2a18")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "a46b20b8-26ab-11df-ac88-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

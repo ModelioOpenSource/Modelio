@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2100]]
+
+[[r2100]]
+= R2100
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+In an _EnumerationPropertyType_, the name of each _PropertyEnumerationLiteral_ must be unique.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Having duplicate names can be confusing.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Rename any element with a duplicated name.
+
+

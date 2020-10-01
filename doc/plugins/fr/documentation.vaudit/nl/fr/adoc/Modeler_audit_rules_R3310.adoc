@@ -1,0 +1,36 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3310]]
+
+[[r3310]]
+= R3310
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+La création de liens de dépendance entre éléments dans un modèle Analyst doit répondre à certains critères concernant l'orientation des liens.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les liens de dépendance ne doivent être créés que de l'extérieur du modèle Analyst vers l'intérieur du modèle Analyst, ou de l'intérieur du modèle Analyst vers l'intérieur du modèle Analyst. Ils ne doivent pas être créés depuis l'intérieur du modèle Analyst vers l'extérieur du modèle Analyst.
+
+Exemple, un lien «trace» peut être créé depuis un 'Use Case' vers un Requirement ou un Goal, mais pas d'un 'Requirement' vers un, ce qui n'aurait pas de sens.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Les modèles de dépendances tracent généralement les éléments de 'B' vers 'A', ce qui signifie que 'B' dépend de 'A'
+* La plupart des processus de développement considèrent les éléments du modèle Analyst (requirements, goals adn so on) comme la motivation d'origine et la source du raffinement d'éléments. C'est pourquoi les dépendances doivent être créées depuis un élément 'non-analyst' vers un élément 'analyst element' et non le contraire.
+* Changez l'orientation du lien concerné ou retirez-le.
+* Assurez-vous que tous les membres de votre équipe sont d'accord sur la sémantique des dépendances et l'orientation recommandée.
+* Si la politique de votre organisation éxige une orientation non-standard des dépendances, vous pouvez sans crainte désactiver cette règle. Notez toutefois que le mécanisme de verrouillage pour le travail en équipe de Modelio s'appuie sur l'orientation des dépendances et que les orientations non-standard pourraient causer des difficultés dans le process de développement.
+
+

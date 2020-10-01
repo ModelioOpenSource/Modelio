@@ -27,10 +27,10 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.GraphicalEditPart;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.bpmn.diagram.editor.elements.bpmnlane.GmBpmnLane;
 import org.modelio.diagram.api.dg.DGFactory;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramNode;
-import org.modelio.diagram.editor.bpmn.elements.bpmnlane.GmBpmnLane;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 

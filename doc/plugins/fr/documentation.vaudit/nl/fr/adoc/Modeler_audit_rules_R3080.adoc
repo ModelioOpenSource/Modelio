@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3080]]
+
+[[r3080]]
+= R3080
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Tous les _Flow Nodes_ doivent faire partie d'une séquence commençant par un _Start Event_ et finissant par un _End Event_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un processus BPMN est représenté par une séquence de _Flow Nodes_. Une Séquence doit toujours démarrer avec un _Start Event_ et finir par un _End Event_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Vérifiez que tous les _Flow Nodes_ font partie d'une séquence, c'est-à-dire que tous les chemins en amont commencent par un _Start Event_ et que tous les chemins en aval finissent par un _End Event_.
+
+

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1650]]
+
+[[r1650]]
+= R1650
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _Enumeration_ cannot be abstract.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_Enumerations_ are primitive and are meant to be instantiated, therefore they cannot be abstract.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Make the _Enumeration_ concrete.
+
+

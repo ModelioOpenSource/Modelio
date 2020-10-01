@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2740]]
+
+[[r2740]]
+= R2740
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+In a _TemplateBinding_, the _TemplateParameterSubstitution_ must reference a _TemplateParameter_ of the instanciated template element.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+When using a _TemplateBinding_, all the substitutions must refer to a_TemplateParameter_ of the target element.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* This error can be caused by a faulty macro or module. Ask the developer to fix the macro or module.
+* Remove the _TemplateParameterSubstitution_ referencing other _TemplateParameters_ with a macro.
+* Delete the _TemplateBinding_ and rebuild it. Use the 'Element' properties tab on the _TemplateBinding_ to set parameter substitutions.
+
+

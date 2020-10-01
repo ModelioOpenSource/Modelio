@@ -1,0 +1,20 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Modifier-des-propriétés-dun-élément]]
+
+[[modifier-des-propriétés-dun-élément]]
+= Modifier des propriétés d'un élément
+
+Les propriétés d'un élément peuvent être modifiées dans les vues <<Modeler-_modeler_interface_properties_view.adoc#,Propriétés>> ou <<Modeler-_modeler_interface_uml_prop_view.adoc#,Elément>>.
+
+.Modification des propriétés d'une classe
+image::images/Modeler-_modeler_building_models_modifying_element_props_modifelements_001.png[2]
+
+*Étapes :*
+
+1. Voici les propriétés d'origine de la classe "Directeur des formations".
+2. Changeons maintenant la visibilité de la classe. Pour ce faire, cliquez sur la flèche à droite du champ pour ouvrir le menu déroulant, puis sélectionnez la visibilité de votre choix.
+3. Indiquons maintenant que la classe est une classe "main" en cochant la case associée.
+
+

@@ -1,0 +1,15 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de démasquage sur les flux d'informations
+
+Le tableau suivant présente les raccourcis clavier permettant de démasquer certains éléments associés ou appartenant au flux d'informations sélectionné dans le diagramme.
+
+[cols=",",options="header",]
+|===========================
+|Elément démasqué |Raccourci
+|Constraints |SHIFT + N
+|Notes |SHIFT + N
+|===========================
+
+

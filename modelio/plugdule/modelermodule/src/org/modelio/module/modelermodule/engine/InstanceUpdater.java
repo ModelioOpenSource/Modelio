@@ -139,7 +139,7 @@ public class InstanceUpdater {
      */
     @objid ("80f415a5-c0da-43fc-af4f-aa01cc281358")
     public boolean createClassifier(final IModelingSession session, final Instance current) throws ModelerModuleException {
-        return (createClassifierWithOptions(session, current, true) != null);
+        return createClassifierWithOptions(session, current, true) != null;
     }
 
     /**
@@ -387,7 +387,7 @@ public class InstanceUpdater {
         
             List<ModelTree> cl = new ArrayList<>();
             for (ModelTree mt : container.getOwnedElement()) {
-                if (className.equals(mt.getName()) && (mt instanceof Classifier)) {
+                if (className.equals(mt.getName()) && mt instanceof Classifier) {
                     cl.add(mt);
                 }
             }
@@ -533,8 +533,8 @@ public class InstanceUpdater {
             for (Port sourcePort : new ArrayList<>(instanciedClass.getInternalStructure(Port.class))) {
                 Port targetPort = null;
                 for (Port port : new ArrayList<>(inst.getPart(Port.class))) {
-                    if ((port.getRepresentedFeature() != null)
-                            && (port.getRepresentedFeature().equals(sourcePort))) {
+                    if (port.getRepresentedFeature() != null
+                            && port.getRepresentedFeature().equals(sourcePort)) {
                         if (targetPort != null) {
                             port.delete();
                         } else {
@@ -562,8 +562,8 @@ public class InstanceUpdater {
         
             // Delete existing ports not representing a port from the instanced class
             for (Port p : new ArrayList<>(inst.getPart(Port.class))) {
-                if ((p.getRepresentedFeature() == null)
-                        || (!p.getRepresentedFeature().getCompositionOwner().equals(instanciedClass))) {
+                if (p.getRepresentedFeature() == null
+                        || !p.getRepresentedFeature().getCompositionOwner().equals(instanciedClass)) {
                     p.delete();
                 }
             }
@@ -859,6 +859,7 @@ public class InstanceUpdater {
         targetPort.setDirection(sourcePort.getDirection());
         targetPort.setMultiplicityMin(sourcePort.getMultiplicityMin());
         targetPort.setMultiplicityMax(sourcePort.getMultiplicityMax());
+        targetPort.setBase(sourcePort.getBase());
         
         updateNotes(session, sourcePort, targetPort);
         updateStereotypes(sourcePort, targetPort);
@@ -871,14 +872,14 @@ public class InstanceUpdater {
     private boolean equals(final ProvidedInterface pi1, final ProvidedInterface pi2) {
         List<Interface> providedElements1 = pi1.getProvidedElement();
         List<Interface> providedElements2 = pi2.getProvidedElement();
-        return ((providedElements1.size() == providedElements2.size()) && (providedElements1.containsAll(providedElements2)));
+        return providedElements1.size() == providedElements2.size() && providedElements1.containsAll(providedElements2);
     }
 
     @objid ("a6643406-098c-40e0-9848-f171be2b927a")
     private boolean equals(final RequiredInterface ri1, final RequiredInterface ri2) {
         List<Interface> requiredElements1 = ri1.getRequiredElement();
         List<Interface> requiredElements2 = ri2.getRequiredElement();
-        return ((requiredElements1.size() == requiredElements2.size()) && (requiredElements1.containsAll(requiredElements2)));
+        return requiredElements1.size() == requiredElements2.size() && requiredElements1.containsAll(requiredElements2);
     }
 
     @objid ("2512e3ad-1e6e-435a-9b5e-c213858c8c7b")

@@ -1,0 +1,28 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+
+= Creation shortcuts in UseCase diagrams
+
+Two kind of shortcuts are available:
+
+* to activate a creation tool as if clicking on the diagram palette.
+* to directly create and unmask an element in the diagram.
+
+The following table presents the available keyboard shortcuts:
+
+[%header]
+|===
+2+|Activate creation tool  2+| Created element
+|*Shortcut*|*Activated tool*|*Shortcut*|*Created element*
+|A |Actor |CTRL-N CTRL-A |Actor
+|U |Use case |CTRL-N CTRL-U |Use case
+|N |Note |CTRL-N CTRL-N |Note
+|O |Operation |CTRL-N CTRL-O |Operation
+|X |Extension point |CTRL-N CTRL-X |Extension point
+|E |Extension link ||
+|I |Include link ||
+|SPACEBAR |Communication link ||
+|G |Generalization ||
+|R |Related diagram ||
+|===

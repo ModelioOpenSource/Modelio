@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3110]]
+
+[[r3110]]
+= R3110
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un _SequenceFlow_ ne peut pas cibler un _StartEvent_, ni avoir pour source un _EndEvent_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _StartEvent_ démarre une séquence et ne peut pas avoir de liens entrants. Réciproquement, un _EndEvent_ termine une séquence et ne peut pas avoir de liens sortants.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Si vous avez des liens arrivants sur un _StartEvent_ ou sortants d'un _EndEvent_, vous devez les supprimer.
+
+

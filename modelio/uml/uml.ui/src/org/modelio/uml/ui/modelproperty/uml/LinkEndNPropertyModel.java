@@ -26,17 +26,17 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.core.ui.MetamodelLabels;
-import org.modelio.core.ui.nattable.parts.data.INatValue;
-import org.modelio.core.ui.nattable.parts.data.bool.DefaultBooleanNatValue;
-import org.modelio.core.ui.nattable.parts.data.element.single.DefaultElementNatValue;
-import org.modelio.core.ui.nattable.parts.data.string.choice.DefaultStringChoiceNatValue;
-import org.modelio.core.ui.nattable.parts.data.string.single.DefaultStringNatValue;
-import org.modelio.core.ui.nattable.viewer.model.AbstractPropertyModel;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.NaryAssociation;
 import org.modelio.metamodel.uml.statik.NaryLink;
 import org.modelio.metamodel.uml.statik.NaryLinkEnd;
+import org.modelio.platform.model.ui.MetamodelLabels;
+import org.modelio.platform.model.ui.nattable.parts.data.INatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.bool.DefaultBooleanNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.element.single.DefaultElementNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.string.choice.DefaultStringChoiceNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.string.single.DefaultStringNatValue;
+import org.modelio.platform.model.ui.nattable.viewer.model.AbstractPropertyModel;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**

@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2910]]
+
+[[r2910]]
+= R2910
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _extension relationship_ can only reference _Extension Points_ from its targeted _Use Case_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An _Extension Point_ is a feature of a _Use Case_ that identifies a point where the behavior of a _Use Case_ can be augmented with elements of another (extending) _Use Case_. Therefore, the referenced _Extension Point_ must be part of the extended Use Case, which is the target of the _extension relationship_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Choose another _Extension Point_ to reference. This must be part of the extended _Use Case_.
+* Otherwise, make the _extension relationship_ target the _Use Case_ containing the referenced _Extension Point_.
+
+

@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.interaction;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("f5f40ae1-5948-4d16-9830-c685c68ebd5d")
 public class Scenario {
-    @objid ("b92ba6ad-e0bf-4430-bd16-c9dd15ec57b7")
+    @objid ("5b12bdc6-8cc9-4fa0-85a1-03ba359ac838")
     public static final String STEREOTYPE_NAME = "scenario";
 
     /**
      * The underlying {@link Interaction} represented by this proxy, never null.
      */
-    @objid ("5a8886c2-f8a8-4476-9f27-66f4bad8f498")
+    @objid ("cb41e007-ff6b-4a22-8308-a2a73b04f0b7")
     protected final Interaction elt;
 
     /**
-     * Tells whether a {@link Scenario proxy} can be instantiated from a {@link MObject} checking it is a {@link Interaction} stereotyped << scenario >>. 
+     * Tells whether a {@link Scenario proxy} can be instantiated from a {@link MObject} checking it is a {@link Interaction} stereotyped << scenario >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("07d35518-bb91-4ffc-b6fd-0f127b9881ab")
+    @objid ("4c2c3607-db1d-474c-8321-23d010149c3d")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Interaction) && ((Interaction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Scenario.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Scenario {
      * 
      * @return a {@link Scenario} proxy on the created {@link Interaction}.
      */
-    @objid ("912f1570-4556-417f-a52b-b3f6ae24eb2f")
+    @objid ("d7ffe2f0-1bb2-49dc-a7fb-47505cc0c9d7")
     public static Scenario create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Interaction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Scenario.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Scenario {
     }
 
     /**
-     * Tries to instantiate a {@link Scenario} proxy from a {@link Interaction} stereotyped << scenario >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Scenario} proxy from a {@link Interaction} stereotyped << scenario >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Interaction
      * @return a {@link Scenario} proxy or <i>null</i>.
      */
-    @objid ("3d0c1df8-f574-4c50-9eeb-95ba85a29ad1")
+    @objid ("66de24d5-b8af-4db8-8dd1-087ab11e65fa")
     public static Scenario instantiate(Interaction obj) {
         return Scenario.canInstantiate(obj) ? new Scenario(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Scenario {
      * @return a {@link Scenario} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("f556b527-446c-4525-98ec-19997a3b7e6d")
+    @objid ("61573f6a-0dd2-43da-abf9-bfc3240b4a9d")
     public static Scenario safeInstantiate(Interaction obj) throws IllegalArgumentException {
         if (Scenario.canInstantiate(obj))
         	return new Scenario(obj);
@@ -112,7 +112,7 @@ public class Scenario {
         	throw new IllegalArgumentException("Scenario: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("b074fcd4-edbb-4c13-9ea0-eb9ad841ec4c")
+    @objid ("9b224f62-5fbe-4f5b-b594-f08c7980d238")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Scenario {
      * Get the underlying {@link Interaction}. 
      * @return the Interaction represented by this proxy, never null.
      */
-    @objid ("c4635598-5586-45aa-89c5-94342cf26659")
+    @objid ("2380fcf1-275e-4bd0-9f96-3b2027646eff")
     public Interaction getElement() {
         return this.elt;
     }
 
-    @objid ("c4a3a3f4-d71a-4cf8-b66b-d4a61f53c294")
+    @objid ("b3a448c5-586e-4ba6-b17b-6163e68ed691")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("77ed475c-615c-4795-9e60-d5bbe36823f0")
+    @objid ("2d64f8b4-f74b-4188-88b7-4c40e22b633c")
     protected Scenario(Interaction elt) {
         this.elt = elt;
     }
 
     @objid ("4f33c4c3-47eb-4567-b0d2-04f872afd3f4")
     public static final class MdaTypes {
-        @objid ("f64b6a28-4d9c-4b47-91eb-e4ddbd86e1c1")
+        @objid ("b99e821e-7a54-40ce-a86f-5f8975e89303")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("a897a3fa-4116-4b80-9998-a9acccba98ce")
+        @objid ("7a38aea6-b276-41d4-a0af-2421e33a6016")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("64e816f4-8c76-4498-b1c6-320059d19241")
+        @objid ("e1f593db-2c78-4d34-b99a-0b12ca1183ec")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("99991d10-3081-44a1-a8a9-db8844dd60bf")
+        @objid ("baebe987-d18f-4bae-a4b2-7588653c7c45")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec1ac4-0000-2eff-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

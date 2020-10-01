@@ -21,10 +21,10 @@
 package org.modelio.uml.ui.modelproperty.uml.templateparameter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.core.ui.nattable.parts.data.INatValue;
-import org.modelio.core.ui.nattable.viewer.model.AbstractPropertyModel;
-import org.modelio.core.ui.nattable.viewer.model.IPropertyModel;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
+import org.modelio.platform.model.ui.nattable.parts.data.INatValue;
+import org.modelio.platform.model.ui.nattable.viewer.model.AbstractPropertyModel;
+import org.modelio.platform.model.ui.nattable.viewer.model.IPropertyModel;
 
 /**
  * <i>TemplateParameter</i> data model.

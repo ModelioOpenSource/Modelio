@@ -36,8 +36,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.ui.UIColor;
-import org.modelio.ui.dialog.ModelioDialog;
+import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.dialog.ModelioDialog;
 
 /**
  * Dialog box used to rename a local fragment in a project.

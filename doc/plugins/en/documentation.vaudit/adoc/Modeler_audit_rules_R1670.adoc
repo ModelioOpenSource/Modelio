@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1670]]
+
+[[r1670]]
+= R1670
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+_EnumerationLiterals_ defined in an _Enumeration_ must have a unique name.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An _Enumeration_ enumerates several properties defined by their name, also called _EnumerationLiterals_. These properties must all have different names in order to be distinguished from another.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Rename the _EnumerationLiterals_ so they have a unique name in the enumeration.
+
+

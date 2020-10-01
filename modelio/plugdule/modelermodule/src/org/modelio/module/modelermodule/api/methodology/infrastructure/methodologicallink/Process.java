@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("16535a93-7544-4b0e-b4e9-66d8056f81a0")
 public class Process {
-    @objid ("db354e3d-1270-4481-9120-b4be5cf26d49")
+    @objid ("3c2ae8d8-6293-45e4-8536-acbe5b335bc7")
     public static final String STEREOTYPE_NAME = "Process";
 
     /**
      * The underlying {@link MethodologicalLink} represented by this proxy, never null.
      */
-    @objid ("70288503-8e83-425e-9d08-2708f9eab46e")
+    @objid ("05e4ece3-41ab-4dbe-a74d-fa2c5deb6446")
     protected final MethodologicalLink elt;
 
     /**
-     * Tells whether a {@link Process proxy} can be instantiated from a {@link MObject} checking it is a {@link MethodologicalLink} stereotyped << Process >>. 
+     * Tells whether a {@link Process proxy} can be instantiated from a {@link MObject} checking it is a {@link MethodologicalLink} stereotyped << Process >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("8909631c-1816-486d-ba61-3ad7169113da")
+    @objid ("3db18bcd-d175-45c3-ab2b-fe95ec437408")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof MethodologicalLink) && ((MethodologicalLink) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Process.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Process {
      * 
      * @return a {@link Process} proxy on the created {@link MethodologicalLink}.
      */
-    @objid ("cb878841-83ff-458b-9ba6-42a135e6316c")
+    @objid ("1ca17e3d-1424-4f4b-a358-c0fb57f5325b")
     public static Process create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("MethodologicalLink");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Process.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Process {
     }
 
     /**
-     * Tries to instantiate a {@link Process} proxy from a {@link MethodologicalLink} stereotyped << Process >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Process} proxy from a {@link MethodologicalLink} stereotyped << Process >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a MethodologicalLink
      * @return a {@link Process} proxy or <i>null</i>.
      */
-    @objid ("aa829a15-42b4-4d1c-af21-8f1fe12d75e4")
+    @objid ("639a4c0b-2a80-4cf5-bf03-d78046eef738")
     public static Process instantiate(MethodologicalLink obj) {
         return Process.canInstantiate(obj) ? new Process(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Process {
      * @return a {@link Process} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("efd85457-a503-4ced-9534-91e2f6e3eb82")
+    @objid ("58d4602e-db0b-4872-990f-ad8e963933af")
     public static Process safeInstantiate(MethodologicalLink obj) throws IllegalArgumentException {
         if (Process.canInstantiate(obj))
         	return new Process(obj);
@@ -122,7 +122,7 @@ public class Process {
         AbstractMethodologicalLink.setTarget(source, MdaTypes.STEREOTYPE_ELT, target);
     }
 
-    @objid ("ef209a85-74e7-4d31-b04e-11da09cf3249")
+    @objid ("08a9514d-9f9f-41e7-b250-3e398c5ddac0")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -142,34 +142,34 @@ public class Process {
      * Get the underlying {@link MethodologicalLink}. 
      * @return the MethodologicalLink represented by this proxy, never null.
      */
-    @objid ("a0502114-6194-4d08-8aef-8d50fc563d4f")
+    @objid ("731d05c5-33d9-4d4f-95ef-4a554edaceff")
     public MethodologicalLink getElement() {
         return this.elt;
     }
 
-    @objid ("c07b5662-e351-4109-91db-939771cd9f4a")
+    @objid ("677f4597-2148-4e6c-990d-d247e56682df")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("3f1d2283-b789-4b5b-9f6f-0caa656df622")
+    @objid ("327daf1c-5d68-4306-a3ec-d5ab951ec75f")
     protected Process(MethodologicalLink elt) {
         this.elt = elt;
     }
 
     @objid ("86a4b530-cc53-4296-b4ec-0c0ed3b5a15a")
     public static final class MdaTypes {
-        @objid ("54d4ee10-5e64-4c80-b69e-cd44ca7d8a17")
+        @objid ("38d2d906-321b-4549-9418-5b9730b2fc9d")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("2ad3d5fa-2a1c-48a7-91f2-1c1351fb2c65")
+        @objid ("2757f393-acb1-4149-b7b9-de82c7d27605")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("82680033-b5f4-49ad-816f-314bceadb57e")
+        @objid ("0c5cee78-8663-49ff-bcdd-df23866a2654")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("1cb45620-62ef-4238-b443-9b25bf6f4f34")
+        @objid ("d2bf8d08-704f-48a7-a200-d324b8fc7e69")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "616b72d4-1d47-49e1-a381-2e6ecfea637c");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

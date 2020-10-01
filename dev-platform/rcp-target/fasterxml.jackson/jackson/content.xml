@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='jackson/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1576057338741'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='6'>
+    <unit id='com.fasterxml.jackson.core.jackson-annotations' version='2.6.3' singleton='false' generation='2'>
+      <update id='com.fasterxml.jackson.core.jackson-annotations' range='[0.0.0,2.6.3)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Jackson-annotations'/>
+        <property name='org.eclipse.equinox.p2.description' value='Core annotations used for value types, used by Jackson data binding package.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='FasterXML'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://github.com/FasterXML/jackson'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.fasterxml.jackson.core.jackson-annotations' version='2.6.3'/>
+        <provided namespace='osgi.bundle' name='com.fasterxml.jackson.core.jackson-annotations' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.annotation' version='2.6.3'/>
+        <provided namespace='osgi.identity' name='com.fasterxml.jackson.core.jackson-annotations' version='2.6.3'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.core.jackson-annotations' version='2.6.3'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.fasterxml.jackson.core.jackson-annotations&#xA;Bundle-Version: 2.6.3&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.fasterxml.jackson.module.jackson-module-jaxb-annotations' version='2.6.3' singleton='false' generation='2'>
+      <update id='com.fasterxml.jackson.module.jackson-module-jaxb-annotations' range='[0.0.0,2.6.3)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Jackson-module-JAXB-annotations'/>
+        <property name='org.eclipse.equinox.p2.description' value='Support for using JAXB annotations as an alternative to &quot;native&quot; Jackson annotations, for configuring data binding.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='FasterXML'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://wiki.fasterxml.com/JacksonJAXBAnnotations'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.fasterxml.jackson.module.jackson-module-jaxb-annotations' version='2.6.3'/>
+        <provided namespace='osgi.bundle' name='com.fasterxml.jackson.module.jackson-module-jaxb-annotations' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.module.jaxb' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.module.jaxb.deser' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.module.jaxb.ser' version='2.6.3'/>
+        <provided namespace='osgi.identity' name='com.fasterxml.jackson.module.jackson-module-jaxb-annotations' version='2.6.3'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='27'>
+        <required namespace='java.package' name='javax.activation' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.parsers' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.bind' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.bind.annotation' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.bind.annotation.adapters' range='0.0.0'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.annotation' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.util' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.cfg' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.deser.std' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.introspect' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.jsontype' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.jsontype.impl' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.node' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.ser.std' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.type' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.util' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.jsonFormatVisitors' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.module' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.jsonschema' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.deser' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.annotation' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.type' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.ser' range='[2.6.0,3.0.0)'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.module.jackson-module-jaxb-annotations' version='2.6.3'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.fasterxml.jackson.module.jackson-module-jaxb-annotations&#xA;Bundle-Version: 2.6.3&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.fasterxml.jackson.core.jackson-databind' version='2.6.3' singleton='false' generation='2'>
+      <update id='com.fasterxml.jackson.core.jackson-databind' range='[0.0.0,2.6.3)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='jackson-databind'/>
+        <property name='org.eclipse.equinox.p2.description' value='General data-binding functionality for Jackson: works on core streaming API'/>
+        <property name='org.eclipse.equinox.p2.provider' value='FasterXML'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://github.com/FasterXML/jackson'/>
+      </properties>
+      <provides size='24'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.fasterxml.jackson.core.jackson-databind' version='2.6.3'/>
+        <provided namespace='osgi.bundle' name='com.fasterxml.jackson.core.jackson-databind' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.annotation' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.cfg' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.deser' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.deser.impl' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.deser.std' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.exc' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.ext' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.introspect' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.jsonschema' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.jsonFormatVisitors' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.jsontype' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.jsontype.impl' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.module' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.node' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.ser' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.ser.impl' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.ser.std' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.type' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.databind.util' version='2.6.3'/>
+        <provided namespace='osgi.identity' name='com.fasterxml.jackson.core.jackson-databind' version='2.6.3'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='17'>
+        <required namespace='java.package' name='com.fasterxml.jackson.annotation' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.base' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.filter' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.format' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.json' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.io' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.util' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.type' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='org.xml.sax' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.bootstrap' range='0.0.0'/>
+        <required namespace='java.package' name='org.w3c.dom.ls' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.datatype' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.namespace' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.parsers' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.core.jackson-databind' version='2.6.3'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.fasterxml.jackson.core.jackson-databind&#xA;Bundle-Version: 2.6.3&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.fasterxml.jackson.core.jackson-core' version='2.6.3' singleton='false' generation='2'>
+      <update id='com.fasterxml.jackson.core.jackson-core' range='[0.0.0,2.6.3)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Jackson-core'/>
+        <property name='org.eclipse.equinox.p2.description' value='Core Jackson abstractions, basic JSON streaming API implementation'/>
+        <property name='org.eclipse.equinox.p2.provider' value='FasterXML'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://github.com/FasterXML/jackson-core'/>
+      </properties>
+      <provides size='13'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.fasterxml.jackson.core.jackson-core' version='2.6.3'/>
+        <provided namespace='osgi.bundle' name='com.fasterxml.jackson.core.jackson-core' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.core' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.core.base' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.core.filter' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.core.format' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.core.io' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.core.json' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.core.sym' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.core.type' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.core.util' version='2.6.3'/>
+        <provided namespace='osgi.identity' name='com.fasterxml.jackson.core.jackson-core' version='2.6.3'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.core.jackson-core' version='2.6.3'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.fasterxml.jackson.core.jackson-core&#xA;Bundle-Version: 2.6.3&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.fasterxml.jackson.jaxrs.jackson-jaxrs-base' version='2.6.3' singleton='false' generation='2'>
+      <update id='com.fasterxml.jackson.jaxrs.jackson-jaxrs-base' range='[0.0.0,2.6.3)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Jackson-JAXRS-base'/>
+        <property name='org.eclipse.equinox.p2.description' value='Pile of code that is shared by all Jackson-based JAX-RSproviders.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='FasterXML'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://wiki.fasterxml.com/JacksonHome/jackson-jaxrs-base'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.fasterxml.jackson.jaxrs.jackson-jaxrs-base' version='2.6.3'/>
+        <provided namespace='osgi.bundle' name='com.fasterxml.jackson.jaxrs.jackson-jaxrs-base' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.jaxrs.annotation' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.jaxrs.base' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.jaxrs.cfg' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.jaxrs.util' version='2.6.3'/>
+        <provided namespace='osgi.identity' name='com.fasterxml.jackson.jaxrs.jackson-jaxrs-base' version='2.6.3'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='13'>
+        <required namespace='java.package' name='com.fasterxml.jackson.annotation' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.cfg' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.introspect' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.type' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.util' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='javax.ws.rs.core' range='[1.1.1,2.1.0)'/>
+        <required namespace='java.package' name='javax.ws.rs.ext' range='[1.1.1,2.1.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.util' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.type' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='javax.ws.rs' range='[1.1.1,2.1.0)'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.jaxrs.jackson-jaxrs-base' version='2.6.3'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.fasterxml.jackson.jaxrs.jackson-jaxrs-base&#xA;Bundle-Version: 2.6.3&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider' version='2.6.3' singleton='false' generation='2'>
+      <update id='com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider' range='[0.0.0,2.6.3)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Jackson-JAXRS-JSON'/>
+        <property name='org.eclipse.equinox.p2.description' value='Functionality to handle JSON input/output for JAX-RS implementations (like Jersey and RESTeasy) using standard Jackson data binding.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='FasterXML'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://wiki.fasterxml.com/JacksonHome/jackson-jaxrs-json-provider'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider' version='2.6.3'/>
+        <provided namespace='osgi.bundle' name='com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.jaxrs.json' version='2.6.3'/>
+        <provided namespace='java.package' name='com.fasterxml.jackson.jaxrs.json.annotation' version='2.6.3'/>
+        <provided namespace='osgi.identity' name='com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider' version='2.6.3'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='16'>
+        <required namespace='java.package' name='javax.ws.rs' range='[1.1.1,2.1.0)'/>
+        <required namespace='java.package' name='javax.ws.rs.core' range='[1.1.1,2.1.0)'/>
+        <required namespace='java.package' name='javax.ws.rs.ext' range='[1.1.1,2.1.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.annotation' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.util' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.cfg' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.introspect' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.util' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.jaxrs.base' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.jaxrs.cfg' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.module.jaxb' range='[2.6.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.databind.type' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.fasterxml.jackson.core.type' range='[2.6.0,3.0.0)'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.6))'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider' version='2.6.3'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider&#xA;Bundle-Version: 2.6.3&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

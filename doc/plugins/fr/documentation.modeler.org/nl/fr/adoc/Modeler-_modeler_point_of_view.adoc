@@ -1,0 +1,100 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Les-points-de-vue-Modelio]]
+
+[[les-points-de-vue-modelio]]
+= Les points de vue Modelio
+
+[[Présentation-des-points-de-vue-Modelio]]
+
+[[présentation-des-points-de-vue-modelio]]
+===== Présentation des points de vue Modelio
+
+Les points de vue Modelio donnent aux utilisateurs un moyen de customiser l'apparence et le comportement de Modelio.
+
+En sélectionnant l'un des points de vue Modelio disponibles, vous pouvez configurer le comportement des éléments suivants :
+
+* La *perspective* de votre projet : Les perspectives définissent les vues affichées dans Modelio, ainsi que leur disposition. Selon votre choix de point de vue, Modelio utilisera automatiquement une perspective particulière.
+* L'*explorateur de modèle* : Selon le point de vue que vous sélectionnez, l'explorateur de modèle affichera un ensemble d'éléments particulier.
+* L'*audit* : Lorsque vous sélectionnez un point de vue, la sévérité de certaines règles d'audit de Modelio sera modifiée (rendue plus grave ou moins grave), afin de mieux correspondre au travail que vous allez effectuer.
+* L'*éditeur de liens* : Le choix d'un point de vue particulier définira les types de liens à afficher par défaut dans l'éditeur de liens.
+* Les *modules* : Selon le point de vue que vous sélectionnez, certains modules seront activés ou désactivés.
+
+Trois points de vue Modelio sont actuellement disponibles :
+
+* Le point de vue *Défaut*
+* Le point de vue *Analyse*
+* Le point de vue *Développement*
+
+[[Le-point-de-vue-ldquoDéfautrdquo]]
+
+[[le-point-de-vue-défaut]]
+===== Le point de vue "Défaut"
+
+[[Le-point-de-vue-ldquoDéfautrdquo-2]]
+
+[[le-point-de-vue-défaut-1]]
+Le point de vue "Défaut"
+
+*Légende :*
+
+1. La perspective "Modèle" est sélectionnée.
+2. L'explorateur de modèle montre le modèle UML.
+3. La sévérite des règles d'audit de Modelio restent inchangée.
+4. L'éditeur de liens est configuré pour montrer les liens d'héritage et les associations.
+5. Aucun module n'est activé ni désactivé automatiquement.
+
+[[Le-point-de-vue-ldquoAnalyserdquo]]
+
+[[le-point-de-vue-analyse]]
+===== Le point de vue "Analyse"
+
+[[Le-point-de-vue-ldquoAnalyserdquo-2]]
+
+[[le-point-de-vue-analyse-1]]
+Le point de vue "Analyse"
+
+*Légende :*
+
+1. La perspective "Modèle" est sélectionnée.
+2. L'explorateur de modèle montre le modèle UML et le modèle Analyst.
+3. La sévérité de certaines règles d'audit de Modelio est modifiée (rendue plus grave ou moins grave), afin de vous apporter des conseils adaptés au travail d'analyse.
+4. L'éditeur de liens est configuré pour montrer les liens de traçabilité et les dépendances.
+5. Tous les modules Modelio d'analyse installés dans votre projet (par exemple, *TOGAF Architect* ou *SysML Architect*) sont automatiquement activés, et tous les modules Modelio de génération de code installés dans votre projet (par exemple, *Java Designer* ou *C++ Designer*) sont automatiquement désactivés.
+
+[[Le-point-de-vue-ldquoDéveloppementrdquo]]
+
+[[le-point-de-vue-développement]]
+===== Le point de vue "Développement"
+
+[[Le-point-de-vue-ldquoDéveloppementrdquo-2]]
+
+[[le-point-de-vue-développement-1]]
+Le point de vue "Développement"
+
+*Légende :*
+
+1. La perspective "Développement" est sélectionnée.
+2. L'explorateur de modèle montre le modèle UML.
+3. La sévérité de certaines règles d'audit de Modelio est modifiée (rendue plus grave ou moins grave), afin de vous apporter des conseils adaptés au travail de développement.
+4. L'éditeur de liens est configuré pour montrer les liens d'héritage, les associations et les imports d'éléments.
+5. Tous les modules Modelio de génération de code installés dans votre projet (par exemple, *Java Designer* ou *C++ Designer*) sont automatiquement activés, et tous les modules Modelio d'analyse installés dans votre projet (par exemple, *TOGAF Architect* ou *SysML Architect*) sont automatiquement désactivés.
+
+[[Sélectionner-un-point-de-vue]]
+
+[[sélectionner-un-point-de-vue]]
+===== Sélectionner un point de vue
+
+[[Sélection-dun-point-de-vue]]
+
+[[sélection-dun-point-de-vue]]
+Sélection d'un point de vue
+
+*Étapes :*
+
+1.  Dans votre projet, cliquez sur la flèche à droite du champ de sélection des points de vues afin d'ouvrir le menu de sélection des points de vue, puis sélectionnez tout simplement le point de vue de votre choix.
+
+*Note :* L'icône affichée dans le champ de sélection des points de vue indique le point de vue courant.
+
+

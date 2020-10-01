@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1150]]
+
+[[r1150]]
+= R1150
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The _CallOperationAction_ or _SendSignalAction_ has more than one target pin.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The target pin is an input pin that represents the target object to which the request or signal is sent. There can only be one target for _CallOperationActions_ and _SendSignalActions_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+When you get a R1150 warning, verify that the incriminated _CallOperationAction_ or _SendSignalAction_ only has one InputPin whose _isSelf_ value is set to true.
+
+

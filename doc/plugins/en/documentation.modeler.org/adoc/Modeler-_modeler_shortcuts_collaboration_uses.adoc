@@ -1,0 +1,17 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Shortcuts on collaboration uses in Modelio diagrams
+
+The following table presents the keyboard shortcuts that can be used to unmask certain elements associated with or belonging to the collaboration use selected in the diagram.
+
+[%header]
+|==========================
+|Unmasked element |Shortcut
+|Constraints |SHIFT + N
+|Notes |SHIFT + N
+|Dependencies |SHIFT + D
+|Bindings |SHIFT + L
+|==========================
+
+

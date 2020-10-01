@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='jackson/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1576057338739'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='6'>
+    <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.core.jackson-core' version='2.6.3'>
+      <properties size='5'>
+        <property name='artifact.size' value='258875'/>
+        <property name='download.size' value='258875'/>
+        <property name='download.md5' value='a9f7504e534420911ff6afdc1019cf5e'/>
+        <property name='download.checksum.md5' value='a9f7504e534420911ff6afdc1019cf5e'/>
+        <property name='download.checksum.sha-256' value='6184dc12a30be189d7417cb619a2143762fb9a6fecc35707f2a31fb2b280c1e6'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.jaxrs.jackson-jaxrs-base' version='2.6.3'>
+      <properties size='5'>
+        <property name='artifact.size' value='29997'/>
+        <property name='download.size' value='29997'/>
+        <property name='download.md5' value='753303e6486f205b8f8fabce3d8c5380'/>
+        <property name='download.checksum.md5' value='753303e6486f205b8f8fabce3d8c5380'/>
+        <property name='download.checksum.sha-256' value='858d34bbe7fb180370349d52c22c75774ee2a069dd4fc6da52a97df4cd5a743d'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.core.jackson-databind' version='2.6.3'>
+      <properties size='5'>
+        <property name='artifact.size' value='1170801'/>
+        <property name='download.size' value='1170801'/>
+        <property name='download.md5' value='39499f57d90a208fbe67a3e91f5ac058'/>
+        <property name='download.checksum.md5' value='39499f57d90a208fbe67a3e91f5ac058'/>
+        <property name='download.checksum.sha-256' value='593ffbc1ea15e200d734cbca1829eb8680ad301c058a9f9e7714cf9fd9e731fb'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.module.jackson-module-jaxb-annotations' version='2.6.3'>
+      <properties size='5'>
+        <property name='artifact.size' value='32618'/>
+        <property name='download.size' value='32618'/>
+        <property name='download.md5' value='b54c6ac597bfa173504c6238010922f9'/>
+        <property name='download.checksum.md5' value='b54c6ac597bfa173504c6238010922f9'/>
+        <property name='download.checksum.sha-256' value='0f10810eedb2c0ce7e8ab7024ca1472494739ea2d419cbf0fbe4b3a12da18467'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider' version='2.6.3'>
+      <properties size='5'>
+        <property name='artifact.size' value='16844'/>
+        <property name='download.size' value='16844'/>
+        <property name='download.md5' value='0057d2894de586dec477d533e6535508'/>
+        <property name='download.checksum.md5' value='0057d2894de586dec477d533e6535508'/>
+        <property name='download.checksum.sha-256' value='f09a19f2ad16b334d55f34c1f5eb744bebb54d0400a8dddad0ef2e78ceb2b7ce'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.fasterxml.jackson.core.jackson-annotations' version='2.6.3'>
+      <properties size='5'>
+        <property name='artifact.size' value='46989'/>
+        <property name='download.size' value='46989'/>
+        <property name='download.md5' value='09bc2247fe78a22fdf0c3830f357c5a1'/>
+        <property name='download.checksum.md5' value='09bc2247fe78a22fdf0c3830f357c5a1'/>
+        <property name='download.checksum.sha-256' value='e52027994b4bd3014c78ff075e12f37ddf8df160a822cad0eecdcdc68c416585'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

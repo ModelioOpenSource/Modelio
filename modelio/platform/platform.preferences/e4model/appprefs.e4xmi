@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_DtCikIkZEeWbO4MnNK7ogg">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_PAPeAIfNEeWj6a9oyLXySQ" featurename="handlers" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Handler" xmi:id="_tCSDYIfPEeWj6a9oyLXySQ" contributionURI="bundleclass://org.modelio.platform.preferences/org.modelio.platform.preferences.ShowPreferencesHandler" command="_aQLaQF87EeKOcaW-Rg2OGQ"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_vth8oIkXEeWbO4MnNK7ogg" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_aQLaQF87EeKOcaW-Rg2OGQ" elementId="org.modelio.platform.preferences.command.preferences" commandName="%Preferences.name" description="%Preferences.description"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_E1lCgIkaEeWbO4MnNK7ogg" featurename="children" parentElementId="org.modelio.app.ui.menu.configuration" positionInList="after:org.modelio.app.ui.menu.configuration.3">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_8AwPgIkcEeWbO4MnNK7ogg" elementId="Preferences" label="%Preferences.label" iconURI="platform:/plugin/org.modelio.platform.preferences/icons/preferences.png" tooltip="%Preferences.tooltip" command="_aQLaQF87EeKOcaW-Rg2OGQ"/>
+  </fragments>
+</fragment:ModelFragments>

@@ -1,18 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Update
-Bundle-SymbolicName: org.modelio.app.update.ext;singleton:=true
-Bundle-Version: 4.0.1.qualifier
+Bundle-SymbolicName: org.modelio.app.update.ext_org;singleton:=true
+Bundle-Version: 4.1.0.qualifier
 Bundle-Vendor: modelio.org
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.core.runtime,
- org.modelio.utils,
+ org.modelio.platform.utils,
  org.eclipse.jface,
- org.modelio.app.preferences,
- org.eclipse.ui.workbench,
- org.modelio.app.update
+ org.modelio.platform.preferences,
+ org.eclipse.ui.workbench
 Bundle-ClassPath: res/,
  .
 Import-Package: javax.annotation;version="1.1.0",

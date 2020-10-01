@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2620]]
+
+[[r2620]]
+= R2620
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un état sous-machine ne doit pas avoir d'état d'entrée ou de sortie.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les états d'entrée et de sortie peuvent seulement appartenir à un état composite, ils ne doivent donc pas être définis pour un état sous-machine.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Supprimez l'état d'entrée ou de sortie de l'état sous-machine.
+
+

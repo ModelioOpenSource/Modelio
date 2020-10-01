@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
-<plugin>
-	<extension-point id="org.modelio.app.metamodel.diagram.api.factory" name="Diagram DG provider" schema="schema/org.modelio.app.metamodel.diagram.api.factory.exsd"/>
-</plugin>

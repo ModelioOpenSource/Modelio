@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='astyle/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1574175838262'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='4'>
+    <artifact classifier='osgi.bundle' id='org.modelio.astyle.win32.win32.x86_64' version='1.23.0'>
+      <properties size='5'>
+        <property name='artifact.size' value='64043'/>
+        <property name='download.size' value='64043'/>
+        <property name='download.md5' value='97aadfd2360566b66d152a9d1321e37f'/>
+        <property name='download.checksum.md5' value='97aadfd2360566b66d152a9d1321e37f'/>
+        <property name='download.checksum.sha-256' value='8894522e96f49fceb6ea0df2938d26df83edb815a1573a4b266158c5801b86ff'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.modelio.astyle.feature' version='1.23.0'>
+      <properties size='1'>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.modelio.astyle.macosx.cocoa.x86_64' version='1.23.0'>
+      <properties size='5'>
+        <property name='artifact.size' value='601'/>
+        <property name='download.size' value='601'/>
+        <property name='download.md5' value='e340450c89d089737f108a4c9a748c9f'/>
+        <property name='download.checksum.md5' value='e340450c89d089737f108a4c9a748c9f'/>
+        <property name='download.checksum.sha-256' value='583a11051ca205f3c1ccaa1fc75fa44a5940da625549953d008a308bcb599074'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.modelio.astyle.linux.gtk.x86_64' version='1.23.0'>
+      <properties size='5'>
+        <property name='artifact.size' value='63634'/>
+        <property name='download.size' value='63634'/>
+        <property name='download.md5' value='1a25383235a9dbceec781d7ece1855a1'/>
+        <property name='download.checksum.md5' value='1a25383235a9dbceec781d7ece1855a1'/>
+        <property name='download.checksum.sha-256' value='7c732d772318fcf98602d5d62eb0e25af0d2be58d4739f221512252609e10869'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

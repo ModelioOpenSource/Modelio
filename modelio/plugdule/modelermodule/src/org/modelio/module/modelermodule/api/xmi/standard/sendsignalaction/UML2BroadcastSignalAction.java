@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.sendsignalaction;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("912daf5b-02b1-4804-a635-9b0de80c403f")
 public class UML2BroadcastSignalAction {
-    @objid ("f503849d-cc42-41c6-80f1-ccd3a83a0e95")
+    @objid ("89b0b85b-0eaa-4020-ba08-851d1e988e5f")
     public static final String STEREOTYPE_NAME = "UML2BroadcastSignalAction";
 
     /**
      * The underlying {@link SendSignalAction} represented by this proxy, never null.
      */
-    @objid ("9ccb3533-c5ce-4cc5-85ad-24978c924e7b")
+    @objid ("61efb907-b50c-4cf7-9ef3-16c74918c51a")
     protected final SendSignalAction elt;
 
     /**
-     * Tells whether a {@link UML2BroadcastSignalAction proxy} can be instantiated from a {@link MObject} checking it is a {@link SendSignalAction} stereotyped << UML2BroadcastSignalAction >>. 
+     * Tells whether a {@link UML2BroadcastSignalAction proxy} can be instantiated from a {@link MObject} checking it is a {@link SendSignalAction} stereotyped << UML2BroadcastSignalAction >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("b2d59261-d3d4-47e3-9a25-b6a530b5a9fb")
+    @objid ("82f6da7e-2045-4939-afa7-1e7283658a9d")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof SendSignalAction) && ((SendSignalAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2BroadcastSignalAction.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2BroadcastSignalAction {
      * 
      * @return a {@link UML2BroadcastSignalAction} proxy on the created {@link SendSignalAction}.
      */
-    @objid ("1ad7d79a-894e-4582-adf8-65ad57c2411c")
+    @objid ("34f0184c-f1d8-4575-9090-2309beeb7ce9")
     public static UML2BroadcastSignalAction create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("SendSignalAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2BroadcastSignalAction.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2BroadcastSignalAction {
     }
 
     /**
-     * Tries to instantiate a {@link UML2BroadcastSignalAction} proxy from a {@link SendSignalAction} stereotyped << UML2BroadcastSignalAction >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2BroadcastSignalAction} proxy from a {@link SendSignalAction} stereotyped << UML2BroadcastSignalAction >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a SendSignalAction
      * @return a {@link UML2BroadcastSignalAction} proxy or <i>null</i>.
      */
-    @objid ("00904511-b0e9-4f41-91ae-89843c3afda5")
+    @objid ("d55df14a-97a8-4be0-8a9e-cc0830a05895")
     public static UML2BroadcastSignalAction instantiate(SendSignalAction obj) {
         return UML2BroadcastSignalAction.canInstantiate(obj) ? new UML2BroadcastSignalAction(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2BroadcastSignalAction {
      * @return a {@link UML2BroadcastSignalAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("f969c84e-85dd-4b46-872e-5961814129b1")
+    @objid ("df61f6fc-3a98-4743-a460-c55489749cb1")
     public static UML2BroadcastSignalAction safeInstantiate(SendSignalAction obj) throws IllegalArgumentException {
         if (UML2BroadcastSignalAction.canInstantiate(obj))
         	return new UML2BroadcastSignalAction(obj);
@@ -112,7 +112,7 @@ public class UML2BroadcastSignalAction {
         	throw new IllegalArgumentException("UML2BroadcastSignalAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("5bc7e551-d589-4752-9911-39423f5b1e38")
+    @objid ("932972c6-e5f6-48e6-ab2e-32617e3634af")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2BroadcastSignalAction {
      * Get the underlying {@link SendSignalAction}. 
      * @return the SendSignalAction represented by this proxy, never null.
      */
-    @objid ("2c00754a-3d60-48a1-ab3a-964920eec6a0")
+    @objid ("7754c796-1d00-48a5-97ec-01a1cc657e76")
     public SendSignalAction getElement() {
         return this.elt;
     }
 
-    @objid ("9df36a3c-033a-40d8-97f1-1bc6fb601dac")
+    @objid ("3304fd20-4693-44f6-b348-971489dedc92")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("e02a57fd-70b0-41fb-8ed9-129ee6b3b013")
+    @objid ("db20fafc-ae2f-4ab2-b490-c506183d76ec")
     protected UML2BroadcastSignalAction(SendSignalAction elt) {
         this.elt = elt;
     }
 
     @objid ("e18ef05a-6696-4bc4-a862-c1d144cb1230")
     public static final class MdaTypes {
-        @objid ("0ca5cfb9-01b7-4077-bbce-895facc408a8")
+        @objid ("c085b2f2-0d07-45b3-9cc7-817983153f00")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("031942ff-f049-43df-a150-e5accf5894cd")
+        @objid ("9df3dc93-63bf-4179-90c6-47dcf5396ec1")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("89b87e7d-85db-4512-b53b-fd18577233a6")
+        @objid ("63165be4-8a40-4c2b-8420-cf44b5a1118c")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("478cf667-0f99-439a-85bf-078e1f275b14")
+        @objid ("ac26623d-e47f-41f8-93e9-23140b562fae")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "edc05471-5d08-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

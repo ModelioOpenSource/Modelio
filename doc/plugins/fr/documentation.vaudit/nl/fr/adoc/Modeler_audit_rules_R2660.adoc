@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2660]]
+
+[[r2660]]
+= R2660
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un état appartenant à une machine à états protocolaire ne doit pas avoir d'_InternalTransition_  " entry ", " exit " ou " do ".
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une machine à états protocolaire spécifie quelles opérations du classifier peuvent être appelées dans chaque état, et sous quelles conditions, spécifiant la séquence d'appel autorisée des opérations du classifier. Ces états ne doivent donc pas spécifier des actions d'activité.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Supprimez les _InternalTransition_ de votre état.
+
+

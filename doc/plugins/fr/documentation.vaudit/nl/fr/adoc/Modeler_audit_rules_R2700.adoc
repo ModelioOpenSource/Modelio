@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2700]]
+
+[[r2700]]
+= R2700
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un _TemplateBinding_ ne peut substituer un _TemplateParameter_ qu'une seule fois.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une instanciation de template (_TemplateBinding_) ne doit pas donner plusieurs fois une valeur au même paramètre de template.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Gardez une seule substitution (_TemplateParameterSubstitution_) par _TemplateParameter_.
+
+

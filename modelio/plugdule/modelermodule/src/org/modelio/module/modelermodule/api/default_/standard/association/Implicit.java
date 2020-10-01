@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.association;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("a2291f1c-9e40-4062-b1f6-c4ef88ee02eb")
 public class Implicit {
-    @objid ("414dde20-d664-4428-92c3-a2fb888f75a7")
+    @objid ("90809629-e681-464b-89c5-0decacd5f26d")
     public static final String STEREOTYPE_NAME = "implicit";
 
     /**
      * The underlying {@link Association} represented by this proxy, never null.
      */
-    @objid ("3d3fc8a3-30f4-4610-9359-0644d9ba7f3f")
+    @objid ("0db6c80b-393e-491f-8d29-b78d00e3a3c5")
     protected final Association elt;
 
     /**
-     * Tells whether a {@link Implicit proxy} can be instantiated from a {@link MObject} checking it is a {@link Association} stereotyped << implicit >>. 
+     * Tells whether a {@link Implicit proxy} can be instantiated from a {@link MObject} checking it is a {@link Association} stereotyped << implicit >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("666a2966-04de-4dfe-82cf-83611c8fb520")
+    @objid ("01b6c29a-f9b8-46a7-b2ff-1b939301ba96")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Association) && ((Association) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Implicit.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Implicit {
      * 
      * @return a {@link Implicit} proxy on the created {@link Association}.
      */
-    @objid ("dbc7d7ee-d7f0-4629-bd09-be09fe82b5a1")
+    @objid ("13ed194a-d08e-4c6e-8caf-5d2a12c6ef40")
     public static Implicit create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Association");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Implicit.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Implicit {
     }
 
     /**
-     * Tries to instantiate a {@link Implicit} proxy from a {@link Association} stereotyped << implicit >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Implicit} proxy from a {@link Association} stereotyped << implicit >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Association
      * @return a {@link Implicit} proxy or <i>null</i>.
      */
-    @objid ("41ae691a-ce40-434a-8b35-b5d51e9f3544")
+    @objid ("400852ba-183b-4360-916f-37889e0bb19c")
     public static Implicit instantiate(Association obj) {
         return Implicit.canInstantiate(obj) ? new Implicit(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Implicit {
      * @return a {@link Implicit} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("f001d5ab-9ec4-45e2-b948-d4489424c955")
+    @objid ("0f10c8e8-a81d-461d-bb88-aa1390654211")
     public static Implicit safeInstantiate(Association obj) throws IllegalArgumentException {
         if (Implicit.canInstantiate(obj))
         	return new Implicit(obj);
@@ -112,7 +112,7 @@ public class Implicit {
         	throw new IllegalArgumentException("Implicit: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("f8c06323-3fe2-49e2-ac5c-5730ecf9e419")
+    @objid ("aa501c8f-b62b-4d27-bb8b-5177e75c0635")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Implicit {
      * Get the underlying {@link Association}. 
      * @return the Association represented by this proxy, never null.
      */
-    @objid ("d0fefc0e-26b2-4cdd-8f08-7f4904cf59c9")
+    @objid ("0d9a50de-5918-47ab-bdd8-87237b5ebac2")
     public Association getElement() {
         return this.elt;
     }
 
-    @objid ("0d1399dc-edba-44c4-a99a-818115bf4678")
+    @objid ("c4877405-87b9-4c42-bb12-75132300fdb1")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("bc083cc8-c8c0-4a39-b9a9-e95d4345982a")
+    @objid ("90d50349-bfac-4b3f-95e0-a719e7ba6645")
     protected Implicit(Association elt) {
         this.elt = elt;
     }
 
     @objid ("6e6fdf9c-fd6f-4767-bf30-7a823cf4cd32")
     public static final class MdaTypes {
-        @objid ("967687cc-3a03-4eaa-a58e-883bc67e796c")
+        @objid ("05478203-c964-4084-9e2b-fa2d277345ec")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("1695873f-d714-4ba8-acfc-472f4ed8392f")
+        @objid ("ad5b78f2-df06-4c6a-ba5e-632fa023a2f6")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("5974e2f7-a651-42c8-a18a-2b8e51eecd38")
+        @objid ("9fcb1493-2df2-4a77-b691-a14dcac2d0b5")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("4184b7dd-0244-4971-ba3f-a68b5ef10495")
+        @objid ("6c230c60-9e76-4c7e-8bf5-8403a87d4cb9")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01b8-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

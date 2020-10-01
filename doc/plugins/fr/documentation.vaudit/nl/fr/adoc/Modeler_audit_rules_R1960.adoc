@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1960]]
+
+[[r1960]]
+= R1960
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un _Message_ doit avoir le même nom que l'_Operation_ qu'il invoque.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Spécification UML 2.3:
+
+Le nom de l'élément référencé par la signature d'un _Message_ doit être le même que celui du _Message_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si le nom de votre _Message_ ne correspond pas au nom de l'_Operation_ qu'il invoque, vous devriez changer son nom afin qu'il ait le même nom que l'_Operation_ appelée.
+
+

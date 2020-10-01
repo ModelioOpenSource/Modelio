@@ -1,0 +1,56 @@
+#
+# Set the tooltip background color
+#
+style "Modelio-tooltip" {
+	xthickness                = 4
+	ythickness                = 4
+	bg[NORMAL]                = "#F1F1BA"
+	fg[NORMAL]                = "#151515"
+	bg[SELECTED]              = "#F1F1BA"
+
+}
+widget "gtk-tooltip*" style "Modelio-tooltip"
+
+#
+# Set buttons layout
+#
+style "Modelio-toolbar_button" {
+	xthickness                = 1
+	ythickness                = 1
+	GtkButton::inner-border   = {2, 2, 2, 2}
+}
+widget_class "*<GtkToolbar>*<GtkButton>"  style "Modelio-toolbar_button"
+
+#
+# Set compact layout
+#
+style "Modelio-compact_layout" {
+	GtkButton::default_border            = {0,0,0,0}
+	GtkButton::default_outside_border    = {0,0,0,0}
+	GtkButtonBox::child_min_width        = 0
+	GtkButtonBox::child_min_heigth       = 0
+	GtkButtonBox::child_internal_pad_x   = 0
+	GtkButtonBox::child_internal_pad_y   = 0
+	GtkMenu::vertical-padding            = 1
+	GtkMenuBar::internal_padding         = 0
+	GtkMenuItem::horizontal_padding      = 4
+	GtkToolbar::internal-padding         = 0
+	GtkToolbar::space-size               = 0
+	GtkOptionMenu::indicator_size        = 0
+	GtkOptionMenu::indicator_spacing     = 0
+	GtkPaned::handle_size                = 4
+	GtkRange::trough_border              = 0
+	GtkRange::stepper_spacing            = 0
+	GtkScale::value_spacing              = 0
+	GtkScrolledWindow::scrollbar_spacing = 0
+	GtkTreeView::expander-size           = 16
+	GtkTreeView::vertical-separator      = 0
+	GtkTreeView::horizontal-separator    = 0
+	GtkTreeView::allow-rules             = 0
+	GtkTreeView::fixed-height-mode       = TRUE
+	GtkTreeView::odd-row-color           = "#FFFFFF"
+	GtkTreeView::even-row-color          = "#FFFFFF"
+	GtkWidget::focus_padding             = 0
+	GtkExpander::expander-size           = 16
+}
+class  "GtkWidget"    style "Modelio-compact_layout"

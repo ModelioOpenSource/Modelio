@@ -1,0 +1,71 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Les-options-de-la-ligne-de-commande]]
+
+[[les-options-de-la-ligne-de-commande]]
+= Les options de la ligne de commande
+
+[[Modelio-en-ligne-de-commande]]
+
+[[modelio-en-ligne-de-commande]]
+=== Modelio en ligne de commande
+
+Pour exécuter Modelio en ligne de commande, vous devez lancer :
+
+* Sous Windows: +
+L'exécutable `modelio.exe` qui se trouve dans le répertoire où est installé Modelio.
+* Sous Linux: +
+L'exécutable `modelio.sh` qui se trouve dans le répertoire où est installé Modelio.
+* Sous MacOSX: +
+L'exécutable `modelio` qui se trouve dans le sous-répertoire `Contents/MacOS` où est installé Modelio.
+
+Plus loin, nous appellerons $\{MODELIO_EXE}, l'exécutable de Modelio avec tout son chemin (par exemple : `C:\Program Files\Modelio Open Source 4.1\modelio.exe`)
+
+[[Liste-des-options]]
+
+[[liste-des-options]]
+=== Liste des options
+
+Modelio peut être lancé avec les options suivantes :
+
+*-workspace* _workspacePath_ +
+Définit le chemin de l'espace de travail. +
+Par exemple, pour ouvrir Modelio en ayant pour espace de travail le répertoire `C:\Users\user\myWorkspace`: +
+`${MODELIO_EXE}` *-workspace* _C:\Users\user\myWorkspace_
+
+*-project* _projectName_ +
+Définit le projet à ouvrir dans l'espace de travail. Cette option est incompatible avec "-create". +
+Par exemple :
+
+* Ouvrir un projet Modelio nommé "MyProject" : +
+`${MODELIO_EXE}` *-project* _MyProject_
+* Ouvrir un project nommé "MyOtherProject" dans l'espace de travail `C:\Users\user\myWorkspace` : +
+`${MODELIO_EXE}` *-workspace* _C:\Users\user\myWorkspace_ *-project* _MyOtherProject_
+
+*-create* _projectName_ +
+Créé un projet ayant pour nom _projectName_ dans l'espace de travail. Cette option est incompatible avec "-project". +
+Par exemple:
+
+* Créer un nouveau projet nommé "MyNewProject" : +
+`${MODELIO_EXE}` *-create* _MyNewProject_
+* Créer un nouveau projet nommé "AnotherNewProject" dans l'espace de travail `C:\Users\user\myWorkspace` : +
+`${MODELIO_EXE}` *-workspace* _C:\Users\user\myWorkspace_ *-create* _MyNewProject_
+
+*-batch* _scriptFile_ +
+Définit un script Jython. Le script Jython sera automatiquement lancé sur le projet ouvert. Après son exécution, Modelio se fermera automatiquement. Cette option doit être utilisée avec "-project" ou "-create". +
+Par exemple :
+
+* Exécuter le script Jython "C:\Users\user\myscript.py" sur le projet "MyProject". +
+`${MODELIO_EXE}` *-project* _MyProject_ *-batch* _C:\Users\user\myscript.py_
+* Créer le projet "MyNewProject" et exécuter le script Jython "C:\Users\user\myscript.py" sur ce projet. +
+`${MODELIO_EXE}` *-create* _MyNewProject_ *-batch* _C:\Users\user\myscript.py_
+
+*-param* _key val_ +
+Créé une variable `key` contenant la valeur `val`. Cette variable est disponible dans les scripts Jython. +
+Par exemple :
+
+* Exécuter le script Jython "C:\Users\user\myscript.py" sur le projet "MyProject" et déclarant deux variables "myVar1" et "myVar2" ayant respectivement pour valeur "the value1" et "the value2" : +
+`${MODELIO_EXE}` *-project* _MyProject_ *-batch* _C:\Users\user\myscript.py_ *-param* _myVar1_ "_the value1_" *-param* _myVar2_ "_the value2_"
+
+

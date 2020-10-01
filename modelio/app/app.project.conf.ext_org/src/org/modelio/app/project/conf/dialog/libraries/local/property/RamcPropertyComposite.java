@@ -39,8 +39,8 @@ import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.gproject.data.ramc.IModelComponentInfos.ExportedFile;
 import org.modelio.gproject.data.ramc.IModelComponentInfos;
-import org.modelio.ui.UIColor;
-import org.modelio.ui.htmleditor.HtmlComposer;
+import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.htmleditor.HtmlComposer;
 import org.modelio.vbasic.version.Version;
 
 /**

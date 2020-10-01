@@ -22,8 +22,8 @@ package org.modelio.app.project.ui.views.workspace.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.Execute;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.gproject.gproject.GProject;
+import org.modelio.platform.project.services.IProjectService;
 
 @objid ("af15325d-eecf-4b45-a2a0-70b282acdc22")
 public class RefreshWorkspaceHandler {

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2980]]
+
+[[r2980]]
+= R2980
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Dependency_ de type «measure» doit partir d'un _ModelElement_ vers un _Goal_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Dependency_ de type «measure» indique qu'un élément sert à mesurer l'accomplissement d'un _Goal_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une _Dependency_ de type «measure» qui s'applique a un élément autre qu'un _Goal_, vous devriez la supprimer.
+
+

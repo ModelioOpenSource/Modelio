@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Modeler- modeler managing projects migration</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<a name="Migrer-des-projets-de-versions-antérieures-de-Modelio"></a>
+<h1 >Migrer des projets de versions antérieures de Modelio<a href="#Migrer-des-projets-de-versions-antérieures-de-Modelio" class="wiki-anchor">&para;</a></h1>
+
+<p>Les projets Modelio 2.2 peuvent être migrés vers Modelio 3.</p>
+
+<p>Pour migrer des projets développés avec des versions antérieures à Modelio 2.2, il faut d'abord les migrer vers Modelio 2.2 en suivant la bonne procédure de migration.<br/>
+Voir : <a href="http://forge.modelio.org/projects/modelio-user-manual-french-22/wiki/Modeler-_modeler_managing_projects_migration">Migrer des projets Modelio 1.2</a></p>
+
+<a name="Prérequis"></a>
+<h4 >Prérequis<a href="#Prérequis" class="wiki-anchor">&para;</a></h4>
+
+<ul>
+<li>Une installation opérationnelle de Modelio 2.2</li>
+<li>Une installation opérationnelle de Modelio 3</li>
+<li>Le module de migration <strong>M2toM3</strong> qui vous pouvez télécharger depuis le site <a href="http://www.modeliosoft.com/en/modelio-store/type/free/migration-modelio-2.2.1-to-3.0.html">www.modeliosoft.com</a></li>
+</ul>
+
+
+<a name="Lancement-de-la-procédure-de-migration"></a>
+<h4 >Lancement de la procédure de migration<a href="#Lancement-de-la-procédure-de-migration" class="wiki-anchor">&para;</a></h4>
+
+<p>La capture d'écran ci-dessous montre comment lander la procédure qui vous permettra de migrer un projet développé avec Modelio 2.2 vers Modelio 3.</p>
+
+<p><img src="Modeler-_modeler_managing_projects_migration_M2toM3Migration-fr.png" alt="2" /></p>
+
+<a name="Dans-Modelio-2"></a>
+<h4 >Dans Modelio 2<a href="#Dans-Modelio-2" class="wiki-anchor">&para;</a></h4>
+
+<ol>
+<li>Démarrez Modelio 2.et ouvrez le projet à migrer.</li>
+<li>Installez le module M2toM3 dans le projet (Voir <a href="http://forge.modelio.org/projects/modelio-user-manual-french-221/wiki/Modeler-_modeler_managing_projects_working_with_modules">Travailler avec les modules</a>).</li>
+<li>Depuis la racine du projet, lancez la commande <strong>&ldquo;M2 to M3\Export pour Modelio 3&rdquo;</strong>.</li>
+<li>Dans la fenêtre de sélection de fichier, indiquez un chemin et un nom pour le fichier zippé qui contiendra le projet migré.</li>
+<li>Lorsque la commande a fini de s'exécuter, le projet migré est disponible dans le fichier (zippé) sélectionné lors de l'étape précédente.</li>
+<li>Fermez le projet et quittez Modelio 2, après avoir noté le nom et le chemin du fichier du projet migré.</li>
+</ol>
+
+
+<p>C'est tout pour Modelio 2 !</p>
+
+<a name="Dans-Modelio-3"></a>
+<h4 >Dans Modelio 3<a href="#Dans-Modelio-3" class="wiki-anchor">&para;</a></h4>
+
+<ol>
+<li>Démarrez Modelio 3.</li>
+<li>Depuis le menu <em>Fichier</em>, lancez la commande <strong>&ldquo;Importer un projet&rdquo;</strong>.</li>
+<li>Dans la fenêtre de sélection de fichier, indiquez le chemin et le nom du fichier zippé contenant le projet migré.</li>
+<li>Lorsque la commande a fini de s'exécuter, le projet migré apparaît dans la liste des projets disponibles dans l'espace de travail.</li>
+<li>Ouvrez le projet migré.</li>
+<li>Effectuez les dernières opérations décrites ci-dessous.</li>
+</ol>
+
+
+<p><strong>Note :</strong> La toute première ouverture d'un projet migré peut durer quelques minutes à cause de la technologie de stockage différente de Modelio Modelio 3, qui nécessite l'initialisation du projet migré lors de sa première ouverture.</p>
+
+<a name="Etapes-finales"></a>
+<h4 >Etapes finales<a href="#Etapes-finales" class="wiki-anchor">&para;</a></h4>
+
+<p>Le nouveau projet migré dans Modelio 3 doit contenir toutes les données du projet Modelio 2 sans aucune perte. Cependant, il se peut que le projet nouvellement migré référence encore des modules de Modelio 2 qui sont obsolètes.</p>
+
+<p>Ceci est facile à diagnostiquer dans l'onglet <strong>Modules</strong> de la fenêtre de <strong>configuration du projet</strong> montrée dans la capture d'écran ci-dessous :</p>
+
+<p><img src="Modeler-_modeler_managing_projects_migration_MigrationUpdateModules-fr.png" alt="3" /></p>
+
+<p>Cliquez sur &ldquo;Configuration\Modules…&rdquo; ou sur l'icône <img src="Modeler-_modeler_managing_projects_migration_config.png" alt="1" /> puis l'onglet &ldquo;Modules&rdquo;.<br/>
+Dans la liste de modules du projet (à gauche), identifiez les modules <strong>cassés</strong>. Ce sont les modules qui ont besoin d'être mis à jour pour Modelio 3.</p>
+
+<ol>
+<li>Cliquez sur <img src="Modeler-_modeler_managing_projects_migration_maximize.png" alt="6" /> pour ouvrir le catalogue de modules. Le catalogue montre les modules disponibles sur votre poste de travail.</li>
+<li>Dans le catalogue de modules, identifiez la nouvelle version des modules qui sont indiqués comme étant <em>cassés</em> dans la liste à gauche. Pour chacun d'entre eux :
+
+<ol>
+<li>Sélectionnez-le.</li>
+<li>Cliquez sur <img src="Modeler-_modeler_managing_projects_migration_add.png" alt="5" /> pour l'installer dans le projet.</li>
+</ol>
+</li>
+</ol>
+
+</body>
+</html>

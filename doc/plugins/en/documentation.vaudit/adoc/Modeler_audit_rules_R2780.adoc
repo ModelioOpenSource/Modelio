@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2780]]
+
+[[r2780]]
+= R2780
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+Transitions leaving pseudo states may not have a trigger (except for those leaving the initial pseudo state).
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A pseudo state is a temporary state, and transitions leaving them should not have triggers.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Remove the triggers from any transitions leaving a pseudo state.
+
+

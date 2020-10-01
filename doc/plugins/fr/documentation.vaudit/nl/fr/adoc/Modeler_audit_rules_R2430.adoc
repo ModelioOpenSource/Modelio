@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2430]]
+
+[[r2430]]
+= R2430
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Toutes les _StateMachines_ d'une _Opération_ doivent avoir un nom différent.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Toutes les machines à états d'une _Opération_ doivent avoir un nom différent pour pouvoir les distinguer.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Renommez les machines à état en conflit.
+
+

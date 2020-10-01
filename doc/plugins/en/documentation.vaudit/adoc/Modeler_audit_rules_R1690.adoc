@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1690]]
+
+[[r1690]]
+= R1690
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The 'Expression' field for a _Change_-type _Event_ must be defined, whereas the 'Called operation' and 'Instanciated signal' fields must be empty.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_Change_-type _Events_ are _Events_ that define an expression.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Verify that the expression property is defined, and that 'Instanciated signal' and 'Call operation' fields are empty, or change the type of the _Event_.
+
+

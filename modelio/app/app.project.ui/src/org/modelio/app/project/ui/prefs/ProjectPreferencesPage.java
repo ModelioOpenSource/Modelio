@@ -40,13 +40,13 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
-import org.modelio.app.project.core.prefs.ProjectPreferencesKeys;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.metamodel.PredefinedTypes;
 import org.modelio.metamodel.uml.statik.DataType;
 import org.modelio.metamodel.uml.statik.VisibilityMode;
+import org.modelio.platform.project.prefs.ProjectPreferencesKeys;
+import org.modelio.platform.project.services.IProjectService;
 import org.modelio.vcore.session.api.model.IModel;
 import org.modelio.vcore.smkernel.mapi.MRef;
 

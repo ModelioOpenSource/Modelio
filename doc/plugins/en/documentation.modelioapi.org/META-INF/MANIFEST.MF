@@ -1,0 +1,4 @@
+Bundle-SymbolicName: org.modelio.documentation.modelioapi;singleton=true
+Bundle-Version: 4.1.0.qualifier
+Bundle-Name: Modelio API
+Bundle-Vendor: modelio.org

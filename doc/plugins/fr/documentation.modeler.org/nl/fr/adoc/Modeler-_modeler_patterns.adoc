@@ -1,0 +1,123 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Patterns de modèle
+
+Les patterns (ou patrons) de modèles sont une fonctionnalité très puissante de modélisation du modeleur Modelio.
+
+Un pattern représente un fragment de modèle UML qui peut être reproduit à l'infini dans différents environnements, à l'image d'un tampon encreur qui reproduit autant que souhaité la même image. De plus, un pattern peut avoir des paramètres qui l'adaptent à différents contextes lors de son application, un peu à l'image de ces tampons encreurs dont on change chaque jour la date.
+
+En pratique, il faut bien distinguer deux phases importantes dans la "vie" d'un pattern:
+
+* L'élaboration qui consiste à:
+** préparer l'exemple de modèle qui sera répliqué lors de l'utilisation du pattern
+** préparer le paramétrage du pattern, c'est à dire définir les "points" de variation du pattern lors de son utilisation
+* L'application, qui consiste à utiliser le pattern à un emplacement particulier du modèle, à renseigner si nécessaire ses paramètres avant d'exécuter le pattern et d'en créer le modèle correspondant
+
+Un intérêt majeur d'un pattern est qu'il suffit de l'élaborer UNE fois pour pouvoir ensuite l'appliquer N fois. Élaborer un pattern est un investissement dont le retour est proportionnel à N...
+
+Les fonctionnalités suivantes relatives aux patterns sont proposées :
+
+* *Création d'un pattern*
+** Modélisation d'un pattern de modèle UML ou extraction d'un pattern à partir d'un modèle existant
+** Définition de points de paramétrages pour un pattern.
+* *Préparation à la publication*
+** Définition du packaging d'un pattern (nom, version, labels IHM, ...)
+** Export et partage de patterns entre projet
+* *Utilisation du pattern*
+** Paramétrage et application de pattern
+
+[[Créer-un-pattern]]
+
+[[créer-un-pattern]]
+== Créer un pattern
+
+Il existe deux méthodes pour créer un pattern:
+
+1. Créer un nouveau pattern de toute pièce.
+2. Créer un pattern à partir d'un modèle UML existant.
+
+[[Création-dun-nouveau-pattern-de-toute-pièce]]
+
+[[création-dun-nouveau-pattern-de-toute-pièce]]
+=== Création d'un nouveau pattern de toute pièce
+
+Pour créer un nouveau pattern de toute pièce, effectuez les opérations détaillées ci-dessous :
+
+1. Depuis le menu contextuel de l'explorateur de modèle, lancez la commande "Patterns/Créer un Pattern/ Créer un Pattern vide"
+2. Sous l'élément Pattern créé , modélisez le contenu souhaité de votre pattern en construisant un modèle UML classique (création d'éléments de modèle, diagrammes, ...). Ce modèle deviendra le contenu du nouveau pattern que vous êtes en train de créer.
+
+image::images/Modeler-_modeler_patterns_CreateEmptyPattern2.png[2]
+
+La figure ci-dessus montre un pattern nommé _Observer_ construit sur les classes du JDK Observable/Observer. On voit le contenu du pattern, les classes _View_ et _Model_ ainsi que leurs méthodes. Noter que le diagramme fera partie du pattern et sera produit lors de son application.
+
+L'avantage de ce procédé est qu'il permet de construire complètement n'importe quel modèle... avec l'inconvénient de devoir précisément construire tout le modèle. +
+Si, par exemple, le pattern Observer ci-dessus est destiné à générer du code Java, ce que semble indiquer le graphe d'héritage, il reste à y introduire toutes les annotations et les notes Java nécessaires à la génération du code, ce qui peut être fastidieux. +
+Dans ce type de situation, il arrive que l'on dispose déjà déjà de modèles complets et parfaitement annotés, que l'on voudrait utiliser comme pattern. Ceci est l'objet de la deuxième méthode de création d'un pattern.
+
+[[Création-dun-pattern-à-partir-dun-modèle-UML-existant]]
+
+[[création-dun-pattern-à-partir-dun-modèle-uml-existant]]
+=== Création d'un pattern à partir d'un modèle UML existant
+
+Il est facile de créer un nouveau pattern à partir d'un modèle UML existant. Le principe est de choisir et identifier des parties de modèle qui réalisent la fonction que l'on veut transformer en pattern, et de transformer ces parties de modèle en une copie qui deviendra le pattern. Le modèle original *reste donc inchangé*.
+
+Pour créer un pattern à partir d'un modèle UML existant, effectuez les opérations suivantes:
+
+1. Sélectionnez la racine du modèle UML original qui va servir de modèle à votre pattern.
+2. Appliquez la commande "Pattern Designer / Créer un pattern depuis le modèle"
+
+La commande crée un nouveau pattern basé sur la copie du modèle UML sélectionné, comme le montre la capture d'écran suivante.
+
+image::images/Modeler-_modeler_patterns_CreatePatternFromModel1.png[3]
+
+Dans cet exemple, l'application de la commande sur la classe Java *Manager*, a laissé le modèle original (1) inchangé mais l'a copié et transformé en pattern (2).
+
+[[Définition-des-points-de-paramétrage-du-pattern]]
+
+[[définition-des-points-de-paramétrage-du-pattern]]
+== Définition des points de paramétrage du pattern
+
+Une fois un pattern créé, il peut être utilisé mais il va alors produire strictement le même modèle que celui qui a servi à le construire. +
+Bien que ce résultat soit en lui-même déjà intéressant, il est très probable que l'on souhaite que l'application de notre pattern précédent "Observer" permette de renommer, par exemple, la classe "View" par un autre nom, afin de le spécialiser.
+
+Pour ce faire, Modelio permet de définir des points de paramétrage, qui sont utilisés pour adapter le modèle UML produit au contexte courant lors de son application.
+
+Il existe deux types de paramètre :
+
+* les paramètres de type String,
+* les paramètres de type Elément de Modèle
+
+[[Définition-de-paramètre-de-type-String]]
+
+[[définition-de-paramètre-de-type-string]]
+=== Définition de paramètre de type String
+
+Toutes les chaînes de caractères définies au niveau du modèle UML peuvent être transformées en paramètres de pattern. +
+Par exemple, le nom d'un élément de modèle, le contenu d'une note de code ou encore une propriété d'élément peuvent devenir un paramètre de type _String_. Pour définir un paramètre de type _String_, remplacez simplement la chaîne de caractères par $(Nom du Paramètre). Pour le nom du paramètre, vous pouvez utiliser n'importe quelle combinaison alphanumérique.
+
+Exemple : Création des paramètres $(View) et $(ModelName)
+
+image::images/Modeler-_modeler_patterns_PatternStringParameter.png[4]
+
+Des modificateurs peuvent être ajoutés au paramètre:
+
+* upper : Chaîne de caractères en majuscule. Ex : $(view, upper)
+* lower : Chaîne de caractères en minuscule. Ex : $(view, lower)
+* cfirst : Première lettre de la chaîne en majuscule. Ex : $(view,cfirst)
+* lfirst : Première lettre de la chaîne en minuscule. Ex : $(view, lfirst)
+
+[[Définition-de-paramètre-de-type-Elément-de-Modèle]]
+
+[[définition-de-paramètre-de-type-elément-de-modèle]]
+=== Définition de paramètre de type Elément de Modèle
+
+Les Eléments de Modèle peuvent aussi devenir des paramètres du pattern. Ces paramètres devront être instanciés avec un Elément de Modèle de même type lors de l'application du pattern.
+
+Les paramètres de type Elément de Modèle sont renseignés automatiquement quand un élément faisant partie du pattern possède une référence (par exemple un type d'attribut, un lien d'héritage...) vers un élément qui ne fait pas partie du pattern. Celui ci ne dois pas faire partie d'un composant de modèle (le paramètre deviendrait alors une Constante)
+
+Exemple : Création d'une classe liée à une autre par une composition.
+
+image::images/Modeler-_modeler_patterns_PatternElementParameter.png[5]
+
+

@@ -1,0 +1,28 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Diagramme de structure de Package
+
+L'intention de ce diagramme automatique est de montrer la structure interne directe d'un package, c'est-à-dire le contenu du package ainsi que les liens entre les éléments du package. Ce sont souvent ces liens qui fondent la fonction d'encapsulation du package.
+
+== Eléments concernés
+
+Les diagrammes de structure de Package peuvent être créés sur n'importe quel Package.
+
+== Contenu
+
+* Le package P lui-même n'est pas visualisé. Il est le contexte du diagramme.
+* Les classes contenues dans P sont visualisées.
+* Les associations et liens d'héritage entre les classes de P (et uniquement entre elles, on ne démasque pas d'éléments n'appartenant pas à P).
+
+== Disposition
+
+* Les éléments sont distribués en diagonale.
+
+*Note :* Tous les éléments présents dans ce diagramme ont un <<Styles_Diagrammes_Automatiques.adoc#,style>> spécifique associé.
+
+== Exemple
+
+image::images/Package_structure_diagram_package_structure_diagram.png[1]
+
+

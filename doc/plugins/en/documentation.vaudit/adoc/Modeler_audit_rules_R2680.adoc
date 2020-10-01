@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2680]]
+
+[[r2680]]
+= R2680
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The number of parameters of a _TaggedValue_ must be the same as the number of
+
+parameters defined in the _TaggedValue_ type.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The _TaggedValue_ _TagType_ defines the number of parameters a _TaggedValue_ can have.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Verify the number of arguments of the _TaggedValue_ in question.
+
+

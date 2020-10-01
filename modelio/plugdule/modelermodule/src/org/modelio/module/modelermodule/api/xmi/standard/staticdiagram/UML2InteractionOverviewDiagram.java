@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.staticdiagram;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("025fc4e6-2df9-46ba-9efe-c6ce06c9b716")
 public class UML2InteractionOverviewDiagram {
-    @objid ("6f7f05f8-3056-4598-a25a-4a7dba8cd04c")
+    @objid ("bae6e212-0627-45b0-9a4c-fc0b3abaee8a")
     public static final String STEREOTYPE_NAME = "UML2InteractionOverviewDiagram ";
 
     /**
      * The underlying {@link StaticDiagram} represented by this proxy, never null.
      */
-    @objid ("c29883a1-8288-41d0-a099-da154e971981")
+    @objid ("4a4e13da-d5a2-4a2c-8988-9adb102ac581")
     protected final StaticDiagram elt;
 
     /**
-     * Tells whether a {@link UML2InteractionOverviewDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link StaticDiagram} stereotyped << UML2InteractionOverviewDiagram  >>. 
+     * Tells whether a {@link UML2InteractionOverviewDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link StaticDiagram} stereotyped << UML2InteractionOverviewDiagram  >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("f5600cbd-2e3d-4176-9dc7-6c71ac6108ac")
+    @objid ("2ae27f53-393b-4735-9506-ffc2ee700f73")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof StaticDiagram) && ((StaticDiagram) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2InteractionOverviewDiagram.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2InteractionOverviewDiagram {
      * 
      * @return a {@link UML2InteractionOverviewDiagram} proxy on the created {@link StaticDiagram}.
      */
-    @objid ("869a725a-0f2f-4569-87b3-c73edf75be8d")
+    @objid ("fb5a48e5-2863-4e71-9f47-4682b49c1f2e")
     public static UML2InteractionOverviewDiagram create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("StaticDiagram");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2InteractionOverviewDiagram.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2InteractionOverviewDiagram {
     }
 
     /**
-     * Tries to instantiate a {@link UML2InteractionOverviewDiagram} proxy from a {@link StaticDiagram} stereotyped << UML2InteractionOverviewDiagram  >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2InteractionOverviewDiagram} proxy from a {@link StaticDiagram} stereotyped << UML2InteractionOverviewDiagram  >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a StaticDiagram
      * @return a {@link UML2InteractionOverviewDiagram} proxy or <i>null</i>.
      */
-    @objid ("e60396fa-4fc7-408f-897b-e87cd2584230")
+    @objid ("7628537f-2aa0-406b-99ad-5e5c5a559ad2")
     public static UML2InteractionOverviewDiagram instantiate(StaticDiagram obj) {
         return UML2InteractionOverviewDiagram.canInstantiate(obj) ? new UML2InteractionOverviewDiagram(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2InteractionOverviewDiagram {
      * @return a {@link UML2InteractionOverviewDiagram} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("73ffbf06-8806-4d8a-a4d3-0064a2fbef40")
+    @objid ("2a3bfb4e-9172-43f7-b44c-d43df9a4bea5")
     public static UML2InteractionOverviewDiagram safeInstantiate(StaticDiagram obj) throws IllegalArgumentException {
         if (UML2InteractionOverviewDiagram.canInstantiate(obj))
         	return new UML2InteractionOverviewDiagram(obj);
@@ -112,7 +112,7 @@ public class UML2InteractionOverviewDiagram {
         	throw new IllegalArgumentException("UML2InteractionOverviewDiagram: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("8e396a38-70b1-4345-9d9a-2df933ec6856")
+    @objid ("e51be646-f780-40c8-8ea5-38a49f2fd2ae")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2InteractionOverviewDiagram {
      * Get the underlying {@link StaticDiagram}. 
      * @return the StaticDiagram represented by this proxy, never null.
      */
-    @objid ("13e14ff3-de01-4d35-a70e-48cfe66b9f22")
+    @objid ("4a82f9b9-6219-47df-9ab2-22b84f69bcf9")
     public StaticDiagram getElement() {
         return this.elt;
     }
 
-    @objid ("53cecdf2-f3fa-434e-affe-3cc3d09b0d44")
+    @objid ("84b8062f-8b6a-4bd0-9b95-12db8f696cc4")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("c5b3f7df-0cbc-4026-af85-8f9ff766d8fc")
+    @objid ("9303ab12-7fe3-4100-9824-49839ba70530")
     protected UML2InteractionOverviewDiagram(StaticDiagram elt) {
         this.elt = elt;
     }
 
     @objid ("be457845-c207-4134-ac6d-84fc582830cd")
     public static final class MdaTypes {
-        @objid ("ba4638be-c93a-4021-b837-a50d9bc8c879")
+        @objid ("9ffd4e25-3257-434c-9ab3-2766255c604f")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("3e041b6c-2499-49bf-a9e4-2a224655edd7")
+        @objid ("b05b3537-f105-4cef-a1a3-4a6d233c9873")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("01e8d4b2-54a9-4897-89a8-278160cf05f9")
+        @objid ("859c5e0e-020b-47bd-acac-4d5e67d991da")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("b686bf3f-9542-49f1-88b2-01e5a60cc11c")
+        @objid ("aba08a3f-4cb5-4d5d-999b-5184e624fd25")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "e4358003-f3da-11df-8ada-0027103f347c");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

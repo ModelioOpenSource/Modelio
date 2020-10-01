@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension id="diagram.object" point="org.eclipse.e4.workbench.model">
+      <fragment uri="e4model/diagram_object_editor.e4xmi"/>
+      <processor beforefragment="true" class="org.modelio.uml.objectdiagram.editor.plugin.ObjectProcessor"/>
+   </extension>
+
+   <extension point="org.modelio.app.diagram.editor.inputprovider">
+      <inputprovider class="org.modelio.uml.objectdiagram.editor.editor.ObjectDiagramEditorInputProvider"/>
+   </extension>
+
+	<extension point="org.modelio.platform.model.view.template">
+		<viewtemplate id="ObjectDiagramTemplate" class="org.modelio.uml.objectdiagram.editor.contributor.ObjectDiagramTemplate"/>
+	</extension>
+   	<extension point="org.modelio.app.creation.wizard.contributor">
+		<wizard
+				categoryId = "%ContributorCategoryType.UML"
+				categoryLabel = "%ContributorCategoryLabel.UML"
+				categoryIcon = "./icons/uml.png"
+				class="org.modelio.uml.objectdiagram.editor.contributor.ObjectDiagramCreationContributor"
+				label = "%CreationWizard.Object.Name"
+				details = "%CreationWizard.Object.Details"
+				information = "%CreationWizard.Object.Information"
+				helpUrl = "HELP_URL"
+				previewImage = "images/objectdiagrampreview400x300.png"
+				modelViewTemplateId = "ObjectDiagramTemplate">
+		</wizard>
+	</extension>
+
+    <extension name="Object drop extension" point="org.modelio.app.diagram.editor.droppolicy.extensions">
+    	<droppolicyextension class="org.modelio.uml.objectdiagram.editor.elements.objectdiagram.ObjectDiagramDropEditPolicyExtension">
+    		<scope editorId="org.modelio.uml.objectdiagram.editor.ObjectDiagramEditorID"/>
+    	</droppolicyextension>
+    </extension>
+
+    <extension
+          point="org.modelio.app.diagram.editor.palette">
+       <palette
+             id="org.modelio.uml.objectdiagram.editor.ObjectDiagramEditorID">
+          <palette_group
+                collapsible="false"
+                label="main">
+             <selection_tool default="true"/>
+             <marquee_tool/>
+             <universal_link_tool/>
+          </palette_group>
+          <palette_group label="%ObjectPaletteGroup.Nodes" initialState="open">
+             <creation_tool id="CREATE_INSTANCE"/>
+             <creation_tool id="CREATE_ATTRIBUTELINK"/>
+          </palette_group>
+          <palette_group label="%ObjectPaletteGroup.Links" initialState="open">
+             <creation_tool id="CREATE_INSTANCELINK"/>
+             <creation_tool id="CREATE_NARY_INSTANCELINK"/>
+          </palette_group>
+          <palette_group label="%ObjectPaletteGroup.InformationFlow">
+             <creation_tool id="CREATE_INFORMATIONFLOW"/>
+             <creation_tool id="CREATE_INFORMATIONFLOWNODE"/>
+             <creation_tool id="CREATE_INFORMATIONITEM"/>
+          </palette_group>
+          <palette_group label="%ObjectPaletteGroup.Common">
+             <creation_tool id="CREATE_NOTE"/>
+             <creation_tool id="CREATE_CONSTRAINT"/>
+             <creation_tool id="CREATE_EXTERNDOCUMENT"/>
+             <creation_tool id="CREATE_DEPENDENCY"/>
+             <creation_tool id="CREATE_TRACEABILITY"/>
+             <creation_tool id="CREATE_RELATED_DIAGRAM_LINK"/>
+          </palette_group>
+          <palette_group label="%ObjectPaletteGroup.Drawings">
+             <creation_tool id="CREATE_DRAWING_LINE"/>
+             <creation_tool id="CREATE_DRAWING_TEXT"/>
+             <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
+             <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+          </palette_group>
+       </palette>
+    </extension>
+
+
+</plugin>

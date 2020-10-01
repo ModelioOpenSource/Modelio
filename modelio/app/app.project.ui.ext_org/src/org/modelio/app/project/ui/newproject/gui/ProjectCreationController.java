@@ -26,11 +26,11 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
-import org.modelio.app.project.core.creation.ProjectCreationDataModel;
-import org.modelio.app.project.core.creation.ProjectNameValidator;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleStore;
+import org.modelio.platform.project.creation.ProjectCreationDataModel;
+import org.modelio.platform.project.creation.ProjectNameValidator;
 
 /**
  * Controller of the {@link ProjectCreationDialog} dialog.

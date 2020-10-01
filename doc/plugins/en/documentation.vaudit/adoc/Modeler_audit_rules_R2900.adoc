@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2900]]
+
+[[r2900]]
+= R2900
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _extension relationship_ must reference at least one _Extension Point_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An _Extension Point_ is a feature of a _Use Case_ that identifies a point where the behaviour of a Use Case can be augmented with elements of another (extending) _Use Case_. Therefore, an _extension relationship_ should reference an _Extension Point_ of the _Use Case_ it extends.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Add an _Extension Point_ to the _Use Case_ you want to extend if none already exist, and/or reference that _Extension Point_ in the _extension relationship_ properties.
+
+

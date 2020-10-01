@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.standard.staticdiagram;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("712e332b-fc86-4b4e-822a-eee5103016f9")
 public class GoalDiagram {
-    @objid ("d941b36f-adf2-45f1-98a6-06b44b9d311b")
+    @objid ("d3661cb1-b7e9-4e2c-8113-7658efac46e4")
     public static final String STEREOTYPE_NAME = "goal_diagram";
 
     /**
      * The underlying {@link StaticDiagram} represented by this proxy, never null.
      */
-    @objid ("10a3652e-2a40-46ad-9226-d24a9148b194")
+    @objid ("c0bba2a8-8758-44f3-bc79-17559bd34423")
     protected final StaticDiagram elt;
 
     /**
-     * Tells whether a {@link GoalDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link StaticDiagram} stereotyped << goal_diagram >>. 
+     * Tells whether a {@link GoalDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link StaticDiagram} stereotyped << goal_diagram >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("9608d764-b333-4571-8d69-1b0cd936517f")
+    @objid ("9a32abc2-7a32-4e8a-9c34-5e50b279f848")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof StaticDiagram) && ((StaticDiagram) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, GoalDiagram.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class GoalDiagram {
      * 
      * @return a {@link GoalDiagram} proxy on the created {@link StaticDiagram}.
      */
-    @objid ("57c587b8-4224-4ab1-a30e-3a4046cc89ef")
+    @objid ("ba141ccc-fbc3-4b08-b4fb-1b15dca4ceaa")
     public static GoalDiagram create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("StaticDiagram");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, GoalDiagram.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class GoalDiagram {
     }
 
     /**
-     * Tries to instantiate a {@link GoalDiagram} proxy from a {@link StaticDiagram} stereotyped << goal_diagram >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link GoalDiagram} proxy from a {@link StaticDiagram} stereotyped << goal_diagram >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a StaticDiagram
      * @return a {@link GoalDiagram} proxy or <i>null</i>.
      */
-    @objid ("e3cfd901-a6df-416b-8b3d-306dd2c361f2")
+    @objid ("18f5a02d-5dd1-4619-ab6d-c27663286efc")
     public static GoalDiagram instantiate(StaticDiagram obj) {
         return GoalDiagram.canInstantiate(obj) ? new GoalDiagram(obj) : null;
     }
@@ -104,7 +104,7 @@ public class GoalDiagram {
      * @return a {@link GoalDiagram} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("33ddb287-5002-4445-b69f-5d1ca7cfbf79")
+    @objid ("2ef42828-8e7e-4d49-8cf2-f395f7960679")
     public static GoalDiagram safeInstantiate(StaticDiagram obj) throws IllegalArgumentException {
         if (GoalDiagram.canInstantiate(obj))
         	return new GoalDiagram(obj);
@@ -112,7 +112,7 @@ public class GoalDiagram {
         	throw new IllegalArgumentException("GoalDiagram: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("30c8110a-f6ce-4005-bae0-0771976a102a")
+    @objid ("5a26d900-6341-4851-812e-7bdd4c0cef7e")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class GoalDiagram {
      * Get the underlying {@link StaticDiagram}. 
      * @return the StaticDiagram represented by this proxy, never null.
      */
-    @objid ("a6d9ea97-5eaf-48ae-84b0-ab45d19fb854")
+    @objid ("4cc1abdd-8fe4-434b-8ca3-7da9e11c46b5")
     public StaticDiagram getElement() {
         return this.elt;
     }
 
-    @objid ("500b25fa-d910-4d4a-a9fe-e87ee1ac602b")
+    @objid ("153be5b1-04fd-4015-8688-536c98b4656f")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("fa93a357-620c-4b21-bbc4-844a6bc57d7f")
+    @objid ("d40568ed-30c3-450b-ace2-8983624dcaee")
     protected GoalDiagram(StaticDiagram elt) {
         this.elt = elt;
     }
 
     @objid ("450e7de6-a2a6-41bf-9708-da4861532339")
     public static final class MdaTypes {
-        @objid ("68daf74b-84df-4db6-a478-a49fbc657797")
+        @objid ("be108c54-9540-4abf-8e15-00cb10cefe36")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("3fc7dcf9-64b4-4d80-ab4f-b1652783a261")
+        @objid ("75f77656-9088-49ac-9d98-295da8df2b6e")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("0bf20448-bbc8-4a09-8052-f25a7361110e")
+        @objid ("b45ccbd9-b088-4cb6-9b51-be7a120adfd6")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("3de2ccf4-17af-4024-a2e0-65cbff10c41a")
+        @objid ("522bf893-b435-4133-b6fc-9a6d75b4eecf")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-0a37-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

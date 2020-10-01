@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.constraint;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("df267913-e3d3-4867-9a81-4c7c6893fae1")
 public class Disjoin {
-    @objid ("354d8db8-ee66-44cd-b3ef-7c744afd0684")
+    @objid ("bf1bb3e0-bd2d-4b2a-bcc3-77b246e9ce90")
     public static final String STEREOTYPE_NAME = "disjoin";
 
     /**
      * The underlying {@link Constraint} represented by this proxy, never null.
      */
-    @objid ("c4ce5cd3-9f55-46fa-a4d3-f697d23f6f2b")
+    @objid ("9047dd30-1d4c-4589-9eb7-d4172814c15f")
     protected final Constraint elt;
 
     /**
-     * Tells whether a {@link Disjoin proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << disjoin >>. 
+     * Tells whether a {@link Disjoin proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << disjoin >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("991c06ef-1628-4c2c-915a-986ac9a0e14c")
+    @objid ("13cb279b-1e34-45e0-bda6-31604ed2bf99")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Constraint) && ((Constraint) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Disjoin.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Disjoin {
      * 
      * @return a {@link Disjoin} proxy on the created {@link Constraint}.
      */
-    @objid ("55bae725-f459-4678-914d-1232af2c90a5")
+    @objid ("4590e56b-60a2-45c1-b4e4-39486325314a")
     public static Disjoin create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Constraint");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Disjoin.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Disjoin {
     }
 
     /**
-     * Tries to instantiate a {@link Disjoin} proxy from a {@link Constraint} stereotyped << disjoin >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Disjoin} proxy from a {@link Constraint} stereotyped << disjoin >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Constraint
      * @return a {@link Disjoin} proxy or <i>null</i>.
      */
-    @objid ("01d79232-e862-44b2-a2c4-1572790122c1")
+    @objid ("b7c99e15-4d2d-4a94-b9df-98b6e7dacd34")
     public static Disjoin instantiate(Constraint obj) {
         return Disjoin.canInstantiate(obj) ? new Disjoin(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Disjoin {
      * @return a {@link Disjoin} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("1f806207-c9d2-4c5f-ad06-c565dde4511a")
+    @objid ("0797a48d-9d73-4681-af89-90f28de07370")
     public static Disjoin safeInstantiate(Constraint obj) throws IllegalArgumentException {
         if (Disjoin.canInstantiate(obj))
         	return new Disjoin(obj);
@@ -112,7 +112,7 @@ public class Disjoin {
         	throw new IllegalArgumentException("Disjoin: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("d734757b-210d-4923-bbfd-082b776d1d20")
+    @objid ("cbdb7afb-7811-42c2-ab0b-86d036d8a90d")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Disjoin {
      * Get the underlying {@link Constraint}. 
      * @return the Constraint represented by this proxy, never null.
      */
-    @objid ("0544d7a9-6cb2-489b-baca-edde4d404ace")
+    @objid ("6f3b82b8-381b-478e-9634-d7cf0878d5b3")
     public Constraint getElement() {
         return this.elt;
     }
 
-    @objid ("15b767c7-363f-43f1-a276-ea87d94777e4")
+    @objid ("5314e0b0-72bc-4ac4-aa9f-627507db2d83")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("380c173e-d0d2-4968-9d9c-e8cf9a4ef574")
+    @objid ("bc40db4b-3c39-413c-bddd-6190a0bef082")
     protected Disjoin(Constraint elt) {
         this.elt = elt;
     }
 
     @objid ("27c0c9fd-b109-4914-a1a6-01ed7023ca30")
     public static final class MdaTypes {
-        @objid ("87b42991-2825-434b-8865-13a45b8ff373")
+        @objid ("7183a471-6889-4e31-9f11-90811e2afe77")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("19744480-4151-433d-9f59-9877790d255c")
+        @objid ("e9ec8639-fd7b-4df0-8812-fd4132502bc8")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("a06929c3-edd8-48ce-8e47-886b240377d2")
+        @objid ("290f5146-18c9-40e1-a21c-d4e0544dd140")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("1d2cfca3-2f01-4b40-8461-2e5fab951a2e")
+        @objid ("d70e6fda-70ab-4e67-8ad4-1b452b2b5f27")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01f5-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

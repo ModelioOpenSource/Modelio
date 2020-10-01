@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+  <title>UML/BPMN Metamodel</title>
+  <meta content="Document Publisher, www.modeliosoft.com/" name="generator"/>
+	<link href="docp-print.css" media="print" rel="stylesheet" type="text/css"/>
+	<script src="scripts/browser.js" type="text/javascript"> </script>
+  <link href="default.css" media="screen" rel="stylesheet" type="text/css"/></head>
+  <body>
+        <div id="container">        
+            <div id="content">          
+                <div id="header">            
+ 					<div id="logo"><img src="img/logo.png"/></div>
+                    <h1 class="documentTitle">UML/BPMN Metamodel</h1>
+                    <h2 class="documentType"> </h2>            
+               </div>            
+               <div id="sidebar"><div><div class="sidePanel" id="infoArea"><h4 class="sideTitle">INFORMATIONS</h4><ul id="docProps"><li class="property">Status</li><li class="value">Release</li><li class="property">Category</li><li class="value">Modelio user guide</li><li class="property">Version</li><li class="value">2.3.00 (Modelio 4.1)</li><li class="property">Title</li><li class="value">UML/BPMN Metamodel</li><li class="property">Author</li><li class="value">Modeliosoft</li><li class="property">Subject</li><li class="value"> </li></ul></div><div class="sidePanel" id="shortcutArea"><h4 class="sideTitle">SHORTCUTS</h4><ul id="shortcuts"><li><a href="index.html">Home</a></li><li><a href="sitemap.html">Site Map</a></li><li><a href="modelindex.html">Model Index</a></li><li><a href="tableoffigures.html">Table of Figures</a></li></ul></div></div></div>
+               <div id="mainArea">
+                    <div id="navbar"><ul><li id="prev"><a href="10.html" title="10.html">&lt; Previous</a></li><li id="home"><a href="index.html" title="Site map">Home</a></li><li id="next"><a href="12.html" title="12.html">Next &gt;</a></li></ul></div>
+                    <div id="page"><div><a name="#Table 16"><!--anchor--></a><a name="#Table 15"><!--anchor--></a><a name="#Figure 9"><!--anchor--></a><div align="LEFT" class="Titre4" startOnNewPage="true"><a name="_7f765477-18d6-11e0-9cf7-001ec947ccaf"><!--anchor--></a><a name="toc1.1.1.9"><!--anchor--></a><span class="None">BpmnReceiveTask</span></div><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">A Receive Task is a simple Task that is designed to wait for a Message to arrive from an external Participant (relative to the Process). Once the Message has been received, the Task is completed.
+The actual Participant from which the Message is received can be identified by connecting the Receive Task to a Participant using a Message Flow within the definitional Collaboration of the Process.
+
+A Receive Task is often used to start a Process. In a sense, the Process is bootstrapped by the receipt of the Message. In order for the Task to Instantiate the Process it must meet one of the following conditions:
+- The Process does not have a Start Event and the Receive Task has no incoming Sequence Flow.
+- The incoming Sequence Flow for the Receive Task has a source of a Start Event.
+- Note that no other incoming Sequence Flow are allowed for that Receive Task (in particular, a loop
+connection from a downstream object).</span></div><center><img alt=": BpmnReceiveTask (architecture_autodiagram)" class="Image" height="380.0" src="img/abeada54-5626-41ab-b81f-d5ed6300538a.png" usemap="#abeada54-5626-41ab-b81f-d5ed6300538a" width="550.0"/></center><div align="CENTER" class="Lgende">Figure 9 : BpmnReceiveTask (architecture_autodiagram)</div><map name="abeada54-5626-41ab-b81f-d5ed6300538a"><area alt="BpmnReceiveTask" coords="0,180,200,380" href="11.html#_7f765477-18d6-11e0-9cf7-001ec947ccaf" name="abeada54-5626-41ab-b81f-d5ed6300538a" shape="rect" title="BpmnReceiveTask"/><area alt="BpmnTask" coords="50,0,150,80" href="17.html#_7f73f221-18d6-11e0-9cf7-001ec947ccaf" name="abeada54-5626-41ab-b81f-d5ed6300538a" shape="rect" title="BpmnTask"/><area alt="BpmnMessage" coords="450,180,550,260" href="51.html#_7f76548f-18d6-11e0-9cf7-001ec947ccaf" name="abeada54-5626-41ab-b81f-d5ed6300538a" shape="rect" title="BpmnMessage"/><area alt="BpmnOperation" coords="450,300,550,380" href="28.html#_7f7654cd-18d6-11e0-9cf7-001ec947ccaf" name="abeada54-5626-41ab-b81f-d5ed6300538a" shape="rect" title="BpmnOperation"/></map><div id="tableContainer"><table class="ListeclaireAccent1" horizontal="true" tableStyle="ListeclaireAccent1"><caption/><tr class="odd"><th><div align="CENTER" class="Normal" startOnNewPage="false"><span class="None">Attribute</span></div></th><th><div align="CENTER" class="Normal" startOnNewPage="false"><span class="None">Description</span></div></th></tr><tr class="even"><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">string</span><span class="None"> </span><span class="None">Implementation</span><span class="None"> [</span><span class="None">1</span><span class="None">..</span><span class="None">1</span><span class="None">]</span></div></td><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">This attribute specifies the technology that will be used to send and receive the Messages. 
+
+Valid values are "##unspecified" for leaving the implementation technology open, "##WebService" for the Web service technology or a URI identifying any other technology or coordination protocol.
+
+A Web service is the default technology.</span></div></td></tr><tr class="odd"><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">boolean</span><span class="None"> </span><span class="None">Instanciate</span><span class="None"> [</span><span class="None">1</span><span class="None">..</span><span class="None">1</span><span class="None">]</span></div></td><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">Receive Tasks can be defined as the instantiation mechanism for the Process with the instantiate attribute. 
+
+This attribute MAY be set to true if the Task is the first Activity (i.e., there are no incoming Sequence Flows). 
+
+Multiple Tasks MAY have this attribute set to true.</span></div></td></tr></table></div><div>
+</div><div id="tableContainer"><table class="ListeclaireAccent1" horizontal="true" tableStyle="ListeclaireAccent1"><caption/><tr class="odd"><th><div align="CENTER" class="Normal" startOnNewPage="false"><span class="None">Association</span></div></th><th><div align="CENTER" class="Normal" startOnNewPage="false"><span class="None">Description</span></div></th></tr><tr class="even"><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">MessageRef</span><span class="None"> : </span><a href="#_7f76548f-18d6-11e0-9cf7-001ec947ccaf">BpmnMessage</a><span class="None"> [</span><span class="None">0</span><span class="None">..</span><span class="None">1</span><span class="None">]</span></div></td><td/></tr><tr class="odd"><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">OperationRef</span><span class="None"> : </span><a href="#_7f7654cd-18d6-11e0-9cf7-001ec947ccaf">BpmnOperation</a><span class="None"> [</span><span class="None">0</span><span class="None">..</span><span class="None">1</span><span class="None">]</span></div></td><td/></tr></table></div><div>
+</div></div></div>
+                    <br/>
+                    <div class="spacer" id="navbar"><ul><li id="prev"><a href="10.html" title="10.html">&lt; Previous</a></li><li id="home"><a href="index.html" title="Site map">Home</a></li><li id="next"><a href="12.html" title="12.html">Next &gt;</a></li></ul></div>  
+					<div id="footer"><p>Document automatically generated by Modelio Document Publisher.<br/><a href="http://www.modeliosoft.com">www.modeliosoft.com</a></p></div>            
+                </div>           
+            </div>
+        </div>
+  </body>
+</html>

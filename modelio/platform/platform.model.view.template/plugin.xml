@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension-point id="org.modelio.platform.model.view.template" name="Model View Templates" schema="schema/org.modelio.platform.model.view.template.exsd"/>
+
+	<extension point="org.eclipse.e4.workbench.model" id="modelContribution">
+		<fragment uri="e4model/model.view.template.e4xmi"/>
+	</extension>
+</plugin>

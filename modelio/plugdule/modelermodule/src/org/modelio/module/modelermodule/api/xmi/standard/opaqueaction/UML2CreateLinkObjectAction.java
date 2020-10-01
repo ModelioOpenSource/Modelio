@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.opaqueaction;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("d8f1f797-b904-47b7-a13f-1c46cc7fc8b7")
 public class UML2CreateLinkObjectAction {
-    @objid ("8ce51420-8aa5-4de0-b6b0-4aaa0e0b790a")
+    @objid ("73f4cd9e-e210-40ed-b81d-67a1df69f7ac")
     public static final String STEREOTYPE_NAME = "UML2CreateLinkObjectAction";
 
     /**
      * The underlying {@link OpaqueAction} represented by this proxy, never null.
      */
-    @objid ("b2d8fd02-b96d-4af1-abc7-01e3b850c19b")
+    @objid ("e06a0b9c-2e4c-4ec6-a1b6-567f2fae6480")
     protected final OpaqueAction elt;
 
     /**
-     * Tells whether a {@link UML2CreateLinkObjectAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2CreateLinkObjectAction >>. 
+     * Tells whether a {@link UML2CreateLinkObjectAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2CreateLinkObjectAction >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("3e189700-3792-47d5-bfd6-71453ed33868")
+    @objid ("4b762611-a77f-48c5-8e50-250aada50fa0")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof OpaqueAction) && ((OpaqueAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2CreateLinkObjectAction.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2CreateLinkObjectAction {
      * 
      * @return a {@link UML2CreateLinkObjectAction} proxy on the created {@link OpaqueAction}.
      */
-    @objid ("5916de98-8df5-428f-9fa0-8b7b4435e9ad")
+    @objid ("f81e6574-e1d6-4f11-93de-d91dda251ac6")
     public static UML2CreateLinkObjectAction create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("OpaqueAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2CreateLinkObjectAction.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2CreateLinkObjectAction {
     }
 
     /**
-     * Tries to instantiate a {@link UML2CreateLinkObjectAction} proxy from a {@link OpaqueAction} stereotyped << UML2CreateLinkObjectAction >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2CreateLinkObjectAction} proxy from a {@link OpaqueAction} stereotyped << UML2CreateLinkObjectAction >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a OpaqueAction
      * @return a {@link UML2CreateLinkObjectAction} proxy or <i>null</i>.
      */
-    @objid ("9eb1e40f-608b-4e0a-9692-79dda8343179")
+    @objid ("7902e003-dff4-475b-838e-40a99353fa30")
     public static UML2CreateLinkObjectAction instantiate(OpaqueAction obj) {
         return UML2CreateLinkObjectAction.canInstantiate(obj) ? new UML2CreateLinkObjectAction(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2CreateLinkObjectAction {
      * @return a {@link UML2CreateLinkObjectAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("df2631ce-2b61-4c88-afbd-6488ed926b49")
+    @objid ("8c371e63-c03a-4703-935b-f1bc1dad1245")
     public static UML2CreateLinkObjectAction safeInstantiate(OpaqueAction obj) throws IllegalArgumentException {
         if (UML2CreateLinkObjectAction.canInstantiate(obj))
         	return new UML2CreateLinkObjectAction(obj);
@@ -112,7 +112,7 @@ public class UML2CreateLinkObjectAction {
         	throw new IllegalArgumentException("UML2CreateLinkObjectAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("7e2af302-ea04-4e09-830e-f3e936dadf40")
+    @objid ("f247a8fb-1f5a-4970-aa8c-9ee573275d0a")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2CreateLinkObjectAction {
      * Get the underlying {@link OpaqueAction}. 
      * @return the OpaqueAction represented by this proxy, never null.
      */
-    @objid ("bcdca077-eb47-4210-8d1d-f1168f916652")
+    @objid ("d9f954ab-8c41-4e00-83c5-ec5f84662dda")
     public OpaqueAction getElement() {
         return this.elt;
     }
 
-    @objid ("3317ef92-23a2-4be1-b716-da889b3329fd")
+    @objid ("9638442c-5939-4536-9d46-3ce27a9e9a48")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("8e60968d-71bd-42d8-8699-36157951b84e")
+    @objid ("88856f26-e1b8-4546-826f-e9007d176a71")
     protected UML2CreateLinkObjectAction(OpaqueAction elt) {
         this.elt = elt;
     }
 
     @objid ("310f7147-2f6b-4605-9068-06aabbeaaf88")
     public static final class MdaTypes {
-        @objid ("4b178982-757c-4fd1-8c28-a331813b68c3")
+        @objid ("c5c5df48-6a39-45e2-95bc-1440c8dae7b5")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("84b4e4de-6a01-45f2-8ec2-f05a96ea65f6")
+        @objid ("e7c94869-c73e-49a7-9a13-0ee22848bab9")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("665034d5-0b78-4e1e-b906-c2d60f797256")
+        @objid ("5b1c167e-c916-44b0-b218-da6355397a78")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("0b017032-f970-47e9-8b52-0cff1888cb67")
+        @objid ("ddf3f4d1-3e84-45d5-a657-4668765ed2ff")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "f8e58a85-c2fa-11de-8ac8-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

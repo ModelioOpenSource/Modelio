@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("9d1e11d0-fed8-4531-a0ff-914ea423a867")
 public class UML2Abstraction {
-    @objid ("31a2dbde-dd03-4099-9faa-ba3ba4e54425")
+    @objid ("cae3d43b-e739-4e59-9b89-d4834bb6ddb3")
     public static final String STEREOTYPE_NAME = "UML2Abstraction";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("3d5365a9-f42d-48cf-aa93-954f2b1071b1")
+    @objid ("e12a4425-2f7f-4ddd-87cb-504c642943d9")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link UML2Abstraction proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2Abstraction >>. 
+     * Tells whether a {@link UML2Abstraction proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2Abstraction >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("15d66700-768d-4435-b21d-537ccfeef94f")
+    @objid ("b3fae75f-7545-40db-8b4d-dd16c48ed0e3")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2Abstraction.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class UML2Abstraction {
      * 
      * @return a {@link UML2Abstraction} proxy on the created {@link Dependency}.
      */
-    @objid ("a3967ac2-5f72-4d86-bdc2-5fc3265b1427")
+    @objid ("be61921d-593d-416c-b979-318d9e9d9d01")
     public static UML2Abstraction create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2Abstraction.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class UML2Abstraction {
     }
 
     /**
-     * Tries to instantiate a {@link UML2Abstraction} proxy from a {@link Dependency} stereotyped << UML2Abstraction >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2Abstraction} proxy from a {@link Dependency} stereotyped << UML2Abstraction >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link UML2Abstraction} proxy or <i>null</i>.
      */
-    @objid ("7b1416df-289b-4abe-86de-9f166682832f")
+    @objid ("3b150e17-f03d-471d-87bf-c7a0f2f8e3dd")
     public static UML2Abstraction instantiate(Dependency obj) {
         return UML2Abstraction.canInstantiate(obj) ? new UML2Abstraction(obj) : null;
     }
@@ -103,7 +103,7 @@ public class UML2Abstraction {
      * @return a {@link UML2Abstraction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("87ae9e20-cf00-4f2a-9314-26d0429a50ad")
+    @objid ("ef11247b-40ce-43c5-b17f-254031440c50")
     public static UML2Abstraction safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (UML2Abstraction.canInstantiate(obj))
         	return new UML2Abstraction(obj);
@@ -111,7 +111,7 @@ public class UML2Abstraction {
         	throw new IllegalArgumentException("UML2Abstraction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("b649642d-d1ad-4ffd-becc-b0fcc78d0695")
+    @objid ("892bc6ad-9352-4d9c-af62-24c501f3be6e")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class UML2Abstraction {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("68c1b242-3221-43d5-8a95-fea31e78bce4")
+    @objid ("57b9c596-6fe5-4f78-b30a-abe787932997")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("f21333b6-d918-4cf0-9d7e-e3fcae11021d")
+    @objid ("b0f19be9-0668-4900-9c4a-566212f05c41")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("e4d720d3-7814-410c-be3e-af2f8518d582")
+    @objid ("c617601a-b4f2-4a2b-a746-ff4db76b1cd7")
     protected UML2Abstraction(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("6d9d3b85-b56b-481e-8799-f55b8683359f")
     public static final class MdaTypes {
-        @objid ("77fae54d-ff49-4074-a2d6-5bb4408a384a")
+        @objid ("2e5c98c8-9e0f-48ec-a7e5-e9558262a411")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("9236505f-67ba-4df4-8e3b-e5bae1f1d51e")
+        @objid ("99e1b3ef-4181-4683-b65d-21becba4fb0a")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("3eb3b646-5f3a-486c-bdce-6fa1516ec211")
+        @objid ("f14b8c0d-df20-49ec-bb22-76725cb60592")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("27ed7786-30b3-44bd-8759-86610bec5b2a")
+        @objid ("799f82a3-9253-48d4-a603-bd5b641a8937")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "b355cc6c-c4aa-11df-b100-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

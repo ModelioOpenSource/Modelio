@@ -1,0 +1,72 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[document-title]]
+[[modelio-archimate-views]]
+= Modelio ArchiMate views
+
+
+In ArchiMate *views* are a partial representation of the model, just like UML diagrams. They are pictures of a set of model element displayed together according to business, user profile or interest criteria.
+
+In Modelio, ArchiMate viewsa are always organized in <<User_Documentation_en_os_ArchimateModel.adoc#,ViewPoints>>. They intend to convey information about a specific part of the model for specific stakeholdes, with a particular purpose.
+
+[[HArchiMateglobalview]]
+= ArchiMate global view
+
+The easiest way to create ArchiMate model in Modelio is through an ArchiMate global view.
+
+It is used to create any kind of ArchiMate elements, regardless of their layer. As soon as a new element is created in the view, it is automatically attached to the corresponding layer in the model itself.
+
+.An example of ArchiMate global view
+image::images/attachment/archimate41/User_Documentation_en_os/ArchimateDiagram/FullDiagram.png[FullDiagram.png]
+
+
+
+This view is used to create any kind of ArchiMate elements, regardless of their layer. As soon as a new element is created in the view, it is automatically attached to the corresponding layer in the model itself.
+
+[[HArchiMateViewPointdiagram]]
+=  ArchiMate View Point diagram
+
+In Modelio, viewpoints might contain numerous ArchiMate views, but ViewPoint diagrams exist to have an instant overview of all these diagrams.
+
+.An example of View Point diagram
+image::images/attachment/archimate41/User_Documentation_en_os/ArchimateDiagram/ViewPointDiagram.png[ViewPointDiagram.png]
+
+A View Point diagram automatically displays:
+
+* thumbnails for each ArchiMate views existing as siblings of the View Point diagram.
+* child View Points of the diagram's owner View Point.
+
+In a nutshell, a View Point diagram can be used as a graphical table of contents, making easy to find a specific view even in a huge model...
+
+*Note:* Double click on a thumbnail to open the corresponding view.
+
+[[HConfiguringaViewPointdiagram]]
+== Configuring a View Point diagram
+
+When selecting a View Point diagram, some layout configuration becomes available in the symbol view:
+
+It is used to create any kind of ArchiMate elements, regardless of their layer. As soon as a new element is created in the view, it is automatically attached to the corresponding layer in the model itself.
+
+It is used to create any kind of ArchiMate elements, regardless of their layer. As soon as a new element is created in the view, it is automatically attached to the corresponding layer in the model itself.
+
+*Note:* When the ArchiMate model is part of a SVN fragment, using the "Get Lock" or "Commit" commands on the view itself with the "recursive" option checked applies to the view AND all elements displayed in it.
+
+*Note:* When the ArchiMate model is part of a SVN fragment, using the "Get Lock" or "Commit" commands on the view itself with the "recursive" option checked applies to the view AND all elements displayed in it.
+
+.Configuring a View Point diagram
+image::images/attachment/archimate41/User_Documentation_en_os/ArchimateDiagram/Symbol.png[Symbol.png]
+
+[[HAutomaticlayout]]
+=== Automatic layout
+
+With the automatic layout on, all elements are organized in a table. The number of columns can be edited according to your needs, as well as the default size for all elements.
+
+The diagram only accepts creation of View Points and ArchiMate views, it should not be possible to unmask anything else in it.
+
+[[HManuallayout]]
+=== Manual layout
+
+With the automatic layout off, it becomes possible to unmask only a subset of views or sub View Points in the diagram, instead of displaying all of them.
+
+It can also be used to simply change the diagram's general organization, grouping views by whatever criteria you want rather than having them in the model's order.

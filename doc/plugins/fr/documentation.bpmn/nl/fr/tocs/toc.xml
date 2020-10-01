@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="BPMN" topic="html/User_Documentation_fr.html">
+	<topic comment="entry" href="html/User_Documentation_fr_Introduction.html" label="Introduction"></topic>
+	<topic comment="sub_start" href="html/User_Documentation_fr_Concepts_BPMN_dans_Modelio_3_7.html" label="Concepts BPMN dans Modelio">		<topic comment="entry" href="html/User_Documentation_fr_Concepts_BPMN_dans_Modelio_3_7.html#HBPMNBehavior" label="BPMNBehavior"></topic>
+		<topic comment="entry" href="html/User_Documentation_fr_Concepts_BPMN_dans_Modelio_3_7.html#HBPMNProcess" label="BPMNProcess"></topic>
+		<topic comment="entry" href="html/User_Documentation_fr_Concepts_BPMN_dans_Modelio_3_7.html#HBPMNParticipant" label="BPMNParticipant"></topic>
+		<topic comment="entry" href="html/User_Documentation_fr_Concepts_BPMN_dans_Modelio_3_7.html#HBPMNMessageFlow" label="BPMNMessageFlow"></topic>
+
+	</topic>
+	<topic comment="entry" href="html/User_Documentation_fr_BPMN_Model_Browser.html" label="Explorateur de modèle BPMN"></topic>
+	<topic comment="sub_start" href="html/User_Documentation_fr_BPMN_Diagrams.html" label="Diagrammes BPMN">		<topic comment="entry" href="html/User_Documentation_fr_BPMN_Diagrams_Collaboration_diagram.html" label="Diagramme de Collaboration"></topic>
+		<topic comment="entry" href="html/User_Documentation_fr_BPMN_Diagrams_Process_diagram.html" label="Diagramme de Process"></topic>
+		<topic comment="entry" href="html/User_Documentation_fr_BPMN_Diagrams_SubProcess_diagram.html" label="Diagramme de SubProcess"></topic>
+		<topic comment="entry" href="html/User_Documentation_fr_BPMN_Diagrams_Creation_de_workflow_avancee.html" label="Création de workflow avancée"></topic>
+
+	</topic>
+	<topic comment="sub_start" href="html/User_Documentation_fr_Importing_and_exporting_models.html" label="Import et export BPMN">		<topic comment="entry" href="html/User_Documentation_fr_Importing_and_exporting_models_Importer_un_modele_BPMN.html" label="Importer un modèle BPMN"></topic>
+		<topic comment="entry" href="html/User_Documentation_fr_Importing_and_exporting_models_Exporter_un_modele_BPMN.html" label="Exporter un modèle BPMN"></topic>
+
+	</topic>
+</toc>

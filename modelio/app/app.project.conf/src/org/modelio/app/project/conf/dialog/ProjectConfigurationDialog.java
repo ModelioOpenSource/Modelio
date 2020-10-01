@@ -37,9 +37,9 @@ import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.core.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.gproject.gproject.GProject;
-import org.modelio.ui.dialog.ModelioDialog;
+import org.modelio.platform.rcp.extensionpoint.ExtensionPointContributionManager;
+import org.modelio.platform.ui.dialog.ModelioDialog;
 
 /**
  * Project configuration dialog box.

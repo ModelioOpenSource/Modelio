@@ -1,0 +1,523 @@
+/* CSS Document */
+
+html {
+	font-size: 100%;
+}
+
+html, body {
+  height:100%;
+  margin: 0;
+  padding: 0;
+}
+
+object {
+  width: 600px;
+  height: auto;
+}
+body {
+  background-color: #ebebeb;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ color: rgba(0, 0, 140, 1);
+}
+
+a, a:hover {
+  /*color: rgba(0, 0, 140, 1);*/
+}
+
+a:visited {
+}
+
+img {
+  border: none;
+}
+
+a img {
+  border: none;
+}
+
+a.openImage {
+  float:right;
+}
+
+#container {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, "Bitstream Vera Sans", "Lucida Grande", sans-serif;
+  font-size: 10pt;
+  color: rgba(102, 109, 146, 1);
+}
+
+#content {
+  width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+div #page {
+  white-space: pre-wrap;
+}
+
+div #tableContainer {
+  overflow:auto;
+}
+
+#header {
+  height: 85px;
+  background-image: url(img/banner-white.png);
+  background-repeat: no-repeat;
+  background-position: left top;
+  border-top: 1px solid rgba(0, 0, 140, 1);
+  border-bottom: 1px solid rgba(0, 0, 140, 1);
+}
+
+#header #logo {
+  position: relative;
+  top: 15px;
+  padding-left: 30px;
+}
+
+#header h1.documentTitle {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  padding-left: 250px;
+  bottom: 40px;
+  color: white;
+  width: 650px;
+}
+
+#header h2.documentType {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  padding-left: 250px;
+  bottom: 40px;
+  color: white;
+  width: 650px;
+}
+
+#navbar {
+  width: 100%
+  height: 45px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+#navbar ul {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  left: 0;
+  overflow: hidden;
+}
+
+#navbar ul li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  width: 33%;
+  float: left;
+}
+
+#navbar ul li.disable {
+  color: #aaa;
+}
+
+#navbar ul li a {
+  text-decoration:none;
+  color: rgba(0, 0, 140, 1);
+}
+
+#navbar ul li a:hover {
+  text-decoration: underline;
+}
+
+#navbar ul li#prev {
+  text-align: left;
+}
+
+#navbar ul li#next {
+  text-align: right;
+}
+
+#navbar ul li#home {
+  text-align: center;
+}
+
+#sidebar {
+   width: 200px;
+   float: left;
+   padding: 10px;
+}
+
+.spacer {
+  clear: both;
+}
+
+#mainArea {
+   padding: 30px;
+   padding-left: 250px;
+}
+
+#page {
+   padding-top: 25px;
+}
+
+#footer {
+  margin: 20px auto;
+  padding-top: 25px;
+  text-align: center;
+  width:100%;
+  border-top: 1px solid #ccc;
+  font-family: helvetica;
+  font-size: 8pt;
+  color: rgba(102, 109, 146, 1);
+}
+
+#footer a {
+  /*color: #999;*/
+}
+
+#docProps {
+  font-size: 11px;
+  margin:0;
+  padding:5px;
+  list-style-type: none;
+}
+
+#docProps li.property {
+  padding-top: 5px;
+  font-weight: bold;
+  color: rgba(0, 0, 140, 1);
+
+}
+
+#docProps li.value {
+  color: rgba(102, 109, 146, 1);
+}
+
+#shortcuts {
+  margin:0;
+  padding-top:10px;
+  padding-left:20px;
+}
+
+#shortcuts li {
+  font-size: 11px;
+  padding-bottom: 5px;
+  list-style-image: url(img/arrow.png);
+
+}
+
+#shortcuts li a {
+  color: rgba(102, 109, 146, 1);
+  text-decoration: none;
+}
+
+#shortcuts li a:hover {
+  color: rgba(102, 109, 146, 1);
+  text-decoration: underline;
+}
+
+#home {
+  margin-left: 0;
+  padding-left: 20px;
+}
+
+#home li {
+  padding-bottom: 5px;
+}
+
+#home li.section {
+  padding-top: 10px;
+  font-weight: bold;
+  color: rgba(0, 0, 140, 1);
+}
+
+#home li.section a {
+  color: rgba(0, 0, 140, 1);
+}
+
+#home li a {
+  color: rgba(102, 109, 146, 1);
+  text-decoration: none;
+}
+
+#home li a:hover {
+  text-decoration: underline;
+}
+
+.sideTitle {
+  margin:30px 5px 0 5px;
+  padding:0;
+  border-bottom: 1px solid #ccc;
+}
+
+.clear {
+  clear: both;
+}
+
+caption {
+  caption-side:bottom;
+}
+
+table.ListeclaireAccent1 {
+   margin-top:10px;
+   margin-left: 20px;
+   font-size: 11px;
+   color: rgba(102, 109, 146, 1);
+   width: 90%;
+   border: 1px solid #999;
+}
+
+table.ListeclaireAccent1 tr th {
+   font-size: 11px;
+   color: #fff;
+   background-color: rgba(0, 0, 140, 1);
+   padding: 3px;
+}
+
+table.ListeclaireAccent1 td {
+   padding: 5px;
+}
+
+table.ListeclaireAccent1 tr.even{
+
+}
+
+table.ListeclaireAccent1 tr.odd{
+	background-color: #ddd;
+}
+
+table.TableauNormal {
+width: 100%;
+caption-side: top;
+}
+
+table.Grilledutableau {
+width: 100%;
+caption-side: top;
+border-collapse: collapse;
+border-spacing: 0pt;
+border-style: solid;
+border-width: 1pt;
+}
+
+table.Tramemoyenne1Accent1 {
+width: 100%;
+caption-side: top;
+border-collapse: collapse;
+border-spacing: 0pt;
+border-style: solid;
+border-width: 2pt; /* les bordures de cellules l'emporteraient si celles du tableau avaient la meme epaisseur*/
+border-color: rgba(0, 0, 140, 1);
+}
+
+table.Tramemoyenne1Accent1 th{
+padding: 2pt;
+font-style: bold;
+color: white;
+background-color: rgba(0, 0, 140, 1);
+border-right-style: solid;
+border-right-width: 1pt;
+border-right-color: gray;
+}
+
+table.Tramemoyenne1Accent1 td{
+padding: 0pt;
+font-style: normal;
+border-bottom-style: solid;
+border-bottom-width: 1pt;
+border-bottom-color: gray;
+border-right-style: solid;
+border-right-width: 1pt;
+border-right-color: gray;
+}
+
+table.TrameclaireAccent1 {
+width: 100%;
+caption-side: top;
+border-collapse: collapse;
+border-spacing: 0pt;
+border-style: solid;
+border-color: rgba(0, 0, 140, 1);
+border-top-width: 1pt;
+border-bottom-width: 1pt;
+border-right-width: 0pt;
+border-left-width: 0pt;
+}
+
+table.TrameclaireAccent1 th{
+padding: 1pt;
+font-style: bold;
+color: rgba(0, 0, 100, 1);
+border-bottom-style: solid;
+border-bottom-width: 1pt;
+border-bottom-color: rgba(0, 0, 140, 1);
+}
+
+table.TrameclaireAccent1 tr.even{
+  color: rgba(0, 0, 100, 1);
+  background-color: rgba(140, 142, 232, 0.40);
+}
+
+table.TrameclaireAccent1 tr.odd{
+  color: rgba(0, 0, 100, 1);
+}
+
+div.Titre1 {
+  padding-top: 25px;
+  color: rgba(0, 0, 140, 1);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+div.Titre2 {
+  padding-top: 30px;
+  color: rgba(0, 0, 140, 1);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+div.Titre3 {
+  padding-top: 30px;
+  color: rgba(0, 0, 140, 1);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+div.Titre4 {
+  padding-top: 30px;
+  color: rgba(0, 0, 140, 1);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Titre5 {
+  padding-top: 30px;
+  color: rgba(0, 0, 140, 1);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Titre6 {
+  padding-top: 30px;
+  color: rgba(0, 0, 140, 1);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Titre7 {
+  padding-top: 30px;
+  color: rgba(0, 0, 140, 1);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Titre8 {
+  padding-top: 30px;
+  color: rgba(0, 0, 140, 1);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Titre9 {
+  padding-top: 30px;
+  color: rgba(0, 0, 140, 1);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Soustitre {
+  padding-top: 20px;
+  color: rgba(0, 0, 140, 1);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+div.Sansinterligne {
+  color: rgba(102, 109, 146, 1);
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.Emphaseple {
+font-style: italic;
+color: #999999;
+}
+
+div.Legende {
+  margin-top: 15px;
+  color: #333;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+#page img {
+  margin-top: 20px;
+}
+
+#page table img {
+  margin-top: 0
+}
+
+#home img {
+  vertical-align: bottom;
+  margin-top: 0px;
+}
+
+li {
+ list-style-type: none;
+ background-image: none;
+ background-repeat: no-repeat;
+ background-position: 0 0.32em;
+ padding-left: 15px;
+}
+
+#browser {
+  margin-left: 0;
+  padding-left: 3px;
+}
+
+#browser li {
+  padding-bottom: 2px;
+}
+
+#browser ul {
+  padding-left: 20px;
+}
+
+#browser li.section {
+  padding-top: 1px;
+  color: rgba(102, 109, 146, 1);
+}
+
+#browser li a {
+  color: rgba(102, 109, 146, 1);
+  text-decoration: none;
+}
+
+#browser li a:hover {
+  text-decoration: underline;
+}
+
+#browser img {
+  vertical-align: bottom;
+  margin-top: 0px;
+  margin-right: 1px;
+}
+
+#sidebar #browser {
+  display: block;
+  overflow:hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+}

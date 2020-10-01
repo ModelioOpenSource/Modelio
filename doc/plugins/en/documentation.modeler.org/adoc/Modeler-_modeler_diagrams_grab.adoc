@@ -1,0 +1,17 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Using-the-grab-function]]
+
+[[using-the-grab-function]]
+= Using the grab function
+
+The "Grab" function is used to move the entire contents of a diagram, without having to select each element.
+
+To use the "Grab" function, simply carry out the following steps:
+
+* Click inside the diagram whose contents you want to grab and move.
+* Hold down the mouse wheel button until you see the small image:images/Modeler-_modeler_diagrams_grab_grab_hand.png[2] hand icon appear.
+* Still holding down the right mouse button, drag the image:images/Modeler-_modeler_diagrams_grab_grab_hand.png[2] hand within the graphic editor. The entire contents of the diagram are then moved to wherever you move the mouse.
+
+

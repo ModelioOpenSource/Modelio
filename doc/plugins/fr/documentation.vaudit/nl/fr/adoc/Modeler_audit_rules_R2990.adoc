@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2990]]
+
+[[r2990]]
+= R2990
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Dependency_ de type «guarantee» doit aller d'un _Requirement_ vers un _Goal_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Dependency_ de type «guarantee» indique que la satisfaction d'une Exigence permet de garantir l'accomplissement d'un _Goal_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une _Dependency_ de type «guarantee» qui n'est pas entre un _Requirement_ et un _Goal_, vous devriez la supprimer ou la modifier.
+
+

@@ -53,13 +53,13 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.api.module.IModule;
 import org.modelio.app.ramcs.plugin.AppRamcs;
-import org.modelio.core.ui.swt.images.BasicModelElementLabelProvider;
 import org.modelio.gproject.ramc.core.model.ModelComponent;
 import org.modelio.gproject.ramc.core.packaging.IModelComponentContributor.ExportedFileEntry;
-import org.modelio.ui.UIColor;
-import org.modelio.ui.UIImages;
-import org.modelio.ui.dialog.ModelioDialog;
-import org.modelio.ui.htmleditor.HtmlComposer;
+import org.modelio.platform.model.ui.swt.images.BasicModelElementLabelProvider;
+import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.UIImages;
+import org.modelio.platform.ui.dialog.ModelioDialog;
+import org.modelio.platform.ui.htmleditor.HtmlComposer;
 import org.modelio.vbasic.version.Version;
 
 /**
@@ -502,7 +502,7 @@ public class ViewRamcDialog extends ModelioDialog {
         
         Label exportedFileDescription = new Label(area, SWT.WRAP);
         exportedFileDescription.setText(AppRamcs.I18N.getString("EditRamcDialog.ExportedFileDescription"));
-        exportedFileDescription.setForeground(org.modelio.ui.UIColor.LABEL_TIP_FG);
+        exportedFileDescription.setForeground(org.modelio.platform.ui.UIColor.LABEL_TIP_FG);
         final GridData gd_exportedFileDescription = new GridData(SWT.FILL, SWT.UP, true, false, 2, 1);
         exportedFileDescription.setLayoutData(gd_exportedFileDescription);
     }

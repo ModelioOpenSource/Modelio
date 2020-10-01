@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.functions.modules"
          label="Function Modules"
-         version="4.0.1.qualifier"
+         version="4.1.0.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -33,13 +33,19 @@ GPL
 <requires>
 </requires>
 
-<plugin id="org.modelio.api.impl"
+<plugin id="org.modelio.app.api.impl"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.app.modules"
+<plugin id="org.modelio.app.module.catalog"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        fragment="false"
+        unpack="false"/>
+<plugin id="org.modelio.app.module.propertytab"
         download-size="0"
         install-size="0"
         version="0.0.0"
@@ -51,25 +57,19 @@ GPL
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.mda.infra"
+<plugin id="org.modelio.platform.mda.infra"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.module.browser.commands"
+<plugin id="org.modelio.platform.module.browser.commands"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.module.commands"
-        download-size="0"
-        install-size="0"
-        version="0.0.0"
-        fragment="false"
-        unpack="false"/>
-<plugin id="org.modelio.module.propertytab"
+<plugin id="org.modelio.platform.module.commands"
         download-size="0"
         install-size="0"
         version="0.0.0"

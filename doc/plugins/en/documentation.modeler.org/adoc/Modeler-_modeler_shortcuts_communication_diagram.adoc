@@ -1,0 +1,20 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Creation shortcuts in Communication diagrams
+
+Two kind of shortcuts are available:
+
+* to activate a creation tool as if clicking on the diagram palette.
+* to directly create and unmask an element in the diagram.
+
+[%header]
+|===
+2+|Activate creation tool  2+| Created element
+|*Shortcut*|*Activated tool*|*Shortcut*|*Created element*
+|C |Communication node |CTRL-N CTRL-C |Communication node
+|M |Communication message |CTRL-N CTRL-M |Communication message
+|N |Note |CTRL-N CTRL-N |Note
+|SPACE |Channel ||
+|R |Related Diagram ||
+|===

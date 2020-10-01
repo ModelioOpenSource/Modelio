@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.generalization;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("537f865d-60d7-49df-a0f5-0faa2f98dc42")
 public class Implementation {
-    @objid ("04e08e31-5ec0-4396-960f-de74697ca4e2")
+    @objid ("dfbd6694-71b4-4a29-ae4d-0915bd7a46ed")
     public static final String STEREOTYPE_NAME = "implementation";
 
     /**
      * The underlying {@link Generalization} represented by this proxy, never null.
      */
-    @objid ("ff53e72c-bdd2-4709-ac26-58a22913ce22")
+    @objid ("2d4b32a2-88e1-41e6-946b-15f93eeca12d")
     protected final Generalization elt;
 
     /**
-     * Tells whether a {@link Implementation proxy} can be instantiated from a {@link MObject} checking it is a {@link Generalization} stereotyped << implementation >>. 
+     * Tells whether a {@link Implementation proxy} can be instantiated from a {@link MObject} checking it is a {@link Generalization} stereotyped << implementation >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("0ae95a58-c2f1-4de2-bb35-4b6f6f41d979")
+    @objid ("ba0e8a8d-f511-45a7-a941-c497ed36f1b9")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Generalization) && ((Generalization) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Implementation.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Implementation {
      * 
      * @return a {@link Implementation} proxy on the created {@link Generalization}.
      */
-    @objid ("6c6bf91a-a997-4295-ba77-335591e7a65b")
+    @objid ("5cef2585-7c4b-42b5-985e-f5b0327a9679")
     public static Implementation create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Generalization");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Implementation.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Implementation {
     }
 
     /**
-     * Tries to instantiate a {@link Implementation} proxy from a {@link Generalization} stereotyped << implementation >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Implementation} proxy from a {@link Generalization} stereotyped << implementation >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Generalization
      * @return a {@link Implementation} proxy or <i>null</i>.
      */
-    @objid ("52206adc-3508-4294-8928-752f7d4ab06a")
+    @objid ("54e490ae-b4aa-4ec8-9ca7-bdc02d0f65c7")
     public static Implementation instantiate(Generalization obj) {
         return Implementation.canInstantiate(obj) ? new Implementation(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Implementation {
      * @return a {@link Implementation} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("771d5df8-38d2-4513-90a3-41ef0b14b332")
+    @objid ("0b1d2b26-5bad-486d-a7ca-6cfa411297cd")
     public static Implementation safeInstantiate(Generalization obj) throws IllegalArgumentException {
         if (Implementation.canInstantiate(obj))
         	return new Implementation(obj);
@@ -112,7 +112,7 @@ public class Implementation {
         	throw new IllegalArgumentException("Implementation: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("cd082d2d-6541-430d-8932-56aa3efe8c85")
+    @objid ("d3f5476a-2afa-4674-98db-c9cc0797c0f8")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Implementation {
      * Get the underlying {@link Generalization}. 
      * @return the Generalization represented by this proxy, never null.
      */
-    @objid ("be651748-7fd2-447b-96ad-e902f1c364ee")
+    @objid ("5f81d9bf-c5db-4e81-85e6-31c3a66c0de5")
     public Generalization getElement() {
         return this.elt;
     }
 
-    @objid ("aa81c0b5-f81c-425e-ab17-8a465d69ffc5")
+    @objid ("39a155c0-d3b1-4949-bdfe-7f49e606f4f1")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("fd77b5b9-718e-4bb5-ace4-e59c589967f5")
+    @objid ("8194cb04-d8cb-4e49-9f50-910396b20226")
     protected Implementation(Generalization elt) {
         this.elt = elt;
     }
 
     @objid ("38988b48-d6c0-416a-a9ab-c1d8cde9859c")
     public static final class MdaTypes {
-        @objid ("d75ab0e6-1f6d-4543-8834-1abac69232e2")
+        @objid ("8d423656-116c-453a-b0bc-df6f41681054")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("5bf0ab82-a5d0-434c-9f93-477d33c99ecd")
+        @objid ("a6c7b655-caf9-4103-bdb7-97fecb786c32")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("81c9a07f-5c7b-4f26-9326-999e167c1be1")
+        @objid ("f226b812-c64b-41d6-8c89-33fa6543da7e")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("c83b70fc-19f2-4020-b2c6-2d8ee2dac2d1")
+        @objid ("9710cb73-cd7a-458c-8b54-c74b17dfbce3")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01c7-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

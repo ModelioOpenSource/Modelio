@@ -1,0 +1,19 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Umasking-elements-in-diagrams-using-the-drag-and-drop]]
+
+[[umasking-elements-in-diagrams-using-the-drag-and-drop]]
+= Umasking elements in diagrams using the drag and drop
+
+The drag and drop feature enables you to quickly unmask elements in Modelio diagrams by just dragging them from the "Model" view into a diagram, as shown in the example below.
+
+1.  Left-click on the element in the "Model" view.
+2.  Drag the element into the diagram and release the mouse button.
+
+.Unmasking a class in a class diagram using the drag and drop feature
+image::images/Modeler-_modeler_building_models_creating_elements_dragdrop_DiagDragDrop.png[image]
+
+*Note:* You can simultaneously drag and drop several elements into a diagram by just holding down the "*Ctrl*" key, selecting all the elements in question in the "Model" view, and then dragging and dropping them all into the diagram.
+
+

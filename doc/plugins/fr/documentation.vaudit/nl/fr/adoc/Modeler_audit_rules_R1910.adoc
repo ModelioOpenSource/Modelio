@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1910]]
+
+[[r1910]]
+= R1910
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un _Link_ qui instancie une _Association_ doit être cohérent avec les propriétés de cette _Association_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Quand un _Link_ instancie une _Association_, il doit respecter les conditions suivantes :
+
+* Le nom du _Link_ doit correspondre au nom de l'_Association_.
+* Les _LinkEnd_ doivent avoir le même nom de rôle ainsi que les mêmes propriétés que les _AssociationEnd_ correspondantes.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez un lien qui déclenche cette erreur, vérifiez que les conditions ci-dessus sont bien respectées.
+
+

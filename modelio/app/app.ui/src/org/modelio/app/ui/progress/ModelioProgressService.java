@@ -33,7 +33,7 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.ui.progress.IModelioProgressService;
+import org.modelio.platform.ui.progress.IModelioProgressService;
 
 @objid ("6ff6d015-cef6-46ff-95c9-43757b3e5021")
 public class ModelioProgressService implements IModelioProgressService {
@@ -60,7 +60,7 @@ public class ModelioProgressService implements IModelioProgressService {
 
     @objid ("c888ca11-2955-45ac-9e27-e56ff8390225")
     @Override
-    public void runInUI(IRunnableContext context, IRunnableWithProgress runnable, ISchedulingRule rule) throws InterruptedException, InvocationTargetException {
+    public void runInUI(IRunnableContext context, IRunnableWithProgress runnable, ISchedulingRule rule) throws InvocationTargetException, InterruptedException {
         throw new UnsupportedOperationException();
     }
 
@@ -72,13 +72,13 @@ public class ModelioProgressService implements IModelioProgressService {
 
     @objid ("f287cf0c-5221-497f-b85e-aa20dd4cde08")
     @Override
-    public void busyCursorWhile(IRunnableWithProgress runnable) throws InterruptedException, InvocationTargetException {
+    public void busyCursorWhile(IRunnableWithProgress runnable) throws InvocationTargetException, InterruptedException {
         new ProgressMonitorDialog(this.activeShell).run(true, false, runnable);
     }
 
     @objid ("1692c6ed-bf2e-4e12-b0d7-1fd8e588d5a7")
     @Override
-    public void run(boolean fork, boolean cancelable, IRunnableWithProgress runnable) throws InterruptedException, InvocationTargetException {
+    public void run(boolean fork, boolean cancelable, IRunnableWithProgress runnable) throws InvocationTargetException, InterruptedException {
         new ProgressMonitorDialog(this.activeShell).run(fork, cancelable, runnable);
     }
 
@@ -90,7 +90,7 @@ public class ModelioProgressService implements IModelioProgressService {
 
     @objid ("25c8601f-8b6e-4742-9d25-9c5693106b17")
     @Override
-    public void run(final String title, boolean fork, boolean cancelable, IRunnableWithProgress runnable) throws InterruptedException, InvocationTargetException {
+    public void run(final String title, boolean fork, boolean cancelable, IRunnableWithProgress runnable) throws InvocationTargetException, InterruptedException {
         new ProgressMonitorDialog(this.activeShell) {
             @Override
             protected void configureShell(Shell shell) {

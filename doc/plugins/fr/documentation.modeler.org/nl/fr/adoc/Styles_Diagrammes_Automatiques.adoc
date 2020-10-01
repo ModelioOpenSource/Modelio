@@ -1,0 +1,16 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Styles-dans-les-diagrammes-automatiques]]
+
+[[styles-dans-les-diagrammes-automatiques]]
+= Styles dans les diagrammes automatiques
+
+Tous les éléménts apparaissant dans les diagrammes automatiques ont un style spécifique indiquant leur placement au sein du projet :
+
+* "main" pour l'élement central du diagramme.
+* "intern" pour les éléments appartenant au même package que C.
+* "extern" pour les éléments appartenant à un autre package que C.
+* "ramc" pour les éléments issus d'un composant de modèle.
+
+

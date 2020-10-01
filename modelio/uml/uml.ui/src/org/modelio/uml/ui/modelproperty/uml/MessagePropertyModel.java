@@ -25,11 +25,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.core.ui.nattable.parts.data.INatValue;
-import org.modelio.core.ui.nattable.parts.data.element.choice.DefaultElementChoiceNatValue;
-import org.modelio.core.ui.nattable.parts.data.element.single.DefaultElementNatValue;
-import org.modelio.core.ui.nattable.parts.data.string.single.DefaultStringNatValue;
-import org.modelio.core.ui.nattable.viewer.model.AbstractPropertyModel;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
 import org.modelio.metamodel.uml.behavior.interactionModel.Lifeline;
 import org.modelio.metamodel.uml.behavior.interactionModel.Message;
@@ -45,6 +40,11 @@ import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.Port;
 import org.modelio.metamodel.uml.statik.ProvidedInterface;
+import org.modelio.platform.model.ui.nattable.parts.data.INatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.element.choice.DefaultElementChoiceNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.element.single.DefaultElementNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.string.single.DefaultStringNatValue;
+import org.modelio.platform.model.ui.nattable.viewer.model.AbstractPropertyModel;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**

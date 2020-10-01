@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
@@ -54,56 +54,56 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("1bf51965-5dac-4916-b9d3-02840b74e53a")
 public class HomonymExpert implements IMdaExpert {
-    @objid ("fb67bca4-5919-482f-bb7e-a1604b7ab4a7")
+    @objid ("675ac7ad-bc63-491c-a153-f0dfe9a7013e")
     @Override
     public boolean canSource(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return (fromMetaclass.hasBase(metamodel.getMClass("Analyst.Term")));
     }
 
-    @objid ("0163fa75-2b9e-4aa3-957a-e9965c18d2dd")
+    @objid ("528e4f5b-757a-4b95-9115-b82f067e9d72")
     @Override
     public boolean canSource(Stereotype linkStereotype, MObject linkElement, MObject fromElement) {
         MMetamodel metamodel = linkElement.getMClass().getMetamodel();
         return (fromElement.getMClass().hasBase(metamodel.getMClass("Analyst.Term")));
     }
 
-    @objid ("a80f7cb2-db74-48c8-8ab1-ee5c48d2552a")
+    @objid ("30d08d1d-da7c-44be-b065-cfd7dbe07768")
     @Override
     public boolean canSource(ElementScope linkScope, MObject fromElement) {
         MMetamodel metamodel = linkScope.getMetaclass().getMetamodel();
         return (fromElement.getMClass().hasBase(metamodel.getMClass("Analyst.Term")));
     }
 
-    @objid ("cd7603f6-bf48-4a02-a3f7-ebbf694cd62d")
+    @objid ("ecb553eb-9824-4101-a410-d880bd2b7012")
     @Override
     public boolean canTarget(Stereotype linkStereotype, MClass linkMetaclass, MClass toMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return (toMetaclass.hasBase(metamodel.getMClass("Analyst.Term")));
     }
 
-    @objid ("cc76f062-e2bb-4c77-bd8b-84a401319784")
+    @objid ("e1518241-a758-4ecb-a191-3e39f6ee6027")
     @Override
     public boolean canTarget(Stereotype linkStereotype, MObject linkElement, MObject toElement) {
         MMetamodel metamodel = linkElement.getMClass().getMetamodel();
         return (toElement.getMClass().hasBase(metamodel.getMClass("Analyst.Term")));
     }
 
-    @objid ("df95ea40-95e2-4b7e-963c-807954cb46b1")
+    @objid ("a0127400-d2fc-426e-9c88-b5a0bc6a78fd")
     @Override
     public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass, MClass toMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return ((fromMetaclass.hasBase(metamodel.getMClass("Analyst.Term"))) && (toMetaclass.hasBase(metamodel.getMClass("Analyst.Term"))));
     }
 
-    @objid ("70c5e3cd-a8ad-4c53-8d54-702c9b48e742")
+    @objid ("5a9f6292-772a-4c1a-8d7a-8d2c3eae163d")
     @Override
     public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MObject fromElement, MObject toElement) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return ((fromElement.getMClass().hasBase(metamodel.getMClass("Analyst.Term"))) && (toElement.getMClass().hasBase(metamodel.getMClass("Analyst.Term"))));
     }
 
-    @objid ("7056082a-75ed-456c-a993-0faa637e4a29")
+    @objid ("d8802451-46fc-4073-8191-7e72204cf76e")
     @Override
     public Collection<MClass> getPossibleSourceMetaclasses(Stereotype linkStereotype, MClass targetMetaclass) {
         MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
@@ -116,7 +116,7 @@ public class HomonymExpert implements IMdaExpert {
         return metaclasses;
     }
 
-    @objid ("85527b82-b3c6-40e6-b268-08f2359a4808")
+    @objid ("049ffc00-8d68-4627-9e66-5eda1166589d")
     @Override
     public Collection<MClass> getPossibleTargetMetaclasses(Stereotype linkStereotype, MClass sourceMetaclass) {
         MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
@@ -129,7 +129,7 @@ public class HomonymExpert implements IMdaExpert {
         return metaclasses;
     }
 
-    @objid ("91230f87-a5a5-4e31-af76-536aa704b349")
+    @objid ("cc08cfe9-f423-4301-8012-bf98a3574b17")
     @Override
     public boolean isMultiple(Stereotype linkStereotype) {
         return false;

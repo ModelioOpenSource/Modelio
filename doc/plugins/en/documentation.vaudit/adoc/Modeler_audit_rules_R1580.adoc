@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1580]]
+
+[[r1580]]
+= R1580
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+_Attributes_, _Associations_ and _Operations_ cannot simultaneously be _abstract_ and _class_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The '_class_' status of an _Attribute_, _Association_, or _Operation_ makes them static, meaning only one instance can exist at any given time.
+
+The '_abstract_' status, by definition, stipulates that an element cannot be instantiated. The two properties are therefore incompatible and cannot both be true at the same time.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Choose between these two statuses, and set only one of them to true.
+
+

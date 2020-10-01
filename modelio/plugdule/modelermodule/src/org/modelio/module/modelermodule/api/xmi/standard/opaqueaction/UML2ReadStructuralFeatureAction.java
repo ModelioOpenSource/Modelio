@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.opaqueaction;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("2b0053d4-f916-41fb-ae12-2a439d6dce56")
 public class UML2ReadStructuralFeatureAction {
-    @objid ("02b98873-2443-4f5b-baf1-4e1fb695225d")
+    @objid ("04e5223f-3a44-4a9c-8bd8-edbc93269f73")
     public static final String STEREOTYPE_NAME = "UML2ReadStructuralFeatureAction";
 
     /**
      * The underlying {@link OpaqueAction} represented by this proxy, never null.
      */
-    @objid ("d29ddacd-2b89-4650-b6be-70d065ac5c19")
+    @objid ("798a9fbb-c878-47f6-be8e-49cb43e01974")
     protected final OpaqueAction elt;
 
     /**
-     * Tells whether a {@link UML2ReadStructuralFeatureAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2ReadStructuralFeatureAction >>. 
+     * Tells whether a {@link UML2ReadStructuralFeatureAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2ReadStructuralFeatureAction >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("9b982f78-0869-4836-ad39-c2f3e0d496ab")
+    @objid ("c6f5f3a5-0d6a-45d3-b258-9b97dfabad5a")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof OpaqueAction) && ((OpaqueAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ReadStructuralFeatureAction.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2ReadStructuralFeatureAction {
      * 
      * @return a {@link UML2ReadStructuralFeatureAction} proxy on the created {@link OpaqueAction}.
      */
-    @objid ("8d15e30d-93c4-4ef4-a308-cf73359c8e88")
+    @objid ("142c7090-19f9-4b3f-9b50-3c2769158099")
     public static UML2ReadStructuralFeatureAction create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("OpaqueAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ReadStructuralFeatureAction.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2ReadStructuralFeatureAction {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ReadStructuralFeatureAction} proxy from a {@link OpaqueAction} stereotyped << UML2ReadStructuralFeatureAction >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ReadStructuralFeatureAction} proxy from a {@link OpaqueAction} stereotyped << UML2ReadStructuralFeatureAction >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a OpaqueAction
      * @return a {@link UML2ReadStructuralFeatureAction} proxy or <i>null</i>.
      */
-    @objid ("5670eb82-d5b1-4f43-af93-b4d4c64a6c79")
+    @objid ("f25d4ebe-7a70-457f-8bda-4a61b9c1548f")
     public static UML2ReadStructuralFeatureAction instantiate(OpaqueAction obj) {
         return UML2ReadStructuralFeatureAction.canInstantiate(obj) ? new UML2ReadStructuralFeatureAction(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2ReadStructuralFeatureAction {
      * @return a {@link UML2ReadStructuralFeatureAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("4a9fe9c2-971f-4648-9db4-8b633fbfa7bb")
+    @objid ("93281b95-3a77-4802-9afa-f53ee3c1fc74")
     public static UML2ReadStructuralFeatureAction safeInstantiate(OpaqueAction obj) throws IllegalArgumentException {
         if (UML2ReadStructuralFeatureAction.canInstantiate(obj))
         	return new UML2ReadStructuralFeatureAction(obj);
@@ -112,7 +112,7 @@ public class UML2ReadStructuralFeatureAction {
         	throw new IllegalArgumentException("UML2ReadStructuralFeatureAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("a92afc6e-dd9f-4f0d-8640-70195c9a68d6")
+    @objid ("eae02832-e105-4591-ab40-e7ba79708d54")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2ReadStructuralFeatureAction {
      * Get the underlying {@link OpaqueAction}. 
      * @return the OpaqueAction represented by this proxy, never null.
      */
-    @objid ("80b6f89c-4031-45a7-888f-e4189b318791")
+    @objid ("1fc92c8a-8bb6-4b1d-aa1f-d8ec42ea749a")
     public OpaqueAction getElement() {
         return this.elt;
     }
 
-    @objid ("8ec17c49-7878-4774-8038-68a4d534b501")
+    @objid ("6cadb792-1ee8-47e3-8fe1-df237406b351")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("e3ce96b3-4667-48bb-8834-a74aa117de30")
+    @objid ("23febffb-0694-446a-adc6-3edd820510bd")
     protected UML2ReadStructuralFeatureAction(OpaqueAction elt) {
         this.elt = elt;
     }
 
     @objid ("e8682448-1fad-44d6-88fd-6b31e1005623")
     public static final class MdaTypes {
-        @objid ("55fad0a3-88d8-48c1-b924-54633d0d90d0")
+        @objid ("6fe7222e-9888-4640-9bb7-7cb8f8a40bdf")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("6395d8de-26f9-4f7d-8fff-cc77da97172c")
+        @objid ("ef584a69-892a-48d4-b10e-c309898034a6")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("cb4d398d-b288-49e6-99a1-8a07413ab306")
+        @objid ("03ad9a27-8339-4808-aab9-001524e7b223")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("7b4c8e5b-138b-4829-b32e-ba7c802bf4d5")
+        @objid ("3949cc5c-ed2d-4649-b14d-b49c5281dd49")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "b9654705-c2f9-11de-8ac8-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

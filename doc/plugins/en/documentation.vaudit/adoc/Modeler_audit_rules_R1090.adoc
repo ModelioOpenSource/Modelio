@@ -1,0 +1,38 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1090]]
+
+[[r1090]]
+= R1090
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _Classifier_ represented by a sub _ActivityPartition_ must be a nested _Classifier_ or the contained end of a strong composition association of the super _ActivityPartition_'s represented _Classifier_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+If a non-external _ActivityPartition_ represents a _Classifier_ and is contained in another _ActivityPartition_, then the containing _ActivityPartition_ must represent a _Classifier_, and the _Classifier_ of the sub _ActivityPartition_ must be nested in the _Classifier_ represented by the containing _ActivityPartition_, or be at the contained end of a strong composition association with the _Classifier_ represented by the containing _ActivityPartition_.
+
+Example:
+
+image::images/Modeler_audit_rules_R1090_modeler_fig_1090.gif[image]
+
+* The "IT *Development*" _ActivityPartition_ is valid because it represents the "*ITDeveloper*" _Classifier_, which is a nested _Classifier_ of the "*ITService*" _Classifier_.
+* The "*Development*" _ActivityPartition_ is valid because it represents the "*Developer*" _Classifier_, which is at the end of a strong composition association of the "*ITService*" _Classifier_. Note that any other association would make the rule invalid.
+* The "*Management*" _ActivityPartition_ is invalid because it represents the "*RHManager*" _Classifier_, which has nothing to do with the "*ITService*" _Classifier_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Getting an R1090 error indicates an inconsistency between the organization of the _ActivityPartitions_ and the structure of the _Classifiers_ they represent. The solution usually implies the reorganization of the _ActivityPartitions_ to respect the design expressed by the structure of the represented _Classifiers,_ or the modification of the design of the represented _Classifiers_ so they respect the responsibility scheme expressed by the organization of the _ActivityPartitions_.
+
+

@@ -1,0 +1,4 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= ModelioBPMNConcepts

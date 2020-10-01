@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.constraint;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("068acec6-4e04-4c0c-b2a6-986644ad0778")
 public class Xor {
-    @objid ("5fc29307-f4b3-4971-9e32-8480688c5a29")
+    @objid ("0a1a3ad8-6551-4f75-8600-01761c484c2e")
     public static final String STEREOTYPE_NAME = "xor";
 
     /**
      * The underlying {@link Constraint} represented by this proxy, never null.
      */
-    @objid ("3e082bb8-4c09-49f3-a138-e82ccc0bebfe")
+    @objid ("ce43a752-1e96-4cf1-8b2e-e18cd18a0228")
     protected final Constraint elt;
 
     /**
-     * Tells whether a {@link Xor proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << xor >>. 
+     * Tells whether a {@link Xor proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << xor >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("e809e8c9-86f7-48ab-9f23-9c3b8a29f062")
+    @objid ("24e7c369-fda1-42d5-8072-48bd666db9c9")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Constraint) && ((Constraint) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Xor.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Xor {
      * 
      * @return a {@link Xor} proxy on the created {@link Constraint}.
      */
-    @objid ("9afd55af-ad67-45ba-a3b4-899cf8558f9d")
+    @objid ("3395e502-8e90-41a4-95c1-9e353c538d5b")
     public static Xor create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Constraint");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Xor.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Xor {
     }
 
     /**
-     * Tries to instantiate a {@link Xor} proxy from a {@link Constraint} stereotyped << xor >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Xor} proxy from a {@link Constraint} stereotyped << xor >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Constraint
      * @return a {@link Xor} proxy or <i>null</i>.
      */
-    @objid ("de5f1391-07c6-4936-b0f9-17e3d87caf39")
+    @objid ("9da30656-ba40-4c18-8b86-edb1a7c80e6f")
     public static Xor instantiate(Constraint obj) {
         return Xor.canInstantiate(obj) ? new Xor(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Xor {
      * @return a {@link Xor} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("30e0e0b9-e057-42b0-ae32-d8152b4fec30")
+    @objid ("55866a1d-4650-461e-b87b-3d46b464fec3")
     public static Xor safeInstantiate(Constraint obj) throws IllegalArgumentException {
         if (Xor.canInstantiate(obj))
         	return new Xor(obj);
@@ -112,7 +112,7 @@ public class Xor {
         	throw new IllegalArgumentException("Xor: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("890dec35-446e-4b56-9f94-a103926b8de4")
+    @objid ("f89a3820-5403-471a-a538-8497ea0f877c")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Xor {
      * Get the underlying {@link Constraint}. 
      * @return the Constraint represented by this proxy, never null.
      */
-    @objid ("79f171d1-effb-4604-ab62-f254f3b66298")
+    @objid ("10c91b02-ed04-4595-95f3-6839eb087a85")
     public Constraint getElement() {
         return this.elt;
     }
 
-    @objid ("851fc00a-eb94-4dfd-a24f-059a859967d2")
+    @objid ("72f452c3-9948-47c8-b92f-7e10e0b7bd96")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("b1150880-0578-4ecd-8fd7-94942cf78744")
+    @objid ("db3edc9a-7f96-4ce4-b1f5-43d653264506")
     protected Xor(Constraint elt) {
         this.elt = elt;
     }
 
     @objid ("883eb518-ea9f-4c9d-a048-324ca600d764")
     public static final class MdaTypes {
-        @objid ("ab603cd2-7352-437d-b0f2-71e0c89a8e69")
+        @objid ("840f0291-24cf-4e41-afc8-d44f68d66167")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("47231c04-c8bc-41fc-984e-462985f1cc96")
+        @objid ("7d0197c6-9a4d-40e5-ac8f-f24122f301fc")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("06ff772d-0d68-4f31-b500-71b2f9d8591d")
+        @objid ("5b3f1617-b83c-4fd7-87ce-b43cb5a85847")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("68e2b540-3829-497d-a06f-ef5befe08867")
+        @objid ("645e6191-f18f-4a4e-9722-f6f4edaca789")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-0200-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

@@ -24,8 +24,8 @@ import java.util.ResourceBundle;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.equinox.log.ExtendedLogService;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.modelio.utils.i18n.BundledMessages;
-import org.modelio.utils.log.writers.PluginLogger;
+import org.modelio.platform.utils.i18n.BundledMessages;
+import org.modelio.platform.utils.log.writers.PluginLogger;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
@@ -38,7 +38,7 @@ public class UmlUiOrg extends AbstractUIPlugin {
      * The plug-in ID
      */
     @objid ("4edbb350-b88b-4e81-86b4-22c284e905d6")
-    public static final String PLUGIN_ID = "org.modelio.uml.ui.ext"; // $NON-NLS-1$
+    public static final String PLUGIN_ID = "org.modelio.uml.ui.ext_org"; // $NON-NLS-1$
 
     @objid ("3ac7b048-2c40-480e-8753-bf17d80da1c9")
     private static BundleContext context;

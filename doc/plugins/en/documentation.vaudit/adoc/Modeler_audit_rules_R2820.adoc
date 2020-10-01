@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2820]]
+
+[[r2820]]
+= R2820
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The target of a transition cannot be an initial vertex.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An initial vertex is a temporary beginning state; it cannot be targeted by a transition.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a transition targeting an initial state, delete it.
+
+

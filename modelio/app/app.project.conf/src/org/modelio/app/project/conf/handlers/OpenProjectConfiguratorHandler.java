@@ -36,9 +36,9 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.app.project.conf.dialog.ProjectConfigurationDialog;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.gproject.gproject.GProject;
-import org.modelio.ui.progress.IModelioProgressService;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.progress.IModelioProgressService;
 import org.modelio.vbasic.files.FileUtils;
 
 /**
@@ -86,7 +86,7 @@ public class OpenProjectConfiguratorHandler {
     }
 
     @objid ("be8412e8-51a9-4f98-b6ee-6ce3df733435")
-    private void saveProject(IModelioProgressService svc, final IProjectService projectService) throws InterruptedException, InvocationTargetException {
+    private void saveProject(IModelioProgressService svc, final IProjectService projectService) throws InvocationTargetException, InterruptedException {
         IRunnableWithProgress runnable = new IRunnableWithProgress() {
         
             @Override

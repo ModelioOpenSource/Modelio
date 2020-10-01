@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1870]]
+
+[[r1870]]
+= R1870
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _Interface_ should not be implemented twice by the same _Class_ or the same _Component_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+For an element to have more than one implements link towards an _Interface_ makes no sense in UML.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Remove all spare implementation links.
+
+

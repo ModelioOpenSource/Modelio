@@ -39,13 +39,13 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.api.modelio.diagram.IDiagramService;
 import org.modelio.api.module.context.IModuleContext;
-import org.modelio.app.core.project.ICurrentProjectService;
 import org.modelio.bpmnxml.exporter.service.BPMNExportService;
 import org.modelio.bpmnxml.plugin.BPMNXml;
-import org.modelio.core.ui.swt.SelectionHelper;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.platform.core.project.ICurrentProjectService;
+import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("8edc3ebf-97b2-4b32-af09-7a94944ea277")

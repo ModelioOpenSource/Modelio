@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2790]]
+
+[[r2790]]
+= R2790
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+Transitions from one region to another, in the same enclosing state, are forbidden.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Regions in a state are concurrent flows, therefore there cannot be any transitions between these regions.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a transition between two regions of the same state, remove it.
+
+

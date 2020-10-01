@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("6d0ae6b5-5de2-44ca-873b-f025f26616a4")
 public class TestPropertyset {
-    @objid ("bab9fa43-7fe9-4004-b437-5510d78447ef")
+    @objid ("aa298694-c593-4874-9ef4-69441e0f8621")
     public static final String STEREOTYPE_NAME = "test_propertyset";
 
     /**
      * The underlying {@link PropertyTableDefinition} represented by this proxy, never null.
      */
-    @objid ("01bf3810-890b-4620-be36-f14799c83fe9")
+    @objid ("3308ab0c-d63b-4e46-bf75-fead2feb2409")
     protected final PropertyTableDefinition elt;
 
     /**
-     * Tells whether a {@link TestPropertyset proxy} can be instantiated from a {@link MObject} checking it is a {@link PropertyTableDefinition} stereotyped << test_propertyset >>. 
+     * Tells whether a {@link TestPropertyset proxy} can be instantiated from a {@link MObject} checking it is a {@link PropertyTableDefinition} stereotyped << test_propertyset >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("32a550aa-1624-42b5-baa2-0b3841c96fb2")
+    @objid ("5dcd1a57-41d5-41fe-857c-639a69aa27d9")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof PropertyTableDefinition) && ((PropertyTableDefinition) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, TestPropertyset.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class TestPropertyset {
      * 
      * @return a {@link TestPropertyset} proxy on the created {@link PropertyTableDefinition}.
      */
-    @objid ("6bf2198a-66cb-4220-8094-7df4ce306bb3")
+    @objid ("896bfe6d-e310-41d6-9bb2-02f2f0c8f9b1")
     public static TestPropertyset create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("PropertyTableDefinition");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, TestPropertyset.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class TestPropertyset {
     }
 
     /**
-     * Tries to instantiate a {@link TestPropertyset} proxy from a {@link PropertyTableDefinition} stereotyped << test_propertyset >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link TestPropertyset} proxy from a {@link PropertyTableDefinition} stereotyped << test_propertyset >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a PropertyTableDefinition
      * @return a {@link TestPropertyset} proxy or <i>null</i>.
      */
-    @objid ("ff22acad-56ac-48d6-9b37-6a89627681f0")
+    @objid ("7292949c-9112-41b2-9c25-3196bde7f9ac")
     public static TestPropertyset instantiate(PropertyTableDefinition obj) {
         return TestPropertyset.canInstantiate(obj) ? new TestPropertyset(obj) : null;
     }
@@ -103,7 +103,7 @@ public class TestPropertyset {
      * @return a {@link TestPropertyset} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("52b4e5db-0b73-467b-917f-992fb65c67ab")
+    @objid ("251ee5bf-29ab-475c-b0e0-b2db607dc698")
     public static TestPropertyset safeInstantiate(PropertyTableDefinition obj) throws IllegalArgumentException {
         if (TestPropertyset.canInstantiate(obj))
         	return new TestPropertyset(obj);
@@ -111,7 +111,7 @@ public class TestPropertyset {
         	throw new IllegalArgumentException("TestPropertyset: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("c98f3228-3aef-46c2-a806-f19cc361c1c5")
+    @objid ("f25349f6-168e-4519-916b-a2a7c95f3d19")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class TestPropertyset {
      * Get the underlying {@link PropertyTableDefinition}. 
      * @return the PropertyTableDefinition represented by this proxy, never null.
      */
-    @objid ("18c55c16-f066-44c6-8894-85a738ab8a6a")
+    @objid ("914c3e62-f567-457f-91aa-15fdc746f81d")
     public PropertyTableDefinition getElement() {
         return this.elt;
     }
 
-    @objid ("79314e0e-8f02-409a-96d2-4d97e0a16050")
+    @objid ("47af45e5-d197-4cab-8500-29ee55aa908b")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("15688628-f7c6-4e82-a64d-71cb75bcf761")
+    @objid ("dd0151b2-9482-433c-9c0a-8e43fd589f4e")
     protected TestPropertyset(PropertyTableDefinition elt) {
         this.elt = elt;
     }
 
     @objid ("ba30c140-5731-4627-af12-930f1598286d")
     public static final class MdaTypes {
-        @objid ("d52e9932-621a-438e-8ce5-c01108e3d311")
+        @objid ("9d254336-0c7a-42d8-85f9-ecb40adcc969")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("93a6d6f3-44bf-42e3-b816-4db2994d30c9")
+        @objid ("9bd68b03-569f-409a-9343-18f9c0797f59")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("decd83e3-b4e6-4e7e-ad45-2638a48c9d11")
+        @objid ("eb6ec6c7-d1dc-44c8-b5e0-becd15fc43d8")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("d5a885d3-ee94-4c0f-8c71-6a6401d8cd42")
+        @objid ("7e407912-7d55-4403-aa85-65fa3a46e5ee")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "859f8b76-5acc-4a9c-a5eb-973467388b13");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

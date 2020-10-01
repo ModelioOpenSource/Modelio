@@ -1,0 +1,701 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='e4tools/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1482397509183'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='18'>
+    <unit id='org.eclipse.e4.tools.services.source' version='4.5.0.v20160503-0947' singleton='false'>
+      <update id='org.eclipse.e4.tools.services.source' range='[0.0.0,4.5.0.v20160503-0947)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.bundleVendor' value='Eclipse.org'/>
+        <property name='df_LT.bundleName' value='Services Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.services.source' version='4.5.0.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools.services.source' version='4.5.0.v20160503-0947'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.services.source' version='4.5.0.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools.services.source&#xA;Bundle-Version: 4.5.0.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.tools.jdt.templates' version='4.5.0.v20160503-0947'>
+      <update id='org.eclipse.e4.tools.jdt.templates' range='[0.0.0,4.5.0.v20160503-0947)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.pluginName' value='e4 JDT code templates'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.jdt.templates' version='4.5.0.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools.jdt.templates' version='4.5.0.v20160503-0947'/>
+        <provided namespace='java.package' name='org.eclipse.e4.internal.tools.jdt.templates' version='0.12.0.qualifier'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.ui' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.6.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.jdt.templates' version='4.5.0.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools.jdt.templates;singleton:=true&#xA;Bundle-Version: 4.5.0.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.tools.compat' version='4.5.0.v20160503-0947'>
+      <update id='org.eclipse.e4.tools.compat' range='[0.0.0,4.5.0.v20160503-0947)' severity='0'/>
+      <properties size='4'>
+        <property name='df_LT.Bundle-Name' value='Compat'/>
+        <property name='df_LT.Bundle-Vendor' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.compat' version='4.5.0.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools.compat' version='4.5.0.v20160503-0947'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.compat.internal' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.compat.parts' version='0.12.0.qualifier'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='11'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.contexts' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.services' range='0.9.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.services' range='0.9.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.di' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.tools.services' range='0.11.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.css.swt.theme' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.di' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding' range='1.4.0'/>
+        <required namespace='java.package' name='javax.inject' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.compat' version='4.5.0.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools.compat;singleton:=true&#xA;Bundle-Version: 4.5.0.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.tools' version='4.5.0.v20160503-0947'>
+      <update id='org.eclipse.e4.tools' range='[0.0.0,4.5.0.v20160503-0947)' severity='0'/>
+      <properties size='4'>
+        <property name='df_LT.Bundle-Name' value='Tools'/>
+        <property name='df_LT.Bundle-Vendor' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools' version='4.5.0.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools' version='4.5.0.v20160503-0947'/>
+        <provided namespace='java.package' name='org.eclipse.e4.internal.tools' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.internal.tools.wizards.classes' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.internal.tools.wizards.classes.templates' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.internal.tools.wizards.model' version='0.12.0.qualifier'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='16'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.model.workbench' range='0.9.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.launching' range='3.5.100'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding' range='1.3.100'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding.beans' range='1.2.100'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.databinding' range='1.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding.property' range='1.3.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.ui' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='2.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='2.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.pde.core' range='3.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.pde.ui' range='3.8.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools' version='4.5.0.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools;singleton:=true&#xA;Bundle-Version: 4.5.0.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.emf.databinding.edit' version='1.3.0.v20160526-0356'>
+      <update id='org.eclipse.emf.databinding.edit' range='[0.0.0,1.3.0.v20160526-0356)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.pluginName' value='EMF Edit Data Binding'/>
+        <property name='df_LT.providerName' value='Eclipse Modeling Project'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.databinding.edit' version='1.3.0.v20160526-0356'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.emf.databinding.edit' version='1.3.0.v20160526-0356'/>
+        <provided namespace='java.package' name='org.eclipse.emf.databinding.edit' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.databinding' range='[1.3.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.edit' range='[2.12.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding.property' range='[1.2.0,2.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.emf.databinding.edit' version='1.3.0.v20160526-0356'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.emf.databinding.edit;singleton:=true&#xA;Bundle-Version: 1.3.0.v20160526-0356&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.tools.emf.editor3x' version='4.5.0.v20160503-0947'>
+      <update id='org.eclipse.e4.tools.emf.editor3x' range='[0.0.0,4.5.0.v20160503-0947)' severity='0'/>
+      <properties size='4'>
+        <property name='df_LT.Bundle-Name' value='Editor3x'/>
+        <property name='df_LT.Bundle-Vendor' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.emf.editor3x' version='4.5.0.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools.emf.editor3x' version='4.5.0.v20160503-0947'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.editor3x' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.editor3x.emf' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.editor3x.extension' version='0.12.0.qualifier'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='28'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.common' range='2.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding.observable' range='1.3.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.tools.emf.ui' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.workbench' range='0.9.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.css.core' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.css.swt' range='0.9.1'/>
+        <required namespace='osgi.bundle' name='org.w3c.css.sac' range='1.3.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.pde.core' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.css.swt.theme' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.contexts' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.di' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.services' range='0.9.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.edit' range='2.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.services' range='0.9.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.tools.compat' range='0.11.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.tools.services' range='0.11.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.tools' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.ui' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ltk.core.refactoring' range='3.5.200'/>
+        <required namespace='osgi.bundle' name='org.eclipse.search' range='3.7.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.text' range='3.5.100'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.model.workbench' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.pde.ui' range='3.8.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.emf.editor3x' version='4.5.0.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools.emf.editor3x;singleton:=true&#xA;Bundle-Version: 4.5.0.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.tools.emf.ui.source' version='4.5.100.v20160503-0947' singleton='false'>
+      <update id='org.eclipse.e4.tools.emf.ui.source' range='[0.0.0,4.5.100.v20160503-0947)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.bundleVendor' value='Eclipse.org'/>
+        <property name='df_LT.bundleName' value='EMF ModelTooling UI Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.emf.ui.source' version='4.5.100.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools.emf.ui.source' version='4.5.100.v20160503-0947'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.emf.ui.source' version='4.5.100.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools.emf.ui.source&#xA;Bundle-Version: 4.5.100.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.tools.services' version='4.5.0.v20160503-0947' singleton='false'>
+      <update id='org.eclipse.e4.tools.services' range='[0.0.0,4.5.0.v20160503-0947)' severity='0'/>
+      <properties size='4'>
+        <property name='df_LT.Bundle-Name' value='Services'/>
+        <property name='df_LT.Bundle-Vendor' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.services' version='4.5.0.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools.services' version='4.5.0.v20160503-0947'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.services' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.services.impl' version='0.12.0.qualifier'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='org.eclipse.swt' range='3.7.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.equinox.common' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.contexts' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.osgi' range='3.7.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.di' range='0.9.0'/>
+        <required namespace='java.package' name='javax.annotation' range='0.0.0'/>
+        <required namespace='java.package' name='javax.inject' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.services' version='4.5.0.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools.services&#xA;Bundle-Version: 4.5.0.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.tools.emf.ui' version='4.5.100.v20160503-0947'>
+      <update id='org.eclipse.e4.tools.emf.ui' range='[0.0.0,4.5.100.v20160503-0947)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.pluginName' value='EMF ModelTooling UI'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='22'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.emf.ui' version='4.5.100.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools.emf.ui' version='4.5.100.v20160503-0947'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.common' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.common.component' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common.component' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common.component.dialogs' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common.component.tabs' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common.component.tabs.empty' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common.component.virtual' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common.objectdata' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common.properties' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common.resourcelocator' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common.resourcelocator.dialogs' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common.uistructure' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.common.xml' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.handlers' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.imp' version='0.12.0.qualifier'/>
+        <provided namespace='java.package' name='org.eclipse.e4.tools.emf.ui.internal.wbm' version='0.12.0.qualifier'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='34'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding' range='1.3.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding.property' range='1.2.100'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.model.workbench' range='0.9.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.databinding' range='1.2.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.databinding' range='1.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.edit' range='2.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.equinox.common' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.databinding.edit' range='1.2.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.services' range='0.9.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.osgi' range='3.6.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.css.swt.theme' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.di' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.workbench' range='0.9.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.services' range='0.9.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.equinox.registry' range='3.5.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.contexts' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.di' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.tools.services' range='0.11.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.di.extensions' range='0.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='3.7.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.widgets' range='0.11.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.equinox.preferences' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='2.9.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='osgi.bundle' name='org.eclipse.pde.core' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.commands' range='0.10.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.dialogs' range='1.0.0'/>
+        <required namespace='java.package' name='javax.annotation' range='0.0.0'/>
+        <required namespace='java.package' name='javax.inject' range='1.0.0'/>
+        <required namespace='java.package' name='org.osgi.framework' range='1.5.0'/>
+        <required namespace='java.package' name='org.osgi.service.event' range='1.3.1'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.emf.ui' version='4.5.100.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools.emf.ui;singleton:=true&#xA;Bundle-Version: 4.5.100.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.tools.emf.editor3x.source' version='4.5.0.v20160503-0947' singleton='false'>
+      <update id='org.eclipse.e4.tools.emf.editor3x.source' range='[0.0.0,4.5.0.v20160503-0947)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.bundleVendor' value='Eclipse.org'/>
+        <property name='df_LT.bundleName' value='Editor3x Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.emf.editor3x.source' version='4.5.0.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools.emf.editor3x.source' version='4.5.0.v20160503-0947'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.emf.editor3x.source' version='4.5.0.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools.emf.editor3x.source&#xA;Bundle-Version: 4.5.0.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.tools.source' version='4.5.0.v20160503-0947' singleton='false'>
+      <update id='org.eclipse.e4.tools.source' range='[0.0.0,4.5.0.v20160503-0947)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.bundleVendor' value='Eclipse.org'/>
+        <property name='df_LT.bundleName' value='Tools Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.source' version='4.5.0.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools.source' version='4.5.0.v20160503-0947'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.source' version='4.5.0.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools.source&#xA;Bundle-Version: 4.5.0.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.core.tools.feature.feature.group' version='4.5.100.v20160503-0947' singleton='false'>
+      <update id='org.eclipse.e4.core.tools.feature.feature.group' range='[0.0.0,4.5.100.v20160503-0947)' severity='0'/>
+      <properties size='9'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 9, 2014&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;&#x9;- Content may be structured and packaged into modules to facilitate delivering,&#xA;&#x9;  extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;&#x9;  plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;&#x9;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;&#x9;  in a directory named &quot;plugins&quot;.&#xA;&#x9;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;&#x9;  Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;&#x9;  Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;&#x9;  numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;&#x9;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;&#x9;  named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;&#x9;- The top-level (root) directory&#xA;&#x9;- Plug-in and Fragment directories&#xA;&#x9;- Inside Plug-ins and Fragments packaged as JARs&#xA;&#x9;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;&#x9;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;&#x9;- Eclipse Distribution License Version 1.0 (available at http://www.eclipse.org/licenses/edl-v1.0.html)&#xA;&#x9;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;&#x9;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;&#x9;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;&#x9;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;&#x9;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;&#x9;   the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;&#x9;   extending or updating the functionality of an Eclipse-based product.&#xA;&#x9;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;&#x9;   Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;&#x9;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;&#x9;   govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;&#x9;   Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;&#x9;   with the Specification. Such Installable Software Agreement must inform the user of the&#xA;&#x9;   terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;&#x9;   the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;&#x9;   indication of agreement by the user, the provisioning Technology will complete installation&#xA;&#x9;   of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+        <property name='df_LT.copyright' value='Copyright (c) 2010 BestSolution.at, Soyatec and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;BestSolution.at - initial API and implementation&#xA;Soytec - initial API and implementation&#xA;'/>
+        <property name='df_LT.featureName' value='Eclipse e4 Tools'/>
+        <property name='df_LT.description' value='Eclipse e4 Model Tooling'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+      </properties>
+      <provides size='2'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.tools.feature.feature.group' version='4.5.100.v20160503-0947'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.emf.editor3x' range='[4.5.0.v20160503-0947,4.5.0.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.emf.ui' range='[4.5.100.v20160503-0947,4.5.100.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.compat' range='[4.5.0.v20160503-0947,4.5.0.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.services' range='[4.5.0.v20160503-0947,4.5.0.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools' range='[4.5.0.v20160503-0947,4.5.0.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.jdt.templates' range='[4.5.0.v20160503-0947,4.5.0.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.tools.feature.feature.jar' range='[4.5.100.v20160503-0947,4.5.100.v20160503-0947]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+      <copyright>
+        %copyright
+      </copyright>
+    </unit>
+    <unit id='org.eclipse.e4.core.tools.feature.feature.jar' version='4.5.100.v20160503-0947'>
+      <properties size='8'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 9, 2014&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;&#x9;- Content may be structured and packaged into modules to facilitate delivering,&#xA;&#x9;  extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;&#x9;  plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;&#x9;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;&#x9;  in a directory named &quot;plugins&quot;.&#xA;&#x9;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;&#x9;  Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;&#x9;  Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;&#x9;  numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;&#x9;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;&#x9;  named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;&#x9;- The top-level (root) directory&#xA;&#x9;- Plug-in and Fragment directories&#xA;&#x9;- Inside Plug-ins and Fragments packaged as JARs&#xA;&#x9;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;&#x9;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;&#x9;- Eclipse Distribution License Version 1.0 (available at http://www.eclipse.org/licenses/edl-v1.0.html)&#xA;&#x9;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;&#x9;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;&#x9;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;&#x9;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;&#x9;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;&#x9;   the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;&#x9;   extending or updating the functionality of an Eclipse-based product.&#xA;&#x9;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;&#x9;   Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;&#x9;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;&#x9;   govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;&#x9;   Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;&#x9;   with the Specification. Such Installable Software Agreement must inform the user of the&#xA;&#x9;   terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;&#x9;   the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;&#x9;   indication of agreement by the user, the provisioning Technology will complete installation&#xA;&#x9;   of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+        <property name='df_LT.copyright' value='Copyright (c) 2010 BestSolution.at, Soyatec and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;BestSolution.at - initial API and implementation&#xA;Soytec - initial API and implementation&#xA;'/>
+        <property name='df_LT.featureName' value='Eclipse e4 Tools'/>
+        <property name='df_LT.description' value='Eclipse e4 Model Tooling'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.tools.feature.feature.jar' version='4.5.100.v20160503-0947'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.eclipse.e4.core.tools.feature' version='4.5.100.v20160503-0947'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.eclipse.e4.core.tools.feature' version='4.5.100.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+      <copyright>
+        %copyright
+      </copyright>
+    </unit>
+    <unit id='org.eclipse.e4.core.tools.feature.source.feature.jar' version='4.5.100.v20160503-0947'>
+      <properties size='8'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 9, 2014&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;&#x9;- Content may be structured and packaged into modules to facilitate delivering,&#xA;&#x9;  extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;&#x9;  plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;&#x9;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;&#x9;  in a directory named &quot;plugins&quot;.&#xA;&#x9;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;&#x9;  Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;&#x9;  Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;&#x9;  numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;&#x9;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;&#x9;  named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;&#x9;- The top-level (root) directory&#xA;&#x9;- Plug-in and Fragment directories&#xA;&#x9;- Inside Plug-ins and Fragments packaged as JARs&#xA;&#x9;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;&#x9;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;&#x9;- Eclipse Distribution License Version 1.0 (available at http://www.eclipse.org/licenses/edl-v1.0.html)&#xA;&#x9;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;&#x9;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;&#x9;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;&#x9;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;&#x9;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;&#x9;   the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;&#x9;   extending or updating the functionality of an Eclipse-based product.&#xA;&#x9;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;&#x9;   Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;&#x9;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;&#x9;   govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;&#x9;   Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;&#x9;   with the Specification. Such Installable Software Agreement must inform the user of the&#xA;&#x9;   terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;&#x9;   the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;&#x9;   indication of agreement by the user, the provisioning Technology will complete installation&#xA;&#x9;   of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+        <property name='df_LT.copyright' value='Copyright (c) 2010 BestSolution.at, Soyatec and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;BestSolution.at - initial API and implementation&#xA;Soytec - initial API and implementation&#xA;'/>
+        <property name='df_LT.featureName' value='Eclipse e4 Tools Developer Resources'/>
+        <property name='df_LT.description' value='Eclipse e4 Model Tooling'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.tools.feature.source.feature.jar' version='4.5.100.v20160503-0947'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.eclipse.e4.core.tools.feature.source' version='4.5.100.v20160503-0947'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.eclipse.e4.core.tools.feature.source' version='4.5.100.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+      <copyright>
+        %copyright
+      </copyright>
+    </unit>
+    <unit id='org.eclipse.emf.databinding' version='1.3.0.v20160526-0356'>
+      <update id='org.eclipse.emf.databinding' range='[0.0.0,1.3.0.v20160526-0356)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.pluginName' value='EMF Data Binding'/>
+        <property name='df_LT.providerName' value='Eclipse Modeling Project'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.databinding' version='1.3.0.v20160526-0356'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.emf.databinding' version='1.3.0.v20160526-0356'/>
+        <provided namespace='java.package' name='org.eclipse.emf.databinding' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.emf.databinding.internal' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='[2.12.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding' range='[1.2.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding.property' range='[1.2.0,2.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.emf.databinding' version='1.3.0.v20160526-0356'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.emf.databinding; singleton:=true&#xA;Bundle-Version: 1.3.0.v20160526-0356&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.tools.jdt.templates.source' version='4.5.0.v20160503-0947' singleton='false'>
+      <update id='org.eclipse.e4.tools.jdt.templates.source' range='[0.0.0,4.5.0.v20160503-0947)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.bundleVendor' value='Eclipse.org'/>
+        <property name='df_LT.bundleName' value='e4 JDT code templates Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.jdt.templates.source' version='4.5.0.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools.jdt.templates.source' version='4.5.0.v20160503-0947'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.jdt.templates.source' version='4.5.0.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools.jdt.templates.source&#xA;Bundle-Version: 4.5.0.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.tools.compat.source' version='4.5.0.v20160503-0947' singleton='false'>
+      <update id='org.eclipse.e4.tools.compat.source' range='[0.0.0,4.5.0.v20160503-0947)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.bundleVendor' value='Eclipse.org'/>
+        <property name='df_LT.bundleName' value='Compat Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.compat.source' version='4.5.0.v20160503-0947'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.e4.tools.compat.source' version='4.5.0.v20160503-0947'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.compat.source' version='4.5.0.v20160503-0947'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.eclipse.e4.tools.compat.source&#xA;Bundle-Version: 4.5.0.v20160503-0947&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.e4.core.tools.feature.source.feature.group' version='4.5.100.v20160503-0947' singleton='false'>
+      <update id='org.eclipse.e4.core.tools.feature.source.feature.group' range='[0.0.0,4.5.100.v20160503-0947)' severity='0'/>
+      <properties size='9'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 9, 2014&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;&#x9;- Content may be structured and packaged into modules to facilitate delivering,&#xA;&#x9;  extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;&#x9;  plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;&#x9;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;&#x9;  in a directory named &quot;plugins&quot;.&#xA;&#x9;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;&#x9;  Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;&#x9;  Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;&#x9;  numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;&#x9;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;&#x9;  named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;&#x9;- The top-level (root) directory&#xA;&#x9;- Plug-in and Fragment directories&#xA;&#x9;- Inside Plug-ins and Fragments packaged as JARs&#xA;&#x9;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;&#x9;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;&#x9;- Eclipse Distribution License Version 1.0 (available at http://www.eclipse.org/licenses/edl-v1.0.html)&#xA;&#x9;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;&#x9;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;&#x9;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;&#x9;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;&#x9;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;&#x9;   the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;&#x9;   extending or updating the functionality of an Eclipse-based product.&#xA;&#x9;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;&#x9;   Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;&#x9;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;&#x9;   govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;&#x9;   Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;&#x9;   with the Specification. Such Installable Software Agreement must inform the user of the&#xA;&#x9;   terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;&#x9;   the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;&#x9;   indication of agreement by the user, the provisioning Technology will complete installation&#xA;&#x9;   of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+        <property name='df_LT.copyright' value='Copyright (c) 2010 BestSolution.at, Soyatec and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;BestSolution.at - initial API and implementation&#xA;Soytec - initial API and implementation&#xA;'/>
+        <property name='df_LT.featureName' value='Eclipse e4 Tools Developer Resources'/>
+        <property name='df_LT.description' value='Eclipse e4 Model Tooling'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+      </properties>
+      <provides size='2'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.tools.feature.source.feature.group' version='4.5.100.v20160503-0947'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='8'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.tools.feature.feature.group' range='[4.5.100.v20160503-0947,4.5.100.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.emf.editor3x.source' range='[4.5.0.v20160503-0947,4.5.0.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.emf.ui.source' range='[4.5.100.v20160503-0947,4.5.100.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.compat.source' range='[4.5.0.v20160503-0947,4.5.0.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.services.source' range='[4.5.0.v20160503-0947,4.5.0.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.source' range='[4.5.0.v20160503-0947,4.5.0.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.tools.jdt.templates.source' range='[4.5.0.v20160503-0947,4.5.0.v20160503-0947]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.tools.feature.source.feature.jar' range='[4.5.100.v20160503-0947,4.5.100.v20160503-0947]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+      <copyright>
+        %copyright
+      </copyright>
+    </unit>
+  </units>
+</repository>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension-point id="org.modelio.app.diagram.api.factory" name="Diagram DG provider" schema="schema/org.modelio.app.diagram.api.factory.exsd"/>
+
+	<extension point="org.modelio.app.diagram.api.factory">
+      <service metamodel="Infrastructure" implementation="org.modelio.diagram.api.dg.infra.InfrastructureDGFactory" />
+   </extension>
+</plugin>

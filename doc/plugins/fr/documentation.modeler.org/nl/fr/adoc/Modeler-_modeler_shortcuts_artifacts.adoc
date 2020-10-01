@@ -1,0 +1,21 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de démasquage sur les artéfacts
+
+Le tableau suivant présente les raccourcis clavier permettant de démasquer certains éléments associés ou appartenant à l'artéfact sélectionné dans le diagramme.
+
+[%header]
+|=================================
+|Raccourci |Elément démasqué
+|SHIFT + N |Notes
+|SHIFT + U |Element imports
+|SHIFT + U |Package imports
+|SHIFT + G |Parent generalizations
+|g |Child generalizations
+|SHIFT + A |Attributes
+|SHIFT + O |Operations
+|SHIFT + M |Manifestations
+|=================================
+
+

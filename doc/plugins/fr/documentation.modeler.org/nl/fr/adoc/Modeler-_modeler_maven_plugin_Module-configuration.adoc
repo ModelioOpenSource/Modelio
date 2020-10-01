@@ -1,0 +1,27 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= module-configuration
+
+== Nom complet
+
+----
+org.modelio:modelio-maven-plugin:4.1.0.00:module-configuration
+----
+
+== Description
+
+Met à jour le contenu d'un fichier de définition de module, le fichier module.xml. Il renseigne tous les attributs "uid" non valides à partir des définitions de stéréotypes, de types de tag et de types de note.
+
+Lié par défaut à la phase : generate-sources.
+
+== Paramètres optionnels
+
+[cols=",,,",options="header",]
+|===============================================================================================
+|Nom |Type |Depuis |Description
+|moduleFile |Fichier |2.2.0.01 |Emplacement du fichier dans lequel les UIDs vont être générés. +
+La valeur par défaut est "res/module.xml".
+|===============================================================================================
+
+

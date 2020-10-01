@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.diagrams.core"
          label="Diagrams Core"
-         version="4.0.0.qualifier"
+         version="4.1.0.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -33,61 +33,61 @@ GPL
 <requires>
 </requires>
 
-<plugin id="org.modelio.creation.wizard"
+<plugin id="org.modelio.app.creation.wizard"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.diagram.api"
+<plugin id="org.modelio.app.diagram.api"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.diagram.browser"
+<plugin id="org.modelio.app.diagram.browser"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.diagram.editor"
+<plugin id="org.modelio.app.diagram.editor"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.diagram.elements"
+<plugin id="org.modelio.app.diagram.elements"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.diagram.outline"
+<plugin id="org.modelio.app.diagram.outline"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.diagram.persistence"
+<plugin id="org.modelio.app.diagram.persistence"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.diagram.styles"
+<plugin id="org.modelio.app.diagram.styles"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.diagram.styles.ext"
+<plugin id="org.modelio.app.diagram.styles.ext_org"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.diagram.symbol"
+<plugin id="org.modelio.app.diagram.symbol"
         download-size="0"
         install-size="0"
         version="0.0.0"

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Creation shortcuts in State diagrams
+
+Two kind of shortcuts are available:
+
+* to activate a creation tool as if clicking on the diagram palette.
+* to directly create and unmask an element in the diagram.
+
+[%header]
+|===
+2+|Activate creation tool  2+| Created element
+|*Shortcut*|*Activated tool*|*Shortcut*|*Created element*
+|N |Note |CTRL-N CTRL-N |Note
+|Shift-H |Deep history |CTRL-N CTRL-Shift-H |Deep history
+|E |Entry point |CTRL-N CTRL-E |Entry point
+|F |Final state |CTRL-N CTRL-F |Final state
+|X |ExitPoint |CTRL-N CTRL-X |ExitPoint
+|C |Choice |CTRL-N CTRL-C |Choice
+|H |Shallow history |CTRL-N CTRL-H |Shallow history
+|J |Join state |CTRL-N CTRL-J |Join state
+|S |State |CTRL-N CTRL-S |State
+|T |Terminate state |CTRL-N CTRL-T |Terminate state
+|I |Initial state |CTRL-N CTRL-I |Initial state
+|Y |Fork |CTRL-N CTRL-Y |Fork
+|R |Related diagram ||
+|SPACEBAR |Transition ||
+|===
+

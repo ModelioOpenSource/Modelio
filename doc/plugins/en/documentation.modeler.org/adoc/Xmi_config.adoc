@@ -1,0 +1,36 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Modelio-XMI-ImportExport-options]]
+
+[[modelio-xmi-importexport-options]]
+= Modelio XMI Import/Export options
+
+[[Configuring-Modelio-XMI-ImportExport]]
+
+[[configuring-modelio-xmi-importexport]]
+===== Configuring Modelio XMI Import/Export
+
+Modelio XMI parameters are used to modify the import and export behavior of the generator.
+
+[[XMI-configuration]]
+
+[[xmi-configuration]]
+===== XMI configuration
+
+image::images/Xmi_config_pref_xmi.png[2]
+
+[[The-parameter-set]]
+
+[[the-parameter-set]]
+The parameter set
+
+[cols=",",options="header",]
+|=====================================================================================================================================================================
+|*Parameter* |*Use*
+|Output format |Used to choose between a file compatible with the EMF 3.0.0 specification or the UML 2.1.1, UML 2.2, UML 2.3 or UML 2.4.1 specifications from the OMG.
+|File extension |Specifies the extension given to exported files (".xmi" or ".uml").
+|Modelio/Modelio compatibility |Specifies whether or not maximum compatibility is activated when a re-import operation is run in Modelio.
+|=====================================================================================================================================================================
+
+

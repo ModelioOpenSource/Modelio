@@ -31,10 +31,10 @@ import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Display;
-import org.modelio.app.core.navigate.IModelioNavigationService;
 import org.modelio.app.ramcs.creation.RamcCreator;
 import org.modelio.metamodel.uml.statik.Artifact;
 import org.modelio.metamodel.uml.statik.Package;
+import org.modelio.platform.core.navigate.IModelioNavigationService;
 
 /**
  * Command handler that creates a model component (RAMC).

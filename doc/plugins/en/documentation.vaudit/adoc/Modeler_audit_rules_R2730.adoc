@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2730]]
+
+[[r2730]]
+= R2730
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _TemplateBinding_ must substitute all the _TemplateParameters_ of the instanciated template element, and the _TemplateParameterSubstitution_ must be defined in the same order as the _TemplateParameters_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+When using a template binding, all the template parameters must be substituted. We also recommend that you define the substitutions in the same order as the parameters they each substitute.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Use the 'Element' properties tab on the _TemplateBinding_ to set parameter substitutions.
+* This error can be caused by a faulty macro or module. Ask the developer to fix the macro or module.
+* Add the missing _TemplateParameterSubstitution_ for these _TemplateParameters_ with a macro.
+* Delete the _TemplateBinding_ and rebuild it. Use the 'Element' properties tab on the _TemplateBinding_ to set parameter substitutions.
+
+

@@ -1,0 +1,57 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[update-modelio-model]]
+
+[[update-modelio-model]]
+= update-modelio-model
+
+[[Full-name]]
+
+[[full-name]]
+== Full name
+
+org.modelio:modelio-maven-plugin:3.0.0.00:update-modelio-model
+
+[[Description]]
+
+[[description]]
+== Description
+
+Updates a Modelio project from its SVN repository. It executes the "update" command from SVN Teamwork Manager.
+
+[[Required-parameters]]
+
+[[required-parameters]]
+== Required parameters
+
+[width="100%",cols="25%,25%,25%,25%",options="header",]
+|==========================================================
+|Name |Type |Since |Description
+|modelioDir |File |2.2.0.01 a|
+Modelio install to use. +
+Example:
+
+....
+<modelioDir>C:\Program Files\modelio 4.1</modelioDir>
+....
+
+|workspaceDir |File |2.2.0.01 a|
+Workspace to use. +
+Example:
+
+....
+<workspaceDir>C:\Users\XXX\modelio\workspace</workspaceDir>
+....
+
+|projectName |Name |2.2.0.01 a|
+Project to use. +
+Example:
+
+....
+<projectName>JavaProject</projectName>
+....
+
+|==========================================================
+
+

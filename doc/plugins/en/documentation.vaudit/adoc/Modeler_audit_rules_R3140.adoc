@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3140]]
+
+[[r3140]]
+= R3140
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+All outgoing _SequenceFlows_ from an _EventBasedGateway_ or a _ParallelGateway_ must have their guard properties empty.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_ParallelGateways_ act like an AND and wait for all incoming flows to arrrive, and then continue the sequence in all directions of all outgoing flows. Therefore these outgoing flows should not have guards since they all must be activated.
+
+In the case of an _EventBasedGateway_, all outgoing flows target Events, and depending on which one receives an event first, the sequence will continue, therefore there cannot be guards on these flows since the direction is decided by the reception or non-reception of the events.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have guards on outgoing flows from an _EventBasedGateway_ or a _ParallelGateway_, you should remove the guard.
+
+

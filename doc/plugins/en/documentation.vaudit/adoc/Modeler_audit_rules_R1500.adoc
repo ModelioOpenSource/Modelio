@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1500]]
+
+[[r1500]]
+= R1500
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+In an instance, the name of an instanciated attribute must be the same as the corresponding attribute.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An instanciated attribute must correspond to an existing attribute of the instanciated classifier. Therefore, it should have the same name as the corresponding attribute.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Make sure the name of your instanciated attribute correspond to the name of the attribute it instanciates.
+
+

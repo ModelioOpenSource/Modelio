@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1820]]
+
+[[r1820]]
+= R1820
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _Gate_ cannot cover a _Lifeline_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A _Gate_ can only belong to an _Interaction_ or an _InteractionUse_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+A _PartDecomposition_, which inherits _InteractionUse_, is represented in a Sequence Diagram by a _Lifeline_. This may be a cause of confusion because the _Lifeline_ will visually be covered by _Gates_ while these _Gates_ really belong to the _PartDecomposition_ that decompose the _Lifeline_.
+
+

@@ -1,0 +1,19 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Créer-des-éléments-dans-les-diagrammes]]
+
+[[créer-des-éléments-dans-les-diagrammes]]
+= Créer des éléments dans les diagrammes
+
+Avec Modelio, il existe différentes façons de créer des éléments dans les diagrammes selon la nature des éléments à créer. Il est également possible de "démasquer" des éléments qui existent déjà dans le modèle mais qui n'apparaissent pas encore dans un diagramme.
+
+Tous les diagrammes Modelio bénéficient de la fonctionnalité "expert de modélisation", qui fournit une aide en temps réel lors de la création d'éléments dans les diagrammes.
+
+Les trois procédures (pour la création des éléments de type "noeud", la création d'éléments de type "lien" et le démasquage d'éléments dans les diagrammes) sont détaillées dans les sections d'aide suivantes :
+
+* *<<Modeler-_modeler_building_models_creating_elements_diagpalette.adoc#,Créer des éléments de type "noeud">>*
+* *<<Modeler-_modeler_building_models_creating_links_diagrams.adoc#,Créer des éléments de type "lien">>*
+* *<<Modeler-_modeler_building_models_creating_elements_dragdrop.adoc#,Démasquer des éléments par glisser-déposer>>*
+
+

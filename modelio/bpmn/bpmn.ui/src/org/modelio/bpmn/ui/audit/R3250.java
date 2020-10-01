@@ -45,6 +45,7 @@ import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
 import org.modelio.metamodel.bpmn.activities.BpmnTask;
 import org.modelio.metamodel.bpmn.activities.BpmnTransaction;
 import org.modelio.metamodel.bpmn.activities.BpmnUserTask;
+import org.modelio.metamodel.bpmn.events.BpmnBoundaryEvent;
 import org.modelio.metamodel.bpmn.events.BpmnEndEvent;
 import org.modelio.metamodel.bpmn.events.BpmnIntermediateCatchEvent;
 import org.modelio.metamodel.bpmn.events.BpmnIntermediateThrowEvent;
@@ -210,28 +211,18 @@ public class R3250 extends AbstractBpmnRule {
             
             List<BpmnFlowNode> foundNodes = new ArrayList<>();
             for (BpmnFlowNode flowNode : process.getFlowElement(BpmnFlowNode.class)) {
-                if (flowNode.getLane().isEmpty()) {
+                // Ignore elements in Lanes and Boundary Event (which never belong to Lanes)
+                if (flowNode.getLane().isEmpty() && !(flowNode instanceof BpmnBoundaryEvent)) {
                     foundNodes.add(flowNode);
                 }
             }
             
-            // Process can escape to the rule if it is empty
+            // Process can escape the rule if it is empty
             if (!foundNodes.isEmpty()) {
-                BpmnStartEvent start = null;
-                BpmnEndEvent end = null;
-            
-                for (BpmnFlowNode node : foundNodes) {
-                    if (node instanceof BpmnStartEvent) {
-                        start = (BpmnStartEvent) node;
-                    } else if (node instanceof BpmnEndEvent) {
-                        end = (BpmnEndEvent) node;
-                    }
-                }
-            
-                if (start == null || end == null) {
-            
+                long start = foundNodes.stream().filter(flowNode -> flowNode instanceof BpmnStartEvent).count();
+                long end = foundNodes.stream().filter(flowNode -> flowNode instanceof BpmnEndEvent).count();
+                if (start == 0 || end == 0) {
                     // Rule failed
-            
                     auditEntry.setSeverity(this.rule.getSeverity());
                     List<Object> linkedObjects = new ArrayList<>();
                     linkedObjects.add(process.getMClass().getName());
@@ -258,7 +249,6 @@ public class R3250 extends AbstractBpmnRule {
             
             // SubProcess can escape to the rule if it is empty
             if (!nodes.isEmpty()) {
-            
                 BpmnStartEvent start = null;
                 BpmnEndEvent end = null;
             

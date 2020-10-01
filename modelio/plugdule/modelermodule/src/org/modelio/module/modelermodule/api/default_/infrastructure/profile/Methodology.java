@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.profile;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("d2cc83ce-07ab-4538-af69-8ed35787e831")
 public class Methodology {
-    @objid ("9399ecc6-667d-433b-824d-0d1fe6172c99")
+    @objid ("3cd39254-8383-4c27-8ef1-0b6202254cd6")
     public static final String STEREOTYPE_NAME = "Methodology";
 
     /**
      * The underlying {@link Profile} represented by this proxy, never null.
      */
-    @objid ("5e600273-ba12-420a-9db4-021050b07b84")
+    @objid ("9d8d18b8-077b-4233-b003-60776708ba01")
     protected final Profile elt;
 
     /**
-     * Tells whether a {@link Methodology proxy} can be instantiated from a {@link MObject} checking it is a {@link Profile} stereotyped << Methodology >>. 
+     * Tells whether a {@link Methodology proxy} can be instantiated from a {@link MObject} checking it is a {@link Profile} stereotyped << Methodology >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("a22fcad6-5b47-493f-be7e-515c0a597f13")
+    @objid ("bd1a4027-3eae-425c-8162-69a56c62810f")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Profile) && ((Profile) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Methodology.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Methodology {
      * 
      * @return a {@link Methodology} proxy on the created {@link Profile}.
      */
-    @objid ("b2322d2f-9f64-4804-87ee-ec579338dd76")
+    @objid ("8ad8bda4-b8d0-456b-9cc4-0ed8c70d9398")
     public static Methodology create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Profile");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Methodology.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Methodology {
     }
 
     /**
-     * Tries to instantiate a {@link Methodology} proxy from a {@link Profile} stereotyped << Methodology >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Methodology} proxy from a {@link Profile} stereotyped << Methodology >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Profile
      * @return a {@link Methodology} proxy or <i>null</i>.
      */
-    @objid ("6624b7d9-481f-4974-9c7f-93b03df6ef7f")
+    @objid ("2c6f542e-4e2e-4f40-afc1-60ebaf88efa6")
     public static Methodology instantiate(Profile obj) {
         return Methodology.canInstantiate(obj) ? new Methodology(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Methodology {
      * @return a {@link Methodology} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("c1a36cbf-0b4f-4bea-990d-f032d4b2be78")
+    @objid ("963ef356-d46f-42c4-9cee-b1a38b18b5f4")
     public static Methodology safeInstantiate(Profile obj) throws IllegalArgumentException {
         if (Methodology.canInstantiate(obj))
         	return new Methodology(obj);
@@ -112,7 +112,7 @@ public class Methodology {
         	throw new IllegalArgumentException("Methodology: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("ade91198-1325-4134-bc52-e736bdc2631b")
+    @objid ("396bd1e3-5941-401f-952e-7a07f08ed06d")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Methodology {
      * Get the underlying {@link Profile}. 
      * @return the Profile represented by this proxy, never null.
      */
-    @objid ("d440c2cf-9ca6-4bc5-8bdb-358439d257d8")
+    @objid ("57fc2c1a-8629-4724-afc1-9f1ca1cd0713")
     public Profile getElement() {
         return this.elt;
     }
 
-    @objid ("bf73a365-afca-4a0f-abf7-26339893f259")
+    @objid ("54fa2348-08ea-4157-8fd8-dc6ba41435fe")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("e4da8dc6-2c3e-48f7-ac29-0ea1081db9c4")
+    @objid ("12fd7f7c-f3d6-47d7-9167-0d7f349ac9ec")
     protected Methodology(Profile elt) {
         this.elt = elt;
     }
 
     @objid ("9f7ace44-8e16-4801-b3e4-24f952f92343")
     public static final class MdaTypes {
-        @objid ("70c10b7d-098b-4821-ab4d-777f0d6a3b5d")
+        @objid ("dbf57063-c855-4a05-851e-ba826c03a1c0")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("36bd800d-bbf9-4631-86e7-e3a849ad9d2c")
+        @objid ("778ea8b3-1083-4b58-8bf4-49db4bf3b961")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("cd3947ae-8a01-45c7-98a6-2b99b20d20f4")
+        @objid ("bca42931-4642-4950-91d0-29b263964a51")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("aa310e8b-a926-4ce6-a0f8-2adc4bba026a")
+        @objid ("1fce40bb-5b2b-49ca-88f0-743523751d80")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "769b4d1b-614e-4503-892c-b59d0de23158");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

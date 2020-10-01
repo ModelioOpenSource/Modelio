@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2440]]
+
+[[r2440]]
+= R2440
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _Operation_ cannot belong to an _Enumeration_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An _Enumeration_ can only contain enumeration literals.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Move the _Operation_ to a service class.
+* If you are developing with Java 1.5 or later, you can disable this rule.
+* The Java Designer module currently reverses enumeration operations in a specific note.
+
+

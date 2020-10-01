@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.note;
 
@@ -50,30 +50,30 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("7b670613-5bc2-4326-b6e3-1f8c5e4fe52e")
 public class ExternalDocument {
-    @objid ("22ff9319-a7dc-480e-8913-b100a4eb00b1")
+    @objid ("c7166406-df32-47fd-85cf-cf57a49875ce")
     public static final String STEREOTYPE_NAME = "ExternalDocument";
 
-    @objid ("fc7ce47f-d5a9-4e84-a48c-8ddcd63ef8e9")
+    @objid ("440ccbb8-f943-4930-aa44-314a9e6ef66a")
     public static final String LINKLABEL_TAGTYPE = "LinkLabel";
 
-    @objid ("d0d24a88-05ad-48d7-ae7a-f2eaf5285f6a")
+    @objid ("f6363587-33e0-49d7-b39e-281c778dd6a4")
     public static final String ISLINK_TAGTYPE = "isLink";
 
     /**
      * The underlying {@link Note} represented by this proxy, never null.
      */
-    @objid ("63b556e7-6ebd-42f0-ab84-f2d7340efbd9")
+    @objid ("6292058d-2129-49d1-b42f-ced175ec82c6")
     protected final Note elt;
 
     /**
-     * Tells whether a {@link ExternalDocument proxy} can be instantiated from a {@link MObject} checking it is a {@link Note} stereotyped << ExternalDocument >>. 
+     * Tells whether a {@link ExternalDocument proxy} can be instantiated from a {@link MObject} checking it is a {@link Note} stereotyped << ExternalDocument >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("bb03ba8a-941e-41df-8d1b-ce93f76032f3")
+    @objid ("5496a72f-f549-4b50-a8c2-3e2262cd9ac5")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Note) && ((Note) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, ExternalDocument.STEREOTYPE_NAME));
     }
@@ -83,7 +83,7 @@ public class ExternalDocument {
      * 
      * @return a {@link ExternalDocument} proxy on the created {@link Note}.
      */
-    @objid ("942984ed-f39f-47f8-a353-168780b74a75")
+    @objid ("ba09bf3b-0489-42ac-ba02-6efdedfe2009")
     public static ExternalDocument create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Note");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, ExternalDocument.STEREOTYPE_NAME);
@@ -91,13 +91,13 @@ public class ExternalDocument {
     }
 
     /**
-     * Tries to instantiate a {@link ExternalDocument} proxy from a {@link Note} stereotyped << ExternalDocument >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link ExternalDocument} proxy from a {@link Note} stereotyped << ExternalDocument >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Note
      * @return a {@link ExternalDocument} proxy or <i>null</i>.
      */
-    @objid ("4545d246-2c2f-412d-a467-14bc8506b05d")
+    @objid ("bf9e07a0-1f52-4dd0-8656-08a6f7c59f48")
     public static ExternalDocument instantiate(Note obj) {
         return ExternalDocument.canInstantiate(obj) ? new ExternalDocument(obj) : null;
     }
@@ -110,7 +110,7 @@ public class ExternalDocument {
      * @return a {@link ExternalDocument} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("fcdd7327-3952-4f87-b9d4-897e90825dbc")
+    @objid ("24688547-6f9d-43ad-9135-08b1cde7ade5")
     public static ExternalDocument safeInstantiate(Note obj) throws IllegalArgumentException {
         if (ExternalDocument.canInstantiate(obj))
         	return new ExternalDocument(obj);
@@ -118,7 +118,7 @@ public class ExternalDocument {
         	throw new IllegalArgumentException("ExternalDocument: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("c39e3c69-051b-4025-82e9-02e531280603")
+    @objid ("d6c27838-2394-4c66-916d-f007c8e70e47")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -138,7 +138,7 @@ public class ExternalDocument {
      * Get the underlying {@link Note}. 
      * @return the Note represented by this proxy, never null.
      */
-    @objid ("b8bc8ff7-910e-4496-8573-01d7fb9a2fc2")
+    @objid ("0d10c849-3991-44e4-98d4-46e04f5aab0c")
     public Note getElement() {
         return this.elt;
     }
@@ -148,12 +148,12 @@ public class ExternalDocument {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("7cde3635-4000-41b0-9f29-11fe092dd33a")
+    @objid ("e5eb11e9-b4ae-47a5-b0cb-b5494f427a36")
     public String getLinkLabel() {
         return this.elt.getTagValue(ExternalDocument.MdaTypes.LINKLABEL_TAGTYPE_ELT);
     }
 
-    @objid ("8cc3681f-795a-425a-8262-831168cfbbc5")
+    @objid ("50555489-8607-4fae-b265-15cab1875a62")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
@@ -164,7 +164,7 @@ public class ExternalDocument {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("7ab88f27-cff3-49d6-9c4a-f5736a81c410")
+    @objid ("748b6a5d-e29b-4ee5-adcf-bbd91f121c5e")
     public boolean isIsLink() {
         return this.elt.isTagged(ExternalDocument.MdaTypes.ISLINK_TAGTYPE_ELT);
     }
@@ -174,7 +174,7 @@ public class ExternalDocument {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("8ed4bf8c-c4db-4017-94c7-b345d438e712")
+    @objid ("716a64cf-85e0-4d73-8500-2a9d2972a5f7")
     public void setIsLink(boolean value) {
         if (value)
           ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createTaggedValue(ExternalDocument.MdaTypes.ISLINK_TAGTYPE_ELT, this.elt);
@@ -187,34 +187,34 @@ public class ExternalDocument {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("0490e8b7-83dd-4daf-9a8e-3123b0ff0061")
+    @objid ("90d7dbac-db7e-4a18-96f7-b7cbfdf43215")
     public void setLinkLabel(String value) {
         this.elt.putTagValue(ExternalDocument.MdaTypes.LINKLABEL_TAGTYPE_ELT, value);
     }
 
-    @objid ("f47a8c60-942f-4918-aa52-b3de88b84ce0")
+    @objid ("2942fbfb-3053-4a8a-9e51-f285dab4ee7e")
     protected ExternalDocument(Note elt) {
         this.elt = elt;
     }
 
     @objid ("8daed5a0-e2f1-4a7f-accc-c1b2e6b7509c")
     public static final class MdaTypes {
-        @objid ("6b9cc304-516c-4c11-b93c-fd88ce18a4b9")
+        @objid ("3a5d6dc1-4ecc-4705-87a9-2463b875a8fa")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("5f155e5a-327e-4d87-90b6-4129099378b0")
+        @objid ("9d86d7bc-6d06-479f-a979-9541c2020c6e")
         public static TagType ISLINK_TAGTYPE_ELT;
 
-        @objid ("8eb9d4d5-73db-4a24-ab69-ccdd2ea7e470")
+        @objid ("900bb8c4-4d8e-408f-a2f7-bdb5f6da15e1")
         public static TagType LINKLABEL_TAGTYPE_ELT;
 
-        @objid ("d85634c4-53b8-460c-b745-92829226ccb4")
+        @objid ("b3cf6817-5333-4cc7-9338-5e50ab423f3a")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("52671dc0-f938-4b48-969f-e9133b19ab35")
+        @objid ("8c564b48-5f8d-4e38-9606-624c776d3429")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("d0c6b295-fe20-4f47-834f-cd3dbd632136")
+        @objid ("a120dd4c-e523-4d50-bc1c-83c3be7d8d66")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "c2e23680-96f0-11de-a322-001fe2c988b8");
             ISLINK_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "0da68860-96f1-11de-a322-001fe2c988b8");

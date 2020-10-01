@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3280]]
+
+[[r3280]]
+= R3280
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _BPMN element_ must be part of a _Lane_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+When a _BPMN Process_ contains _lanes_, all its _BPMN elements_ (tasks, events...) must be split between these lanes. In this case, the "orphan" element can't be displayed in diagrams.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Select the BPMN element that is not part of any lane and either move it into a lane belonging to the same _BPMN Process_ or delete it.
+
+

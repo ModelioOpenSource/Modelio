@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1690]]
+
+[[r1690]]
+= R1690
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Le champ 'Expression' d'un _Event_ de type _Change_ doit être défini alors que les champs 'Called operation' et 'Instanciated signal' doivent être vides.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _Event_ de type _Change_ définit une expression.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Vérifiez que le champ 'Expression' est rempli et que les champs 'Instanciated signal' et 'Called operation' sont vides, ou changez le type d'_Event_.
+
+

@@ -47,12 +47,12 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.modelio.app.core.events.ModelioEventTopics;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.ui.plugin.AppUi;
-import org.modelio.core.ui.swt.trimbarcomponent.TrimBarComponent;
 import org.modelio.gproject.gproject.GProject;
-import org.modelio.ui.UIColor;
+import org.modelio.platform.core.events.ModelioEventTopics;
+import org.modelio.platform.model.ui.swt.trimbarcomponent.TrimBarComponent;
+import org.modelio.platform.ui.UIColor;
 
 /**
  * Class used to fill a project-level toolbar.

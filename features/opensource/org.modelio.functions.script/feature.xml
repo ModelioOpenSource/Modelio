@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.functions.script"
          label="Functions Script"
-         version="4.0.1.qualifier"
+         version="4.1.0.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -32,13 +32,13 @@ GPL
 <requires>
 </requires>
 
-<plugin id="org.modelio.script"
+<plugin id="org.modelio.app.script.ui"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.script.engine"
+<plugin id="org.modelio.platform.script.engine"
         download-size="0"
         install-size="0"
         version="0.0.0"

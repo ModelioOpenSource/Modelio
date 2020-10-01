@@ -55,7 +55,6 @@ import org.eclipse.ui.forms.widgets.Section;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.dialog.common.ColumnHelper;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.gproject.data.project.AuthDescriptor;
 import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.data.project.FragmentDescriptor;
@@ -64,6 +63,7 @@ import org.modelio.gproject.data.project.ProjectType;
 import org.modelio.gproject.fragment.IProjectFragment;
 import org.modelio.gproject.gproject.FragmentConflictException;
 import org.modelio.gproject.gproject.GProject;
+import org.modelio.platform.project.services.IProjectService;
 
 /**
  * Manage the distant libraries section.

@@ -34,7 +34,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.ui.dialog.ModelioDialog;
+import org.modelio.platform.ui.dialog.ModelioDialog;
 
 @objid ("42cc222f-e787-4254-a0bb-5fbafc83450e")
 public class UrlConfiguratorDialog extends ModelioDialog {

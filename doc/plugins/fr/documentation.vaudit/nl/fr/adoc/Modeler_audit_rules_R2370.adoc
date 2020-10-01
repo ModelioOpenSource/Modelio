@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2370]]
+
+[[r2370]]
+= R2370
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Opération_ statique ne peut pas être redéfinie.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Opération_ statique n'est pas redéfinissable pour la plupart des langages de programmation.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Supprimez cette redéfinition.
+* Modifiez les méthodes pour qu'elles soient non-statiques.
+* Désactivez cette règle si vous utilisez un langage de programmation supportant la redéfinition de méthodes statiques (SmallTalk).
+
+

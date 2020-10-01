@@ -21,14 +21,14 @@
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.core.ui.nattable.parts.data.INatValue;
-import org.modelio.core.ui.nattable.parts.data.bool.DefaultBooleanNatValue;
-import org.modelio.core.ui.nattable.parts.data.javaenum.DefaultJavaEnumNatValue;
-import org.modelio.core.ui.nattable.parts.data.string.single.DefaultStringNatValue;
-import org.modelio.core.ui.nattable.viewer.model.AbstractPropertyModel;
 import org.modelio.metamodel.bpmn.gateways.BpmnEventBasedGateway;
 import org.modelio.metamodel.bpmn.gateways.BpmnEventBasedGatewayType;
 import org.modelio.metamodel.bpmn.gateways.BpmnGatewayDirection;
+import org.modelio.platform.model.ui.nattable.parts.data.INatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.bool.DefaultBooleanNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.javaenum.DefaultJavaEnumNatValue;
+import org.modelio.platform.model.ui.nattable.parts.data.string.single.DefaultStringNatValue;
+import org.modelio.platform.model.ui.nattable.viewer.model.AbstractPropertyModel;
 
 /**
  * <i>BpmnEventBasedGateway</i> data model.

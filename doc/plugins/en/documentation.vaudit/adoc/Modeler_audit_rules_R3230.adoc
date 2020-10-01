@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3230]]
+
+[[r3230]]
+= R3230
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+All _SequenceFlows_ leaving an _ExclusiveGateway_ must have a guard, except for the default _SequenceFlow_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An _ExclusiveGateway_ acts as an 'OR', and therefore all the flows leaving from it should have a condition to satisfy in order to get the token, with the exception of the default flow, which gets the token if all conditions have failed.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have an _ExclusiveGateway_ with outgoing flows which do not have a guard and which are not the default flow, you should edit the guard property of the flow.
+
+

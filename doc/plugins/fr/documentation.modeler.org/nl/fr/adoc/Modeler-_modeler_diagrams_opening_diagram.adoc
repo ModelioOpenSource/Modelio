@@ -1,0 +1,23 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Ouvrir-un-diagramme]]
+
+[[ouvrir-un-diagramme]]
+= Ouvrir un diagramme
+
+Il existe 3 façons d'ouvrir un diagramme :
+
+1. Double-cliquez sur l'icône du diagramme image:images/Modeler-_modeler_diagrams_opening_diagram_DiagramIcon.png[3] dans la vue "Modèle".
+2. Double-cliquez sur l'icône du diagramme image:images/Modeler-_modeler_diagrams_opening_diagram_DiagramIcon.png[3] dans la vue "Diagrammes".
+3. Double-cliquez sur son icône de raccourci image:images/Modeler-_modeler_diagrams_opening_diagram_DiagramShortcut.png[4] dans un dossier utilisateur dans la vue "Diagrammes".
+
+*Note :* Si le diagramme est déjà ouvert, il devient le diagramme actif, c'est à dire il apparaît dans l'avant-plan de la vue d'édition de diagrammes.
+
+.Informations sur l'ouverture des diagrammes
+image::images/Modeler-_modeler_diagrams_opening_diagram_OpenDiagram.png[image]
+
+
+
+
+

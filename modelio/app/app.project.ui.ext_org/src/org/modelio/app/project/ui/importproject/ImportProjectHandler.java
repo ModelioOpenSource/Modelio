@@ -33,11 +33,11 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.project.core.services.IProjectService;
-import org.modelio.app.project.core.services.ProjectImporter;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
-import org.modelio.ui.progress.IModelioProgressService;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.project.services.ProjectImporter;
+import org.modelio.platform.ui.progress.IModelioProgressService;
 
 @objid ("b5bb1066-7951-44d5-a8c9-7b429f38c6cd")
 public class ImportProjectHandler {

@@ -23,8 +23,8 @@ package org.modelio.app.project.conf.plugin;
 import java.util.ResourceBundle;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.equinox.log.ExtendedLogService;
-import org.modelio.utils.i18n.BundledMessages;
-import org.modelio.utils.log.writers.PluginLogger;
+import org.modelio.platform.utils.i18n.BundledMessages;
+import org.modelio.platform.utils.log.writers.PluginLogger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -38,7 +38,7 @@ public class AppProjectConfExt implements BundleActivator {
      * Plugin ID.
      */
     @objid ("dbd39727-45ad-42f2-857e-8b604528db1d")
-    public static final String PLUGIN_ID = "org.modelio.app.project.conf.ext";
+    public static final String PLUGIN_ID = "org.modelio.app.project.conf.ext_org";
 
     @objid ("17cbed7f-7646-4455-a58b-bb676c599fad")
     private static BundleContext context;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_BqHzIIkaEeWbO4MnNK7ogg">
+  <imports xsi:type="commands:Command" xmi:id="_NXKUIFTtEeK4YallPPLLhg" elementId="org.eclipse.ui.edit.delete"/>
+  <imports xsi:type="commands:Command" xmi:id="_4_zkAFTtEeK4YallPPLLhg" elementId="org.modelio.app.ui.command.copy"/>
+  <imports xsi:type="commands:Command" xmi:id="_5i5qAFTtEeK4YallPPLLhg" elementId="org.modelio.app.ui.command.cut"/>
+  <imports xsi:type="commands:Command" xmi:id="_5mVYgFTtEeK4YallPPLLhg" elementId="org.modelio.app.ui.command.paste"/>
+  <imports xsi:type="menu:Menu" xmi:id="_LG0VMH9KEeK-XvSICEmsLA" elementId="org.modelio.app.ui.menu.views"/>
+  <imports xsi:type="commands:Command" xmi:id="_SxKxwH9KEeK-XvSICEmsLA" elementId="org.modelio.app.ui.command.showview"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_BMscUIfSEeWj6a9oyLXySQ" featurename="sharedElements" parentElementId="org.modelio.app.ui.trimmed">
+    <elements xsi:type="basic:Part" xmi:id="_Jptr8IfSEeWj6a9oyLXySQ" elementId="org.modelio.edition.notes.notesview" contributionURI="bundleclass://org.modelio.app.edition.notes/org.modelio.edition.notes.view.NotesView" label="%Notes.label" iconURI="platform:/plugin/org.modelio.app.edition.notes/icons/description_note.png" tooltip="%Notes.tooltip" bindingContexts="_nBUaoVTsEeK4YallPPLLhg" closeable="true"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_nBUaoFTsEeK4YallPPLLhg" featurename="children" parentElementId="org.eclipse.ui.contexts.window">
+    <elements xsi:type="commands:BindingContext" xmi:id="_nBUaoVTsEeK4YallPPLLhg" elementId="org.modelio.edition.notes.toolbar.bindings.context" name="%EditionNotes.context.name" description="%EditionNotes.context.description"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ngmXoFTsEeK4YallPPLLhg" featurename="bindingTables" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:BindingTable" xmi:id="_ngmXoVTsEeK4YallPPLLhg" elementId="org.modelio.edition.notes.bindings.table" bindingContext="_nBUaoVTsEeK4YallPPLLhg">
+      <bindings xmi:id="_Ck2oIFTtEeK4YallPPLLhg" keySequence="DEL" command="_NXKUIFTtEeK4YallPPLLhg"/>
+      <bindings xmi:id="_ngmXpFTsEeK4YallPPLLhg" keySequence="M1+C" command="_4_zkAFTtEeK4YallPPLLhg"/>
+      <bindings xmi:id="_ngmXpVTsEeK4YallPPLLhg" keySequence="M1+X" command="_5i5qAFTtEeK4YallPPLLhg"/>
+      <bindings xmi:id="_ngmXplTsEeK4YallPPLLhg" keySequence="M1+V" command="_5mVYgFTtEeK4YallPPLLhg"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_MNELkH9KEeK-XvSICEmsLA" featurename="children" parentElementId="org.modelio.app.ui.menu.views">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_OdMbIH9KEeK-XvSICEmsLA" elementId="org.modelio.edition.notes.menuitem.showview" label="%NotesShowView.label" iconURI="platform:/plugin/org.modelio.app.edition.notes/icons/description_note.png" tooltip="%NotesShowView.tooltip" command="_SxKxwH9KEeK-XvSICEmsLA">
+      <parameters xmi:id="_G4gFMH9LEeK-XvSICEmsLA" elementId="org.modelio.app.ui.command.showview.viewid" name="org.modelio.app.ui.command.showview.viewid" value="org.modelio.edition.notes.notesview"/>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1710]]
+
+[[r1710]]
+= R1710
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Le champ 'Expression' d'un _Event_ de type _Time_ doit être défini, tandis que les champs 'Called operation' et 'Instanciated signal' doivent être vides.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _Event_ de type _Time_ définit une expression temporelle.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Vérifiez que le champ 'Expression' est rempli et que les champs ''Instanciated signal' et 'Called operation' sont vides, ou changez le type d'_Event_.
+
+

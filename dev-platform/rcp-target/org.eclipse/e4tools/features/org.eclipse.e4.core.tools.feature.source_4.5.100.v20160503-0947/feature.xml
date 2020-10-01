@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.eclipse.e4.core.tools.feature.source" version="4.5.100.v20160503-0947" label="%featureName" provider-name="%providerName">
+  <includes id="org.eclipse.e4.core.tools.feature" version="4.5.100.v20160503-0947"/>
+  <description>
+      %description
+   </description>
+  <copyright>
+      %copyright
+   </copyright>
+  <license url="%licenseURL">
+      %license
+   </license>
+  <plugin id="org.eclipse.e4.tools.emf.editor3x.source" version="4.5.0.v20160503-0947" download-size="0" install-size="0" unpack="false"/>
+  <plugin id="org.eclipse.e4.tools.emf.ui.source" version="4.5.100.v20160503-0947" download-size="0" install-size="0" unpack="false"/>
+  <plugin id="org.eclipse.e4.tools.compat.source" version="4.5.0.v20160503-0947" download-size="0" install-size="0" unpack="false"/>
+  <plugin id="org.eclipse.e4.tools.services.source" version="4.5.0.v20160503-0947" download-size="0" install-size="0" unpack="false"/>
+  <plugin id="org.eclipse.e4.tools.source" version="4.5.0.v20160503-0947" download-size="0" install-size="0" unpack="false"/>
+  <plugin id="org.eclipse.e4.tools.jdt.templates.source" version="4.5.0.v20160503-0947" download-size="0" install-size="0" unpack="false"/>
+</feature>

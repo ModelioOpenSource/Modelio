@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2260]]
+
+[[r2260]]
+= R2260
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+Each _Operation_ in a _Classifier_ must have a different signature.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An _Operation_ is identified by its signature so it must be unique in a _Classifier_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Rename one of the _Operations_ or change their parameters.
+
+

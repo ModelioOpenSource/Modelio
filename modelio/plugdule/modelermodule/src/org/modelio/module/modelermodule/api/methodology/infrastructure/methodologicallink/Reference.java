@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("0b1a5642-50de-46f9-bf4a-2fc939d70bf0")
 public class Reference {
-    @objid ("615bea68-4da1-434f-9fcc-c5f63bb11862")
+    @objid ("846fc2ad-e342-44ce-84b6-e49168ba75c0")
     public static final String STEREOTYPE_NAME = "Reference";
 
     /**
      * The underlying {@link MethodologicalLink} represented by this proxy, never null.
      */
-    @objid ("f1efc917-8efb-4208-821e-2900460b412d")
+    @objid ("532f38dd-5f60-4ff7-828c-277e478c921a")
     protected final MethodologicalLink elt;
 
     /**
-     * Tells whether a {@link Reference proxy} can be instantiated from a {@link MObject} checking it is a {@link MethodologicalLink} stereotyped << Reference >>. 
+     * Tells whether a {@link Reference proxy} can be instantiated from a {@link MObject} checking it is a {@link MethodologicalLink} stereotyped << Reference >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("437728fc-00cb-4b50-bcac-16769d01243c")
+    @objid ("f6a6142d-7622-4b91-9d1a-14c171216cf8")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof MethodologicalLink) && ((MethodologicalLink) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Reference.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Reference {
      * 
      * @return a {@link Reference} proxy on the created {@link MethodologicalLink}.
      */
-    @objid ("ad2c54ab-c549-46ad-b7df-fa832c493674")
+    @objid ("2de890c5-9092-42df-863c-c3133fabf53f")
     public static Reference create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("MethodologicalLink");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Reference.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Reference {
     }
 
     /**
-     * Tries to instantiate a {@link Reference} proxy from a {@link MethodologicalLink} stereotyped << Reference >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Reference} proxy from a {@link MethodologicalLink} stereotyped << Reference >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a MethodologicalLink
      * @return a {@link Reference} proxy or <i>null</i>.
      */
-    @objid ("4164cc88-a85e-4c22-8c9a-d773cd1eb349")
+    @objid ("bb324f59-5fe8-4b1b-8a15-0fba031ed463")
     public static Reference instantiate(MethodologicalLink obj) {
         return Reference.canInstantiate(obj) ? new Reference(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Reference {
      * @return a {@link Reference} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("29d89b63-426f-4aff-b54c-4051bff59b9c")
+    @objid ("a4ae940b-4800-4d5c-a412-12f1eeee0ed4")
     public static Reference safeInstantiate(MethodologicalLink obj) throws IllegalArgumentException {
         if (Reference.canInstantiate(obj))
         	return new Reference(obj);
@@ -122,7 +122,7 @@ public class Reference {
         AbstractMethodologicalLink.setTarget(source, MdaTypes.STEREOTYPE_ELT, target);
     }
 
-    @objid ("42baa33b-5e36-481e-9df8-b343e1007c73")
+    @objid ("c41fa486-b87e-4f39-a940-00bf44c3e0f7")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -142,34 +142,34 @@ public class Reference {
      * Get the underlying {@link MethodologicalLink}. 
      * @return the MethodologicalLink represented by this proxy, never null.
      */
-    @objid ("23f3a013-819a-4a1f-bbcc-8777671a10c8")
+    @objid ("95d3312c-3119-4d61-a92c-9a6fe9489791")
     public MethodologicalLink getElement() {
         return this.elt;
     }
 
-    @objid ("0530e12d-a65f-4ebe-a030-f3e5365556ec")
+    @objid ("29e0469e-53c0-4bde-b8cd-834c0751ca4c")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("0fe26a18-7696-4260-8f59-0b09d1e5bc13")
+    @objid ("16779c2b-2a8c-47b7-b7e0-0b4a23a52367")
     protected Reference(MethodologicalLink elt) {
         this.elt = elt;
     }
 
     @objid ("a27b86e8-95fd-41e3-ac1c-1744e5c17bea")
     public static final class MdaTypes {
-        @objid ("5a747669-f300-4bc5-94d4-97aad6a93830")
+        @objid ("d43a9101-5ff7-4df3-ac05-d40d4721a042")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("e9eb529d-904b-4163-9b73-bfc0968a4d17")
+        @objid ("a8130818-bacb-4137-a066-da55b88e4bc5")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("486bbaa1-33d1-4d0a-9821-f776ddd774c1")
+        @objid ("da877319-21a8-4d9f-881f-2e5bf2d87881")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("b05e6b9f-6bb3-487a-96a1-4a553dbadf05")
+        @objid ("86eb843f-4b68-474b-95e8-ab60c4d65f29")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "3b4dc351-ccaa-47b8-af57-8434f8e0e5f5");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

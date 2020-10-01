@@ -1,0 +1,21 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Démasquer-des-éléments-dans-les-diagrammes-par-glisser-déposer]]
+
+[[démasquer-des-éléments-dans-les-diagrammes-par-glisser-déposer]]
+= Démasquer des éléments dans les diagrammes par glisser-déposer
+
+Le service "glisser-déposer" vous permet de démasquer rapidement des éléments dans les diagrammes Modelio. En effet, il suffit de sélectionner un(des) élément(s) dans la vue "Modèle" puis de le(s) glisser-déposer dans un diagramme.
+
+*Étapes :*
+
+1. Cliquez sur l'élément dans la vue "Modèle".
+2. Glissez-déposez l'élément dans le diagramme et relâchez le bouton de la souris.
+
+.Démasquage d'une classe dans un diagramme de classes en utilisant le glisser-déposer
+image::images/Modeler-_modeler_building_models_creating_elements_dragdrop_DiagDragDrop.png[2]
+
+*Note :* Vous pouvez glisser-déposer plusieurs éléments à la fois depuis la vue "Modèle" vers un diagramme. Pour ce faire, il suffit de maintenir enfoncée la touche "Ctrl" lors de la sélection des éléments dans la vue "Modèle", avant de les glisser-déposer dans le diagramme.
+
+

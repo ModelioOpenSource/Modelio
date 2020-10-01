@@ -25,7 +25,7 @@ import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.swt.graphics.Color;
 import org.modelio.api.module.parameter.impl.ParameterModel;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.ui.UIColor;
+import org.modelio.platform.ui.UIColor;
 
 /**
  * Label provider for the parameter scope column.

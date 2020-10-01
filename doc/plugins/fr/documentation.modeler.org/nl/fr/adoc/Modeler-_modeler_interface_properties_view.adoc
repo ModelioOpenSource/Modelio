@@ -1,0 +1,24 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[La-vue-Propriétés]]
+
+[[la-vue-propriétés]]
+= La vue Propriétés
+
+La vue *Propriétés* est une vue combinée agrégeant les vues *<<Modeler-_modeler_interface_uml_prop_view.adoc#,Elément>>*, *<<Modeler-_modeler_interface_annot_view.adoc#,Notes & contraintes>>*
+
+et *<<Modeler-_modeler_interface_symbol_view.adoc#,Symbole>>*.
+
+.La vue Propriétés
+image::images/Modeler-_modeler_interface_properties_view_propertiesview_fr.png[1]
+
+*Légende :*
+
+1. Onglet de la vue *"Propriétés"*.
+2. Nom et métaclasse de l'élément sélectionné.
+3. Onglet "<<Modeler-_modeler_interface_uml_prop_view.adoc#,Elément>>".
+4. Onglet "<<Modeler-_modeler_interface_annot_view.adoc#,Notes & contraintes>>".
+5. Onglet "<<Modeler-_modeler_interface_symbol_view.adoc#,Symbole>>".
+
+

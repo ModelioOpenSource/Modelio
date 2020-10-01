@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.constraint;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("42a643e7-92ca-450c-bc7b-c44d1f137341")
 public class Ordered {
-    @objid ("9ff3cd9b-40e4-4cff-b19a-917cbb3615b8")
+    @objid ("4622a13a-c274-4552-bdf5-a044c2b0f6be")
     public static final String STEREOTYPE_NAME = "ordered";
 
     /**
      * The underlying {@link Constraint} represented by this proxy, never null.
      */
-    @objid ("dcdd9192-b47f-4900-a958-3c37e8069bd9")
+    @objid ("95710741-ef4c-402e-92ce-f827aa0344e7")
     protected final Constraint elt;
 
     /**
-     * Tells whether a {@link Ordered proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << ordered >>. 
+     * Tells whether a {@link Ordered proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << ordered >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("d632005a-6d60-4383-9c26-5ecf00f903ce")
+    @objid ("f204b10b-8884-40f0-8133-9f0aab224758")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Constraint) && ((Constraint) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Ordered.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Ordered {
      * 
      * @return a {@link Ordered} proxy on the created {@link Constraint}.
      */
-    @objid ("3879c51b-1a62-4d53-9e84-0f746edd53be")
+    @objid ("16fb7a0a-08d4-44f3-9444-0bf4d154e81b")
     public static Ordered create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Constraint");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Ordered.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Ordered {
     }
 
     /**
-     * Tries to instantiate a {@link Ordered} proxy from a {@link Constraint} stereotyped << ordered >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Ordered} proxy from a {@link Constraint} stereotyped << ordered >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Constraint
      * @return a {@link Ordered} proxy or <i>null</i>.
      */
-    @objid ("7087f2e8-32f6-4997-9e7d-869dbe099143")
+    @objid ("b0526e39-a3c2-46c0-b832-857cf0913651")
     public static Ordered instantiate(Constraint obj) {
         return Ordered.canInstantiate(obj) ? new Ordered(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Ordered {
      * @return a {@link Ordered} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("5db943cb-4aa6-441d-8a1c-7c4c7ba20e4c")
+    @objid ("deb036d3-4946-4e3e-9fc1-36c692a7933c")
     public static Ordered safeInstantiate(Constraint obj) throws IllegalArgumentException {
         if (Ordered.canInstantiate(obj))
         	return new Ordered(obj);
@@ -112,7 +112,7 @@ public class Ordered {
         	throw new IllegalArgumentException("Ordered: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("80548a5c-9d8f-42dd-a51a-f2659673c0fa")
+    @objid ("825b9c33-bcde-4d8a-897e-c97c4b4eb78a")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Ordered {
      * Get the underlying {@link Constraint}. 
      * @return the Constraint represented by this proxy, never null.
      */
-    @objid ("0fc0e350-6e3f-4e5e-b78c-4efee0a093c8")
+    @objid ("61cd2acd-1177-4f88-9519-7aeb8df5b0aa")
     public Constraint getElement() {
         return this.elt;
     }
 
-    @objid ("af679fd5-47f8-4429-a647-6cbfdc9f91ab")
+    @objid ("6ca61c61-4776-4b1f-ae96-7d406afac0bb")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("27444719-ba99-437e-acc2-bc9fd68b5093")
+    @objid ("379ccffd-c222-4622-9f26-8019c3c3c53d")
     protected Ordered(Constraint elt) {
         this.elt = elt;
     }
 
     @objid ("ce113c67-b988-43ce-b615-4a87a781f4e7")
     public static final class MdaTypes {
-        @objid ("2a8a51d0-1dfa-46a5-b8ec-2b51d324d2e3")
+        @objid ("d43b2602-1262-4fdc-abee-4e7cd765b994")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("82b98051-c726-42c5-9824-d24447b7e7d9")
+        @objid ("c43e3902-dd62-46ea-839f-b968f74446c5")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("8b3a1400-558c-48c7-97a6-1bc69bd8f7c8")
+        @objid ("b4b0e586-909a-4da7-86f8-471ef05a6196")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("1dcbbf0d-1322-4c7c-b554-7bdd46dfd2ff")
+        @objid ("08473a31-d766-4d81-bf73-6118b32acb0c")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00540a84-0000-0003-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1620]]
+
+[[r1620]]
+= R1620
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A concrete _Classifier_ cannot have abstract _Operations_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A class which has abstract methods cannot be instantiated, it is then definitively abstract.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Either make the class abstract or make the methods non-abstract.
+
+

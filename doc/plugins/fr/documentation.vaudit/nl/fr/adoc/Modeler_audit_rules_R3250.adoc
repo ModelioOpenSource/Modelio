@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3250]]
+
+[[r3250]]
+= R3250
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Les _Process_ et _SubProcess_ doivent avoir au moins un _StartEvent_ et un _EndEvent_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les _Process_ et les _SubProcess_ représentent des processus indépendants, et un processus est représenté par une et une seule séquence qui démarre avec un _StartEvent_ et finit par un _EndEvent_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une séquence qui ne commence pas par un _StartEvent_ ou ne termine pas par un _EndEvent_, vous devriez ajouter ces nœuds afin de la rendre correcte.
+
+

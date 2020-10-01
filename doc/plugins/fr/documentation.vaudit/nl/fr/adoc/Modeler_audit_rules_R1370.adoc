@@ -1,0 +1,34 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1370]]
+
+[[r1370]]
+= R1370
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un _OutputPin_ peut avoir des flux entrants seulement s'il est sur un _StructuredNode_ et seulement si ces flux ont comme source des nœuds contenus par le _StructuredNode_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _OutputPin_ peut avoir des flux entrants seulement s'il est sur un _StructuredNode_ et seulement si ces flux ont comme source des nœuds contenus par le _StructuredNode_.
+
+*Exemple :*
+
+image::images/Modeler_audit_rules_R1370_image001.png[image]
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous rencontrez une erreur R1360, vérifiez que ce que vous voulez faire correspond bien à la configuration de l'exemple ci-dessus. Si c'est le cas, vérifiez que les flux qui arrivent sur l'_OutputPin_ incriminé proviennent bien de nœuds contenus par le _StructuredNode_ auquel appartient le _Pin_.
+
+

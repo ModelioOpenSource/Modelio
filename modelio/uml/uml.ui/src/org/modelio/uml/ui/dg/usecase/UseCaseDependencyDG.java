@@ -25,9 +25,9 @@ import java.util.Collections;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramLink;
-import org.modelio.diagram.editor.usecase.elements.usecasedependency.GmUseCaseDependency;
 import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.model.IGmNode;
+import org.modelio.uml.usecasediagram.editor.elements.usecasedependency.GmUseCaseDependency;
 
 /**
  * This class represents the DiagramGraphic of a 'UseCaseDependency' element.

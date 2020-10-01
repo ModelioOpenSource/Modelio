@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Diagrammes-automatiques]]
+
+[[diagrammes-automatiques]]
+= Diagrammes automatiques
+
+[[Concept]]
+
+[[concept]]
+== Concept
+
+La génération automatique de diagrammes est une fonctionnalité très utile notamment dans les use case de reverse massif de code, dans lesquels un code existant est transformé en un modèle à des fins d'analyse de son design ou de production de sa documentation.
+
+Le problème général de la génération automatique de diagrammes est "quels éléments montrer, et comment les disposer ?". Cette question n'a pas de réponse dans le cas général. Modelio propose une approche pragmatique, à travers un nombre limité de types de diagrammes générés, dont le contenu et la présentation sont précisément définis, et dont l'utilité et l'utilisation sont prévisibles.
+
+Les diagrammes automatiques proposés par Modelio se placent ainsi dans le cadre de l'utilisation de Modelio pour des tâches de développement, avec des diagrammes automatiques s'intéressant aux packages et aux classes.
+
+[[Diagrammes-automatiques-proposés]]
+
+[[diagrammes-automatiques-proposés]]
+== Diagrammes automatiques proposés
+
+Modelio produit actuellement les diagrammes automatiques suivants :
+
+* <<Modeler-_modeler_handy_tools_automatic_diagrams_Inheritance_diagram.adoc#,Diagramme d'héritage>>
+* <<Modeler-_modeler_handy_tools_automatic_diagrams_Class_structure_diagram.adoc#,Diagramme de structure de Classe>>
+* <<Modeler-_modeler_handy_tools_automatic_diagrams_Package_structure_diagram.adoc#,Diagramme de structure de Package>>
+
+

@@ -27,8 +27,8 @@ import org.modelio.audit.extension.IAuditConfigurationPlan;
 import org.modelio.audit.preferences.model.AuditCategory;
 import org.modelio.audit.preferences.model.AuditRule;
 import org.modelio.bpmn.ui.plugin.BpmnUi;
-import org.modelio.core.ui.swt.images.MetamodelImageService;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
+import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 
 @objid ("06f4c9fa-48cc-4ae5-a6fc-4ed768932a3f")
 public class BpmnConfigurationPlan implements IAuditConfigurationPlan {

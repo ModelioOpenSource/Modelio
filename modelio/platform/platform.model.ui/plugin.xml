@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.modelio.platform.model.ui.labelprovider" name="Metamodel browser label provider" schema="schema/org.modelio.platform.model.ui.labelprovider.exsd"/>
+   <extension-point id="org.modelio.platform.model.ui.element.imageprovider" name="Metamodel element image service" schema="schema/org.modelio.platform.model.ui.element.imageprovider.exsd"/>
+   <extension-point id="org.modelio.platform.model.ui.mclass.imageprovider" name="Metamodel metaclass image service" schema="schema/org.modelio.platform.model.ui.mclass.imageprovider.exsd"/>
+   <extension-point id="org.modelio.platform.model.ui.nattable.viewer.model.IPropertyTableConfigurationProvider" name="Property NAT table extensions" schema="schema/org.modelio.platform.model.ui.nattable.viewer.model.IPropertyTableConfigurationProvider.exsd"/>
+   
+   <extension point="org.modelio.platform.model.ui.element.imageprovider">
+      <service metamodel="Infrastructure" implementation="org.modelio.platform.model.ui.swt.images.InfrastructureElementImageProvider" />
+   </extension>
+   
+   <extension point="org.modelio.platform.model.ui.mclass.imageprovider">
+      <service metamodel="Infrastructure" implementation="org.modelio.platform.model.ui.swt.images.InfrastructureElementImageProvider" />
+   </extension>
+</plugin>

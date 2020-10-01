@@ -1,0 +1,18 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= BPMN Model Browser
+
+image::images/attachment/bpmn41/User_Documentation_en/BPMN_Model_Browser/WebHome/ExplorerPuces.png[ExplorerPuces.png]
+
+*Keys :*
+
+1. Processes.
+2. Process Design Diagram.
+3. Tasks folder.
+4. Sub-Process and its Sub-Process Diagram.
+5. Events folder.
+6. Roles folder.
+7. Collaboration and its Collaboration Diagram.
+8. Participants.
+9. Messages folder.

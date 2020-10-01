@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1660]]
+
+[[r1660]]
+= R1660
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Enumération_ est toujours primitive.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les énumérations ne peuvent pas être décomposées et elles doivent être primitives.
+
+Les Enumeration sont primitives par défaut dans Modelio, seule une macro ou un module peut modifier cet état.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Contactez le développeur du module ou de la macro qui a créé ou modifié cet Enumeration pour qu'il corrige son code.
+* Si vous êtes le développeur, appelez setIsElementary(true)sur l'Enumeration, et vérifiez que vous n'appelez pas la méthode avec _false_ en paramètre.
+
+

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1800]]
+
+[[r1800]]
+= R1800
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+If a _CombinedFragment_ operator is of type 'opt', 'loop', 'break' or 'neg' there should be only one _InteractionOperand_ in this _CombinedFragment_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The 'opt', 'loop', 'break' and 'neg' operators are defined to work with only one operand.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+This rule indicates an inconsistency between the operator and the number of _InteractionOperand_ in the _CombinedFragment_ in question.
+
+

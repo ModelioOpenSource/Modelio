@@ -1,0 +1,35 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2590]]
+
+[[r2590]]
+= R2590
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une région ne peut pas avoir plus d'un état initial.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un état initial représente l'état temporaire par défaut d'un objet lorsqu'il est créé. Quand une transition cible un état, elle cible implicitement l'état initial. Il ne peut donc y avoir plus d'un état initial.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Solutions possibles:
+
+* *Solution 1* +
+Ajoutez une autre région à votre état et déplacez un des état initiaux vers cette région. Lorsqu'une transition cible un état avec plusieurs régions concurrentes, elle cible implicitement chaque état initial des régions concurrentes.
+* *Solution 2* +
+Créez un nouvel état et déplacez-y un des états initiaux.
+
+

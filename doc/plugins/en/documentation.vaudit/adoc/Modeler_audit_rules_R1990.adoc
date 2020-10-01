@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1990]]
+
+[[r1990]]
+= R1990
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The name of a _Classifier's_ _Attributes_ and Roles must be unique in the _Classifier_ and its inherited _Classifiers_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The _Attributes_ and _AssociationEnds_ of a _Classifier_ must have a unique name in that _Classifier_. Furthermore, since when inheriting from a _Classifier_, some of its properties are inherited as well, the name must be unique in the Classifier, but also in all its parents.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have several _Attributes_ or _AssociationEnds_ with the same name in a _Classifier_ or its parents, you must rename them so they each have a unique name.
+
+

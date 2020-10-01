@@ -1,0 +1,7 @@
+/* Shared style applied to Getting Started pages */
+
+/**** Tables *****/
+table {border: 1px solid #505050;border-collapse: collapse;margin-bottom: 1em;}
+td {border: 1px solid #bbb;padding: 4px;}
+th {border: 1px solid #bbb;padding: 4px;color: #444;background: #EEEEEE;}
+/*****************/

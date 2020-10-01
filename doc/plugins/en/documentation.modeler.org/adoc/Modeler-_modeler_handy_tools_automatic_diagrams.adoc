@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Automatic-diagrams]]
+
+[[automatic-diagrams]]
+= Automatic diagrams
+
+[[Concept]]
+
+[[concept]]
+== Concept
+
+Automatic diagram generation is an extremely useful function, notably when massive code reverse operations are run, during which existing code is transformed into a model in order to analyze its design or documentation production.
+
+The general problem with automatic diagram generation is "which elements to show, and how to present them?". There is no general answer to this question. Modelio proposes a pragmatic approach, through a limited number of generated diagram types, whose contents and presentation are precisely defined, and whose usefulness and use can be predicted.
+
+The automatic diagrams proposed by Modelio fit into the context of using Modelio for development tasks, with automatic diagrams focused on packages and classes.
+
+[[Automatic-diagrams-proposed]]
+
+[[automatic-diagrams-proposed]]
+== Automatic diagrams proposed
+
+Currently, Modelio produces the following automatic diagrams:
+
+* <<Modeler-_modeler_handy_tools_automatic_diagrams_Inheritance_diagram.adoc#,Inheritance diagram>>
+* <<Modeler-_modeler_handy_tools_automatic_diagrams_Class_structure_diagram.adoc#,Class structure diagram>>
+* <<Modeler-_modeler_handy_tools_automatic_diagrams_Package_structure_diagram.adoc#,Package structure diagram>>
+
+

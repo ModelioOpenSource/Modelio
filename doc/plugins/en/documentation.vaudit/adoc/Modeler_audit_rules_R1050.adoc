@@ -1,0 +1,38 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1050]]
+
+[[r1050]]
+= R1050
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An ActivityParameterNode must have either all incoming or all outgoing ActivityEdges, but it must not have both.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An ActivityParameterNode must have either all incoming or all outgoing ActivityEdges, but it must not have both.
+
+ActivityParameterNodes are object nodes at the beginning and end of flows that provide a means of accepting input to an Activity and providing outputs from the Activity, through the Activity parameters.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+ActivityEdges should follow the passing mode of the BehaviorParameter represented by the ActivityParameterNode.
+
+* In the case of an "in" BehaviorParameter, the ActivityParameterNode should only have outgoing ActivityEdges.
+* In the case of an "out" BehaviorParameter, the ActivityParameterNode should only have incoming ActivityEdges.
+* In the case of an "inout" BehaviorParameter, two ActivityParameterNodes should be used:
+** one for the "in" aspect, with only outgoing ActivityEdges
+** one for the "out" aspect, with only incoming ActivityEdges
+
+

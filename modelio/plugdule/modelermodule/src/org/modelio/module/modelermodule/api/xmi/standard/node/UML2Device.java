@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.node;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("35943c26-6bcb-4f3a-8cc4-05428af13dcf")
 public class UML2Device {
-    @objid ("a19ac1a1-a614-43c3-9529-30aad1190b65")
+    @objid ("ec39c266-6b70-4d70-ae93-9912a9a22560")
     public static final String STEREOTYPE_NAME = "UML2Device";
 
     /**
      * The underlying {@link Node} represented by this proxy, never null.
      */
-    @objid ("dea68365-a538-4656-8a6a-1f0e7cbdc822")
+    @objid ("88ececd1-8dea-492c-b5c7-b4b3452d5a64")
     protected final Node elt;
 
     /**
-     * Tells whether a {@link UML2Device proxy} can be instantiated from a {@link MObject} checking it is a {@link Node} stereotyped << UML2Device >>. 
+     * Tells whether a {@link UML2Device proxy} can be instantiated from a {@link MObject} checking it is a {@link Node} stereotyped << UML2Device >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("3c9be6a3-7237-484d-80fa-4ad5f68c3db4")
+    @objid ("b3593551-2783-4d1c-881d-43055199ffb5")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Node) && ((Node) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2Device.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2Device {
      * 
      * @return a {@link UML2Device} proxy on the created {@link Node}.
      */
-    @objid ("665bb7a6-069e-46d1-9937-cf339152ecc2")
+    @objid ("ca3bdef1-c0a1-4eef-be2f-921b5ebb9465")
     public static UML2Device create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Node");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2Device.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2Device {
     }
 
     /**
-     * Tries to instantiate a {@link UML2Device} proxy from a {@link Node} stereotyped << UML2Device >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2Device} proxy from a {@link Node} stereotyped << UML2Device >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Node
      * @return a {@link UML2Device} proxy or <i>null</i>.
      */
-    @objid ("e088ba1c-1917-4b87-a1c2-c4540a4ec7f3")
+    @objid ("64c854ab-fa41-4564-b951-ac9fcb4841b2")
     public static UML2Device instantiate(Node obj) {
         return UML2Device.canInstantiate(obj) ? new UML2Device(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2Device {
      * @return a {@link UML2Device} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("62f6c249-1a6c-4fae-b793-74748d86a710")
+    @objid ("a51b6981-06ff-47c7-85f3-8ca53562050e")
     public static UML2Device safeInstantiate(Node obj) throws IllegalArgumentException {
         if (UML2Device.canInstantiate(obj))
         	return new UML2Device(obj);
@@ -112,7 +112,7 @@ public class UML2Device {
         	throw new IllegalArgumentException("UML2Device: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("80963abd-2958-40fc-8941-2144a8c859bf")
+    @objid ("b118f8de-a2ce-4642-881e-bb1685e4d30b")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2Device {
      * Get the underlying {@link Node}. 
      * @return the Node represented by this proxy, never null.
      */
-    @objid ("56da6eb9-f25b-412d-9f1a-49d1b432aee0")
+    @objid ("2727ed8a-46a3-44d0-a92b-fa4b02ce51be")
     public Node getElement() {
         return this.elt;
     }
 
-    @objid ("db82fc6e-28c9-41df-8cce-8bdc548c80b9")
+    @objid ("f81ab41b-d1b8-4e9f-815d-381c146c0526")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("5189b75b-8603-4b78-a307-f138104d6c99")
+    @objid ("be04691e-5dfe-49e8-aaa3-f3237bdb87ab")
     protected UML2Device(Node elt) {
         this.elt = elt;
     }
 
     @objid ("523ea551-51fc-4d7a-8cc8-4bf7ca4c5370")
     public static final class MdaTypes {
-        @objid ("720bf798-3b45-41b6-945e-b3c61b77dcea")
+        @objid ("03e61e6e-841b-4530-927f-0fd31a0509e6")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("5f51a1ed-1654-4441-9916-3b1c2966a318")
+        @objid ("0f20de14-e81c-4c3c-a51d-6efd92359520")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("168dd386-0885-4d1c-bf3e-d9ef4b077859")
+        @objid ("56efd96f-c4bc-4599-ac9b-c540d9979f06")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("0813420b-b969-4ab1-a5ba-2f330ec91eee")
+        @objid ("086576d9-e60f-4763-88a3-54536709d35d")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "6f3c6234-52b8-11df-a320-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

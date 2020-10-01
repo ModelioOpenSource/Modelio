@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2080]]
+
+[[r2080]]
+= R2080
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+In a _PropertySet_, the name of each _Property_ must be unique.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Having duplicate names can be confusing.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Rename any element with a duplicated name.
+
+

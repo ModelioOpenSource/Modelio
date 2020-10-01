@@ -1,0 +1,11 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Copier-un-diagramme-en-tant-quimage]]
+
+[[copier-un-diagramme-en-tant-quimage]]
+= Copier un diagramme en tant qu'image
+
+Pour copier le contenu d'un diagramme au presse-papiers, il suffit de cliquer sur l'icône image:images/Modeler-_modeler_diagrams_copying_copy_image.png[2] dans la barre d'outils du diagramme et puis de coller le contenu du diagramme dans un autre document.
+
+

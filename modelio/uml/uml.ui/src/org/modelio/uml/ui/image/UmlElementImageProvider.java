@@ -28,11 +28,8 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
-import org.modelio.core.ui.swt.images.spi.IElementImageProvider;
-import org.modelio.core.ui.swt.images.spi.IMetamodelImageProvider;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionNode;
-import org.modelio.metamodel.uml.behavior.commonBehaviors.BehaviorParameter;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ConnectionPointReference;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.KindOfStateMachine;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
@@ -41,7 +38,9 @@ import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.metamodel.visitors.DefaultModelVisitor;
-import org.modelio.ui.swt.QualifiedImage;
+import org.modelio.platform.model.ui.swt.images.spi.IElementImageProvider;
+import org.modelio.platform.model.ui.swt.images.spi.IMetamodelImageProvider;
+import org.modelio.platform.ui.swt.QualifiedImage;
 import org.modelio.uml.ui.plugin.UmlUi;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -222,17 +221,6 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
                 return "io";
             } else {
                 return null;
-            }
-        }
-
-        @objid ("8c00f877-1770-11e2-aa0d-002564c97630")
-        @Override
-        public Object visitBehaviorParameter(BehaviorParameter theBehaviorParameter) {
-            final Parameter theParameter = theBehaviorParameter.getMapped();
-            if (theParameter != null) {
-                return visitParameter(theParameter);
-            } else {
-                return super.visitUmlModelElement(theBehaviorParameter);
             }
         }
 

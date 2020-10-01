@@ -1,0 +1,34 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2530]]
+
+[[r2530]]
+= R2530
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+If a _Port_ receives a delegation from an internal part, it must require at least one interface.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A received delegation is a _Connector_ linking a _Port_ of a _Class_ or _Component_ from a part of the same class.
+
+A _Port_ receiving a delegate _Connector_ should have a required interface in order to have something to ask.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Add a required interface to the port.
+* Check the delegate Connector navigation direction.
+* Remove the delegation.
+
+

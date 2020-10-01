@@ -1,0 +1,252 @@
+/* CSS Document */
+
+html {
+	font-size: 100%;
+}
+
+html, body {
+  height:100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ color: #955;
+}
+
+a, a:hover {
+  text-decoration: none;      
+}
+
+a:visited {
+}
+
+img {
+  border: none;
+}
+
+a img {
+  border: none;
+}
+
+a.openImage {
+  display: none;
+}
+
+#container {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, "Bitstream Vera Sans", "Lucida Grande", sans-serif;
+  font-size: 10pt;
+}
+
+#content {
+  width: 100%;
+  margin: 0;
+}
+
+div #page {
+  white-space: pre-wrap;
+}
+
+#header {
+  height: 85px;
+  border-bottom: 1px solid #333;
+}
+
+#header #logo {
+  position: relative;
+  top: 12px;
+  left: 30px;
+}
+
+#header h1.documentTitle {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 250px;
+  bottom: 40px;
+  color: black;
+}
+
+#header h2.documentType {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 250px;
+  bottom: 40px;
+  color: black;
+}
+
+#navbar {
+  display: none;
+}
+
+#sidebar {
+   display: none;
+}
+ 
+#mainArea {
+   padding: 30px;
+   padding-left: 30px;
+}
+ 
+#page {
+   padding-top: 25px;
+}
+
+#footer {
+  margin: 20px auto;
+  padding-top: 25px;
+  text-align: center;
+  width:100%;
+  border-top: 1px solid #ccc;
+  font-family: helvetica;
+  font-size: 8pt;
+  color: #666;
+}
+
+#footer a {
+  color: #999;
+}
+
+caption {
+  caption-side:bottom;
+}
+
+table.ListeclaireAccent1 {
+   margin-top:10px;
+   margin-left: 20px;
+   font-size: 11px;
+   color: #666;
+   width: 90%;
+   border: 1px solid #999;
+}
+
+table.ListeclaireAccent1 tr th {
+   font-size: 11px;
+   color: #fff;
+   background-color: #955;
+   padding: 3px;
+}
+
+table.ListeclaireAccent1 td {
+   padding: 5px;
+}
+
+table.ListeclaireAccent1 tr.even{
+
+}
+
+table.ListeclaireAccent1 tr.odd{
+	background-color: #ddd;
+}
+
+div.Titre1 {
+  padding-top: 25px;
+  color: #955;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+div.Titre2 {
+  padding-top: 30px;
+  color: #955;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+div.Titre3 {
+  padding-top: 30px;
+  color: #955;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+div.Titre4 {
+  padding-top: 30px;
+  color: #955;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Titre5 {
+  padding-top: 30px;
+  color: #955;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Titre6 {
+  padding-top: 30px;
+  color: #955;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Titre7 {
+  padding-top: 30px;
+  color: #955;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Titre8 {
+  padding-top: 30px;
+  color: #955;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Titre9 {
+  padding-top: 30px;
+  color: #955;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.Soustitre {
+  padding-top: 20px;
+  color: #955;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+div.Sansinterligne {
+  color: #666;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.Emphaseple {
+font-style: italic;
+color: #999999;
+}
+
+div.Legende {
+  margin-top: 15px;
+  color: #333;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+#page img {
+  margin-top: 20px;
+}
+
+#summary img {
+  vertical-align: bottom;    
+  margin-top: 0px;
+}
+
+li {
+ list-style-type: none;
+ background-image: none;
+ background-repeat: no-repeat;
+ background-position: 0 0.32em;
+ padding-left: 15px;
+} 

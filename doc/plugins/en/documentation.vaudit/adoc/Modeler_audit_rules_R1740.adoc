@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1740]]
+
+[[r1740]]
+= R1740
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _InformationFlow_ should convey information.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_InformationFlows_ are meant to convey information.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If your _InformationFlow_ does not convey any information, it should be removed, or you should make it convey information.
+
+

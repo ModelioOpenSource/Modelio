@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.e4.workbench.model" id="modelContribution">
+		<fragment uri="e4model/property.e4xmi"/> 
+	</extension>
+
+   	<extension-point id="org.modelio.app.model.property.propertymodelprovider" name="Metamodel property view model provider" schema="schema/org.modelio.app.model.property.propertymodelprovider.exsd"/>
+   
+   	<extension point="org.modelio.app.model.property.propertymodelprovider">
+   	   	<service metamodel="Infrastructure" implementation="org.modelio.model.property.panel.data.standard.InfrastructurePropertyModelProvider" />
+   	</extension>
+	
+	<extension point="org.eclipse.core.expressions.definitions">
+		<definition id="model.property.definition.allowShowHiddenAnnotations">
+			<test forcePluginActivation="true" property="admtool.test.adminmode"/>
+		</definition>
+	</extension>
+	
+	<extension point="org.modelio.app.propertyview.panels">
+    	<panel  class="org.modelio.model.property.panel.ElementPropertyPanelProvider"
+          		id="org.modelio.propertyview.panels.panel2"
+          		label="%Element.Tab.label"
+          		icon="icons/element.png"
+          		primary="true">
+    	</panel>
+    </extension>
+	
+</plugin>

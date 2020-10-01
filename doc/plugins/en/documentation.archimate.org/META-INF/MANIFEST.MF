@@ -1,0 +1,4 @@
+Bundle-SymbolicName: org.modelio.documentation.archimate;singleton=true
+Bundle-Version: 4.1.0.qualifier
+Bundle-Name: Archimate documentation for Modelio Open Source
+Bundle-Vendor: modelio.org

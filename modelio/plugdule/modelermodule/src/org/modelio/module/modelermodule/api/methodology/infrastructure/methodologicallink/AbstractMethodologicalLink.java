@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink;
 
@@ -54,13 +54,13 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("d195a31b-2d14-4c22-8f7f-27b89a4104d1")
 public abstract class AbstractMethodologicalLink {
-    @objid ("632e7694-16e0-4595-a57c-0865e594ac48")
+    @objid ("c7400608-c393-47e0-9030-c47b1529f85b")
     public static final String STEREOTYPE_NAME = "AbstractMethodologicalLink";
 
     /**
      * The underlying {@link MethodologicalLink} represented by this proxy, never null.
      */
-    @objid ("6d2890b2-b778-4eb8-b0ff-3e896615e37f")
+    @objid ("179d50c2-3dad-40f6-bcfd-5a9ce0759bc7")
     protected final MethodologicalLink elt;
 
     @objid ("b363c12d-c3db-4447-b55b-4eac5f014866")
@@ -132,7 +132,7 @@ public abstract class AbstractMethodologicalLink {
         }
     }
 
-    @objid ("8b853bc9-b5a6-48b1-b25a-9bd37dc00d39")
+    @objid ("871e1929-fef4-4e98-8e64-156e78c08b9d")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -152,34 +152,34 @@ public abstract class AbstractMethodologicalLink {
      * Get the underlying {@link MethodologicalLink}. 
      * @return the MethodologicalLink represented by this proxy, never null.
      */
-    @objid ("79df88cb-de61-4140-a6d4-1202da783ab9")
+    @objid ("e26fd243-e23d-4b27-ac53-f0d247beca59")
     public MethodologicalLink getElement() {
         return this.elt;
     }
 
-    @objid ("fcaaae07-509f-49d0-b4e3-87ba32a7bc43")
+    @objid ("33dbf5f7-5417-4ec6-9176-e254f3385aa5")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("fc399c63-4b3f-4a30-9042-5bbe053d6808")
+    @objid ("ac461658-2bc8-496a-945b-3370539de173")
     protected AbstractMethodologicalLink(MethodologicalLink elt) {
         this.elt = elt;
     }
 
     @objid ("499bde89-6532-4207-b69a-ee50e9910be1")
     public static final class MdaTypes {
-        @objid ("868fabfe-9985-48aa-afb1-93d4400c26ae")
+        @objid ("e9b2eda2-2dc7-42b3-9afa-8ee785986edd")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("0df68e8b-2539-4bd6-8085-5c659a91176f")
+        @objid ("5722dc0f-628b-4668-b518-18a6fe66c8ad")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("bfe2972e-7ca3-47bd-8bcb-55defbda8bce")
+        @objid ("3d5e7cfb-f0f4-4232-ae2f-8c31922688b9")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("c105f4a1-f045-4b96-aa10-c4449a84a711")
+        @objid ("c3fdbc17-3b54-4020-a78f-e5dcc22ff40a")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "216c1c7f-0ffc-453c-9559-41aeff7e3510");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

@@ -24,7 +24,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.app.update.repo.UpdateDescriptor;
+import org.modelio.platform.update.repo.UpdateDescriptor;
 
 @objid ("06c7bfc6-beb7-4270-b84c-97bf0c6cef66")
 public class UpdatePanelDataModel {

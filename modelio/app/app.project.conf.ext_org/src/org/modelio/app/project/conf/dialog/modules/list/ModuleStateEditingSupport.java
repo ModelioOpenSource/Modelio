@@ -30,9 +30,9 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.gproject.module.GModule;
-import org.modelio.mda.infra.service.IModuleManagementService;
-import org.modelio.mda.infra.service.IRTModule.ModuleRuntimeState;
-import org.modelio.mda.infra.service.IRTModule;
+import org.modelio.platform.mda.infra.service.IModuleManagementService;
+import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
+import org.modelio.platform.mda.infra.service.IRTModule;
 
 /**
  * ModuleStateEditingSupport provides EditingSupport implementation for the module state.

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2830]]
+
+[[r2830]]
+= R2830
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The source of a transition cannot be a final vertex.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A final state is the ending state of an object; therefore it cannot have outgoing transitions.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a transition leaving from a final state, delete it.
+
+

@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("dab2a566-5d9e-4d14-a078-3daa13429dd7")
 public class SeeAlso {
-    @objid ("6222df6f-033d-48b5-8dc3-d8a2a52bce71")
+    @objid ("69226518-ea3f-4f86-afcd-210acc499a22")
     public static final String STEREOTYPE_NAME = "see_also";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("5879a4bf-ec5b-4d25-98f9-9cf43cd226da")
+    @objid ("5aa55c4a-ca5d-48b6-9fac-6dbc46b27fae")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link SeeAlso proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << see_also >>. 
+     * Tells whether a {@link SeeAlso proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << see_also >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("0881a6b5-c0b1-4fcd-a85a-6548b35517be")
+    @objid ("dffbb015-c90e-4b31-b3a2-ef99b628a5e5")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, SeeAlso.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class SeeAlso {
      * 
      * @return a {@link SeeAlso} proxy on the created {@link Dependency}.
      */
-    @objid ("ee89959f-4530-46e4-bec1-52c78e90f742")
+    @objid ("03374836-ebb0-470c-b8d1-c9d0a30274cc")
     public static SeeAlso create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, SeeAlso.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class SeeAlso {
     }
 
     /**
-     * Tries to instantiate a {@link SeeAlso} proxy from a {@link Dependency} stereotyped << see_also >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link SeeAlso} proxy from a {@link Dependency} stereotyped << see_also >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link SeeAlso} proxy or <i>null</i>.
      */
-    @objid ("439fdd5d-81eb-41c1-b94c-f59636d330da")
+    @objid ("6b53434e-171e-4bfe-80ee-7a9d9504a6fc")
     public static SeeAlso instantiate(Dependency obj) {
         return SeeAlso.canInstantiate(obj) ? new SeeAlso(obj) : null;
     }
@@ -103,7 +103,7 @@ public class SeeAlso {
      * @return a {@link SeeAlso} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("b05362b5-3344-4807-9af7-2d3ef7dc9f67")
+    @objid ("e25ed454-fd8b-45cc-b17a-e66ce91928b8")
     public static SeeAlso safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (SeeAlso.canInstantiate(obj))
         	return new SeeAlso(obj);
@@ -111,7 +111,7 @@ public class SeeAlso {
         	throw new IllegalArgumentException("SeeAlso: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("a1fc4cae-c2f8-4bb2-837c-4fb09cd68cab")
+    @objid ("a7a019be-de2a-4236-9c87-4bcb7e42210e")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class SeeAlso {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("a07f56ae-5395-4972-8582-5acd9d9cdfb5")
+    @objid ("12894c53-4840-4552-a103-1cfb012accb3")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("e311a3db-b0c7-4426-91c8-92ed7d1e9fec")
+    @objid ("ce398737-deeb-448a-b6fb-d0873a9c4fcc")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("8595e554-dabc-4e13-a742-5bfd4e4dc1a7")
+    @objid ("4b198228-07a6-4ff0-a263-441df6d3717b")
     protected SeeAlso(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("5b47eb06-542a-4878-a3f2-5e7de42d4e66")
     public static final class MdaTypes {
-        @objid ("ccc54bf7-97b3-43a5-9b69-c24a61f786fa")
+        @objid ("903c044d-c190-4fc9-9326-39578bcb914d")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("21089474-ede5-44fc-b228-b50eebb61b25")
+        @objid ("5fbb8ea4-9efd-415d-8201-f0cf840d2846")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("9d820f35-62e5-4c84-8e54-6bd7ab463912")
+        @objid ("b588d15d-4da8-4161-9851-9ae9648d8b16")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("c32e2ad6-4fa0-44b1-82c9-42c3eaa76529")
+        @objid ("9f3e5e3f-9689-437d-8267-3e7f8cc9becf")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "0ac7e50f-50c6-4eb6-9107-3d9df92a2b75");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

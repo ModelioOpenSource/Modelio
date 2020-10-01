@@ -1,0 +1,17 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Using-the-diagram-history-navigation-feature]]
+
+[[using-the-diagram-history-navigation-feature]]
+= Using the diagram history navigation feature
+
+The diagram history navigation feature enables you to move forwards and backwards through the different diagrams you have consulted during your work session. This feature is particularly useful if your project contains a large number of diagrams.
+
+To skip back to a diagram you consulted earlier, simply click as many times as necessary on the image:images/Modeler-_modeler_diagrams_diag_history_nav_diagram_back.gif[2] icon.
+
+And to skip forward through your diagram consultation history, just click as many times as necessary on the image:images/Modeler-_modeler_diagrams_diag_history_nav_diagram_forward.gif[3] icon.
+
+*Note :* This feature will even open a diagram consulted earlier and subsequently closed!
+
+

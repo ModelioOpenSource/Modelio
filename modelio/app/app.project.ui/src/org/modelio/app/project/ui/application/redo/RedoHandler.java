@@ -24,8 +24,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.services.statusreporter.StatusReporter;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
+import org.modelio.platform.project.services.IProjectService;
 import org.modelio.vcore.session.api.ICoreSession;
 
 /**

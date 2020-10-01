@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2640]]
+
+[[r2640]]
+= R2640
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Le contexte d'une machine à états ne peut pas être une interface, sauf pour les machines à état de protocole.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une machine à états définit le comportement de l'instanciation d'un classifier; ce contexte ne peut donc pas être une interface.
+
+Une Interface peut toutefois posséder une seule machine à états de protocole, qui spécifie le séquencement des événements et les pré/post conditions pour les Opérations décrites par l'interface.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Changez le contexte de la machine à états et choisissez un classifier instanciable.
+* Modifiez le StateMachine pour en faire une machine à états de protocole.
+
+

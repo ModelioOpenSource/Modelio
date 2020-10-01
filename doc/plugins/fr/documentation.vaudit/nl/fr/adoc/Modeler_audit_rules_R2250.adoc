@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2250]]
+
+[[r2250]]
+= R2250
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Toutes les _Opérations_ d'un _Classifier_ doivent avoir une signature différente des opérations publiques et protégées héritées, sauf dans le cas des constructeurs, destructeurs et des opérations redéfinies.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Opération_ est identifiée grâce à sa signature, elle doit donc être unique au sein des méthodes héritées par un _Classifier_. Les opérations redéfinies échappent à cette règle puisque leur rôle est justement de redéfinir une méthode héritée ayant la même signature.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Renommez une des opérations ou changez leurs paramètres, afin qu'elles aient toutes une signature unique.
+* Spécifiez dans l'onglet de propriété " Elément " de l'Opération redéfinie l'Opération qu'elle redéfinie.
+
+

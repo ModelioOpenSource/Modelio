@@ -1,0 +1,21 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Manuel utilisateur BPMN
+
+
+*  <<User_Documentation_fr_Introduction.adoc#,Introduction>>
+*  <<User_Documentation_fr_Concepts_BPMN_dans_Modelio_3_7.adoc#,Concepts BPMN dans Modelio>>
+**  <<User_Documentation_fr_Concepts_BPMN_dans_Modelio_3_7.adoc#HBPMNBehavior,BPMNBehavior>>
+**  <<User_Documentation_fr_Concepts_BPMN_dans_Modelio_3_7.adoc#HBPMNProcess,BPMNProcess>>
+**  <<User_Documentation_fr_Concepts_BPMN_dans_Modelio_3_7.adoc#HBPMNParticipant,BPMNParticipant>>
+**  <<User_Documentation_fr_Concepts_BPMN_dans_Modelio_3_7.adoc#HBPMNMessageFlow,BPMNMessageFlow>>
+*  <<User_Documentation_fr_BPMN_Model_Browser.adoc#,Explorateur de modèle BPMN>>
+*  <<User_Documentation_fr_BPMN_Diagrams.adoc#,Diagrammes BPMN>>
+**  <<User_Documentation_fr_BPMN_Diagrams_Collaboration_diagram.adoc#,Diagramme de Collaboration>>
+**  <<User_Documentation_fr_BPMN_Diagrams_Process_diagram.adoc#,Diagramme de Process>>
+**  <<User_Documentation_fr_BPMN_Diagrams_SubProcess_diagram.adoc#,Diagramme de SubProcess>>
+**  <<User_Documentation_fr_BPMN_Diagrams_Creation_de_workflow_avancee.adoc#,Création de workflow avancée>>
+*  <<User_Documentation_fr_Importing_and_exporting_models.adoc#,Import et export BPMN>>
+**  <<User_Documentation_fr_Importing_and_exporting_models_Importer_un_modele_BPMN.adoc#,Importer un modèle BPMN>>
+**  <<User_Documentation_fr_Importing_and_exporting_models_Exporter_un_modele_BPMN.adoc#,Exporter un modèle BPMN>>

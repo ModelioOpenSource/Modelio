@@ -1,0 +1,75 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[create-project]]
+
+[[create-project]]
+= create-project
+
+[[Full-name]]
+
+[[full-name]]
+== Full name
+
+org.modelio:modelio-maven-plugin:3.0.0.00:create-project
+
+[[Description]]
+
+[[description]]
+== Description
+
+Creates a new Modelio project if this does not exist.
+
+[[Required-parameters]]
+
+[[required-parameters]]
+== Required parameters
+
+[width="100%",cols="25%,25%,25%,25%",options="header",]
+|==========================================================
+|Name |Type |Since |Description
+|modelioDir |File |2.2.0.01 a|
+Modelio install to use. +
+Example:
+
+....
+<modelioDir>C:\Program Files (x86)\modelio 2.2</modelioDir>
+....
+
+|workspaceDir |File |2.2.0.01 a|
+Workspace to use. +
+Example:
+
+....
+<workspaceDir>C:\Users\XXX\modelio\workspace</workspaceDir>
+....
+
+|projectName |Name |2.2.0.01 a|
+Project to create. +
+Example:
+
+....
+<projectName>JavaProject</projectName>
+....
+
+|==========================================================
+
+[[Optional-parameters]]
+
+[[optional-parameters]]
+== Optional parameters
+
+[width="100%",cols="25%,25%,25%,25%",options="header",]
+|=========================================================================
+|Name |Type |Since |Description
+|templateName |String |2.2.0.01 a|
+Template to use during project creation. The default value is 'Default'. +
+Example:
+
+....
+<templateName>Java</templateName>
+....
+
+|=========================================================================
+
+

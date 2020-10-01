@@ -5,31 +5,31 @@
       <fragment uri="e4model/uml.ui.e4xmi"/>
    </extension>
    
-    <extension point="org.modelio.model.browser.view.contentprovider">
+    <extension point="org.modelio.app.model.browser.view.contentprovider">
       <service metamodel="Standard" implementation="org.modelio.uml.ui.browser.contrib.UmlContentProvider" />
    </extension>
 
-   <extension point="org.modelio.app.metamodel.browser.labelprovider">
+   <extension point="org.modelio.platform.model.ui.labelprovider">
       <service metamodel="Standard" implementation="org.modelio.uml.ui.browser.contrib.labelprovider.UmlLabelProvider" />
    </extension>
 
-   <extension point="org.modelio.app.metamodel.diagram.api.factory">
+   <extension point="org.modelio.app.diagram.api.factory">
       <service metamodel="Standard" implementation="org.modelio.uml.ui.dg.UmlDGFactory" />
    </extension>   
 
-   <extension point="org.modelio.app.metamodel.modelproperty.propertymodelprovider">
+   <extension point="org.modelio.app.model.property.propertymodelprovider">
       <service metamodel="Standard" implementation="org.modelio.uml.ui.modelproperty.UmlPropertyModelProvider" />
    </extension>
    
-   <extension point="org.modelio.app.metamodel.element.image">
+   <extension point="org.modelio.platform.model.ui.element.imageprovider">
       <service metamodel="Standard" implementation="org.modelio.uml.ui.image.UmlElementImageProvider" />
    </extension>
    
-   <extension point="org.modelio.app.metamodel.mclass.image">
+   <extension point="org.modelio.platform.model.ui.mclass.imageprovider">
       <service metamodel="Standard" implementation="org.modelio.uml.ui.image.UmlElementImageProvider" />
    </extension>
 
-   <extension point="org.modelio.audit.extensions">
+   <extension point="org.modelio.app.audit.extensions">
       <audit clazz="org.modelio.uml.ui.audit.UmlAuditExtension"/>
    </extension>
 </plugin>

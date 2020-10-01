@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.diagrams.auto"
          label="Diagrams Auto"
-         version="4.0.1.qualifier"
+         version="4.1.0.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -32,7 +32,7 @@ GPL
 <requires>
 </requires>
 
-<plugin id="org.modelio.diagram.diagramauto"
+<plugin id="org.modelio.app.diagram.diagramauto"
         download-size="0"
         install-size="0"
         version="0.0.0"

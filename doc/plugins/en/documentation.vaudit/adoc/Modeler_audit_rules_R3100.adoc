@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3100]]
+
+[[r3100]]
+= R3100
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _SequenceFlow_ in a _SubProcess_ must have its origin and target in the same _SubProcess_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+BPMN _SubProcesses_ represent independent processes. Therefore all the parts of a subprocess sequence must be in that subprocess.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a subprocess sequence that has _SequenceFlows_ coming out of or leading out of the subprocess, you should keep in mind that a subprocess should have a _StartEvent_ and an _EndEvent_, and only one sequence. These rules should ensure that you do not have any coming out of or leading out of the subprocess.
+
+

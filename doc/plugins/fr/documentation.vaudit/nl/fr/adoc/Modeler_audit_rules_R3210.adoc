@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3210]]
+
+[[r3210]]
+= R3210
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+La propriété défaut d'un _SequenceFlow_ doit référencer sa source.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Le _SequenceFlow_ par défaut est le flux qui recevra le jeton quand aucune des gardes sur les autres flux sortants du nœud de contrôle n'est évaluée à 'vrai', c'est pourquoi il doit référencer le nœud de contrôle.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez un flux de séquence par défaut qui ne référence pas sa source, vous devez soit changer sa propriété défaut afin de référencer sa source, soit déplacer le flux vers l'élément référencé.
+
+

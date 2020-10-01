@@ -1,0 +1,157 @@
+
+.clearfix:before,
+.clearfix:after {
+content: ".";
+display: block;
+height: 0;
+overflow: hidden
+}
+.clearfix:after {clear: both}
+.clearfix {zoom: 1}
+
+#maincontent {
+	margin-top:  150px;
+}
+#maincontent img {max-width: 48px;}
+#maincontent h2 {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+#copyright {
+	color: #333;		
+	font-family: verdana;	
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 4px 10px;
+	background-color: #f0f0f0;
+	margin-top:30px;
+	margin-right:10px;
+	text-align: left;
+	font-size:0.7em;
+}
+
+#bymodeliosoft {
+	position:absolute;
+	top: 66px;
+	left: 120px;
+}
+#bymodeliosoft a {
+	color            : #333;
+	font-size        : 1.3em;
+	font-family      : arial;
+	text-decoration  : none;
+	text-align       : right;	
+}
+
+#bymodeliosoft a:hover {
+	color:       #BB1010
+}
+
+	
+#contents  {margin-left: 20px;line-height: 1.5em;}	
+
+#footer_content {
+	font-size: 10px;
+	right: 0;
+	text-align: right;
+	background-color: white;
+}
+
+.center {text-align: center}
+
+div#container {width: 960px; margin: 0 auto;background-color: #fff; padding-bottom: 20px}
+div#content_wrap {margin: 10px}
+div#content_wrap img {max-width: 100%}
+div#footer {padding: 10px}
+div#pages_nav {text-align: center}
+
+div.navigation { position : relative ; height : 2em}
+div.navigation a.nav_next { position : absolute ; right : 20px}
+div.navigation a.nav_prev { position : absolute ; left : 20px }
+
+a.button {
+	display: inline-block;
+	background-color: #222;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 10px 15px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	font-size: 14pt;
+	cursor: pointer;
+}
+
+a.button:hover {
+	background-color: #444;
+}
+
+@media (max-width: 767px) {
+	#maincontent div {
+		text-align: center;
+	}
+	#maincontent h1 {
+		text-align: center;
+	}
+	#maincontent h2 {
+		margin-top: 10px;
+	}
+}
+
+.header_product {
+    width: 100%;    
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 0px 20px;
+	background: #fff url("./images/models-perspective.png") no-repeat left center;
+}
+.header_product h1 {
+    font-size: 34px;
+    font-size: 3.4rem;
+    border: none;
+    text-align: center;
+}
+.header_product h2 {
+    font-size: 26px;
+    font-size: 2.6rem;
+    color: #444;
+    text-align: center;
+}
+.block {
+	padding: 20px 10px;
+	position: relative;
+	overflow: hidden;
+}
+
+#block_archimate {
+	background: #fff url("./images/bg_archimate.jpg") no-repeat right center;	
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	color: #000;
+}
+#block_archimate img {
+	max-width: 128px;
+}
+.ribbon_new {
+	background-color: #689f38;
+	overflow: hidden;
+	white-space: nowrap;
+	position: absolute;
+	right: -40px;
+	top: 20px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	color: #fff;
+	padding: 2px;
+	text-align: center !important;
+	width: 150px;
+	font-weight: bold;
+}
+

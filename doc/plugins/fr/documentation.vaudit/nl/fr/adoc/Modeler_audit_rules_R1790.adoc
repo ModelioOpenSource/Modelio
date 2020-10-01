@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1790]]
+
+[[r1790]]
+= R1790
+
+[[Résume]]
+
+[[résume]]
+===== Résume
+
+Une _instance_ doit avoir un nom, ou bien son type doit être défini.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les _Instances_ sans nom ni type ne sont pas distinguables les unes des autres.
+
+Quand une instance spécifie l'élément qu'elle instancie, le nom devient optionnel.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Spécifiez le type qu'elle instancie.
+* Donnez-lui un nom.
+
+

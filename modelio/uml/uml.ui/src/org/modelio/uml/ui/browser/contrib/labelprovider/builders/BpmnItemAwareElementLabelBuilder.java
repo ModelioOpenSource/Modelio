@@ -23,7 +23,6 @@ package org.modelio.uml.ui.browser.contrib.labelprovider.builders;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
-import org.modelio.core.ui.swt.images.ElementStyler;
 import org.modelio.metamodel.bpmn.objects.BpmnDataState;
 import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
 import org.modelio.metamodel.bpmn.objects.BpmnItemDefinition;
@@ -31,6 +30,7 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Reference;
 import org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Represents;
 import org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.State;
+import org.modelio.platform.model.ui.swt.images.ElementStyler;
 
 /**
  * This class computes a label for a BpmnItemAwareElement (aka data objects).

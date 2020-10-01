@@ -1,0 +1,37 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de création dans les diagrammes d'activités
+
+Il existe deux types de raccourcis :
+
+* Un raccourci pour activer l'outil de création comme si on cliquait sur une icône dans la palette d'un diagramme,
+* Un raccourci pour créer et démasquer un élément directement dans un diagramme.
+
+[%header]
+|===
+2+|Activer l'outil de création  2+| Créer un élément
+|*Raccourci*|*Outil activé*|*Shortcut*|*Elément créé*
+|A |Action |CTRL-N CTRL-A |Action
+|B |Call behavior |CTRL-N CTRL-B |Call behavior
+|C |Conditional node |CTRL-N CTRL-C |Conditional node
+|D |Data store |CTRL-N CTRL-D |Data store
+|E |Change event |CTRL-N CTRL-E |Change event
+|F |Activity final node |CTRL-N CTRL-F |Activity final node
+|I |Initial node |CTRL-N CTRL-I |Initial node
+|J |Fork join |CTRL-N CTRL-J |Fork join
+|L |Loop node |CTRL-N CTRL-L |Loop node
+|M |Merge |CTRL-N CTRL-M |Merge
+|N |Note |CTRL-N CTRL-N |Note
+|O |Object node |CTRL-N CTRL-O |Object node
+|P |Input pin |CTRL-N CTRL-P |Input pin
+|S |Accept signal |CTRL-N CTRL-S |Accept signal
+|T |Time event |CTRL-N CTRL-T |Time event
+|V |Value pin |CTRL-N CTRL-V |Value pin
+|MAJ -F |Flow final node |CTRL-N CTRL-SHIFT -F |Flow final node
+|MAJ + P |Output pin |CTRL-N CTRL-SHIFT + P |Output pin
+|MAJ -S |Send signal |CTRL-N CTRL-SHIFT-S |Send signal
+|ESPACE |Smart flow ||
+|R |Diagramme lié ||
+|===
+

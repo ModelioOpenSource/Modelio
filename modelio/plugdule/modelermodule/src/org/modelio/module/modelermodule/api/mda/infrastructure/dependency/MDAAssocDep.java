@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.mda.infrastructure.dependency;
 
@@ -49,27 +49,27 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("ff4c64b9-ac0c-4cbb-b591-dd6886604c51")
 public class MDAAssocDep {
-    @objid ("ddfa7104-6967-4e8a-b7d7-775c27d293a3")
+    @objid ("ebb42f9c-924e-4d32-8334-3ff6b3f54f92")
     public static final String STEREOTYPE_NAME = "MDAAssocDep";
 
-    @objid ("fc948bfb-1521-433c-bf28-b27a0beeeb13")
+    @objid ("a9631f70-3b6d-48d8-a114-7a8ff9c79ed9")
     public static final String ROLE_TAGTYPE = "role";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("8391bf79-32d1-496b-b9b4-73b345e5f80e")
+    @objid ("e0893b3a-5ede-4222-8a4b-adc64760404c")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link MDAAssocDep proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << MDAAssocDep >>. 
+     * Tells whether a {@link MDAAssocDep proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << MDAAssocDep >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("25a74c37-876b-489f-b328-213e6466b378")
+    @objid ("77b0cb35-a901-474f-ac64-e587b1d9c63e")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, MDAAssocDep.STEREOTYPE_NAME));
     }
@@ -79,7 +79,7 @@ public class MDAAssocDep {
      * 
      * @return a {@link MDAAssocDep} proxy on the created {@link Dependency}.
      */
-    @objid ("b326ecef-eb22-4f3e-b4ea-9e71fc45dad4")
+    @objid ("d8bbd6d8-ff22-4210-81db-d4fd7719a10c")
     public static MDAAssocDep create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, MDAAssocDep.STEREOTYPE_NAME);
@@ -87,13 +87,13 @@ public class MDAAssocDep {
     }
 
     /**
-     * Tries to instantiate a {@link MDAAssocDep} proxy from a {@link Dependency} stereotyped << MDAAssocDep >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link MDAAssocDep} proxy from a {@link Dependency} stereotyped << MDAAssocDep >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link MDAAssocDep} proxy or <i>null</i>.
      */
-    @objid ("9310fb9f-0719-4f92-bd2e-3b230b25238d")
+    @objid ("38fcd0e8-130c-4825-bacf-139eaaae789d")
     public static MDAAssocDep instantiate(Dependency obj) {
         return MDAAssocDep.canInstantiate(obj) ? new MDAAssocDep(obj) : null;
     }
@@ -106,7 +106,7 @@ public class MDAAssocDep {
      * @return a {@link MDAAssocDep} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("e25bcd27-33ea-4459-a104-cc2f4918a672")
+    @objid ("c111867e-ffac-4911-b5fb-9eecc43e5f93")
     public static MDAAssocDep safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (MDAAssocDep.canInstantiate(obj))
         	return new MDAAssocDep(obj);
@@ -114,7 +114,7 @@ public class MDAAssocDep {
         	throw new IllegalArgumentException("MDAAssocDep: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("9bad70ac-6d00-47cb-a3a0-e09265d2fdd2")
+    @objid ("f781c761-45d5-4a00-af96-6bf7ecdeb775")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -134,7 +134,7 @@ public class MDAAssocDep {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("de5fa34f-315b-4877-9aa0-31b0030e245c")
+    @objid ("dbcb7b30-f6ba-48a5-bd9c-be2d8833e188")
     public Dependency getElement() {
         return this.elt;
     }
@@ -144,12 +144,12 @@ public class MDAAssocDep {
      * <p>Property description:
      * <br/><i>Identifies the MDA role supported by the stereotyped Dependency</i></p>
      */
-    @objid ("d8261eac-7768-4411-82cd-61427e1aad87")
+    @objid ("803ddbe8-bac6-43c1-af42-d9b72a11005d")
     public String getRole() {
         return this.elt.getTagValue(MDAAssocDep.MdaTypes.ROLE_TAGTYPE_ELT);
     }
 
-    @objid ("7aa03d1b-f656-431c-b6f7-fd2103c6f74e")
+    @objid ("eb43cd40-9f45-4744-bb2b-05a0976328ca")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
@@ -160,31 +160,31 @@ public class MDAAssocDep {
      * <p>Property description:
      * <br/><i>Identifies the MDA role supported by the stereotyped Dependency</i></p>
      */
-    @objid ("b967e772-6111-44d5-98e5-f371c686a15b")
+    @objid ("65673ae4-1ee9-4b23-9752-22a7504c9a02")
     public void setRole(String value) {
         this.elt.putTagValue(MDAAssocDep.MdaTypes.ROLE_TAGTYPE_ELT, value);
     }
 
-    @objid ("7a330612-d5ad-4a51-8a66-13fd332ffb9b")
+    @objid ("bbce3f2e-7f94-4e0e-ab80-9a669ab92c3d")
     protected MDAAssocDep(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("6d7dd74b-8894-4e3b-9fbc-53ed8d225760")
     public static final class MdaTypes {
-        @objid ("f49d1285-e553-45ec-8d16-a1ae7e7f8564")
+        @objid ("f339c88e-e9b2-40b0-bb42-b67cd468c988")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("b3d7a5ef-b1dc-4223-aa2d-f83835909f9c")
+        @objid ("2e9d40dd-0648-436b-83f6-53c6fe541203")
         public static TagType ROLE_TAGTYPE_ELT;
 
-        @objid ("0c8e2e64-c8f5-4ad5-a67c-6be709906a99")
+        @objid ("9d69a222-414a-4160-b177-ec747b6084d6")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("eadedb31-add7-4a81-938e-60b859f17c9e")
+        @objid ("c6552487-aa12-4060-9680-04d25a5566c1")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("22e99355-dd01-4b66-8407-29e25c32a22b")
+        @objid ("67c5a7e2-a1cc-4bc7-9468-efc4218acb1c")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             ROLE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");

@@ -32,10 +32,10 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.modelio.app.project.core.creation.ProjectCreationDataModel;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.gproject.module.IModuleStore;
-import org.modelio.ui.dialog.ModelioDialog;
+import org.modelio.platform.project.creation.ProjectCreationDataModel;
+import org.modelio.platform.ui.dialog.ModelioDialog;
 
 /**
  * Project creation wizard dialog.

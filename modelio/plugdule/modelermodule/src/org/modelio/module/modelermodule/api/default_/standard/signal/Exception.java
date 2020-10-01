@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.signal;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("9d36d02b-ca62-4e9d-ac9f-5616c922fdd2")
 public class Exception {
-    @objid ("e6240165-6be5-4506-a860-58c8e5ee0d11")
+    @objid ("8bb33fb3-88e5-4644-809f-93402f05e2ba")
     public static final String STEREOTYPE_NAME = "exception";
 
     /**
      * The underlying {@link Signal} represented by this proxy, never null.
      */
-    @objid ("84ef82f1-bf74-4f6f-8c69-4145e89335a7")
+    @objid ("cd6d1407-97c8-42f5-8767-ffd0d8633ca0")
     protected final Signal elt;
 
     /**
-     * Tells whether a {@link Exception proxy} can be instantiated from a {@link MObject} checking it is a {@link Signal} stereotyped << exception >>. 
+     * Tells whether a {@link Exception proxy} can be instantiated from a {@link MObject} checking it is a {@link Signal} stereotyped << exception >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("81de404e-b660-4373-b0db-ce3b3add1afa")
+    @objid ("116ebe16-9b13-4f82-973d-fad7fc2b48c3")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Signal) && ((Signal) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Exception.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Exception {
      * 
      * @return a {@link Exception} proxy on the created {@link Signal}.
      */
-    @objid ("8ccf2076-4379-46ed-97e6-a4986b4ea51f")
+    @objid ("fd1c64a1-0bf5-4007-b4ae-693fa880898c")
     public static Exception create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Signal");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Exception.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Exception {
     }
 
     /**
-     * Tries to instantiate a {@link Exception} proxy from a {@link Signal} stereotyped << exception >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Exception} proxy from a {@link Signal} stereotyped << exception >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Signal
      * @return a {@link Exception} proxy or <i>null</i>.
      */
-    @objid ("19e39d9f-32e2-455f-8c7f-755b45e7caf3")
+    @objid ("265fb914-b552-4c5a-99c1-7c05ef5ee908")
     public static Exception instantiate(Signal obj) {
         return Exception.canInstantiate(obj) ? new Exception(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Exception {
      * @return a {@link Exception} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("07c82414-654c-49ed-9c61-0f8af4967f08")
+    @objid ("f89c371f-f3f8-4e1f-8a95-d5b196049a16")
     public static Exception safeInstantiate(Signal obj) throws IllegalArgumentException {
         if (Exception.canInstantiate(obj))
         	return new Exception(obj);
@@ -112,7 +112,7 @@ public class Exception {
         	throw new IllegalArgumentException("Exception: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("c637ea5b-a409-45ad-8dfb-2bd7295614e2")
+    @objid ("5eb2294a-4f75-40bd-a0b6-e727a353b461")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Exception {
      * Get the underlying {@link Signal}. 
      * @return the Signal represented by this proxy, never null.
      */
-    @objid ("274e31a6-1e3d-489d-b2ce-bff16ddbbd54")
+    @objid ("532ea5eb-c2fb-473c-8674-4c1df7bd932d")
     public Signal getElement() {
         return this.elt;
     }
 
-    @objid ("0d1b4df8-571d-46e9-8a59-de1c43e86607")
+    @objid ("02ea00b7-24dc-4b2f-93ac-3c476e1cdb93")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("4321ad4d-f139-4d7a-9521-8634a9b8a534")
+    @objid ("045a143d-3ebb-42e4-962a-704032a04ae8")
     protected Exception(Signal elt) {
         this.elt = elt;
     }
 
     @objid ("9d616c88-ee7e-4e3e-a81d-c779a5fefc14")
     public static final class MdaTypes {
-        @objid ("9fb5929f-ddcd-4d25-844a-301327fea512")
+        @objid ("86f3b9c4-c3a2-40d2-bb01-3a38752a0e3f")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("7568959d-dd00-47cc-848b-7a7fae24e6b5")
+        @objid ("eb0d8353-8380-482e-9dd3-122e2b832768")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("d0d38c37-6f81-4a65-9071-f8bc38925683")
+        @objid ("a38181bd-2bef-48d4-9cd7-06ab60c420a6")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("f3f99985-0719-4324-ab3a-80662a7e14f6")
+        @objid ("00a4ad35-e781-4966-b663-50ebd130f5d2")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01d1-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

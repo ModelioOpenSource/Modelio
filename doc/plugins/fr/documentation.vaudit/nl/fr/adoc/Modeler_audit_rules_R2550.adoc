@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2550]]
+
+[[r2550]]
+= R2550
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Si un _Port_ est un _Port_ de behavior, les Interfaces qu'il fournit doivent être implémentées par la _Classifier_ auquel il appartient.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les demandes arrivant sur des _Ports_ de behavior sont directement traitées par le _Classifier_ qui les contient. Le _Classifier_ doit donc implémenter les _Interfaces_ fournies par le _Port_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Implémentez les _Interfaces_ manquantes.
+* Changez le _Port_ en _Port_ classique et typez-le avec un _Classifier_ qui implémente les interfaces fournies par le _Port_.
+
+

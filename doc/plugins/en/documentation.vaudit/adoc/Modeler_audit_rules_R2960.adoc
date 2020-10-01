@@ -1,0 +1,39 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2960]]
+
+[[r2960]]
+= R2960
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A «synonym», «antonym», «homonym», «related», «contex», and «kind-of» _Dependency_ makes sense between two _Terms_ only.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Several _Dependencies_ can belong to a _Dictionary_ and can represent the relationship between _Terms:_
+
+* «synonym» relates two _Terms_ which have different names but the same meaning
+* «antonym» expresses that two _Terms_ have the opposite meaning
+* «homonym» relates two _Terms_ which have the same name but a different meaning
+* «related» links two _Terms_ which have some semantic connection, but in a less precise way than «synonym»
+* «contex» specifies that the meaning of a term is only viable within the context of another term
+* «kind-of» relates that a term is a specialization or precision of another term
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have one of these relationships between elements other than _Terms_,
+
+you should remove it.
+
+

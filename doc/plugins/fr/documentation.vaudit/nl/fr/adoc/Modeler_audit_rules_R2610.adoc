@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2610]]
+
+[[r2610]]
+= R2610
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Seuls les états sous-machine peuvent avoir des _ConnectionPointReferences_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _ConnectionPointReference_ représenté une utilisation (en tant qu'appartenant à un état sous-machine) d'un point d'entrée/sortie défini dans la machine à états référencée par l'état sous-machine.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Supprimez le _ConnectionPointReference_ ou faites de l'état un état sous- machine.
+
+

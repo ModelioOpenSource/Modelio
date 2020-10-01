@@ -1,0 +1,6 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+image::images/Distant_libraries_deployment_AddDistantLibrary2.png[2]
+
+

@@ -1,0 +1,41 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Modelio-model-audit]]
+
+[[modelio-model-audit]]
+= Modelio model audit
+
+[[Real-time-model-audit]]
+
+[[real-time-model-audit]]
+===== Real time model audit
+
+The Modelio Audit feature analyses the model in real time. When errors are detected, it adds a flag on each of the corresponding elements in the model browser:
+
+.The Audit has detected an error in the "browser" package
+image::images/Modeler-_modeler_handy_tools_model_audit_img_001.png[2]
+
+[[The-Modelio-Check-model-command]]
+
+[[the-modelio-check-model-command]]
+===== The Modelio Check model command
+
+When the Audit feature points out errors or warnings in your model, you have to possibility to get the corresponding error messages in one click by running the "Check model" command:
+
+.Running the "Check model" command
+image::images/Modeler-_modeler_handy_tools_model_audit_img_002.png[3]
+
+The Check model command will re-check the model and provide an accurate and up-to-date report:
+
+.The Model Audit result window
+image::images/Modeler-_modeler_handy_tools_model_audit_img_003.png[4]
+
+By double-clicking on one of the errors in the report, you will get a detailed description of the error and tips on how to fix it.
+
+.The problem details window
+image::images/Modeler-_modeler_handy_tools_model_audit_img_004.png[5]
+
+*Note:* if you click on the elements listed in the problem details window, Modelio will select them in the model browser, making it even easier for you to fix the problem where it lies.
+
+

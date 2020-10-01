@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.artifact;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("598e9650-6e45-49b6-90c3-c582c258cc1a")
 public class Document {
-    @objid ("d6fdeaa7-9002-4421-b246-ecd336b70eb3")
+    @objid ("24c7b1ea-b5c5-4325-97c9-3d89cfa9be20")
     public static final String STEREOTYPE_NAME = "document";
 
     /**
      * The underlying {@link Artifact} represented by this proxy, never null.
      */
-    @objid ("511a2b64-327e-4d4c-88da-13375e38df67")
+    @objid ("605854af-7339-4ddc-b166-bae376a8c0ff")
     protected final Artifact elt;
 
     /**
-     * Tells whether a {@link Document proxy} can be instantiated from a {@link MObject} checking it is a {@link Artifact} stereotyped << document >>. 
+     * Tells whether a {@link Document proxy} can be instantiated from a {@link MObject} checking it is a {@link Artifact} stereotyped << document >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("27545eb2-751a-423c-b3e1-5cf43901c080")
+    @objid ("5a5e5310-d897-4d85-b6e3-6378d6aecf40")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Artifact) && ((Artifact) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Document.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Document {
      * 
      * @return a {@link Document} proxy on the created {@link Artifact}.
      */
-    @objid ("dfb6c79e-57b0-484b-a7f6-1ca5cfb26990")
+    @objid ("d86c7e45-38b4-4d29-8340-623c8473af7a")
     public static Document create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Artifact");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Document.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Document {
     }
 
     /**
-     * Tries to instantiate a {@link Document} proxy from a {@link Artifact} stereotyped << document >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Document} proxy from a {@link Artifact} stereotyped << document >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Artifact
      * @return a {@link Document} proxy or <i>null</i>.
      */
-    @objid ("76487048-e72f-4d7d-b4bb-0147191b40be")
+    @objid ("e6d493d9-24f5-42ff-b1d7-26e5499d0274")
     public static Document instantiate(Artifact obj) {
         return Document.canInstantiate(obj) ? new Document(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Document {
      * @return a {@link Document} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("d371955e-afaa-473b-9408-6cca47eb68ef")
+    @objid ("9b928f5a-e206-465a-a0bb-ab8e916a4528")
     public static Document safeInstantiate(Artifact obj) throws IllegalArgumentException {
         if (Document.canInstantiate(obj))
         	return new Document(obj);
@@ -112,7 +112,7 @@ public class Document {
         	throw new IllegalArgumentException("Document: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("cc51a54e-f2a5-458f-bd3d-f38bb1dbc2fc")
+    @objid ("8940aaad-4620-4793-a113-8d7b8f63a6a3")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Document {
      * Get the underlying {@link Artifact}. 
      * @return the Artifact represented by this proxy, never null.
      */
-    @objid ("0549868f-9c5f-4a3a-ac51-72522ca8bb3c")
+    @objid ("dbbf7fe2-a439-43dc-aa83-fd4e894adb98")
     public Artifact getElement() {
         return this.elt;
     }
 
-    @objid ("66becc32-81ed-4ad8-8c61-cab6594681ce")
+    @objid ("6de5ea25-59b9-4f40-9a2f-c8c31c35e452")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("52b68953-7b49-47b1-821c-5602ee775c6a")
+    @objid ("309aa417-e08c-4edb-b976-d55e63122052")
     protected Document(Artifact elt) {
         this.elt = elt;
     }
 
     @objid ("fe2f2ca6-6273-4ced-825f-6e1d068d5a3b")
     public static final class MdaTypes {
-        @objid ("20e22ddc-ccf8-4491-b744-7d9a84caa727")
+        @objid ("ae21b288-2201-4d82-82d4-0e7d96977465")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("9ec05881-fa38-4953-a6d1-ea165961157b")
+        @objid ("fc7ae342-f574-492a-b9d9-226909859901")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("359a0070-1510-4aef-b16b-e2d715e6ebbd")
+        @objid ("4043a1f4-c8a0-4187-ace7-d2337a8c978c")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("7c8694ce-ba2b-48c3-8ae1-1f67501780f2")
+        @objid ("2cf3c9ca-7621-4cd1-9858-6e26a1958996")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "388ba911-9fb3-4117-80af-6099142d7816");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

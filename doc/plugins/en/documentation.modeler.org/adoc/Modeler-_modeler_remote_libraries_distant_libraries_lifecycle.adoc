@@ -1,0 +1,52 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Creating-and-publishing-a-remote-library]]
+
+[[creating-and-publishing-a-remote-library]]
+= Creating and publishing a remote library
+
+[[The-remote-library-life-cycle]]
+
+[[the-remote-library-life-cycle]]
+===== The remote library life cycle
+
+The life cycle of a remote library has only two stages:
+
+1.  The *development*
+2.  The *publication*
+
+[[Development]]
+
+[[development]]
+===== Development
+
+The development stage consists in producing the model contained by the library. This task is carried out using Modelio and any one of the numerous means of creating models in Modelio: direct modeling, code reverse, XMI import and so on.
+
+The goal is simply to produce a model. Once this model is available, it can be published on an HTTP accessible site.
+
+[[Publication]]
+
+[[publication]]
+===== Publication
+
+This operation consists in _preparing_ and uploading the library on an HTTP server where it will be available.
+
+How to upload files to a server or how to setup a HTTP server is not within the scope of this document.
+
+However, the preparation of the Modelio project used to develop the library so that the project files can be uploaded, and which files are to be uploaded, is explained below.
+
+*Preparing the model*
+
+Let's name the directory of the library project *$PROJECT* and the work model in which the library model resides *$MODEL*.
+
+1.  Prepare an empty directory (*$LIBRARY* in the followings) where the files to upload to the server will be prepared.
+2.  Copy the content of the *$PROJECT*/data/fragments/*$MODEL*/admin directory into the *$LIBRARY*/*$MODEL*/admin directory.
+3.  Copy the content of the *$PROJECT*/data/fragments/*$MODEL*/blobs directory into the *$LIBRARY*/*$MODEL*/blobs directory.
+4.  Copy the content of the *$PROJECT*/data/fragments/*$MODEL*/model into the *$LIBRARY*/*$MODEL*/model directory.
+5.  Copy the content of the *$PROJECT*/.runtime/fragments/*$MODEL*/.index into the *$LIBRARY*/*$MODEL*/.index directory.
+6.  Upload the entire contents of *$LIBRARY* to the HTTP server hosting the library.
+
+After the upload, the library should be available for addition in Modelio projects at your will, using the URL resulting from the HTTP server configuration.
+
+

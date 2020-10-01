@@ -1,0 +1,14 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Introduction
+
+Since its 3.7 version, Modelio introduces a new support of BPMN 2.0 in order to stick to the practices of the BPMN Analysts.
+
+* The Modelio BPMN metamodel is slightly modified.
+* Modelio BPMN creation and manipulation GUI is modified:
+** Diagrams
+** Diagram manipulation (editing contents)
+** Model browser organization
+
+Modelio can open and automatically migrate any Modelio 3.6 BPMN model.

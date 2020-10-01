@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1590]]
+
+[[r1590]]
+= R1590
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+Primitive _GeneralClasses_ cannot have associations.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A _Class_ is primitive (also called elementary) if its value cannot be broken down and its instances are not handled by the application. For example, integer and boolean are elementary Classes, whereas Human or Device are generally not.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a primitive _Class_ with associations, you should consider making the class non-primitive or creating a new class and attaching the association to it.
+
+

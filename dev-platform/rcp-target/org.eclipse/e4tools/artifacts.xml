@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='e4tools/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1482397509182'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='16'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.source' version='4.5.0.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='50184'/>
+        <property name='download.size' value='50184'/>
+        <property name='download.md5' value='9a733f004cd7269ffa7233377083b384'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.e4.core.tools.feature' version='4.5.100.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.emf.databinding' version='1.3.0.v20160526-0356'>
+      <properties size='3'>
+        <property name='artifact.size' value='89562'/>
+        <property name='download.size' value='89562'/>
+        <property name='download.md5' value='f2fbdca6b9fa9b4af77b0642377a6ef7'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.e4.core.tools.feature.source' version='4.5.100.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.compat' version='4.5.0.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='39754'/>
+        <property name='download.size' value='39754'/>
+        <property name='download.md5' value='5a6f5577c2e831a73a82257460df9d67'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.compat.source' version='4.5.0.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='27623'/>
+        <property name='download.size' value='27623'/>
+        <property name='download.md5' value='cb334d25fc293f0b013e1c460560ed2f'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.emf.ui' version='4.5.100.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='1574432'/>
+        <property name='download.size' value='1574432'/>
+        <property name='download.md5' value='80151a3138582a449aa3a57c7ad630b7'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.emf.ui.source' version='4.5.100.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='492480'/>
+        <property name='download.size' value='492480'/>
+        <property name='download.md5' value='1e56564b1b736854c24085bcac89a026'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.services.source' version='4.5.0.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='24757'/>
+        <property name='download.size' value='24757'/>
+        <property name='download.md5' value='720e8162510acfb73a199a39dada3e82'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.emf.editor3x' version='4.5.0.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='69544'/>
+        <property name='download.size' value='69544'/>
+        <property name='download.md5' value='2959c147b1a9af4090fb93f2a976b341'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.emf.databinding.edit' version='1.3.0.v20160526-0356'>
+      <properties size='3'>
+        <property name='artifact.size' value='51083'/>
+        <property name='download.size' value='51083'/>
+        <property name='download.md5' value='9dce9411ba0853e9d5c601fbe9ca0d63'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.emf.editor3x.source' version='4.5.0.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='43188'/>
+        <property name='download.size' value='43188'/>
+        <property name='download.md5' value='d423e7297fe05447e5c87affeb4d2451'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools' version='4.5.0.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='122630'/>
+        <property name='download.size' value='122630'/>
+        <property name='download.md5' value='0a721c33039f1015c72be95a7118b9e3'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.services' version='4.5.0.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='36083'/>
+        <property name='download.size' value='36083'/>
+        <property name='download.md5' value='f31d8f2959b185c7fec422f5f5461ef0'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.jdt.templates.source' version='4.5.0.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='12446'/>
+        <property name='download.size' value='12446'/>
+        <property name='download.md5' value='27c798644286a5dec6d3565363d6b36b'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.e4.tools.jdt.templates' version='4.5.0.v20160503-0947'>
+      <properties size='3'>
+        <property name='artifact.size' value='16983'/>
+        <property name='download.size' value='16983'/>
+        <property name='download.md5' value='0b35a25049514f38b24f31cbf0985827'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

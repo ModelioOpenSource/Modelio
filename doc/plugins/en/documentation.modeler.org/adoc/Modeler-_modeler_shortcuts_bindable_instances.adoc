@@ -1,0 +1,20 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Shortcuts on parts in Modelio diagrams
+
+The following table presents the keyboard shortcuts that can be used to unmask certain elements associated with or belonging to the parts selected in the diagram.
+
+[%header]
+|==========================
+|Unmasked element |Shortcut
+|Constraints |SHIFT + N
+|Notes |SHIFT + N
+|Parts |SHIFT + I
+|Ports |SHIFT + P
+|Attribute links |SHIFT + A
+|Connectors |SHIFT + L
+|Dependencies |SHIFT + D
+|==========================
+
+

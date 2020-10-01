@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1310]]
+
+[[r1310]]
+= R1310
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An ObjectFlow with a constant weight cannot target an ObjectNode which has an
+
+upper bound less than the weight.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_UML constraint_: An edge with constant weight may not target an object node, or lead to an object node downstream with no intervening actions, that has an upper bound less than the weight.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+When you get a R1310 warning on an ObjectFlow, verify that all the downstream ObjectNodes have an upper bound value superior to its weight.
+
+

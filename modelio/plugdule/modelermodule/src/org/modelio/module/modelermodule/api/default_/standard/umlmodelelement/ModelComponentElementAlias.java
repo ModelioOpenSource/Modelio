@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.umlmodelelement;
 
@@ -50,27 +50,27 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("3f02a222-93eb-462f-b374-436e42fd6818")
 public class ModelComponentElementAlias {
-    @objid ("2ee27a56-b9ff-4559-a593-005a55049bb9")
+    @objid ("74738d96-5f1e-4333-8417-18438d48be0d")
     public static final String STEREOTYPE_NAME = "ModelComponentElementAlias";
 
-    @objid ("6e855f21-ab18-4b01-8eca-c5cdf23bedc4")
+    @objid ("7bcb9dd2-80f7-4c66-9e9e-eeffe4d7e6e9")
     public static final String UUID_TAGTYPE = "uuid";
 
     /**
      * The underlying {@link UmlModelElement} represented by this proxy, never null.
      */
-    @objid ("edc1a711-fd52-417d-98de-bed7b1735603")
+    @objid ("61d2a94f-dc5e-46cc-a023-8549b489a704")
     protected final UmlModelElement elt;
 
     /**
-     * Tells whether a {@link ModelComponentElementAlias proxy} can be instantiated from a {@link MObject} checking it is a {@link UmlModelElement} stereotyped << ModelComponentElementAlias >>. 
+     * Tells whether a {@link ModelComponentElementAlias proxy} can be instantiated from a {@link MObject} checking it is a {@link UmlModelElement} stereotyped << ModelComponentElementAlias >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("eb98e133-3220-4cd1-a3e1-5caaf1c99ce9")
+    @objid ("5eb2c3d6-8867-4589-a843-276e32a214cd")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof UmlModelElement) && ((UmlModelElement) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, ModelComponentElementAlias.STEREOTYPE_NAME));
     }
@@ -80,7 +80,7 @@ public class ModelComponentElementAlias {
      * 
      * @return a {@link ModelComponentElementAlias} proxy on the created {@link UmlModelElement}.
      */
-    @objid ("13972a2e-9ec9-4f0b-8898-d01805f62314")
+    @objid ("59a0e62b-90c9-4326-b89d-b98b367980d8")
     public static ModelComponentElementAlias create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("UmlModelElement");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, ModelComponentElementAlias.STEREOTYPE_NAME);
@@ -88,13 +88,13 @@ public class ModelComponentElementAlias {
     }
 
     /**
-     * Tries to instantiate a {@link ModelComponentElementAlias} proxy from a {@link UmlModelElement} stereotyped << ModelComponentElementAlias >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link ModelComponentElementAlias} proxy from a {@link UmlModelElement} stereotyped << ModelComponentElementAlias >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a UmlModelElement
      * @return a {@link ModelComponentElementAlias} proxy or <i>null</i>.
      */
-    @objid ("79197382-7d13-4e51-9f52-da6889f18360")
+    @objid ("4af2f369-2a30-4978-8a89-65c07b7e5f5f")
     public static ModelComponentElementAlias instantiate(UmlModelElement obj) {
         return ModelComponentElementAlias.canInstantiate(obj) ? new ModelComponentElementAlias(obj) : null;
     }
@@ -107,7 +107,7 @@ public class ModelComponentElementAlias {
      * @return a {@link ModelComponentElementAlias} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("9b605d0c-37ce-42a7-b78e-ecc130fb11d1")
+    @objid ("65314457-b9f3-485b-8060-e0aad69cc962")
     public static ModelComponentElementAlias safeInstantiate(UmlModelElement obj) throws IllegalArgumentException {
         if (ModelComponentElementAlias.canInstantiate(obj))
         	return new ModelComponentElementAlias(obj);
@@ -115,7 +115,7 @@ public class ModelComponentElementAlias {
         	throw new IllegalArgumentException("ModelComponentElementAlias: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("4cfdc537-383a-4b91-82f8-279d9da5c349")
+    @objid ("1e04a91d-78c5-40f4-b527-42ce9c8a3dce")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -135,7 +135,7 @@ public class ModelComponentElementAlias {
      * Get the underlying {@link UmlModelElement}. 
      * @return the UmlModelElement represented by this proxy, never null.
      */
-    @objid ("54fe79da-57d4-4ed1-9ed0-7c10f0829884")
+    @objid ("78404578-18f8-4613-a76c-4340b706af83")
     public UmlModelElement getElement() {
         return this.elt;
     }
@@ -145,12 +145,12 @@ public class ModelComponentElementAlias {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("ede4063b-a308-42cf-a328-f7b376987040")
+    @objid ("db4e19bb-1a1c-42ed-ab12-e2571bab43da")
     public String getUuid() {
         return this.elt.getTagValue(ModelComponentElementAlias.MdaTypes.UUID_TAGTYPE_ELT);
     }
 
-    @objid ("65fef9b9-267e-47f7-b697-c03e83cd7712")
+    @objid ("f6931781-233b-4de9-99f6-dc598c67d03a")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
@@ -161,31 +161,31 @@ public class ModelComponentElementAlias {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("01f8a94a-b98e-485d-8912-fe48b0f289f6")
+    @objid ("cab59487-b280-49c9-96a7-3ca7768ca1cc")
     public void setUuid(String value) {
         this.elt.putTagValue(ModelComponentElementAlias.MdaTypes.UUID_TAGTYPE_ELT, value);
     }
 
-    @objid ("0ba3ec18-756b-4a5a-8bf9-d1ec147ddeb3")
+    @objid ("ebe9f838-d2a9-4e29-8a55-0437d53a7b5a")
     protected ModelComponentElementAlias(UmlModelElement elt) {
         this.elt = elt;
     }
 
     @objid ("5d98506b-4aa3-4855-9a1e-78d997c2836c")
     public static final class MdaTypes {
-        @objid ("920a9217-edee-479a-a4a0-7f63b2ad0ce5")
+        @objid ("a3ce0ff0-bde5-499a-9a36-b57e4cf5f23e")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("6270730a-6c06-4d15-8cca-e435212dd434")
+        @objid ("f0d78fcf-9ac9-420d-8826-d95fcb3d400e")
         public static TagType UUID_TAGTYPE_ELT;
 
-        @objid ("92cf6116-72f9-4fbd-88c2-0cd5f6977529")
+        @objid ("827acb31-3a60-46b3-8787-fb599cb9d563")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("cf8288a3-25c4-43d1-a68f-b7eec9560d04")
+        @objid ("d207d8ff-32e2-4ab7-a5a5-a5d771eed570")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("690f2305-a20b-41a9-b8a5-6960c0b98ca4")
+        @objid ("6a59ea70-cfe0-4c23-a7b7-6ccad1419212")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "3254be34-c7d8-4018-8a68-5de65c30b773");
             UUID_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "7ebbd53f-a5f3-433b-872c-4024615af229");

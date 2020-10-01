@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2870]]
+
+[[r2870]]
+= R2870
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+There cannot be any cycles for _extension relationship_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A cycle is forbidden for an _extension relationship_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Delete one of the _extension relationship_ of the cycle.
+
+

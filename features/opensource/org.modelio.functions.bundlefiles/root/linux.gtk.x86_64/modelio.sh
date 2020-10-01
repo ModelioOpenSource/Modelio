@@ -17,20 +17,22 @@
 
 main()
 {
-	if [ -f "/etc/modelio-open-source4.0/modelio.config" ] ; then
-		. "/etc/modelio-open-source4.0/modelio.config"
+	MODELIO_PATH="$(getModelioInstallPath "$0")"
+	if [ -f "/etc/modelio-open-source4.1/modelio.config" ] ; then
+		. "/etc/modelio-open-source4.1/modelio.config"
 	else
 		UBUNTU_MENUPROXY=0
 		LIBOVERLAY_SCROLLBAR=0
-		SWT_GTK3=0
 		SWT_WEBKIT2=${SWT_WEBKIT2:-0}
+		[ "${SWT_GTK3}" != "0" ] && [ "${SWT_GTK3}" != "1" ] && SWT_GTK3=0
 	fi
 	export UBUNTU_MENUPROXY LIBOVERLAY_SCROLLBAR SWT_WEBKIT2 SWT_GTK3
 
 	# Force the Adwaita light theme on Gnome desktop
-	[ "${XDG_CURRENT_DESKTOP}" = "GNOME" ] && export GTK_THEME=Adwaita
+	[ "${XDG_CURRENT_DESKTOP}" = "GNOME" ] && export GTK_THEME="Adwaita"
 
-	MODELIO_PATH="$(getModelioInstallPath "$0")"
+	# On GTK2, customize the theme for Modelio
+	[ ${SWT_GTK3} -eq 0 ] && [ -z "${GTK2_RC_FILES}" ] && export GTK2_RC_FILES="${MODELIO_PATH}/gtkrc-modelio"
 
 	# Use the embedded jre
 	[ -x "${MODELIO_PATH}/jre/bin/java" ] && export PATH="${MODELIO_PATH}/jre/bin":${PATH}

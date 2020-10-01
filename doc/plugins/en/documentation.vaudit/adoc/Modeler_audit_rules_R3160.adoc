@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3160]]
+
+[[r3160]]
+= R3160
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _MessageFlow_ cannot have a Gateway as its source or target.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_Gateways_ are control nodes that control the flow of a sequence. Only _SequenceFlows_ should connect them.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a _MessageFlow_ connecting a _Gateway_, you should change it to a _SequenceFlow_ instead.
+
+

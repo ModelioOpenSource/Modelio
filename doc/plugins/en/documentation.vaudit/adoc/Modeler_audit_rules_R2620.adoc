@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2620]]
+
+[[r2620]]
+= R2620
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+Submachine states should not have entry or exit pseudo states defined.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Entry and exit pseudo states can only be defined on a composite state, thus they cannot exist in a submachine state.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Remove the entry or exit point from the submachine state.
+
+

@@ -1,0 +1,24 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R4000]]
+
+[[r4000]]
+= R4000
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The relationships must comply with the ArchiMate standard.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Relationships can only be drawn between certain element types. The creation rules are listed in the ArchiMate standard. +
+Although Modelio will prevent non-compliant relationships to be created, some may exist in the model following external model import operations.
+
+

@@ -1,0 +1,35 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2600]]
+
+[[r2600]]
+= R2600
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une machine à états ou un état ne peut contenir plusieurs états avec le même nom.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Le nom d'un état doit être unique dans son conteneur. Avoir plusieurs états avec le même nom peut porter à confusion.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Solutions possibles:
+
+* *Solution 1* +
+Renommez les états qui ont un nom déjà utilisé.
+* *Solution 2* +
+Déplacez ces états dans une autre machine à états ou dans un autre état.
+
+

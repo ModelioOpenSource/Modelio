@@ -32,13 +32,13 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.ui.application.saveproject.SaveProjectHandler;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.gproject.data.project.ProjectDescriptor;
 import org.modelio.gproject.gproject.GProject;
-import org.modelio.ui.progress.IModelioProgressService;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.progress.IModelioProgressService;
 
 /**
  * Handler for the "Close project" command. This handler simply closes the currently opened project in Modelio.

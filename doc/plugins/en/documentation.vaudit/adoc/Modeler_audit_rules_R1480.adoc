@@ -1,0 +1,42 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1480]]
+
+[[r1480]]
+= R1480
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _Attribute_ must be typed by a primitive type.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An Attribute should always be typed by a primitive type. The type of an attribute must be a so-called "primitive" type.
+
+Primitive types are either:
+
+* UML types (Boolean, string, integer, float etc)
+* Enumerations
+* _Classes_ or _DataTypes_ as long as they are defined as being "primitive"
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+When you get a R1480 error, choose one of the following solutions:
+
+* If the current type of the attribute is not the expected one in your design, then consider changing the attribute type for a "primitive" one.
+* If it makes sense, consider modifying the typing class or _DataType_ to make it "primitive" (*).
+* If you do not wish to make the typing _Class_ or _DataType_ primitive, consider replacing the attribute by an association to the non- primitive typing class or _DataType_.
+
+(*)To make a class or a _DataType_ "primitive", simply select it in the model and set its "primitive" property to true in the element property tab.
+
+

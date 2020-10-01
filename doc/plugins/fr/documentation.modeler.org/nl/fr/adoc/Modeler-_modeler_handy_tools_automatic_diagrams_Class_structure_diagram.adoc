@@ -1,0 +1,46 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Diagramme de structure de Classe
+
+L'intention de ce diagramme automatique est de montrer comment est faite une classe, ce qui la compose, ce qu'elle est en terme d'héritage mais aussi qui l'embarque.
+
+=== Eléments concernés
+
+Les diagrammes de structure de Classe peuvent être créés sur n'importe quel Classifier.
+
+=== Contenu
+
+* La classe C elle-même.
+* Les attributs publics de C.
+* Les classes vers qui C a une association.
+* La classe parente de C si elle existe.
+* Les interfaces implémentées par C si elles existent.
+* Les classes ayant des associations de composition ou d'agrégation vers C.
+
+=== Disposition
+
+* La classe C est placée au centre du diagramme.
+* Les classes reliées à C par des associations sortantes de C :
+** sont placées à droite de C.
+** sont visualisées en mode "simple".
+** sont identiques en taille et alignées verticalement.
+* Les classes reliées à C par des compositions ou agrégations entrantes dans C :
+** sont placées à gauche de C.
+** sont visualisées en mode "simple".
+** sont identiques en taille et alignées verticalement.
+* Les classes et interface parents de C :
+** sont placées au-dessus de C.
+** sont visualisées en mode "simple".
+** sont identiques en taille et alignées horizontalement.
+* Les auto-associations sont placées en bas à droite de C.
+* Toutes les associations (hors auto-associations) sont représentées horizontalement par un trait droit unique (pas de coudes), et sont régulièrement espacées verticalement.
+* La classe C est retaillée verticalement pour couvrir toutes les associations.
+
+*Note :* Tous les éléments présents dans ce diagramme ont un <<Modeler-_modeler_handy_tools_automatic_diagrams_auto_diagrams_styles.adoc#,style>> spécifique associé.
+
+=== Exemple
+
+image::images/Class_structure_diagram_class_structure_diagram.png[1]
+
+

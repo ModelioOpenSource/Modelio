@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3150]]
+
+[[r3150]]
+= R3150
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _MessageFlow_ cannot link two elements in the same _Process_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_MessageFlows_ are meant to communicate between two independent processes. They should not be used as a way of communicating within the same Process.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a _MessageFlow_ that has its source and target in the same lane, you should remove it and use sequence flow instead to represent what you need.
+
+

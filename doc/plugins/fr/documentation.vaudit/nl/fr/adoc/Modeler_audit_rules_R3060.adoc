@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3060]]
+
+[[r3060]]
+= R3060
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Dependency_ de type «satisfy» ou «verify» doit partir d'un _ModelElement_ et cibler un _Requirement_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Dependency_ de type «satisfy» décrit comment un modèle d'analyse ou de conception satisfait un ou plusieurs _Requirements_, en spécifiant des _ModelElements_ qui doivent satisfaire ce _Requirement_. L'ajout d'une _Note_ _"description"_ sur la _Dependency_ «satisfy» est conseillé pour expliquer comment le _Requirement_ est satisfait.
+
+Une _Dependency_ de type «verify» définit comment un cas de test sert à vérifier un _Requirement_. Un cas de test est utilisé en tant que mécanisme général pour représenter les méthodes de vérification standard pour l'inspection, l'analyse, la démonstration ou les tests.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une _Dependency_ de type «satisfy» ou «verify» qui ne relie pas un _ModelElement_ à un _Requirement_, vous devriez la supprimer.
+
+

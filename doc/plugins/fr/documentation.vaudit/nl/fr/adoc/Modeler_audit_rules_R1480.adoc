@@ -1,0 +1,42 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1470]]
+
+[[r1470]]
+= R1470
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un Attribut doit être typé par un type primitif.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un attribut devrait toujours être typé par un type primitif.
+
+Les types primitifs sont :
+
+* Les types UML prédéfinis (Boolean, string, integer, float etc. ...)
+* Les _Enumerations_
+* Les _Classes_ et les _DataTypes_ du moment qu'ils sont marqués comme 'primitifs'
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Vérifiez le type de votre attribut et choisissez suivant le cas :
+
+* Si le type de l'attribut n'est pas celui auquel vous vous attendiez, changez le type de l'attribut pour un type primitif.
+* Si cela a du sens, modifiez la _Classe_ ou le _DataType_ typant l'attribut pour le rendre "primitif" (*)
+* Si la _Classe_ ou le _DataType_ n'a pas de raison d'être primitif, remplacez l'_Attribut_ par une _Association_ vers le type non primitif.
+
+(*) Pour rendre une Classe ou un DataType "primitif", sélectionnez le et fixez la propriété "primitive" à vrai dans l'onglet de propriétés de l'élément.
+
+

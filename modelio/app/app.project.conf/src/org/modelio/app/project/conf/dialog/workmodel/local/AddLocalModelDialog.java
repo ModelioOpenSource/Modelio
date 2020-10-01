@@ -42,8 +42,8 @@ import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.data.project.FragmentDescriptor;
 import org.modelio.gproject.data.project.FragmentType;
 import org.modelio.gproject.data.project.GProperties;
-import org.modelio.ui.UIColor;
-import org.modelio.ui.dialog.ModelioDialog;
+import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.dialog.ModelioDialog;
 
 /**
  * Dialog box used to instantiate a new local fragment descriptor to mount in a project.

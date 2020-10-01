@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2640]]
+
+[[r2640]]
+= R2640
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Le contexte d'une machine à états doit être un _Classifier_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une machine à états de protocole définit quelles opérations peuvent être appelées sur un _Classifier_, dans quel état et sous quelles conditions.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Changez le contexte de la machine à états et choisissez un _Classifier_.
+
+

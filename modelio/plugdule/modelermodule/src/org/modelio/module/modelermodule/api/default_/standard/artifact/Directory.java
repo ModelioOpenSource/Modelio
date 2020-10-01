@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.artifact;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("d378822b-d3d3-4f51-9c86-6bd5d820f76d")
 public class Directory {
-    @objid ("922a4d69-d85a-46ee-9139-e351f9c78055")
+    @objid ("4b0cd5ee-889a-4068-91bf-258cb42323e2")
     public static final String STEREOTYPE_NAME = "directory";
 
     /**
      * The underlying {@link Artifact} represented by this proxy, never null.
      */
-    @objid ("f465c05d-b50d-490b-9dba-b5dc37df7544")
+    @objid ("8757e9f2-4d36-4b0a-9083-e87f5b249f30")
     protected final Artifact elt;
 
     /**
-     * Tells whether a {@link Directory proxy} can be instantiated from a {@link MObject} checking it is a {@link Artifact} stereotyped << directory >>. 
+     * Tells whether a {@link Directory proxy} can be instantiated from a {@link MObject} checking it is a {@link Artifact} stereotyped << directory >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("3c82edc2-b30a-4f49-a99b-a60c0fc7f865")
+    @objid ("cf0af56f-685f-4c53-a807-493253c56b32")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Artifact) && ((Artifact) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Directory.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Directory {
      * 
      * @return a {@link Directory} proxy on the created {@link Artifact}.
      */
-    @objid ("6f67c403-fd8d-4004-b421-6904bcf4ab1b")
+    @objid ("0c55aaa7-1572-4a20-ba56-a0fbbff95e5d")
     public static Directory create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Artifact");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Directory.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Directory {
     }
 
     /**
-     * Tries to instantiate a {@link Directory} proxy from a {@link Artifact} stereotyped << directory >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Directory} proxy from a {@link Artifact} stereotyped << directory >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Artifact
      * @return a {@link Directory} proxy or <i>null</i>.
      */
-    @objid ("7731b203-365e-433b-a9e2-471659d09fb5")
+    @objid ("e4803663-e2bc-48eb-b7cd-58928e54bb1e")
     public static Directory instantiate(Artifact obj) {
         return Directory.canInstantiate(obj) ? new Directory(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Directory {
      * @return a {@link Directory} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("19d81c2f-c201-478b-8773-c268c35a70db")
+    @objid ("72300205-81b7-403a-b85d-dc0a572c750a")
     public static Directory safeInstantiate(Artifact obj) throws IllegalArgumentException {
         if (Directory.canInstantiate(obj))
         	return new Directory(obj);
@@ -112,7 +112,7 @@ public class Directory {
         	throw new IllegalArgumentException("Directory: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("6e1e3a85-be5a-43ea-bb60-6367742a9f4b")
+    @objid ("c8e1a879-86c2-44a9-b8bd-817a19f89154")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Directory {
      * Get the underlying {@link Artifact}. 
      * @return the Artifact represented by this proxy, never null.
      */
-    @objid ("12e5f2ac-3e7d-4cfa-8d70-e1e4e9a18cbd")
+    @objid ("cdd34b03-c9be-4538-880c-881b4dc2cc4c")
     public Artifact getElement() {
         return this.elt;
     }
 
-    @objid ("19064b90-e6f4-4fba-a0b2-39871bc4fc97")
+    @objid ("29e1a1b5-8beb-4683-b2b8-d8cbec4099a3")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("78eaba0a-02e5-4b5a-967c-d99632ab9d98")
+    @objid ("ad14a70b-7f75-47fa-88ae-0028c1e7915e")
     protected Directory(Artifact elt) {
         this.elt = elt;
     }
 
     @objid ("c8a5a0d9-e215-4019-9561-d0323c58164f")
     public static final class MdaTypes {
-        @objid ("e0349714-3c16-4825-9da5-52acd4259800")
+        @objid ("9fcb80e3-2b91-4a3b-aa86-337a5030f520")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("a651181e-96ff-4bc0-942d-37859e189b84")
+        @objid ("f9156091-3074-444d-96ee-984ba2b5dbbf")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("95149811-6c8a-4a9c-bf57-407c6bdebf10")
+        @objid ("0836edda-0cd7-41c6-8425-d8092d51f6a6")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("dc18026c-5cad-4ba0-98ff-fd755b7b1ff4")
+        @objid ("bab65ef8-dbfd-409a-b9cc-7a4705a4707b")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "6432b987-256f-4121-9428-a89d364c2cef");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

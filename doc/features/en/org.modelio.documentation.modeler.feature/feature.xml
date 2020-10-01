@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.modelio.documentation.modeler.feature"
+      label="%featureName"
+      version="4.1.0.qualifier"
+      provider-name="modelio.org">
+
+   <description url="">
+   	Documentation for Modelio Open Source
+   </description>
+
+   <copyright url="">
+	Modelio.org
+   </copyright>
+
+   <license url="">
+    GPLv2
+   </license>
+
+   <plugin
+         id="org.modelio.documentation.copyright"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.modelio.documentation.welcome"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.modelio.documentation.modeliomodeler"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.modelio.documentation.modeliomodeler.toc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.modelio.documentation.modelioapi"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.modelio.documentation.metamodel.uml"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.modelio.documentation.vaudit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.modelio.documentation.bpmn"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

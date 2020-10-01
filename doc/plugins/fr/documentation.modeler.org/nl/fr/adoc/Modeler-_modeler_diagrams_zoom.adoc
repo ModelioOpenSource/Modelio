@@ -1,0 +1,22 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Utiliser-le-ldquozoomrdquo]]
+
+[[utiliser-le-zoom]]
+= Utiliser le "zoom"
+
+Le "zoom" est utilisé pour effectuer un zoom avant ou un zoom arrière sur l'intégralité d'un diagramme.
+
+Un zoom avant sur le contenu du diagramme augmente la taille des éléments affichés, les rendant plus lisibles.
+
+Un zoom arrière sur le contenu d'un diagramme réduit la taille des éléments affichés, ce qui peut être très utile dans le cas de diagrammes de très grande taille, pour avoir une vue d'ensemble ou pour visualiser une partie plus grande d'un diagramme.
+
+Pour utiliser le "zoom", il suffit d'effectuer des opérations suivantes :
+
+* Cliquez dans le diagramme dans lequel vous souhaitez effectuer un zoom avant ou arrière.
+* Utilisez la molette de votre souris tout en maintenant enfoncée la touche "*Ctrl*", ou bien utilisez les touches " *+* " and " *–* " pour effectuer le zoom soit en avant, soit en arrière.
+
+Vous pouvez également utiliser les icônes "Zoomer" [image:images/Modeler-_modeler_diagrams_zoom_zoom_in.png[2]] et "Dézoomer" [image:images/Modeler-_modeler_diagrams_zoom_zoom_out.png[3]] dans la barre d'outils du diagramme.
+
+

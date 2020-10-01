@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3060]]
+
+[[r3060]]
+= R3060
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A «satisfy» or «verify» _Dependency_ must be from a _ModelElement_ towards a _Requirement_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A «satisfy» _Dependency_ describes how a design or an implementation model satisfies one or more _Requirements_, and a system modeler specifies the system design _ModelElements_ that are intended to satisfy the _Requirement_. A _"description"_ _Note_ on the «satisfy» _Dependency_ may explain how the _Requirement_ is satisfied.
+
+A «verify» _Dependency_ defines how a test case verifies a _Requirement_. A test case is intended to be used as a general mechanism to represent any of the standard verification methods for inspection, analysis, demonstration or test.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a «satisfy» or «verify» _Dependency_ which is not from a _ModelElement_ toward a _Requirement_, you should delete it.
+
+

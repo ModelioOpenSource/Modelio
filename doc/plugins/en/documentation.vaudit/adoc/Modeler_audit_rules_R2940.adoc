@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2940]]
+
+[[r2940]]
+= R2940
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+All transitions coming into a join vertex must originate from different regions of an orthogonal state.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Regions of an orthogonal state are concurrent flows, so a join vertex should only have sources in different regions.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a join vertex with sources in the same region, you should delete one of the transitions or make another region.
+
+

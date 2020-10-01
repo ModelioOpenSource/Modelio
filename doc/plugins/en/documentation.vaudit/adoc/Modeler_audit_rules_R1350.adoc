@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1350]]
+
+[[r1350]]
+= R1350
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _ObjectNode_ ordering property must be set in accordance with the presence of a selection behavior.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+If an _ObjectNode_ has a selection behaviour, then the ordering of that _ObjectNode_ is "ordered" and vice versa.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+When you get an R1350 warning on an _ObjectNode_, verify that the following:
+
+* If the _ObjectNode_ has a selection behaviour, you must set its ordering property to "_ordered"_.
+* If the _ObjectNode_ ordering property is set to "_ordered"_, you must set a selection behaviour.
+
+

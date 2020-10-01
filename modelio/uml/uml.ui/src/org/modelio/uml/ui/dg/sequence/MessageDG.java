@@ -31,9 +31,9 @@ import org.modelio.api.modelio.diagram.InvalidSourcePointException;
 import org.modelio.diagram.api.dg.LinkPath;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramLink;
-import org.modelio.diagram.editor.sequence.elements.message.GmMessage;
 import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.model.IGmNode;
+import org.modelio.uml.sequencediagram.editor.elements.message.GmMessage;
 
 /**
  * This class represents the DiagramGraphic of a 'Message' element.
@@ -63,7 +63,7 @@ public class MessageDG extends DiagramLink {
 
     @objid ("48a84774-55b9-450a-a374-e980ecf9b92f")
     @Override
-    public void setPath(final ILinkPath linkPath) throws InvalidDestinationPointException, InvalidPointsPathException, InvalidSourcePointException {
+    public void setPath(final ILinkPath linkPath) throws InvalidSourcePointException, InvalidPointsPathException, InvalidDestinationPointException {
         // Do nothing
     }
 

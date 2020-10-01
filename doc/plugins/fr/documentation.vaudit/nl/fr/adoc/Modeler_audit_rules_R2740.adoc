@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2740]]
+
+[[r2740]]
+= R2740
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Dans un _TemplateBinding_, les _TemplateParameterSubstitution_ doivent correspondre à des _TemplateParameter_ contenus par l'élément cible du _TemplateBinding_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Dans le cas d'un _TemplateBinding_, les substitutions qu'il contient doivent obligatoirement référencer des paramètres de l'élément cible.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Ce problème peut provenir d'une macro ou d'un module défaillant. Demandez au développeur de corriger le module ou la macro.
+* Supprimez les _TemplateParameterSubstitution_ définissant des _TemplateParameter_ d'un autre élément avec une macro.
+* Détruisez le _TemplateBinding_ et reconstruisez-le. Utilisez l'onglet de propriétés 'Elément' pour substituer les _TemplateParameters_.
+
+

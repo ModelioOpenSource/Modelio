@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1530]]
+
+[[r1530]]
+= R1530
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Certains éléments devraient avoir un nom.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les _Associations_ et les _Ports_ devraient avoir un nom.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une _Association_ ou un _Port_ sans nom, vous devriez lui en donner un.
+
+

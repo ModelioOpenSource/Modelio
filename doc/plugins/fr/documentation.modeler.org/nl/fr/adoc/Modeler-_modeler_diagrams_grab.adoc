@@ -1,0 +1,17 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Utiliser-le-ldquograbrdquo]]
+
+[[utiliser-le-grab]]
+= Utiliser le "grab"
+
+Le "grab" est utilisé pour déplacer le contenu d'un diagramme dans son intégralité, sans avoir à sélectionner individuellement tous les éléments qu'il contient.
+
+Pour utiliser le "grab", effectuez les opérations suivantes :
+
+* Cliquez dans le diagramme dont vous souhaitez déplacer l'intégralité du contenu.
+* Maintenez enfoncée la molette de la souris jusqu'à ce que vous voyiez apparaître la petite icône représentant la main image:images/Modeler-_modeler_diagrams_grab_grab_hand.png[2].
+* Toujours avec la molette de la souris enfoncée, déplacez le contenu du diagramme jusqu'à la position souhaitée puis relâchez la molette de la souris.
+
+

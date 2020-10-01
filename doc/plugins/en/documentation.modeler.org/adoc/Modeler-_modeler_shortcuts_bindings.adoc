@@ -1,0 +1,15 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Shortcuts on bindings in Modelio diagrams
+
+The following table presents the keyboard shortcuts that can be used to unmask certain elements associated with or belonging to the binding selected in the diagram.
+
+[%header]
+|===========================
+|Unmasked element |Shortcuts
+|Constraints |SHIFT + N
+|Notes | SHIFT + N
+|===========================
+
+

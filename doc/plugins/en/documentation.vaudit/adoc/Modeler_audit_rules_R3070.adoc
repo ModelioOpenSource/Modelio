@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3070]]
+
+[[r3070]]
+= R3070
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A «derive» _Dependency_ must be from a _UseCase_ or a _Requirement_ towards a _Requirement_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A «derive» _Dependency_ relates a derived _Requirement_ to its source _Requirement_. This typically involves analysis to determine the multiple derived _Requirements_ supported by a source _Requirement_. Derived _Requirements_ generally correspond to _Requirements_ at the next level of the system hierarchy.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a «derive» _Dependency_ which is not from a _UseCase_ or a _Requirement_ toward a _Requirement_, you should delete it.
+
+

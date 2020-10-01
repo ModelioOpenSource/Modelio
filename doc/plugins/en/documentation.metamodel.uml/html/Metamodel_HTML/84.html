@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+  <title>UML/BPMN Metamodel</title>
+  <meta content="Document Publisher, www.modeliosoft.com/" name="generator"/>
+	<link href="docp-print.css" media="print" rel="stylesheet" type="text/css"/>
+	<script src="scripts/browser.js" type="text/javascript"> </script>
+  <link href="default.css" media="screen" rel="stylesheet" type="text/css"/></head>
+  <body>
+        <div id="container">        
+            <div id="content">          
+                <div id="header">            
+ 					<div id="logo"><img src="img/logo.png"/></div>
+                    <h1 class="documentTitle">UML/BPMN Metamodel</h1>
+                    <h2 class="documentType"> </h2>            
+               </div>            
+               <div id="sidebar"><div><div class="sidePanel" id="infoArea"><h4 class="sideTitle">INFORMATIONS</h4><ul id="docProps"><li class="property">Status</li><li class="value">Release</li><li class="property">Category</li><li class="value">Modelio user guide</li><li class="property">Version</li><li class="value">2.3.00 (Modelio 4.1)</li><li class="property">Title</li><li class="value">UML/BPMN Metamodel</li><li class="property">Author</li><li class="value">Modeliosoft</li><li class="property">Subject</li><li class="value"> </li></ul></div><div class="sidePanel" id="shortcutArea"><h4 class="sideTitle">SHORTCUTS</h4><ul id="shortcuts"><li><a href="index.html">Home</a></li><li><a href="sitemap.html">Site Map</a></li><li><a href="modelindex.html">Model Index</a></li><li><a href="tableoffigures.html">Table of Figures</a></li></ul></div></div></div>
+               <div id="mainArea">
+                    <div id="navbar"><ul><li id="prev"><a href="83.html" title="83.html">&lt; Previous</a></li><li id="home"><a href="index.html" title="Site map">Home</a></li><li id="next"><a href="85.html" title="85.html">Next &gt;</a></li></ul></div>
+                    <div id="page"><div><a name="#Table 106"><!--anchor--></a><a name="#Table 105"><!--anchor--></a><a name="#Figure 73"><!--anchor--></a><div align="LEFT" class="Titre4" startOnNewPage="true"><a name="_7f765470-18d6-11e0-9cf7-001ec947ccaf"><!--anchor--></a><a name="toc1.1.10.2"><!--anchor--></a><span class="None">BpmnAssociation</span></div><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">An Association is used to associate information and Artifacts with Flow Objects. Text and graphical non-Flow Objects can be associated with the Flow Objects and Flow. An Association is also used to show the Activity used for
+compensation. 
+
+Within Modelio, Text Annotation is implemented by Notes: association is thus not used to connect Notes to Model elements.</span></div><center><img alt=": BpmnAssociation (architecture_autodiagram)" class="Image" height="282.85714285714283" src="img/4b4f9886-3ace-4c6a-ae31-5dc1b8b4ebf7.png" usemap="#4b4f9886-3ace-4c6a-ae31-5dc1b8b4ebf7" width="600.0"/></center><a class="openImage" href="img/4b4f9886-3ace-4c6a-ae31-5dc1b8b4ebf7.png"><img class="openImage" src="img/zoom.gif" title="Zoom"/></a><div align="CENTER" class="Lgende">Figure 73 : BpmnAssociation (architecture_autodiagram)</div><map name="4b4f9886-3ace-4c6a-ae31-5dc1b8b4ebf7"><area alt="BpmnAssociation" coords="0,154,290,282" href="84.html#_7f765470-18d6-11e0-9cf7-001ec947ccaf" name="4b4f9886-3ace-4c6a-ae31-5dc1b8b4ebf7" shape="rect" title="BpmnAssociation"/><area alt="BpmnArtifact" coords="102,0,187,68" href="83.html#_7f765472-18d6-11e0-9cf7-001ec947ccaf" name="4b4f9886-3ace-4c6a-ae31-5dc1b8b4ebf7" shape="rect" title="BpmnArtifact"/><area alt="BpmnBaseElement" coords="504,154,600,265" href="85.html#_7f765471-18d6-11e0-9cf7-001ec947ccaf" name="4b4f9886-3ace-4c6a-ae31-5dc1b8b4ebf7" shape="rect" title="BpmnBaseElement"/></map><div id="tableContainer"><table class="ListeclaireAccent1" horizontal="true" tableStyle="ListeclaireAccent1"><caption/><tr class="odd"><th><div align="CENTER" class="Normal" startOnNewPage="false"><span class="None">Attribute</span></div></th><th><div align="CENTER" class="Normal" startOnNewPage="false"><span class="None">Description</span></div></th></tr><tr class="even"><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">BpmnAssociationDirection</span><span class="None"> </span><span class="None">AssociationDirection</span><span class="None"> [</span><span class="None">1</span><span class="None">..</span><span class="None">1</span><span class="None">]</span></div></td><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">associationDirection is an attribute that defines whether or not the Association shows any directionality with an arrowhead. 
+The default is None (no arrowhead). 
+A value of One means that the arrowhead SHALL be at the Target Object. 
+A value of Both means that there SHALL be an arrowhead at both ends of the Association line.</span></div></td></tr></table></div><div>
+</div><div id="tableContainer"><table class="ListeclaireAccent1" horizontal="true" tableStyle="ListeclaireAccent1"><caption/><tr class="odd"><th><div align="CENTER" class="Normal" startOnNewPage="false"><span class="None">Association</span></div></th><th><div align="CENTER" class="Normal" startOnNewPage="false"><span class="None">Description</span></div></th></tr><tr class="even"><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">TargetRef</span><span class="None"> : </span><a href="#_7f765471-18d6-11e0-9cf7-001ec947ccaf">BpmnBaseElement</a><span class="None"> [</span><span class="None">1</span><span class="None">..</span><span class="None">1</span><span class="None">]</span></div></td><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">The BaseElement that the Association is connecting to.</span></div></td></tr><tr class="odd"><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">SourceRef</span><span class="None"> : </span><a href="#_7f765471-18d6-11e0-9cf7-001ec947ccaf">BpmnBaseElement</a><span class="None"> [</span><span class="None">1</span><span class="None">..</span><span class="None">1</span><span class="None">]</span></div></td><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">The BaseElement that the Association is connecting from.</span></div></td></tr></table></div><div>
+</div></div></div>
+                    <br/>
+                    <div class="spacer" id="navbar"><ul><li id="prev"><a href="83.html" title="83.html">&lt; Previous</a></li><li id="home"><a href="index.html" title="Site map">Home</a></li><li id="next"><a href="85.html" title="85.html">Next &gt;</a></li></ul></div>  
+					<div id="footer"><p>Document automatically generated by Modelio Document Publisher.<br/><a href="http://www.modeliosoft.com">www.modeliosoft.com</a></p></div>            
+                </div>           
+            </div>
+        </div>
+  </body>
+</html>

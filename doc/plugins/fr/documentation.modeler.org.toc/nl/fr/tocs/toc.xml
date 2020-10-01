@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Modelio Modeler" topic="html/Index.html">
+	<topic comment="h2" href="" label="Interface de Modelio Modeler">		
+    <topic comment="entry" href="html/Modeler-_modeler_interface_main_window.html" label="Fenêtre principale"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_workspace_view.html" label="Espace de travail"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_uml_view.html" label="Vue Modèle"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_properties_view.html" label="Vue Propriétés"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_uml_prop_view.html" label="Vue Elément"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_annot_view.html" label="Vue Notes et contraintes"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_diagrams_view.html" label="Vue Diagrammes"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_edition_view.html" label="Vue Edition de diagrammes"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_symbol_view.html" label="Vue Symbole"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_outline_view.html" label="Vue Outline"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_linkeditor_view.html" label="Vue Editeur de liens"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_audit_view.html" label="Vue Audit"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_interface_script_view.html" label="Vue Script"></topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Gestion de projets Modelio">		
+    <topic comment="entry" href="html/Modeler-_modeler_managing_projects_migration.html" label="Migrer des projets de versions antérieures de Modelio"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_managing_projects_create_project.html" label="Créer un projet"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_managing_projects_configuring_project_informations.html" label="Configurer les informations du projet"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_managing_projects_configuring_project_work_models.html" label="Configurer les modèles de travail du projet"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_managing_projects_configuring_project_libraries.html" label="Configurer les bibliothèques du projet"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_managing_projects_configuring_project_modules.html" label="Configurer les modules du projet"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_managing_projects_configuring_project_audit.html" label="Configuring project audit"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_managing_projects_configuring_project_URL.html" label="Configurer les URLs du projet"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_sub_projects.html" label="Projets, modèles de travail et sous-projets"></topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Développement de vos modèles">		
+    <topic comment="sub_start" href="html/Modeler-_modeler_building_models_creating_elements.html" label="Créer des éléments">			
+    <topic comment="sub_start" href="html/Modeler-_modeler_creating_elements_in_diagrams.html" label="Créer des éléments dans les diagrammes">				
+        <topic comment="entry" href="html/Modeler-_modeler_building_models_creating_elements_diagpalette.html" label="Créer des éléments de type noeud"></topic>
+				<topic comment="entry" href="html/Modeler-_modeler_building_models_creating_links_diagrams.html" label="Créer des liens"></topic>
+				<topic comment="entry" href="html/Modeler-_modeler_building_models_creating_elements_dragdrop.html" label="Démasquer des éléments par glisser-déposer"></topic>
+
+			</topic>
+			<topic comment="entry" href="html/Modeler-_modeler_building_models_creating_elements_cmcommand.html" label="Créer des éléments dans l'explorateur de modèle"></topic>
+			<topic comment="entry" href="html/Modeler-_modeler_building_models_creating_links_linkeditor.html" label="Créer des liens dans l'éditeur de liens"></topic>
+
+		</topic>
+		<topic comment="entry" href="html/Modeler-_modeler_building_models_modifying_element_props.html" label="Modifier des propriétés d'un élément"></topic>
+		<topic comment="sub_start" href="html/Modeler-_modeler_building_models_annotating_elements.html" label="Annoter des éléments">			
+      <topic comment="entry" href="html/Modeler-_modeler_building_models_add_stereotypes.html" label="Ajouter des stéréotypes aux éléments"></topic>
+			<topic comment="entry" href="html/Modeler-_modeler_building_models_add_notes.html" label="Ajouter des notes / contraintes aux éléments"></topic>
+			<topic comment="entry" href="html/Modeler-_modeler_building_models_add_richnotes.html" label="Ajouter des notes riches aux éléments"></topic>
+			<topic comment="entry" href="html/Modeler-_modeler_building_models_add_tv.html" label="Ajouter des tagged values aux éléments"></topic>
+
+		</topic>
+		<topic comment="entry" href="html/Modeler-_modeler_building_models_editing_elements.html" label="Editer des éléments via les boites d'édition"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_building_models_shortcuts.html" label="Utiliser des raccourcis"></topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Diagrammes Modelio">		
+    <topic comment="entry" href="html/Modeler-_modeler_diagrams_creating_diagram.html" label="Créer un diagramme"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_opening_diagram.html" label="Ouvrir un diagramme"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_creating_elements.html" label="Créer des éléments dans un diagramme"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_handling_elements.html" label="Gérer les éléments dans un diagramme"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_drawing_links.html" label="Tracer des liens dans un diagramme"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_handling_links.html" label="Gérer des liens dans un diagramme"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_showing_masking_elements.html" label="Afficher et masquer des éléments dans un diagramme"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_free_drawing.html" label="Dessin libre"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_changing_element_size.html" label="Retailler un élément"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_graphic_options.html" label="Définir les options graphiques dans les diagrammes"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_cloning.html" label="Cloner les options graphiques"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_grab.html" label="Utiliser le “grab”"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_zoom.html" label="Utiliser le “zoom”"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_grid.html" label="Activer la grille"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_aligning.html" label="Aligner des éléments"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_copying.html" label="Copier un diagramme en tant qu'image"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_diagrams_saving_diagram_in_file.html" label="Sauvegarder un diagramme dans un fichier"></topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Import/Export">		
+    <topic comment="entry" href="html/Modeler-_modeler_managing_projects_importing_elements.html" label="Importer des éléments depuis des projets existants"></topic>
+		<topic comment="sub_start" href="html/Xmi_intro.html" label="Import/Export XMI">			
+      <topic comment="entry" href="html/Xmi_gloss.html" label="Glossaire"></topic>
+			<topic comment="entry" href="html/Xmi_importing.html" label="Importer un modèle au format XMI"></topic>
+			<topic comment="entry" href="html/Xmi_exporting.html" label="Exporter un modèle au format XMI"></topic>
+			<topic comment="entry" href="html/Xmi_importing_profile.html" label="Importer un profil au format XMI"></topic>
+			<topic comment="entry" href="html/Xmi_exporting_profile.html" label="Exporter un profil au format XMI"></topic>
+			<topic comment="entry" href="html/Xmi_config.html" label="Les préférences de l'import / export XMI de Modelio"></topic>
+			<topic comment="entry" href="html/Xmi_coverage.html" label="Couverture d'UML2"></topic>
+
+		</topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Préférences Modelio">		
+    <topic comment="entry" href="html/Modeler-_modeler_modelio_settings_modules_catalog.html" label="Catalogue de modules"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_modelio_settings_macros_catalog.html" label="Macros catalog"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_modelio_settings_preferences.html" label="Préférences"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_modelio_settings_diagram_styles.html" label="Styles des diagrammes"></topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Bibliothèques locales">		
+    <topic comment="entry" href="html/Modeler-_modeler_local_libraries_model_components_presentation.html" label="Introduction aux composants de modèle"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_local_libraries_model_components_lifecycle.html" label="Cycle de vie d'un composant de modèle"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_local_libraries_model_components_development.html" label="Développer et produire un composant de modèle"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_local_libraries_model_components_deployment.html" label="Déployer un composant de modèle"></topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Bibliothèques distantes">		
+    <topic comment="entry" href="html/Modeler-_modeler_remote_libraries_distant_libraries_presentation.html" label="Introduction aux bibliothèques distantes"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_remote_libraries_distant_libraries_lifecycle.html" label="Créer et publier une bibliothèque distante"></topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Services MDA">		
+    <topic comment="entry" href="html/Modeler-_modeler_mda_services_mda_modeling.html" label="Modélisation MDA avec Modelio Modeler"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_mda_services_basic.html" label="Niveau basique – Création d'un stéréotype"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_mda_services_advanced.html" label="Niveau avancé – Travailler dans le modèle MDA"></topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Outils pratiques">		
+    <topic comment="entry" href="html/Modeler-_modeler_handy_tools_advanced_search.html" label="Outil de recherche de Modelio"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_handy_tools_model_audit.html" label="Audit de modèle"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_handy_tools_automatic_diagrams.html" label="Diagrammes automatiques"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_handy_tools_modeling_wizard_patterns.html" label="Assistants de modélisation"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_handy_tools_scripts_macros.html" label="Scripts"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_handy_tools_command_line_options.html" label="Options de la ligne de commande"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_maven_plugin.html" label="Plugin Modelio Maven"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_patterns.html" label="Patterns de modèle"></topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Annexe 1 – Raccourcis de démasquage dans les diagrammes">		
+    <topic comment="entry" href="html/Modeler-_modeler_shortcuts_actors.html" label="Raccourcis de démasquage sur les acteurs"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_artifacts.html" label="Raccourcis de démasquage sur les artéfacts"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_attributes.html" label="Raccourcis de démasquage sur les attributs"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_bindable_instances.html" label="Raccourcis de démasquage sur les parts"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_bindings.html" label="Raccourcis de démasquage sur les bindings"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_classes.html" label="Raccourcis de démasquage sur les classes"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_collaborations.html" label="Raccourcis de démasquage sur les collaborations"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_collaboration_uses.html" label="Raccourcis de démasquage sur les collaboration uses"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_components.html" label="Raccourcis de démasquage sur les composants"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_dataflows.html" label="Raccourcis de démasquage sur les flux d'informations"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_datatypes.html" label="Raccourcis de démasquage sur les datatypes"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_enumerations.html" label="Raccourcis de démasquage sur les énumérations"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_instances.html" label="Raccourcis de démasquage sur les instances"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_interfaces.html" label="Raccourcis de démasquage sur les interfaces"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_nodes.html" label="Raccourcis de démasquage sur les noeuds"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_operations.html" label="Raccourcis de démasquage sur les opérations"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_packages.html" label="Raccourcis de démasquage sur les packages"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_ports.html" label="Raccourcis de démasquage sur les ports"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_signals.html" label="Raccourcis de démasquage sur les signaux"></topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Annexe 2 –  Raccourcis de création dans les diagrammes">		
+    <topic comment="entry" href="html/Modeler-_modeler_shortcuts_activity_diagram.html" label="Raccourcis de création dans les diagrammes d'activités"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_class_diagram.html" label="Raccourcis de création dans les diagrammes de classes"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_communication_diagram.html" label="Raccourcis de création dans les diagrammes de communication"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_composite_structure_diagram.html" label="Raccourcis de création dans les diagrammes de structure composite"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_deployment_diagram.html" label="Raccourcis de création dans les diagrammes de déploiement"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_object_diagram.html" label="Raccourcis de création dans les diagrammes d'objets"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_state_diagram.html" label="Raccourcis de création dans les diagrammes d'états"></topic>
+		<topic comment="entry" href="html/Modeler-_modeler_shortcuts_usecase_diagram.html" label="Raccourcis de création dans les diagrammes de cas d'utilisation"></topic>
+
+	</topic>
+	<topic comment="h2" href="" label="Annexe 3 Spécificités de certains diagrammes">		
+    <topic comment="entry" href="html/Modeler-_modeler_usecase_diagram_system_boundaries.html" label="System Boundaries des diagrammes de Use Case"></topic>
+
+	</topic>
+</toc>

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2820]]
+
+[[r2820]]
+= R2820
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+La cible d'une transition ne peut pas être un état initial.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un état initial est un état temporaire de départ et ne peut donc pas être ciblé par une transition.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une transition ciblant un état initial, supprimez-la.
+
+

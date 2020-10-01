@@ -31,7 +31,7 @@ import org.eclipse.swt.graphics.TextStyle;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.gproject.data.ramc.IModelComponentInfos;
 import org.modelio.gproject.fragment.ramcfile.RamcFileFragment;
-import org.modelio.ui.UIColor;
+import org.modelio.platform.ui.UIColor;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vbasic.version.VersionedItem;
 

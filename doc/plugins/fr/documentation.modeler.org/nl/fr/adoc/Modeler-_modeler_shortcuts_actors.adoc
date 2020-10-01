@@ -1,0 +1,23 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de démasquage sur les acteurs
+
+Le tableau suivant présente les raccourcis clavier permettant de démasquer certains éléments associés ou appartenant à l'acteur sélectionné dans le diagramme.
+
+[%header]
+|=================================
+|Elément démasqué |Raccourci
+|Communications |SHIFT + L
+|Constraints |SHIFT + N
+|Notes |SHIFT + N
+|Element imports |SHIFT + U
+|Package imports |SHIFT + U
+|Parent generalizations |SHIFT + G
+|Child generalizations |g
+|Attributes |SHIFT + A
+|Operations |SHIFT + O
+|Dependencies |SHIFT + D
+|=================================
+
+

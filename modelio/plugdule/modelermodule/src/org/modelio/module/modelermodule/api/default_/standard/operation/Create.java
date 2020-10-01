@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.operation;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("73b5dac7-a5b3-4178-b056-93aaa0e2ed41")
 public class Create {
-    @objid ("0a0e72b8-eb93-4813-80ed-2732e3443d26")
+    @objid ("340ead05-ad40-4bcc-ae74-cf0579728cfa")
     public static final String STEREOTYPE_NAME = "create";
 
     /**
      * The underlying {@link Operation} represented by this proxy, never null.
      */
-    @objid ("2839d5a3-32f6-443d-b816-02a76bb42112")
+    @objid ("e51ba6c5-951f-4206-8e26-6db8b2230416")
     protected final Operation elt;
 
     /**
-     * Tells whether a {@link Create proxy} can be instantiated from a {@link MObject} checking it is a {@link Operation} stereotyped << create >>. 
+     * Tells whether a {@link Create proxy} can be instantiated from a {@link MObject} checking it is a {@link Operation} stereotyped << create >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("45a228c0-7676-41bd-a8bd-6476465a6ba3")
+    @objid ("008c7629-0509-4d6e-8de2-ce22017f9f9d")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Operation) && ((Operation) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Create.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Create {
      * 
      * @return a {@link Create} proxy on the created {@link Operation}.
      */
-    @objid ("d81e12a8-ccb5-4989-8980-717be29755f2")
+    @objid ("5acf4bad-5c4f-4da0-b67a-ed05ef5a5cbd")
     public static Create create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Operation");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Create.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Create {
     }
 
     /**
-     * Tries to instantiate a {@link Create} proxy from a {@link Operation} stereotyped << create >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Create} proxy from a {@link Operation} stereotyped << create >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Operation
      * @return a {@link Create} proxy or <i>null</i>.
      */
-    @objid ("8aa5fb18-32f7-4545-97b4-98e36e6381c6")
+    @objid ("68e53490-3876-475f-a771-f834a10ffc1b")
     public static Create instantiate(Operation obj) {
         return Create.canInstantiate(obj) ? new Create(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Create {
      * @return a {@link Create} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("ee2908fd-bd8b-41cb-aa77-d85e899589c8")
+    @objid ("6c424082-1a65-4b2b-ab29-9a0d991f46ee")
     public static Create safeInstantiate(Operation obj) throws IllegalArgumentException {
         if (Create.canInstantiate(obj))
         	return new Create(obj);
@@ -112,7 +112,7 @@ public class Create {
         	throw new IllegalArgumentException("Create: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("115f7966-3eea-4d3c-99a4-42218e7ba8bb")
+    @objid ("5604fb52-c4f6-4296-b015-5a86a2638bc3")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Create {
      * Get the underlying {@link Operation}. 
      * @return the Operation represented by this proxy, never null.
      */
-    @objid ("57fd7121-8e3a-476c-a362-d318a324c0a0")
+    @objid ("db705819-4c59-4743-a76c-c183ae81aa98")
     public Operation getElement() {
         return this.elt;
     }
 
-    @objid ("b0acac46-cd63-4607-8e79-88dba8d97a17")
+    @objid ("893300d0-1f04-4996-8e2f-c1ff861e53f8")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("3f4f1a13-e9a4-4f1c-8512-fd943e8c576b")
+    @objid ("a7cc4075-1bfc-43f8-8352-e2c739d11ad4")
     protected Create(Operation elt) {
         this.elt = elt;
     }
 
     @objid ("98b0bd6f-4676-4bac-aa4f-c8a2015d89b0")
     public static final class MdaTypes {
-        @objid ("a17bed35-ab05-4301-ac94-5ce836d7269e")
+        @objid ("1ac69e3d-de1c-4e55-9661-aa1870df9c91")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("28304c7e-93f7-4e01-b728-8403fcb107cb")
+        @objid ("d72ac412-d664-43e1-9e38-7151303d0e05")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("75f4ce5b-9fdd-4ab4-b83e-d683756c715d")
+        @objid ("1f4226c9-098f-48b1-a7c1-15e3af2cfe16")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("9c7af00b-8a26-4a9d-91de-fce9062ff558")
+        @objid ("fc6c4a20-55f7-4aeb-bb6a-e60dd95c1f18")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-0204-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

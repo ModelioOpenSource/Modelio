@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2720]]
+
+[[r2720]]
+= R2720
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _TemplateBinding_ must be created between two elements of the same metaclass or between a _Class_ and a _DataType_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+When using a template binding, the linked element must have the same properties in order for it to be compatible.
+
+You cannot for example make a _Package_ instanciate a template _Class_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Change the source or target of the _TemplateBinding_.
+
+

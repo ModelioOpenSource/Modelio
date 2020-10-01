@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2370]]
+
+[[r2370]]
+= R2370
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A class (static) _Operation_ cannot be redefined.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A static Operation cannot be redefined in most programming languages.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Remove the redefinition.
+* Make the operation non-static.
+* Disable this rule if you are using a programming language that supports static method inheritance (SmallTalk).
+
+

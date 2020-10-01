@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2380]]
+
+[[r2380]]
+= R2380
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An abstract _Operation_ should not redefine a concrete _Operation_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An _Operation_ redefinition corresponds to a different implementation of the method, but abstract methods do not specify implementation, therefore an abstract method should not redefine another method.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Make this _Operation_ non-abstract.
+* Rework the inheritance graph to have abstract _Operations_ on the upper part and concrete _Operations_ on the lower part.
+* Disable this rule.
+
+

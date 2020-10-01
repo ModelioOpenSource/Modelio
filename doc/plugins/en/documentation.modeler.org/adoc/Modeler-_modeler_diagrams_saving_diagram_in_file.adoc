@@ -1,0 +1,17 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Saving-a-diagram-in-a-file]]
+
+[[saving-a-diagram-in-a-file]]
+= Saving a diagram in a file
+
+To save the contents of a diagram in a file, just carry out the following steps:
+
+* Click on the image:images/Modeler-_modeler_diagrams_saving_diagram_in_file_save_image.png[2] icon in the diagram toolbar. The "Save as" window then appears.
+* In the "Save as" window, select the physical location where you want to save the diagram, and enter a name and type for the diagram file.
+* Click on "Save" to confirm.
+
+*Note:* When saving diagrams in a file, make sure that you type in the file name and the file extension.
+
+

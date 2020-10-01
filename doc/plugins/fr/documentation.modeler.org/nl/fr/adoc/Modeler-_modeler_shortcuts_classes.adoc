@@ -1,0 +1,27 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de démasquage sur les classes
+
+Le tableau suivant présente les raccourcis clavier permettant de démasquer certains éléments associés ou appartenant à la classe sélectionnée dans le diagramme.
+
+[cols=",",options="header",]
+|=========================================
+|Elément démasqué |Raccourci
+|Constraints |SHIFT + N
+|Notes |SHIFT + N
+|Associations |SHIFT + L
+|Parts |SHIFT + I
+|Ports |SHIFT + P
+|Classes |SHIFT + C
+|Element imports |SHIFT + U
+|Package imports |SHIFT + U
+|Parent generalizations |SHIFT + G
+|Child generalizations |g
+|Attributes |SHIFT + A
+|Operations |SHIFT + O
+|Interface implementation links |SHIFT + G
+|Dependencies |SHIFT + D
+|=========================================
+
+

@@ -27,7 +27,6 @@ import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.diagram.api.dg.DGFactory;
 import org.modelio.diagram.api.dg.common.PortContainerDG;
 import org.modelio.diagram.api.services.DiagramHandle;
-import org.modelio.diagram.editor.statik.elements.component.GmComponentPrimaryNode;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.metamodel.uml.statik.Attribute;
@@ -35,6 +34,7 @@ import org.modelio.metamodel.uml.statik.CollaborationUse;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.Operation;
+import org.modelio.uml.statikdiagram.editor.elements.component.GmComponentPrimaryNode;
 
 /**
  * This class represents the DiagramGraphic of a 'Component' element.

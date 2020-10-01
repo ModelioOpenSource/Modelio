@@ -1,0 +1,38 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1050]]
+
+[[r1050]]
+= R1050
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un _ActivityParameterNode_ doit avoir uniquement des _ActivityEdge_ entrants ou uniquement des _ActivityEdge_ sortants, mais il ne peut avoir les deux.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _ActivityParameterNode_ doit avoir uniquement des _ActivityEdge_ entrants ou uniquement des _ActivityEdge_ sortants, mais il ne peut avoir les deux.
+
+Les _ActivityParameterNode_ sont des nœuds d'objet au début ou à la fin de flux qui fournissent un moyen d'accepter des entrées sur l'_Activity_ et un moyen de sortie d'une _Activity_ au travers des paramètres.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Les _ActivityEdge_ devraient suivre le sens de passage du BehaviorParameter représenté par l'ActivityParameterNode.
+
+* Dans le cas d'un _BehaviorParameter_ "in", l'_ActivityParameterNode_ ne devrait avoir que des _ActivityEdge_ sortantes.
+* Dans le cas d'un _BehaviorParameter_ "out", l'_ActivityParameterNode_ ne devrait avoir que des _ActivityEdge_ entrantes.
+* Dans le cas d'un _BehaviorParameter_ "inout", deux _ActivityParameterNode_ devraient être utilisés :
+* l'un pour l'aspect "in", ayant seulement des _ActivityEdge_ sortantes.
+* l'autre pour l'aspect "out", ayant seulement des _ActivityEdge_ entrantes.
+
+

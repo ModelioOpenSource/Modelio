@@ -1,0 +1,34 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1700]]
+
+[[r1700]]
+= R1700
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Le champ 'Instantiated signal' d'un _Event_ de type _Signal_ doit être défini, tandis que les champs 'Called operation' et 'Expression' doivent être vides.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _Event_ est la spécification d'une occurrence spécifique à un point donné dans l'espace et dans le temps.
+
+Un _Event_ de type _Signal_ est utilisé pour indiquer une instanciation de _Signal_, et ne peut donc pas appeler d'_Operation_ en même temps.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Ajoutez une référence vers un _Signal_ dans le champ correspondant si l'_Event_ n'en référence pas déjà un.
+
+Un _Event_ qui référence une _Operation_ devrait plutôt être de type _Call_ plutôt que _Signal_.
+
+

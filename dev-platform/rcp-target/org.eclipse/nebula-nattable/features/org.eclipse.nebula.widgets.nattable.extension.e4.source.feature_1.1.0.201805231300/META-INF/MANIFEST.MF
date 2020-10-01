@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Archiver-Version: Plexus Archiver
-Built-By: genie.nebula
-Created-By: Apache Maven 3.5.2
-Build-Jdk: 1.8.0_162
-
-Name: feature.xml
-SHA-256-Digest: /YQYaI7rf4Tr78Mg5ZKy1gzuv7SpxI0gPtaW0KEX9Sc=
-

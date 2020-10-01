@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3190]]
+
+[[r3190]]
+= R3190
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _DataAssociation_ cannot target a _DataInput_ nor have a _DataOutput_ as its source.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_DataInputs_ are meant to send data while _DataOutputs_ are meant to receive data.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have outgoing data on a _DataOutput_ or incoming data on a _DataInput_, you are doing something wrong and you should change your _DataAssociation_ source or target.
+
+

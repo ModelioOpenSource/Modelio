@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("9a5520de-c3f4-49fe-82ab-dd4a9414a61c")
 public class Measure {
-    @objid ("79d692b9-0ec5-47d4-9cc9-b4875bb780c3")
+    @objid ("a0b28844-f973-4a9a-85bd-eefee607d2fb")
     public static final String STEREOTYPE_NAME = "measure";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("60091fcd-532e-47eb-a59d-50921b4823ce")
+    @objid ("2e847ed0-85ae-4dc2-abfe-7184ba1905da")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link Measure proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << measure >>. 
+     * Tells whether a {@link Measure proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << measure >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("cae98b56-6b63-4ade-9b0b-d262bbd01219")
+    @objid ("fb5cc6d4-5b41-4192-acbf-9b4d7da553d6")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Measure.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class Measure {
      * 
      * @return a {@link Measure} proxy on the created {@link Dependency}.
      */
-    @objid ("0ddc2f63-0f7b-4755-8085-d3ec65f4f4ef")
+    @objid ("4c36dbdb-b8da-462e-80eb-305ea7246432")
     public static Measure create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Measure.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class Measure {
     }
 
     /**
-     * Tries to instantiate a {@link Measure} proxy from a {@link Dependency} stereotyped << measure >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Measure} proxy from a {@link Dependency} stereotyped << measure >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link Measure} proxy or <i>null</i>.
      */
-    @objid ("8304d3cd-56c8-411d-b3de-85cfe18c9175")
+    @objid ("43c359b7-80a0-4f95-b71e-8c4ce2f67544")
     public static Measure instantiate(Dependency obj) {
         return Measure.canInstantiate(obj) ? new Measure(obj) : null;
     }
@@ -103,7 +103,7 @@ public class Measure {
      * @return a {@link Measure} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("aa2a2e9d-440c-4c4c-bca0-d59ab37fabed")
+    @objid ("22747df2-591c-4886-a3ff-f62e7855483d")
     public static Measure safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (Measure.canInstantiate(obj))
         	return new Measure(obj);
@@ -111,7 +111,7 @@ public class Measure {
         	throw new IllegalArgumentException("Measure: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("c0350d55-64b9-4598-85fd-2dbe88b59628")
+    @objid ("65489383-f117-4677-ab73-72265b0ca6de")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class Measure {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("9105af4a-b89d-4921-88c4-f6c3d8be3a9d")
+    @objid ("a503c4d0-c6b4-4cc9-9338-3fdb349afbbc")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("cb7014c1-97b7-4294-a9d1-d401ad9015c1")
+    @objid ("10d01d7f-317e-447c-bccd-635e817e0bd2")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("07599252-44b6-411e-8cd4-496084536671")
+    @objid ("a6a9577b-c905-4f49-bf2d-87e519b10324")
     protected Measure(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("46bb357b-ca38-48c0-b010-8be5578cd473")
     public static final class MdaTypes {
-        @objid ("a17d983f-12d3-4fa6-87d4-d5d314cc05f3")
+        @objid ("c7fcbc7d-2e72-4321-bb9b-ae3ad77b668a")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("2346dce4-159d-40e1-8e30-971e1e36df67")
+        @objid ("bf35bc4a-eba2-47ac-a4d1-e42fdb1a4535")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("77e73c4b-ed41-4f88-8be7-cf25d39e8fb8")
+        @objid ("a659d080-5216-4966-bc43-843ff6d715fb")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("ee24ea59-8b07-4480-808c-b91553aa97ce")
+        @objid ("0f0d30b0-f79e-44f1-a80f-44d5141814a5")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-0256-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("de664031-5286-4b77-8e34-8ad41e46aa5d")
 public class Satisfy {
-    @objid ("5e9230d2-f6b5-4326-b81c-f99ad7d48a3c")
+    @objid ("56d2af18-a1a4-44e0-b066-4e19038a376c")
     public static final String STEREOTYPE_NAME = "satisfy";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("e67e366b-cb58-403d-9316-42b6a60da02d")
+    @objid ("49d22e6f-818e-463b-9af0-b6c59d0e9c4b")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link Satisfy proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << satisfy >>. 
+     * Tells whether a {@link Satisfy proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << satisfy >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("b97cf242-a247-4f76-947b-c3044631310c")
+    @objid ("e156c087-7265-4522-8acd-bed1586b9c42")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Satisfy.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class Satisfy {
      * 
      * @return a {@link Satisfy} proxy on the created {@link Dependency}.
      */
-    @objid ("c119714a-0ab5-4aff-bd90-8ec6464f7194")
+    @objid ("1cc879f9-4daa-4170-9d63-7421dcb26af0")
     public static Satisfy create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Satisfy.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class Satisfy {
     }
 
     /**
-     * Tries to instantiate a {@link Satisfy} proxy from a {@link Dependency} stereotyped << satisfy >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Satisfy} proxy from a {@link Dependency} stereotyped << satisfy >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link Satisfy} proxy or <i>null</i>.
      */
-    @objid ("23fda7dc-a23a-49d0-b247-37ac24d9cccc")
+    @objid ("51169e30-1de2-4db0-aab4-845c81233820")
     public static Satisfy instantiate(Dependency obj) {
         return Satisfy.canInstantiate(obj) ? new Satisfy(obj) : null;
     }
@@ -103,7 +103,7 @@ public class Satisfy {
      * @return a {@link Satisfy} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("ef5647c4-9424-4759-85dd-fb28ad51b3fc")
+    @objid ("131f3a4b-d844-4d73-89d8-8165a8f9148f")
     public static Satisfy safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (Satisfy.canInstantiate(obj))
         	return new Satisfy(obj);
@@ -111,7 +111,7 @@ public class Satisfy {
         	throw new IllegalArgumentException("Satisfy: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("bfab6dcf-9896-4468-96f2-cbdb177491c3")
+    @objid ("48104283-8fca-4764-b4c5-67751409f1ff")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class Satisfy {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("1ac4ceba-d339-47b5-b774-d0a2d4b8c631")
+    @objid ("0d720b86-ac26-4252-a1c3-02ab4a3690d4")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("bcf63342-8f5c-4e98-a68a-5ebed89d9382")
+    @objid ("f05dc5ef-5d42-4b7d-94fe-d8fbf77ad780")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("edd6204a-7b06-4976-8272-e2111e618a32")
+    @objid ("0b0c00c9-573d-4e8c-8751-6ee454364b57")
     protected Satisfy(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("b06d31b4-20d4-42e2-b341-3bd59450e084")
     public static final class MdaTypes {
-        @objid ("3db1f34b-9fd6-48e5-81db-3db7b18bedef")
+        @objid ("2a43601f-bbb7-4028-8828-ae096c229755")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("9b06e299-f146-423b-b554-525e48d58845")
+        @objid ("dd4b553b-2887-439b-ac76-c614f48c1dd9")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("f8b78789-214e-48c4-ab9c-51dac16a0098")
+        @objid ("c1c049d7-b718-4431-b906-c75acf506e96")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("3659bcde-185b-4cc0-8dd1-e4894b5d748b")
+        @objid ("9f859c7b-5d39-4851-a5a9-8d710c9f429d")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-0224-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

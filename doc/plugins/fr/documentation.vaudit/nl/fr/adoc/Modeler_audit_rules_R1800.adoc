@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1800]]
+
+[[r1800]]
+= R1800
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Si un _CombinedFragment_ a pour opérateur 'opt', 'loop', 'break' ou 'neg', il ne doit avoir qu'un seul _InteractionOperand_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les opérateurs 'opt', 'loop', 'break' ou 'neg' ne fonctionne qu'avec un seul _InteractionOperand_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Cette règle indique une inconsistance entre l'opérateur et  le nombre d'_InteractionOperand_ du _CombinedFragment_ incriminé.
+
+

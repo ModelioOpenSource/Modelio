@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2910]]
+
+[[r2910]]
+= R2910
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _relation d'extension_ ne peut référencer que des _Extension Points_ du _Use Case_ ciblé.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _Extension Point_ est une fonctionnalité des _Use Case_ qui identifie un certain point à partir duquel le comportement d'un _Use Case_ peut être étendu par des éléments d'un autre _Use Case_. Une _relation d'extension_ devrait donc toujours référencer des _Extension Points_ d'un _Use Case_ étendu.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Choisissez un autre _Extension Point_ comme référence; cet _Extension Point_ doit appartenir au _Use Case_ ciblé.
+* Sinon, changez la destination du la _relation d'extension_ pour cibler le _UseCase_ correspondant au bon _Extension Point._
+
+

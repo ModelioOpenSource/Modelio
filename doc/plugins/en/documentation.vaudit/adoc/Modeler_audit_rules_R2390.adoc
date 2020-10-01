@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2390]]
+
+[[r2390]]
+= R2390
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A constructor cannot have return parameters.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A constructor is a method that instanciates the _Classifier_ it belongs to, and does not return anything.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Remove this parameter.
+* Remove the 'constructor' stereotype from the method and make it a class method.
+
+

@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.objectflow;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("99f3e547-a9ff-492d-8072-1124b305e010")
 public class UML2ExceptionHandler {
-    @objid ("c7dda10b-0b3f-451e-80cf-399bc88ddefe")
+    @objid ("045b0361-2646-4054-b111-7acc0cad1c56")
     public static final String STEREOTYPE_NAME = "UML2ExceptionHandler";
 
     /**
      * The underlying {@link ObjectFlow} represented by this proxy, never null.
      */
-    @objid ("b2f1c14c-ea7c-4d76-af4d-f77ecb83edf5")
+    @objid ("b61ad08e-2da0-4bbf-9b04-c341cd7b72b3")
     protected final ObjectFlow elt;
 
     /**
-     * Tells whether a {@link UML2ExceptionHandler proxy} can be instantiated from a {@link MObject} checking it is a {@link ObjectFlow} stereotyped << UML2ExceptionHandler >>. 
+     * Tells whether a {@link UML2ExceptionHandler proxy} can be instantiated from a {@link MObject} checking it is a {@link ObjectFlow} stereotyped << UML2ExceptionHandler >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("f474c34c-e211-4e04-9a5f-8459ea5f1520")
+    @objid ("7176d2f3-758a-4097-8e9d-3d53637a42cf")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof ObjectFlow) && ((ObjectFlow) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ExceptionHandler.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2ExceptionHandler {
      * 
      * @return a {@link UML2ExceptionHandler} proxy on the created {@link ObjectFlow}.
      */
-    @objid ("878de68e-d1d6-43c3-ab47-5743fac156c0")
+    @objid ("4ce81d1e-13d0-4ecb-a283-20ecf9d46a79")
     public static UML2ExceptionHandler create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("ObjectFlow");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ExceptionHandler.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2ExceptionHandler {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ExceptionHandler} proxy from a {@link ObjectFlow} stereotyped << UML2ExceptionHandler >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ExceptionHandler} proxy from a {@link ObjectFlow} stereotyped << UML2ExceptionHandler >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a ObjectFlow
      * @return a {@link UML2ExceptionHandler} proxy or <i>null</i>.
      */
-    @objid ("0de9a64f-02ed-4d80-b1b8-5edbf64fc7ac")
+    @objid ("dcdd3339-d89d-4737-aceb-d9708132a350")
     public static UML2ExceptionHandler instantiate(ObjectFlow obj) {
         return UML2ExceptionHandler.canInstantiate(obj) ? new UML2ExceptionHandler(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2ExceptionHandler {
      * @return a {@link UML2ExceptionHandler} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("395a10ce-ba92-41ba-bb24-84b672a436ac")
+    @objid ("104b712c-305e-4ee5-907e-aad685bae902")
     public static UML2ExceptionHandler safeInstantiate(ObjectFlow obj) throws IllegalArgumentException {
         if (UML2ExceptionHandler.canInstantiate(obj))
         	return new UML2ExceptionHandler(obj);
@@ -112,7 +112,7 @@ public class UML2ExceptionHandler {
         	throw new IllegalArgumentException("UML2ExceptionHandler: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("2d6b4d98-81e0-428d-a8e9-c3310f674b6e")
+    @objid ("f353fd20-1adc-4bd5-8f2a-1d7389236b54")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2ExceptionHandler {
      * Get the underlying {@link ObjectFlow}. 
      * @return the ObjectFlow represented by this proxy, never null.
      */
-    @objid ("1090a2c5-9972-4277-8816-a1064f18b073")
+    @objid ("7ce763f1-87b2-4559-a111-1b39127aec20")
     public ObjectFlow getElement() {
         return this.elt;
     }
 
-    @objid ("e619ca48-436b-4541-9c74-a7b71222b561")
+    @objid ("adcc6ef9-318e-4981-bd82-1cfe2a011871")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("09fefd96-81ff-4801-a68c-7ac20a080a08")
+    @objid ("468d925b-11c2-4c91-9a98-ab0315203d1b")
     protected UML2ExceptionHandler(ObjectFlow elt) {
         this.elt = elt;
     }
 
     @objid ("ed214f2b-6a8e-4515-9c8d-379b6f62a571")
     public static final class MdaTypes {
-        @objid ("f0d7a37a-7aa6-4e80-9402-95bf92650931")
+        @objid ("972e6df7-42f7-4d44-8347-c8570ed95e69")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("e55d1073-abb1-41e0-ba3f-820baa409641")
+        @objid ("8ab9bd78-bcd6-4e44-9644-b91b9abde115")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("69d4e134-3069-4ed9-904b-f53c9e83fd4a")
+        @objid ("f8a008af-028b-4b38-91d8-d10be058703b")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("9022aa72-2cf8-4c7f-843a-0c40b1d52453")
+        @objid ("1acb78cd-76cd-48e0-b2e8-1949dd8ff2f1")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "1b7fd53f-205e-11df-948e-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

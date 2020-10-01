@@ -37,14 +37,14 @@ import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.gproject.data.project.ILockInfo;
 import org.modelio.gproject.data.project.ProjectDescriptor;
 import org.modelio.gproject.data.project.ProjectFileStructure;
 import org.modelio.gproject.gproject.GProject;
-import org.modelio.ui.UIImages;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.UIImages;
 
 /**
  * Workspace tree viewer label provider.

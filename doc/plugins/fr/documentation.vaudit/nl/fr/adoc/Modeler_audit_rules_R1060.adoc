@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1060]]
+
+[[r1060]]
+= R1060
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un _ActivityParameterNode_ ne peut avoir des _ActivityEdge_ sortantes que s'il représente un _BehaviorParameter_ dont le mode de passage est "_in"_ ou "_inout"_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _ActivityParameterNode_ qui a au moins une _ActivityEdge_ sortante doit représenter un _BehaviorParameter_ qui a pour mode de passage "_in"_ ou "_inout"_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous rencontrez une erreur R1060, vérifiez les points suivants :
+
+* l'_ActivityParameterNode_ en cause représente bien un _BehaviorParameter_
+* le _BehaviorParameter_ représenté a bien "_in"_ ou "_inout"_ comme mode de passage
+
+

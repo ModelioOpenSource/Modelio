@@ -1,0 +1,13 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Automatic diagram styles
+
+All elements appearing in automatic diagrams have a specific associated style, indicating their location within the project:
+
+ * "main" for the central element in the diagram.
+ * "intern" for elements belonging to the same package as C.
+ * "extern" for elements belonging to a different package than C.
+ * "ramc" for elements from model components.
+
+

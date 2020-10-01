@@ -38,11 +38,6 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.core.activation.IActivationService;
-import org.modelio.app.core.navigate.IModelioNavigationService;
-import org.modelio.app.project.core.creation.ProjectCreationDataModel;
-import org.modelio.app.project.core.creation.ProjectCreator;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.ui.application.saveproject.SaveProjectHandler;
 import org.modelio.app.project.ui.newproject.gui.ProjectCreationDialog;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
@@ -52,7 +47,12 @@ import org.modelio.gproject.gproject.GProjectAuthenticationException;
 import org.modelio.gproject.gproject.GProjectFactory;
 import org.modelio.gproject.module.IModuleStore;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
-import org.modelio.ui.progress.IModelioProgressService;
+import org.modelio.platform.core.activation.IActivationService;
+import org.modelio.platform.core.navigate.IModelioNavigationService;
+import org.modelio.platform.project.creation.ProjectCreationDataModel;
+import org.modelio.platform.project.creation.ProjectCreator;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.progress.IModelioProgressService;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -246,7 +246,7 @@ public class NewProjectHandler {
     }
 
     @objid ("8aa5dc99-8e60-40ab-baa0-e4563e1d1abc")
-    private ProjectCreator createOpenProject(final IProjectService projectService, final ProjectCreationDataModel dataModel, IModelioProgressService progressSvc) throws InterruptedException, InvocationTargetException {
+    private ProjectCreator createOpenProject(final IProjectService projectService, final ProjectCreationDataModel dataModel, IModelioProgressService progressSvc) throws InvocationTargetException, InterruptedException {
         final ProjectCreator projectCreator = new ProjectCreator();
         IRunnableWithProgress runnable = new IRunnableWithProgress() {
             

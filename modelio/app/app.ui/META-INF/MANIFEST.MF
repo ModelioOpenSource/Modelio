@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Ui
 Bundle-SymbolicName: org.modelio.app.ui;singleton:=true
-Bundle-Version: 4.0.1.qualifier
+Bundle-Version: 4.1.0.qualifier
 Bundle-ClassPath: .,
  res/,
  css/
@@ -23,21 +23,20 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.osgi.services,
  org.eclipse.e4.core.di.extensions,
  org.eclipse.e4.core.services,
- org.modelio.ui,
+ org.modelio.platform.ui,
  org.modelio.core.project,
- org.modelio.utils,
- org.modelio.app.core,
- org.modelio.core.utils,
+ org.modelio.platform.utils,
+ org.modelio.platform.core,
  org.modelio.core.session,
  org.eclipse.e4.ui.model.workbench,
- org.eclipse.e4.ui.di,
  org.eclipse.ui.net,
  org.eclipse.core.net,
- org.modelio.app.preferences,
+ org.modelio.platform.preferences,
  org.modelio.version,
- org.modelio.app.project.core,
- org.modelio.core.ui,
- org.eclipse.e4.core.contexts
+ org.modelio.platform.project,
+ org.modelio.platform.model.ui,
+ org.eclipse.e4.core.contexts,
+ org.modelio.core.utils
 Import-Package: javax.annotation;version="1.1.0",
  javax.inject;version="1.0.0"
 Bundle-ActivationPolicy: lazy

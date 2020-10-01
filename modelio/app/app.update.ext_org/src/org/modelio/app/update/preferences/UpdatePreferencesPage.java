@@ -25,9 +25,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.util.PropertyChangeEvent;
-import org.modelio.app.preferences.AppSharedPreferencesKeys;
-import org.modelio.app.preferences.plugin.AppPreferences;
 import org.modelio.app.update.plugin.AppUpdateExt;
+import org.modelio.platform.preferences.AppSharedPreferencesKeys;
+import org.modelio.platform.preferences.plugin.Preferences;
 
 @objid ("8e6ca370-b21a-4bc7-a63e-e87bac07b094")
 public class UpdatePreferencesPage extends FieldEditorPreferencePage {
@@ -50,7 +50,7 @@ public class UpdatePreferencesPage extends FieldEditorPreferencePage {
 
     @objid ("ea9495ef-af74-4e07-b255-b1170f628ccd")
     private void init() {
-        setPreferenceStore(AppPreferences.getPreferences());
+        setPreferenceStore(Preferences.getPreferences());
     }
 
     @objid ("572b2617-3c38-4def-8010-09cbd0c115a7")

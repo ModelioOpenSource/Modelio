@@ -1,0 +1,24 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Configuring-project-information]]
+
+[[configuring-project-information]]
+= Configuring project information
+
+Each project can be customized in order to be more easily identifiable in the workspace view. +
+This customization is carried out in the *Information* tab of the *Project configurator* dialog.
+
+.Configuring project information
+image::images/Modeler-_modeler_managing_projects_configuring_project_informations_ProjectInformationTab2.png[2]
+
+*Steps:*
+
+1. Click on the [image:images/Modeler-_modeler_managing_projects_configuring_project_informations_config.png[3]] icon. Select the *Information* tab in the dialog.
+2. You can choose a 64x64 and/or a 16x16 image for your project.
+3. You can edit the contact and the description of the project.
+
+The 16x16 icon will be used for the project in the workspace browser. +
+The 64x64 image will appear on the project information page along with the contact and description.
+
+

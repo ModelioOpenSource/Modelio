@@ -1,0 +1,41 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Introduction-à-limport-export-XMI-de-Modelio]]
+
+[[introduction-à-limport-export-xmi-de-modelio]]
+= Introduction à l'import / export XMI de Modelio
+
+[[Introduction]]
+
+[[introduction]]
+===== Introduction
+
+Le service d'import / export XMI de Modelio vous permet d'échanger des modèles UML2 (et non pas BPMN) entre des outils assurant l'import / export de fichiers XMI. Les formats supportés sont le XMI EMF-UML2 v3.0.0, OMG2.1.1, OMG2.2, OMG2.3 et OMG2.4.1.
+
+Le service d'import / export XMI de Modelio fournit quatre commandes :
+
+* <<Xmi_importing.adoc#,Import de modèle>>
+* <<Xmi_exporting.adoc#,Export de modèle>>
+* <<Xmi_importing_profile.adoc#,Import de profil>>
+* <<Xmi_exporting_profile.adoc#,Export de profil>>
+
+Vous pouvez paramétrer ces commandes grâce aux <<Xmi_config.adoc#,des paramètres dédiés.>>
+
+[[Cohérence-des-modèles]]
+
+[[cohérence-des-modèles]]
+===== Cohérence des modèles
+
+La cohérence des modèles conçus avec Modelio est assurée en permanence, ce qui signifie que les modèles exportés à partir de Modelio seront cohérents avec la norme UML2.
+
+Toutefois, si les modèles importés ne satisfont pas pleinement les règles de cohérence de Modelio, toutes les erreurs rencontrées seront affichées en fin de traitement par l'audit de Modelio. Le diagnostique peut entraîner une annulation de l'import si une erreur bloquante est détectée.
+
+[[Restrictions]]
+
+[[restrictions]]
+===== Restrictions
+
+Le service d'import / export XMI de Modelio ne couvre pas la totalité de la norme UML2. Pour plus d'informations, voir <<Xmi_coverage.adoc#,Couverture de la norme UML2>>.
+
+

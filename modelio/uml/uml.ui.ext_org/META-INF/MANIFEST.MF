@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: UML UI
-Bundle-SymbolicName: org.modelio.uml.ui.ext;singleton:=true
-Bundle-Version: 4.0.1.qualifier
+Bundle-SymbolicName: org.modelio.uml.ui.ext.org;singleton:=true
+Bundle-Version: 4.1.0.qualifier
 Bundle-ClassPath: res/,
  .
 Bundle-Activator: org.modelio.uml.ui.ext.plugin.UmlUiOrg
@@ -12,25 +12,25 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.annotation;version="1.1.0",
  javax.inject;version="1.0.0"
-Require-Bundle: org.modelio.ui,
+Require-Bundle: org.modelio.platform.ui,
  org.eclipse.swt,
- org.modelio.utils,
+ org.modelio.platform.utils,
  org.eclipse.osgi,
  org.eclipse.ui.workbench,
  org.eclipse.core.runtime,
  org.eclipse.jface,
  org.modelio.core.session,
  org.eclipse.e4.ui.services,
- org.modelio.metamodel.emfapi,
- org.modelio.core.ui,
- org.modelio.app.core,
+ org.modelio.core.metamodel.api,
+ org.modelio.platform.model.ui,
+ org.modelio.platform.core,
  org.modelio.core.kernel,
- org.modelio.api,
+ org.modelio.platform.api,
  org.modelio.core.project,
  org.modelio.core.project.data,
- org.modelio.app.project.core,
+ org.modelio.platform.project,
  org.eclipse.e4.core.di.annotations,
- org.modelio.model.browser.view,
+ org.modelio.app.model.browser.view,
  org.eclipse.e4.core.contexts,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.e4.ui.di,
@@ -38,11 +38,11 @@ Require-Bundle: org.modelio.ui,
  org.eclipse.ui.workbench,
  org.eclipse.core.runtime,
  org.eclipse.swt,
- org.modelio.utils,
- org.modelio.ui,
+ org.modelio.platform.utils,
+ org.modelio.platform.ui,
  org.eclipse.e4.ui.di,
  org.eclipse.e4.core.contexts,
  org.eclipse.e4.core.di,
- org.modelio.core.rcp,
+ org.modelio.platform.rcp,
  org.modelio.uml.ui,
- org.modelio.model.browser.view.ext
+ org.modelio.app.model.browser.view.ext_org

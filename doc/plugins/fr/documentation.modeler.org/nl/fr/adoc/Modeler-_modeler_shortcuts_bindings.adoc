@@ -1,0 +1,15 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de démasquage sur les bindings
+
+Le tableau suivant présente les raccourcis clavier permettant de démasquer certains éléments associés ou appartenant à la binding sélectionnée dans le diagramme.
+
+[%header]
+|===========================
+|Elément démasqué |Raccourci
+|Constraints |SHIFT + N
+|Notes |SHIFT + N
+|===========================
+
+

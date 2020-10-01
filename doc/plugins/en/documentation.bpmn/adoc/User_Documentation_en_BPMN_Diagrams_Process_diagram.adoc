@@ -1,0 +1,15 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Process Design diagram
+
+Process diagrams are attached to processes and are dedicated to modeling processes.
+
+[[HPizzaVendorexample]]
+=== Pizza Vendor example
+
+.The Pizza Vendor Process Design Diagram
+image::images/attachment/bpmn41/User_Documentation_en/BPMN_Diagrams/Process_diagram/WebHome/Process_Design_Diagram_2.png[Process Design Diagram 2.png]
+
+This Process Design diagram belonging to the "Pizza Vendor" Process details how the Process works.
+

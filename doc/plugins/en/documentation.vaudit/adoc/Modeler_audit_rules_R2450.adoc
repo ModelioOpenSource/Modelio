@@ -1,0 +1,34 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2450]]
+
+[[r2450]]
+= R2450
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _Package_ cannot have inheritance links.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Packages cannot have inheritance links.
+
+They can have import links and package merge links (_PackageMerge_).
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Delete the inheritance links.
+* Replace the inheritance links by import links.
+* You can also use package merge links but their semantics are quite complex, so please consult the documentation before using them.
+
+

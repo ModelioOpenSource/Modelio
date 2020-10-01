@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2170]]
+
+[[r2170]]
+= R2170
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Le nom d'un _Behavior_ doit être unique dans son _NameSpace_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Avoir plusieurs éléments portant les mêmes noms peut être déroutant.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Renommez chaque élément ayant un nom dupliqué, ou déplacez-en un dans un autre _NameSpace_.
+
+

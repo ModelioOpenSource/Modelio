@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.actor;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("5214e11f-81b6-4d62-9a5c-3032b96258c1")
 public class Secondary {
-    @objid ("febf75c2-8346-4f27-bcb6-2dd48f54c865")
+    @objid ("6179ce47-9183-478b-96dd-68174da3e06a")
     public static final String STEREOTYPE_NAME = "secondary";
 
     /**
      * The underlying {@link Actor} represented by this proxy, never null.
      */
-    @objid ("10bd0c41-32ca-49e8-8089-36c211b05a9e")
+    @objid ("252c0006-7ed5-40b0-9333-95dd67bf5d54")
     protected final Actor elt;
 
     /**
-     * Tells whether a {@link Secondary proxy} can be instantiated from a {@link MObject} checking it is a {@link Actor} stereotyped << secondary >>. 
+     * Tells whether a {@link Secondary proxy} can be instantiated from a {@link MObject} checking it is a {@link Actor} stereotyped << secondary >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("c57a8d3f-aa51-4263-b0c4-5540ccc088dc")
+    @objid ("aa4e4883-f346-48ef-859b-e830c8f0841c")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Actor) && ((Actor) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Secondary.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Secondary {
      * 
      * @return a {@link Secondary} proxy on the created {@link Actor}.
      */
-    @objid ("dcf4a7c5-4bfd-4978-8092-8767eafc6cae")
+    @objid ("e826e417-4ecf-4154-9c3f-3355c7e0a849")
     public static Secondary create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Actor");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Secondary.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Secondary {
     }
 
     /**
-     * Tries to instantiate a {@link Secondary} proxy from a {@link Actor} stereotyped << secondary >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Secondary} proxy from a {@link Actor} stereotyped << secondary >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Actor
      * @return a {@link Secondary} proxy or <i>null</i>.
      */
-    @objid ("9d54d7e5-b6f6-46c5-acaa-b21c2938cb00")
+    @objid ("41425c67-02c9-4788-969e-9f64e4ec703b")
     public static Secondary instantiate(Actor obj) {
         return Secondary.canInstantiate(obj) ? new Secondary(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Secondary {
      * @return a {@link Secondary} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("ea1049dd-003b-42e9-9738-a04112a37caa")
+    @objid ("6ae236d9-c343-4816-8f9d-d5894c3d42a4")
     public static Secondary safeInstantiate(Actor obj) throws IllegalArgumentException {
         if (Secondary.canInstantiate(obj))
         	return new Secondary(obj);
@@ -112,7 +112,7 @@ public class Secondary {
         	throw new IllegalArgumentException("Secondary: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("24bcb687-04a2-4d5e-a24d-87995fcfdfe4")
+    @objid ("7878c36b-6a1e-470d-b48d-6fdc1fc73809")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Secondary {
      * Get the underlying {@link Actor}. 
      * @return the Actor represented by this proxy, never null.
      */
-    @objid ("1080fa0b-343c-437f-aa05-e4881e761b99")
+    @objid ("4c584544-58e3-425e-a84e-b03059d5ce6c")
     public Actor getElement() {
         return this.elt;
     }
 
-    @objid ("b31b9ea8-e602-41f1-a5de-14148c8f6631")
+    @objid ("827a1111-bff5-4cfa-8dca-2f29d4ca8ce4")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("7f4c8e14-b39a-4ccb-9eed-72b5e29d9115")
+    @objid ("971de870-5467-4890-b2b9-b0aa02b7ac1d")
     protected Secondary(Actor elt) {
         this.elt = elt;
     }
 
     @objid ("8e474651-cd0e-4098-985c-82cba46299e9")
     public static final class MdaTypes {
-        @objid ("82693b81-9498-49cb-a97a-540249de695a")
+        @objid ("8ece1753-6fcd-4d78-964a-27a771047ac8")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("05eb6025-5041-47b1-bc11-e9b1edb2a867")
+        @objid ("6e50af9c-a5ea-4dc1-897e-7cfbf1621c93")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("961b29bb-9689-41c0-9e49-4d93b552ba25")
+        @objid ("ea56c976-f9f5-4f35-92e0-bd4c9fac730a")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("59859f90-e5a1-43a1-998b-1fce4178a6ec")
+        @objid ("8f34880f-b4b0-4033-9dc4-fc932e0cda98")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec1ac4-0000-2f04-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

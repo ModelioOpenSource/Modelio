@@ -41,11 +41,11 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.core.ui.swt.images.FragmentImageService;
 import org.modelio.gproject.fragment.IProjectFragment;
 import org.modelio.gproject.fragment.exml.ExmlFragment;
 import org.modelio.gproject.fragment.ramcfile.RamcFileFragment;
-import org.modelio.ui.UIColor;
+import org.modelio.platform.model.ui.swt.images.FragmentImageService;
+import org.modelio.platform.ui.UIColor;
 
 /**
  * Manage the fragments summary section.

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2950]]
+
+[[r2950]]
+= R2950
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+All _Transitions_ leaving a _Fork_ _Vertex_ must target different regions of an orthogonal _State_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Regions of an orthogonal _State_ are concurrent flows, so a _Fork Vertex_ should only have targets in different _Regions_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a _Fork_ _Vertex_ targeting _States_ in the same _Region_, you should delete one of the _Transitions_ or move some targets into another _Region_.
+
+

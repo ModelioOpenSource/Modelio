@@ -1,0 +1,41 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1380]]
+
+[[r1380]]
+= R1380
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+_InputPins_ of the _SendSignalAction_ do not match the _Signal_'s _Attributes_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_UML constraint_:
+
+* The number and order of _InputPins_ must be the same as the number and order of _Attributes_ in the _Signal_.
+
+Example:
+
+image::images/Modeler_audit_rules_R1380_image001.png[image]
+
+The "StartEvent" _SendSignalAction_ is invalid, because the "location" _Attribute_ of the "StartEvent" _Signal_ it is calling is not matched to one of its _InputPins_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+When you get an R1380 error, verify the following:
+
+* You have the same number of _InputPins_ on the _SendSignalAction_ as the number of _Attributes_ of the _Signal_.
+* Each _Attribute_ is represented by one and only one _InputPin_.
+
+

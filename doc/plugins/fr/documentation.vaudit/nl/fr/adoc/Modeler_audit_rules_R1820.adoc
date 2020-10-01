@@ -1,0 +1,35 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1820]]
+
+[[r1820]]
+= R1820
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Gate_ ne peut pas couvrir une _Lifeline_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Gate_ ne peut appartenir qu'à une _Interaction_ ou un _InteractionUse_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+[[Une-PartDecomposition-qui-est-une-spécialisation-de-InteractionUse]]
+
+[[une-partdecomposition-qui-est-une-spécialisation-de-interactionuse]]
+===== Une _PartDecomposition_, qui est une spécialisation de _InteractionUse_,
+
+est représentée dans une Diagramme de Séquence par une _Lifeline_. Ceci peut être une cause de confusion, dans la mesure où les _Gates_ apparaîtront visuellement comme couvrant la _Lifeline_, alors qu'en réalité ces _Gates_ appartiennent à la _PartDecomposition_ qui décompose la _Lifeline_.
+
+

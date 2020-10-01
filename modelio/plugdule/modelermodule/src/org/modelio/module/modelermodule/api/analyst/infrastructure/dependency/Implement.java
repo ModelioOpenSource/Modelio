@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("bd3859e6-6a4f-4b1b-82d2-b97c4db33bd4")
 public class Implement {
-    @objid ("9602ec82-b20d-4367-8f73-6ebe24a2bf09")
+    @objid ("480d1cff-50e4-4607-985c-15200c6bd397")
     public static final String STEREOTYPE_NAME = "implement";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("e3622a86-a921-4996-8ec0-aea6dc38b275")
+    @objid ("97b72b8d-6a8d-485c-9819-f9ee94883828")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link Implement proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << implement >>. 
+     * Tells whether a {@link Implement proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << implement >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("055a03c9-bafd-46b3-87a4-005e81d16600")
+    @objid ("c4b8289b-87b9-4539-8d2e-d021ee75feba")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Implement.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class Implement {
      * 
      * @return a {@link Implement} proxy on the created {@link Dependency}.
      */
-    @objid ("a92f580f-951d-44ea-b249-6bb7c72aa807")
+    @objid ("79f33f37-d098-45be-9c4d-3b14a66f7c09")
     public static Implement create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Implement.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class Implement {
     }
 
     /**
-     * Tries to instantiate a {@link Implement} proxy from a {@link Dependency} stereotyped << implement >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Implement} proxy from a {@link Dependency} stereotyped << implement >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link Implement} proxy or <i>null</i>.
      */
-    @objid ("8e299313-08c2-4d03-894b-f8636756fdd5")
+    @objid ("8df6dab1-9754-4e4c-a1f4-965e432f34ff")
     public static Implement instantiate(Dependency obj) {
         return Implement.canInstantiate(obj) ? new Implement(obj) : null;
     }
@@ -103,7 +103,7 @@ public class Implement {
      * @return a {@link Implement} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("47e1dfa8-e71b-4606-ac53-63673bf2165a")
+    @objid ("f018bd4e-f716-4b9a-92e4-ee089bff1c6c")
     public static Implement safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (Implement.canInstantiate(obj))
         	return new Implement(obj);
@@ -111,7 +111,7 @@ public class Implement {
         	throw new IllegalArgumentException("Implement: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("79e1ad97-9ab5-4895-a845-236cca9b1cca")
+    @objid ("de01448d-ce68-4570-ba83-32b8158af06e")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class Implement {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("3b7d20c3-b013-48a4-98ca-a4f306ce13d6")
+    @objid ("9f2b1777-a901-43f6-8b8c-5d3162ab1f66")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("92ca7bbf-9640-46ec-a6b9-c6ccdfafc1f6")
+    @objid ("31ff7a57-4aca-465e-a8ed-8c6e9e8d68ea")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("6c4e7037-d748-42db-9b44-68f43e1649b2")
+    @objid ("e992afd6-b0e8-4edc-bc45-775f22d50892")
     protected Implement(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("062103b4-cf74-41a4-8db5-49367f2eaa96")
     public static final class MdaTypes {
-        @objid ("17b27c2d-5d67-4165-86bd-65fe3a7df719")
+        @objid ("6d90e439-b2be-4de2-b87b-f24d754e99b8")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("0d848f8f-07aa-48d1-9943-a7924458086f")
+        @objid ("017bd08e-948c-4ae2-a99a-75076ab3ed3b")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("0ffbc2d2-9461-4a0c-adc9-bf53f1d2fc8e")
+        @objid ("0646720b-3de1-4f03-b865-5ca950740eb9")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("6fce0b84-4709-433f-a472-15cc23e82b20")
+        @objid ("10c9b247-7f36-4801-9773-c988db609858")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-0260-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

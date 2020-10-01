@@ -1,0 +1,38 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2510]]
+
+[[r2510]]
+= R2510
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Il ne peut y avoir de lien entre deux port de classe.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+La modélisation suivante est interdite :
+
+image::images/Modeler_audit_rules_R2510_image001.png[image]
+
+La norme UML spécifie :
+
+The ConnectableElements attached as roles to each ConnectorEnd owned by a Connector must be roles of the Classifier that owned the Connector, or they must be ports of such roles.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Modélisez la liaison comme suit:
+
+image::images/Modeler_audit_rules_R2510_image002.png[image]
+
+

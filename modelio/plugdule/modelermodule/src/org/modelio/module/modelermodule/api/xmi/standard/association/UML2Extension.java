@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.association;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("91e907b3-23a7-4ab0-a65c-d0a6ef574552")
 public class UML2Extension {
-    @objid ("e43154ce-9a10-4013-8713-3d1ba4aad057")
+    @objid ("e17f6ee6-f271-4ee9-ab34-b0e41f9c2d2b")
     public static final String STEREOTYPE_NAME = "UML2Extension";
 
     /**
      * The underlying {@link Association} represented by this proxy, never null.
      */
-    @objid ("98b2a506-e0c9-4fd4-9425-13325b8ccfcf")
+    @objid ("1ecf2e04-507a-4ef9-9cab-4fa56d583fac")
     protected final Association elt;
 
     /**
-     * Tells whether a {@link UML2Extension proxy} can be instantiated from a {@link MObject} checking it is a {@link Association} stereotyped << UML2Extension >>. 
+     * Tells whether a {@link UML2Extension proxy} can be instantiated from a {@link MObject} checking it is a {@link Association} stereotyped << UML2Extension >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("0531b56b-896e-4dd7-85a2-e176a2b4a823")
+    @objid ("91de8cad-5f04-43da-a9b1-904eda4d6231")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Association) && ((Association) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2Extension.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2Extension {
      * 
      * @return a {@link UML2Extension} proxy on the created {@link Association}.
      */
-    @objid ("9531b694-477c-4500-9875-987dc9622714")
+    @objid ("f15a5b24-dd5e-417f-b95e-4b433cf5c5ee")
     public static UML2Extension create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Association");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2Extension.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2Extension {
     }
 
     /**
-     * Tries to instantiate a {@link UML2Extension} proxy from a {@link Association} stereotyped << UML2Extension >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2Extension} proxy from a {@link Association} stereotyped << UML2Extension >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Association
      * @return a {@link UML2Extension} proxy or <i>null</i>.
      */
-    @objid ("1a76a649-53f6-48e2-8139-f3028a99006f")
+    @objid ("f433ae69-a4f4-46de-9145-c8f6c766adbe")
     public static UML2Extension instantiate(Association obj) {
         return UML2Extension.canInstantiate(obj) ? new UML2Extension(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2Extension {
      * @return a {@link UML2Extension} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("097d4e91-8950-4bbf-873b-bd86d5e4c355")
+    @objid ("96546dae-5303-4ae1-a905-93928bfed153")
     public static UML2Extension safeInstantiate(Association obj) throws IllegalArgumentException {
         if (UML2Extension.canInstantiate(obj))
         	return new UML2Extension(obj);
@@ -112,7 +112,7 @@ public class UML2Extension {
         	throw new IllegalArgumentException("UML2Extension: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("8e82f405-e750-4408-8d38-669dde10d55e")
+    @objid ("2fbe35f6-8641-49b2-8514-23908f50c0ae")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2Extension {
      * Get the underlying {@link Association}. 
      * @return the Association represented by this proxy, never null.
      */
-    @objid ("21c127e9-2b73-4558-a777-a1cd64e67d86")
+    @objid ("09dfdc55-cc46-4e12-ae28-23090b3254f4")
     public Association getElement() {
         return this.elt;
     }
 
-    @objid ("c87fef70-5ddc-4d30-9fc7-93807474045d")
+    @objid ("fe0b8704-237f-4fac-8aae-cabc02bad84d")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("e395db8c-208d-4444-8dd0-7ef6f5d8d553")
+    @objid ("812e8a8c-18b5-4685-9785-10bdabf6ec28")
     protected UML2Extension(Association elt) {
         this.elt = elt;
     }
 
     @objid ("23d7d6ba-d0db-4e7a-adcd-190ee07503b0")
     public static final class MdaTypes {
-        @objid ("b8c0d2eb-4db1-4027-8e61-fb580c8326d5")
+        @objid ("71aadbf2-69e6-40e4-8cde-97ae0606575a")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("166f67c4-7eef-41ea-b6fb-8dd666780a19")
+        @objid ("57a7a025-cf9c-4020-a9e8-4828703b15f8")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("e57b1619-0ca0-424b-b18d-eb4a6374f3f6")
+        @objid ("d3a99d83-bd02-418d-a499-d94cfa64492b")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("918996e8-9596-42bd-b6a7-75c294d3ee5c")
+        @objid ("ec155e4c-d598-4e1b-bfd1-8b4650f5a18a")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "4b4745a9-5d0c-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

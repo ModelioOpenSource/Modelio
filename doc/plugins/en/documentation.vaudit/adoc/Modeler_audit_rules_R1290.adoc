@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1290]]
+
+[[r1290]]
+= R1290
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+_ObjectNodes_ connected by an _ObjectFlow_, with optionally intervening _ControlNodes_, must have compatible types.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_ObjectNodes_ connected by an _ObjectFlow_, with optionally intervening _ControlNodes_, must have compatible types. In particular, the downstream _ObjectNode_ type must be the same or a super type of the upstream _ObjectNode_ type.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+When you get an R1290 warning on an ObjectFlow, verify that all downstream _ObjectNodes_ of this flow are the same class or super classes of all the upstream _ObjectNodes_.
+
+

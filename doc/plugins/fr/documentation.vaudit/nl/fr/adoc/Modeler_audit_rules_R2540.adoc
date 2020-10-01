@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2540]]
+
+[[r2540]]
+= R2540
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Les interfaces fournies par un port doivent être implémentées par le _Classifier_ qui type le port.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _Port_ ne peut fournir que les interfaces auxquelles il a accès. Ces interfaces sont les interfaces implémentées par le _Classifier_ qui type le _Port_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Ajoutez l'interface fournie aux interfaces implémentée par le classifier.
+* Remplacez l'interface fournie par une autre interface qui soit implémentée par le classifier.
+
+

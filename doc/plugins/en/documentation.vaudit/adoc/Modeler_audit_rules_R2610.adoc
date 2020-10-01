@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2610]]
+
+[[r2610]]
+= R2610
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+Only submachine states can have connection point references.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A connection point reference represents a usage (as part of a submachine state) of an entry/exit point defined in the statemachine referenced by the submachine state.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Remove the connection point reference or make the state a submachine state.
+
+

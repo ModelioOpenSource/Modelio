@@ -53,10 +53,10 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.IWorkbenchPreferenceConstants;
 import org.eclipse.ui.internal.util.PrefUtil;
-import org.modelio.app.core.events.ModelioEventTopics;
 import org.modelio.app.ui.plugin.AppUi;
-import org.modelio.core.ui.swt.trimbarcomponent.TrimBarComponent;
 import org.modelio.gproject.gproject.GProject;
+import org.modelio.platform.core.events.ModelioEventTopics;
+import org.modelio.platform.model.ui.swt.trimbarcomponent.TrimBarComponent;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 

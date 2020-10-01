@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_HJ-CsAYfEeq0tK63LwL3LA">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_eIcJkAYfEeq0tK63LwL3LA" featurename="addons" parentElementId="org.modelio.app.application">
+    <elements xsi:type="application:Addon" xmi:id="_jZBSYAYfEeq0tK63LwL3LA" elementId="org.modelio.platform.model.view.template.plugin.ModelViewTemplateAddOn" contributionURI="bundleclass://org.modelio.platform.model.view.template/org.modelio.platform.model.view.template.plugin.ModelViewTemplateAddOn"/>
+  </fragments>
+</fragment:ModelFragments>

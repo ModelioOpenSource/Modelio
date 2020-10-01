@@ -28,8 +28,8 @@ import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.core.ui.swt.images.FragmentImageService;
 import org.modelio.gproject.fragment.IProjectFragment;
+import org.modelio.platform.model.ui.swt.images.FragmentImageService;
 import org.modelio.vbasic.files.FileUtils;
 
 /**

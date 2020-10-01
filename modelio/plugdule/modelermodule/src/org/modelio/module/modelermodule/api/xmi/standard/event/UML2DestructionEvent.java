@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.event;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("de52f393-67b1-475c-bd25-f72709e6e3a4")
 public class UML2DestructionEvent {
-    @objid ("d6b7061e-ba6a-468c-8393-b5480bad1239")
+    @objid ("174be668-074b-44b1-9dee-478e25895f7e")
     public static final String STEREOTYPE_NAME = "UML2DestructionEvent";
 
     /**
      * The underlying {@link Event} represented by this proxy, never null.
      */
-    @objid ("d8a1799e-2d1e-499f-a7cf-6468ae8c28d2")
+    @objid ("09475427-9ac3-4e16-b1b1-5054d0da8a87")
     protected final Event elt;
 
     /**
-     * Tells whether a {@link UML2DestructionEvent proxy} can be instantiated from a {@link MObject} checking it is a {@link Event} stereotyped << UML2DestructionEvent >>. 
+     * Tells whether a {@link UML2DestructionEvent proxy} can be instantiated from a {@link MObject} checking it is a {@link Event} stereotyped << UML2DestructionEvent >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("44ae0eb4-2d0f-4be7-9d14-4fde13acba52")
+    @objid ("429f22e2-e99c-40ff-b6d5-e84fc007182b")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Event) && ((Event) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2DestructionEvent.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2DestructionEvent {
      * 
      * @return a {@link UML2DestructionEvent} proxy on the created {@link Event}.
      */
-    @objid ("22c0748d-a132-4ea6-961e-deacbdf022cf")
+    @objid ("86a78bbd-3d0a-42d2-a61d-016cbc4507c4")
     public static UML2DestructionEvent create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Event");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2DestructionEvent.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2DestructionEvent {
     }
 
     /**
-     * Tries to instantiate a {@link UML2DestructionEvent} proxy from a {@link Event} stereotyped << UML2DestructionEvent >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2DestructionEvent} proxy from a {@link Event} stereotyped << UML2DestructionEvent >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Event
      * @return a {@link UML2DestructionEvent} proxy or <i>null</i>.
      */
-    @objid ("246aea2a-d8b2-42a6-84c1-609d0293c6bf")
+    @objid ("ad381852-a589-465a-8838-8b000ef7b5ed")
     public static UML2DestructionEvent instantiate(Event obj) {
         return UML2DestructionEvent.canInstantiate(obj) ? new UML2DestructionEvent(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2DestructionEvent {
      * @return a {@link UML2DestructionEvent} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("f1068193-67f5-4bd8-8149-a1131d222553")
+    @objid ("54e09b91-22d7-4eb3-a440-48520d1a6004")
     public static UML2DestructionEvent safeInstantiate(Event obj) throws IllegalArgumentException {
         if (UML2DestructionEvent.canInstantiate(obj))
         	return new UML2DestructionEvent(obj);
@@ -112,7 +112,7 @@ public class UML2DestructionEvent {
         	throw new IllegalArgumentException("UML2DestructionEvent: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("6b463b19-3748-40ce-ad34-00446a87fca0")
+    @objid ("5131d99c-346a-4d8f-a818-226a72a9ce07")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2DestructionEvent {
      * Get the underlying {@link Event}. 
      * @return the Event represented by this proxy, never null.
      */
-    @objid ("4794495e-19d9-4dc0-b082-3916039089f7")
+    @objid ("ef110bc7-6efa-4ec7-9e66-d8e98fcbc7e3")
     public Event getElement() {
         return this.elt;
     }
 
-    @objid ("15efd912-75a7-4e42-8915-43fc37c0d70f")
+    @objid ("216310bc-3742-42e2-a4f6-c0f55d396f56")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("eb67d9cf-da47-47e2-b792-acd2f09ec923")
+    @objid ("46fd307d-952e-40b9-b0f9-2a2ce632fd51")
     protected UML2DestructionEvent(Event elt) {
         this.elt = elt;
     }
 
     @objid ("9f8a454e-892f-45b5-bfe5-6ffdf6e1cbbc")
     public static final class MdaTypes {
-        @objid ("2f3ad330-b196-451a-b2fc-f325835487f0")
+        @objid ("d0ba5b48-69c6-42ab-b478-c8bb51845992")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("2d530d12-cddb-45fb-ac45-464077b70885")
+        @objid ("5e8c8984-f6cb-47f0-8d44-6d0e2f53b08b")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("ada22b03-730a-461d-b2f8-ea488cc391e4")
+        @objid ("d543b7bc-a2f4-4e32-95e6-314073540877")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("23a4a58a-5339-4aef-97be-c42266e45fb1")
+        @objid ("3c7085e8-158f-4b67-b16f-f04d841e486e")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "c0f03827-5d0b-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

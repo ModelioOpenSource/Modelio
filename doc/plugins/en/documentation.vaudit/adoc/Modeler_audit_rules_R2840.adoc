@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2840]]
+
+[[r2840]]
+= R2840
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A transition should have only one of the Processed, Effects, or BehaviorEffect defined.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A transition can define an optional behavior to be performed when the transition fires, but only one can be defined.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have more than one behavior defined, please keep only one.
+
+

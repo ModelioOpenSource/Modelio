@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2120]]
+
+[[r2120]]
+= R2120
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Dans un _PropertyContainer_, le nom de chaque _PropertySet_ doit être unique.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Avoir plusieurs éléments portant les mêmes noms peut être déroutant.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Renommez chaque élément ayant un nom dupliqué.
+
+

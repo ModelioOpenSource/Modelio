@@ -1,0 +1,27 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Annotating-elements]]
+
+[[annotating-elements]]
+= Annotating elements
+
+Modelio supports different annotation mechanisms used to complete model element properties.
+
+These annotations are:
+
+* *Stereotypes* – which are used to modify/refine the type of an object ( ~ as if the Stereotype was a metaclass typing the element).
+* *Tagged values* – used to add properties to the element ( ~ the attributes brought by the stereotype to the element)
+* *Notes & Constraints* – text data associated to the element. Used for many purposes: description, documentation, code, and so on.
+* *Rich notes* – similar to _notes_. However the contents can be of any (supported) kind: HTML, OpenOffice or Word document, and so on...
+
+Very often annotations are fully managed by modules in a way transparent to the end-user, with the module providing a dedicated GUI which is more user-friendly than a set of annotations.
+
+However, each annotation remains manipulable per se using the standard Modelio GUI:
+
+* *<<Modeler-_modeler_building_models_add_stereotypes.adoc#,Adding stereotypes to elements>>*
+* *<<Modeler-_modeler_building_models_add_tv.adoc#,Adding tagged values to elements>>*
+* *<<Modeler-_modeler_building_models_add_notes.adoc#,Adding notes/constraints to elements>>*
+* *<<Modeler-_modeler_building_models_add_richnotes.adoc#,Adding rich notes to elements>>*
+
+

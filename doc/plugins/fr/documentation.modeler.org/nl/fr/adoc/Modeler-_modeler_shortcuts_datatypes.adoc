@@ -1,0 +1,24 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de démasquage sur les datatypes
+
+Le tableau suivant présente les raccourcis clavier permettant de démasquer certains éléments associés ou appartenant au datatype sélectionné dans le diagramme.
+
+[cols=",",options="header",]
+|=================================
+|Elément démasqué |Raccourci
+|Contraintes |SHIFT + N
+|Notes |SHIFT + N
+|Element imports |SHIFT + U
+|Package imports |SHIFT + U
+|Parent generalizations |SHIFT + G
+|Child generalizations |g
+|Attributs |SHIFT + A
+|Operations |SHIFT + O
+|Associations |SHIFT + L
+|Part |SHIFT + I
+|Dépendances |SHIFT + D
+|=================================
+
+

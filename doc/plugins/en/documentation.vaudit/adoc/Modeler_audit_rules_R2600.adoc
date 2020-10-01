@@ -1,0 +1,35 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2600]]
+
+[[r2600]]
+= R2600
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A state machine or a state cannot contain several states with the same name.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The name of a state must be unique in the enclosing state machine or state. Showing the same name twice may cause confusion.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Possible solutions to this problem are as follows:
+
+* *Solution 1* +
+Rename one of the states that have the same name. This name must be unique in the enclosing state machine or state.
+* *Solution 2*
+Move one of the states that have the same name to a different enclosing state, which does not already contain a state with that name.
+
+

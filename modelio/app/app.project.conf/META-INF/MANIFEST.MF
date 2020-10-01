@@ -3,30 +3,30 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Project Configurator
 Bundle-Localization: plugin
 Bundle-SymbolicName: org.modelio.app.project.conf;singleton:=true
-Bundle-Version: 4.0.1.qualifier
+Bundle-Version: 4.1.0.qualifier
 Bundle-Activator: org.modelio.app.project.conf.plugin.AppProjectConf
 Bundle-Vendor: modelio.org
-Require-Bundle: org.modelio.ui,
+Require-Bundle: org.modelio.platform.ui,
  org.modelio.core.project,
- org.modelio.utils,
- org.modelio.app.core,
- org.modelio.core.ui,
+ org.modelio.platform.utils,
+ org.modelio.platform.core,
+ org.modelio.platform.model.ui,
  org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.e4.core.di,
  org.eclipse.e4.core.contexts,
  org.eclipse.e4.ui.di,
  org.eclipse.e4.ui.services,
- org.modelio.app.project.core,
+ org.modelio.platform.project,
  org.modelio.core.utils,
- org.modelio.metamodel.emfapi,
- org.modelio.api,
- org.modelio.mda.infra,
+ org.modelio.core.metamodel.api,
+ org.modelio.platform.api,
+ org.modelio.platform.mda.infra,
  org.eclipse.ui.forms,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.e4.core.services,
  org.modelio.core.project.data,
- org.modelio.core.rcp,
+ org.modelio.platform.rcp,
  org.modelio.core.kernel
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

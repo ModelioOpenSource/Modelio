@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+  <title>UML/BPMN Metamodel</title>
+  <meta content="Document Publisher, www.modeliosoft.com/" name="generator"/>
+	<link href="docp-print.css" media="print" rel="stylesheet" type="text/css"/>
+	<script src="scripts/browser.js" type="text/javascript"> </script>
+  <link href="default.css" media="screen" rel="stylesheet" type="text/css"/></head>
+  <body>
+        <div id="container">        
+            <div id="content">          
+                <div id="header">            
+ 					<div id="logo"><img src="img/logo.png"/></div>
+                    <h1 class="documentTitle">UML/BPMN Metamodel</h1>
+                    <h2 class="documentType"> </h2>            
+               </div>            
+               <div id="sidebar"><div><div class="sidePanel" id="infoArea"><h4 class="sideTitle">INFORMATIONS</h4><ul id="docProps"><li class="property">Status</li><li class="value">Release</li><li class="property">Category</li><li class="value">Modelio user guide</li><li class="property">Version</li><li class="value">2.3.00 (Modelio 4.1)</li><li class="property">Title</li><li class="value">UML/BPMN Metamodel</li><li class="property">Author</li><li class="value">Modeliosoft</li><li class="property">Subject</li><li class="value"> </li></ul></div><div class="sidePanel" id="shortcutArea"><h4 class="sideTitle">SHORTCUTS</h4><ul id="shortcuts"><li><a href="index.html">Home</a></li><li><a href="sitemap.html">Site Map</a></li><li><a href="modelindex.html">Model Index</a></li><li><a href="tableoffigures.html">Table of Figures</a></li></ul></div></div></div>
+               <div id="mainArea">
+                    <div id="navbar"><ul><li id="prev"><a href="298.html" title="298.html">&lt; Previous</a></li><li id="home"><a href="index.html" title="Site map">Home</a></li><li id="next"><a href="300.html" title="300.html">Next &gt;</a></li></ul></div>
+                    <div id="page"><div><a name="#Table 347"><!--anchor--></a><a name="#Figure 272"><!--anchor--></a><div align="LEFT" class="Titre4" startOnNewPage="true"><a name="_0148033c-0000-0cf3-0000-000000000000"><!--anchor--></a><a name="toc2.4.1.5"><!--anchor--></a><span class="None">Dependency</span></div><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">Statement that the implementation or functioning of one or more elements requires the presence of one or more other elements.</span></div><div align="LEFT" class="Normal" startOnNewPage="false" style="white-space:normal;"><div><p>In the metamodel, a Dependency is a directed relationship from a client to a supplier, stating that the client is dependent on the supplier (in other words, the client element requires the presence and knowledge of the supplier element).</p><p>Dependencies are widely used inside Modelio to manage traceability. Any ModelElement can be traced to another ModelElement using this association.</p><p>In Modelio, a Dependency can only have one client and one supplier.</p><p>In Modelio, in order to comply with UML 2.0, the roles are swapped and renamed. The correspondence from UML 2.0 is now as follows:</p>
+
+<ul>
+	<li>Dependency.client = Dependency.Impacted;</li>
+	<li>Dependency.supplier = Dependency.DependsOn;</li>
+	<li>Element.supplierDependency = ModelElement.ImpactedDependency;</li>
+	<li>Element.clientDependency = ModelElement.DependsOnDependency.</li>
+</ul>
+
+<p>A Dependency now belongs to the impacted element (the client in UML 2.0).</p>
+</div></div><center><img alt=": Dependency (architecture_autodiagram)" class="Image" height="460.0" src="img/389809fe-cf1a-4a30-80a1-9e4b6d6cb3b1.png" usemap="#389809fe-cf1a-4a30-80a1-9e4b6d6cb3b1" width="525.0"/></center><div align="CENTER" class="Lgende">Figure 272 : Dependency (architecture_autodiagram)</div><map name="389809fe-cf1a-4a30-80a1-9e4b6d6cb3b1"><area alt="Dependency" coords="152,180,352,280" href="299.html#_0148033c-0000-0cf3-0000-000000000000" name="389809fe-cf1a-4a30-80a1-9e4b6d6cb3b1" shape="rect" title="Dependency"/><area alt="ModelElement" coords="182,0,323,80" href="306.html#_77b315bb-af12-4ca5-a8cf-5c4a9ed90bdb" name="389809fe-cf1a-4a30-80a1-9e4b6d6cb3b1" shape="rect" title="ModelElement"/><area alt="Abstraction" coords="83,380,183,460" href="207.html#_0008152c-0000-1ba9-0000-000000000000" name="389809fe-cf1a-4a30-80a1-9e4b6d6cb3b1" shape="rect" title="Abstraction"/><area alt="Usage" coords="202,380,302,460" href="212.html#_00281854-0000-03fa-0000-000000000000" name="389809fe-cf1a-4a30-80a1-9e4b6d6cb3b1" shape="rect" title="Usage"/><area alt="MethodologicalLink" coords="323,380,443,460" href="305.html#_2f27c120-db8b-469e-82b9-5ef3eff34433" name="389809fe-cf1a-4a30-80a1-9e4b6d6cb3b1" shape="rect" title="MethodologicalLink"/></map><div id="tableContainer"><table class="ListeclaireAccent1" horizontal="true" tableStyle="ListeclaireAccent1"><caption/><tr class="odd"><th><div align="CENTER" class="Normal" startOnNewPage="false"><span class="None">Association</span></div></th><th><div align="CENTER" class="Normal" startOnNewPage="false"><span class="None">Description</span></div></th></tr><tr class="even"><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">Impacted</span><span class="None"> : </span><a href="#_77b315bb-af12-4ca5-a8cf-5c4a9ed90bdb">ModelElement</a><span class="None"> [</span><span class="None">1</span><span class="None">..</span><span class="None">1</span><span class="None">]</span></div></td><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">Client</span></div></td></tr><tr class="odd"><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">DependsOn</span><span class="None"> : </span><a href="#_77b315bb-af12-4ca5-a8cf-5c4a9ed90bdb">ModelElement</a><span class="None"> [</span><span class="None">0</span><span class="None">..</span><span class="None">1</span><span class="None">]</span></div></td><td><div align="LEFT" class="Normal" startOnNewPage="false"><span class="None">The element independent of the client element, in the same respect and the same dependency relationship.</span></div></td></tr></table></div><div>
+</div></div></div>
+                    <br/>
+                    <div class="spacer" id="navbar"><ul><li id="prev"><a href="298.html" title="298.html">&lt; Previous</a></li><li id="home"><a href="index.html" title="Site map">Home</a></li><li id="next"><a href="300.html" title="300.html">Next &gt;</a></li></ul></div>  
+					<div id="footer"><p>Document automatically generated by Modelio Document Publisher.<br/><a href="http://www.modeliosoft.com">www.modeliosoft.com</a></p></div>            
+                </div>           
+            </div>
+        </div>
+  </body>
+</html>

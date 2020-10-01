@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("87372d24-b077-4b6a-a76e-518b2d785b07")
 public class UML2ExceptionTypeReference {
-    @objid ("f75123df-7014-4385-92c5-048938974e02")
+    @objid ("5fef17fa-8d68-403c-a214-10963bd6e0e6")
     public static final String STEREOTYPE_NAME = "UML2ExceptionTypeReference";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("1b112dd0-cf69-48f1-b090-fa9becfa62a7")
+    @objid ("58bd8981-1065-4fb4-a0d1-15465d426900")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link UML2ExceptionTypeReference proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2ExceptionTypeReference >>. 
+     * Tells whether a {@link UML2ExceptionTypeReference proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2ExceptionTypeReference >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("16128f3b-05a1-4617-bb4f-713ead33e372")
+    @objid ("0b440ee9-3c37-4be3-8394-f5022a00ec8c")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ExceptionTypeReference.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class UML2ExceptionTypeReference {
      * 
      * @return a {@link UML2ExceptionTypeReference} proxy on the created {@link Dependency}.
      */
-    @objid ("fc7f4c07-1c7b-491e-aced-c853baad21f7")
+    @objid ("52d690a0-d8ce-4966-ad71-b93b7dd515e4")
     public static UML2ExceptionTypeReference create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ExceptionTypeReference.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class UML2ExceptionTypeReference {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ExceptionTypeReference} proxy from a {@link Dependency} stereotyped << UML2ExceptionTypeReference >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ExceptionTypeReference} proxy from a {@link Dependency} stereotyped << UML2ExceptionTypeReference >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link UML2ExceptionTypeReference} proxy or <i>null</i>.
      */
-    @objid ("b58f4e61-af05-420b-a00b-210be1a9f3c0")
+    @objid ("328d3e5c-6ea9-49bf-bee8-1a1eb3a9a326")
     public static UML2ExceptionTypeReference instantiate(Dependency obj) {
         return UML2ExceptionTypeReference.canInstantiate(obj) ? new UML2ExceptionTypeReference(obj) : null;
     }
@@ -103,7 +103,7 @@ public class UML2ExceptionTypeReference {
      * @return a {@link UML2ExceptionTypeReference} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("af941d6d-9581-42d7-984e-b5eb906d51b4")
+    @objid ("b0b27247-bdde-4ae1-88fd-af069e29babc")
     public static UML2ExceptionTypeReference safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (UML2ExceptionTypeReference.canInstantiate(obj))
         	return new UML2ExceptionTypeReference(obj);
@@ -111,7 +111,7 @@ public class UML2ExceptionTypeReference {
         	throw new IllegalArgumentException("UML2ExceptionTypeReference: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("cc2a87c8-3f70-46fe-b902-b2f9928313b2")
+    @objid ("13b9cc37-b6a4-4653-9f8e-cc346269ce76")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class UML2ExceptionTypeReference {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("4122a211-891e-4203-98ec-9db5b7e2914e")
+    @objid ("7b689a71-f4ae-4a9f-aa77-484c1df48d77")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("fbc4bda7-7e79-451c-b75f-5b1b5f83cd0e")
+    @objid ("4fc345ae-ac36-4aea-ad25-750735979acd")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("1c55b16b-6238-4f5a-bc34-06ea60aa5937")
+    @objid ("d795bd53-e8c0-4c03-a805-eeb512517be6")
     protected UML2ExceptionTypeReference(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("209cf20e-a9e7-4dbf-a4ff-221a53f12e81")
     public static final class MdaTypes {
-        @objid ("7ce2b157-80bb-44fb-95a0-32250401fe7a")
+        @objid ("4392e5c3-18e3-4f90-a083-8b8c7986b457")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("b7ba8df9-dcd2-4f8c-9c7c-bf1a18e4cc4a")
+        @objid ("a67283ba-7f7b-4820-babe-6cffb10413ba")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("38c063e9-4a3a-43be-a165-3f507d6064bc")
+        @objid ("c0cb3ce5-f5cc-47b5-846f-39e73ef24d96")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("eeb39186-d370-4b54-8ac5-2da584cc35dd")
+        @objid ("34e79a6a-6310-4eae-91c4-75f0326d3464")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "4e477e48-35b4-11df-9280-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

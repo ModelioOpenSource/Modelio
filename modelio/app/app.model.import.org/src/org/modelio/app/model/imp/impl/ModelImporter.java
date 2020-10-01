@@ -36,9 +36,9 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.app.model.imp.plugin.AppModelImportOrg;
-import org.modelio.core.ui.swt.SelectionHelper;
 import org.modelio.gproject.fragment.IProjectFragment;
 import org.modelio.metamodel.uml.infrastructure.AbstractProject;
+import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.session.api.repository.IRepository;
@@ -97,7 +97,7 @@ public class ModelImporter implements IRunnableWithProgress {
 
     @objid ("fb8e79cd-7aa1-4291-ad9a-17d9d2b624b8")
     @Override
-    public void run(IProgressMonitor monitor) throws InterruptedException, InvocationTargetException {
+    public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
         monitor.beginTask(AppModelImportOrg.I18N.getString("ImportModelDialog.ImportProgressMessage"), IProgressMonitor.UNKNOWN);
         this.doneCopies = new ArrayList<>();
         

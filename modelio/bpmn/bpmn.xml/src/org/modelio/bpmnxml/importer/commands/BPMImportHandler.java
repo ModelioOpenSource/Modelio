@@ -35,14 +35,14 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.api.modelio.diagram.IDiagramService;
 import org.modelio.api.module.context.IModuleContext;
-import org.modelio.app.core.project.ICurrentProjectService;
 import org.modelio.bpmnxml.importer.service.BPMNImportService;
-import org.modelio.core.ui.swt.SelectionHelper;
 import org.modelio.gproject.fragment.IProjectFragment;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.statik.Package;
+import org.modelio.platform.core.project.ICurrentProjectService;
+import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("596c1e64-40d0-43ce-b1ca-e279934e700c")

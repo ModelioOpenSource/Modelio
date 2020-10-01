@@ -1,0 +1,69 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Dessin-libre]]
+
+[[dessin-libre]]
+= Dessin libre
+
+[[Introduction]]
+
+[[introduction]]
+===== Introduction
+
+Modelio propose une nouvelle fonctionnalité de dessin libre pour ajouter à vos diagrammes des informations purement graphiques.
+
+.Diagramme de UseCase mettant en valeur différentes zones à l'aide de rectangles de couleur.
+image::images/Modeler-_modeler_diagrams_free_drawing_freedrawing_001.png[2]
+
+[[Faire-du-dessin-libre-dans-un-diagramme-Modelio]]
+
+[[faire-du-dessin-libre-dans-un-diagramme-modelio]]
+===== Faire du dessin libre dans un diagramme Modelio
+
+Utilisez la palette dédiée pour ajouter à votre diagramme des éléments de dessin libre :
+
+* Rectangle
+* Ellipse
+* Texte
+* Ligne / flèche
+
+*Rectangles*
+
+Sélectionnez "Rectangle" dans la palette, puis cliquez dans le fond du diagramme, dessinez le rectangle, et relâchez le bouton de la souris pour valider le rectangle. Note: vous pouvez dessiner un carré parfait en maintenant enfoncée la touche SHIFT pendant que vous dessinez un rectangle.
+
+*Ellipses*
+
+Sélectionnez "Ellipse" dans la palette, puis cliquez dans le fond du diagramme, dessinez l'ellipse, et relâchez le bouton de la souris pour valider l'ellipse. Note: vous pouvez dessiner un cercle parfait en maintenant enfoncée la touche SHIFT pendant que vous dessinez une ellipse.
+
+*Texte*
+
+Sélectionnez "Texte" dans la palette, puis cliquez dans le fond du diagramme pour créer une nouvelle zone de texte.
+
+*Lignes (flèches)*
+
+Sélectionnez "Ligne" dans la palette, puis cliquez dans le fond du diagramme à l'endroit où vous souhaitez créer la source de votre ligne, puis cliquez une deuxième fois à l'endroit où vous souhaitez créer la cible de la ligne. Vous pouvez dessiner des lignes simples, des flèches à sens unique, et des flèches à double-sens.
+
+[[Personnalisation]]
+
+[[personnalisation]]
+===== Personnalisation
+
+Tous les éléments de dessin libre peuvent être personnalisés dans la vue Symbole (couleur, épaisseur de ligne, police, cible de flèche, etc.)
+
+[[Commandes]]
+
+[[commandes]]
+===== Commandes
+
+Les éléments de dessin libre peuvent être passés à l'arrière-plan ou au premier plan :
+
+image::images/Modeler-_modeler_diagrams_free_drawing_freedrawing_002.png[3]
+
+*Étapes :*
+
+1.  Clic-droit sur la bordure d'un élément de dessin libre
+2.  Commande "Passer à l'arrière-plan" pour passer le dessin à l'arrière-plan
+3.  Commande "Passer au premier-plan" pour repasser le dessin au premier plan
+
+

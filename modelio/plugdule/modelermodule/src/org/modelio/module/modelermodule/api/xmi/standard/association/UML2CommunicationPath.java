@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.association;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("81678c9e-2f43-40bc-ad65-f1a578bb0dee")
 public class UML2CommunicationPath {
-    @objid ("59bcabbf-1978-4330-88aa-d9a508b86ed1")
+    @objid ("4e7f4970-ad16-462e-8a97-98c72897c8b9")
     public static final String STEREOTYPE_NAME = "UML2CommunicationPath";
 
     /**
      * The underlying {@link Association} represented by this proxy, never null.
      */
-    @objid ("4f795dda-a262-491b-8a15-7724aa6dc512")
+    @objid ("ad9c55ab-a8fd-4e91-8b6d-a4eb5a70516f")
     protected final Association elt;
 
     /**
-     * Tells whether a {@link UML2CommunicationPath proxy} can be instantiated from a {@link MObject} checking it is a {@link Association} stereotyped << UML2CommunicationPath >>. 
+     * Tells whether a {@link UML2CommunicationPath proxy} can be instantiated from a {@link MObject} checking it is a {@link Association} stereotyped << UML2CommunicationPath >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("357adcff-0fc6-4b16-aba7-ac4d0091517b")
+    @objid ("dc1d09aa-0855-49c6-80f8-7ab963d589ed")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Association) && ((Association) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2CommunicationPath.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2CommunicationPath {
      * 
      * @return a {@link UML2CommunicationPath} proxy on the created {@link Association}.
      */
-    @objid ("6b7328e4-ba00-436e-8ea6-982f68147754")
+    @objid ("4ea8494a-92ab-4f92-bf29-57aae3ea8c20")
     public static UML2CommunicationPath create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Association");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2CommunicationPath.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2CommunicationPath {
     }
 
     /**
-     * Tries to instantiate a {@link UML2CommunicationPath} proxy from a {@link Association} stereotyped << UML2CommunicationPath >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2CommunicationPath} proxy from a {@link Association} stereotyped << UML2CommunicationPath >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Association
      * @return a {@link UML2CommunicationPath} proxy or <i>null</i>.
      */
-    @objid ("e3286961-2221-4d1c-8fbe-35b0865523cb")
+    @objid ("c436ead0-6a5d-4daf-b872-2596c99d8bf5")
     public static UML2CommunicationPath instantiate(Association obj) {
         return UML2CommunicationPath.canInstantiate(obj) ? new UML2CommunicationPath(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2CommunicationPath {
      * @return a {@link UML2CommunicationPath} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("9f6c4f8f-f129-4ab2-9bbd-946865177245")
+    @objid ("d0ada198-633e-4b39-95c7-40f33be775bf")
     public static UML2CommunicationPath safeInstantiate(Association obj) throws IllegalArgumentException {
         if (UML2CommunicationPath.canInstantiate(obj))
         	return new UML2CommunicationPath(obj);
@@ -112,7 +112,7 @@ public class UML2CommunicationPath {
         	throw new IllegalArgumentException("UML2CommunicationPath: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("a92fa7f1-f40b-4d1a-9658-e1ee3b066eb9")
+    @objid ("dcf2a5d3-7bfe-455c-89fe-32b9c84f68ac")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2CommunicationPath {
      * Get the underlying {@link Association}. 
      * @return the Association represented by this proxy, never null.
      */
-    @objid ("01858f38-99cd-494d-908d-63b353193fcd")
+    @objid ("466dec24-c022-4d45-8a91-6c2898e64691")
     public Association getElement() {
         return this.elt;
     }
 
-    @objid ("2019356c-575e-465a-a372-e81b5abcd196")
+    @objid ("2ff7c0e8-5e72-4875-8c6d-388b41a6dfe3")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("4eb742df-bce5-48e6-afe2-7223153d3d34")
+    @objid ("a4b43b45-8f22-4ee3-9f55-5cfb8b442847")
     protected UML2CommunicationPath(Association elt) {
         this.elt = elt;
     }
 
     @objid ("d8b8c58e-ba0a-4cce-937a-c14207a1cafc")
     public static final class MdaTypes {
-        @objid ("65036b50-0dab-4578-a5e0-80071bc4baa3")
+        @objid ("6577f8e6-b4a2-44ac-986a-149fc5c96d16")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("c959aa96-8a71-4320-85b9-243894dc44be")
+        @objid ("f2f287ef-8ed4-441b-ab35-99cd28b86373")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("44c7b8b1-a9a7-4192-a1bd-d2493c5950aa")
+        @objid ("55f7944f-6d73-4d65-9b60-a97ab9f4f5be")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("c924682f-2aff-406c-bc86-0fb8970994c6")
+        @objid ("e42a9814-ee25-4388-be45-db28b8fcd9a0")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "8ed6276e-5821-11df-be59-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

@@ -52,10 +52,10 @@ import org.eclipse.ui.forms.widgets.Section;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.dialog.common.ColumnHelper;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.gproject.data.project.FragmentDescriptor;
 import org.modelio.gproject.fragment.IProjectFragment;
 import org.modelio.gproject.gproject.FragmentConflictException;
+import org.modelio.platform.project.services.IProjectService;
 import org.modelio.vbasic.files.FileUtils;
 
 /**

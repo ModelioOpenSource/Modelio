@@ -1,0 +1,53 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Importing-elements-from-existing-projects]]
+
+[[importing-elements-from-existing-projects]]
+= Importing elements from existing projects
+
+[[Overview-of-element-import]]
+
+[[overview-of-element-import]]
+===== Overview of element import
+
+The element import feature is used to import elements from other projects into your current project.
+
+[[Importing-elements-from-another-project]]
+
+[[importing-elements-from-another-project]]
+===== Importing elements from another project
+
+image::images/Modeler-_modeler_managing_projects_importing_elements_importing_elements_from_existing_projects_1.png[image]
+.Running an element import operation
+image::images/Modeler-_modeler_managing_projects_importing_elements_importing_elements_from_existing_projects_2.png[image]
+
+*Steps:*
+
+1. Select the work model into which you wish to import model elements.
+2. Launch the *Import/Export > Import > Import model...* command.
+3. Select the 'project.conf' file of the project you wish to import elements from.
+4. Select the elements you wish to import.
+5. Launch the Import.
+
+[[Imported-elements]]
+
+[[imported-elements]]
+===== Imported elements
+
+Elements that can be imported into your project are presented in a standard hierarchy (packages containing classes). To view the classes contained in an importable package, simply click on the "+" on the left of the package name.
+
+The following list describes exactly what is imported for each type of element.
+
+* Project : The entire project (packages, classes, ...)
+* Package : Classes (with their operations, attributes, "visible" associations), documents, tagged values, diagrams
+* Class : Operations, attributes, "visible" associations, documents, tagged values, diagrams
+
+Non-imported objects are:
+
+* Reference links from a package to another element that is not imported and that does not already exist in the current project
+* Non-oriented associations (no visibility on either side)
+
+The import will fail if there is any inconsistency between imported elements.
+
+

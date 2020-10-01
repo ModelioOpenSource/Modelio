@@ -1,0 +1,24 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Using-shortcuts]]
+
+[[using-shortcuts]]
+= Using shortcuts
+
+Main keyboard shortcuts available in Modelio:
+
+* *Ctrl+A* in diagram edition view: Selects all elements in the diagram.
+* *Ctrl+C* in explorer views: Copies the selected element.
+* *Ctrl+D* in explorer views: Moves the selected element down one level.
+* *Ctrl+M* in diagram edition view: Masks the selected element.
+* *Ctrl+S* in diagram edition and explorer views : Carries out a save operation.
+* *Ctrl+U* in explorers view: Moves the selected element up one level.
+* *Ctrl+V* in explorer views: Pastes the selected element.
+* *Ctrl+X* in explorer views: Cuts the selected element.
+* *Ctrl+Y* in diagram edition and explorer views: Redoes the last cancelled operation.
+* *Ctrl+Z* in diagram edition and explorer views: Undoes the last operation carried out.
+* *Ctrl+Alt+click* on an association in the explorer view: selects the opposite end of the association.
+* */* in diagram edition view : Switches to 1:1 scale.
+
+

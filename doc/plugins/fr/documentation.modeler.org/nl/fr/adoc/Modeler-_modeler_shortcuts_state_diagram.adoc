@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de création dans les diagrammes d'états
+
+Il existe deux types de raccourcis :
+
+* Un raccourci pour activer l'outil de création comme si on cliquait sur une icône dans la palette d'un diagramme,
+* Un raccourci pour créer et démasquer un élément directement dans un diagramme.
+
+
+[%header]
+|===
+2+|Activer l'outil de création  2+| Créer un élément
+|*Raccourci*|*Outil activé*|*Shortcut*|*Elément créé*
+|N |Note |CTRL-N CTRL-N |Note
+|MAJ-H |Deep history |CTRL-N CTRL-MAJ-H |Deep history
+|E |Entry point |CTRL-N CTRL-E |Entry point
+|F |Final state |CTRL-N CTRL-F |Final state
+|X |ExitPoint |CTRL-N CTRL-X |ExitPoint
+|C |Choice |CTRL-N CTRL-C |Choice
+|H |Shallow history |CTRL-N CTRL-H |Shallow history
+|J |Join state |CTRL-N CTRL-J |Join state
+|S |State |CTRL-N CTRL-S |State
+|T |Terminate state |CTRL-N CTRL-T |Terminate state
+|I |Initial state |CTRL-N CTRL-I |Initial state
+|Y |Fork |CTRL-N CTRL-Y |Fork
+|R |Diagramme lié ||
+|ESPACE |Transition ||
+|===

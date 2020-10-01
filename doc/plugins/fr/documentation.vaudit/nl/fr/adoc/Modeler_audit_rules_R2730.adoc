@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2730]]
+
+[[r2730]]
+= R2730
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un _TemplateBinding_ doit substituer tous les _TemplateParameters_ de l'élément ciblé, et les _TemplateParameterSubstitution_ doivent être déclarées dans le même ordre que les paramètres de l'élément.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _TemplateBinding_ doit toujours substituer tous les paramètres de l'élément qu'il cible. De plus, il est recommandé de déclarer les substitutions dans le même ordre que les paramètres template.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Utilisez l'onglet de propriétés 'Elément' sur le _TemplateBinding_ pour corriger les substitutions.
+* Ce problème peut provenir d'une macro ou d'un module défaillant. Demandez au développeur de corriger le module ou la macro.
+* Ajoutez des _TemplateParameterSubstitution_ pour ces paramètres à l'aide d'une macro.
+* Détruisez le _TemplateBinding_ et reconstruisez-le. Utilisez l'onglet de propriétés 'Elément' sur le _TemplateBinding_ pour substituer les _TemplateParameters_.
+
+

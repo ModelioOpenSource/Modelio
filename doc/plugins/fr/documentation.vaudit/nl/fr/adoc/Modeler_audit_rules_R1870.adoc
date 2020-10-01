@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1870]]
+
+[[r1870]]
+= R1870
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Classe_ ou un _Component_ ne devrait pas implémenter plusieurs fois la même _Interface_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Avoir un élément qui implémente plusieurs fois la même _Interface_ n'a pas de sens en UML.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Supprimez les liens d'implémentation en trop.
+
+

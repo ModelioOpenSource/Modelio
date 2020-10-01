@@ -1,0 +1,36 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Creation shortcuts in Activity diagrams
+
+Two kind of shortcuts are available:
+
+* to activate a creation tool as if clicking on the diagram palette.
+* to directly create and unmask an element in the diagram.
+
+[%header]
+|===
+2+|Activate creation tool  2+| Created element
+|*Shortcut*|*Activated tool*|*Shortcut*|*Created element*
+|A |Action |CTRL-N CTRL-A |Action
+|B |Call behavior |CTRL-N CTRL-B |Call behavior
+|C |Conditionnal node |CTRL-N CTRL-C |Conditionnal node
+|D |Data store |CTRL-N CTRL-D |Data store
+|E |Change event |CTRL-N CTRL-E |Change event
+|F |Activity final node |CTRL-N CTRL-F |Activity final node
+|I |Initial node |CTRL-N CTRL-I |Initial node
+|J |Fork join |CTRL-N CTRL-J |Fork join
+|L |Loop node |CTRL-N CTRL-L |Loop node
+|M |Merge |CTRL-N CTRL-M |Merge
+|N |Note |CTRL-N CTRL-N |Note
+|O |Object node |CTRL-N CTRL-O |Object node
+|P |Input pin |CTRL-N CTRL-P |Input pin
+|S |Accept signal |CTRL-N CTRL-S |Accept signal
+|T |Time event |CTRL-N CTRL-T |Time event
+|V |Value pin |CTRL-N CTRL-V |Value pin
+|SHIFT -F |Flow final node |CTRL-N CTRL-SHIFT -F |Flow final node
+|SHIFT + P |Output pin |CTRL-N CTRL-SHIFT + P |Output pin
+|SHIFT-S |Send signal |CTRL-N CTRL-SHIFT-S |Send signal
+|SPACE |Smart Flow ||
+|R |Related Diagram ||
+|===

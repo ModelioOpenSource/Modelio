@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1300]]
+
+[[r1300]]
+= R1300
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Des _ObjectNode_ connectés par des _ObjectFlow_, doivent avoir des cardinalités maximum égales.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Des _ObjectNode_ connectés par un _ObjectFlow_, avec potentiellement des _ControlNode_ intermédiaires, doivent avoir des cardinalités maximum égales.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une erreur R1300, vérifiez que tous les _ObjectNodes_ en amont et en aval de l'_ObjectFlow_ ont bien la même limite supérieur. La cardinalité maximum d'un _ObjectNode_ est modifiable dans la vue " Element " lorsque ledit _ObjectNode_ est sélectionné.
+
+

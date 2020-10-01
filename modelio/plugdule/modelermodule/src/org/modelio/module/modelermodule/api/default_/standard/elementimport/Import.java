@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.elementimport;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("450c1690-12d6-42fc-958f-edcb65fd95bc")
 public class Import {
-    @objid ("cc40dc3e-37f0-4678-8576-72ccaae1552e")
+    @objid ("8f559b82-f89b-4bf5-8118-57f57b3d67d4")
     public static final String STEREOTYPE_NAME = "import";
 
     /**
      * The underlying {@link ElementImport} represented by this proxy, never null.
      */
-    @objid ("c35ff1ff-7c81-41ae-bde7-b3f4a0b0e819")
+    @objid ("2d2b0c2a-584e-4374-9410-f78c105ed4ed")
     protected final ElementImport elt;
 
     /**
-     * Tells whether a {@link Import proxy} can be instantiated from a {@link MObject} checking it is a {@link ElementImport} stereotyped << import >>. 
+     * Tells whether a {@link Import proxy} can be instantiated from a {@link MObject} checking it is a {@link ElementImport} stereotyped << import >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("79af1235-657d-410b-bfe6-7bd266dbeb31")
+    @objid ("0b396934-2219-4795-8bcd-585c8d66af5c")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof ElementImport) && ((ElementImport) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Import.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Import {
      * 
      * @return a {@link Import} proxy on the created {@link ElementImport}.
      */
-    @objid ("dc81845d-57da-4d23-b5c9-4a9ca94a6f3a")
+    @objid ("d60e197c-ce02-4729-9a31-90af11e25802")
     public static Import create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("ElementImport");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Import.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Import {
     }
 
     /**
-     * Tries to instantiate a {@link Import} proxy from a {@link ElementImport} stereotyped << import >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Import} proxy from a {@link ElementImport} stereotyped << import >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a ElementImport
      * @return a {@link Import} proxy or <i>null</i>.
      */
-    @objid ("8499a830-1cb3-474c-9529-4f0af954cb1d")
+    @objid ("1f064f2c-9eb0-4519-908d-ab0d101d5262")
     public static Import instantiate(ElementImport obj) {
         return Import.canInstantiate(obj) ? new Import(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Import {
      * @return a {@link Import} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("2ae4852c-86e0-49d3-a69b-03f5439e4bf5")
+    @objid ("65184c55-4bda-46a9-866b-be16ba0938b6")
     public static Import safeInstantiate(ElementImport obj) throws IllegalArgumentException {
         if (Import.canInstantiate(obj))
         	return new Import(obj);
@@ -112,7 +112,7 @@ public class Import {
         	throw new IllegalArgumentException("Import: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("dbf5d837-2a3b-43c4-9807-8f384d93c69e")
+    @objid ("980ab8bf-b173-4bad-ab32-bda5dcffe863")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Import {
      * Get the underlying {@link ElementImport}. 
      * @return the ElementImport represented by this proxy, never null.
      */
-    @objid ("8f9cccb1-3474-4502-ba3b-28821c6562e7")
+    @objid ("3778dcb4-a73d-4082-9b10-56cc1beb7fcc")
     public ElementImport getElement() {
         return this.elt;
     }
 
-    @objid ("a8f1c06e-703b-4cfb-9093-636e32d1808d")
+    @objid ("b3ce10c8-dff2-4867-a3d9-3f7f5e69aecc")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("d42bbb0f-ffc7-448c-a863-6e0a630e4ecf")
+    @objid ("0e2b2907-85ef-4c5d-8f82-82a1a5d2f14c")
     protected Import(ElementImport elt) {
         this.elt = elt;
     }
 
     @objid ("abc33775-3a58-4320-bd1b-1809fc8c7925")
     public static final class MdaTypes {
-        @objid ("4184873f-b056-4d01-9e09-95a40b580eb7")
+        @objid ("f488452b-5954-456a-b23c-e903b6ca8b2f")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("ec994a0b-06c8-44de-9580-b16cbf39f917")
+        @objid ("ec9ebe0d-d71b-4754-b2ce-5c2e07582cfc")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("307f0f97-6dbb-4a8b-9861-791ead51ca18")
+        @objid ("c3dfdb69-f10f-4424-abf8-1a07b93095dd")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("dc19a695-ee1b-492b-97bf-e7afc1ea6c3d")
+        @objid ("165ea13e-32ce-4fb1-8336-d30ee7b702ae")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01ce-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

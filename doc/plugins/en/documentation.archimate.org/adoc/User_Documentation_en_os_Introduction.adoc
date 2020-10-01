@@ -1,0 +1,15 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[document-title]]
+[[introduction]]
+= Introduction
+
+
+Modelio ArchiMate is a modeling tool based on Modelio.
+
+* Natively supports the *ArchiMate 3.1 ^1^*, UML and BPMN modeling standards, with the related model interchange.
+* Supports traceability management on the entire enterprise scope.
+* Provides HTML document generation through the Web Model Publisher module.
+
+^1^ ArchiMate® is an open and independent modeling language for Enterprise Architecture. ArchiMate enables Enterprise Architects to describe, analyze, and visualize the relationships among business domains in an unambiguous way.

@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("de449f4b-02f1-4a89-aee5-f8ce3007641b")
 public class PartitionElement {
-    @objid ("fe171778-f883-4de9-bb5f-6460204e6e5e")
+    @objid ("92d76b02-b5fd-40c4-bfa5-80d496efcaf8")
     public static final String STEREOTYPE_NAME = "PartitionElement";
 
     /**
      * The underlying {@link MethodologicalLink} represented by this proxy, never null.
      */
-    @objid ("ab24ef00-7219-48cb-9e3b-25ec0ad871dc")
+    @objid ("d303059f-9ccd-4b41-98d2-3b32df8c6bd1")
     protected final MethodologicalLink elt;
 
     /**
-     * Tells whether a {@link PartitionElement proxy} can be instantiated from a {@link MObject} checking it is a {@link MethodologicalLink} stereotyped << PartitionElement >>. 
+     * Tells whether a {@link PartitionElement proxy} can be instantiated from a {@link MObject} checking it is a {@link MethodologicalLink} stereotyped << PartitionElement >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("e19e71d1-1ab0-4ad8-80b8-12a1dbff123b")
+    @objid ("3b0b6550-a947-47b7-a14c-1e3696b202b2")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof MethodologicalLink) && ((MethodologicalLink) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, PartitionElement.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class PartitionElement {
      * 
      * @return a {@link PartitionElement} proxy on the created {@link MethodologicalLink}.
      */
-    @objid ("1395452a-568a-40b2-b8ef-4d9deb68feed")
+    @objid ("40b4c771-e8f7-4138-b53f-9ba8974fd75e")
     public static PartitionElement create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("MethodologicalLink");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, PartitionElement.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class PartitionElement {
     }
 
     /**
-     * Tries to instantiate a {@link PartitionElement} proxy from a {@link MethodologicalLink} stereotyped << PartitionElement >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link PartitionElement} proxy from a {@link MethodologicalLink} stereotyped << PartitionElement >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a MethodologicalLink
      * @return a {@link PartitionElement} proxy or <i>null</i>.
      */
-    @objid ("0cf18f4c-6295-46b4-8f07-133078f210fd")
+    @objid ("f5e92149-c006-4917-9e13-700d3597b158")
     public static PartitionElement instantiate(MethodologicalLink obj) {
         return PartitionElement.canInstantiate(obj) ? new PartitionElement(obj) : null;
     }
@@ -104,7 +104,7 @@ public class PartitionElement {
      * @return a {@link PartitionElement} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("20382b4a-fd72-4ecc-9ece-610a0d5a9e93")
+    @objid ("7e9754fc-e337-4211-bbbc-e6ee653c6598")
     public static PartitionElement safeInstantiate(MethodologicalLink obj) throws IllegalArgumentException {
         if (PartitionElement.canInstantiate(obj))
         	return new PartitionElement(obj);
@@ -122,7 +122,7 @@ public class PartitionElement {
         AbstractMethodologicalLink.setTarget(source, MdaTypes.STEREOTYPE_ELT, target);
     }
 
-    @objid ("7d5f468d-2e9e-4d2c-9639-b4dcde892448")
+    @objid ("f150eee0-53ae-4236-a4ff-2c7f14558d17")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -142,34 +142,34 @@ public class PartitionElement {
      * Get the underlying {@link MethodologicalLink}. 
      * @return the MethodologicalLink represented by this proxy, never null.
      */
-    @objid ("f968cffd-36e7-4d04-bbdb-5740a8d815ea")
+    @objid ("2332998c-75fa-4c1c-a314-61060561be95")
     public MethodologicalLink getElement() {
         return this.elt;
     }
 
-    @objid ("aa572f75-3d59-4dd4-a226-cefcb6777542")
+    @objid ("825595b4-aa08-4e3a-a6cd-7d90a0abb2c5")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("44f5b928-1195-4a13-8b48-be59673f49a9")
+    @objid ("8b04710a-2525-4ba3-a84a-a93e2eb45816")
     protected PartitionElement(MethodologicalLink elt) {
         this.elt = elt;
     }
 
     @objid ("5e6cefd6-55cf-4f85-b0bc-77215412fc10")
     public static final class MdaTypes {
-        @objid ("5a7f84a1-666a-49ab-9c6f-9af66ac45404")
+        @objid ("a7d70d62-06bf-44c5-b371-248282442715")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("077531e1-08f8-4e32-a8a0-d778cd2f5d3f")
+        @objid ("317578b8-aed2-444d-a08e-89f7c2fb9697")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("3c84c8cb-c60c-4386-b2cb-c6aa5adacc9f")
+        @objid ("7af3d242-e4ea-4b8c-9e32-565d8d732e64")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("0ef52a16-3055-457f-940d-48117451a92e")
+        @objid ("c3f83a7a-846b-40c9-9886-a5639af309f9")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "5de33d2a-ed28-439c-aa09-d11bf1a6d878");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

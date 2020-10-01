@@ -26,8 +26,6 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.api.modelio.Modelio;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
-import org.modelio.app.core.IModelioEventService;
-import org.modelio.app.core.events.ModelioEvent;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnCollaborationDiagram;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
@@ -35,6 +33,8 @@ import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.model.browser.view.handlers.create.CreateCmsElementHandler;
+import org.modelio.platform.core.IModelioEventService;
+import org.modelio.platform.core.events.ModelioEvent;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension id="id2" point="org.eclipse.e4.workbench.model">
+    	<fragment uri="e4model/fragment.e4xmi"/>
+	</extension>
+
+	<extension point="org.modelio.platform.preferencespages">
+		<page class="org.modelio.app.module.catalog.catalog.update.CatalogUpdatePreferencesPage"
+			  id="org.modelio.platform.mda.infra.catalog.update.catalogupdate"
+		      name="%ModuleCatalog.name"
+		      icon="icons/module.png" />
+	</extension>
+
+ <extension
+       point="org.modelio.platform.preferences">
+    <initialization>
+       <preference
+             name="ModuleCatalog.ShowCompatible"
+             value="true">
+       </preference>
+       <preference
+             name="ModuleCatalog.ShowLatest"
+             value="true">
+       </preference>
+    </initialization>
+ </extension>
+</plugin>

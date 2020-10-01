@@ -33,9 +33,9 @@ import org.eclipse.e4.ui.model.application.ui.advanced.MPerspective;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPerspectiveStack;
 import org.eclipse.e4.ui.model.application.ui.basic.MPartSashContainerElement;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
-import org.modelio.app.core.events.ModelioEventTopics;
-import org.modelio.app.project.core.services.IProjectService;
-import org.modelio.core.rcp.uiservice.IModelioUiService;
+import org.modelio.platform.core.events.ModelioEventTopics;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.rcp.uiservice.IModelioUiService;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 

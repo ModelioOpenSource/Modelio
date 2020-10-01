@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2700]]
+
+[[r2700]]
+= R2700
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _TemplateBinding_ can substitute a TemplateParameter only once.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A template instantiation can give a value to a template parameter only once.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Keep only one _TemplateParameterSubstitution_ for each _TemplateParameter_.
+
+

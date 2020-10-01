@@ -1,0 +1,25 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R4010]]
+
+[[r4010]]
+= R4010
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The relationships to and from a Junction must be of the same kind.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Junctions can only connect links of the same kind. +
+For example, an "And Junction" with two input Associations can only produce another Association as output. +
+Although Modelio will prevent non-compliant relationships to be created to/from a Junction, some may exist in the model following external model import operations.
+
+

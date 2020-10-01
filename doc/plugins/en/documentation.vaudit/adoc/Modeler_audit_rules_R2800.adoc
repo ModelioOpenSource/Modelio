@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2800]]
+
+[[r2800]]
+= R2800
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An initial vertex can have at most one outgoing transition.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Initial pseudo states are only temporary states to start from and should target only one state which is the first state of the object.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have more than one transition coming from an initial state, remove them.
+
+

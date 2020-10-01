@@ -36,10 +36,10 @@ import org.eclipse.swt.browser.LocationEvent;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.ui.welcome.plugin.AppUiWelcome;
-import org.modelio.core.rcp.uiservice.IModelioUiService;
-import org.modelio.ui.progress.IModelioProgressService;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.rcp.uiservice.IModelioUiService;
+import org.modelio.platform.ui.progress.IModelioProgressService;
 
 @objid ("a1b3a124-3052-4d98-910a-c5e700f002e2")
 public class WelcomeView {

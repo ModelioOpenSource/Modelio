@@ -1,0 +1,13 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Activating-the-grid]]
+
+[[activating-the-grid]]
+= Activating the grid
+
+Activating the grid in Modelio diagrams makes it easier for you to align diagram elements, with a greater degree of precision.
+
+To activate the grid in a diagram, use the 'View grid' and 'Snap to grid' tickbox of the concerned diagram 'Symbol' tab, or click on the image:images/Modeler-_modeler_diagrams_grid_grid.png[2] icon in the diagram toolbar.
+
+

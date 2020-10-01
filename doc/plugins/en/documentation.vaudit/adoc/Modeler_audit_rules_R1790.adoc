@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1790]]
+
+[[r1790]]
+= R1790
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _Instance_ must have a name, or its type must be defined.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Instances with neither name nor type cannot be distinguished from each other.
+
+When an _Instance_ specifies the type it instanciates, the name is optional.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Specify the element it instantiates.
+* Give it a name.
+
+

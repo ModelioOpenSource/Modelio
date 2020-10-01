@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.templateparameter;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("7d06e516-f1b3-4177-aff3-431439159472")
 public class UML2ClassifierTemplateParameter {
-    @objid ("caad71a4-eb21-4ac0-b5b7-73b79e47e67c")
+    @objid ("2d4e270b-2e88-4e00-8847-96cc22fa9f5e")
     public static final String STEREOTYPE_NAME = "UML2ClassifierTemplateParameter";
 
     /**
      * The underlying {@link TemplateParameter} represented by this proxy, never null.
      */
-    @objid ("f113cda4-4505-4d58-a3a5-beeb4891a6d5")
+    @objid ("e910e46e-99ff-418f-8857-db2e89d7abef")
     protected final TemplateParameter elt;
 
     /**
-     * Tells whether a {@link UML2ClassifierTemplateParameter proxy} can be instantiated from a {@link MObject} checking it is a {@link TemplateParameter} stereotyped << UML2ClassifierTemplateParameter >>. 
+     * Tells whether a {@link UML2ClassifierTemplateParameter proxy} can be instantiated from a {@link MObject} checking it is a {@link TemplateParameter} stereotyped << UML2ClassifierTemplateParameter >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("f7cb2f21-16bf-4981-aa38-4aaf4b5249c4")
+    @objid ("af45aa40-9b89-4f66-8592-7e5d0cc9b45c")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof TemplateParameter) && ((TemplateParameter) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ClassifierTemplateParameter.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2ClassifierTemplateParameter {
      * 
      * @return a {@link UML2ClassifierTemplateParameter} proxy on the created {@link TemplateParameter}.
      */
-    @objid ("0d27f308-ff58-484e-ae1c-21fd3544547b")
+    @objid ("a1c97839-93bd-4995-a1f7-79da6cef2979")
     public static UML2ClassifierTemplateParameter create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("TemplateParameter");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ClassifierTemplateParameter.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2ClassifierTemplateParameter {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ClassifierTemplateParameter} proxy from a {@link TemplateParameter} stereotyped << UML2ClassifierTemplateParameter >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ClassifierTemplateParameter} proxy from a {@link TemplateParameter} stereotyped << UML2ClassifierTemplateParameter >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a TemplateParameter
      * @return a {@link UML2ClassifierTemplateParameter} proxy or <i>null</i>.
      */
-    @objid ("beda9482-aa68-4e5d-993a-00278aef7e48")
+    @objid ("87f3e76c-7b97-456d-80f7-7f059344dd84")
     public static UML2ClassifierTemplateParameter instantiate(TemplateParameter obj) {
         return UML2ClassifierTemplateParameter.canInstantiate(obj) ? new UML2ClassifierTemplateParameter(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2ClassifierTemplateParameter {
      * @return a {@link UML2ClassifierTemplateParameter} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("872d1216-ad07-45b5-95e4-65cffefc3c4d")
+    @objid ("5db3f415-76e8-4b70-8c1c-671d2770e7c6")
     public static UML2ClassifierTemplateParameter safeInstantiate(TemplateParameter obj) throws IllegalArgumentException {
         if (UML2ClassifierTemplateParameter.canInstantiate(obj))
         	return new UML2ClassifierTemplateParameter(obj);
@@ -112,7 +112,7 @@ public class UML2ClassifierTemplateParameter {
         	throw new IllegalArgumentException("UML2ClassifierTemplateParameter: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("0aac17ca-8c89-402f-9137-9ff62c6f8b00")
+    @objid ("4a32165c-c06a-4215-9054-540de7bfffc6")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2ClassifierTemplateParameter {
      * Get the underlying {@link TemplateParameter}. 
      * @return the TemplateParameter represented by this proxy, never null.
      */
-    @objid ("438c43c3-fee1-4179-a690-66216e2d3df7")
+    @objid ("83a5210a-d571-4ab7-847c-1c44ece40b85")
     public TemplateParameter getElement() {
         return this.elt;
     }
 
-    @objid ("53f04a74-98bb-4a01-adb1-bdb125391554")
+    @objid ("181b80f6-fd76-4e55-bb57-eff5f9a55338")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("0b2267d3-a01c-4afd-8ba0-4f7b6c565db4")
+    @objid ("0cd14226-346b-4bb4-8ad8-430dc79ac5ec")
     protected UML2ClassifierTemplateParameter(TemplateParameter elt) {
         this.elt = elt;
     }
 
     @objid ("7d56bd81-07e4-4088-ae68-252f60dbb3fb")
     public static final class MdaTypes {
-        @objid ("6b2cb97b-c3f6-4df2-a0a8-93f186a01771")
+        @objid ("bdf90dc6-d8aa-491c-b5b3-fc37112ebd5d")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("5e039a70-c737-45df-9e44-ebe8a5d5e4f7")
+        @objid ("13c489cd-668e-48bd-978c-b3f853c9c821")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("ec6ea17e-05f2-4f83-9047-83e7dc96dd1d")
+        @objid ("e549fd36-9934-42c8-9844-eefd3ba89566")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("b0924f9e-6e20-4003-b03c-df06d6f52226")
+        @objid ("9324f3d2-1746-49af-9408-f0114188daef")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "4a427283-5d09-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

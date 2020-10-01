@@ -1,0 +1,35 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Aligning-elements]]
+
+[[aligning-elements]]
+= Aligning elements
+
+Modelio diagrams provide several different alignment possibilities.
+
+[[Using-the-ldquoSnap-to-geometryrdquo-option]]
+
+[[using-the-snap-to-geometry-option]]
+===== Using the "Snap to geometry" option
+
+In the diagram's <<Modeler-_modeler_interface_properties_view.adoc#,Properties>> or <<Modeler-_modeler_interface_symbol_view.adoc#,Symbol>> view it is possible to activate/deactivate the 'Snap to geometry' option. This feature allows to snap elements to other figures centers and edges when creating or moving them.
+
+[[Using-the-diagram-toolbar]]
+
+[[using-the-diagram-toolbar]]
+===== Using the diagram toolbar
+
+To align elements in a diagram, just select the elements you want to align and click on the desired icon in the diagram toolbar:
+
+* *image:images/Modeler-_modeler_diagrams_aligning_align_top.png[2] Align top:* This aligns selected elements with the top of the element selected first.
+* *image:images/Modeler-_modeler_diagrams_aligning_align_left.png[3] Align left:* This aligns selected elements with the left-hand side of the element selected first.
+* *image:images/Modeler-_modeler_diagrams_aligning_align_bottom.png[4] Align bottom:* This aligns selected elements with the bottom of the element selected first.
+* *image:images/Modeler-_modeler_diagrams_aligning_align_right.png[5] Align right:* This aligns selected elements with the right-hand side of the element selected first.
+* *image:images/Modeler-_modeler_diagrams_aligning_align_center_h.png[6] Align center:* This horizontally aligns selected elements with the center point of the element selected first.
+* *image:images/Modeler-_modeler_diagrams_aligning_align_center_v.png[7] Align middle:* This vertically aligns selected elements with the center point of the element selected first.
+* *image:images/Modeler-_modeler_diagrams_aligning_same_height.png[8] Set to the same height:* This sets selected elements to the same height as the element selected first.
+* *image:images/Modeler-_modeler_diagrams_aligning_same_width.png[9] Set to the same width:* This sets selected elements to the same width as the element selected first.
+* *image:images/Modeler-_modeler_diagrams_aligning_same_size.png[10] Set to the same size:* This sets selected elements to the same size as the element selected first.
+
+

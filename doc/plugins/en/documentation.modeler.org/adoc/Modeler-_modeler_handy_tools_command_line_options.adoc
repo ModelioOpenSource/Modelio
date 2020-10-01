@@ -1,0 +1,71 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Command-line-options]]
+
+[[command-line-options]]
+= Command line options
+
+[[Command-Line-Modelio]]
+
+[[command-line-modelio]]
+=== Command Line Modelio
+
+To run Modelio in command line, you must execute:
+
+* In Windows: +
+The executable file `modelio.exe` located in Modelio's installation folder.
+* In Linux: +
+The executable file `modelio.sh` located in Modelio's installation folder.
+* In MacOSX: +
+The executable file `modelio.sh` located in the `Contents/MacOS` subdirectory of Modelio's installation folder.
+
+In this page, we will refer to Modelio's executable full path (for example: `C:\Program Files\Modelio Open Source 4.1\modelio.exe`), as *$\{MODELIO_EXE}*.
+
+[[Options-list]]
+
+[[options-list]]
+=== Options list
+
+Modelio comes with several command line options:
+
+*-workspace* _workspacePath_ +
+Indicates the workspace to use. +
+For example:
+
+* Open Modelio in using `C:\Users\user\myWorkspace` directory as workspace. +
+`${MODELIO_EXE}` *-workspace* _C:\Users\user\myWorkspace_
+
+*-project* _projectName_ +
+Indicates which project to open. Must not be used at the same time as "-create". +
+For example:
+
+* Open a Modelio project named "MyProject": +
+`${MODELIO_EXE}` *-project* _MyProject_
+* Open a Modelio project named "AnotherProject" in the `C:\Users\user\myWorkspace` workspace: +
+`${MODELIO_EXE}` *-workspace* _C:\Users\user\myWorkspace_ *-project* _AnotherProject_
+
+*-create* _projectName_ +
+Creates a project with this name in the workspace. Must not be used at the same time as "-project". +
+For example:
+
+* Create a new project named "MyNewProject" : +
+`${MODELIO_EXE}` *-create* _MyNewProject_
+* Create a new project named "AnotherNewProject" in the `C:\Users\user\myWorkspace` workspace: +
+`${MODELIO_EXE}` *-workspace* _C:\Users\user\myWorkspace_ *-create* _MyNewProject_
+
+*-batch* _scriptFile_ +
+Indicates a Jython script to launch automatically after opening a project. Modelio will close automatically after script execution. Must be used with "-project" or "-create". +
+For example:
+
+* Open the "MyProject" project and run the "C:\Users\user\myscript.py" Jython script on it. `${MODELIO_EXE}` *-project* _MyProject_ *-batch* _C:\Users\user\myscript.py_
+* Create the project "MyNewProject" and run the "C:\Users\user\myscript.py" Jython script on it. `${MODELIO_EXE}` *-create* _MyNewProject_ *-batch* _C:\Users\user\myscript.py_
+
+*-param* _key val_ +
+Set the `key` variable with the `val` value. This variable is available in the jython script. +
+For example:
+
+* Run the "C:\Users\user\myscript.py" Jython script on the "MyProject" project and set two variables "myVar1" and "myVar2" and having respectively the values "the value1" and "the value2" : +
+`${MODELIO_EXE}` *-project* _MyProject_ *-batch* _C:\Users\user\myscript.py_ *-param* _myVar1_ "_the value1_" *-param* _myVar2_ "_the value2_"
+
+

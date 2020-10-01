@@ -1,0 +1,17 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de démasquage sur les collaboration uses
+
+Le tableau suivant présente les raccourcis clavier permettant de démasquer certains éléments associés ou appartenant à la collaboration use sélectionnée dans le diagramme.
+
+[cols=",",options="header",]
+|===========================
+|Elément démasqué |Raccourci
+|Contraintes |SHIFT + N
+|Notes |SHIFT + N
+|Dépendances |SHIFT + D
+|Bindings |SHIFT + L
+|===========================
+
+

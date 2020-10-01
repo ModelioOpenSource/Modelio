@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("e3e8030d-e474-473c-b754-e7e5465e68e7")
 public class Antonym {
-    @objid ("07e3ab33-0436-459c-ab7e-217f5bb03605")
+    @objid ("9659a130-2fcf-4c08-a8d6-f79d1e48b747")
     public static final String STEREOTYPE_NAME = "antonym";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("3d064b57-e789-4798-aace-062124ada2b1")
+    @objid ("fe41e2eb-86e0-4374-986e-47a01e8b19c1")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link Antonym proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << antonym >>. 
+     * Tells whether a {@link Antonym proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << antonym >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("37f09a3d-acd5-4b69-bbb7-5a3e1d594907")
+    @objid ("24b11f21-db2f-4ab3-8534-fecbb819b3a4")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Antonym.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class Antonym {
      * 
      * @return a {@link Antonym} proxy on the created {@link Dependency}.
      */
-    @objid ("6c3ce38f-02ed-45a2-a4af-27a0cfab72e8")
+    @objid ("1526dc96-a499-4dd2-a07d-fea42b6ddcdb")
     public static Antonym create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Antonym.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class Antonym {
     }
 
     /**
-     * Tries to instantiate a {@link Antonym} proxy from a {@link Dependency} stereotyped << antonym >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Antonym} proxy from a {@link Dependency} stereotyped << antonym >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link Antonym} proxy or <i>null</i>.
      */
-    @objid ("96da693e-33e5-46b3-b999-642914673091")
+    @objid ("df6deaee-7e98-4d5e-acdd-10a7b21d5871")
     public static Antonym instantiate(Dependency obj) {
         return Antonym.canInstantiate(obj) ? new Antonym(obj) : null;
     }
@@ -103,7 +103,7 @@ public class Antonym {
      * @return a {@link Antonym} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("f80bb32f-2600-410d-948a-a6749129fc61")
+    @objid ("345c540c-9710-42b3-978a-edac8145d321")
     public static Antonym safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (Antonym.canInstantiate(obj))
         	return new Antonym(obj);
@@ -111,7 +111,7 @@ public class Antonym {
         	throw new IllegalArgumentException("Antonym: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("b0f660d7-8b6f-4113-8c87-1239f41c4059")
+    @objid ("1dd6ab65-a32c-41e7-a995-49d72dd8657e")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class Antonym {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("1d3908f7-a7c6-49a0-9a37-0ea507e8f520")
+    @objid ("602aa6a2-7474-4b0e-bb70-4fd4789fe94e")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("6e9ddfbe-5c4b-4f20-99d1-3410639d3546")
+    @objid ("e241841e-d7f6-4963-b6fe-ad04f03a77ce")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("84bbabc7-f1b7-45e1-afbb-dfcb9da50713")
+    @objid ("18c7d34e-8203-426c-adbb-e97fb856d8d1")
     protected Antonym(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("e8185a79-1f85-46e2-9ae1-2d7bcf9b15b1")
     public static final class MdaTypes {
-        @objid ("9d9f4592-ad55-4aa8-899d-79e8523d3b7d")
+        @objid ("42f1534d-8d33-443f-a847-521fdc7a81cc")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("f4236181-e749-465f-8060-a3b107fe9dec")
+        @objid ("db0d7f47-6901-4f56-acae-09e5adba7e73")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("a1829bb3-f7f9-493c-b12a-54ee1f3ee27a")
+        @objid ("fae1d9f5-122d-43f1-8536-e3fcab9174d5")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("55243f37-d75f-4024-962d-f731ce167100")
+        @objid ("f950c60f-8b9b-407b-a4a1-760b2609bcac")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-0233-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

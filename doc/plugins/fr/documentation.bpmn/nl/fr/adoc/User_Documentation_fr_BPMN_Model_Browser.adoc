@@ -1,0 +1,20 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Explorateur de modèle BPMN
+
+.Explorateur de modèle BPMN
+image::images/attachment/bpmn41/User_Documentation_fr/BPMN_Model_Browser/WebHome/ExplorerPuces.png[ExplorerPuces.png]
+
+
+*Légende :*
+
+1.  Processus.
+2.  Diagramme de processus.
+3.  Dossier Tâches.
+4.  Sous-Processus et son diagramme de Sous-Processus.
+5.  Dossier Événements.
+6.  Dossier Rôles.
+7.  Collaboration et son Diagramme de Collaboration.
+8.  Participants.
+9.  Dossier Messages.

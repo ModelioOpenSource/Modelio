@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2360]]
+
+[[r2360]]
+= R2360
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+La visibilité d'une _Opération_ ne peut pas être plus grande que celle de l'_Opération_ qu'elle redéfinit.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Par exemple, si une _Opération_ protégée est redéfinie, l'_Opération_ la redéfinissant ne peut être publique (elle pourrait être privée par contre).
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Augmentez la visibilité de l'opération d'origine.
+* Diminuez la visibilité de l'opération la redéfinissant.
+* Désactiver la règle d'audit.
+
+

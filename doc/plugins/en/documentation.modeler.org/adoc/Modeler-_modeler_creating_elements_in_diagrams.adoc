@@ -1,0 +1,19 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Creating-elements-in-diagrams]]
+
+[[creating-elements-in-diagrams]]
+= Creating elements in diagrams
+
+In Modelio, there are different ways of creating elements in diagrams depending on the nature of the elements in question. It is also possible to "unmask" elements, which already exist in the model but which do not yet appear in a diagram.
+
+All Modelio diagrams include the model expert feature, which provides real-time visual assistance when you are creating elements in diagrams.
+
+The three available procedures (creating node-type elements, creating link-type elements and unmasking elements in diagrams) are detailed in the following help sections:
+
+* *<<Modeler-_modeler_building_models_creating_elements_diagpalette.adoc#,Creating node-type elements>>*
+* *<<Modeler-_modeler_building_models_creating_links_diagrams.adoc#,Creating link-type elements>>*
+* *<<Modeler-_modeler_building_models_creating_elements_dragdrop.adoc#,Unmasking elements using the drag and drop>>*
+
+

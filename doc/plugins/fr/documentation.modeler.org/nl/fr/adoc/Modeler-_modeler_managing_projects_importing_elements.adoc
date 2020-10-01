@@ -1,0 +1,53 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Importer-des-éléments-depuis-des-projets-existants]]
+
+[[importer-des-éléments-depuis-des-projets-existants]]
+= Importer des éléments depuis des projets existants
+
+[[Présentation-de-limport-déléments]]
+
+[[présentation-de-limport-déléments]]
+===== Présentation de l'import d'éléments
+
+La fonctionnalité d'import d'éléments permet d'importer des éléments depuis un projet existant vers votre projet courant.
+
+[[Importer-des-éléments-depuis-un-autre-projet]]
+
+[[importer-des-éléments-depuis-un-autre-projet]]
+===== Importer des éléments depuis un autre projet
+
+image::images/Modeler-_modeler_managing_projects_importing_elements_importing_elements_from_existing_projects_1.png[image]
+.Exécution d'une opération d'import d'éléments
+image::images/Modeler-_modeler_managing_projects_importing_elements_importing_elements_from_existing_projects_2.png[image]
+
+*Étapes :*
+
+1.  Sélectionnez le modèle de travail dans lequel vous souhaitez importer des éléments de modèle
+2.  Exécutez la commande *Import/Export > Import > Import de modèle...*
+3.  Sélectionnez le fichier 'project.conf' du projet contenant les éléments à importer
+4.  Sélectionnez les éléments que vous souhaitez importer
+5.  Démarrez l'import
+
+[[Eléments-importés]]
+
+[[eléments-importés]]
+===== Eléments importés
+
+Les éléments qui peuvent être importés dans votre projet sont classés dans l'ordre hiérarchique classique (les packages qui contiennent les classes). Pour visualiser les classes contenues dans un package, cliquez sur le symbole "+" situé à gauche du nom du package.
+
+La liste ci-dessous décrit exactement ce qui est importé pour chaque type d'élément.
+
+* Projet : Le projet complet (packages, classes, ...)
+* Package : Les classes (avec leurs opérations, attributs, associations "visibles"), les documents, les tagged values, les diagrammes
+* Classe : Les opérations, les attributs, les associations "visibles", les documents, les tagged values, les diagrammes
+
+Les objets non-importés sont les suivants :
+
+* Les liens de référence d'un package vers un autre élément qui n'est pas importé et qui n'existe pas déjà dans le projet courant
+* Les associations non-orientées (aucune visibilité d'un côté ou de l'autre)
+
+L'opération d'import échouera en cas d'incohérence entre les éléments importés.
+
+

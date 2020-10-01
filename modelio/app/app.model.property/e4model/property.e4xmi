@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_AHGhMIkaEeWbO4MnNK7ogg">
+  <imports xsi:type="commands:Command" xmi:id="_89ulgH9HEeK-XvSICEmsLA" elementId="org.modelio.app.ui.command.showview"/>
+  <imports xsi:type="menu:Menu" xmi:id="_-vp2IH9HEeK-XvSICEmsLA" elementId="org.modelio.app.ui.menu.views"/>
+  <imports xsi:type="commands:Command" xmi:id="_BgoUcITkEeK8HPFXYIuaeQ" elementId="org.modelio.app.ui.command.addstereotype"/>
+  <imports xsi:type="commands:Command" xmi:id="_pyrYAJLyEeKzwNCVVnW3jA" elementId="org.modelio.app.ui.command.cut"/>
+  <imports xsi:type="commands:Command" xmi:id="_tWIQoJLyEeKzwNCVVnW3jA" elementId="org.modelio.app.ui.command.copy"/>
+  <imports xsi:type="commands:Command" xmi:id="_unJzoJLyEeKzwNCVVnW3jA" elementId="org.modelio.app.ui.command.paste"/>
+  <imports xsi:type="commands:Command" xmi:id="_9Lu3YJLyEeKzwNCVVnW3jA" elementId="org.eclipse.ui.edit.delete"/>
+  <imports xsi:type="commands:Command" xmi:id="_MjpwEM3tEeKwT-cXufMKNA" elementId="org.modelio.app.ui.command.editstereotype"/>
+  <imports xsi:type="commands:Command" xmi:id="_1A9j8M6_EeKk9eLXstrZSw" elementId="org.modelio.app.ui.command.createstereotype"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ChuVkIfSEeWj6a9oyLXySQ" featurename="sharedElements" parentElementId="org.modelio.app.ui.trimmed">
+    <elements xsi:type="basic:Part" xmi:id="_fn78gLoQEeGR05fGaOD0Vw" elementId="org.modelio.model.propertyId" contributionURI="bundleclass://org.modelio.app.model.property/org.modelio.model.property.view.ElementView" label="%View.label" iconURI="platform:/plugin/org.modelio.app.model.property/icons/elementview.png" tooltip="%View.tooltip" closeable="true"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_C3yJIH9IEeK-XvSICEmsLA" featurename="children" parentElementId="org.modelio.app.ui.menu.views">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_H3jOwH9IEeK-XvSICEmsLA" elementId="org.modelio.property.menuitem.showview" label="%PropertyShowView.label" iconURI="platform:/plugin/org.modelio.app.model.property/icons/elementview.png" tooltip="%PropertyShowView.tooltip" command="_89ulgH9HEeK-XvSICEmsLA">
+      <parameters xmi:id="_4jmuIH9IEeK-XvSICEmsLA" elementId="org.modelio.app.ui.command.showview.viewid" name="org.modelio.app.ui.command.showview.viewid" value="org.modelio.model.propertyId"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_juF7MIfPEeWj6a9oyLXySQ" featurename="commands" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Command" xmi:id="_8aAegJL9EeKzwNCVVnW3jA" elementId="org.modelio.property.command.moveup" commandName="%MoveStereotypeUp.name" description="%MoveStereotypeUp.description"/>
+    <elements xsi:type="commands:Command" xmi:id="_8uh9AJL9EeKzwNCVVnW3jA" elementId="org.modelio.property.command.movedown" commandName="%MoveStereotypeDown.name" description="%MoveStereotypeDown.description"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_TPDw4IkXEeWbO4MnNK7ogg" featurename="handlers" parentElementId="org.modelio.app.application">
+    <elements xsi:type="commands:Handler" xmi:id="_IbgO8M3tEeKwT-cXufMKNA" elementId="org.modelio.model.property.editstereotype" contributionURI="bundleclass://org.modelio.app.model.property/org.modelio.model.property.handlers.EditStereotypeHandler" command="_MjpwEM3tEeKwT-cXufMKNA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_1ZLkwM7BEeKk9eLXstrZSw" elementId="org.modelio.model.property.createstereotype" contributionURI="bundleclass://org.modelio.app.model.property/org.modelio.model.property.handlers.CreateStereotypeHandler" command="_1A9j8M6_EeKk9eLXstrZSw"/>
+    <elements xsi:type="commands:Handler" xmi:id="_Gw_-IDe1EeaozMPeyd4p8w" elementId="org.modelio.model.property.addstereotype" contributionURI="bundleclass://org.modelio.app.model.property/org.modelio.model.property.handlers.AddStereotypeHandler" command="_BgoUcITkEeK8HPFXYIuaeQ"/>
+  </fragments>
+</fragment:ModelFragments>

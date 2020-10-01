@@ -1,0 +1,125 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Plugin Modelio pour Maven
+
+Le plugin Modelio pour Maven permet l'automatisation de l'outil Modelio sur un projet spécifié, et fournit des fonctionnalités Modelio liées aux modules.
+
+Le plugin Modelio pour Maven obtient les valeurs de paramètres qui seront utilisées de la configuration du plugin définie au niveau du pom.
+
+
+== Vue globale des cibles
+
+Le plugin Modelio pour Maven a six cibles, divisées en deux catégories :
+
+* Cibles liées à Modelio
+** <<Modeler-_modeler_maven_plugin_Create-project.adoc#,create-project>> crée un nouveau projet Modelio.
+** <<Modeler-_modeler_maven_plugin_Generate-modelio-javadoc.adoc#,generate-modelio-javadoc>> génère les fichiers Javadoc pour le projet Modelio. Elle exécute la commande "Générer Javadoc" de Java Designer.
+** <<Modeler-_modeler_maven_plugin_Generate-modelio-sources.adoc#,generate-modelio-sources>> génère les sources Java depuis un projet Modelio avec Java Designer sur GitHub (voir https://github.com/ModelioOpenSource/ExtensionsForModelio#java-designer).
+** <<Modeler-_modeler_maven_plugin_Update-modelio-model.adoc#,update-modelio-model>> met à jour le modèle avec SVN Teamwork Manager dans un projet Modelio.
+* Cibles liées aux modules
+** <<Modeler-_modeler_maven_plugin_Module-configuration.adoc#,module-configuration>> met à jour le contenu du fichier module.xml, dans un module development project (voir https://github.com/ModelioOpenSource/Modelio/wiki/Module-Developer-Guide-Index).
+** <<Modeler-_modeler_maven_plugin_Module-validation.adoc#,module-validation>> vérifie le contenu du fichier module.xml, dans un module development project (voir https://github.com/ModelioOpenSource/Modelio/wiki/Module-Developer-Guide-Index).
+
+== Utilisation
+
+Le plugin Modelio pour Maven Plugin utilise l'outil Modelio. Les exemples qui suivent décrivent l'utilisation basique du plugin.
+
+Pour mettre à jour votre projet Modelio depuis SVN, puis générer les sources Java et le Javadoc :
+
+
+[source,xml]
+----
+<project>...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.modelio</groupId>
+        <artifactId>modelio-maven-plugin</artifactId>
+        <version>4.1.0.00</version>
+        <executions>
+          <execution>
+            <id>GenerateJavaSources</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate-modelio-sources</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>GenerateJavadoc</id>
+            <goals>
+              <goal>generate-modelio-javadoc</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <modelioDir>H:\modelio-201204261031-win32.win32.x86_64\modelio</modelioDir>
+          <workspaceDir>H:\modelio-201204261031-win32.win32.x86_64\modelio\workspace</workspaceDir>
+          <projectName>TestProject</projectName>
+          <updateBeforeGeneration>true</updateBeforeGeneration>
+        </configuration>
+      </plugin>
+    ...
+  </build>
+  ...
+</project>
+----
+
+Dans un projet de développement de module, pour renseigner et valider le fichier module.xml :
+
+
+[source,xml]
+----
+<project>...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.modelio</groupId>
+        <artifactId>modelio-maven-plugin</artifactId>
+        <version>4.1.0.00</version>
+        <executions>
+          <execution>
+            <id>ModuleValidation</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>module-validation</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>ResourceManagement</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>module-configuration</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <moduleFile>${project.basedir}/src/main/conf/module.xml</moduleFile>
+        </configuration>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+----
+
+
+== Où trouver ce plugin
+
+Dans votre fichier pom.xml, ajoutez le code suivant pour utiliser le référentiel Modelio :
+
+[source,xml]
+----
+<project>
+  ...
+  <pluginRepositories>
+    <pluginRepository>
+      <id>modelio</id>
+      <url>http://repository.modelio.org</url>
+    </pluginRepository>
+    ...
+  </pluginRepositories>
+  ...
+</project>
+----

@@ -1,0 +1,74 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2050]]
+
+[[r2050]]
+= R2050
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+Some elements cannot be anonymous.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+In UML, elements of the following metaclasses must always have a name:
+
+*	AnalystProject
+*	Artifact
+*	Attribute
+*	AttributeLink
+*	Class
+*	Collaboration
+*	CollaborationUse
+*	Component
+*	DataType
+*	Dictionary
+*	Enumeration
+*	EnumerationLiteral
+*	EnumeratedPropertyType
+*	Event
+*	Interface
+*	Link
+*	Node
+*	NoteType
+*	Operation
+*	Package
+*	Parameter
+*	Project
+*	Property
+*	PropertyEnumerationLitteral
+*	PropertySet
+*	PropertyType
+*	Requirement
+*	RequirementContainer
+*	Signal
+*	StateMachine
+*	Stereotype
+*	TagType
+*	Term
+*	ActivityDiagram
+*	BpmnProcessCollaborationDiagram
+*	BpmnSubProcessDiagram
+*	CommunicationDiagram
+*	SequenceDiagram
+*	StateMachineDiagram
+*	ClassDiagram
+*	DeploymentDiagram
+*	ObjectDiagram
+*	UseCaseDiagram
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Edit the name property of the element.
+
+

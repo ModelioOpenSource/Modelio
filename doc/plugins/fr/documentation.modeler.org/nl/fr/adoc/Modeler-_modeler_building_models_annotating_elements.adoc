@@ -1,0 +1,27 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Annoter-des-éléments]]
+
+[[annoter-des-éléments]]
+= Annoter des éléments
+
+Modelio supporte différents mécanismes d'annotation utilisés pour compléter les propriétés des éléments de modèle.
+
+Ces annotations sont les suivantes :
+
+* *Stéréotypes* – qui servent à modifier / raffiner le type d'un objet ( ~ comme si le stéréotype était une métaclasse qui type l'élément).
+* *Tagged values* – utilisées pour ajouter des propriétés à un élément ( ~ les attributs apportés à l'élément par le stéréotype).
+* *Notes & contraintes* – les données textuelles associées à l'élément. Utilisées pour plusieurs choses : la description, la documentation, le code, et ainsi de suite.
+* *Notes riches* – similaire aux _notes_. Cependant, le contenu des notes riches peut être de tout type (supporté) : HTML, document OpenOffice ou Word, et ainsi de suite...
+
+Très souvent les annotations sont pleinement gérées par les modules de manière transparente à l'utilisateur, où le module fournit une IHM dédiée qui est plus conviviale qu'un ensemble d'annotations.
+
+Cependant, chaque annotation reste manipulable à travers l'IHM standard de Modelio :
+
+* *<<Modeler-_modeler_building_models_add_stereotypes.adoc#,Ajouter des stéréotypes aux éléments>>*
+* *<<Modeler-_modeler_building_models_add_tv.adoc#,Ajouter des tagged values aux éléments>>*
+* *<<Modeler-_modeler_building_models_add_notes.adoc#,Ajouter des notes / contraintes aux éléments>>*
+* *<<Modeler-_modeler_building_models_add_richnotes.adoc#,Ajouter des notes riches aux éléments>>*
+
+

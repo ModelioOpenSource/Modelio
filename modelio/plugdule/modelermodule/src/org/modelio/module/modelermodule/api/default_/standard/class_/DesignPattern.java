@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.class_;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("0485dbda-681e-4361-bcdb-4b0adb5be546")
 public class DesignPattern {
-    @objid ("7b6dab07-5078-430b-9a6d-2a10000fe4d3")
+    @objid ("86f8e267-f9ea-4ab4-a389-613425469c5d")
     public static final String STEREOTYPE_NAME = "design pattern";
 
     /**
      * The underlying {@link Class} represented by this proxy, never null.
      */
-    @objid ("6be9f82f-2400-41a4-880d-7ae04f81df84")
+    @objid ("c8c1abbb-4cb8-4532-b78e-8146903664aa")
     protected final Class elt;
 
     /**
-     * Tells whether a {@link DesignPattern proxy} can be instantiated from a {@link MObject} checking it is a {@link Class} stereotyped << design pattern >>. 
+     * Tells whether a {@link DesignPattern proxy} can be instantiated from a {@link MObject} checking it is a {@link Class} stereotyped << design pattern >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("2a53d7f6-24d2-4ddd-9909-33b934d33f54")
+    @objid ("975c82d4-6189-4a17-90fb-a7005b1c65c0")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Class) && ((Class) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, DesignPattern.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class DesignPattern {
      * 
      * @return a {@link DesignPattern} proxy on the created {@link Class}.
      */
-    @objid ("a9d681b2-a4ad-4cb5-aa42-3f5b96bc83e1")
+    @objid ("e2dae30b-534b-46cf-851c-9188cf877fa1")
     public static DesignPattern create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Class");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, DesignPattern.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class DesignPattern {
     }
 
     /**
-     * Tries to instantiate a {@link DesignPattern} proxy from a {@link Class} stereotyped << design pattern >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link DesignPattern} proxy from a {@link Class} stereotyped << design pattern >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Class
      * @return a {@link DesignPattern} proxy or <i>null</i>.
      */
-    @objid ("b8edb5ed-203f-4ae2-859d-f283bdd103ef")
+    @objid ("38838c6d-7ea9-46c9-8979-fe6fa1448413")
     public static DesignPattern instantiate(Class obj) {
         return DesignPattern.canInstantiate(obj) ? new DesignPattern(obj) : null;
     }
@@ -104,7 +104,7 @@ public class DesignPattern {
      * @return a {@link DesignPattern} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("6f83ffd8-4c39-441d-83e8-5aa96b83a9f4")
+    @objid ("80ccb420-e510-424e-8f6f-df0533091edd")
     public static DesignPattern safeInstantiate(Class obj) throws IllegalArgumentException {
         if (DesignPattern.canInstantiate(obj))
         	return new DesignPattern(obj);
@@ -112,7 +112,7 @@ public class DesignPattern {
         	throw new IllegalArgumentException("DesignPattern: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("5fe4e59b-3467-4b03-b999-212241b8d025")
+    @objid ("33a3a257-57a0-4840-9e8d-f2c23e9cb2f4")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class DesignPattern {
      * Get the underlying {@link Class}. 
      * @return the Class represented by this proxy, never null.
      */
-    @objid ("db2bfc62-311f-4239-859e-6bfac6a1f721")
+    @objid ("3e16be98-b4b2-4b3a-9686-a727f24d9b91")
     public Class getElement() {
         return this.elt;
     }
 
-    @objid ("b121b16d-d0ea-438b-883d-0adbb7a35815")
+    @objid ("e5f63f71-e619-4ad4-9821-60797a6f7c20")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("eb40e03a-86c2-4773-b011-3283113ec21e")
+    @objid ("106b580c-1f4b-4649-94d0-1042ccf28632")
     protected DesignPattern(Class elt) {
         this.elt = elt;
     }
 
     @objid ("c58585f8-0f0c-4e0b-82c0-d99f524b2dfc")
     public static final class MdaTypes {
-        @objid ("b5f036f1-205c-4b82-989e-e796836a2065")
+        @objid ("9df52ca2-26bb-42a0-883b-c503d63074f8")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("0509a06d-83cf-40c8-ab2e-f354e01edf39")
+        @objid ("3bd5f572-ffa6-44ca-9a8c-b873895674fd")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("4873bbc7-0d8e-428a-9320-a5c115a87e88")
+        @objid ("a0fe7a08-e654-407f-a06f-e9624eb73b1f")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("131c418c-5fba-43bc-b73a-f39cbb68c272")
+        @objid ("9d79e208-4cbc-41d8-bce7-3680e6fe8bf3")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "007006dc-0000-0139-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

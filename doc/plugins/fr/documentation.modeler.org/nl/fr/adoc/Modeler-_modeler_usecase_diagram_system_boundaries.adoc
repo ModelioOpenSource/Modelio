@@ -1,0 +1,20 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[System-Boundaries-limites-du-système-des-diagrammes-de-Use-Case]]
+
+[[system-boundaries-limites-du-système-des-diagrammes-de-use-case]]
+= System Boundaries (limites du système) des diagrammes de Use Case
+
+Par défaut, les limites (System Boundaries) du système représenté dans un diagramme de Use Case ne sont pas affichées. Ces limites représentent le package parent du diagramme et permettent de grouper visuellement des éléments liés. +
+Pour les démasquer, il faut ouvrir la vue Symbol du diagramme et cocher l'option apprpriée:
+
+image::images/Modeler-_modeler_usecase_diagram_system_boundaries_UCDiag_SystemBoundaries.png[1]
+
+*Légende :*
+
+1. Ouvrir la vue Symbol à la droite du diagramme
+2. Cocher l'option 'Show System Boundaries'
+3. Les limites du système sont désormais visibles dans le diagramme
+
+

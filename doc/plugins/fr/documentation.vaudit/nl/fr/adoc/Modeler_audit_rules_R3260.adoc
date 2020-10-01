@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3260]]
+
+[[r3260]]
+= R3260
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Le modèle ne doit pas comporter d'éléments manquants.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les éléments manquants sont des éléments qui sont référencés dans le projet sans qu'il soit possible d'y accéder physiquement. Par exemple, un modèle distant qui n'est plus accessible à cause d'une coupure réseau. Autre situation possible, un module absent ou cassé mais dont les extensions (stéréotypes, tag types, etc.) sont utilisées par des éléments du modèle. Ces extensions apparaissent comme des éléments manquants parce qu'elles sont effectivement absentes.
+
+Lorsque la cause de l'apparition des éléments manquants est résolue (connexion réseau rétablie, module manquant installé), la référenceaux éléments manquants est réparée automatiquement. Il ne devrait donc pas y avoir d'élément manquant dans un modèle opérationnel et correctement configuré (modules valides, connexion réseau, etc.) La règle R3260 agit comme un signal d'alarme pour vous inviter à réparer votre projet.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Vérifiez qu'un module, un modèle de travail ou une librairie n'a pas été supprimé du projet, ou qu'il est toujours accessible via le réseau. Vous pouvez aussi utiliser l'affichage des NamespaceUses dans l'éditeur de lien pour repérer les références à des éléments manquants et les remplacer par des éléments existants.
+
+

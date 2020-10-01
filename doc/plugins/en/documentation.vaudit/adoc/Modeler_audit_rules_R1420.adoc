@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1420]]
+
+[[r1420]]
+= R1420
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+_Actors_ and _UseCases_ can only have binary _Associations_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Use case diagrams only use binary associations. If you want to link an actor to many use cases, use several links.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have an n-ary link in a use case diagram, consider breaking it into several links.
+
+

@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.modelio</groupId>
+		<artifactId>modelio-parent</artifactId>
+		<version>4.1.0-SNAPSHOT</version>
+		<relativePath>../../..</relativePath>
+	</parent>
+
+	<groupId>org.modelio</groupId>
+	<artifactId>org.modelio.app.editors.richnote.libreoffice</artifactId>
+	<packaging>eclipse-plugin</packaging>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<useProjectSettings>true</useProjectSettings>
+					<extraClasspathElements>
+
+						<extraClasspathElement>
+							<groupId>org.modelio</groupId>
+							<artifactId>javadesigner</artifactId>
+							<version>2.2.0</version>
+						</extraClasspathElement>
+
+						<extraClasspathElement>
+							<groupId>org.modelio.libreoffice</groupId>
+							<artifactId>com.sun.star.juh</artifactId>
+							<version>3.6.0</version>
+						</extraClasspathElement>
+
+						<extraClasspathElement>
+							<groupId>org.modelio.libreoffice</groupId>
+							<artifactId>com.sun.star.jurt</artifactId>
+							<version>3.6.0</version>
+						</extraClasspathElement>
+
+						<extraClasspathElement>
+							<groupId>org.modelio.libreoffice</groupId>
+							<artifactId>com.sun.star.ridl</artifactId>
+							<version>3.6.0</version>
+						</extraClasspathElement>
+
+						<extraClasspathElement>
+							<groupId>org.modelio.libreoffice</groupId>
+							<artifactId>com.sun.star.unoil</artifactId>
+							<version>3.6.0</version>
+						</extraClasspathElement>
+
+					</extraClasspathElements>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>rename</id>
+						<phase>process-classes</phase>
+						<configuration>
+							<target>
+							
+								<mkdir dir="${basedir}/runtime/bin/com/sun/star/lib/connections"/>
+								<mkdir dir="${basedir}/runtime/bin/com/sun/star/comp"/>
+								<mkdir dir="${basedir}/runtime/bin/org/modelio/editors/richnote/libreoffice/runtime"/>
+							
+								<delete>
+									<fileset dir="${basedir}/runtime/bin/com/sun/star/lib/connections">
+										<include name="**/*" />
+									</fileset>
+									<fileset dir="${basedir}/runtime/bin/com/sun/star/comp">
+										<include name="**/*" />
+									</fileset>
+									<fileset dir="${basedir}/runtime/bin/org/modelio/editors/richnote/libreoffice/runtime">
+										<include name="**/*" />
+									</fileset>
+								</delete>
+
+								<move todir="${basedir}/runtime/bin/com/sun/star/comp" includeEmptyDirs="yes" verbose="true">
+									<fileset dir="${basedir}/target/classes/com/sun/star/comp" >
+										<include name="**/*" />
+									</fileset>
+								</move>
+								<move todir="${basedir}/runtime/bin/com/sun/star/lib/connections" includeEmptyDirs="yes" verbose="true">
+									<fileset dir="${basedir}/target/classes/com/sun/star/lib/connections" >
+										<include name="**/*" />
+									</fileset>
+								</move>
+								<move todir="${basedir}/runtime/bin/org/modelio/editors/richnote/libreoffice/runtime" includeEmptyDirs="yes" verbose="true">
+									<fileset dir="${basedir}/target/classes/org/modelio/editors/richnote/libreoffice/runtime" >
+										<include name="**/*" />
+									</fileset>
+								</move>
+								
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
+

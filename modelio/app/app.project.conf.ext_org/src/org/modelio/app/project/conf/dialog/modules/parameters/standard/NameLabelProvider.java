@@ -27,7 +27,7 @@ import org.eclipse.swt.graphics.Image;
 import org.modelio.api.module.IModule;
 import org.modelio.api.module.parameter.IParameterGroupModel;
 import org.modelio.api.module.parameter.impl.ParameterModel;
-import org.modelio.ui.UIColor;
+import org.modelio.platform.ui.UIColor;
 
 /**
  * Label provider for the parameter name column.

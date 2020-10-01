@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2100]]
+
+[[r2100]]
+= R2100
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Dans un _EnumerationPropertyType_, le nom de chaque _PropertyEnumerationLiteral_ doit être unique.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Avoir plusieurs éléments portant le même nom peut être déroutant.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Renommez chaque élément ayant un nom dupliqué.
+
+

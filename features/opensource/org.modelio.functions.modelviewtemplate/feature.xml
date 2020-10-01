@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.modelio.functions.modelviewtemplate"
+         label="Functions  Model view template"
+         version="4.1.0.qualifier"
+         provider-name="modelio.org">
+
+<copyright>
+      Copyright 2019 Modeliosoft
+All information contained herein is, and remains the property of Modeliosoft.
+The intellectual and technical concepts contained herein are proprietary
+to Modeliosoft and may be covered by French and Foreign Patents, patents
+in process, and are protected by trade secret or copyright law.
+Dissemination of this information or reproduction of this material
+is strictly forbidden unless prior written permission is obtained
+from Modeliosoft.
+</copyright>
+
+<license url="">
+GPL
+</license>
+
+<url>
+  <discovery label="modelio.org" url="https://www.modelio.org"/>
+</url>
+<requires>
+</requires>
+
+<plugin id="org.modelio.platform.model.view.template"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        fragment="false"
+        unpack="false"/>
+
+</feature>

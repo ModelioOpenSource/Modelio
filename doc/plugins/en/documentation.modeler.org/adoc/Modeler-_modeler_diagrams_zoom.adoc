@@ -1,0 +1,22 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Using-the-zoom-function]]
+
+[[using-the-zoom-function]]
+= Using the zoom function
+
+The "Zoom" function is used to zoom in or out on the entire contents of a diagram.
+
+Zooming in on the contents of a diagram increases the size of the elements shown, making it easier to read.
+
+Zooming out on a diagram's contents reduces the size of the elements shown, and can be particularly useful if you are working with a large-scale diagram and wish to visualize a larger part of the presentation.
+
+To use the "Zoom" function, simply carry out the following steps:
+
+* Click inside the diagram you want to zoom in or out of.
+* Roll the mouse wheel while pressing the *Ctrl* key or use the ' *+* ' and ' *–* ' keys to zoom either in or out on the diagram contents.
+
+You can also use the "Zoom in" [image:images/Modeler-_modeler_diagrams_zoom_zoom_in.png[2]] and "Zoom out" [image:images/Modeler-_modeler_diagrams_zoom_zoom_out.png[3]] icons in the diagram toolbar.
+
+

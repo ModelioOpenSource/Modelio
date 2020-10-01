@@ -53,7 +53,7 @@ import org.modelio.app.ramcs.plugin.AppRamcs;
 import org.modelio.gproject.ramc.core.model.ModelComponent;
 import org.modelio.gproject.ramc.core.packaging.IModelComponentContributor.ExportedFileEntry;
 import org.modelio.metamodel.uml.infrastructure.Element;
-import org.modelio.ui.UIColor;
+import org.modelio.platform.ui.UIColor;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.session.api.model.IModel;
 import org.modelio.vcore.session.impl.CoreSession;

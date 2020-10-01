@@ -23,12 +23,12 @@ package org.modelio.app.project.conf.dialog.common;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.module.IModule;
-import org.modelio.core.ui.swt.images.MetamodelImageService;
 import org.modelio.gproject.module.GModule;
-import org.modelio.mda.infra.ModuleI18NService;
-import org.modelio.mda.infra.service.IModuleManagementService;
-import org.modelio.mda.infra.service.IRTModule;
 import org.modelio.metamodel.mda.ModuleComponent;
+import org.modelio.platform.mda.infra.ModuleI18NService;
+import org.modelio.platform.mda.infra.service.IModuleManagementService;
+import org.modelio.platform.mda.infra.service.IRTModule;
+import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 
 /**
  * Label provider helper for module related elements

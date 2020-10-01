@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Built-By: genie.nebula
+Created-By: Apache Maven 3.5.4
+Build-Jdk: 1.8.0_192
+
+Name: about.html
+SHA-256-Digest: NhSKFQjBnH9zINhfk8zvs36Cc3QL1t2HIkf44x3bWP4=
+
+Name: Nebula_All.psf
+SHA-256-Digest: t7GfhN+jOIRmjtHUDu+blbDLhPQb2VwVv6h+urBveYE=
+
+Name: feature.xml
+SHA-256-Digest: t0P+cvrKMU8qecTCA1MVOiLb2GlOD1C2JE+Mji3ibtE=
+
+Name: feature.properties
+SHA-256-Digest: /PvmeN+wgdzW3j9RhyQ+JEwbt4nQ6o0kDM1fH5lqhYI=
+
+Name: license.html
+SHA-256-Digest: NtYy0Ct2AeIvgzgxPdhL3DTZ5FKCaZ8avCdEgRY57Ho=
+

@@ -24,15 +24,15 @@ import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.widgets.Display;
-import org.modelio.app.core.IModelioEventService;
-import org.modelio.app.core.IModelioService;
-import org.modelio.app.core.events.ModelioEvent;
 import org.modelio.metamodel.diagrams.StateMachineDiagram;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
 import org.modelio.model.browser.view.handlers.create.CreateCmsElementHandler;
+import org.modelio.platform.core.IModelioEventService;
+import org.modelio.platform.core.IModelioService;
+import org.modelio.platform.core.events.ModelioEvent;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("89659379-c9d8-11e1-b479-001ec947c8cc")

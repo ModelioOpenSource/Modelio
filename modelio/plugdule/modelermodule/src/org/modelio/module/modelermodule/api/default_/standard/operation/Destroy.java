@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.operation;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("699eb4cb-af8a-484f-af24-91a599fada81")
 public class Destroy {
-    @objid ("3069d99b-e3bd-43b3-b9e8-c2b50fd5567b")
+    @objid ("9a875a41-fbf9-42b2-9088-8919860eb830")
     public static final String STEREOTYPE_NAME = "destroy";
 
     /**
      * The underlying {@link Operation} represented by this proxy, never null.
      */
-    @objid ("88b076c4-17d8-4158-b9dc-98ad19aeac44")
+    @objid ("bd8830cf-76a0-43bb-b160-6242aa4005be")
     protected final Operation elt;
 
     /**
-     * Tells whether a {@link Destroy proxy} can be instantiated from a {@link MObject} checking it is a {@link Operation} stereotyped << destroy >>. 
+     * Tells whether a {@link Destroy proxy} can be instantiated from a {@link MObject} checking it is a {@link Operation} stereotyped << destroy >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("45fbbad8-64d5-4ce1-acd4-061da5c86e0d")
+    @objid ("795b8dcc-c965-452a-8efc-d1db37a23211")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Operation) && ((Operation) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Destroy.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Destroy {
      * 
      * @return a {@link Destroy} proxy on the created {@link Operation}.
      */
-    @objid ("21654b9e-a1e8-4550-bcf1-bbde12d16488")
+    @objid ("8fc865b7-c99d-410d-9bbe-0d920b866731")
     public static Destroy create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Operation");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Destroy.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Destroy {
     }
 
     /**
-     * Tries to instantiate a {@link Destroy} proxy from a {@link Operation} stereotyped << destroy >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Destroy} proxy from a {@link Operation} stereotyped << destroy >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Operation
      * @return a {@link Destroy} proxy or <i>null</i>.
      */
-    @objid ("5c8f3bc9-3d78-46dd-ae4d-f06a1792f9ec")
+    @objid ("9e76b427-33fb-482a-9af3-78f0245d2ad4")
     public static Destroy instantiate(Operation obj) {
         return Destroy.canInstantiate(obj) ? new Destroy(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Destroy {
      * @return a {@link Destroy} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("2346d11a-c743-4357-9359-3575be16879b")
+    @objid ("bd2b3e33-701b-4e56-8528-3c0cd5ecdf74")
     public static Destroy safeInstantiate(Operation obj) throws IllegalArgumentException {
         if (Destroy.canInstantiate(obj))
         	return new Destroy(obj);
@@ -112,7 +112,7 @@ public class Destroy {
         	throw new IllegalArgumentException("Destroy: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("f1ae67a2-4f10-41d7-b750-6690e66fe05b")
+    @objid ("94123dff-78c6-428b-b5cf-aacec3d05e4f")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Destroy {
      * Get the underlying {@link Operation}. 
      * @return the Operation represented by this proxy, never null.
      */
-    @objid ("ef1f7773-e6ec-4668-9e9f-8eb0e36ae413")
+    @objid ("088d51e1-5c2d-4d12-9efd-af9d9e95f624")
     public Operation getElement() {
         return this.elt;
     }
 
-    @objid ("f6c399f8-7544-41b4-b162-3e6619bc808f")
+    @objid ("66678d15-61f0-4a39-87b0-ceeab10ab66d")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("bfcefefb-4698-4d1c-939d-167983b60cea")
+    @objid ("033650bc-fa06-44aa-87b6-e2fadbf4749a")
     protected Destroy(Operation elt) {
         this.elt = elt;
     }
 
     @objid ("452f4dff-b119-47dc-9dd6-c88f4d500896")
     public static final class MdaTypes {
-        @objid ("d37d05f3-e9e3-4593-88bf-55d6eef374c5")
+        @objid ("4525f235-bb1f-4158-9dd9-4b5c34ac6abd")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("d410cdbe-9194-4701-8f84-9cf8e0356dbe")
+        @objid ("fec70ba7-bfda-4071-bdfd-3e9218a629fc")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("cd8ea31c-7b8b-4c86-94b8-9b77112aafd7")
+        @objid ("252a17f3-0342-47a7-8422-be25936814ef")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("7cb3d76e-0d15-4e19-a230-62e9b331f41b")
+        @objid ("b2e0f4bf-2644-4aab-9264-8f29e011f68e")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-0206-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

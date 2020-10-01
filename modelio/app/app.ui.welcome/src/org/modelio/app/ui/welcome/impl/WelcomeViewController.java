@@ -34,11 +34,11 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.project.core.services.IProjectService;
-import org.modelio.app.project.core.services.ProjectImporter;
 import org.modelio.app.ui.welcome.plugin.AppUiWelcome;
-import org.modelio.core.rcp.uiservice.IModelioUiService;
-import org.modelio.ui.progress.IModelioProgressService;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.project.services.ProjectImporter;
+import org.modelio.platform.rcp.uiservice.IModelioUiService;
+import org.modelio.platform.ui.progress.IModelioProgressService;
 import org.modelio.vbasic.files.FileUtils;
 
 /**

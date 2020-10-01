@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1980]]
+
+[[r1980]]
+= R1980
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The name of a _Classifier_'s _Attributes_ and _AssociationEnds_ must be unique.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The _Attributes_ and _AssociationEnds_ of a _Classifier_ represent variables that can be identified by their names, so they must have a unique name in that Classifier.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Rename the _Classifier_'s _Attributes_ and _AssociationEnds_ so they each have a unique name in the _Classifier_.
+
+

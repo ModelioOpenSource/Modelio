@@ -1,0 +1,36 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3030]]
+
+[[r3030]]
+= R3030
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Dependency_ de type «refine» doit soit :
+
+1) partir d'un _ModelElement_ et cibler un _Requirement_
+
+2) partir d'une _BusinessRule_, d'une _Activity_ ou d'une _Operation_ et cibler une BusinessRule.
+
+3) partir d'un _ModelElement_ et cibler un élément _Archimate_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Dependency_ de type «refine» indique qu'un _ModelElement_ est utilisé pour raffiner un _Requirement_ ou une _BusinessRule_. Par exemple, un diagramme de _UseCase_ ou d'_Activité_ peut être utilisé pour raffiner un _Requirement_ fonctionnel basé sur du texte.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une _Dependency_ de type «refine» qui n'est pas entre deux éléments compatibles, vous devriez la supprimer.
+
+

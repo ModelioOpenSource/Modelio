@@ -1,0 +1,52 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Créer-et-publier-une-bibliothèque-distante]]
+
+[[créer-et-publier-une-bibliothèque-distante]]
+= Créer et publier une bibliothèque distante
+
+[[Le-cycle-de-vie-dune-bibliothèque-distante]]
+
+[[le-cycle-de-vie-dune-bibliothèque-distante]]
+===== Le cycle de vie d'une bibliothèque distante
+
+Le cycle de vie d'une bibliothèque distante consiste en deux étapes :
+
+1.  Son *développement*,
+2.  Sa *publication*.
+
+[[Le-développement-dune-bibliothèque-distante]]
+
+[[le-développement-dune-bibliothèque-distante]]
+===== Le développement d'une bibliothèque distante
+
+L'étape de développement consiste en la production du modèle contenu dans la bibliothèque. Cette tâche se fait dans Modelio, en utilisant l'une de ses nombreuses méthodes de création de modèles : la modélisation directe, le reverse de code, l'import XMI et ainsi de suite.
+
+Le but est simplement de produire un modèle. Une fois ce modèle disponible, il peut être publié sur un site HTTP accessible.
+
+[[La-publication-dune-bibliothèque-distante]]
+
+[[la-publication-dune-bibliothèque-distante]]
+===== La publication d'une bibliothèque distante
+
+Cette opération comprend la _préparation_ et la mise en ligne d'une bibliothèque sur un serveur HTTP où il sera disponible.
+
+Ce document ne traite pas la mise en ligne de fichiers sur un serveur et la mise en oeuvre d'un serveur HTTP.
+
+En revanche, la préparation du projet Modelio utilisé pour développer la bibliothèque afin de permettre la mise en ligne des fichiers du projet est présentée ci-dessous, ainsi que des informations sur les fichiers à mettre en ligne.
+
+*La préparation du modèle*
+
+Nommons le répertoire du projet de bibliothèque *$PROJECT* et le modèle de travail dans lequel se trouve le modèle à publier *$MODEL*.
+
+1.  Préparez un répertoire vide (*$LIBRARY* dans ce qui suit) où les fichiers à mettre en ligne sur le serveur seront préparés.
+2.  Copiez le contenu du répertoire *$PROJECT*/data/fragments/*$MODEL*/admin dans le répertoire *$LIBRARY*/*$MODEL*/admin.
+3.  Copiez le contenu du répertoire *$PROJECT*/data/fragments/*$MODEL*/blobs dans le répertoire *$LIBRARY*/*$MODEL*/blobs.
+4.  Copiez le contenu du répertoire *$PROJECT*/data/fragments/*$MODEL*/model dans le répertoire *$LIBRARY*/*$MODEL*/model.
+5.  Copiez le contenu du répertoire *$PROJECT*/.runtime/fragments/*$MODEL*/.index dans le répertoire *$LIBRARY*/*$MODEL*/.index.
+6.  Mettez en ligne tout le contenu de *$LIBRARY* sur le serveur HTTP qui héberge la bibliothèque.
+
+Après la mise en ligne, la bibliothèque sera disponible et vous allez pouvoir l'utiliser dans vos projets Modelio, en utilisant l'URL qui résulte de la configuration du serveur HTTP.
+
+

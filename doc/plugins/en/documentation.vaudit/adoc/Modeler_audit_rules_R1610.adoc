@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1610]]
+
+[[r1610]]
+= R1610
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A primitive _GeneralClass_ cannot have state machines.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A _GeneralClass_ is primitive (also called elementary) if its value cannot be broken down and its instances are not handled by the application. For example, integer and boolean are elementary classes, whereas Human or Device are generally not.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a primitive _GeneralClass_ with a state machine, you should consider making the class non-primitive or moving the state machine into a non-primitive class.
+
+

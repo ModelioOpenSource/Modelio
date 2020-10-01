@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.associationend;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("1e11d2ec-9ce3-43ed-8790-218d82be338b")
 public class UML2ExtensionEnd {
-    @objid ("984deb78-00e4-437d-86c7-d47ca57c88bd")
+    @objid ("e48a0a57-d56c-4691-b06a-a62ca166056a")
     public static final String STEREOTYPE_NAME = "UML2ExtensionEnd";
 
     /**
      * The underlying {@link AssociationEnd} represented by this proxy, never null.
      */
-    @objid ("f5803466-9def-4719-ae67-0ae054990a23")
+    @objid ("de51000a-e3e0-4202-908b-03f88eb7c31a")
     protected final AssociationEnd elt;
 
     /**
-     * Tells whether a {@link UML2ExtensionEnd proxy} can be instantiated from a {@link MObject} checking it is a {@link AssociationEnd} stereotyped << UML2ExtensionEnd >>. 
+     * Tells whether a {@link UML2ExtensionEnd proxy} can be instantiated from a {@link MObject} checking it is a {@link AssociationEnd} stereotyped << UML2ExtensionEnd >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("5c79da91-696d-417a-b573-94adeb81c2d4")
+    @objid ("8c4fcc65-1874-4c90-981e-c4d8131ee9d2")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof AssociationEnd) && ((AssociationEnd) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ExtensionEnd.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2ExtensionEnd {
      * 
      * @return a {@link UML2ExtensionEnd} proxy on the created {@link AssociationEnd}.
      */
-    @objid ("4c997ea4-c9f4-4b60-9551-de113ebedfdf")
+    @objid ("a1b804e7-3b90-4fc9-861d-88b834d61f98")
     public static UML2ExtensionEnd create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("AssociationEnd");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ExtensionEnd.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2ExtensionEnd {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ExtensionEnd} proxy from a {@link AssociationEnd} stereotyped << UML2ExtensionEnd >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ExtensionEnd} proxy from a {@link AssociationEnd} stereotyped << UML2ExtensionEnd >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a AssociationEnd
      * @return a {@link UML2ExtensionEnd} proxy or <i>null</i>.
      */
-    @objid ("ed1b9e48-65f6-420d-b4f5-3f10fde0d31c")
+    @objid ("9b0bba5f-a253-4bc5-93d1-c409ace446db")
     public static UML2ExtensionEnd instantiate(AssociationEnd obj) {
         return UML2ExtensionEnd.canInstantiate(obj) ? new UML2ExtensionEnd(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2ExtensionEnd {
      * @return a {@link UML2ExtensionEnd} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("4088d485-7479-49de-ba3e-9a54dde6f7f1")
+    @objid ("f8eecfcd-2bd2-43fc-b84f-adce9fc4e2f2")
     public static UML2ExtensionEnd safeInstantiate(AssociationEnd obj) throws IllegalArgumentException {
         if (UML2ExtensionEnd.canInstantiate(obj))
         	return new UML2ExtensionEnd(obj);
@@ -112,7 +112,7 @@ public class UML2ExtensionEnd {
         	throw new IllegalArgumentException("UML2ExtensionEnd: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("e4d44da5-e77d-47f1-862a-288f46945ea0")
+    @objid ("5d12864c-72c1-4c8c-b7f7-ee92cb785684")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2ExtensionEnd {
      * Get the underlying {@link AssociationEnd}. 
      * @return the AssociationEnd represented by this proxy, never null.
      */
-    @objid ("17226ea3-148f-48dc-b59a-7615c5c15e79")
+    @objid ("1ec85d2b-d066-4ff1-b3e1-50127d282c97")
     public AssociationEnd getElement() {
         return this.elt;
     }
 
-    @objid ("c2c8ec5b-5a60-4923-9a80-d972ff63295c")
+    @objid ("e9a64ebe-6676-4406-b93a-236f064f664f")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("e560268c-558a-40ff-9843-8891af0058cf")
+    @objid ("5c49d2b4-4b5c-43f9-b938-821fe06f1eb5")
     protected UML2ExtensionEnd(AssociationEnd elt) {
         this.elt = elt;
     }
 
     @objid ("bd346fa3-cf3c-4b64-a0dc-310c1bd53e73")
     public static final class MdaTypes {
-        @objid ("46f0e229-245e-4ad1-a340-abe0cea0a6e5")
+        @objid ("7f973e57-599f-44d2-8ceb-e84ed673f553")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("f61179e3-33e1-4e16-b375-99f22588ac44")
+        @objid ("a3a858f6-e7bc-454a-99c2-3ac3a4e1ddb4")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("706f6e14-a9b3-46c7-a9d3-79f6b211c651")
+        @objid ("a5b2f7eb-3ef6-4b81-9184-b22457160ff5")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("b94e1809-5986-4d7e-8b79-68e407624764")
+        @objid ("9c2df524-b964-4851-bd1a-c4e8f09cdfd5")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "770df309-5d0c-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

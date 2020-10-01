@@ -1,0 +1,47 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= update-modelio-model
+
+== Nom complet
+
+----
+org.modelio:modelio-maven-plugin:4.1.0.00:update-modelio-model
+----
+
+== Description
+
+Met à jour un projet Modelio connecté à un référentiel Subversion. Il exécute la commande "Update" du module SVN Teamwork Manager.
+
+== Paramètres obligatoires
+
+[width="100%",cols="25%,25%,25%,25%",options="header",]
+|==========================================================
+|Nom |Type |Depuis |Description
+|modelioDir |Fichier |2.2.0.01 a|
+Répertoire d'installation de Modelio. +
+Exemple :
+
+....
+<modelioDir>C:\Program Files\modelio 2.2</modelioDir>
+....
+
+|workspaceDir |Fichier |2.2.0.01 a|
+Espace de travail. +
+Exemple :
+
+....
+<workspaceDir>C:\Users\XXX\modelio\workspace</workspaceDir>
+....
+
+|projectName |Nom |2.2.0.01 a|
+Projet à utiliser. +
+Exemple :
+
+....
+<projectName>JavaProject</projectName>
+....
+
+|==========================================================
+
+

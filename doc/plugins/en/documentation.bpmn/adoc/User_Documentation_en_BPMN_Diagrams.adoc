@@ -1,0 +1,13 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= BPMN Diagrams
+
+There are 3 kinds of BPMN Diagrams:
+
+
+* <<User_Documentation_en_BPMN_Diagrams_Collaboration_diagram.adoc#,image:images/attachment/bpmn41/User_Documentation_en/BPMN_Diagrams/WebHome/bpmncollaborationdiagram.png[] Collaboration diagram>>
+*  <<User_Documentation_en_BPMN_Diagrams_Process_diagram.adoc#,image:images/attachment/bpmn41/User_Documentation_en/BPMN_Diagrams/WebHome/bpmnprocessdesigndiagram.png[] Process Design diagram>>
+*  <<User_Documentation_en_BPMN_Diagrams_SubProcess_diagram.adoc#,image:images/attachment/bpmn41/User_Documentation_en/BPMN_Diagrams/WebHome/bpmnsubprocessdiagram.png[] Sub-Process diagram>>
+
+The BPMN Diagrams provide several BPMN exclusive <<User_Documentation_en_BPMN_Diagrams_Advanced_workflow_creation.adoc#,tools.>>

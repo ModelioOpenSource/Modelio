@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.formalism.bpmn"
          label="Formalism BPMN"
-         version="4.0.1.qualifier"
+         version="4.1.0.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -33,25 +33,19 @@ GPL
 <requires>
 </requires>
 
-<plugin id="org.modelio.diagram.editor.bpmn"
-        download-size="0"
-        install-size="0"
-        version="0.0.0"
-        fragment="false"
-        unpack="false"/>
-<plugin id="org.modelio.bpmn-xml"
-        download-size="0"
-        install-size="0"
-        version="0.0.0"
-        fragment="false"
-        unpack="false"/>
-<plugin id="org.modelio.bpmn.extensions"
+<plugin id="org.modelio.bpmn.diagram.editor"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.bpmn.metamodel.api"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        fragment="false"
+        unpack="false"/>
+<plugin id="org.modelio.bpmn.metamodel.contribution"
         download-size="0"
         install-size="0"
         version="0.0.0"
@@ -64,6 +58,12 @@ GPL
         fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.bpmn.ui"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        fragment="false"
+        unpack="false"/>
+<plugin id="org.modelio.bpmn-xml"
         download-size="0"
         install-size="0"
         version="0.0.0"

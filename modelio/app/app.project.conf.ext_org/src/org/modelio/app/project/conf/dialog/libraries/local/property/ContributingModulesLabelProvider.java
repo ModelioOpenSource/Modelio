@@ -32,7 +32,7 @@ import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.TextStyle;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.gproject.module.GModule;
-import org.modelio.ui.UIColor;
+import org.modelio.platform.ui.UIColor;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vbasic.version.VersionedItem;
 

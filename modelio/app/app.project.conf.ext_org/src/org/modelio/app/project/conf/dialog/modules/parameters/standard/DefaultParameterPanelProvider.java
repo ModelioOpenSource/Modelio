@@ -38,8 +38,8 @@ import org.modelio.api.module.IModule;
 import org.modelio.api.module.parameter.IParameterGroupModel;
 import org.modelio.api.module.parameter.IParameterModel;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.ui.UIColor;
-import org.modelio.ui.panel.IPanelProvider;
+import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.panel.IPanelProvider;
 
 @objid ("f235d564-b537-4a35-9b49-8e8b0a3134e9")
 public class DefaultParameterPanelProvider implements IPanelProvider {

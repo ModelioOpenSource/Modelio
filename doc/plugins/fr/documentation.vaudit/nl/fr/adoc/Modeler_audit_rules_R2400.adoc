@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2400]]
+
+[[r2400]]
+= R2400
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un destructeur ne peut pas avoir de paramètres.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un destructeur est une méthode qui détruit un classifier, et n'a pas besoin de paramètres.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Supprimez ces paramètres ou bien retirez le stéréotype destructeur de votre méthode.
+
+

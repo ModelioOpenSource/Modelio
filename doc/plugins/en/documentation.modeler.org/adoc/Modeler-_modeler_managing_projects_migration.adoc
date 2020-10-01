@@ -1,0 +1,72 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Migrating earlier Modelio projects
+
+Modelio 2.2.1 and 2.2.2 projects can be migrated to Modelio 3.
+
+To migrate pre-Modelio 2.2.1 projects, it is necessary to first migrate them to Modelio 2.2.1 using the proper migration procedure.
+
+
+[[prerequisites]]
+===== Prerequisites
+
+* An operational installation of Modelio 2.2.1 or 2.2.2
+* An operational installation of Modelio 4
+* The migration module *M2toM3* which can be downloaded from https://store.modelio.org/resource/modules/migration-modelio-2-2-1-to-3-0.html[Modelio store].
+
+
+[[launching-the-migration-procedure]]
+===== Launching the migration procedure
+
+The following screenshot shows how to launch the procedure for migrating a Modelio 2.2.1 project to Modelio 4.
+
+image::images/Modeler-_modeler_managing_projects_migration_M22M3Migration.png[2]
+
+
+[[in-modelio-2.2.1-ou-2.2.2]]
+===== In Modelio 2.2.1 ou 2.2.2
+
+1.  Start Modelio 2 and open the project to migrate.
+2.  Install the M2toM3 module in the project.
+3.  From the project root, run the *"M2 to M3\Export for Modelio 3"* command.
+4.  In the file selection dialog, select a path and a name for the zip file that will contain the migrated project.
+5.  When the command has finished running, the migrated project is available in the (zip) file chosen in the previous step.
+6.  Close the project and close Modelio 2, and carefully note the migrated project file name and path.
+
+That's all for Modelio 2!
+
+
+[[in-modelio-3]]
+===== In Modelio 4
+
+1.  Start Modelio 4.
+2.  From the _File_ menu, run the *"Import a project"* command.
+3.  In the file selection dialog, select the path and name of the zip file containing the migrated project.
+4.  When the command ends, the migrated project appears in the list of projects in the workspace.
+5.  Open the migrated project.
+6.  Proceed to the final steps as described below.
+
+*Note:* The very first opening of a migrated project might take a while, due to Modelio 4's different storage technology which requires some first-time initialization of the migrated project.
+
+
+[[final-steps]]
+===== Final steps
+
+The new migrated project in Modelio 4 should contain all the data from the Modelio 2 project without any loss. However, the newly migrated project is still referencing modules from Modelio 2 and these modules are obsolete.
+
+This can be easily diagnosed in the *<<Modeler-_modeler_managing_projects_configuring_project_modules.adoc#,Modules>>* tab of the *Project configurator* dialog as shown in the figure below:
+
+image::images/Modeler-_modeler_managing_projects_migration_MigrationUpdateModules.png[3]
+
+Click on "Configuration\ image:images/Modeler-_modeler_managing_projects_migration_module.png[8] Modules..." or on the image:images/Modeler-_modeler_managing_projects_migration_config.png[1] icon then select the 'Modules' tab. +
+In the *Project's modules* list (on the left), identify the *broken* modules. These are the modules that require an update for Modelio 4.
+
+1.  Click on image:images/Modeler-_modeler_managing_projects_migration_maximize.png[6] to expand the Modules catalog. The catalog shows the modules available on your workstation.
+2.  In the Modules catalog, identify the new versions of the modules which are marked _broken_ in the left list. For each of them:
+1.  Select it.
+2.  Click on image:images/Modeler-_modeler_managing_projects_migration_add.png[5] to install it in the project.
+
+*Note:* The *Modeling Wizard*, *Analyst*, *Analyst Administrator*, and *Subversion* modules are now an integral part of Modelio, their obsoletes versions can simply be removed from the project (image:images/Modeler-_modeler_managing_projects_migration_delete.png[7]).
+
+

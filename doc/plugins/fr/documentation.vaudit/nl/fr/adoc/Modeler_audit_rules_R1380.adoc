@@ -1,0 +1,41 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1380]]
+
+[[r1380]]
+= R1380
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Les _InputPin_ du _SendSignalAction_ doivent correspondre aux _Attributes_ du _Signal_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+_Contrainte UML_:
+
+* Le nombre et l'ordre des _InputPin_ doivent être les mêmes que le nombre et l'ordre des _Attributes_ du _Signal_.
+
+*Exemple :*
+
+image::images/Modeler_audit_rules_R1380_image001.png[image]
+
+Le _SendSignalAction_ "StartEvent" est invalide car l'_Attribut_ "location" du _Signal_ "StartEvent" appelé ne correspond à aucun _InputPin_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une erreur R1380, vérifiez que:
+
+* Il y a le même nombre d'_Attributes_ sur le _Signal_ que d'_InputPin_ sur le _SendSignalAction_.
+* Chaque _Attribute_ est représenté par un et un seul _InputPin_.
+
+

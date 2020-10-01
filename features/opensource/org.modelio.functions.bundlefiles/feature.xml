@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.functions.bundlefiles"
          label="Bundle"
-         version="4.0.0"
+         version="4.1.0"
          provider-name="modelio.org">
 
 <copyright>

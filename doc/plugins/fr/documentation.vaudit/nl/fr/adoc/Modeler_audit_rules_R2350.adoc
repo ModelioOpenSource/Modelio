@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2350]]
+
+[[r2350]]
+= R2350
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Operation_ privée ne peut pas être redéfinie.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Seules les _Operations_ visibles peuvent être redéfinies. Les opérations visibles sont les opérations publiques et protégées héritées d'une _Interface_ ou d'un _Classifier_ parent.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Supprimez la redéfinition de l'opération si cela n'était pas voulue.
+* Rendez la méthode publique ou protégée.
+
+

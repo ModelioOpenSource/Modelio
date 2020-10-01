@@ -1,0 +1,55 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Importer un modèle BPMN
+
+[[HIntroduction]]
+== Introduction
+
+Le service d'import BPMN de Modelio permet d'importer un modèle BPMN à partir d'un fichier *.bpmn. Il permet aussi de mettre à jour un modèle existant à partir d'un fichier *.bpmn mis à jour.
+
+Pendant le processus d'import, vous pouvez choisir de conserver les IDs des éléments BPMN déclarés dans le fichier importé, ou encore choisir de générer de nouveaux IDs Modelio. Dans le cas où vous choisiriez de conserver les IDs d'origine, vous devez vous assurer que ceux-ci sont uniques. Dans le cas contraire, vous vous exposerez à des erreurs lors du processus d'import.
+
+[[HImporterunModE8leBPMN-1]]
+== Importer un Modèle BPMN
+
+Pour importer un modèle BPMN depuis un fichier, vous devrez :
+
+1.  Sélectionner un package racine dans l'explorateur de projet.
+2.  Utiliser la commande contextuelle *Import/Export > Import > Import BPMN*.
+
+image::images/attachment/bpmn41/User_Documentation_fr/Importing_and_exporting_models/Importer_un_modele_BPMN/bpmn_import_1_FR.png[bpmn_import_1_FR.png]
+
+.Import BPMN
+image::images/attachment/bpmn41/User_Documentation_fr/Importing_and_exporting_models/Importer_un_modele_BPMN/bpmn_import_2_FR.png[bpmn_import_2_FR.png]
+
+
+*Étapes :*
+
+1.  Cliquez sur le package racine du modèle de travail.
+2.  Exécutez la commande *Import/Export > Import > BPMN Import*.
+3.  Parcourez le disque ou le réseau pour sélectionner le fichier bpmn à importer.
+4.  Indiquez si vous souhaitez ou non conserver les identifiants des éléments importés.
+5.  Cliquez sur *OK* pour valider et démarrer l'import.
+
+[[HMettreE0jourunmodE8leBPMN]]
+== Mettre à jour un modèle BPMN
+
+Pour mettre à jour un modèle BPMN existant à partir d'un fichier *.bpmn modifié, vous devrez :
+
+1.  Sélectionner le processus BPMN à mettre à jour dans l'explorateur du projet.
+2.  Utiliser la commande contextuelle *Import/Export > Import > Import BPMN*.
+
+image::images/attachment/bpmn41/User_Documentation_fr/Importing_and_exporting_models/Importer_un_modele_BPMN/bpmn_import_3_FR.png[bpmn_import_3_FR.png]
+
+.Mise à jour d'un modèle BPMN
+image::images/attachment/bpmn41/User_Documentation_fr/Importing_and_exporting_models/Importer_un_modele_BPMN/bpmn_import_2_FR.png[bpmn_import_2_FR.png]
+
+
+*Étapes :*
+
+1.  Cliquez sur la racine du modèle BPMN.
+2.  Exécutez la commande *Import/Export > Import > BPMN Import*.
+3.  Parcourez le disque ou le réseau pour sélectionner le fichier bpmn à importer.
+4.  Indiquez si vous souhaitez ou non conserver les identifiants des éléments importés.
+5.  Cliquez sur *OK* pour valider et démarrer la mise à jour.

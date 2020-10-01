@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.inputpin;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("6a8233a5-9eb3-40a5-83aa-e84ebe4d59b4")
 public class UML2LoopVariableInput {
-    @objid ("60654162-1718-41c0-97c9-9715f44b3e1d")
+    @objid ("bff328d0-09b4-43e7-a0e0-018ad3edb5b0")
     public static final String STEREOTYPE_NAME = "UML2LoopVariableInput";
 
     /**
      * The underlying {@link InputPin} represented by this proxy, never null.
      */
-    @objid ("494bc17a-9982-46ed-a6d6-b2ed571eb232")
+    @objid ("8f1a7345-2306-44bf-b2d8-7a884fdcf1e2")
     protected final InputPin elt;
 
     /**
-     * Tells whether a {@link UML2LoopVariableInput proxy} can be instantiated from a {@link MObject} checking it is a {@link InputPin} stereotyped << UML2LoopVariableInput >>. 
+     * Tells whether a {@link UML2LoopVariableInput proxy} can be instantiated from a {@link MObject} checking it is a {@link InputPin} stereotyped << UML2LoopVariableInput >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("37512212-b1c7-4ed9-9da9-d63c77c22540")
+    @objid ("d48b848d-1ed8-4ba4-b3aa-f56e5e22ada4")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof InputPin) && ((InputPin) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2LoopVariableInput.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2LoopVariableInput {
      * 
      * @return a {@link UML2LoopVariableInput} proxy on the created {@link InputPin}.
      */
-    @objid ("91a353fc-762b-4d03-8211-5b93fcbf3611")
+    @objid ("89a2e322-1ecf-419e-b26d-33e64e0d09ae")
     public static UML2LoopVariableInput create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("InputPin");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2LoopVariableInput.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2LoopVariableInput {
     }
 
     /**
-     * Tries to instantiate a {@link UML2LoopVariableInput} proxy from a {@link InputPin} stereotyped << UML2LoopVariableInput >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2LoopVariableInput} proxy from a {@link InputPin} stereotyped << UML2LoopVariableInput >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a InputPin
      * @return a {@link UML2LoopVariableInput} proxy or <i>null</i>.
      */
-    @objid ("4deb8491-c29a-4349-ba27-b41d951b7105")
+    @objid ("a20d22d4-132e-4119-b473-1a177c4b310b")
     public static UML2LoopVariableInput instantiate(InputPin obj) {
         return UML2LoopVariableInput.canInstantiate(obj) ? new UML2LoopVariableInput(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2LoopVariableInput {
      * @return a {@link UML2LoopVariableInput} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("2df7c345-4b92-4079-b194-eeb7464401d8")
+    @objid ("11b27afb-18fb-4e72-8a36-517c7433a557")
     public static UML2LoopVariableInput safeInstantiate(InputPin obj) throws IllegalArgumentException {
         if (UML2LoopVariableInput.canInstantiate(obj))
         	return new UML2LoopVariableInput(obj);
@@ -112,7 +112,7 @@ public class UML2LoopVariableInput {
         	throw new IllegalArgumentException("UML2LoopVariableInput: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("20e5aa4d-3315-40ee-97a6-7bc49847dbad")
+    @objid ("c4443f73-f524-493b-87b0-2e541152386e")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2LoopVariableInput {
      * Get the underlying {@link InputPin}. 
      * @return the InputPin represented by this proxy, never null.
      */
-    @objid ("7e05d1eb-8f53-4cf1-b287-e6aab79bddde")
+    @objid ("e4bbd5cf-b38b-4958-b3eb-01bad79cb01a")
     public InputPin getElement() {
         return this.elt;
     }
 
-    @objid ("f4235196-0520-49dd-b84b-1665df91bd0d")
+    @objid ("a982a14a-5fa8-423a-90ce-f09b624d901c")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("58cae1e5-25bf-47be-8c03-6ea090233ef3")
+    @objid ("478097ac-1a11-4c50-8b3a-2cbaafd5e483")
     protected UML2LoopVariableInput(InputPin elt) {
         this.elt = elt;
     }
 
     @objid ("2bccab18-b4c5-42a8-a3d6-068429925e3a")
     public static final class MdaTypes {
-        @objid ("5705494b-764b-4743-8f6a-938dc88c335d")
+        @objid ("bcf88c35-d076-4012-ba5a-1ddb5659f637")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("9495d91c-e00f-48ae-a533-3b34c1aac9b6")
+        @objid ("7943e1b7-a689-4ae5-bee2-c88954c90062")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("f3746085-b926-4754-aebb-b5c13c3db08b")
+        @objid ("4a71b6b7-941f-4257-837f-3cc3c61669da")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("a01869f3-cf9d-4726-8cf2-dcad8e41b844")
+        @objid ("2c2c8c54-7c8c-439c-8e26-5e3630dbbe05")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "7a7f049a-6b5f-4db9-9f79-8e327ca90297");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

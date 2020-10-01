@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.nebula.widgets.opal.launcher.feature"
+      label="Nebula Opal Launcher Widget"
+      version="1.0.0.201812241324"
+      provider-name="Eclipse Nebula, Laurent CARON">
+
+   <description url="http://eclipse.org/nebula">
+      Launcher
+   </description>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.nebula.widgets.opal.commons.feature"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.launcher"
+         download-size="17"
+         install-size="28"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.opal.launcher.source"
+         download-size="13"
+         install-size="30"
+         version="1.0.0.201812241324"
+         unpack="false"/>
+</feature>

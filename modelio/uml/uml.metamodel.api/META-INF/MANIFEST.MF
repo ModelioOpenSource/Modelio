@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: UML metamodel API
 Bundle-SymbolicName: org.modelio.uml.metamodel.api;singleton:=true
-Bundle-Version: 4.0.1.qualifier
+Bundle-Version: 4.1.0.qualifier
 Bundle-ClassPath: res/,
  .
 Bundle-Vendor: modelio.org

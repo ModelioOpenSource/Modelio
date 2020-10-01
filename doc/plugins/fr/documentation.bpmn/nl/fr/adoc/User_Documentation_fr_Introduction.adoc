@@ -1,0 +1,16 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Introduction
+
+
+Depuis sa version 3.7 Modelio introduit un nouveau support de BPMN 2.0 afin de coller au pratiques des analystes BPMN.
+
+* Le métamodèle Modelio BPMN a été légèrement modifié.
+* L'IHM de création et de manipulation des éléments BPMN a été modifiée :
+** Diagrammes
+** Édition du contenu des diagrammes
+** Organisation de l'explorateur de modèle.
+
+Modelio migrera automatiquement les anciens modèles BPMN.
+

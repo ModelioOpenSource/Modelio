@@ -42,7 +42,6 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.progress.IProgressService;
 import org.modelio.api.module.IModule;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.ramcs.edition.EditRamcDialog;
 import org.modelio.app.ramcs.edition.RamcModel;
 import org.modelio.app.ramcs.edition.ViewRamcDialog;
@@ -50,11 +49,12 @@ import org.modelio.app.ramcs.plugin.AppRamcs;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.ramc.core.packaging.IModelComponentContributor;
 import org.modelio.gproject.ramc.core.packaging.RamcPackager;
-import org.modelio.mda.infra.service.IModuleService;
-import org.modelio.mda.infra.service.IRTModule;
 import org.modelio.metamodel.uml.statik.Artifact;
 import org.modelio.module.modelermodule.api.default_.standard.artifact.ModelComponentArchive;
-import org.modelio.ui.progress.ModelioProgressAdapter;
+import org.modelio.platform.mda.infra.service.IModuleService;
+import org.modelio.platform.mda.infra.service.IRTModule;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.progress.ModelioProgressAdapter;
 import org.modelio.vcore.session.api.ICoreSession;
 
 @objid ("14d86a9c-b9f8-447c-acb5-559c2409425f")

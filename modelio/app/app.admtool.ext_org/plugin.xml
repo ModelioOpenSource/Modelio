@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+ <extension point="org.modelio.platform.preferencespages">
+      <page id="org.modelio.app.admtool.logpreferences"
+            name="%AdmTool.Admin.label"
+            class="org.modelio.admtool.plugin.AdminPreferencesPage"
+            icon="icons/admin.png" />
+   </extension>
+</plugin>

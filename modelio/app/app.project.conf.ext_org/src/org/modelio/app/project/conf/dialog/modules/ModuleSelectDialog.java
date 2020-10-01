@@ -41,13 +41,13 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.modules.catalog.ModuleCatalogPanel;
+import org.modelio.app.module.catalog.catalog.ModuleCatalogPanel;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleStore;
-import org.modelio.ui.dialog.ModelioDialog;
-import org.modelio.ui.progress.IModelioProgressService;
+import org.modelio.platform.ui.dialog.ModelioDialog;
+import org.modelio.platform.ui.progress.IModelioProgressService;
 
 /**
  * Module catalog dialog.

@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1350]]
+
+[[r1350]]
+= R1350
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+La propriété ordering d'un _ObjectNode_ doit être cohérente avec la présence ou non d'un filtre de sélection.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Si un _ObjectNode_ à un filtre de sélection, alors la propriété ordering de cet _ObjectNode_ doit être " ordonnée ", et vice versa.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous rencontrez une erreur R1350, vérifiez les points suivants:
+
+* Si _l'ObjectNode_ incriminé possède un filtre de sélection, mettez sa propriété ordering  à " ordonné ".
+* Si l'_ObjectNode_ incriminé a sa propriété ordering à " ordonné ", ajoutez-lui un filtre de sélection.
+
+

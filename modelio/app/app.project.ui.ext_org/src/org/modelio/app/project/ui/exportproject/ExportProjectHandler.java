@@ -37,14 +37,14 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
-import org.modelio.core.ui.swt.SelectionHelper;
 import org.modelio.gproject.data.project.ProjectDescriptor;
 import org.modelio.gproject.gproject.GProject;
-import org.modelio.ui.progress.IModelioProgressService;
-import org.modelio.ui.progress.ModelioProgressAdapter;
+import org.modelio.platform.model.ui.swt.SelectionHelper;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.progress.IModelioProgressService;
+import org.modelio.platform.ui.progress.ModelioProgressAdapter;
 import org.modelio.vbasic.files.FileUtils;
 
 @objid ("3ad6a6cb-d1d5-4b8c-8c63-185b44edddb8")

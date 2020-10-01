@@ -49,9 +49,9 @@ import org.modelio.gproject.data.project.FragmentDescriptor;
 import org.modelio.gproject.data.ramc.IModelComponentInfos;
 import org.modelio.gproject.data.ramc.ModelComponentArchive;
 import org.modelio.gproject.fragment.IProjectFragment;
-import org.modelio.ui.CoreFontRegistry;
-import org.modelio.ui.UIImages;
-import org.modelio.ui.dialog.ModelioDialog;
+import org.modelio.platform.ui.CoreFontRegistry;
+import org.modelio.platform.ui.UIImages;
+import org.modelio.platform.ui.dialog.ModelioDialog;
 import org.modelio.vbasic.files.FileUtils;
 
 /**

@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.node;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("c91962aa-081b-4abf-ad28-673f0b5e2aa7")
 public class UML2ExecutionEnvironment {
-    @objid ("fbaae4eb-5517-4b53-a96b-ed789bb16c74")
+    @objid ("dd4ade7d-6258-4aba-b0aa-5cb57c688e82")
     public static final String STEREOTYPE_NAME = "UML2ExecutionEnvironment";
 
     /**
      * The underlying {@link Node} represented by this proxy, never null.
      */
-    @objid ("765cae26-8ca7-4e68-8f8f-a0810a26cca5")
+    @objid ("3048dcb3-d9d0-479d-8777-6331e093538a")
     protected final Node elt;
 
     /**
-     * Tells whether a {@link UML2ExecutionEnvironment proxy} can be instantiated from a {@link MObject} checking it is a {@link Node} stereotyped << UML2ExecutionEnvironment >>. 
+     * Tells whether a {@link UML2ExecutionEnvironment proxy} can be instantiated from a {@link MObject} checking it is a {@link Node} stereotyped << UML2ExecutionEnvironment >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("d1a3c7be-df23-46b4-9cf9-b42f82984736")
+    @objid ("2f33b977-48c1-4149-8600-bc9459d24f12")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Node) && ((Node) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ExecutionEnvironment.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2ExecutionEnvironment {
      * 
      * @return a {@link UML2ExecutionEnvironment} proxy on the created {@link Node}.
      */
-    @objid ("e7978db7-c829-4692-903a-39b3d60c77c0")
+    @objid ("82f82677-a2c5-4796-abae-9c1a55c97381")
     public static UML2ExecutionEnvironment create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Node");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ExecutionEnvironment.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2ExecutionEnvironment {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ExecutionEnvironment} proxy from a {@link Node} stereotyped << UML2ExecutionEnvironment >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ExecutionEnvironment} proxy from a {@link Node} stereotyped << UML2ExecutionEnvironment >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Node
      * @return a {@link UML2ExecutionEnvironment} proxy or <i>null</i>.
      */
-    @objid ("9834b07b-6a08-4453-8d17-4cb3ed61a5e3")
+    @objid ("42eb13c1-5846-4a1a-a160-1dece363adcb")
     public static UML2ExecutionEnvironment instantiate(Node obj) {
         return UML2ExecutionEnvironment.canInstantiate(obj) ? new UML2ExecutionEnvironment(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2ExecutionEnvironment {
      * @return a {@link UML2ExecutionEnvironment} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("ed40cd78-6af8-4ba9-bc21-bbdfae363200")
+    @objid ("5b9d9ca2-40f4-410f-94e0-d809d1e30839")
     public static UML2ExecutionEnvironment safeInstantiate(Node obj) throws IllegalArgumentException {
         if (UML2ExecutionEnvironment.canInstantiate(obj))
         	return new UML2ExecutionEnvironment(obj);
@@ -112,7 +112,7 @@ public class UML2ExecutionEnvironment {
         	throw new IllegalArgumentException("UML2ExecutionEnvironment: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("51a0b8ce-f11a-4288-82ee-c850cfab7958")
+    @objid ("b1ea584e-ef7f-4169-9510-22eab858945f")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2ExecutionEnvironment {
      * Get the underlying {@link Node}. 
      * @return the Node represented by this proxy, never null.
      */
-    @objid ("483cf0b7-68ff-4794-9789-a89a95eeda0e")
+    @objid ("131ff550-2232-48b4-a027-45e5ab83a045")
     public Node getElement() {
         return this.elt;
     }
 
-    @objid ("3d5dedae-7435-44b4-b3cd-20cd8bb5c1c6")
+    @objid ("3e6fd20c-910c-4ec1-9f69-fb041e84c10c")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("0d93fe80-8288-4003-8075-797e3146035b")
+    @objid ("7b6a6005-00f7-4d0f-b0ac-651644366c90")
     protected UML2ExecutionEnvironment(Node elt) {
         this.elt = elt;
     }
 
     @objid ("83082363-6983-47b6-9176-ae729c96eb16")
     public static final class MdaTypes {
-        @objid ("6692e891-205c-4897-9e08-4bcd6f820e77")
+        @objid ("ab1d0466-cb43-4ad5-9a55-b72e570a3188")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("b7118067-5b62-4c5d-87c9-7d12c5284cc5")
+        @objid ("3979350c-68c7-4c53-b75f-c20f2737a680")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("891615fe-ff23-469c-9c03-00196855866d")
+        @objid ("48ba3d05-ab70-45be-9f80-8a5aea857c53")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("38ef4ded-2f5d-4e6f-ad52-97970d5e4704")
+        @objid ("5d07eddf-c152-47a8-b859-5b2802516888")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "8e76c95f-5821-11df-be59-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

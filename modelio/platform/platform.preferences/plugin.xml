@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.modelio.platform.preferencespages" name="Preference pages" schema="schema/org.modelio.platform.preferencespages.exsd"/>
+   <extension-point id="org.modelio.platform.preferences" name="Modelio preferences extensinos" schema="schema/org.modelio.platform.preferences.exsd"/>
+
+  <extension point="org.eclipse.e4.workbench.model" id="modelContribution">
+      <fragment uri="e4model/appprefs.e4xmi"/>
+   </extension>
+
+   <extension point="org.modelio.platform.preferencespages">
+      <page
+            class="org.modelio.platform.preferences.proxy.ProxyPreferencePage"
+            icon="icons/network.png"
+            id="org.eclipse.ui.internal.net.proxy"
+            name="%ProxyPreferencePage.name"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.modelio.platform.preferences.plugin.PreferencesInitializer">
+      </initializer>
+   </extension>
+</plugin>

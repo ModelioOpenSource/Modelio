@@ -1,0 +1,17 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Glossaire]]
+
+[[glossaire]]
+= Glossaire
+
+* *Ecore* : Ecore est le métamodèle d'EMF, quasiment identique à EMOF (Essential MOF).
+* *EMF* : EMF est un framework de modélisation et de simplification de génération de code pour la construction d'outils et d'applications basés sur une structure de modèle de données. EMF fournit les fondements à l'interopérabilité avec d'autres outils ou applications basés sur EMF. EMF-Uml2 est une implémentation basée sur EMF de la norme UML2.
+* *MOF* : Meta-Object Facility (MOF) est un standard créé par l'OMG s'intéressant à la représentation des métamodèles et leur manipulation.
+* *OMG* : Object Management Group (OMG) est une association américaine à but non lucratif créée en 1989 dont l'objectif est de standardiser et de promouvoir le modèle objet sous toutes ses formes.
+* *UML* : Unified Modeling Language (UML), "langage de modélisation unifié", est un langage graphique de modélisation des données et des traitements. Il s'agit d'une formalisation très aboutie et non propriétaire de la modélisation objet utilisée en génie logiciel.
+* *XML* : eXtensible Markup Language (XML), "langage de balisage extensible", est un langage informatique de balisage générique. Son objectif initial est de faciliter l'échange automatisé de contenus entre systèmes d'informations hétérogènes (interopérabilité).
+* *XMI* : XML Metadata Interchange (XMI) est un standard créé par l'OMG pour l'échange d'informations de métadonnées UML basé sur XML. Il s'agit d'un procédé de sérialisation d'objets MOF, permettant de décrire des objets sous forme XML.
+
+

@@ -1,0 +1,10 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= ArchiMate user manual
+
+
+1.   <<User_Documentation_en_os_Introduction.adoc#,Introduction>>
+2.   <<User_Documentation_en_os_ArchimateModel.adoc#,ArchiMate model>>
+3.   <<User_Documentation_en_os_ArchimateDiagram.adoc#,ArchiMate views>>
+4.   <<User_Documentation_en_os_ImportExport.adoc#,Import and export>>

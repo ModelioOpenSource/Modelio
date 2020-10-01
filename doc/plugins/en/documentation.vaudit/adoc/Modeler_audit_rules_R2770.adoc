@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2770]]
+
+[[r2770]]
+= R2770
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _JoinPseudoState_ segment must always originate from a state, not a _PseudoState_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A join node is a control node that joins together several flows from concurrent states.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Transitions targeting a _JoinPseudoState_ and coming from pseudo states should be removed.
+
+

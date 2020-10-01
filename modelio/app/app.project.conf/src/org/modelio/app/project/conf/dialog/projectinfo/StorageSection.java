@@ -36,7 +36,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
-import org.modelio.ui.UIColor;
+import org.modelio.platform.ui.UIColor;
 import org.modelio.vbasic.files.FileUtils;
 
 /**

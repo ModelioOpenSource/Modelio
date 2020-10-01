@@ -30,9 +30,9 @@ import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
-import org.modelio.app.core.ModelioEnv;
-import org.modelio.app.core.events.ModelioEventTopics;
 import org.modelio.gproject.gproject.GProject;
+import org.modelio.platform.core.ModelioEnv;
+import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.vcore.session.api.memory.IMemoryEventListener;
 
 /**

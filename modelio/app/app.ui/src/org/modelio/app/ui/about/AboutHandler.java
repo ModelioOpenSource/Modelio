@@ -25,7 +25,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.core.ModelioEnv;
+import org.modelio.platform.core.ModelioEnv;
 
 @objid ("0044a624-cc35-1ff2-a7f4-001ec947cd2a")
 public class AboutHandler {

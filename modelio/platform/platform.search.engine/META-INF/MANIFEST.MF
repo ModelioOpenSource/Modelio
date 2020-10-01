@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Model Search Engine
+Bundle-SymbolicName: org.modelio.platform.search.engine;singleton:=true
+Bundle-Version: 4.1.0.qualifier
+Bundle-Vendor: modelio.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.core.runtime,
+ org.modelio.core.session,
+ org.modelio.platform.utils,
+ org.modelio.core.metamodel.api,
+ org.modelio.core.kernel
+Export-Package: org.modelio.platform.search.engine,
+ org.modelio.platform.search.engine.searchers.inherit,
+ org.modelio.platform.search.engine.searchers.model,
+ org.modelio.platform.search.engine.searchers.note
+Bundle-ActivationPolicy: lazy

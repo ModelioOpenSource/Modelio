@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.artifact;
 
@@ -51,36 +51,36 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("4223c940-dbcd-4fdd-8e4e-dae096aaeeb3")
 public class ModelComponentArchive {
-    @objid ("675ffb93-6b92-4344-85b3-959be2717d46")
+    @objid ("8136bd15-bf52-4b04-8b4e-dfc4be388ee5")
     public static final String STEREOTYPE_NAME = "ModelComponentArchive";
 
-    @objid ("7052abeb-0ffd-4d1e-996b-5af812dd565a")
+    @objid ("caf5d6a2-1298-4cba-8fb7-7a942bbe3d7e")
     public static final String MODELCOMPONENTCONTRIBUTORS_TAGTYPE = "ModelComponentContributors";
 
-    @objid ("e5dbc092-6f4e-43c2-8598-6fc7016d0c62")
+    @objid ("9aed04f4-a070-4723-9d89-65abb8fef3b2")
     public static final String MODELCOMPONENTFILES_TAGTYPE = "ModelComponentFiles";
 
-    @objid ("db8e72b9-e33a-42a6-988c-a603b2c82386")
+    @objid ("848e4f1e-cac3-495c-997a-cca925249d15")
     public static final String MODELCOMPONENTPROVIDER_TAGTYPE = "ModelComponentProvider";
 
-    @objid ("77450eef-d48d-468f-b264-4897e3aec1aa")
+    @objid ("b39e6dc5-36cb-44cb-9713-0c5fb5de580c")
     public static final String MODELCOMPONENTVERSION_TAGTYPE = "ModelComponentVersion";
 
     /**
      * The underlying {@link Artifact} represented by this proxy, never null.
      */
-    @objid ("1b2226ce-d67d-433e-a14a-e3452ceb5d1d")
+    @objid ("bb89969f-8e1e-4615-89cc-023ff3957bd4")
     protected final Artifact elt;
 
     /**
-     * Tells whether a {@link ModelComponentArchive proxy} can be instantiated from a {@link MObject} checking it is a {@link Artifact} stereotyped << ModelComponentArchive >>. 
+     * Tells whether a {@link ModelComponentArchive proxy} can be instantiated from a {@link MObject} checking it is a {@link Artifact} stereotyped << ModelComponentArchive >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("6beaee7c-6f79-4464-97dc-1e768853667b")
+    @objid ("38d1a25c-9344-49bd-ad80-ea7597379e6b")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Artifact) && ((Artifact) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, ModelComponentArchive.STEREOTYPE_NAME));
     }
@@ -90,7 +90,7 @@ public class ModelComponentArchive {
      * 
      * @return a {@link ModelComponentArchive} proxy on the created {@link Artifact}.
      */
-    @objid ("970b730a-5817-4505-8d81-b10223bbbfab")
+    @objid ("1046d816-bf22-42d1-9ba5-43cac3cb88d3")
     public static ModelComponentArchive create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Artifact");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, ModelComponentArchive.STEREOTYPE_NAME);
@@ -98,13 +98,13 @@ public class ModelComponentArchive {
     }
 
     /**
-     * Tries to instantiate a {@link ModelComponentArchive} proxy from a {@link Artifact} stereotyped << ModelComponentArchive >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link ModelComponentArchive} proxy from a {@link Artifact} stereotyped << ModelComponentArchive >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Artifact
      * @return a {@link ModelComponentArchive} proxy or <i>null</i>.
      */
-    @objid ("1c157a26-51c0-4f7e-a50f-87e588c3fcf6")
+    @objid ("472f2e14-0838-4c40-8ad2-d6b16d3ed023")
     public static ModelComponentArchive instantiate(Artifact obj) {
         return ModelComponentArchive.canInstantiate(obj) ? new ModelComponentArchive(obj) : null;
     }
@@ -117,7 +117,7 @@ public class ModelComponentArchive {
      * @return a {@link ModelComponentArchive} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("2232457b-dfa7-4a2a-9f89-cf72a6b19e88")
+    @objid ("818ba2b4-3346-47c4-bf07-e5ae5bde5e1e")
     public static ModelComponentArchive safeInstantiate(Artifact obj) throws IllegalArgumentException {
         if (ModelComponentArchive.canInstantiate(obj))
         	return new ModelComponentArchive(obj);
@@ -125,7 +125,7 @@ public class ModelComponentArchive {
         	throw new IllegalArgumentException("ModelComponentArchive: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("9b99365c-66b5-4537-ad70-433b614c6a2c")
+    @objid ("f529d907-6530-441a-b7ec-3996f71e882a")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -145,7 +145,7 @@ public class ModelComponentArchive {
      * Get the underlying {@link Artifact}. 
      * @return the Artifact represented by this proxy, never null.
      */
-    @objid ("00a6cf33-516c-4046-97ef-43c8b642fb56")
+    @objid ("16ec5e62-ebe6-4043-add6-726cee5dfb27")
     public Artifact getElement() {
         return this.elt;
     }
@@ -155,7 +155,7 @@ public class ModelComponentArchive {
      * <p>Property description:<br/>
      * <i></i></p>
      */
-    @objid ("1c233b86-a1a1-416b-ba95-81a94fc872cf")
+    @objid ("84cec3e9-2963-4a55-a721-d09fdcb2f0b1")
     public List<String> getModelComponentContributors() {
         return this.elt.getTagValues(ModelComponentArchive.MdaTypes.MODELCOMPONENTCONTRIBUTORS_TAGTYPE_ELT);
     }
@@ -165,7 +165,7 @@ public class ModelComponentArchive {
      * <p>Property description:<br/>
      * <i></i></p>
      */
-    @objid ("e444c433-3bfe-4301-a6ba-0af88348d7e4")
+    @objid ("2fd358d5-3b57-4d3f-ba69-1f3bc7dd52d4")
     public List<String> getModelComponentFiles() {
         return this.elt.getTagValues(ModelComponentArchive.MdaTypes.MODELCOMPONENTFILES_TAGTYPE_ELT);
     }
@@ -176,7 +176,7 @@ public class ModelComponentArchive {
      * <br/><i>The provider of the Model Component. 
      * For Model Component provided by a module please indicate "Module Name_of_the_module"</i></p>
      */
-    @objid ("73acaa35-8a8a-474d-b7e1-2d0f82ba65d3")
+    @objid ("f06415ac-7617-4984-9d14-abeb398ddbd4")
     public String getModelComponentProvider() {
         return this.elt.getTagValue(ModelComponentArchive.MdaTypes.MODELCOMPONENTPROVIDER_TAGTYPE_ELT);
     }
@@ -186,12 +186,12 @@ public class ModelComponentArchive {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("7008c630-5e1f-4e2f-b679-0476e6108f1d")
+    @objid ("97c10f33-bbdd-4962-8bf4-25574fafe948")
     public String getModelComponentVersion() {
         return this.elt.getTagValue(ModelComponentArchive.MdaTypes.MODELCOMPONENTVERSION_TAGTYPE_ELT);
     }
 
-    @objid ("318a258f-29fe-4ec3-bbff-0bda67be5506")
+    @objid ("99bb4d57-a6b7-4d50-82d2-8fb874136fdd")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
@@ -202,7 +202,7 @@ public class ModelComponentArchive {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("5ad6fafd-f3a0-4211-9dd3-1eb65dd044a5")
+    @objid ("2e84b7f8-0d24-40e4-ba32-a229a071cebb")
     public void setModelComponentContributors(List<String> values) {
         this.elt.putTagValues(ModelComponentArchive.MdaTypes.MODELCOMPONENTCONTRIBUTORS_TAGTYPE_ELT, values);
     }
@@ -212,7 +212,7 @@ public class ModelComponentArchive {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("f8f33b74-0a3e-4805-be75-ac6d28164723")
+    @objid ("67bed6ff-ec35-4cfb-bf08-ac1cc419b5ae")
     public void setModelComponentFiles(List<String> values) {
         this.elt.putTagValues(ModelComponentArchive.MdaTypes.MODELCOMPONENTFILES_TAGTYPE_ELT, values);
     }
@@ -223,7 +223,7 @@ public class ModelComponentArchive {
      * <br/><i>The provider of the Model Component. 
      * For Model Component provided by a module please indicate "Module Name_of_the_module"</i></p>
      */
-    @objid ("536c21b0-a95f-4f4a-a67e-99605aafee0b")
+    @objid ("404b8016-6323-40b8-a36e-9aa79aad8523")
     public void setModelComponentProvider(String value) {
         this.elt.putTagValue(ModelComponentArchive.MdaTypes.MODELCOMPONENTPROVIDER_TAGTYPE_ELT, value);
     }
@@ -233,40 +233,40 @@ public class ModelComponentArchive {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("4c959933-16d0-4fb5-939c-fcf4a3620595")
+    @objid ("60598e2f-ac3b-4a6a-b716-2ab0c4e0eab4")
     public void setModelComponentVersion(String value) {
         this.elt.putTagValue(ModelComponentArchive.MdaTypes.MODELCOMPONENTVERSION_TAGTYPE_ELT, value);
     }
 
-    @objid ("4e173293-3944-461a-ad18-6f67750cf540")
+    @objid ("838d8a58-3782-4ac0-a1ec-10184c768039")
     protected ModelComponentArchive(Artifact elt) {
         this.elt = elt;
     }
 
     @objid ("5f247bd4-cf59-4bee-b138-b19f5cea78f9")
     public static final class MdaTypes {
-        @objid ("9a72b3c8-17a7-4ba4-a299-b107175b8ec2")
+        @objid ("4d424c1a-7189-4713-9f40-1ed1a6501698")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("4ffdde36-165d-4fbb-92b3-108c51a12ec5")
+        @objid ("15e36c19-e2e2-4370-b5bf-27d56fbca927")
         public static TagType MODELCOMPONENTFILES_TAGTYPE_ELT;
 
-        @objid ("9145a962-883d-409d-a3a5-a9958829d24c")
+        @objid ("c42fc271-4681-4101-a24e-c4260cc2e235")
         public static TagType MODELCOMPONENTVERSION_TAGTYPE_ELT;
 
-        @objid ("a602e264-3165-4816-9ebf-a16287a9e1e2")
+        @objid ("2ca9711b-9f4b-430e-8ed6-81ff105ed910")
         public static TagType MODELCOMPONENTCONTRIBUTORS_TAGTYPE_ELT;
 
-        @objid ("e4c35554-db03-4e32-953a-2b8014c4e636")
+        @objid ("d0c71307-e6ae-4c3a-80cc-c49cb74e8be1")
         public static TagType MODELCOMPONENTPROVIDER_TAGTYPE_ELT;
 
-        @objid ("2494f1a3-c004-432d-9cd7-a566faafeca7")
+        @objid ("6cb4be4a-74cc-41ab-940b-64ae195a8416")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("a0c4a9d0-647d-4967-83ab-b7ee89d1b992")
+        @objid ("8fbf9598-204a-4ce7-9630-8fb0a35a90d0")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("26ac0639-b480-43c8-83ea-a0b208ee7156")
+        @objid ("d85dfa97-2f2f-4dcc-b401-4fa3d292d8dc")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00140d80-0000-0110-0000-000000000000");
             MODELCOMPONENTFILES_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "00140d80-0000-0112-0000-000000000000");

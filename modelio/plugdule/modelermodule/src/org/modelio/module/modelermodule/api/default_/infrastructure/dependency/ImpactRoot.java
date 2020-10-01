@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("3ffb8a66-6e57-4ac5-9cfc-a8913d48cb7a")
 public class ImpactRoot {
-    @objid ("ba6895fe-56cd-4efc-9e61-abeeb15709fa")
+    @objid ("b441a366-a1c7-48aa-86d6-de271f6e8424")
     public static final String STEREOTYPE_NAME = "impact_root";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("e8659d1b-5a40-4200-ba88-904d86c440b3")
+    @objid ("97b43b2f-7c97-48a0-9c25-0ea81decb174")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link ImpactRoot proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << impact_root >>. 
+     * Tells whether a {@link ImpactRoot proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << impact_root >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("fdd83fd3-ca2b-4a54-88fb-dffcb359ac68")
+    @objid ("0f1b4f86-7783-4e87-902d-18f168850bc2")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, ImpactRoot.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class ImpactRoot {
      * 
      * @return a {@link ImpactRoot} proxy on the created {@link Dependency}.
      */
-    @objid ("de89f552-2104-4319-91c3-e9168eaf22d6")
+    @objid ("c04df0f6-89e3-4117-97e2-fbe0fa2cedfd")
     public static ImpactRoot create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, ImpactRoot.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class ImpactRoot {
     }
 
     /**
-     * Tries to instantiate a {@link ImpactRoot} proxy from a {@link Dependency} stereotyped << impact_root >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link ImpactRoot} proxy from a {@link Dependency} stereotyped << impact_root >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link ImpactRoot} proxy or <i>null</i>.
      */
-    @objid ("d5715d73-2f6d-46dd-906f-394e01969fdd")
+    @objid ("e6af5e96-f767-4314-bf56-3f631187109d")
     public static ImpactRoot instantiate(Dependency obj) {
         return ImpactRoot.canInstantiate(obj) ? new ImpactRoot(obj) : null;
     }
@@ -103,7 +103,7 @@ public class ImpactRoot {
      * @return a {@link ImpactRoot} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("5b47f61f-fa19-46cd-b673-ced9f5f9b7f7")
+    @objid ("e53077c5-4efe-4ae2-b388-8d4a5ea6ebde")
     public static ImpactRoot safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (ImpactRoot.canInstantiate(obj))
         	return new ImpactRoot(obj);
@@ -111,7 +111,7 @@ public class ImpactRoot {
         	throw new IllegalArgumentException("ImpactRoot: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("bbf12c43-f911-427b-af74-b0dd1ac00828")
+    @objid ("4fab4a74-3ab3-4814-ab46-644897313b42")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class ImpactRoot {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("a089615f-41ab-4ed1-924f-1835b2fad488")
+    @objid ("073da63a-719f-42da-8276-65ca4bcd8450")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("0be45d5c-7025-4120-bcf8-ab4b21baed6b")
+    @objid ("e4d8ea3f-dc2a-4edb-8890-854830869d72")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("b0366d90-72ad-406b-bdf3-c8626c196c06")
+    @objid ("a9af73c6-5ef4-4b93-8138-89f143a6f092")
     protected ImpactRoot(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("40cc123a-c9ad-4e12-9d54-e544e33ec0f4")
     public static final class MdaTypes {
-        @objid ("d1cc1ece-4586-496c-b43f-0915f80784ff")
+        @objid ("8df060e9-769a-4a71-8bbd-1f4523fa88db")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("fc519d78-ae74-4595-85ed-313fffe0061b")
+        @objid ("11613af9-2347-4a74-81ae-c9586d9c8376")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("2040717a-e410-4435-ae64-3837d529169d")
+        @objid ("78a29645-3968-43ed-8028-de5288d3bd8c")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("9f6366c8-f42d-4c77-a572-1be9d273c541")
+        @objid ("fd9b88d0-a439-4016-8d0c-01661e24f5f0")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec2468-0000-0ac1-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2970]]
+
+[[r2970]]
+= R2970
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Dependency_ de type _«assign»_ doit être depuis un _Actor_, un _Package_ ou un _Process_ vers un _Goal_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Dependency_ de type «assigned» exprime l'assignation d'un _Goal_ à un propriétaire. Celui-ci doit être un _Actor_, un _Package_ (unité d'organisation) ou un _Process_.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez assigné un _Goal_ à un élément autre qu'un _Actor_, un _Package_ ou un _Process_, vous devriez supprimer votre _Dependency_ «assigned».
+
+

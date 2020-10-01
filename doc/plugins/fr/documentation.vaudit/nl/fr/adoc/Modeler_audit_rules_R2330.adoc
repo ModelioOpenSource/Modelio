@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2330]]
+
+[[r2330]]
+= R2330
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Tous les paramètres d'une opération doivent avoir un nom différent.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les paramètres sont identifiés de façon unique grâce à leur nom.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Renommez les paramètres en conflit.
+
+

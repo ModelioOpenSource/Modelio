@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2010]]
+
+[[r2010]]
+= R2010
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+In a _Dictionary_, the name of each element must be unique.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Having duplicate names in a _Dictionary_ can be confusing.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Rename any element with a duplicated name, or move the homonyms into another _Dictionary_.
+
+Do not forget that you can use a «homonym» link between _Terms_.
+
+

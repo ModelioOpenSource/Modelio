@@ -38,7 +38,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.api.ui.ModelioDialog;
 import org.modelio.bpmnxml.plugin.BPMNXml;
-import org.modelio.ui.UIImages;
+import org.modelio.platform.ui.UIImages;
 
 @objid ("f839b6d2-ee06-49ea-9e11-0be31b9ad1b2")
 class BPMImportDialog extends ModelioDialog {

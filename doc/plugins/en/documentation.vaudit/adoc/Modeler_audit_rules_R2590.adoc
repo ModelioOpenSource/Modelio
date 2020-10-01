@@ -1,0 +1,37 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2590]]
+
+[[r2590]]
+= R2590
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+One region cannot have more than one initial vertex.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An initial vertex is a dummy state representing the temporary default state of an object when it is created. When a transition targets a state, it implicitly targets its initial state.
+
+Therefore, a state cannot have more than one initial state, because it would not be possible to determine the default initial state.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Possible solutions to this problem are as follows:
+
+* *Solution 1* +
+Add another region to your state to represent concurrent sub states, and move one of the initial states to this new region. Each sub state can have an initial state. If a transition targets a state with concurrent sub states, it implicitly targets all the initial states of the concurrent sub states.
+* *Solution 2* +
+Create a different state and move one of the initial states to it.
+
+

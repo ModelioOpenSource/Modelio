@@ -1,0 +1,43 @@
+/* Basic elements styles applied to all pages */
+html {
+	overflow:auto;
+	border:0px;
+	height:100%;	
+	font-size: 62.5%;
+	background-image: url("./images/background.jpg");
+	background-repeat: repeat-x;
+}
+
+body {	
+	margin: 0;
+	padding: 0;
+	font-family: Verdana,sans-serif;
+	font-size: 14px;
+	font-size: 1.4rem;
+	color:#808080;
+	background-color: #bbb;
+	background: none; min-width: 400px;
+}
+* {box-sizing: border-box;}
+	
+/**** Titles ****/
+h1 {font-size: 28px;font-size: 2.8rem;padding: 2px 10px 1px 0px;margin: 10px 0 10px 0; color: #ad0000;}
+h2 {font-size: 18px;font-size: 1.8rem;padding: 2px 10px 1px 0px;margin: 10px 0 10px 0; color: #2B5775;}
+h3 {font-size: 16px;font-size: 1.8rem;padding: 2px 10px 1px 0px;margin-bottom: 5px; color: #2B5775;}
+h4 {font-size: 14px;font-size: 1.4rem;padding: 2px 10px 1px 0px;margin-bottom: 5px; color: #2B5775;}
+/****************/
+h1, h2, h3, h4, h5, h6 {font-weight: bold;}
+
+a {color:#385A8B;text-decoration:none;}
+img {border: 0px;}
+
+pre {
+    margin: 1em 1em 1em 1.6em;
+    padding: 8px;
+    background-color: #fafafa;
+    border: 1px solid #dadada;
+    width:auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+

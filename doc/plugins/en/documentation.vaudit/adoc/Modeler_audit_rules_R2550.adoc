@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2550]]
+
+[[r2550]]
+= R2550
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+If a _Port_ is a behavior port, its provided interfaces must be implemented by the _Class_ it belongs to.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Any invocation of a behavioral feature on a behavior _Port_ will be handled by the owning _Classifier_ itself, so the _Classifier_ must implement the _Port_ provided _Interfaces_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Implement the missing provided interfaces.
+* Change the status of the port to make it a classic port, and type it with the classifier that implements the interfaces you need.
+
+

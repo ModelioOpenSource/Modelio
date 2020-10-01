@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1590]]
+
+[[r1590]]
+= R1590
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Les _GeneralClass_ 'primitive' ne peuvent pas avoir d'association.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Class_ est primitive (aussi appelée élémentaire) si sa valeur ne peut être découpée et si ses instances ne sont pas gérées par l'application. Par exemple, integer et boolean sont des classes primitives.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une classe primitive avec des associations, vous devriez changer votre classe en non-primitive ou bien créer une nouvelle classe et déplacer votre association vers cette dernière.
+
+

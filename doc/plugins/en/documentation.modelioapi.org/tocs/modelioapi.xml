@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<toc topic="html/overview-summary.html" label="Modelio API">
+	<topic href="" label="org.modelio.api.astyle" >
+		<topic href="html/org/modelio/api/astyle/AStyle.html" label="AStyle" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio" >
+		<topic href="html/org/modelio/api/modelio/IModelioContext.html" label="IModelioContext" />
+		<topic href="html/org/modelio/api/modelio/IModelioServices.html" label="IModelioServices" />
+		<topic href="html/org/modelio/api/modelio/IModelioServicesRegistry.html" label="IModelioServicesRegistry" />
+		<topic href="html/org/modelio/api/modelio/Modelio.html" label="Modelio" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.audit" >
+		<topic href="html/org/modelio/api/modelio/audit/IAuditService.html" label="IAuditService" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.diagram" >
+		<topic href="html/org/modelio/api/modelio/diagram/ContributorCategory.html" label="ContributorCategory" />
+		<topic href="html/org/modelio/api/modelio/diagram/DefaultDiagramCustomizer.html" label="DefaultDiagramCustomizer" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDGDynamicDecorator.html" label="IDGDynamicDecorator" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDGDynamicDecorator.IOverwrittenProperties.html" label="IDGDynamicDecorator.IOverwrittenProperties" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramCustomizer.html" label="IDiagramCustomizer" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramDrawing.html" label="IDiagramDrawing" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramDrawingLink.html" label="IDiagramDrawingLink" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramDrawingNode.html" label="IDiagramDrawingNode" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramGraphicFactory.html" label="IDiagramGraphicFactory" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramGraphic.html" label="IDiagramGraphic" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramHandle.html" label="IDiagramHandle" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramLink.ExtensionRole.html" label="IDiagramLink.ExtensionRole" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramLink.html" label="IDiagramLink" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramLink.LinkRouterKind.html" label="IDiagramLink.LinkRouterKind" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramNode.html" label="IDiagramNode" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramNode.Role.html" label="IDiagramNode.Role" />
+		<topic href="html/org/modelio/api/modelio/diagram/IDiagramService.html" label="IDiagramService" />
+		<topic href="html/org/modelio/api/modelio/diagram/ILinkPath.html" label="ILinkPath" />
+		<topic href="html/org/modelio/api/modelio/diagram/InvalidDestinationPointException.html" label="InvalidDestinationPointException" />
+		<topic href="html/org/modelio/api/modelio/diagram/InvalidPointsPathException.html" label="InvalidPointsPathException" />
+		<topic href="html/org/modelio/api/modelio/diagram/InvalidSourcePointException.html" label="InvalidSourcePointException" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.diagram.dg" >
+		<topic href="html/org/modelio/api/modelio/diagram/dg/IDiagramDG.html" label="IDiagramDG" />
+		<topic href="html/org/modelio/api/modelio/diagram/dg/IDiagramDrawingsLayer.html" label="IDiagramDrawingsLayer" />
+		<topic href="html/org/modelio/api/modelio/diagram/dg/IDiagramElementsLayer.html" label="IDiagramElementsLayer" />
+		<topic href="html/org/modelio/api/modelio/diagram/dg/IDiagramLayer.html" label="IDiagramLayer" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.diagram.style" >
+		<topic href="html/org/modelio/api/modelio/diagram/style/IStyleHandle.html" label="IStyleHandle" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.diagram.tools" >
+		<topic href="html/org/modelio/api/modelio/diagram/tools/DefaultAttachedBoxTool.html" label="DefaultAttachedBoxTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/DefaultBoxTool.html" label="DefaultBoxTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/DefaultDiagramTool.html" label="DefaultDiagramTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/DefaultLinkTool.html" label="DefaultLinkTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/DefaultMultiLinkTool.html" label="DefaultMultiLinkTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/IAttachedBoxTool.html" label="IAttachedBoxTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/IBoxTool.html" label="IBoxTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/IDiagramTool.html" label="IDiagramTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/ILinkTool.html" label="ILinkTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/IMultiLinkTool.html" label="IMultiLinkTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/PaletteEntry.html" label="PaletteEntry" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.diagram.tools.standard" >
+		<topic href="html/org/modelio/api/modelio/diagram/tools/standard/GenericAttachedBoxTool.html" label="GenericAttachedBoxTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/standard/GenericBoxTool.html" label="GenericBoxTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/standard/GenericLinkTool.html" label="GenericLinkTool" />
+		<topic href="html/org/modelio/api/modelio/diagram/tools/standard/GenericMultiLinkTool.html" label="GenericMultiLinkTool" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.editor" >
+		<topic href="html/org/modelio/api/modelio/editor/EditorType.html" label="EditorType" />
+		<topic href="html/org/modelio/api/modelio/editor/IEditionService.html" label="IEditionService" />
+		<topic href="html/org/modelio/api/modelio/editor/IExternDocumentChangeListener.html" label="IExternDocumentChangeListener" />
+		<topic href="html/org/modelio/api/modelio/editor/IMDAEditorListener.html" label="IMDAEditorListener" />
+		<topic href="html/org/modelio/api/modelio/editor/IMDATextEditor.html" label="IMDATextEditor" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.exchange" >
+		<topic href="html/org/modelio/api/modelio/exchange/IExchangeService.html" label="IExchangeService" />
+		<topic href="html/org/modelio/api/modelio/exchange/XmiException.html" label="XmiException" />
+		<topic href="html/org/modelio/api/modelio/exchange/XmiExportConfiguration.html" label="XmiExportConfiguration" />
+		<topic href="html/org/modelio/api/modelio/exchange/XmiExportConfiguration.VersionExport.html" label="XmiExportConfiguration.VersionExport" />
+		<topic href="html/org/modelio/api/modelio/exchange/XmiImportConfiguration.html" label="XmiImportConfiguration" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.mc" >
+		<topic href="html/org/modelio/api/modelio/mc/AbstractModelComponentContributor.html" label="AbstractModelComponentContributor" />
+		<topic href="html/org/modelio/api/modelio/mc/DefaultModelComponentContributor.html" label="DefaultModelComponentContributor" />
+		<topic href="html/org/modelio/api/modelio/mc/IModelComponentDescriptor.html" label="IModelComponentDescriptor" />
+		<topic href="html/org/modelio/api/modelio/mc/IModelComponentService.html" label="IModelComponentService" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.meta" >
+		<topic href="html/org/modelio/api/modelio/meta/IMetamodelI18nSupport.html" label="IMetamodelI18nSupport" />
+		<topic href="html/org/modelio/api/modelio/meta/IMetamodelService.html" label="IMetamodelService" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.model" >
+		<topic href="html/org/modelio/api/modelio/model/IDefaultNameService.html" label="IDefaultNameService" />
+		<topic href="html/org/modelio/api/modelio/model/IElementFilter.html" label="IElementFilter" />
+		<topic href="html/org/modelio/api/modelio/model/IImageService.html" label="IImageService" />
+		<topic href="html/org/modelio/api/modelio/model/IMetamodelExtensions.html" label="IMetamodelExtensions" />
+		<topic href="html/org/modelio/api/modelio/model/IModelingSession.html" label="IModelingSession" />
+		<topic href="html/org/modelio/api/modelio/model/IModelManipulationService.html" label="IModelManipulationService" />
+		<topic href="html/org/modelio/api/modelio/model/InvalidPathException.html" label="InvalidPathException" />
+		<topic href="html/org/modelio/api/modelio/model/InvalidTransactionException.html" label="InvalidTransactionException" />
+		<topic href="html/org/modelio/api/modelio/model/InvalidUuidException.html" label="InvalidUuidException" />
+		<topic href="html/org/modelio/api/modelio/model/ITransaction.html" label="ITransaction" />
+		<topic href="html/org/modelio/api/modelio/model/IUmlModel.html" label="IUmlModel" />
+		<topic href="html/org/modelio/api/modelio/model/IUMLTypes.html" label="IUMLTypes" />
+		<topic href="html/org/modelio/api/modelio/model/PropertyConverter.html" label="PropertyConverter" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.model.event" >
+		<topic href="html/org/modelio/api/modelio/model/event/IElementDeletedEvent.html" label="IElementDeletedEvent" />
+		<topic href="html/org/modelio/api/modelio/model/event/IElementMovedEvent.html" label="IElementMovedEvent" />
+		<topic href="html/org/modelio/api/modelio/model/event/IModelChangeEvent.html" label="IModelChangeEvent" />
+		<topic href="html/org/modelio/api/modelio/model/event/IModelChangeHandler.html" label="IModelChangeHandler" />
+		<topic href="html/org/modelio/api/modelio/model/event/IModelChangeListener.html" label="IModelChangeListener" />
+		<topic href="html/org/modelio/api/modelio/model/event/IStatusChangeEvent.html" label="IStatusChangeEvent" />
+		<topic href="html/org/modelio/api/modelio/model/event/IStatusChangeListener.html" label="IStatusChangeListener" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.model.scope" >
+		<topic href="html/org/modelio/api/modelio/model/scope/ElementScopeFilter.html" label="ElementScopeFilter" />
+		<topic href="html/org/modelio/api/modelio/model/scope/ElementScope.html" label="ElementScope" />
+		<topic href="html/org/modelio/api/modelio/model/scope/StereotypeSpecReader.html" label="StereotypeSpecReader" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.module" >
+		<topic href="html/org/modelio/api/modelio/module/IModuleService.html" label="IModuleService" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.navigation" >
+		<topic href="html/org/modelio/api/modelio/navigation/INavigationListener.html" label="INavigationListener" />
+		<topic href="html/org/modelio/api/modelio/navigation/INavigationService.html" label="INavigationService" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.pattern" >
+		<topic href="html/org/modelio/api/modelio/pattern/IPatternService.html" label="IPatternService" />
+		<topic href="html/org/modelio/api/modelio/pattern/IPatternService.PatternException.html" label="IPatternService.PatternException" />
+	</topic>
+	<topic href="" label="org.modelio.api.modelio.picking" >
+		<topic href="html/org/modelio/api/modelio/picking/IPickingClient.html" label="IPickingClient" />
+		<topic href="html/org/modelio/api/modelio/picking/IPickingProvider.html" label="IPickingProvider" />
+		<topic href="html/org/modelio/api/modelio/picking/IPickingService.html" label="IPickingService" />
+		<topic href="html/org/modelio/api/modelio/picking/IPickingSession.html" label="IPickingSession" />
+	</topic>
+	<topic href="" label="org.modelio.api.module" >
+		<topic href="html/org/modelio/api/module/AbstractJavaModule.html" label="AbstractJavaModule" />
+		<topic href="html/org/modelio/api/module/IModule.html" label="IModule" />
+		<topic href="html/org/modelio/api/module/IModule.ImageType.html" label="IModule.ImageType" />
+		<topic href="html/org/modelio/api/module/IPeerModule.html" label="IPeerModule" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.command" >
+		<topic href="html/org/modelio/api/module/command/ActionLocation.html" label="ActionLocation" />
+		<topic href="html/org/modelio/api/module/command/DefaultModuleAction.html" label="DefaultModuleAction" />
+		<topic href="html/org/modelio/api/module/command/DefaultModuleCommandHandler.html" label="DefaultModuleCommandHandler" />
+		<topic href="html/org/modelio/api/module/command/IModuleAction.html" label="IModuleAction" />
+		<topic href="html/org/modelio/api/module/command/IModuleCommandHandler.html" label="IModuleCommandHandler" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.command.standard" >
+		<topic href="html/org/modelio/api/module/command/standard/ApplyPatternStandardHandler.html" label="ApplyPatternStandardHandler" />
+		<topic href="html/org/modelio/api/module/command/standard/DiagramCreationStandardHandler.html" label="DiagramCreationStandardHandler" />
+		<topic href="html/org/modelio/api/module/command/standard/ElementCreationStandardHandler.html" label="ElementCreationStandardHandler" />
+		<topic href="html/org/modelio/api/module/command/standard/RunJythonScriptBasicHandler.html" label="RunJythonScriptBasicHandler" />
+		<topic href="html/org/modelio/api/module/command/standard/RunJythonScriptStandardHandler.html" label="RunJythonScriptStandardHandler" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.context" >
+		<topic href="html/org/modelio/api/module/context/IModuleContext.html" label="IModuleContext" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.context.configuration" >
+		<topic href="html/org/modelio/api/module/context/configuration/IConfigParamValidator.html" label="IConfigParamValidator" />
+		<topic href="html/org/modelio/api/module/context/configuration/IModuleAPIConfiguration.html" label="IModuleAPIConfiguration" />
+		<topic href="html/org/modelio/api/module/context/configuration/IModuleUserConfiguration.html" label="IModuleUserConfiguration" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.context.i18n" >
+		<topic href="html/org/modelio/api/module/context/i18n/I18nSupport.html" label="I18nSupport" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.context.log" >
+		<topic href="html/org/modelio/api/module/context/log/ILogService.html" label="ILogService" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.context.project" >
+		<topic href="html/org/modelio/api/module/context/project/IFragmentStructure.html" label="IFragmentStructure" />
+		<topic href="html/org/modelio/api/module/context/project/IModuleStructure.html" label="IModuleStructure" />
+		<topic href="html/org/modelio/api/module/context/project/IProjectStructure.html" label="IProjectStructure" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.contributor" >
+		<topic href="html/org/modelio/api/module/contributor/AbstractWizardContributor.html" label="AbstractWizardContributor" />
+		<topic href="html/org/modelio/api/module/contributor/ElementDescriptor.html" label="ElementDescriptor" />
+		<topic href="html/org/modelio/api/module/contributor/IWizardContributor.html" label="IWizardContributor" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.contributor.diagramcreation" >
+		<topic href="html/org/modelio/api/module/contributor/diagramcreation/AbstractDiagramWizardContributor.html" label="AbstractDiagramWizardContributor" />
+		<topic href="html/org/modelio/api/module/contributor/diagramcreation/IDiagramWizardContributor.html" label="IDiagramWizardContributor" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.contributor.diagramcreation.standard" >
+		<topic href="html/org/modelio/api/module/contributor/diagramcreation/standard/GenericDiagramWizardContributor.html" label="GenericDiagramWizardContributor" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.license" >
+		<topic href="html/org/modelio/api/module/license/ILicenseInfos.html" label="ILicenseInfos" />
+		<topic href="html/org/modelio/api/module/license/ILicenseInfos.Status.html" label="ILicenseInfos.Status" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.lifecycle" >
+		<topic href="html/org/modelio/api/module/lifecycle/DefaultModuleLifeCycleHandler.html" label="DefaultModuleLifeCycleHandler" />
+		<topic href="html/org/modelio/api/module/lifecycle/IModuleLifeCycleHandler.html" label="IModuleLifeCycleHandler" />
+		<topic href="html/org/modelio/api/module/lifecycle/ModuleException.html" label="ModuleException" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.mda" >
+		<topic href="html/org/modelio/api/module/mda/IMdaExpert.html" label="IMdaExpert" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.parameter" >
+		<topic href="html/org/modelio/api/module/parameter/IParameterEditionModel.html" label="IParameterEditionModel" />
+		<topic href="html/org/modelio/api/module/parameter/IParameterGroupModel.html" label="IParameterGroupModel" />
+		<topic href="html/org/modelio/api/module/parameter/IParameterModel.html" label="IParameterModel" />
+		<topic href="html/org/modelio/api/module/parameter/ModuleParameterType.html" label="ModuleParameterType" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.parameter.impl" >
+		<topic href="html/org/modelio/api/module/parameter/impl/BoolParameterModel.html" label="BoolParameterModel" />
+		<topic href="html/org/modelio/api/module/parameter/impl/ColorParameterModel.html" label="ColorParameterModel" />
+		<topic href="html/org/modelio/api/module/parameter/impl/DirectoryParameterModel.html" label="DirectoryParameterModel" />
+		<topic href="html/org/modelio/api/module/parameter/impl/EnumParameterModel.html" label="EnumParameterModel" />
+		<topic href="html/org/modelio/api/module/parameter/impl/FileParameterModel.html" label="FileParameterModel" />
+		<topic href="html/org/modelio/api/module/parameter/impl/IntParameterModel.html" label="IntParameterModel" />
+		<topic href="html/org/modelio/api/module/parameter/impl/ParameterGroupModel.html" label="ParameterGroupModel" />
+		<topic href="html/org/modelio/api/module/parameter/impl/ParameterModel.html" label="ParameterModel" />
+		<topic href="html/org/modelio/api/module/parameter/impl/ParametersEditionModel.html" label="ParametersEditionModel" />
+		<topic href="html/org/modelio/api/module/parameter/impl/PasswordParameterModel.html" label="PasswordParameterModel" />
+		<topic href="html/org/modelio/api/module/parameter/impl/StringParameterModel.html" label="StringParameterModel" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.propertiesPage" >
+		<topic href="html/org/modelio/api/module/propertiesPage/AbstractModulePropertyPage.html" label="AbstractModulePropertyPage" />
+		<topic href="html/org/modelio/api/module/propertiesPage/ElementFormPropertyPanel.html" label="ElementFormPropertyPanel" />
+		<topic href="html/org/modelio/api/module/propertiesPage/IModulePropertyCustomPanel.html" label="IModulePropertyCustomPanel" />
+		<topic href="html/org/modelio/api/module/propertiesPage/IModulePropertyPage.html" label="IModulePropertyPage" />
+		<topic href="html/org/modelio/api/module/propertiesPage/IModulePropertyPanel.html" label="IModulePropertyPanel" />
+		<topic href="html/org/modelio/api/module/propertiesPage/IModulePropertyTable.html" label="IModulePropertyTable" />
+		<topic href="html/org/modelio/api/module/propertiesPage/ModuleMultiVariantPropertyPanel.html" label="ModuleMultiVariantPropertyPanel" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.report" >
+		<topic href="html/org/modelio/api/module/report/EntryKind.html" label="EntryKind" />
+		<topic href="html/org/modelio/api/module/report/ReportDialog.html" label="ReportDialog" />
+		<topic href="html/org/modelio/api/module/report/ReportEntry.html" label="ReportEntry" />
+		<topic href="html/org/modelio/api/module/report/Report.html" label="Report" />
+	</topic>
+	<topic href="" label="org.modelio.api.module.script" >
+		<topic href="html/org/modelio/api/module/script/IScriptService.html" label="IScriptService" />
+	</topic>
+	<topic href="" label="org.modelio.api.plugin" >
+		<topic href="html/org/modelio/api/plugin/Api.html" label="Api" />
+	</topic>
+	<topic href="" label="org.modelio.api.ui" >
+		<topic href="html/org/modelio/api/ui/ModelioDialog.html" label="ModelioDialog" />
+		<topic href="html/org/modelio/api/ui/ModelioWizardDialog.html" label="ModelioWizardDialog" />
+		<topic href="html/org/modelio/api/ui/ModelioWizardDialog.PageContainerFillLayout.html" label="ModelioWizardDialog.PageContainerFillLayout" />
+	</topic>
+	<topic href="" label="org.modelio.api.ui.contributor" >
+		<topic href="html/org/modelio/api/ui/contributor/DefaultWizardPreviewPanel.html" label="DefaultWizardPreviewPanel" />
+	</topic>
+	<topic href="" label="org.modelio.api.ui.dnd" >
+		<topic href="html/org/modelio/api/ui/dnd/EditorDropListener.html" label="EditorDropListener" />
+		<topic href="html/org/modelio/api/ui/dnd/IEditorDropClient.html" label="IEditorDropClient" />
+		<topic href="html/org/modelio/api/ui/dnd/ModelElementTransfer.html" label="ModelElementTransfer" />
+	</topic>
+	<topic href="" label="org.modelio.api.ui.form" >
+		<topic href="html/org/modelio/api/ui/form/AbstractFieldFactory.BasicPage.html" label="AbstractFieldFactory.BasicPage" />
+		<topic href="html/org/modelio/api/ui/form/AbstractFieldFactory.html" label="AbstractFieldFactory" />
+		<topic href="html/org/modelio/api/ui/form/ElementFormPanel.html" label="ElementFormPanel" />
+		<topic href="html/org/modelio/api/ui/form/FormFieldPage.html" label="FormFieldPage" />
+		<topic href="html/org/modelio/api/ui/form/IFieldFactory.html" label="IFieldFactory" />
+	</topic>
+	<topic href="" label="org.modelio.api.ui.form.fields" >
+		<topic href="html/org/modelio/api/ui/form/fields/AbstractField.html" label="AbstractField" />
+		<topic href="html/org/modelio/api/ui/form/fields/BooleanField.html" label="BooleanField" />
+		<topic href="html/org/modelio/api/ui/form/fields/DateField.html" label="DateField" />
+		<topic href="html/org/modelio/api/ui/form/fields/ElementField.html" label="ElementField" />
+		<topic href="html/org/modelio/api/ui/form/fields/EnumField.html" label="EnumField" />
+		<topic href="html/org/modelio/api/ui/form/fields/HtmlTextField.html" label="HtmlTextField" />
+		<topic href="html/org/modelio/api/ui/form/fields/IField.html" label="IField" />
+		<topic href="html/org/modelio/api/ui/form/fields/MultipleElementField.html" label="MultipleElementField" />
+		<topic href="html/org/modelio/api/ui/form/fields/NoteField.html" label="NoteField" />
+		<topic href="html/org/modelio/api/ui/form/fields/RichTextField.html" label="RichTextField" />
+		<topic href="html/org/modelio/api/ui/form/fields/StringField.html" label="StringField" />
+		<topic href="html/org/modelio/api/ui/form/fields/TextField.html" label="TextField" />
+		<topic href="html/org/modelio/api/ui/form/fields/TimeField.html" label="TimeField" />
+	</topic>
+	<topic href="" label="org.modelio.api.ui.form.models" >
+		<topic href="html/org/modelio/api/ui/form/models/AbstractTagFieldData.html" label="AbstractTagFieldData" />
+		<topic href="html/org/modelio/api/ui/form/models/AbstractTagFieldData.TagFormFieldType.html" label="AbstractTagFieldData.TagFormFieldType" />
+		<topic href="html/org/modelio/api/ui/form/models/BooleanTagFieldData.html" label="BooleanTagFieldData" />
+		<topic href="html/org/modelio/api/ui/form/models/DependencyListFieldData.html" label="DependencyListFieldData" />
+		<topic href="html/org/modelio/api/ui/form/models/ICandidateProvider.html" label="ICandidateProvider" />
+		<topic href="html/org/modelio/api/ui/form/models/IFormFieldData.html" label="IFormFieldData" />
+		<topic href="html/org/modelio/api/ui/form/models/IFormFieldType.html" label="IFormFieldType" />
+		<topic href="html/org/modelio/api/ui/form/models/MAttributeFieldData.html" label="MAttributeFieldData" />
+		<topic href="html/org/modelio/api/ui/form/models/NoteFieldData.html" label="NoteFieldData" />
+		<topic href="html/org/modelio/api/ui/form/models/PropertyFieldData.html" label="PropertyFieldData" />
+		<topic href="html/org/modelio/api/ui/form/models/StringTagFieldData.html" label="StringTagFieldData" />
+	</topic>
+	<topic href="" label="org.modelio.api.ui.labelprovider" >
+		<topic href="html/org/modelio/api/ui/labelprovider/ElementLabelProvider.html" label="ElementLabelProvider" />
+	</topic>
+	<topic href="" label="org.modelio.api.ui.swt" >
+		<topic href="html/org/modelio/api/ui/swt/IUiToolkit.html" label="IUiToolkit" />
+		<topic href="html/org/modelio/api/ui/swt/SelectionHelper.html" label="SelectionHelper" />
+	</topic>
+	<topic href="" label="org.modelio.api.ui.swt.metaclassselect" >
+		<topic href="html/org/modelio/api/ui/swt/metaclassselect/IMetaclassSelector.html" label="IMetaclassSelector" />
+	</topic>
+	<topic href="" label="org.modelio.api.ui.text" >
+		<topic href="html/org/modelio/api/ui/text/IElementChangeListener.html" label="IElementChangeListener" />
+		<topic href="html/org/modelio/api/ui/text/ResultsProposalPopup.html" label="ResultsProposalPopup" />
+		<topic href="html/org/modelio/api/ui/text/TextWrapperForIElement.html" label="TextWrapperForIElement" />
+	</topic>
+	<topic href="" label="org.modelio.api.ui.viewtemplate" >
+		<topic href="html/org/modelio/api/ui/viewtemplate/IModelViewTemplate.html" label="IModelViewTemplate" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel" >
+		<topic href="html/org/modelio/archimate/metamodel/ArchimateMetamodel.html" label="ArchimateMetamodel" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.core" >
+		<topic href="html/org/modelio/archimate/metamodel/core/ArchimateAbstractElement.html" label="ArchimateAbstractElement" />
+		<topic href="html/org/modelio/archimate/metamodel/core/ArchimateView.html" label="ArchimateView" />
+		<topic href="html/org/modelio/archimate/metamodel/core/Concept.html" label="Concept" />
+		<topic href="html/org/modelio/archimate/metamodel/core/Element.html" label="Element" />
+		<topic href="html/org/modelio/archimate/metamodel/core/RelationshipConnector.html" label="RelationshipConnector" />
+		<topic href="html/org/modelio/archimate/metamodel/core/Relationship.html" label="Relationship" />
+		<topic href="html/org/modelio/archimate/metamodel/core/ViewPointDiagram.html" label="ViewPointDiagram" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.core.generic" >
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/ActiveStructureElement.html" label="ActiveStructureElement" />
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/BehaviorElement.html" label="BehaviorElement" />
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/Event.html" label="Event" />
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/ExternalActiveStructureElement.html" label="ExternalActiveStructureElement" />
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/ExternalBehaviorElement.html" label="ExternalBehaviorElement" />
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/InternalActiveStructureElement.html" label="InternalActiveStructureElement" />
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/InternalBehaviorElement.html" label="InternalBehaviorElement" />
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/PassiveStructureElement.html" label="PassiveStructureElement" />
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/StructureElement.html" label="StructureElement" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.core.generic.composite" >
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/composite/CompositeElement.html" label="CompositeElement" />
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/composite/Grouping.html" label="Grouping" />
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/composite/Location.html" label="Location" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.core.generic.motivation" >
+		<topic href="html/org/modelio/archimate/metamodel/core/generic/motivation/MotivationElement.html" label="MotivationElement" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.core.structure" >
+		<topic href="html/org/modelio/archimate/metamodel/core/structure/ArchimateProject.html" label="ArchimateProject" />
+		<topic href="html/org/modelio/archimate/metamodel/core/structure/Folder.html" label="Folder" />
+		<topic href="html/org/modelio/archimate/metamodel/core/structure/Model.html" label="Model" />
+		<topic href="html/org/modelio/archimate/metamodel/core/structure/ViewPoint.html" label="ViewPoint" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.core.structure.folder" >
+		<topic href="html/org/modelio/archimate/metamodel/core/structure/folder/ApplicationFolder.html" label="ApplicationFolder" />
+		<topic href="html/org/modelio/archimate/metamodel/core/structure/folder/BusinessFolder.html" label="BusinessFolder" />
+		<topic href="html/org/modelio/archimate/metamodel/core/structure/folder/ImplementationFolder.html" label="ImplementationFolder" />
+		<topic href="html/org/modelio/archimate/metamodel/core/structure/folder/MotivationFolder.html" label="MotivationFolder" />
+		<topic href="html/org/modelio/archimate/metamodel/core/structure/folder/PhysicalFolder.html" label="PhysicalFolder" />
+		<topic href="html/org/modelio/archimate/metamodel/core/structure/folder/StrategyFolder.html" label="StrategyFolder" />
+		<topic href="html/org/modelio/archimate/metamodel/core/structure/folder/TechnologyFolder.html" label="TechnologyFolder" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.application.behavior" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/application/behavior/ApplicationEvent.html" label="ApplicationEvent" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/application/behavior/ApplicationFunction.html" label="ApplicationFunction" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/application/behavior/ApplicationInteraction.html" label="ApplicationInteraction" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/application/behavior/ApplicationInternalBehaviorElement.html" label="ApplicationInternalBehaviorElement" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/application/behavior/ApplicationProcess.html" label="ApplicationProcess" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/application/behavior/ApplicationService.html" label="ApplicationService" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.application.structure.active" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/application/structure/active/ApplicationCollaboration.html" label="ApplicationCollaboration" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/application/structure/active/ApplicationComponent.html" label="ApplicationComponent" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/application/structure/active/ApplicationInterface.html" label="ApplicationInterface" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/application/structure/active/ApplicationInternalActiveStructureElement.html" label="ApplicationInternalActiveStructureElement" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.application.structure.passive" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/application/structure/passive/DataObject.html" label="DataObject" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.business" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/BusinessInternalActiveStructureElement.html" label="BusinessInternalActiveStructureElement" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/BusinessInternalBehaviorElement.html" label="BusinessInternalBehaviorElement" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/BusinessPassiveStructureElement.html" label="BusinessPassiveStructureElement" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.business.behavior" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/behavior/BusinessEvent.html" label="BusinessEvent" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/behavior/BusinessFunction.html" label="BusinessFunction" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/behavior/BusinessInteraction.html" label="BusinessInteraction" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/behavior/BusinessProcess.html" label="BusinessProcess" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/behavior/BusinessService.html" label="BusinessService" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.business.composite" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/composite/Product.html" label="Product" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.business.structure.active" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/structure/active/BusinessActor.html" label="BusinessActor" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/structure/active/BusinessCollaboration.html" label="BusinessCollaboration" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/structure/active/BusinessInterface.html" label="BusinessInterface" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/structure/active/BusinessRole.html" label="BusinessRole" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.business.structure.passive" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/structure/passive/BusinessObject.html" label="BusinessObject" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/structure/passive/Contract.html" label="Contract" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/business/structure/passive/Representation.html" label="Representation" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.implementation_and_migration" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/implementation_and_migration/Deliverable.html" label="Deliverable" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/implementation_and_migration/Gap.html" label="Gap" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/implementation_and_migration/ImplementationEvent.html" label="ImplementationEvent" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/implementation_and_migration/Plateau.html" label="Plateau" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/implementation_and_migration/WorkPackage.html" label="WorkPackage" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.motivation" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/motivation/Assessment.html" label="Assessment" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/motivation/Constraint.html" label="Constraint" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/motivation/Driver.html" label="Driver" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/motivation/Goal.html" label="Goal" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/motivation/Meaning.html" label="Meaning" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/motivation/Outcome.html" label="Outcome" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/motivation/Principle.html" label="Principle" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/motivation/Requirement.html" label="Requirement" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/motivation/Stakeholder.html" label="Stakeholder" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/motivation/Value.html" label="Value" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.physical.structure.active" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/physical/structure/active/DistributionNetwork.html" label="DistributionNetwork" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/physical/structure/active/Equipment.html" label="Equipment" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/physical/structure/active/Facility.html" label="Facility" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.physical.structure.passive" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/physical/structure/passive/Material.html" label="Material" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.strategy.behavior" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/strategy/behavior/Capability.html" label="Capability" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/strategy/behavior/CourseOfAction.html" label="CourseOfAction" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/strategy/behavior/StrategyBehaviorElement.html" label="StrategyBehaviorElement" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/strategy/behavior/ValueStream.html" label="ValueStream" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.strategy.structure" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/strategy/structure/Resource.html" label="Resource" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.technology.behavior" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/behavior/TechnologyEvent.html" label="TechnologyEvent" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/behavior/TechnologyFunction.html" label="TechnologyFunction" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/behavior/TechnologyInteraction.html" label="TechnologyInteraction" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/behavior/TechnologyInternalBehaviorElement.html" label="TechnologyInternalBehaviorElement" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/behavior/TechnologyProcess.html" label="TechnologyProcess" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/behavior/TechnologyService.html" label="TechnologyService" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.technology.structure.active" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/structure/active/CommunicationNetwork.html" label="CommunicationNetwork" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/structure/active/Device.html" label="Device" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/structure/active/Node.html" label="Node" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/structure/active/Path.html" label="Path" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/structure/active/SystemSoftware.html" label="SystemSoftware" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/structure/active/TechnologyActiveStructureElement.html" label="TechnologyActiveStructureElement" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/structure/active/TechnologyCollaboration.html" label="TechnologyCollaboration" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/structure/active/TechnologyInterface.html" label="TechnologyInterface" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/structure/active/TechnologyInternalActiveStructureElement.html" label="TechnologyInternalActiveStructureElement" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.layers.technology.structure.passive" >
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/structure/passive/Artifact.html" label="Artifact" />
+		<topic href="html/org/modelio/archimate/metamodel/layers/technology/structure/passive/TechnologyObject.html" label="TechnologyObject" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.mmextensions.archimate" >
+		<topic href="html/org/modelio/archimate/metamodel/mmextensions/archimate/ArchimateLayerExpert.html" label="ArchimateLayerExpert" />
+		<topic href="html/org/modelio/archimate/metamodel/mmextensions/archimate/IArchimateModelFactory.html" label="IArchimateModelFactory" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.relationships.dependency" >
+		<topic href="html/org/modelio/archimate/metamodel/relationships/dependency/Access.html" label="Access" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/dependency/AccessMode.html" label="AccessMode" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/dependency/DependencyRelationship.html" label="DependencyRelationship" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/dependency/Influence.html" label="Influence" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/dependency/InfluenceStrength.html" label="InfluenceStrength" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/dependency/Serving.html" label="Serving" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.relationships.dynamic" >
+		<topic href="html/org/modelio/archimate/metamodel/relationships/dynamic/DynamicRelationship.html" label="DynamicRelationship" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/dynamic/Flow.html" label="Flow" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/dynamic/Triggering.html" label="Triggering" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.relationships.other" >
+		<topic href="html/org/modelio/archimate/metamodel/relationships/other/AndJunction.html" label="AndJunction" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/other/Association.html" label="Association" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/other/Junction.html" label="Junction" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/other/OrJunction.html" label="OrJunction" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/other/OtherRelationship.html" label="OtherRelationship" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/other/Specialization.html" label="Specialization" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.relationships.structural" >
+		<topic href="html/org/modelio/archimate/metamodel/relationships/structural/Aggregation.html" label="Aggregation" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/structural/Assignment.html" label="Assignment" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/structural/Composition.html" label="Composition" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/structural/Realization.html" label="Realization" />
+		<topic href="html/org/modelio/archimate/metamodel/relationships/structural/StructuralRelationship.html" label="StructuralRelationship" />
+	</topic>
+	<topic href="" label="org.modelio.archimate.metamodel.visitors" >
+		<topic href="html/org/modelio/archimate/metamodel/visitors/AbstractArchimateVisitor.html" label="AbstractArchimateVisitor" />
+		<topic href="html/org/modelio/archimate/metamodel/visitors/DefaultArchimateVisitor.html" label="DefaultArchimateVisitor" />
+		<topic href="html/org/modelio/archimate/metamodel/visitors/IAbstractArchimateVisitor.html" label="IAbstractArchimateVisitor" />
+		<topic href="html/org/modelio/archimate/metamodel/visitors/IArchimateVisitor.html" label="IArchimateVisitor" />
+		<topic href="html/org/modelio/archimate/metamodel/visitors/IDefaultArchimateVisitor.html" label="IDefaultArchimateVisitor" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel" >
+		<topic href="html/org/modelio/metamodel/InfrastructureMetamodel.html" label="InfrastructureMetamodel" />
+		<topic href="html/org/modelio/metamodel/Metamodel.html" label="Metamodel" />
+		<topic href="html/org/modelio/metamodel/PredefinedTypes.html" label="PredefinedTypes" />
+		<topic href="html/org/modelio/metamodel/StandardMetamodel.html" label="StandardMetamodel" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.bpmn.activities" >
+		<topic href="html/org/modelio/metamodel/bpmn/activities/AdHocOrdering.html" label="AdHocOrdering" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnActivity.html" label="BpmnActivity" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnAdHocSubProcess.html" label="BpmnAdHocSubProcess" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnBusinessRuleTask.html" label="BpmnBusinessRuleTask" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnCallActivity.html" label="BpmnCallActivity" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnComplexBehaviorDefinition.html" label="BpmnComplexBehaviorDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnLoopCharacteristics.html" label="BpmnLoopCharacteristics" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnManualTask.html" label="BpmnManualTask" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnMultiInstanceLoopCharacteristics.html" label="BpmnMultiInstanceLoopCharacteristics" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnReceiveTask.html" label="BpmnReceiveTask" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnScriptTask.html" label="BpmnScriptTask" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnSendTask.html" label="BpmnSendTask" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnServiceTask.html" label="BpmnServiceTask" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnStandardLoopCharacteristics.html" label="BpmnStandardLoopCharacteristics" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnSubProcess.html" label="BpmnSubProcess" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnTask.html" label="BpmnTask" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnTransaction.html" label="BpmnTransaction" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/BpmnUserTask.html" label="BpmnUserTask" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/MultiInstanceBehavior.html" label="MultiInstanceBehavior" />
+		<topic href="html/org/modelio/metamodel/bpmn/activities/TransactionMethod.html" label="TransactionMethod" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.bpmn.bpmnDiagrams" >
+		<topic href="html/org/modelio/metamodel/bpmn/bpmnDiagrams/BpmnCollaborationDiagram.html" label="BpmnCollaborationDiagram" />
+		<topic href="html/org/modelio/metamodel/bpmn/bpmnDiagrams/BpmnProcessCollaborationDiagram.html" label="BpmnProcessCollaborationDiagram" />
+		<topic href="html/org/modelio/metamodel/bpmn/bpmnDiagrams/BpmnProcessDesignDiagram.html" label="BpmnProcessDesignDiagram" />
+		<topic href="html/org/modelio/metamodel/bpmn/bpmnDiagrams/BpmnSubProcessDiagram.html" label="BpmnSubProcessDiagram" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.bpmn.bpmnService" >
+		<topic href="html/org/modelio/metamodel/bpmn/bpmnService/BpmnEndPoint.html" label="BpmnEndPoint" />
+		<topic href="html/org/modelio/metamodel/bpmn/bpmnService/BpmnInterface.html" label="BpmnInterface" />
+		<topic href="html/org/modelio/metamodel/bpmn/bpmnService/BpmnOperation.html" label="BpmnOperation" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.bpmn.events" >
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnBoundaryEvent.html" label="BpmnBoundaryEvent" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnCancelEventDefinition.html" label="BpmnCancelEventDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnCatchEvent.html" label="BpmnCatchEvent" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnCompensateEventDefinition.html" label="BpmnCompensateEventDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnConditionalEventDefinition.html" label="BpmnConditionalEventDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnEndEvent.html" label="BpmnEndEvent" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnErrorEventDefinition.html" label="BpmnErrorEventDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnEscalationEventDefinition.html" label="BpmnEscalationEventDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnEventDefinition.html" label="BpmnEventDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnEvent.html" label="BpmnEvent" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnImplicitThrowEvent.html" label="BpmnImplicitThrowEvent" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnIntermediateCatchEvent.html" label="BpmnIntermediateCatchEvent" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnIntermediateThrowEvent.html" label="BpmnIntermediateThrowEvent" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnLinkEventDefinition.html" label="BpmnLinkEventDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnMessageEventDefinition.html" label="BpmnMessageEventDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnSignalEventDefinition.html" label="BpmnSignalEventDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnStartEvent.html" label="BpmnStartEvent" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnTerminateEventDefinition.html" label="BpmnTerminateEventDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnThrowEvent.html" label="BpmnThrowEvent" />
+		<topic href="html/org/modelio/metamodel/bpmn/events/BpmnTimerEventDefinition.html" label="BpmnTimerEventDefinition" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.bpmn.flows" >
+		<topic href="html/org/modelio/metamodel/bpmn/flows/BpmnMessageFlow.html" label="BpmnMessageFlow" />
+		<topic href="html/org/modelio/metamodel/bpmn/flows/BpmnMessage.html" label="BpmnMessage" />
+		<topic href="html/org/modelio/metamodel/bpmn/flows/BpmnSequenceFlow.html" label="BpmnSequenceFlow" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.bpmn.gateways" >
+		<topic href="html/org/modelio/metamodel/bpmn/gateways/BpmnComplexGateway.html" label="BpmnComplexGateway" />
+		<topic href="html/org/modelio/metamodel/bpmn/gateways/BpmnEventBasedGateway.html" label="BpmnEventBasedGateway" />
+		<topic href="html/org/modelio/metamodel/bpmn/gateways/BpmnEventBasedGatewayType.html" label="BpmnEventBasedGatewayType" />
+		<topic href="html/org/modelio/metamodel/bpmn/gateways/BpmnExclusiveGateway.html" label="BpmnExclusiveGateway" />
+		<topic href="html/org/modelio/metamodel/bpmn/gateways/BpmnGatewayDirection.html" label="BpmnGatewayDirection" />
+		<topic href="html/org/modelio/metamodel/bpmn/gateways/BpmnGateway.html" label="BpmnGateway" />
+		<topic href="html/org/modelio/metamodel/bpmn/gateways/BpmnInclusiveGateway.html" label="BpmnInclusiveGateway" />
+		<topic href="html/org/modelio/metamodel/bpmn/gateways/BpmnParallelGateway.html" label="BpmnParallelGateway" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.bpmn.objects" >
+		<topic href="html/org/modelio/metamodel/bpmn/objects/BpmnDataAssociation.html" label="BpmnDataAssociation" />
+		<topic href="html/org/modelio/metamodel/bpmn/objects/BpmnDataInput.html" label="BpmnDataInput" />
+		<topic href="html/org/modelio/metamodel/bpmn/objects/BpmnDataObject.html" label="BpmnDataObject" />
+		<topic href="html/org/modelio/metamodel/bpmn/objects/BpmnDataOutput.html" label="BpmnDataOutput" />
+		<topic href="html/org/modelio/metamodel/bpmn/objects/BpmnDataState.html" label="BpmnDataState" />
+		<topic href="html/org/modelio/metamodel/bpmn/objects/BpmnDataStore.html" label="BpmnDataStore" />
+		<topic href="html/org/modelio/metamodel/bpmn/objects/BpmnItemAwareElement.html" label="BpmnItemAwareElement" />
+		<topic href="html/org/modelio/metamodel/bpmn/objects/BpmnItemDefinition.html" label="BpmnItemDefinition" />
+		<topic href="html/org/modelio/metamodel/bpmn/objects/BpmnItemKind.html" label="BpmnItemKind" />
+		<topic href="html/org/modelio/metamodel/bpmn/objects/BpmnSequenceFlowDataAssociation.html" label="BpmnSequenceFlowDataAssociation" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.bpmn.processCollaboration" >
+		<topic href="html/org/modelio/metamodel/bpmn/processCollaboration/BpmnCollaboration.html" label="BpmnCollaboration" />
+		<topic href="html/org/modelio/metamodel/bpmn/processCollaboration/BpmnLane.html" label="BpmnLane" />
+		<topic href="html/org/modelio/metamodel/bpmn/processCollaboration/BpmnLaneSet.html" label="BpmnLaneSet" />
+		<topic href="html/org/modelio/metamodel/bpmn/processCollaboration/BpmnParticipant.html" label="BpmnParticipant" />
+		<topic href="html/org/modelio/metamodel/bpmn/processCollaboration/BpmnProcess.html" label="BpmnProcess" />
+		<topic href="html/org/modelio/metamodel/bpmn/processCollaboration/BpmnProcessType.html" label="BpmnProcessType" />
+		<topic href="html/org/modelio/metamodel/bpmn/processCollaboration/OptionalBoolean.html" label="OptionalBoolean" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.bpmn.resources" >
+		<topic href="html/org/modelio/metamodel/bpmn/resources/BpmnResource.html" label="BpmnResource" />
+		<topic href="html/org/modelio/metamodel/bpmn/resources/BpmnResourceParameterBinding.html" label="BpmnResourceParameterBinding" />
+		<topic href="html/org/modelio/metamodel/bpmn/resources/BpmnResourceParameter.html" label="BpmnResourceParameter" />
+		<topic href="html/org/modelio/metamodel/bpmn/resources/BpmnResourceRole.html" label="BpmnResourceRole" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.bpmn.rootElements" >
+		<topic href="html/org/modelio/metamodel/bpmn/rootElements/BpmnArtifact.html" label="BpmnArtifact" />
+		<topic href="html/org/modelio/metamodel/bpmn/rootElements/BpmnAssociationDirection.html" label="BpmnAssociationDirection" />
+		<topic href="html/org/modelio/metamodel/bpmn/rootElements/BpmnAssociation.html" label="BpmnAssociation" />
+		<topic href="html/org/modelio/metamodel/bpmn/rootElements/BpmnBaseElement.html" label="BpmnBaseElement" />
+		<topic href="html/org/modelio/metamodel/bpmn/rootElements/BpmnFlowElement.html" label="BpmnFlowElement" />
+		<topic href="html/org/modelio/metamodel/bpmn/rootElements/BpmnFlowNode.html" label="BpmnFlowNode" />
+		<topic href="html/org/modelio/metamodel/bpmn/rootElements/BpmnGroup.html" label="BpmnGroup" />
+		<topic href="html/org/modelio/metamodel/bpmn/rootElements/BpmnSharedDefinitions.html" label="BpmnSharedDefinitions" />
+		<topic href="html/org/modelio/metamodel/bpmn/rootElements/BpmnSharedElement.html" label="BpmnSharedElement" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.diagrams" >
+		<topic href="html/org/modelio/metamodel/diagrams/AbstractDiagram.html" label="AbstractDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/ActivityDiagram.html" label="ActivityDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/BehaviorDiagram.html" label="BehaviorDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/ClassDiagram.html" label="ClassDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/CommunicationDiagram.html" label="CommunicationDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/CompositeStructureDiagram.html" label="CompositeStructureDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/DeploymentDiagram.html" label="DeploymentDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/DiagramSet.html" label="DiagramSet" />
+		<topic href="html/org/modelio/metamodel/diagrams/GraphDiagram.html" label="GraphDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/ObjectDiagram.html" label="ObjectDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/SequenceDiagram.html" label="SequenceDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/StateMachineDiagram.html" label="StateMachineDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/StaticDiagram.html" label="StaticDiagram" />
+		<topic href="html/org/modelio/metamodel/diagrams/UseCaseDiagram.html" label="UseCaseDiagram" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.impact" >
+		<topic href="html/org/modelio/metamodel/impact/ImpactDiagram.html" label="ImpactDiagram" />
+		<topic href="html/org/modelio/metamodel/impact/ImpactLink.html" label="ImpactLink" />
+		<topic href="html/org/modelio/metamodel/impact/ImpactModel.html" label="ImpactModel" />
+		<topic href="html/org/modelio/metamodel/impact/ImpactProject.html" label="ImpactProject" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.mda" >
+		<topic href="html/org/modelio/metamodel/mda/ModuleComponent.html" label="ModuleComponent" />
+		<topic href="html/org/modelio/metamodel/mda/ModuleParameter.html" label="ModuleParameter" />
+		<topic href="html/org/modelio/metamodel/mda/ModuleParameterType.html" label="ModuleParameterType" />
+		<topic href="html/org/modelio/metamodel/mda/ModuleState.html" label="ModuleState" />
+		<topic href="html/org/modelio/metamodel/mda/Project.html" label="Project" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.mmextensions.infrastructure" >
+		<topic href="html/org/modelio/metamodel/mmextensions/infrastructure/ElementNotUniqueException.html" label="ElementNotUniqueException" />
+		<topic href="html/org/modelio/metamodel/mmextensions/infrastructure/ExtensionNotFoundException.html" label="ExtensionNotFoundException" />
+		<topic href="html/org/modelio/metamodel/mmextensions/infrastructure/IInfrastructureModelFactory.html" label="IInfrastructureModelFactory" />
+		<topic href="html/org/modelio/metamodel/mmextensions/infrastructure/IResourceBuilder.html" label="IResourceBuilder" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.mmextensions.standard.facilities" >
+		<topic href="html/org/modelio/metamodel/mmextensions/standard/facilities/BrokenElementTester.html" label="BrokenElementTester" />
+		<topic href="html/org/modelio/metamodel/mmextensions/standard/facilities/CompositionInitializer.html" label="CompositionInitializer" />
+		<topic href="html/org/modelio/metamodel/mmextensions/standard/facilities/RelatedDiagramHelper.html" label="RelatedDiagramHelper" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.mmextensions.standard.facilities.interaction" >
+		<topic href="html/org/modelio/metamodel/mmextensions/standard/facilities/interaction/InteractionHelper.html" label="InteractionHelper" />
+		<topic href="html/org/modelio/metamodel/mmextensions/standard/facilities/interaction/MessageSequencer.html" label="MessageSequencer" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.mmextensions.standard.factory" >
+		<topic href="html/org/modelio/metamodel/mmextensions/standard/factory/IStandardModelFactory.html" label="IStandardModelFactory" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.mmextensions.standard.services" >
+		<topic href="html/org/modelio/metamodel/mmextensions/standard/services/IMModelServices.html" label="IMModelServices" />
+		<topic href="html/org/modelio/metamodel/mmextensions/standard/services/MModelServices.html" label="MModelServices" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.uml.behavior.activityModel" >
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/AcceptCallEventAction.html" label="AcceptCallEventAction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/AcceptChangeEventAction.html" label="AcceptChangeEventAction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/AcceptSignalAction.html" label="AcceptSignalAction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/AcceptTimeEventAction.html" label="AcceptTimeEventAction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ActivityAction.html" label="ActivityAction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ActivityEdge.html" label="ActivityEdge" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ActivityFinalNode.html" label="ActivityFinalNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ActivityGroup.html" label="ActivityGroup" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/Activity.html" label="Activity" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ActivityNode.html" label="ActivityNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ActivityParameterNode.html" label="ActivityParameterNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ActivityPartition.html" label="ActivityPartition" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/CallAction.html" label="CallAction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/CallBehaviorAction.html" label="CallBehaviorAction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/CallOperationAction.html" label="CallOperationAction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/CentralBufferNode.html" label="CentralBufferNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/Clause.html" label="Clause" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ConditionalNode.html" label="ConditionalNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ControlFlow.html" label="ControlFlow" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ControlNode.html" label="ControlNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/DataStoreNode.html" label="DataStoreNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/DecisionMergeNode.html" label="DecisionMergeNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/DecisionNodeKind.html" label="DecisionNodeKind" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ExceptionHandler.html" label="ExceptionHandler" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ExpansionKind.html" label="ExpansionKind" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ExpansionNode.html" label="ExpansionNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ExpansionRegion.html" label="ExpansionRegion" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/FinalNode.html" label="FinalNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/FlowFinalNode.html" label="FlowFinalNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ForkJoinNode.html" label="ForkJoinNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/InitialNode.html" label="InitialNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/InputPin.html" label="InputPin" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/InstanceNode.html" label="InstanceNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/InterruptibleActivityRegion.html" label="InterruptibleActivityRegion" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/LoopNode.html" label="LoopNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/MessageFlow.html" label="MessageFlow" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ObjectFlowEffectKind.html" label="ObjectFlowEffectKind" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ObjectFlow.html" label="ObjectFlow" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ObjectNode.html" label="ObjectNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ObjectNodeOrderingKind.html" label="ObjectNodeOrderingKind" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/OpaqueAction.html" label="OpaqueAction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/OutputPin.html" label="OutputPin" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/Pin.html" label="Pin" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/PinPassingMode.html" label="PinPassingMode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/SendSignalAction.html" label="SendSignalAction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/StructuredActivityNode.html" label="StructuredActivityNode" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/activityModel/ValuePin.html" label="ValuePin" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.uml.behavior.commonBehaviors" >
+		<topic href="html/org/modelio/metamodel/uml/behavior/commonBehaviors/Behavior.html" label="Behavior" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/commonBehaviors/BehaviorParameter.html" label="BehaviorParameter" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/commonBehaviors/Event.html" label="Event" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/commonBehaviors/EventType.html" label="EventType" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/commonBehaviors/OpaqueBehavior.html" label="OpaqueBehavior" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/commonBehaviors/ParameterEffectKind.html" label="ParameterEffectKind" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/commonBehaviors/Signal.html" label="Signal" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.uml.behavior.communicationModel" >
+		<topic href="html/org/modelio/metamodel/uml/behavior/communicationModel/CommunicationChannel.html" label="CommunicationChannel" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/communicationModel/CommunicationInteraction.html" label="CommunicationInteraction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/communicationModel/CommunicationMessage.html" label="CommunicationMessage" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/communicationModel/CommunicationNode.html" label="CommunicationNode" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.uml.behavior.interactionModel" >
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/CombinedFragment.html" label="CombinedFragment" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/DurationConstraint.html" label="DurationConstraint" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/ExecutionOccurenceSpecification.html" label="ExecutionOccurenceSpecification" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/ExecutionSpecification.html" label="ExecutionSpecification" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/Gate.html" label="Gate" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/GeneralOrdering.html" label="GeneralOrdering" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/InteractionFragment.html" label="InteractionFragment" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/Interaction.html" label="Interaction" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/InteractionOperand.html" label="InteractionOperand" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/InteractionOperator.html" label="InteractionOperator" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/InteractionUse.html" label="InteractionUse" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/Lifeline.html" label="Lifeline" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/MessageEnd.html" label="MessageEnd" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/Message.html" label="Message" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/MessageKind.html" label="MessageKind" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/MessageSort.html" label="MessageSort" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/OccurrenceSpecification.html" label="OccurrenceSpecification" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/PartDecomposition.html" label="PartDecomposition" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/RelativeTime.html" label="RelativeTime" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/StateInvariant.html" label="StateInvariant" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/interactionModel/TerminateSpecification.html" label="TerminateSpecification" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.uml.behavior.stateMachineModel" >
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/AbstractPseudoState.html" label="AbstractPseudoState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/ChoicePseudoState.html" label="ChoicePseudoState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/ConnectionPointReference.html" label="ConnectionPointReference" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/DeepHistoryPseudoState.html" label="DeepHistoryPseudoState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/EntryPointPseudoState.html" label="EntryPointPseudoState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/ExitPointPseudoState.html" label="ExitPointPseudoState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/FinalState.html" label="FinalState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/ForkPseudoState.html" label="ForkPseudoState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/InitialPseudoState.html" label="InitialPseudoState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/InternalTransition.html" label="InternalTransition" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/JoinPseudoState.html" label="JoinPseudoState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/JunctionPseudoState.html" label="JunctionPseudoState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/KindOfControl.html" label="KindOfControl" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/KindOfStateMachine.html" label="KindOfStateMachine" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/PredefinedEventType.html" label="PredefinedEventType" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/Region.html" label="Region" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/ShallowHistoryPseudoState.html" label="ShallowHistoryPseudoState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/State.html" label="State" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/StateKind.html" label="StateKind" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/StateMachine.html" label="StateMachine" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/StateVertex.html" label="StateVertex" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/TerminatePseudoState.html" label="TerminatePseudoState" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/stateMachineModel/Transition.html" label="Transition" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.uml.behavior.usecaseModel" >
+		<topic href="html/org/modelio/metamodel/uml/behavior/usecaseModel/Actor.html" label="Actor" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/usecaseModel/ExtensionPoint.html" label="ExtensionPoint" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/usecaseModel/UseCaseDependency.html" label="UseCaseDependency" />
+		<topic href="html/org/modelio/metamodel/uml/behavior/usecaseModel/UseCase.html" label="UseCase" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.uml.informationFlow" >
+		<topic href="html/org/modelio/metamodel/uml/informationFlow/DataFlow.html" label="DataFlow" />
+		<topic href="html/org/modelio/metamodel/uml/informationFlow/InformationFlow.html" label="InformationFlow" />
+		<topic href="html/org/modelio/metamodel/uml/informationFlow/InformationItem.html" label="InformationItem" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.uml.infrastructure" >
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/Abstraction.html" label="Abstraction" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/AbstractProject.html" label="AbstractProject" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/AbstractResource.html" label="AbstractResource" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/Constraint.html" label="Constraint" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/Dependency.html" label="Dependency" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/Document.html" label="Document" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/Element.html" label="Element" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/ExternElement.html" label="ExternElement" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/ExternProcessor.html" label="ExternProcessor" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/IResourceHandle.html" label="IResourceHandle" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/MetaclassReference.html" label="MetaclassReference" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/MethodologicalLink.html" label="MethodologicalLink" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/ModelElement.html" label="ModelElement" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/ModelTree.html" label="ModelTree" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/Note.html" label="Note" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/NoteType.html" label="NoteType" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/Profile.html" label="Profile" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/Resource.html" label="Resource" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/ResourceType.html" label="ResourceType" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/Stereotype.html" label="Stereotype" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/Substitution.html" label="Substitution" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/TaggedValue.html" label="TaggedValue" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/TagParameter.html" label="TagParameter" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/TagType.html" label="TagType" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/UmlModelElement.html" label="UmlModelElement" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/Usage.html" label="Usage" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.uml.infrastructure.matrix" >
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/matrix/MatrixDefinition.html" label="MatrixDefinition" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/matrix/MatrixValueDefinition.html" label="MatrixValueDefinition" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/matrix/QueryDefinition.html" label="QueryDefinition" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.uml.infrastructure.properties" >
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/properties/DynamicPropertyDefinition.html" label="DynamicPropertyDefinition" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/properties/DynamicPropertyDefinition.IDynamicPropertyResolver.html" label="DynamicPropertyDefinition.IDynamicPropertyResolver" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/properties/EnumeratedPropertyType.html" label="EnumeratedPropertyType" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/properties/LocalPropertyTable.html" label="LocalPropertyTable" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/properties/PropertyBaseType.html" label="PropertyBaseType" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/properties/PropertyDefinition.html" label="PropertyDefinition" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/properties/PropertyEnumerationLitteral.html" label="PropertyEnumerationLitteral" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/properties/PropertyTableDefinition.html" label="PropertyTableDefinition" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/properties/PropertyTable.html" label="PropertyTable" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/properties/PropertyType.html" label="PropertyType" />
+		<topic href="html/org/modelio/metamodel/uml/infrastructure/properties/TypedPropertyTable.html" label="TypedPropertyTable" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.uml.statik" >
+		<topic href="html/org/modelio/metamodel/uml/statik/AggregationKind.html" label="AggregationKind" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Artifact.html" label="Artifact" />
+		<topic href="html/org/modelio/metamodel/uml/statik/AssociationEnd.html" label="AssociationEnd" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Association.html" label="Association" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Attribute.html" label="Attribute" />
+		<topic href="html/org/modelio/metamodel/uml/statik/AttributeLink.html" label="AttributeLink" />
+		<topic href="html/org/modelio/metamodel/uml/statik/BehavioralFeature.html" label="BehavioralFeature" />
+		<topic href="html/org/modelio/metamodel/uml/statik/BindableInstance.html" label="BindableInstance" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Binding.html" label="Binding" />
+		<topic href="html/org/modelio/metamodel/uml/statik/ClassAssociation.html" label="ClassAssociation" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Class.html" label="Class" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Classifier.html" label="Classifier" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Collaboration.html" label="Collaboration" />
+		<topic href="html/org/modelio/metamodel/uml/statik/CollaborationUse.html" label="CollaborationUse" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Component.html" label="Component" />
+		<topic href="html/org/modelio/metamodel/uml/statik/ComponentRealization.html" label="ComponentRealization" />
+		<topic href="html/org/modelio/metamodel/uml/statik/ConnectorEnd.html" label="ConnectorEnd" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Connector.html" label="Connector" />
+		<topic href="html/org/modelio/metamodel/uml/statik/DataType.html" label="DataType" />
+		<topic href="html/org/modelio/metamodel/uml/statik/ElementImport.html" label="ElementImport" />
+		<topic href="html/org/modelio/metamodel/uml/statik/ElementRealization.html" label="ElementRealization" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Enumeration.html" label="Enumeration" />
+		<topic href="html/org/modelio/metamodel/uml/statik/EnumerationLiteral.html" label="EnumerationLiteral" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Feature.html" label="Feature" />
+		<topic href="html/org/modelio/metamodel/uml/statik/GeneralClass.html" label="GeneralClass" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Generalization.html" label="Generalization" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Instance.html" label="Instance" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Interface.html" label="Interface" />
+		<topic href="html/org/modelio/metamodel/uml/statik/InterfaceRealization.html" label="InterfaceRealization" />
+		<topic href="html/org/modelio/metamodel/uml/statik/KindOfAccess.html" label="KindOfAccess" />
+		<topic href="html/org/modelio/metamodel/uml/statik/LinkEnd.html" label="LinkEnd" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Link.html" label="Link" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Manifestation.html" label="Manifestation" />
+		<topic href="html/org/modelio/metamodel/uml/statik/MethodPassingMode.html" label="MethodPassingMode" />
+		<topic href="html/org/modelio/metamodel/uml/statik/NameSpace.html" label="NameSpace" />
+		<topic href="html/org/modelio/metamodel/uml/statik/NaryAssociationEnd.html" label="NaryAssociationEnd" />
+		<topic href="html/org/modelio/metamodel/uml/statik/NaryAssociation.html" label="NaryAssociation" />
+		<topic href="html/org/modelio/metamodel/uml/statik/NaryConnectorEnd.html" label="NaryConnectorEnd" />
+		<topic href="html/org/modelio/metamodel/uml/statik/NaryConnector.html" label="NaryConnector" />
+		<topic href="html/org/modelio/metamodel/uml/statik/NaryLinkEnd.html" label="NaryLinkEnd" />
+		<topic href="html/org/modelio/metamodel/uml/statik/NaryLink.html" label="NaryLink" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Navigability.html" label="Navigability" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Node.html" label="Node" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Operation.html" label="Operation" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Package.html" label="Package" />
+		<topic href="html/org/modelio/metamodel/uml/statik/PackageImport.html" label="PackageImport" />
+		<topic href="html/org/modelio/metamodel/uml/statik/PackageMerge.html" label="PackageMerge" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Parameter.html" label="Parameter" />
+		<topic href="html/org/modelio/metamodel/uml/statik/PassingMode.html" label="PassingMode" />
+		<topic href="html/org/modelio/metamodel/uml/statik/Port.html" label="Port" />
+		<topic href="html/org/modelio/metamodel/uml/statik/PortOrientation.html" label="PortOrientation" />
+		<topic href="html/org/modelio/metamodel/uml/statik/ProvidedInterface.html" label="ProvidedInterface" />
+		<topic href="html/org/modelio/metamodel/uml/statik/RaisedException.html" label="RaisedException" />
+		<topic href="html/org/modelio/metamodel/uml/statik/RequiredInterface.html" label="RequiredInterface" />
+		<topic href="html/org/modelio/metamodel/uml/statik/StructuralFeature.html" label="StructuralFeature" />
+		<topic href="html/org/modelio/metamodel/uml/statik/TemplateBinding.html" label="TemplateBinding" />
+		<topic href="html/org/modelio/metamodel/uml/statik/TemplateParameter.html" label="TemplateParameter" />
+		<topic href="html/org/modelio/metamodel/uml/statik/TemplateParameterSubstitution.html" label="TemplateParameterSubstitution" />
+		<topic href="html/org/modelio/metamodel/uml/statik/VisibilityMode.html" label="VisibilityMode" />
+	</topic>
+	<topic href="" label="org.modelio.metamodel.visitors" >
+		<topic href="html/org/modelio/metamodel/visitors/AbstractInfrastructureVisitor.html" label="AbstractInfrastructureVisitor" />
+		<topic href="html/org/modelio/metamodel/visitors/AbstractModelVisitor.html" label="AbstractModelVisitor" />
+		<topic href="html/org/modelio/metamodel/visitors/DefaultInfrastructureVisitor.html" label="DefaultInfrastructureVisitor" />
+		<topic href="html/org/modelio/metamodel/visitors/DefaultModelVisitor.html" label="DefaultModelVisitor" />
+		<topic href="html/org/modelio/metamodel/visitors/IAbstractInfrastructureVisitor.html" label="IAbstractInfrastructureVisitor" />
+		<topic href="html/org/modelio/metamodel/visitors/IAbstractModelVisitor.html" label="IAbstractModelVisitor" />
+		<topic href="html/org/modelio/metamodel/visitors/IDefaultInfrastructureVisitor.html" label="IDefaultInfrastructureVisitor" />
+		<topic href="html/org/modelio/metamodel/visitors/IDefaultModelVisitor.html" label="IDefaultModelVisitor" />
+		<topic href="html/org/modelio/metamodel/visitors/IInfrastructureVisitor.html" label="IInfrastructureVisitor" />
+		<topic href="html/org/modelio/metamodel/visitors/IModelVisitor.html" label="IModelVisitor" />
+	</topic>
+	<topic href="" label="org.modelio.vbasic.version" >
+		<topic href="html/org/modelio/vbasic/version/VersionedItem.html" label="VersionedItem" />
+		<topic href="html/org/modelio/vbasic/version/Version.html" label="Version" />
+	</topic>
+	<topic href="" label="org.modelio.vcore.smkernel.mapi" >
+		<topic href="html/org/modelio/vcore/smkernel/mapi/AbstractMetaclassException.html" label="AbstractMetaclassException" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MAttribute.html" label="MAttribute" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MClass.html" label="MClass" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MDependency.html" label="MDependency" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MetaclassAlreadyExistException.html" label="MetaclassAlreadyExistException" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MetaclassNotFoundException.html" label="MetaclassNotFoundException" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MetamodelVersionDescriptor.Difference.html" label="MetamodelVersionDescriptor.Difference" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MetamodelVersionDescriptor.DiffType.html" label="MetamodelVersionDescriptor.DiffType" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MetamodelVersionDescriptor.html" label="MetamodelVersionDescriptor" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MExpert.html" label="MExpert" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MMetamodelFragment.html" label="MMetamodelFragment" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MMetamodel.html" label="MMetamodel" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MObject.html" label="MObject" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MRef.html" label="MRef" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MStatus.html" label="MStatus" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/MVisitor.html" label="MVisitor" />
+	</topic>
+	<topic href="" label="org.modelio.vcore.smkernel.mapi.fake" >
+		<topic href="html/org/modelio/vcore/smkernel/mapi/fake/FakeMClass.html" label="FakeMClass" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/fake/FakeMObject.html" label="FakeMObject" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/fake/FakeMVisitor.html" label="FakeMVisitor" />
+	</topic>
+	<topic href="" label="org.modelio.vcore.smkernel.mapi.modelshield.api" >
+		<topic href="html/org/modelio/vcore/smkernel/mapi/modelshield/api/IErrorReport.html" label="IErrorReport" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/modelshield/api/IModelError.html" label="IModelError" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/modelshield/api/IModelShieldRegistry.html" label="IModelShieldRegistry" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/modelshield/api/ModelError.html" label="ModelError" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/modelshield/api/TriggerType.html" label="TriggerType" />
+	</topic>
+	<topic href="" label="org.modelio.vcore.smkernel.mapi.modelshield.spi" >
+		<topic href="html/org/modelio/vcore/smkernel/mapi/modelshield/spi/ICheckerFactory.html" label="ICheckerFactory" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/modelshield/spi/IChecker.html" label="IChecker" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/modelshield/spi/LinkExpertChecker.html" label="LinkExpertChecker" />
+	</topic>
+	<topic href="" label="org.modelio.vcore.smkernel.mapi.services" >
+		<topic href="html/org/modelio/vcore/smkernel/mapi/services/IMetamodelDependentService.html" label="IMetamodelDependentService" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/services/IMetamodelServiceProvider.html" label="IMetamodelServiceProvider" />
+		<topic href="html/org/modelio/vcore/smkernel/mapi/services/MetamodelExtensionPoint.html" label="MetamodelExtensionPoint" />
+	</topic>
+</toc>

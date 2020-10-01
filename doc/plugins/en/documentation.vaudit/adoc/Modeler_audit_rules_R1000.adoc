@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1000]]
+
+[[r1000]]
+= R1000
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _Abstraction_ must link two different elements. An element cannot be its own _Abstraction_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An _Abstraction_ should always link two different elements. This means that an element cannot be its own abstraction: it cannot abstract itself, since such an auto-abstraction would have no meaning.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Possible solutions to this problem are as follows:
+
+* Change one of the abstraction ends to attach it to another element.
+* Remove the incorrect abstraction.
+
+

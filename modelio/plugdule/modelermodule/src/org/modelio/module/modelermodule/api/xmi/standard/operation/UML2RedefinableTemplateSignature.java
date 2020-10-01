@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.operation;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("63263b0d-3e0b-4d58-b78f-6a6ecff63f13")
 public class UML2RedefinableTemplateSignature {
-    @objid ("d81bff33-e63e-4d44-876e-1f71aeb945df")
+    @objid ("a2856950-6169-4c38-95c4-637df4df3c1f")
     public static final String STEREOTYPE_NAME = "UML2RedefinableTemplateSignature";
 
     /**
      * The underlying {@link Operation} represented by this proxy, never null.
      */
-    @objid ("edacd656-3c28-4c91-8d50-0c113fd886cc")
+    @objid ("e548283a-61b9-4a9f-be49-74de5f5369dc")
     protected final Operation elt;
 
     /**
-     * Tells whether a {@link UML2RedefinableTemplateSignature proxy} can be instantiated from a {@link MObject} checking it is a {@link Operation} stereotyped << UML2RedefinableTemplateSignature >>. 
+     * Tells whether a {@link UML2RedefinableTemplateSignature proxy} can be instantiated from a {@link MObject} checking it is a {@link Operation} stereotyped << UML2RedefinableTemplateSignature >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("bc14bf79-b50a-4b26-b138-41fc36c9fb69")
+    @objid ("16631b59-a465-467a-804a-e1c2e4d47da7")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Operation) && ((Operation) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2RedefinableTemplateSignature.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2RedefinableTemplateSignature {
      * 
      * @return a {@link UML2RedefinableTemplateSignature} proxy on the created {@link Operation}.
      */
-    @objid ("5140662e-2904-4d73-b06e-c25ce893dc06")
+    @objid ("19c307b6-90ac-4d20-a962-b9a5f8e644cd")
     public static UML2RedefinableTemplateSignature create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Operation");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2RedefinableTemplateSignature.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2RedefinableTemplateSignature {
     }
 
     /**
-     * Tries to instantiate a {@link UML2RedefinableTemplateSignature} proxy from a {@link Operation} stereotyped << UML2RedefinableTemplateSignature >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2RedefinableTemplateSignature} proxy from a {@link Operation} stereotyped << UML2RedefinableTemplateSignature >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Operation
      * @return a {@link UML2RedefinableTemplateSignature} proxy or <i>null</i>.
      */
-    @objid ("5662b3db-2c9f-4b27-b2af-3b044a9cdd83")
+    @objid ("58d1170d-779a-4e28-af0b-1fdc110e9a95")
     public static UML2RedefinableTemplateSignature instantiate(Operation obj) {
         return UML2RedefinableTemplateSignature.canInstantiate(obj) ? new UML2RedefinableTemplateSignature(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2RedefinableTemplateSignature {
      * @return a {@link UML2RedefinableTemplateSignature} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("e65e11ff-5e79-4a61-85af-ba909b4bc7b7")
+    @objid ("21869e4f-49f5-4c49-8d34-f53fff9d0499")
     public static UML2RedefinableTemplateSignature safeInstantiate(Operation obj) throws IllegalArgumentException {
         if (UML2RedefinableTemplateSignature.canInstantiate(obj))
         	return new UML2RedefinableTemplateSignature(obj);
@@ -112,7 +112,7 @@ public class UML2RedefinableTemplateSignature {
         	throw new IllegalArgumentException("UML2RedefinableTemplateSignature: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("bbfc0dc9-90d8-4e3e-83c1-4e97c1996a5e")
+    @objid ("2918527f-e173-4372-a07e-87a481d23694")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2RedefinableTemplateSignature {
      * Get the underlying {@link Operation}. 
      * @return the Operation represented by this proxy, never null.
      */
-    @objid ("a7a72080-2f74-40e8-848b-a6982a26f00f")
+    @objid ("a6ac934e-a576-4c9a-8c10-a00790829556")
     public Operation getElement() {
         return this.elt;
     }
 
-    @objid ("dd4b38d3-706f-4b5b-bf22-be150bb20bbe")
+    @objid ("b40095f3-58d4-4496-aa20-97a84722f345")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("b29417f0-5ff6-4866-a0c7-9662554a2b5f")
+    @objid ("a7b92a6d-b17e-43a6-b26a-c073e9fbb172")
     protected UML2RedefinableTemplateSignature(Operation elt) {
         this.elt = elt;
     }
 
     @objid ("17d7053e-244f-455d-aa7a-63194a9e59bb")
     public static final class MdaTypes {
-        @objid ("cb6d9e62-e653-4f0c-b58a-77821460f0db")
+        @objid ("d84c9f8f-056f-48b5-bc59-38cfcd66a97c")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("ec3423f0-db0d-4d21-8a45-122e31998f0d")
+        @objid ("29d3ffbc-d91e-4344-8bfc-a9a8e11b4d8b")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("f231eee8-6105-4125-910e-4fa4cd9cccf7")
+        @objid ("ef7830d2-8038-4b62-a550-5e6a6171d7aa")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("5763b680-f8b9-455a-bce4-6fd34768fbaa")
+        @objid ("c37ec422-5d9d-4d58-b066-d339c73b0e48")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "90a0e341-5d0d-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

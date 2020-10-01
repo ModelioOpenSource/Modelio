@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='astyle/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1574175838263'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='5'>
+    <unit id='org.modelio.astyle.feature.feature.group' version='1.23.0' singleton='false'>
+      <update id='org.modelio.astyle.feature.feature.group' range='[0.0.0,1.23.0)' severity='0'/>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='Astyle'/>
+        <property name='org.eclipse.equinox.p2.provider' value='modelio.org'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.modelio.astyle.feature.feature.group' version='1.23.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.modelio.astyle.linux.gtk.x86_64' range='[1.23.0,1.23.0]'>
+          <filter>
+            (&amp;(osgi.arch=x86_64)(osgi.os=linux)(osgi.ws=gtk))
+          </filter>
+        </required>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.modelio.astyle.macosx.cocoa.x86_64' range='0.0.0'>
+          <filter>
+            (&amp;(osgi.arch=x86_64)(osgi.os=macosx)(osgi.ws=cocoa))
+          </filter>
+        </required>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.modelio.astyle.win32.win32.x86_64' range='0.0.0'>
+          <filter>
+            (&amp;(osgi.arch=x86_64)(osgi.os=win32)(osgi.ws=win32))
+          </filter>
+        </required>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.modelio.astyle.feature.feature.jar' range='[1.23.0,1.23.0]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <filter>
+        (&amp;(|(osgi.arch=x86)(osgi.arch=x86_64))(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))(|(osgi.ws=cocoa)(osgi.ws=gtk)(osgi.ws=win32)))
+      </filter>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='.' url='.'>
+          .
+        </license>
+      </licenses>
+    </unit>
+    <unit id='org.modelio.astyle.linux.gtk.x86_64' version='1.23.0' singleton='false'>
+      <update id='org.modelio.astyle.linux.gtk.x86_64' range='[0.0.0,1.23.0)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='AStyle library'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.modelio.astyle.linux.gtk.x86_64' version='1.23.0'/>
+        <provided namespace='osgi.bundle' name='org.modelio.astyle.linux.gtk.x86_64' version='1.23.0'/>
+        <provided namespace='java.package' name='com.modeliosoft.modelio.api.astyle' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='org.modelio.astyle.linux.gtk.x86_64' version='1.23.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.fragment'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='org.modelio.platform.api' version='1.23.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.modelio.platform.api' range='0.0.0'/>
+      </requires>
+      <filter>
+        (&amp;(osgi.arch=x86_64)(osgi.os=linux)(osgi.ws=gtk))
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.modelio.astyle.linux.gtk.x86_64' version='1.23.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.modelio.astyle.linux.gtk.x86_64&#xA;Bundle-Version: 1.23.0&#xA;Fragment-Host: org.modelio.platform.api&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.modelio.astyle.win32.win32.x86_64' version='1.23.0' singleton='false'>
+      <update id='org.modelio.astyle.win32.win32.x86_64' range='[0.0.0,1.23.0)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='AStyle library'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.modelio.astyle.win32.win32.x86_64' version='1.23.0'/>
+        <provided namespace='osgi.bundle' name='org.modelio.astyle.win32.win32.x86_64' version='1.23.0'/>
+        <provided namespace='java.package' name='com.modeliosoft.modelio.api.astyle' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='org.modelio.astyle.win32.win32.x86_64' version='1.23.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.fragment'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='org.modelio.platform.api' version='1.23.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.modelio.platform.api' range='0.0.0'/>
+      </requires>
+      <filter>
+        (&amp;(osgi.arch=x86_64)(osgi.os=win32)(osgi.ws=win32))
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.modelio.astyle.win32.win32.x86_64' version='1.23.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.modelio.astyle.win32.win32.x86_64&#xA;Bundle-Version: 1.23.0&#xA;Fragment-Host: org.modelio.platform.api&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.modelio.astyle.feature.feature.jar' version='1.23.0'>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Astyle'/>
+        <property name='org.eclipse.equinox.p2.provider' value='modelio.org'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.modelio.astyle.feature.feature.jar' version='1.23.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.modelio.astyle.feature' version='1.23.0'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.modelio.astyle.feature' version='1.23.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='.' url='.'>
+          .
+        </license>
+      </licenses>
+    </unit>
+    <unit id='org.modelio.astyle.macosx.cocoa.x86_64' version='1.23.0' singleton='false'>
+      <update id='org.modelio.astyle.macosx.cocoa.x86_64' range='[0.0.0,1.23.0)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='AStyle library'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.modelio.astyle.macosx.cocoa.x86_64' version='1.23.0'/>
+        <provided namespace='osgi.bundle' name='org.modelio.astyle.macosx.cocoa.x86_64' version='1.23.0'/>
+        <provided namespace='java.package' name='com.modeliosoft.modelio.api.astyle' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='org.modelio.astyle.macosx.cocoa.x86_64' version='1.23.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.fragment'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='org.modelio.platform.api' version='1.23.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.modelio.platform.api' range='0.0.0'/>
+      </requires>
+      <filter>
+        (&amp;(osgi.arch=x86_64)(osgi.os=macosx)(osgi.ws=cocoa))
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.modelio.astyle.macosx.cocoa.x86_64' version='1.23.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.modelio.astyle.macosx.cocoa.x86_64&#xA;Bundle-Version: 1.23.0&#xA;Fragment-Host: org.modelio.platform.api&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

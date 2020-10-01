@@ -1,0 +1,24 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de démasquage sur les interfaces
+
+Le tableau suivant présente les raccourcis clavier permettant de démasquer certains éléments associés ou appartenant à l'interface sélectionnée dans le diagramme.
+
+[cols=",",options="header",]
+|=================================
+|Elément démasqué |Raccourci
+|Constraints |SHIFT + N
+|Notes |SHIFT + N
+|Element imports |SHIFT + U
+|Package imports |SHIFT + U
+|Parent generalizations |SHIFT + G
+|Child generalizations |g
+|Attributes |SHIFT + A
+|Operations |SHIFT + O
+|Enumerations |SHIFT + E
+|Associations |SHIFT + L
+|Dependencies |SHIFT + D
+|=================================
+
+

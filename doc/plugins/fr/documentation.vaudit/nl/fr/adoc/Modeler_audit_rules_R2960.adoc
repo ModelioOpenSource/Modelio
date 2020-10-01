@@ -1,0 +1,37 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2960]]
+
+[[r2960]]
+= R2960
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Les _Dependency_ de type «synonym», «antonym», «homonym», «related», «contex» et «kind-of» n'ont de sens qu'entre deux _Terms_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Plusieurs _Dependency_ sont utilisées dans un _Dictionary_ pour représenter des relations entre des _Terms:_
+
+* «synonym» relie deux _Terms_ qui ont des noms différents mais le même sens
+* «antonym» exprime que deux _Terms_ ont des sens opposés
+* «homonym» relie deux _Terms_ qu ont le même nom, mais des sens différents
+* «related» relie deux _Terms_ ayant une connection sémantique moins precise que «synonym»
+* «contex» spécifie que le sens d'un _Term_ n'est valable que dans le contexte d'un autre _Term_
+* «kind-of» indique qu'un _Term_ est une spécialisation ou une precision d'un autre _Term_
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez l'une de ces relations entre deux éléments qui ne sont pas des _Terms_, vous devriez la supprimer.
+
+

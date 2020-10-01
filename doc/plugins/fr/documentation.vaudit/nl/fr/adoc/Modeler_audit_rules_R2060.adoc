@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2060]]
+
+[[r2060]]
+= R2060
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Le nom d'un _NameSpace_ doit être unique dans le _NameSpace_ le contenant.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Tous les _NameSpaces_ d'un _NameSpace_ doivent avoir un nom différent pour pouvoir les distinguer.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Pour résoudre ce problème :
+
+* Renommer les _NameSpaces_ en conflit.
+* Vos _NameSpaces_ sont peut être des duplicata, supprimez-les sauf un.
+
+

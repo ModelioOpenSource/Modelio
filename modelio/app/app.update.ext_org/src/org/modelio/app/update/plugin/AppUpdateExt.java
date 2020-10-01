@@ -26,10 +26,10 @@ import org.eclipse.equinox.log.ExtendedLogService;
 import org.eclipse.jface.preference.IPersistentPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.modelio.app.preferences.AppSharedPreferencesKeys;
-import org.modelio.app.preferences.plugin.AppPreferences;
-import org.modelio.utils.i18n.BundledMessages;
-import org.modelio.utils.log.writers.PluginLogger;
+import org.modelio.platform.preferences.AppSharedPreferencesKeys;
+import org.modelio.platform.preferences.plugin.Preferences;
+import org.modelio.platform.utils.i18n.BundledMessages;
+import org.modelio.platform.utils.log.writers.PluginLogger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -37,7 +37,7 @@ import org.osgi.framework.ServiceReference;
 @objid ("798daa57-9f4b-40e0-a1fb-4344fb5c82a1")
 public class AppUpdateExt implements BundleActivator {
     @objid ("2d099b0c-0914-4007-b7bf-a2be6aa50d46")
-    public static final String PLUGIN_ID = "org.modelio.app.update.ext";
+    public static final String PLUGIN_ID = "org.modelio.app.update.ext_org";
 
     @objid ("3600088f-a7d8-4911-881e-806e37bb371d")
     private static BundleContext context;
@@ -82,7 +82,7 @@ public class AppUpdateExt implements BundleActivator {
 
     @objid ("4cb9644d-8e5d-4659-a5b0-2fb8ba9ab2dc")
     public static String getUpdateSite() {
-        IPersistentPreferenceStore updatePrefs = AppPreferences.getPreferences();
+        IPersistentPreferenceStore updatePrefs = Preferences.getPreferences();
         String updateSiteUrl = updatePrefs.getString(AppSharedPreferencesKeys.UPDATESITE_PREFKEY);
         return updateSiteUrl;
     }

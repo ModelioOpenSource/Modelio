@@ -57,8 +57,8 @@ import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
 import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.data.project.GProperties.Entry;
-import org.modelio.ui.UIColor;
-import org.modelio.ui.UIImages;
+import org.modelio.platform.ui.UIColor;
+import org.modelio.platform.ui.UIImages;
 import org.modelio.vbasic.files.FileUtils;
 import org.osgi.framework.Bundle;
 

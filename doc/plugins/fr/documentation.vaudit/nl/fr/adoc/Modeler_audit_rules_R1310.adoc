@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1310]]
+
+[[r1310]]
+= R1310
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un _ObjectFlow_ avec un poids constant ne peut pas mener à un _ObjectNode_ avec une cardinalité maximum inférieure à ce poids.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _ObjectFlow_ avec un poids constant ne peut pas cibler un _ObjectNode_, ni mener à un _ObjectNode_ en aval sans _ControlNode_ intermédiaires, qui ait une cardinalité maximum inférieure à ce poids.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous rencontrez un avertissement R1310, vérifiez les limites supérieures des _ObjectNodes_ en aval de l'_ObjectFlow_ concerné.
+
+

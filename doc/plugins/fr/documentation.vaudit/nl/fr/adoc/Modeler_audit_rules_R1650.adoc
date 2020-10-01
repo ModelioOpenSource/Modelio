@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1650]]
+
+[[r1650]]
+= R1650
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une énumération ne peut être abstraite.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les énumérations sont primitives par définition et sont faites pour être instanciées, elles ne peuvent donc pas être abstraites.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une énumération abstraite, rendez-la concrète.
+
+

@@ -1,0 +1,20 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[The-Outline-view]]
+
+[[the-outline-view]]
+= The Outline view
+
+.The Outline view
+image::images/Modeler-_modeler_interface_outline_view_outlineview.png[2]
+
+*Keys:*
+
+1. The "Outline" tab.
+
+The "Outline" view provides a miniature view of your diagram, thereby providing you with an overview of your entire diagram.
+
+The "Outline" view also enables you to see which elements are currently visible in the "Diagram edition" view, and which are not (because they are situated outside the zone currently shown in the "Diagram edition" view). The part of the diagram which is visible in the "Diagram edition" view is shown inside a frame with a gray background, while those parts which are hidden are shown inside a frame with a white background.
+
+

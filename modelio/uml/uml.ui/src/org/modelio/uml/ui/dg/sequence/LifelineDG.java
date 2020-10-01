@@ -28,9 +28,9 @@ import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.diagram.api.dg.DGFactory;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramNode;
-import org.modelio.diagram.editor.sequence.elements.lifeline.body.GmLifelineBody;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
+import org.modelio.uml.sequencediagram.editor.elements.lifeline.body.GmLifelineBody;
 
 /**
  * This class represents the DiagramGraphic of a 'Gate' element.

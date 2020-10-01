@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension point="org.eclipse.e4.workbench.model" id="modelContribution">
+	<fragment uri="e4model/diagramauto.e4xmi"/>
+</extension>
+
+<extension point="org.eclipse.core.expressions.definitions">
+	<definition id="diagram.auto.test.updatediagram.id">
+		<test property="diagram.auto.test.updatediagram"/>
+	</definition>
+ </extension>
+
+ <extension
+       point="org.eclipse.core.expressions.propertyTesters">
+    <propertyTester
+          class="org.modelio.diagram.diagramauto.handlers.properties.CommandVisiblePropertyTester"
+          id="diagram.auto.propertyTester.updatevisible"
+          namespace="diagram.auto.test"
+          properties="updatediagram"
+          type="org.eclipse.jface.viewers.ISelection">
+    </propertyTester>
+ </extension>
+	<extension point="org.modelio.platform.model.view.template">
+		<viewtemplate id="ClassArchitectureDiagramTemplate" class="org.modelio.diagram.diagramauto.diagram.creator.ClassArchitectureDiagramTemplate" />
+		<viewtemplate id="ClassStructureDiagramTemplate" class="org.modelio.diagram.diagramauto.diagram.creator.ClassStructureDiagramTemplate" />
+		<viewtemplate id="CompositionNavigationDiagramTemplate" class="org.modelio.diagram.diagramauto.diagram.creator.CompositionNavigationDiagramTemplate" />
+		<viewtemplate id="DependencyDiagramTemplate" class="org.modelio.diagram.diagramauto.diagram.creator.DependencyDiagramTemplate" />
+		<viewtemplate id="InheritanceDiagramTemplate" class="org.modelio.diagram.diagramauto.diagram.creator.InheritanceDiagramTemplate" />
+		<viewtemplate id="PackageContentStructureDiagramTemplate" class="org.modelio.diagram.diagramauto.diagram.creator.PackageContentStructureDiagramTemplate" />
+		<viewtemplate id="SubPackageStructureDiagramTemplate" class="org.modelio.diagram.diagramauto.diagram.creator.SubPackageStructureDiagramTemplate" />
+		<viewtemplate id="UseCaseFocusDiagramTemplate" class="org.modelio.diagram.diagramauto.diagram.creator.UseCaseFocusDiagramTemplate" />
+	    <viewtemplate id="ActorFocusDiagramTemplate" class="org.modelio.diagram.diagramauto.diagram.creator.ActorFocusDiagramTemplate" />
+
+
+	</extension>
+
+	<extension point="org.modelio.app.creation.wizard.contributor">
+		<wizard
+				categoryId = "%ContributorCategoryType.UML"
+				categoryLabel = "%ContributorCategoryLabel.UML"
+				categoryIcon = "./icons/uml.png"
+				class ="org.modelio.diagram.diagramauto.diagram.wizard.ClassArchitectureDiagramWizardContributor"
+				label = "%CreationWizard.ClassArchitecture.Name"
+				icon = "icons/autodiagram.png"
+				details = "%CreationWizard.ClassArchitecture.Details"
+				information = "%CreationWizard.ClassArchitecture.Information"
+				helpUrl = "HELP_URL"
+				previewImage = "images/architectureautodiagrampreview400x300.png"
+				modelViewTemplateId = "ClassArchitectureDiagramTemplate">
+		</wizard>
+		<wizard
+				categoryId = "%ContributorCategoryType.UML"
+				categoryLabel = "%ContributorCategoryLabel.UML"
+				categoryIcon = "./icons/uml.png"
+				class ="org.modelio.diagram.diagramauto.diagram.wizard.ClassStructureDiagramWizardContributor"
+				label = "%CreationWizard.ClassStructure.Name"
+				icon = "icons/autodiagram.png"
+				details = "%CreationWizard.ClassStructure.Details"
+				information = "%CreationWizard.ClassStructure.Information"
+				helpUrl = "HELP_URL"
+				previewImage = "images/classstructureautodiagrampreview400x300.png"
+				modelViewTemplateId = "ClassStructureDiagramTemplate">
+		</wizard>
+		<wizard
+				categoryId = "%ContributorCategoryType.UML"
+				categoryLabel = "%ContributorCategoryLabel.UML"
+				categoryIcon = "./icons/uml.png"
+				class ="org.modelio.diagram.diagramauto.diagram.wizard.DependencyDiagramWizardContributor"
+				label = "%CreationWizard.Dependency.Name"
+				icon = "icons/autodiagram.png"
+				details = "%CreationWizard.Dependency.Details"
+				information = "%CreationWizard.Dependency.Information"
+				helpUrl = "HELP_URL"
+				previewImage = "images/dependencyautodiagrampreview400x300.png"
+				modelViewTemplateId = "DependencyDiagramTemplate">
+		</wizard>
+		<wizard
+				categoryId = "%ContributorCategoryType.UML"
+				categoryLabel = "%ContributorCategoryLabel.UML"
+				categoryIcon = "./icons/uml.png"
+				class ="org.modelio.diagram.diagramauto.diagram.wizard.InheritanceDiagramWizardContributor"
+				label = "%CreationWizard.Inheritance.Name"
+				icon = "icons/autodiagram.png"
+				details = "%CreationWizard.Inheritance.Details"
+				information = "%CreationWizard.Inheritance.Information"
+				helpUrl = "HELP_URL"
+				previewImage = "images/inheritanceautodiagrampreview400x300.png"
+				modelViewTemplateId = "InheritanceDiagramTemplate">
+		</wizard>
+		<wizard
+				categoryId = "%ContributorCategoryType.UML"
+				categoryLabel = "%ContributorCategoryLabel.UML"
+				categoryIcon = "./icons/uml.png"
+				class ="org.modelio.diagram.diagramauto.diagram.wizard.PackageStructureDiagramWizardContributor"
+				label = "%CreationWizard.PackageStructure.Name"
+				icon = "icons/autodiagram.png"
+				details = "%CreationWizard.PackageStructure.Details"
+				information = "%CreationWizard.PackageStructure.Information"
+				helpUrl = "HELP_URL"
+				previewImage = "images/packagestructureautodiagrampreview400x300.png"
+				modelViewTemplateId = "PackageContentStructureDiagramTemplate">
+		</wizard>
+		<wizard
+				categoryId = "%ContributorCategoryType.UML"
+				categoryLabel = "%ContributorCategoryLabel.UML"
+				categoryIcon = "./icons/uml.png"
+				class ="org.modelio.diagram.diagramauto.diagram.wizard.SubPackageStructureDiagramWizardContributor"
+				label = "%CreationWizard.SubPackageStructure.Name"
+				icon = "icons/autodiagram.png"
+				details = "%CreationWizard.SubPackageStructure.Details"
+				information = "%CreationWizard.SubPackageStructure.Information"
+				helpUrl = "HELP_URL"
+				previewImage = "images/subpackagestructureautodiagrampreview400x300.png"
+				modelViewTemplateId = "SubPackageStructureDiagramTemplate">
+		</wizard>
+	</extension>
+</plugin>

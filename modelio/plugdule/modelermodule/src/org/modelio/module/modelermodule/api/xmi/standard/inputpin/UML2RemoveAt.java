@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.inputpin;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("e9bdfdee-c4b7-4b08-8bf3-1518a048df86")
 public class UML2RemoveAt {
-    @objid ("95267bf1-247a-43bc-aafc-d67c168fcbc4")
+    @objid ("ce87f883-e183-4cbf-828a-e148c45646aa")
     public static final String STEREOTYPE_NAME = "UML2RemoveAt";
 
     /**
      * The underlying {@link InputPin} represented by this proxy, never null.
      */
-    @objid ("c314581a-0c39-46b9-8d84-0a3c205a4d3c")
+    @objid ("899e80c0-57d5-4b0d-9229-21be0197ef77")
     protected final InputPin elt;
 
     /**
-     * Tells whether a {@link UML2RemoveAt proxy} can be instantiated from a {@link MObject} checking it is a {@link InputPin} stereotyped << UML2RemoveAt >>. 
+     * Tells whether a {@link UML2RemoveAt proxy} can be instantiated from a {@link MObject} checking it is a {@link InputPin} stereotyped << UML2RemoveAt >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("49726c54-469c-4b74-885e-4e09064e7e6c")
+    @objid ("2fd691ca-6846-46c9-8e67-7e7113324916")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof InputPin) && ((InputPin) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2RemoveAt.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2RemoveAt {
      * 
      * @return a {@link UML2RemoveAt} proxy on the created {@link InputPin}.
      */
-    @objid ("9efb8743-362a-4a7f-a13f-4da809290ce1")
+    @objid ("73f054c9-4aee-4de0-b7f8-c53af719559f")
     public static UML2RemoveAt create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("InputPin");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2RemoveAt.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2RemoveAt {
     }
 
     /**
-     * Tries to instantiate a {@link UML2RemoveAt} proxy from a {@link InputPin} stereotyped << UML2RemoveAt >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2RemoveAt} proxy from a {@link InputPin} stereotyped << UML2RemoveAt >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a InputPin
      * @return a {@link UML2RemoveAt} proxy or <i>null</i>.
      */
-    @objid ("dd27056d-eccd-48e6-a43c-d9d2a984413c")
+    @objid ("0cf08775-c98b-4111-9e26-86fbf0f04db5")
     public static UML2RemoveAt instantiate(InputPin obj) {
         return UML2RemoveAt.canInstantiate(obj) ? new UML2RemoveAt(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2RemoveAt {
      * @return a {@link UML2RemoveAt} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("12d0852a-da0e-470d-ac7c-80cf7badfac7")
+    @objid ("70149118-2105-42f5-b3c5-79311852f0d2")
     public static UML2RemoveAt safeInstantiate(InputPin obj) throws IllegalArgumentException {
         if (UML2RemoveAt.canInstantiate(obj))
         	return new UML2RemoveAt(obj);
@@ -112,7 +112,7 @@ public class UML2RemoveAt {
         	throw new IllegalArgumentException("UML2RemoveAt: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("a0ab89f0-d6f1-42f0-b363-9d63951bb3d1")
+    @objid ("ae708881-a177-47f7-82da-4b64beaf7b91")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2RemoveAt {
      * Get the underlying {@link InputPin}. 
      * @return the InputPin represented by this proxy, never null.
      */
-    @objid ("548aa2b6-3808-4e73-9117-16a723a33ded")
+    @objid ("f3d6815c-7e48-4e4b-95b6-4d5211857816")
     public InputPin getElement() {
         return this.elt;
     }
 
-    @objid ("a4964c73-e232-41c0-9e07-ebce75c98c76")
+    @objid ("73d35b0f-e9a2-4bcb-adca-1ef804b69488")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("901254ff-9234-4652-8d27-7d1a0b8880be")
+    @objid ("d699db02-15b4-4cdf-a342-fe07ace111cc")
     protected UML2RemoveAt(InputPin elt) {
         this.elt = elt;
     }
 
     @objid ("140353cd-0401-48a1-a01c-d3f021559f83")
     public static final class MdaTypes {
-        @objid ("3dd2e350-fa65-4024-a76c-fecea6466cf4")
+        @objid ("4e79b247-2de4-4a95-842f-d89691a58ce9")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("1389d9be-4d30-4339-90f6-d9c4b7d23e39")
+        @objid ("18918e8a-1591-4bbf-b89a-5de84265ab10")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("f22ff5a5-8cdf-4d87-b43c-171c6ffda255")
+        @objid ("9dfbdd7f-b44e-48f5-a50d-975a6aad9cf6")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("45c1e0aa-f27e-40a5-a72c-6d7b0c427399")
+        @objid ("ee293e1a-1c08-472e-af8a-b79f14e28fda")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "407d1bab-d29f-4f92-b12f-01283c1cc7eb");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

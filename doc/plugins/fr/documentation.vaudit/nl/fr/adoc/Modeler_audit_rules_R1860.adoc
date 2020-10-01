@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1860]]
+
+[[r1860]]
+= R1860
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Dans une _Interface_, toutes les _Features_ doivent être publiques.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Interface_ est par définition un contrat public.
+
+Toutes ses _Features_ doivent donc être publiques.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Changer la visibilité de toutes les propriétés de l'_Interface_ pour qu'elles soient toutes publiques.
+
+

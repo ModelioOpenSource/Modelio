@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2060]]
+
+[[r2060]]
+= R2060
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The _NameSpace_ name must be unique in its container.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+All _NameSpaces_ in a _NameSpace_ must have a different name in order to distinguish them.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Rename the conflicting _NameSpaces_.
+* The conflicting _NameSpaces_ might be duplicates. In this case delete all of them but one.
+
+

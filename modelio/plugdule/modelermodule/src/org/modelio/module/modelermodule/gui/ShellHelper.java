@@ -27,20 +27,18 @@ import org.eclipse.swt.widgets.Shell;
 public class ShellHelper {
     @objid ("e9202484-48cc-45bc-837b-c25e5dbe7c75")
     public static Shell findActiveShell() {
-        if (System.getProperty("os.name").equals("Linux")) {
-            return null;
-        } else {
-            Display display = Display.getCurrent();
-            if (display == null) {
-                display = Display.getDefault();
-            }
-            return display.getActiveShell();
+        Display display = Display.getCurrent();
+        if (display == null) {
+            display = Display.getDefault();
         }
+        return display.getActiveShell();
     }
 
     @objid ("767e9fcb-906e-4c7d-9425-f8a45b2a115c")
     public static void centerShell(Shell shell) {
         Composite parentShell = shell.getParent();
+        if (parentShell == null)
+            return;
         Rectangle parentBounds = parentShell.getBounds();
         Rectangle shellBounds = shell.getBounds();
         int x = parentBounds.x + (parentBounds.width - shellBounds.width) / 2;

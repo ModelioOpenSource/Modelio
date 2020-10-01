@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1910]]
+
+[[r1910]]
+= R1910
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _Link_ that instanciates an A_ssociation_ must be coherent with this A_ssociation_s properties.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+When a _Link_ instanciates an _Association_, the following properties must be true:
+
+* The name of the _Link_ must be the same as the _Association_.
+* The _LinkEnd_ must have the same role name and properties as the corresponding _AssociationEnd_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a link triggering this error, please check that the above conditions are met.
+
+

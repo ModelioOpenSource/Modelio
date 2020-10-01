@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("57682dea-36fc-489f-a20b-7834ce24109f")
 public class UML2InstanceValue {
-    @objid ("458409df-a54f-412d-95e9-33a09ba308ad")
+    @objid ("bd9e7727-955a-4b96-8576-c0833cf28076")
     public static final String STEREOTYPE_NAME = "UML2InstanceValue";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("2f3bbcb2-56e9-4a0e-b2e5-91055026803a")
+    @objid ("ffe6ed5c-32ea-4c20-bce8-90a3cfb9eb93")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link UML2InstanceValue proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2InstanceValue >>. 
+     * Tells whether a {@link UML2InstanceValue proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2InstanceValue >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("cce2b017-03f2-4f34-b499-3ece9ab7cade")
+    @objid ("b13e8fd4-025f-4c08-8ea3-108a7244fdd8")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2InstanceValue.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class UML2InstanceValue {
      * 
      * @return a {@link UML2InstanceValue} proxy on the created {@link Dependency}.
      */
-    @objid ("8cb303aa-31e8-434b-977f-26e45293b49f")
+    @objid ("83867f77-31c1-41e5-a694-b60ff2a68b83")
     public static UML2InstanceValue create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2InstanceValue.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class UML2InstanceValue {
     }
 
     /**
-     * Tries to instantiate a {@link UML2InstanceValue} proxy from a {@link Dependency} stereotyped << UML2InstanceValue >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2InstanceValue} proxy from a {@link Dependency} stereotyped << UML2InstanceValue >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link UML2InstanceValue} proxy or <i>null</i>.
      */
-    @objid ("5f2020d7-0edd-4acd-8d38-838cde6b0864")
+    @objid ("f42da06e-1461-4fd7-a249-800607bb6250")
     public static UML2InstanceValue instantiate(Dependency obj) {
         return UML2InstanceValue.canInstantiate(obj) ? new UML2InstanceValue(obj) : null;
     }
@@ -103,7 +103,7 @@ public class UML2InstanceValue {
      * @return a {@link UML2InstanceValue} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("5f68d07e-5617-4da9-a564-c61edfc7e529")
+    @objid ("33202de9-4503-4c8d-990d-9f61c5faec60")
     public static UML2InstanceValue safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (UML2InstanceValue.canInstantiate(obj))
         	return new UML2InstanceValue(obj);
@@ -111,7 +111,7 @@ public class UML2InstanceValue {
         	throw new IllegalArgumentException("UML2InstanceValue: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("0423b195-8895-45d1-9199-a447cc7cd7ce")
+    @objid ("e1f677ac-1b92-4f4a-a14f-bba17275f8b5")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class UML2InstanceValue {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("172fa2c0-e0e5-44d8-9c98-60b1fcc9dab1")
+    @objid ("45c68ea7-d03c-406b-920a-90463029e535")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("97e9108b-17ac-455f-b98c-5e138ba81eb4")
+    @objid ("6bca2c02-fe43-4015-96b2-85d18e394642")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("a0420c68-0bc3-4e5f-9266-9b8339a45984")
+    @objid ("f2d80847-790f-42ea-a6b9-b9d5bed7f2f1")
     protected UML2InstanceValue(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("212a0d8e-5958-407c-8c93-a9014079a3cb")
     public static final class MdaTypes {
-        @objid ("5b68107e-8da8-4169-960c-88291c445e38")
+        @objid ("d592374c-e711-4873-bebc-e4dda99b3d8b")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("b222f90c-88c1-4245-ada6-cac2ad6d332c")
+        @objid ("f68a0cdf-1da9-46bc-820d-21cbb2d08074")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("e140561e-a919-451e-b5d5-128a61d03ac6")
+        @objid ("a9fe326c-aa78-41be-85d9-e35557ee317e")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("781f7db7-dce0-46e4-be6a-84532ad63086")
+        @objid ("f09a045e-7935-4c9e-ba21-dc4c0bcdb6f4")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "5791cd76-03ec-11e2-9c63-0027103f347d");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

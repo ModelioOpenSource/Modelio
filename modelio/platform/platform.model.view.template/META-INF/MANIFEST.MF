@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Creation Wizard
+Bundle-SymbolicName: org.modelio.platform.model.view.template;singleton:=true
+Bundle-Version: 4.1.0.qualifier
+Bundle-ClassPath: res/,
+ .
+Bundle-Activator: org.modelio.platform.model.view.template.plugin.ModelViewTemplate
+Bundle-Vendor: modelio.org
+Bundle-Localization: plugin
+Export-Package: org.modelio.platform.model.view.template.service
+Require-Bundle: org.eclipse.core.runtime,
+ org.modelio.platform.utils,
+ org.eclipse.jface,
+ org.eclipse.e4.core.di,
+ org.modelio.platform.core,
+ org.modelio.core.metamodel.api,
+ org.modelio.core.kernel,
+ org.modelio.platform.api,
+ org.eclipse.e4.core.contexts,
+ org.eclipse.e4.core.di.extensions,
+ org.modelio.platform.rcp,
+ org.eclipse.e4.ui.model.workbench
+Import-Package: javax.annotation;version="1.1.0",
+ javax.inject;version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

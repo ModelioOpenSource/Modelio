@@ -1,0 +1,76 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= L'outil de recherche de Modelio
+
+[[Introduction-à-loutil-de-recherche-de-Modelio]]
+
+[[introduction-à-loutil-de-recherche-de-modelio]]
+===== Introduction à l'outil de recherche de Modelio
+
+L'outil de recherche de Modelio a pour but de vous permettre de trouver rapidement des éléments de type NameSpace, simplement à partir de leur nom.
+
+L'outil de recherche cherche des namespaces (packages, classes, datatypes, ...) selon les critères suivants :
+
+* Namespaces dont le nom correspond exactement à ce qui est saisi dans le champ de recherche,
+* Namespaces dont le nom correspond à une expression régulière (par exemple, "Formation.*" trouvera tous les namespaces commençant par "Formation").
+
+L'outil de recherche de Modelio vous permet d'effectuer deux types de recherche :
+
+* Une *recherche rapide*. Pour lancer une recherche rapide, il suffit de saisir ce que vous souhaitez rechercher dans le champ de recherche d'appuyer sur Entrée. Si l'outil de recherche ne trouve qu'un seul élément, celui-ci est automatiquement sélectionné dans l'explorateur et aucune fenêtre additionnelle n'apparaît. En revanche, si l'outil de recherche ne trouve pas d'élément ou trouve plusieurs éléments, une fenêtre apparaît, dans laquelle vous pouvez définir plus précisément vos critères de recherche.
+* Une *recherche avancée*, lancée par un clic sur l'icône image:images/Modeler-_modeler_handy_tools_advanced_search_AdvancedSearchIcon.png[3]. Une fenêtre apparaît immédiatement, dans laquelle vous pouvez définir les critères de recherche sur lesquels vous souhaitez baser votre recherche. Lorsque vous effectuez une recherche avancée, vous pouvez choisir de rechercher des éléments dans le modèle ou bien du texte dans les notes.
+
+*Note :* La fenêtre qui affiche les résultats d'une recherche rapide est la même que celle de la recherche avancée. La seule différence est la méthode utilisée pour y accéder.
+
+[[Lancement-dune-recherche-rapide]]
+
+[[lancement-dune-recherche-rapide]]
+===== Lancement d'une recherche rapide
+
+image::images/Modeler-_modeler_handy_tools_advanced_search_FastSearch-fr.png[2]
+
+*Étapes :*
+
+1.  Saisissez le nom d'élément que vous souhaitez rechercher puis appuyez sur la touche Entrée.
+2.  Cliquez sur l'icône image:images/Modeler-_modeler_handy_tools_advanced_search_AdvancedSearchIcon.png[3] pour ouvrir la fenêtre de la recherche avancée.
+
+Si vous cliquez sur la flèche sur le côté droit du champ de recherche rapide, une liste apparaît, dans laquelle figurent toutes les recherches que vous avez déjà effectuées. Vous pouvez naviguer dans cette liste en utilisant votre souris ou les touches haut / bas de votre clavier. Pour sélectionner un élément à rechercher dans cette liste, il suffit de cliquer sur l'élément en question pour le faire apparaître dans le champ et puis d'appuyer sur "Entrée".
+
+[[Lancement-dune-recherche-avancée-dans-un-modèle]]
+
+[[lancement-dune-recherche-avancée-dans-un-modèle]]
+===== Lancement d'une recherche avancée dans un modèle
+
+image::images/Modeler-_modeler_handy_tools_advanced_search_ModelSearch-fr.png[4]
+
+*Étapes :*
+
+1.  Dans la fenêtre de la recherche avancée, cliquez sur l'onglet "Modèle".
+2.  Complétez les champs nécessaires :
+* Dans le champ "*Nom de l'élément*", saisissez le nom ou l'expression que vous souhaitez rechercher. La case à cocher à droite de ce champ sert à indiquer si la recherche doit être sensible à la casse. Par défaut, elle n'est pas sensible à la casse.
+* Dans le champ "*Métaclasse de l'élément*", sélectionnez la métaclasse du type d'élément que vous voulez rechercher.
+* Cochez ou décochez la case "*Inclure les composants de modèle*", selon votre choix.
+* Dans le champ "*Stéréotype de l'élément*", saisissez le nom du stéréotype que vous souhaitez utiliser comme filtre. Seuls les éléments stéréotypés par le stéréotype indiqué apparaîtront dans les résultats de la recherche.
+3.  Cliquez sur le bouton "*Démarrer la recherche*" pour lancer la recherche.
+
+[[Sélection-dun-élément-dans-la-vue-ldquoModèlerdquo]]
+
+[[sélection-dun-élément-dans-la-vue-modèle]]
+===== Sélection d'un élément dans la vue "Modèle"
+
+A partir de la fenêtre de résultats, vous pouvez sélectionner un élément dans la vue "Modèle" simplement en double-cliquant dessus.
+
+[[Lancement-dune-recherche-avancée-dans-les-notes]]
+
+[[lancement-dune-recherche-avancée-dans-les-notes]]
+===== Lancement d'une recherche avancée dans les notes
+
+image::images/Modeler-_modeler_handy_tools_advanced_search_NoteSearch-fr.png[5]
+
+*Étapes :*
+
+1.  Dans la fenêtre "Recherche", cliquez sur l'onglet "Note".
+2.  Saisissez le texte que vous souhaitez rechercher, ainsi que le type de note dans lequel vous voulez effectuer votre recherche.
+3.  Lancez la recherche.
+
+

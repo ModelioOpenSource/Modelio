@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.constraint;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("56431f9b-f67b-4509-9a09-2227ea5aef29")
 public class Overlapping {
-    @objid ("cfadae37-6735-4336-977d-852914699f80")
+    @objid ("19c536e3-2397-40cb-8c3b-c064fd775b6f")
     public static final String STEREOTYPE_NAME = "overlapping";
 
     /**
      * The underlying {@link Constraint} represented by this proxy, never null.
      */
-    @objid ("92584aab-31db-4957-8796-dbb3c28af5c3")
+    @objid ("8c155856-7f75-438c-8cba-011fea749a80")
     protected final Constraint elt;
 
     /**
-     * Tells whether a {@link Overlapping proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << overlapping >>. 
+     * Tells whether a {@link Overlapping proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << overlapping >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("e35b83e6-773b-4ee6-8bf6-c12f9b19c3e8")
+    @objid ("087d34ce-d3cd-4ab2-98fb-95d2c3235fef")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Constraint) && ((Constraint) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Overlapping.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Overlapping {
      * 
      * @return a {@link Overlapping} proxy on the created {@link Constraint}.
      */
-    @objid ("c9705638-deda-4833-9fa8-869c5a092376")
+    @objid ("601d831a-9a85-4b74-89b9-91fbb3c832a5")
     public static Overlapping create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Constraint");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Overlapping.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Overlapping {
     }
 
     /**
-     * Tries to instantiate a {@link Overlapping} proxy from a {@link Constraint} stereotyped << overlapping >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Overlapping} proxy from a {@link Constraint} stereotyped << overlapping >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Constraint
      * @return a {@link Overlapping} proxy or <i>null</i>.
      */
-    @objid ("c48c46c8-c459-41cf-9321-ef51d6a4014e")
+    @objid ("be178442-2ebd-4b6b-9d5a-5e254a14d060")
     public static Overlapping instantiate(Constraint obj) {
         return Overlapping.canInstantiate(obj) ? new Overlapping(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Overlapping {
      * @return a {@link Overlapping} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("a4647b64-37ef-4310-8c30-ee4ea2b18248")
+    @objid ("4146a70a-e725-4de9-8a0f-a122ae41aae1")
     public static Overlapping safeInstantiate(Constraint obj) throws IllegalArgumentException {
         if (Overlapping.canInstantiate(obj))
         	return new Overlapping(obj);
@@ -112,7 +112,7 @@ public class Overlapping {
         	throw new IllegalArgumentException("Overlapping: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("2ed65aee-d6b0-4bd4-8d2d-55571f008a7d")
+    @objid ("6afe9784-4308-4771-adda-9634a40c1c83")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Overlapping {
      * Get the underlying {@link Constraint}. 
      * @return the Constraint represented by this proxy, never null.
      */
-    @objid ("92f0978c-fb65-4fd6-b180-bf7add34828b")
+    @objid ("f00fd170-08c1-4086-a436-920b1f1c2381")
     public Constraint getElement() {
         return this.elt;
     }
 
-    @objid ("b66a63b0-c2c3-477a-abaa-4fe0eca33872")
+    @objid ("bdbc09ab-3749-4b01-b33a-d7edf4c8bf20")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("b981bdcc-b21f-4c26-9bcb-76580489b5f4")
+    @objid ("a2b092ab-b937-4f7b-96f2-31cbba357b3d")
     protected Overlapping(Constraint elt) {
         this.elt = elt;
     }
 
     @objid ("ae8f7c08-3dd0-4e2e-9abe-678cf39942a8")
     public static final class MdaTypes {
-        @objid ("66868f3b-7a15-4770-9ce0-436a0a3cb5a7")
+        @objid ("8d2eb1b0-840c-4610-ad71-b2ae14fa7df8")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("7393649e-f129-44f7-b21a-afb2e57c42d0")
+        @objid ("71923a2f-e026-45ec-a1dc-af316a840176")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("ba2945b7-ee38-4058-a1bc-c0897492ba13")
+        @objid ("c6970190-c174-4d88-8988-41d6bbe468bb")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("3c6f0790-0cee-4f7e-9574-2eef3427ab51")
+        @objid ("7aa3e94e-e727-4adb-b756-1d8417faa393")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01fb-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

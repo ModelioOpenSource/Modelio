@@ -1,0 +1,25 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de démasquage sur les packages
+
+Le tableau suivant présente les raccourcis clavier permettant de démasquer certains éléments associés ou appartenant au package sélectionné dans le diagramme.
+
+[cols=",",options="header",]
+|===========================
+|Elément démasqué |Raccourci
+|Constraints |SHIFT + N
+|Notes |SHIFT + N
+|Element imports |SHIFT + U
+|Package imports |SHIFT + U
+|Package merges |SHIFT + G
+|Classes |SHIFT + C
+|Enumerations |SHIFT + E
+|Interfaces |SHIFT + I
+|Packages |SHIFT + P
+|Dependencies |SHIFT + D
+|Nodes |CTRL + O
+|Parts |SHIFT + I
+|===========================
+
+

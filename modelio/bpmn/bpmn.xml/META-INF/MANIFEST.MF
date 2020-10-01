@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: bpmn-xml
 Bundle-SymbolicName: org.modelio.bpmn-xml;singleton:=true
-Bundle-Version: 4.0.1.qualifier
+Bundle-Version: 4.1.0.qualifier
 Bundle-Activator: org.modelio.bpmnxml.plugin.BPMNXml
 Bundle-Localization: plugin
 Bundle-Vendor: modelio.org
@@ -15,17 +15,17 @@ Bundle-ClassPath: res/,
 Require-Bundle: org.eclipse.e4.core.contexts,
  org.eclipse.e4.core.di,
  org.eclipse.e4.ui.services,
- org.modelio.core.ui,
- org.modelio.metamodel.emfapi,
- org.modelio.api,
+ org.modelio.platform.model.ui,
+ org.modelio.core.metamodel.api,
+ org.modelio.platform.api,
  org.modelio.core.kernel,
  org.eclipse.core.runtime,
  org.modelio.core.session,
  org.eclipse.draw2d,
  org.eclipse.ui,
- org.modelio.utils,
- org.modelio.model.browser.view,
- org.modelio.ui,
+ org.modelio.platform.utils,
+ org.modelio.app.model.browser.view,
+ org.modelio.platform.ui,
  org.modelio.core.project,
- org.modelio.app.core,
+ org.modelio.platform.core,
  org.modelio.modelermodule

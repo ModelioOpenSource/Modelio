@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Shortcuts on components in Modelio diagrams
+
+The following table presents the keyboard shortcuts that can be used to unmask certain elements associated with or belonging to the component selected in the diagram.
+
+[%header]
+|=========================================
+|Unmasked element |Shortcut
+|Constraints |SHIFT + N
+|Notes |SHIFT + N
+|Element imports |SHIFT + U
+|Package imports |SHIFT + U
+|Parent generalizations |SHIFT + G
+|Child generalizations |g
+|Attributes |SHIFT + A
+|Operations |SHIFT + O
+|Associations |SHIFT + L
+|Parts |SHIFT + I
+|Ports |SHIFT + P
+|Classes |SHIFT + C
+|Packages |SHIFT + P
+|Interface implementation links |SHIFT + G
+|Dependencies |SHIFT + D
+|Enumerations |SHIFT + E
+|Nodes |CTRL + O
+|=========================================
+
+

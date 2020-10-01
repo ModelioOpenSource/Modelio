@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1660]]
+
+[[r1660]]
+= R1660
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _Enumeration_ is always primitive.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Enumerations cannot be broken down and therefore should be always primitive.
+
+In Modelio Enumerations are primitive by default. Only a module or a macro can modify this state.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+* Contact the developer of the module or the macro which created or modified the Enumeration, and ask him to fix its code.
+* If you are the developer, call setIsElementary(true)on the enumeration, and check that you are not calling setIsElementary(false)on it.
+
+

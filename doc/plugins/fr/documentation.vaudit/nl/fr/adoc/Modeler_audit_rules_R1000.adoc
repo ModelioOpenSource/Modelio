@@ -1,0 +1,33 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1000]]
+
+[[r1000]]
+= R1000
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Abstraction_ doit relier deux éléments différents. Un élément ne peut pas s'abstraire lui même.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Abstraction_ devrait toujours relier deux éléments différents. Cela signifie qu'un élément ne peut pas être sa propre abstraction ; il ne peut pas s'abstraire lui-même, cela n'aurait aucun sens.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Les solutions possibles pour ce problème sont :
+
+* Changez l'une des extrémités de l'_Abstraction_ pour l'attacher à un autre élément.
+* Supprimez l'_Abstraction_ erronée.
+
+

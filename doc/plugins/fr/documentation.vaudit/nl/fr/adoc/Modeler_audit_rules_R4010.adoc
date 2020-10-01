@@ -1,0 +1,25 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R4010]]
+
+[[r4010]]
+= R4010
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Les relations entrantes et/ou sortantes d'une Junction doivent être de même type.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les Junctions ne peuvent joindre que des relations de même type. +
+Par exemple, une And Junction ayant deux Associations en entrée ne peut avoir qu'une Association en sortie, pas d'autre type de relation. +
+Modelio ne permet pas de créer de relations non conformes depuis/vers une Junction, cependant l'import de modèles extérieurs non conformes peut mener à ce genre d'erreur.
+
+

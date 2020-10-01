@@ -2,7 +2,7 @@
 <Module author="modelio" binaryversion="4.0.0"
     class="org.modelio.module.modelermodule.impl.ModelerModuleModule"
     id="ModelerModule" image="" schema-level="2"
-    uid="00000000-0000-2710-0000-000000000000" url="" version="9.1.00">
+    uid="00000000-0000-2710-0000-000000000000" url="" version="9.2.00">
     <ClassPath/>
     <Profiles>
         <Profile id="Code" uid="00300000-0000-0032-0000-000000000000">

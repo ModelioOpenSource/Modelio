@@ -1,0 +1,29 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de création dans les diagrammes de déploiement
+
+Il existe deux types de raccourcis :
+
+* Un raccourci pour activer l'outil de création comme si on cliquait sur une icône dans la palette d'un diagramme,
+* Un raccourci pour créer et démasquer un élément directement dans un diagramme.
+
+
+[%header]
+|===
+2+|Activer l'outil de création  2+| Créer un élément
+|*Raccourci*|*Outil activé*|*Shortcut*|*Elément créé*
+|A |Artéfact |CTRL-N CTRL-A |Artéfact
+|I |Instance |CTRL-N CTRL-I |Instance
+|N |Note |CTRL-N CTRL-N |Note
+|G |Généralisation ||
+|L |Lien ||
+|M |Manifestation ||
+|O |Opération ||
+|P |Package ||
+|R |Diagramme lié ||
+|U |Usage ||
+|ESPACE |Association ||
+|MAJ + N |Noeud ||
+|===
+

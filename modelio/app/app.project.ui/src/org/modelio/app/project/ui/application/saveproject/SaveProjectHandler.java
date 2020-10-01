@@ -29,9 +29,9 @@ import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.services.statusreporter.StatusReporter;
 import org.eclipse.jface.operation.IRunnableWithProgress;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
-import org.modelio.ui.progress.IModelioProgressService;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.progress.IModelioProgressService;
 import org.modelio.vbasic.files.FileUtils;
 
 /**
@@ -83,7 +83,7 @@ public class SaveProjectHandler {
     }
 
     @objid ("03cea0c6-99b3-4b25-bbe1-e53c673a102a")
-    private static void saveProject(String title, IModelioProgressService svc, final IProjectService projectService) throws InterruptedException, InvocationTargetException {
+    private static void saveProject(String title, IModelioProgressService svc, final IProjectService projectService) throws InvocationTargetException, InterruptedException {
         IRunnableWithProgress runnable = new IRunnableWithProgress() {
         
             @Override

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.modelio.editors.richnote.InputProviderFunction">
-   <implementation class="org.modelio.editors.richnote.plugin.RichNoteInputProviderFunction"/>
-   <service>
-      <provide interface="org.eclipse.e4.core.contexts.IContextFunction"/>
-   </service>
-   <property name="service.context.key" type="String" value="org.modelio.editors.richnote.editor.IRichNoteInput"/>
-</scr:component>

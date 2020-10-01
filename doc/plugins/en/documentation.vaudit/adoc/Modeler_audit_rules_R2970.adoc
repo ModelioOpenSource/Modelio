@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2970]]
+
+[[r2970]]
+= R2970
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An «assigned» _Dependency_ must be from an _Actor_, an _Interface_, a _Package_ or a _Process_ towards a _Goal_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An «assigned» _Dependency_ expresses the assigning of a _Goal_ to an owner. This owner is typically an _Actor_, an _Interface_, _Package_ (organizational unit) or _Process_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have assigned a _Goal_ to an element other than an _Actor_, a _Package_ or a _Process_, you should delete your «assigned» _Dependency_.
+
+

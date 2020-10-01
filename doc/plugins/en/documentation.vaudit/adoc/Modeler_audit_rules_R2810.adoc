@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2810]]
+
+[[r2810]]
+= R2810
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+History vertices can have at most one outgoing transition.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+History vertices should target only one state to resume from when the object is reactivated.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a history vertex targeting more than one state, remove the additional transitions.
+
+

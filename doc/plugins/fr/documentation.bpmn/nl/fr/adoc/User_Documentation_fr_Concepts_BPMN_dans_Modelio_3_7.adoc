@@ -1,0 +1,107 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Concepts BPMN dans Modelio
+
+
+Dans cette section, la sémantique de plusieurs métaclasses BPMN Modelio est expliquée afin de les ramener à des considérations concrètes et pratiques.
+
+[[HBPMNProcess]]
+==  BPMN Process image:images/attachment/bpmn41/User_Documentation_fr/Concepts_BPMN_dans_Modelio_3.7/WebHome/bpmnprocess.png[bpmnprocess.png]
+
+Un _BPMNProcess_ est la description d'un workflow particulier sous la forme d'une séquence de _BPMNTask_, _BPMNEvent_ et autres éléments similaires qui le constituent.
+
+Le terme générique *élément de workflow* désigne les différents éléments utilisés pour définir le workflow d'un processus, quelle que soit sa nature.
+
+Le terme *workflow* désigne les éléments de workflow d'un processus et leur séquence. +
+ +
+Un _BPMNProcess_ peut être créé sous un _Package, une GeneralClass_ ou une _Operation_.
+
+Le terme *process* désigne un _BPMNProcess_ du point de vue de l'utilisateur (bien qu'en pratique l'utilisateur ne voit même pas les instances de _BPMNProcess_ mais plutôt des instances de _BPMNParticipant_.)
+
+[[HBPMNCollaboration]]
+==  BPMN Collaboration image:images/attachment/bpmn41/User_Documentation_fr/Concepts_BPMN_dans_Modelio_3.7/WebHome/bpmncollaboration.png[bpmncollaboration.png]
+
+Une _BPMNCollaboration_ décrit la manière dont plusieurs _BpmnProcess_ collaborent via des _BpmnMessageFlows_ échangés entre _BpmnParticipants_.
+
+[[HBPMNParticipant]]
+== BPMN Participant
+
+Dans le métamodèle, le comportement exact d'un "système" décrit en BPMN est représenté comme une collaboration entre plusieurs participants. Ces participants sont du type _BPMNParticipant_.
+
+Au niveau du métamodèle, un BPMNParticipant est le représentant d'un _BPMNProcess_.
+
+La description d'un système avec BPMN consiste en la création d'au moins une Collaboration BPMN dans laquelle plusieurs participants, représentant plusieurs processus, collaborent pour réaliser le comportement du système.
+
+[[HClassificationdesParticipants]]
+=== Classification des Participants
+
+Le point clé est qu'un participant ( _BPMNParticipant_ ) est un objet qui représente un processus ( _BPMNProcess_ ). Il est en quelque sorte une instance du processus.
+
+On distingue plusieurs situations :
+
+1.  Le participant ne représente aucun processus _(BPMNProcess)_
+2.  Le participant représente un processus _(BPMNProcess)_
+* Le processus _(BPMNProcess)_ associé possède la collaboration BPMN qui possède le participant.
+* Le processus _(BPMNProcess)_ associé ne possède pas la collaboration BPMN qui possède le participant.
+
+Modelio utilise des représentations spécifiques pour les différents participants et permet ou interdit des interactions particulières dans le diagramme en fonction de la nature des participants.
+
+[[HCasnB01:]]
+===== Cas n°1:
+
+Dans cette situation, aucun processus n'est associé au participant (ce qui est autorisé par le métamodèle).
+
+Un tel participant est utilisé pour référencer un processus externe dont seule l'existence, affirmée par la présence du participant est connue. L'utilisateur peut affirmer que le processus existe, mais sa définition n'est pas de la responsabilité de l'utilisateur, ou n'est pas dans le scope du projet. Un tel participant est appelé un *participant externe* image:images/attachment/bpmn41/User_Documentation_fr/Concepts_BPMN_dans_Modelio_3.7/WebHome/bpmnparticipant.png[bpmnparticipant.png],
+
+Bien-sûr, le workflow interne du participant n'est pas spécifié. Ses éléments de workflow et leur séquence sont totalement inconnus.
+
+[[HCasnB02.a:]]
+===== Cas n°2.a:
+
+Dans ce cas, un participant est associé à un processus possédant la collaboration BPMN qui possède le participant.
+
+Un tel participant est appelé un *participant local image:images/attachment/bpmn41/User_Documentation_fr/Concepts_BPMN_dans_Modelio_3.7/WebHome/bpmnparticipant.local.png[bpmnparticipant.local.png]*.
+
+Un participant de ce type peut récupérer le workflow exact du _BPMNProcess_ associé. Modelio va donc permettre l'édition de ce _BPMNProcess_ directement dans le participant.
+
+[[HCasnB02.b:]]
+===== Cas n°2.b:
+
+Ce cas correspond au référencement d'un processus _(BPMNProcess)_ connu et modélisé dans le projet courant mais non lié à la collaboration qui possède le participant.
+
+Le participant représente le processus d'un autre "système". Modelio traite cette distance comme une interdiction de modifier le processus associé directement depuis le participant. Si l'utilisateur a besoin de modifier ce processus, il devra travailler directement dessus.
+
+Un tel participant est appelé un *participant référencé* image:images/attachment/bpmn41/User_Documentation_fr/Concepts_BPMN_dans_Modelio_3.7/WebHome/bpmnparticipant.referenced.png[bpmnparticipant.referenced.png],
+
+[[H]]
+
+[[HTableaurE9capitulatifdelaclassificationdesparticipants]]
+===== Tableau récapitulatif de la classification des participants
+
+[cols=",,,",options="header",]
+|============================================================================================================================================================================================================================================================================================================================================================================================================================================================
+|Type |Processus associé |Utilisation |Comportement de Modelio dans les diagrammes
+|image:images/attachment/bpmn41/User_Documentation_fr/Concepts_BPMN_dans_Modelio_3.7/WebHome/bpmnparticipant.png[bpmnparticipant.png] Participant externe |Pas de processus associé |Utilisé pour représenter un processus externe |Pas de workflow visible. Pas d'édition de workflow.
+|image:images/attachment/bpmn41/User_Documentation_fr/Concepts_BPMN_dans_Modelio_3.7/WebHome/bpmnparticipant.local.png[bpmnparticipant.local.png] Participant local |Possède la collaboration BPMN |Utilisé pour représenter les processus internes qui sont sous contrôle de de l'utilisateur courant |Le workflow du processus peut être affiché par le participant. +
+L'édition du workflow est possible directement dans la représentation du participant.
+|image:images/attachment/bpmn41/User_Documentation_fr/Concepts_BPMN_dans_Modelio_3.7/WebHome/bpmnparticipant.referenced.png[bpmnparticipant.referenced.png] Participant référencé |Défini dans le projet courant, mais *ne possédant pas* la collaboration BPMN du participant |Utilisé pour représenter les processus internes qui ne sont pas la responsabilité de l'utilisateur courant. |Le workflow du processus peut être affiché par le participant. +
+L'édition du workflow n'est pas possible directement dans la représentation du participant. Si l'utilisateur a besoin de modifier ce processus, il devra travailler directement dessus.
+|============================================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+[[HBPMNMessageFlow]]
+== BPMN Message Flow
+
+Les Message flows _(BPMNMessageFlow)_ sont utilisés pour les échanges entre participants à l'intérieur d'une Collaboration BPMN. Il portent les messages _(BPMNMessage)_ contenant les informations.
+
+Quand un message flow est établi entre deux participants, il est possible de spécifier une source en spécifiant un élément particulier du workflow du Participant/Processus source, et la même possibilité existe pour le participant cible.
+
+Toutefois, comme mentionné ci-dessus, un participant peut ne pas être associé à un workflow (participant externe), auquel cas il n'est pas possible de spécifier une source ou cible particulière. De tels message flows _(BPMNMessageFlow)_ sont tout de même autorisés, ils sont juste moins précis que les autres. Cette situation correspond au référencement de Processus externes sur lesquels l'utilisateur n'a pas la main.
+
+Exemples de Message flow entre différent participants:
+
+image::images/attachment/bpmn41/User_Documentation_fr/Concepts_BPMN_dans_Modelio_3.7/WebHome/MessageFlows.png[MessageFlows.png]
+
+* M1 et M2: ces message flows connectent un participant local et un participant référencé, les workflow des deux participants sont connus, il est donc possible de spécifier précisément les sources et cibles des message flows.
+* M3 et M4: es message flows connectent un participant référencé et un participant externe, seul le workflow du participant référencé est connu, il n'est donc possible de spécifier précisément les sources et cibles des message flows le participant externe.
+

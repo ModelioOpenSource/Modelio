@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.constraint;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("64070ac9-b416-414f-8cd6-63da9a9124aa")
 public class Subset {
-    @objid ("5625a15e-a483-40be-9503-41e3bfbef578")
+    @objid ("cdecd6f4-1d53-433d-abd6-4e3914364824")
     public static final String STEREOTYPE_NAME = "subset";
 
     /**
      * The underlying {@link Constraint} represented by this proxy, never null.
      */
-    @objid ("e1447e01-0960-440b-90c3-9413ef39fb8f")
+    @objid ("e5f89cb3-488e-4f97-a088-49bcec1635df")
     protected final Constraint elt;
 
     /**
-     * Tells whether a {@link Subset proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << subset >>. 
+     * Tells whether a {@link Subset proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << subset >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("cb8ce3fe-43b4-4cb5-9e01-900019452a22")
+    @objid ("d8e400de-642f-4628-b710-5f443c939fe7")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Constraint) && ((Constraint) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Subset.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Subset {
      * 
      * @return a {@link Subset} proxy on the created {@link Constraint}.
      */
-    @objid ("a73a09c8-e37f-4ca6-9118-c41026bcdc71")
+    @objid ("875df2c0-887e-48a8-ad9e-189f6594778a")
     public static Subset create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Constraint");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Subset.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Subset {
     }
 
     /**
-     * Tries to instantiate a {@link Subset} proxy from a {@link Constraint} stereotyped << subset >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Subset} proxy from a {@link Constraint} stereotyped << subset >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Constraint
      * @return a {@link Subset} proxy or <i>null</i>.
      */
-    @objid ("d7d95808-d12c-4e60-8c49-cac110c05464")
+    @objid ("2473d721-937a-4aac-8bff-0cd99c082db6")
     public static Subset instantiate(Constraint obj) {
         return Subset.canInstantiate(obj) ? new Subset(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Subset {
      * @return a {@link Subset} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("b080b6b9-a51a-48df-bd71-ebf7af1f915c")
+    @objid ("8e4c2ef9-5696-491d-8586-5db8f4038be4")
     public static Subset safeInstantiate(Constraint obj) throws IllegalArgumentException {
         if (Subset.canInstantiate(obj))
         	return new Subset(obj);
@@ -112,7 +112,7 @@ public class Subset {
         	throw new IllegalArgumentException("Subset: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("bb2d0902-6382-41a2-8f67-72f3ca997c14")
+    @objid ("38744a99-bb40-4c93-8e80-097c76ddf2e8")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Subset {
      * Get the underlying {@link Constraint}. 
      * @return the Constraint represented by this proxy, never null.
      */
-    @objid ("5eaaeded-d6f3-4e60-addd-73c5a070c2fd")
+    @objid ("d676ed9f-fc6c-4985-b047-b5acf032e69e")
     public Constraint getElement() {
         return this.elt;
     }
 
-    @objid ("4f027e48-2e59-43a4-9cea-44f9de016f84")
+    @objid ("b762f33e-94fd-417a-961a-7ae7a72cf0c2")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("2e7870bd-b897-407b-a52e-b84e2ca02fbf")
+    @objid ("da969b47-a6d5-4350-a79c-0d0baf31e691")
     protected Subset(Constraint elt) {
         this.elt = elt;
     }
 
     @objid ("b023fad9-6eb0-417d-83a0-1258b9a55847")
     public static final class MdaTypes {
-        @objid ("48441ded-39e7-49e9-98ef-70a8d27f151c")
+        @objid ("49fe10d8-517a-47eb-9cec-99c61efc35cf")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("ac8afaad-abf7-4969-a482-bbf1067b6f3a")
+        @objid ("0c8113b4-8f51-4910-a560-d4b0081a884e")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("6d57aa00-9a77-4db8-b8e8-31ed2e32fb57")
+        @objid ("a6196276-409b-47e0-be6b-f195b551af4c")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("c5daa9ca-f7c8-4547-a7ae-996edf099925")
+        @objid ("7629d5e7-4ca9-42fa-bef3-3d8caa04cb22")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00540a84-0000-0005-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

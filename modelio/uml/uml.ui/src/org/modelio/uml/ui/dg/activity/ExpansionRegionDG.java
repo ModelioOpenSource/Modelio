@@ -27,8 +27,8 @@ import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.diagram.api.dg.DGFactory;
 import org.modelio.diagram.api.dg.common.PortContainerDG;
 import org.modelio.diagram.api.services.DiagramHandle;
-import org.modelio.diagram.editor.activity.elements.expansionregion.GmExpansionRegionPrimaryNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
+import org.modelio.uml.activitydiagram.editor.elements.expansionregion.GmExpansionRegionPrimaryNode;
 
 /**
  * This class represents the DiagramGraphic of a 'ExpansionRegion' element.

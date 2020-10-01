@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.modelio.platform.api" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.modelio.platform.api" id="org.modelio.api.module.handlercontributor" name="Module handler contributor"/>
+      </appinfo>
+      <documentation>
+         Allows plugins to declares module GUI handler classes.
+
+The handler is identified by a verb, and a handler class to instantiate.
+
+mda.infra plugin reads the verb in the module.xml file then looks for a handler for this verb in the extension points.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="command-handler"/>
+            <element ref="wizard-contributor"/>
+            <element ref="diagram-tool"/>
+            <element ref="diagram-customizer"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="command-handler">
+      <annotation>
+         <documentation>
+            Declares a module command handler class.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="verb" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The handled command verb.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The command handler to instantiate
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.api.module.commands.IModuleCommandHandler"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="wizard-contributor">
+      <annotation>
+         <documentation>
+            Declare a diagram creation wizard .
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="verb" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The handled command verb.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The diagram creation wizard to instantiate
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.api.ui.diagramcreation.IDiagramWizardContributor"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="diagram-tool">
+      <annotation>
+         <documentation>
+            Declares a diagram tool.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="verb" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The handled command verb.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The diagram tool handler to instantiate
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.api.diagram.tools.IDiagramTool"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="diagram-customizer">
+      <annotation>
+         <documentation>
+            Declares a diagram customizer.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="verb" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The handled command verb.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The diagram customizer to instantiate
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.modelio.api.diagram.IDiagramCustomizer"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         Modelio 3.4
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

@@ -31,11 +31,11 @@ import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
-import org.modelio.core.ui.swt.SelectionHelper;
 import org.modelio.gproject.data.project.ProjectDescriptor;
+import org.modelio.platform.model.ui.swt.SelectionHelper;
+import org.modelio.platform.project.services.IProjectService;
 import org.modelio.vbasic.files.FileUtils;
 
 /**

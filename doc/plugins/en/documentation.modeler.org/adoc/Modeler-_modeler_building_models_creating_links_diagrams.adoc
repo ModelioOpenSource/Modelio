@@ -1,0 +1,71 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Creating-link-type-elements-in-diagrams]]
+
+[[creating-link-type-elements-in-diagrams]]
+= Creating link-type elements in diagrams
+
+There are several ways to create link-type elements in a Modelio diagram.
+
+[[The-diagram-palette]]
+
+[[the-diagram-palette]]
+=== The diagram palette
+
+All Modelio diagrams include the model expert feature, which provides real-time assistance when you are creating links in diagrams. If you try to create an authorized element (in this example, an association between 2 classes), the model expert highlights the concerned element in green, indicating that the creation operation you are attempting is allowed. If you try to create an unauthorized link (for example, an association between a package and a class), the model expert highlights the concerned element in red, indicating that the creation operation you are attempting is not allowed.
+
+.Drawing an association between two classes using the diagram palette
+image::images/Modeler-_modeler_building_models_creating_links_diagrams_creating_link-type_elements_in_diagrams_1.png[2]
+
+*Steps:*
+
+1. Click on the "Create an association" icon in the diagram palette +
+2. Click on the origin class +
+3. Draw your link, with any desired intermediate points, and then click on the destination class
+
+In Modelio diagrams, there are four different modes for drawing links:
+
+* The orthogonal mode, where a link contains one or more right angles
+* The direct mode, where a link is presented as a straight line
+* The bendpoint mode, where a link is presented in the manner of your choice
+* The rake mode, where a link is presented in rake bar form
+
+*Note:* If you want to draw a link in bendpoint mode, simply hold down the "Shift" key on your keyboard while you are drawing the link.
+
+[[The-Smart-links-tool]]
+
+[[the-smart-links-tool]]
+=== The Smart links tool
+
+Modelio 3.6 introduces Smart Links, an easy-to-use powerful tool to create links in your diagrams. It can be used in two different ways.
+
+*In the diagram palette*
+
+.Drawing an association between two classes using the Smart links tool command in the diagram palette
+image::images/Modeler-_modeler_building_models_creating_links_diagrams_creating_link-type_elements_in_diagrams_2.png[3]
+
+*Steps:*
+
+1. Click on the "Smart links" command in the diagram palette +
+2. Click on the origin class +
+3. Click on the target class +
+4. Choose a link type from the list
+
+*Using the mouse*
+
+.Drawing an association between two classes using the Smart links tool
+image::images/Modeler-_modeler_building_models_creating_links_diagrams_creating_link-type_elements_in_diagrams_3.png[4]
+
+*Steps:*
+
+1. Move your mouse cursor over the origin class and wait for one second +
+2. When the Smart links handle image:images/Modeler-_modeler_building_models_creating_links_diagrams_SmartLinks_handle.png[6] appears, click on it and hold down your mouse button +
+3. Move your cursor over to the target class, as if to drag&drop the link's end onto it +
+4. Release the mouse button, then choose a link type from the list
+
+*Note:* If you dont't want to display the Smart links handles (green arrows), you can deactivate them in the Symbol view of the diagram:
+
+image::images/Modeler-_modeler_building_models_creating_links_diagrams_creating_link-type_elements_in_diagrams_4.png[5]
+
+

@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("c2b1093f-2962-4523-99fe-38f70a53ddad")
 public class BusinessRulePropertyset {
-    @objid ("f706c3de-263f-4b5b-9e18-befacce1a303")
+    @objid ("cca911f0-2cbd-4157-a15e-8bbfd53bf191")
     public static final String STEREOTYPE_NAME = "business_rule_propertyset";
 
     /**
      * The underlying {@link PropertyTableDefinition} represented by this proxy, never null.
      */
-    @objid ("1f8f2882-794f-4e4b-9f9d-d115ffb359c7")
+    @objid ("51c2c164-8f4b-4946-bf5e-c689dddcae5c")
     protected final PropertyTableDefinition elt;
 
     /**
-     * Tells whether a {@link BusinessRulePropertyset proxy} can be instantiated from a {@link MObject} checking it is a {@link PropertyTableDefinition} stereotyped << business_rule_propertyset >>. 
+     * Tells whether a {@link BusinessRulePropertyset proxy} can be instantiated from a {@link MObject} checking it is a {@link PropertyTableDefinition} stereotyped << business_rule_propertyset >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("f3b0c623-d835-4a8b-b709-4453b2fd7422")
+    @objid ("778f4d72-b760-47e0-9d95-65658dd1fecf")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof PropertyTableDefinition) && ((PropertyTableDefinition) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, BusinessRulePropertyset.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class BusinessRulePropertyset {
      * 
      * @return a {@link BusinessRulePropertyset} proxy on the created {@link PropertyTableDefinition}.
      */
-    @objid ("3bbe95bb-860c-4c16-ad22-2df7cdbc4257")
+    @objid ("93b6c59a-02cc-413e-a113-3591738f27ff")
     public static BusinessRulePropertyset create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("PropertyTableDefinition");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, BusinessRulePropertyset.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class BusinessRulePropertyset {
     }
 
     /**
-     * Tries to instantiate a {@link BusinessRulePropertyset} proxy from a {@link PropertyTableDefinition} stereotyped << business_rule_propertyset >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link BusinessRulePropertyset} proxy from a {@link PropertyTableDefinition} stereotyped << business_rule_propertyset >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a PropertyTableDefinition
      * @return a {@link BusinessRulePropertyset} proxy or <i>null</i>.
      */
-    @objid ("a92da276-1bd6-4085-be46-cc6a06585843")
+    @objid ("37e0ac77-3217-4e9e-be1b-f3ec0796c4b9")
     public static BusinessRulePropertyset instantiate(PropertyTableDefinition obj) {
         return BusinessRulePropertyset.canInstantiate(obj) ? new BusinessRulePropertyset(obj) : null;
     }
@@ -103,7 +103,7 @@ public class BusinessRulePropertyset {
      * @return a {@link BusinessRulePropertyset} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("9f1573a4-eafb-4d35-a45c-fa89f8d44391")
+    @objid ("f04e07cd-b4f5-4fea-b8b7-0f20195c6554")
     public static BusinessRulePropertyset safeInstantiate(PropertyTableDefinition obj) throws IllegalArgumentException {
         if (BusinessRulePropertyset.canInstantiate(obj))
         	return new BusinessRulePropertyset(obj);
@@ -111,7 +111,7 @@ public class BusinessRulePropertyset {
         	throw new IllegalArgumentException("BusinessRulePropertyset: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("8ed2103c-f848-4c0e-9dff-d7e7df9b3f5e")
+    @objid ("4b52be04-2613-4690-9388-0807cafaf46d")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class BusinessRulePropertyset {
      * Get the underlying {@link PropertyTableDefinition}. 
      * @return the PropertyTableDefinition represented by this proxy, never null.
      */
-    @objid ("05b5a068-6256-41f2-91dc-b2842ee0cbb4")
+    @objid ("387e4834-fb96-41da-b195-c4bca3831ae3")
     public PropertyTableDefinition getElement() {
         return this.elt;
     }
 
-    @objid ("bacdfffc-f011-4eb6-952d-58f4227e6696")
+    @objid ("9fe127a9-5693-46fc-bad7-3134af933b16")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("6dc12274-9cb8-4570-b56d-5c26a05da2b9")
+    @objid ("b274b988-d919-4f04-80c0-0e7e9685c930")
     protected BusinessRulePropertyset(PropertyTableDefinition elt) {
         this.elt = elt;
     }
 
     @objid ("dd832859-edff-49b3-945e-65d2c349b0b0")
     public static final class MdaTypes {
-        @objid ("8693ecf2-1919-4bcc-aefc-f60587e17f3c")
+        @objid ("7ffc547f-ed04-4fbf-bf41-2af033d78ee4")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("f4237a15-4bb9-4d67-ba27-e6dfcc40a2e4")
+        @objid ("4842dd1f-3e39-4333-abf0-8c78f3ad1697")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("0a67bd3a-dfa8-4a2f-ad10-590ae41e35fc")
+        @objid ("29977eaf-4748-4845-9774-0e26dc2ba2cc")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("91fc1fd7-d39c-4700-914f-84ca9448a0f4")
+        @objid ("bfecabf7-e262-4b69-99e2-7d526b883ec1")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec141c-0000-1301-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

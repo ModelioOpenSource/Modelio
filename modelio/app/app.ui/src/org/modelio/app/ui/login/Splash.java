@@ -34,7 +34,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.modelio.app.ui.plugin.AppUi;
-import org.modelio.utils.i18n.BundledMessages;
+import org.modelio.platform.utils.i18n.BundledMessages;
 import org.modelio.version.ModelioVersion;
 
 /**

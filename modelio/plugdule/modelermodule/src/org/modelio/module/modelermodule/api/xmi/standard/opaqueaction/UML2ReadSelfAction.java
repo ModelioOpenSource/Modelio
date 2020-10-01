@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.opaqueaction;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("797d5347-a197-414c-84b4-44f2f877b47e")
 public class UML2ReadSelfAction {
-    @objid ("038a0606-c07c-4e5c-b708-042f12de8008")
+    @objid ("f37ce612-b75b-49c1-b838-2a147c796966")
     public static final String STEREOTYPE_NAME = "UML2ReadSelfAction";
 
     /**
      * The underlying {@link OpaqueAction} represented by this proxy, never null.
      */
-    @objid ("a4393402-69af-4908-915a-38d8188e21c4")
+    @objid ("62811217-615a-4bc3-837d-255bb51529fb")
     protected final OpaqueAction elt;
 
     /**
-     * Tells whether a {@link UML2ReadSelfAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2ReadSelfAction >>. 
+     * Tells whether a {@link UML2ReadSelfAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2ReadSelfAction >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("6aeeb75c-4381-40d1-a9b1-898882977eb3")
+    @objid ("e36c3566-2e3b-4d42-b6e2-9de520b7a60c")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof OpaqueAction) && ((OpaqueAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ReadSelfAction.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2ReadSelfAction {
      * 
      * @return a {@link UML2ReadSelfAction} proxy on the created {@link OpaqueAction}.
      */
-    @objid ("15ac086f-8e88-490d-ba4f-f76ebbd54e1b")
+    @objid ("2e1b3887-8e33-4dce-a7c9-cd02522d0120")
     public static UML2ReadSelfAction create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("OpaqueAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ReadSelfAction.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2ReadSelfAction {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ReadSelfAction} proxy from a {@link OpaqueAction} stereotyped << UML2ReadSelfAction >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ReadSelfAction} proxy from a {@link OpaqueAction} stereotyped << UML2ReadSelfAction >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a OpaqueAction
      * @return a {@link UML2ReadSelfAction} proxy or <i>null</i>.
      */
-    @objid ("45a2e12a-624a-4824-a8c9-b79ced16f4fc")
+    @objid ("4ddba35e-4a48-4774-a748-50adf032f4e5")
     public static UML2ReadSelfAction instantiate(OpaqueAction obj) {
         return UML2ReadSelfAction.canInstantiate(obj) ? new UML2ReadSelfAction(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2ReadSelfAction {
      * @return a {@link UML2ReadSelfAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("57d02610-2105-4624-98e9-0ae22f8452dd")
+    @objid ("085a5dc6-c879-4bd0-b240-7444cb7f0b6e")
     public static UML2ReadSelfAction safeInstantiate(OpaqueAction obj) throws IllegalArgumentException {
         if (UML2ReadSelfAction.canInstantiate(obj))
         	return new UML2ReadSelfAction(obj);
@@ -112,7 +112,7 @@ public class UML2ReadSelfAction {
         	throw new IllegalArgumentException("UML2ReadSelfAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("40fd3c43-c378-464f-ac80-63cbd96dab3a")
+    @objid ("0364e33e-c29a-407b-aff4-a89c4aa8f908")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2ReadSelfAction {
      * Get the underlying {@link OpaqueAction}. 
      * @return the OpaqueAction represented by this proxy, never null.
      */
-    @objid ("ff11c4a6-b5ec-4b9c-a56b-61fc6c0fa325")
+    @objid ("b29c8a47-4554-4f55-b9cf-ded1272393c1")
     public OpaqueAction getElement() {
         return this.elt;
     }
 
-    @objid ("d886cc1f-c021-47e8-860e-7ef4981aab62")
+    @objid ("3a197cad-2192-4928-b299-c92aa24b61ca")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("77a0af76-15aa-4794-8a50-cea564c9505d")
+    @objid ("ad1f21ff-18fd-4bb6-9bc1-5278a26edda7")
     protected UML2ReadSelfAction(OpaqueAction elt) {
         this.elt = elt;
     }
 
     @objid ("9b695724-53ea-403f-aee0-9d75de248162")
     public static final class MdaTypes {
-        @objid ("150fd72c-4ff9-4a7f-bcec-37b9f66954e1")
+        @objid ("4fb27f2c-297e-4731-95c8-d1bf08628e55")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("ad49732a-d579-4c8a-9e34-709fca766455")
+        @objid ("568c4f2f-948d-47e8-8964-49cf6fd028c5")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("2bbc199c-6a9c-486d-b73b-7785ea409ee7")
+        @objid ("65a882b7-505a-441a-86ca-8fa530c0e799")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("7f5fafdc-b1ac-4f33-b46a-ca6f8facdfba")
+        @objid ("850f4254-6a42-43b8-857d-81e4bb2ba751")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "120a35e7-c2fd-11de-8ac8-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

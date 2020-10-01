@@ -1,0 +1,13 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Cloner-les-options-graphiques]]
+
+[[cloner-les-options-graphiques]]
+= Cloner les options graphiques
+
+Les options graphiques (voir <<Modeler-_modeler_diagrams_graphic_options.adoc#,"Définir les options graphiques dans les diagrammes">>) définies pour un élément dans un diagramme peuvent être clonées et ensuite appliquées à un autre élément dans le même diagramme.
+
+Pour cloner les options graphiques définies pour un élément, il suffit de sélectionner l'élément et de cliquer sur l'icône image:images/Modeler-_modeler_diagrams_cloning_clone_graphic_options.gif[3] dans la barre d'outils des diagrammes en haut à droite du diagramme. Continuez en cliquant sur l'élément sur lequel vous voulez appliquer les options graphiques du premier élément. Le deuxième élément est alors transformé en utilisant les options graphiques clonées du premier élément sélectionné.
+
+

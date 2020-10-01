@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.constraint;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("e56d6561-c974-4569-834a-dbe37b352acd")
 public class Invariant {
-    @objid ("7f228a19-4956-423c-8461-ca3963308187")
+    @objid ("0522a254-f6fc-42aa-8d37-8c0c32c726ad")
     public static final String STEREOTYPE_NAME = "invariant";
 
     /**
      * The underlying {@link Constraint} represented by this proxy, never null.
      */
-    @objid ("3ea573ed-be31-4937-84f4-14b7cc5c55e7")
+    @objid ("b8a17dee-f89d-48ca-b164-e79a03d71730")
     protected final Constraint elt;
 
     /**
-     * Tells whether a {@link Invariant proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << invariant >>. 
+     * Tells whether a {@link Invariant proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << invariant >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("d8f57f81-7195-4688-9829-102c50059025")
+    @objid ("8a3c7837-8024-4523-8afd-883987ce4d6b")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Constraint) && ((Constraint) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Invariant.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Invariant {
      * 
      * @return a {@link Invariant} proxy on the created {@link Constraint}.
      */
-    @objid ("03025284-5d96-4bad-a1bc-45d2c697365e")
+    @objid ("7ead4327-a139-40bd-938c-588e472aa7ca")
     public static Invariant create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Constraint");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Invariant.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Invariant {
     }
 
     /**
-     * Tries to instantiate a {@link Invariant} proxy from a {@link Constraint} stereotyped << invariant >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Invariant} proxy from a {@link Constraint} stereotyped << invariant >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Constraint
      * @return a {@link Invariant} proxy or <i>null</i>.
      */
-    @objid ("cd44348b-dd84-4e93-a8d0-d5902434f7cf")
+    @objid ("e49c6a8c-ea6b-4020-909f-0a2d8817e68e")
     public static Invariant instantiate(Constraint obj) {
         return Invariant.canInstantiate(obj) ? new Invariant(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Invariant {
      * @return a {@link Invariant} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("861d36db-e630-4947-b648-ce80c520efd0")
+    @objid ("401a083d-4488-44bd-a653-004362af1822")
     public static Invariant safeInstantiate(Constraint obj) throws IllegalArgumentException {
         if (Invariant.canInstantiate(obj))
         	return new Invariant(obj);
@@ -112,7 +112,7 @@ public class Invariant {
         	throw new IllegalArgumentException("Invariant: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("67078c75-1852-43ac-a9e7-d1834c29d004")
+    @objid ("72b148f3-5981-405f-8937-a80153a09062")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Invariant {
      * Get the underlying {@link Constraint}. 
      * @return the Constraint represented by this proxy, never null.
      */
-    @objid ("f6370a42-e7ec-4f61-b35f-1b208cfc871a")
+    @objid ("be64939c-ec9e-4a2a-b220-efd432cd3cab")
     public Constraint getElement() {
         return this.elt;
     }
 
-    @objid ("6e655ffb-4222-4aab-bc15-ecd4561ce357")
+    @objid ("73a98e5d-71cc-43cb-a301-499a7684e0f9")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("b20aef6a-6658-4218-873d-2739afea0999")
+    @objid ("f7c5599d-7336-4f99-82cb-b103841239b6")
     protected Invariant(Constraint elt) {
         this.elt = elt;
     }
 
     @objid ("2ffe4bc5-f27a-4f95-9bdc-ffea03ee62b0")
     public static final class MdaTypes {
-        @objid ("6a0e97b3-b626-48a4-bbd0-8c95cd67d40f")
+        @objid ("2935926e-a460-41ae-8e7e-6cc4d51623e6")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("1788b7a8-3886-48e2-a705-07676b0b14b5")
+        @objid ("90e7cd5b-8e42-4081-b1b3-ca8e1f55fde1")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("ae3788b6-2879-4c37-afda-0bb871dda36f")
+        @objid ("46614feb-0d4d-41d1-a64e-ac33b6098a32")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("7b913ee8-32e5-4ea0-8434-896a1494bfd4")
+        @objid ("b35fbe46-7eaf-4cad-b5d1-aec63110f7f2")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00000000-0000-9c44-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

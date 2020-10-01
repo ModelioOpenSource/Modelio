@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.application.services"
          label="Application services"
-         version="4.0.1.qualifier"
+         version="4.1.0.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -32,19 +32,19 @@ GPL
 <requires>
 </requires>
 
-<plugin id="org.modelio.app.core"
+<plugin id="org.modelio.platform.core"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.core.rcp"
+<plugin id="org.modelio.platform.rcp"
         download-size="0"
         install-size="0"
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.utils"
+<plugin id="org.modelio.platform.utils"
         download-size="0"
         install-size="0"
         version="0.0.0"

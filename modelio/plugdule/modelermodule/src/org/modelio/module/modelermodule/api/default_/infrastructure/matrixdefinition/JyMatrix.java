@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.matrixdefinition;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("59e456e8-e2cc-46b3-a60f-40a9d4606127")
 public class JyMatrix {
-    @objid ("7a96e85e-ee49-4b5a-a3c0-fea2006f4c8b")
+    @objid ("e92ad0cc-7c3e-4ebb-b660-0102be1e241b")
     public static final String STEREOTYPE_NAME = "JyMatrix";
 
     /**
      * The underlying {@link MatrixDefinition} represented by this proxy, never null.
      */
-    @objid ("5b7881e5-7142-43c0-a813-da3eceabbdbd")
+    @objid ("bb753c53-d3b9-4115-b6f8-6b3e1a0d8a6f")
     protected final MatrixDefinition elt;
 
     /**
-     * Tells whether a {@link JyMatrix proxy} can be instantiated from a {@link MObject} checking it is a {@link MatrixDefinition} stereotyped << JyMatrix >>. 
+     * Tells whether a {@link JyMatrix proxy} can be instantiated from a {@link MObject} checking it is a {@link MatrixDefinition} stereotyped << JyMatrix >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("28990b46-37e2-462d-ab45-bcbdd206183c")
+    @objid ("94141f74-b5d2-4de5-8a8a-f57e29f31f0d")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof MatrixDefinition) && ((MatrixDefinition) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, JyMatrix.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class JyMatrix {
      * 
      * @return a {@link JyMatrix} proxy on the created {@link MatrixDefinition}.
      */
-    @objid ("80078a5e-415b-4783-9093-ca3cd3e95535")
+    @objid ("d8176718-82c4-4f9e-b177-cb836c9181a6")
     public static JyMatrix create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("MatrixDefinition");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, JyMatrix.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class JyMatrix {
     }
 
     /**
-     * Tries to instantiate a {@link JyMatrix} proxy from a {@link MatrixDefinition} stereotyped << JyMatrix >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link JyMatrix} proxy from a {@link MatrixDefinition} stereotyped << JyMatrix >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a MatrixDefinition
      * @return a {@link JyMatrix} proxy or <i>null</i>.
      */
-    @objid ("4a7c9767-3b84-4724-8356-fbbb6bf50e1d")
+    @objid ("945017fd-7dad-4210-9f5d-2ed0c2617b7b")
     public static JyMatrix instantiate(MatrixDefinition obj) {
         return JyMatrix.canInstantiate(obj) ? new JyMatrix(obj) : null;
     }
@@ -104,7 +104,7 @@ public class JyMatrix {
      * @return a {@link JyMatrix} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("ffad12e4-e4ef-4721-9d0f-4a6f897c1bd6")
+    @objid ("77aeeb4a-565e-456d-affb-e6de5a2d5610")
     public static JyMatrix safeInstantiate(MatrixDefinition obj) throws IllegalArgumentException {
         if (JyMatrix.canInstantiate(obj))
         	return new JyMatrix(obj);
@@ -112,7 +112,7 @@ public class JyMatrix {
         	throw new IllegalArgumentException("JyMatrix: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("a16b5be8-c325-46b1-8435-5aeb05a2d04f")
+    @objid ("f61b86b9-f2d1-4022-b813-d62e21dc8289")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class JyMatrix {
      * Get the underlying {@link MatrixDefinition}. 
      * @return the MatrixDefinition represented by this proxy, never null.
      */
-    @objid ("13c648d5-d040-4299-849e-aa592576784d")
+    @objid ("deb2c8f7-ea94-4751-a95e-8383d0abed34")
     public MatrixDefinition getElement() {
         return this.elt;
     }
 
-    @objid ("cf152fb8-e94b-4eb0-9001-a7346fc14782")
+    @objid ("f38fa665-92ee-46ff-8209-362226ca1870")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("d663a8e9-859b-45b9-a15a-5ab21946e01c")
+    @objid ("6523b7f3-9323-4687-ad01-f3248a2dce87")
     protected JyMatrix(MatrixDefinition elt) {
         this.elt = elt;
     }
 
     @objid ("c9f19dc4-d721-4fdd-80cf-cec8f0314a53")
     public static final class MdaTypes {
-        @objid ("13ad967a-3694-4007-9032-c5ddc5410eac")
+        @objid ("abc4e8e2-86f2-433f-a6aa-57c516bb69ce")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("d60e3a48-a3fe-4fc3-9fe3-85d336197d05")
+        @objid ("28f7f073-a2b8-4adc-a8df-cf7c9e467c17")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("d2388382-694e-4c42-96ad-e399f11da467")
+        @objid ("476ba6ea-0f8f-4ff2-a6f2-428c16708a0d")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("f40608d2-feb1-43ea-b387-3d5636ae44b5")
+        @objid ("72f5fc10-6567-4a0e-95f0-4e66a13e99fc")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "72ada667-0b7f-4421-bd69-9b037642ed87");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

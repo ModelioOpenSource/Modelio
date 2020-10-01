@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.standard.staticdiagram;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("3ccfaba8-70d5-49d8-a70a-4cc435f8822a")
 public class DictionaryDiagram {
-    @objid ("335566e2-85f8-49c9-9366-faab2e324c3e")
+    @objid ("cd90d763-e611-4b4a-b453-967c2c5d4a78")
     public static final String STEREOTYPE_NAME = "dictionary_diagram";
 
     /**
      * The underlying {@link StaticDiagram} represented by this proxy, never null.
      */
-    @objid ("6190c59e-8c31-48dc-ad03-3e3354bc40a5")
+    @objid ("952a3ff1-9add-4ab8-b6cc-04481089ca0c")
     protected final StaticDiagram elt;
 
     /**
-     * Tells whether a {@link DictionaryDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link StaticDiagram} stereotyped << dictionary_diagram >>. 
+     * Tells whether a {@link DictionaryDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link StaticDiagram} stereotyped << dictionary_diagram >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("dd9a402f-6f69-4522-8c65-ba488bcf0cac")
+    @objid ("69598e3d-38a5-4b67-af28-cb2643738f63")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof StaticDiagram) && ((StaticDiagram) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, DictionaryDiagram.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class DictionaryDiagram {
      * 
      * @return a {@link DictionaryDiagram} proxy on the created {@link StaticDiagram}.
      */
-    @objid ("d83b2063-ca51-4e7f-a661-45a4a857a0c4")
+    @objid ("a6727308-c90b-4192-b4d9-cc105e566681")
     public static DictionaryDiagram create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("StaticDiagram");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, DictionaryDiagram.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class DictionaryDiagram {
     }
 
     /**
-     * Tries to instantiate a {@link DictionaryDiagram} proxy from a {@link StaticDiagram} stereotyped << dictionary_diagram >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link DictionaryDiagram} proxy from a {@link StaticDiagram} stereotyped << dictionary_diagram >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a StaticDiagram
      * @return a {@link DictionaryDiagram} proxy or <i>null</i>.
      */
-    @objid ("66bc044b-5bc5-43b0-ad69-7f883fe8cf8c")
+    @objid ("3a924613-a586-4abb-93b1-124acf3ea80b")
     public static DictionaryDiagram instantiate(StaticDiagram obj) {
         return DictionaryDiagram.canInstantiate(obj) ? new DictionaryDiagram(obj) : null;
     }
@@ -104,7 +104,7 @@ public class DictionaryDiagram {
      * @return a {@link DictionaryDiagram} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("4c895423-b062-4121-8a65-f975421a0021")
+    @objid ("1646f3ae-e9a7-4a5c-b85c-5e7b9e6ec8d6")
     public static DictionaryDiagram safeInstantiate(StaticDiagram obj) throws IllegalArgumentException {
         if (DictionaryDiagram.canInstantiate(obj))
         	return new DictionaryDiagram(obj);
@@ -112,7 +112,7 @@ public class DictionaryDiagram {
         	throw new IllegalArgumentException("DictionaryDiagram: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("4f1b2a23-055e-40fd-a1b2-c2b1908bc3b1")
+    @objid ("27cda7b7-6ede-4cb2-98ba-c21c60028a3e")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class DictionaryDiagram {
      * Get the underlying {@link StaticDiagram}. 
      * @return the StaticDiagram represented by this proxy, never null.
      */
-    @objid ("c95efb84-4cb2-4ab9-b8a1-01aaeb8ec53d")
+    @objid ("ea73bc42-1bd3-43f3-8d92-ebb54f7eb1d0")
     public StaticDiagram getElement() {
         return this.elt;
     }
 
-    @objid ("ab419d23-00b1-4e39-a80a-aa22bdeced4f")
+    @objid ("70985bcf-3337-4e8a-98af-e44d1938ca56")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("f77038fa-4d55-4cd0-8315-2ad49a3a51f9")
+    @objid ("d0d60ca8-b7da-47d2-9c6d-b105d6915eaf")
     protected DictionaryDiagram(StaticDiagram elt) {
         this.elt = elt;
     }
 
     @objid ("e3bf2946-f53e-4175-8a51-d544c543a4b6")
     public static final class MdaTypes {
-        @objid ("aaca1916-78b4-492e-816f-8c56d73c8e28")
+        @objid ("87e2b88c-3d07-455e-b28c-40ffb73c3c49")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("89f78079-541e-4262-ba21-401c61bac497")
+        @objid ("ccdba590-9920-41ac-8fa7-31b164202bb7")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("44d27876-54cd-4eff-bd2b-61e288d39ae0")
+        @objid ("04521e45-248b-4315-9a3f-1d14ba54b518")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("01480732-12bc-41d3-bd7e-0cc5ad9abc45")
+        @objid ("2530601a-9c3d-4156-b342-80c4b615997e")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-0c02-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

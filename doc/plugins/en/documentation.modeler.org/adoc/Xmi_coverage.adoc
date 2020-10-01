@@ -1,0 +1,111 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Coverage-of-UML2]]
+
+[[coverage-of-uml2]]
+= Coverage of UML2
+
+[[Introduction]]
+
+[[introduction]]
+===== Introduction
+
+Modelio XMI Import/Export is designed to enable all model elements to be imported and exported.
+
+However, at this time, only some of the elements defined in the UML2 metamodel are managed. Details on exactly what is covered are provided below.
+
+It should also be noted that imports/exports may be incomplete, because of the differences that exist between the UML2 and Modelio metamodels.
+
+[[Static-diagram-elements]]
+
+[[static-diagram-elements]]
+===== Static diagram elements
+
+*Class diagrams*
+
+All class diagram elements are managed.
+
+*Object diagrams*
+
+All object diagram elements are managed.
+
+*Component diagrams*
+
+All component diagram elements are managed.
+
+*Deployment diagrams*
+
+All deployment diagram elements are managed.
+
+*Package diagrams*
+
+All package diagram elements are managed.
+
+*Composite structure diagrams*
+
+All composite structure diagram elements are managed.
+
+[[Behavioral-diagram-elements]]
+
+[[behavioral-diagram-elements]]
+===== Behavioral diagram elements
+
+*Use case diagrams*
+
+All use case diagram elements are managed.
+
+*State diagrams*
+
+All state diagram elements are managed.
+
+*Activity diagrams*
+
+All activity diagram elements are managed.
+
+[[Dynamic-diagram-elements]]
+
+[[dynamic-diagram-elements]]
+===== Dynamic diagram elements
+
+*Sequence diagrams*
+
+All sequence diagram elements are managed.
+
+*Communication diagrams*
+
+Communication diagram elements are not yet managed.
+
+*Timing diagrams*
+
+Timing diagram elements are not managed by Modelio.
+
+[[Auxiliary-constructions]]
+
+[[auxiliary-constructions]]
+===== Auxiliary constructions
+
+Templates are managed.
+
+[[Profiles]]
+
+[[profiles]]
+===== Profiles
+
+Profiles can be imported into Modelio but they must be defined in a module. +
+This means that the UML profile must be imported into a module by using the <<Xmi_importing_profile.adoc#,XMI Import Profile command>>.
+
+Profiles can also be exported from Modelio through the <<Xmi_exporting_profile.adoc#,XMI Export Profile command>>.
+
+[[Modelio-compatibility-option]]
+
+[[modelio-compatibility-option]]
+===== Modelio compatibility option
+
+By activating the <<Xmi_config.adoc#,Modelio/Modelio compatibility option>>, it is possible to export and re-import notes with their associated type. If this option has not been activated, the types of notes are lost (UML2 restriction). By default, imported notes are of "comment" type.
+
+*_Note:_* Some metaclasses define notions that are only present either in UML2 or in Modelio, but not in both. These cannot be imported or exported.
+
+Examples: In sequence diagrams, "Continuations" do not exist in Modelio and cannot therefore be imported. "ConsiderIgnoreFragments" are imported simply as "CombinedFragments".
+
+

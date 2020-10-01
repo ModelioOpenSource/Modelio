@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2860]]
+
+[[r2860]]
+= R2860
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Il ne peut y avoir qu'une seule _relation d'extension/inclusion_ entre deux _Use Cases_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _Use Case_ ne peut pas à la fois étendre et inclure un autre _Use Case_.
+
+Plusieurs extensions ou inclusions sont aussi interdites.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Supprimez une des _relation d'extension/inclusion_ selon ce que vous voulez représenter.
+
+

@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1720]]
+
+[[r1720]]
+= R1720
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un _NameSpace_ abstrait ne devrait hériter que d'un _NameSpace_ abstrait.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un _NameSpace_ abstrait ne peut pas être instancié, il ne devrait donc pas hériter d'un _NameSpace_ instanciable puisqu'il récupérera ses propriétés instanciables.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Rendez ce _NameSpace_ concret.
+* Vérifiez que tous les _NameSpaces_ parents soit eux aussi abstraits.
+* Vous pouvez aussi envisager de désactiver cette règle, certains langages de programmation acceptant les classes abstraites héritant de classes concrètes.
+
+

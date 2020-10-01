@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.inputpin;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("3bedd0c8-c338-4af8-95d9-6c58807f3ac3")
 public class UML2ActionInputPin {
-    @objid ("92cd8192-6864-4ba4-b6b6-b1c7a4a47d39")
+    @objid ("a804460e-ea89-4081-8640-81535487d37c")
     public static final String STEREOTYPE_NAME = "UML2ActionInputPin";
 
     /**
      * The underlying {@link InputPin} represented by this proxy, never null.
      */
-    @objid ("d2541f10-c3ff-42e0-b414-54f1621ced55")
+    @objid ("165163d0-176d-4229-b956-3bb15613e985")
     protected final InputPin elt;
 
     /**
-     * Tells whether a {@link UML2ActionInputPin proxy} can be instantiated from a {@link MObject} checking it is a {@link InputPin} stereotyped << UML2ActionInputPin >>. 
+     * Tells whether a {@link UML2ActionInputPin proxy} can be instantiated from a {@link MObject} checking it is a {@link InputPin} stereotyped << UML2ActionInputPin >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("11ce825f-c62c-4a2c-9d23-5f2efc0b6609")
+    @objid ("e95634de-001b-4ce8-84d2-e14e2b9bd391")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof InputPin) && ((InputPin) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ActionInputPin.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2ActionInputPin {
      * 
      * @return a {@link UML2ActionInputPin} proxy on the created {@link InputPin}.
      */
-    @objid ("e386fd5b-ef18-405d-97bc-314d7a29af57")
+    @objid ("27ae7377-3a7d-426d-9d6e-aed58d310975")
     public static UML2ActionInputPin create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("InputPin");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ActionInputPin.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2ActionInputPin {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ActionInputPin} proxy from a {@link InputPin} stereotyped << UML2ActionInputPin >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ActionInputPin} proxy from a {@link InputPin} stereotyped << UML2ActionInputPin >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a InputPin
      * @return a {@link UML2ActionInputPin} proxy or <i>null</i>.
      */
-    @objid ("78aa5b0a-3002-4095-838d-d26d24c64a81")
+    @objid ("fb250b78-267e-45cd-ba74-d44dfe4ead73")
     public static UML2ActionInputPin instantiate(InputPin obj) {
         return UML2ActionInputPin.canInstantiate(obj) ? new UML2ActionInputPin(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2ActionInputPin {
      * @return a {@link UML2ActionInputPin} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("34a0810d-2998-46a2-8e94-da8e9d7ac021")
+    @objid ("9b9ea631-1945-4211-a2e9-dbfe269bb9c0")
     public static UML2ActionInputPin safeInstantiate(InputPin obj) throws IllegalArgumentException {
         if (UML2ActionInputPin.canInstantiate(obj))
         	return new UML2ActionInputPin(obj);
@@ -112,7 +112,7 @@ public class UML2ActionInputPin {
         	throw new IllegalArgumentException("UML2ActionInputPin: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("726c5d0d-d0df-4c11-8c8a-bbc09f5148bd")
+    @objid ("5f9e7f9a-d439-4817-99ee-83189485fda3")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2ActionInputPin {
      * Get the underlying {@link InputPin}. 
      * @return the InputPin represented by this proxy, never null.
      */
-    @objid ("4b9cbabb-2627-4023-b482-89fd6a045637")
+    @objid ("4b632362-ed07-42dc-8127-cc7663feeaef")
     public InputPin getElement() {
         return this.elt;
     }
 
-    @objid ("a0b06c9a-ce58-4ca5-956a-c4d554f88933")
+    @objid ("4f6df9d4-eb82-4331-8bb5-6f066a919f62")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("968aa58a-a323-45aa-8993-8ba9ee017bba")
+    @objid ("07ca09e7-216d-497a-81b5-7f89ae6b45ec")
     protected UML2ActionInputPin(InputPin elt) {
         this.elt = elt;
     }
 
     @objid ("dc5d92d9-0b36-408d-b559-7f7dd32d402b")
     public static final class MdaTypes {
-        @objid ("b0de1c96-6236-437d-94d7-171576fa3fed")
+        @objid ("3e382f4a-c5dc-474b-b50e-5db4ae31f9a9")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("e3165ec8-fe52-4ecf-b315-c0dce52f15c7")
+        @objid ("ea7f4d47-fa89-4184-b555-5f15aba51282")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("80147980-9d1a-4a32-831a-1eb9670d4cab")
+        @objid ("a0500471-b9d4-4c60-84ad-9f9ab85697f8")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("cb6ba6ef-ca71-43ee-a95e-3dd96364a7a1")
+        @objid ("80787627-725b-4c83-8b65-71c11bee49d5")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "0bd72298-5d08-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

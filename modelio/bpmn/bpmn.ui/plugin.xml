@@ -5,7 +5,7 @@
       <fragment uri="e4model/bpmn.ui.e4xmi"/>
    </extension>
 
-   <extension point="org.modelio.audit.extensions">
+   <extension point="org.modelio.app.audit.extensions">
       <audit clazz="org.modelio.bpmn.ui.audit.BpmnAuditExtension"/>
    </extension>
 </plugin>

@@ -49,10 +49,10 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.modelio.app.update.plugin.AppUpdate;
-import org.modelio.app.update.repo.UpdateDescriptor;
-import org.modelio.ui.UIImages;
-import org.modelio.ui.panel.IPanelListener;
-import org.modelio.ui.panel.IPanelProvider;
+import org.modelio.platform.ui.UIImages;
+import org.modelio.platform.ui.panel.IPanelListener;
+import org.modelio.platform.ui.panel.IPanelProvider;
+import org.modelio.platform.update.repo.UpdateDescriptor;
 
 @objid ("8702429c-9706-4be4-8ffb-0141ec17dc94")
 public class UpdatePanel implements IPanelProvider {

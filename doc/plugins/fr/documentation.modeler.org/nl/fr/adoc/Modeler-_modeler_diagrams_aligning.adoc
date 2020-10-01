@@ -1,0 +1,35 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Aligner-des-éléments]]
+
+[[aligner-des-éléments]]
+= Aligner des éléments
+
+Les diagrammes Modelio vous proposent plusieurs options d'alignement.
+
+[[Loption-daide-au-placement]]
+
+[[loption-daide-au-placement]]
+===== L'option d'aide au placement
+
+Dans les vues <<Modeler-_modeler_interface_properties_view.adoc#,Propriétés>> ou <<Modeler-_modeler_interface_symbol_view.adoc#,Symbole>> du diagramme il est possible d'activer/désactiver l'option "Aide au placement". Cette fonctionnalité permet de placer l'élément en fonction de la position des autres éléments présents dans le diagramme.
+
+[[La-barre-doutils-du-diagramme]]
+
+[[la-barre-doutils-du-diagramme]]
+===== La barre d'outils du diagramme
+
+Pour aligner des éléments dans un diagramme, sélectionnez les éléments en question puis cliquez sur l'icône qui correspond à votre choix d'alignement dans la barre d'outils du diagramme.
+
+* *image:images/Modeler-_modeler_diagrams_aligning_align_top.png[2] Aligner en haut :* Ceci aligne les éléments sélectionnés sur le côté supérieur du premier élément sélectionné.
+* *image:images/Modeler-_modeler_diagrams_aligning_align_left.png[3] Aligner à gauche :* Ceci aligne les éléments sélectionnés sur le côté gauche du premier élément sélectionné.
+* *image:images/Modeler-_modeler_diagrams_aligning_align_bottom.png[4] Aligner en bas :* Ceci aligne les éléments sélectionnés sur le côté inférieur du premier élément sélectionné.
+* *image:images/Modeler-_modeler_diagrams_aligning_align_right.png[5] Aligner à droite :* Ceci aligne les éléments sélectionnés sur le côté droit du premier élément sélectionné.
+* *image:images/Modeler-_modeler_diagrams_aligning_align_center_h.png[6] Aligner au centre :* Ceci aligne les éléments sélectionnés horizontalement sur le point central du premier élément sélectionné.
+* *image:images/Modeler-_modeler_diagrams_aligning_align_center_v.png[7] Aligner au milieu :* Ceci aligne les éléments sélectionnés verticalement sur le point central du premier élément sélectionné.
+* *image:images/Modeler-_modeler_diagrams_aligning_same_height.png[8] Mettre à la même hauteur :* Ceci met les éléments sélectionnés à la même hauteur que le premier élément sélectionné.
+* *image:images/Modeler-_modeler_diagrams_aligning_same_width.png[9] Mettre à la même largeur :* Ceci met les éléments sélectionnés à la même largeur que le premier élément sélectionné.
+* *image:images/Modeler-_modeler_diagrams_aligning_same_size.png[10] Mettre à la même taille :* Ceci met les éléments sélectionnés à la même taille que le premier élément sélectionné.
+
+

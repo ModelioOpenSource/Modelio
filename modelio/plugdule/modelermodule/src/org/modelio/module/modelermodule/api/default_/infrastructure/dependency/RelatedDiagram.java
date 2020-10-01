@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("fca5b424-314d-4acd-b390-d416296df62e")
 public class RelatedDiagram {
-    @objid ("37c5708f-1837-4cde-920a-b369decbc831")
+    @objid ("4e95aa93-c8f4-4f91-9fdd-ecb1ed706229")
     public static final String STEREOTYPE_NAME = "related_diagram";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("011dd9f1-c08a-4096-b1d3-330f3b92cf56")
+    @objid ("ed156b5f-c407-45f1-86b3-deb078731808")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link RelatedDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << related_diagram >>. 
+     * Tells whether a {@link RelatedDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << related_diagram >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("46ff347f-e87c-4b5b-af01-61ee7fd01845")
+    @objid ("4958e5a8-f536-49a9-8584-624e56b14c0e")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, RelatedDiagram.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class RelatedDiagram {
      * 
      * @return a {@link RelatedDiagram} proxy on the created {@link Dependency}.
      */
-    @objid ("34812749-e723-439e-9e47-edaf3c3e409f")
+    @objid ("14646e9c-d31e-47af-82d3-52a5f301e2cd")
     public static RelatedDiagram create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, RelatedDiagram.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class RelatedDiagram {
     }
 
     /**
-     * Tries to instantiate a {@link RelatedDiagram} proxy from a {@link Dependency} stereotyped << related_diagram >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link RelatedDiagram} proxy from a {@link Dependency} stereotyped << related_diagram >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link RelatedDiagram} proxy or <i>null</i>.
      */
-    @objid ("a3929ec2-dd3b-4bd7-b223-b2b12ff59ed1")
+    @objid ("56e9c84f-06ff-43cd-bec5-65e277e758c9")
     public static RelatedDiagram instantiate(Dependency obj) {
         return RelatedDiagram.canInstantiate(obj) ? new RelatedDiagram(obj) : null;
     }
@@ -103,7 +103,7 @@ public class RelatedDiagram {
      * @return a {@link RelatedDiagram} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("0e3da5dc-2aff-4829-9e72-8ef32c40d0c9")
+    @objid ("0aec2956-56d3-4910-89df-42436c6580dd")
     public static RelatedDiagram safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (RelatedDiagram.canInstantiate(obj))
         	return new RelatedDiagram(obj);
@@ -111,7 +111,7 @@ public class RelatedDiagram {
         	throw new IllegalArgumentException("RelatedDiagram: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("9214c665-8269-4ba7-b747-726530d42197")
+    @objid ("e295a38c-6963-4c28-96f4-fa892fa1c6e1")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class RelatedDiagram {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("c29cb630-582f-49fa-8a3f-9353859d49ce")
+    @objid ("17d35f80-6d51-4540-b42d-2c108400eb5c")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("98aec9b6-a106-4156-9a4a-e51667662b64")
+    @objid ("6eaafb8a-3792-404c-8814-817ae0adad86")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("b3c348a8-ff63-4973-8d75-aacc07e58b55")
+    @objid ("96b16fe8-ff96-41bc-96f0-8dd1ee8690b9")
     protected RelatedDiagram(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("7c15b3f3-14bd-419f-b399-40c4a720d7a2")
     public static final class MdaTypes {
-        @objid ("e7c44df1-98cf-41c3-b6b8-d5ab2fd54fd5")
+        @objid ("fc2efc50-5106-482c-aeb4-f07ea46badf8")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("42b99355-d803-4a38-8993-be55c3ea35cf")
+        @objid ("8688e4d4-80ef-4913-ad5c-6b1e18f373bf")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("f961c416-8dce-4545-ae67-2040a27885e3")
+        @objid ("4661802c-9199-4611-993c-70330682b132")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("e77dc470-c4e0-4fda-af93-7ed590df2afa")
+        @objid ("88d1b312-d447-48c6-9244-edb3b0705d0f")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "2961d57b-5120-11de-bbaf-00218648fa3d");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

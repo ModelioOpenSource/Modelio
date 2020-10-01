@@ -1,0 +1,38 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Audit de modèle Modelio
+
+[[Audit-de-modèle-en-temps-réel]]
+
+[[audit-de-modèle-en-temps-réel]]
+===== Audit de modèle en temps réel
+
+L'outil d'audit de Modelio peut analyser le modèle en temps réel. Lorsque des erreurs sont detectées, il ajoute un pictogramme sur chacun des éléments concernés dans la vue modèle :
+
+.Dans l'exemple ci-dessus, l'audit a detecté des erreurs dans le package "browser"
+image::images/Modeler-_modeler_handy_tools_model_audit_ModelAudit01_FR.png[2]
+
+[[La-commande-de-vérification-de-modèle]]
+
+[[la-commande-de-vérification-de-modèle]]
+===== La commande de vérification de modèle
+
+Lorsque l'audit signale des erreurs ou des avertissements dans le modèle, vous avez la possibilité d'obtenir les messages d'erreur correspondants en un clic, en exécutant la commande "Vérifier le modèle":
+
+.La commande "Vérifier le modèle"
+image::images/Modeler-_modeler_handy_tools_model_audit_ModelAudit02_FR.png[3]
+
+La commande "Vérifier le modèle" va alors relancer une vérification du modèle pour produire un rapport précis et à jour:
+
+.La fenêtre résultat de la vérification de modèle
+image::images/Modeler-_modeler_handy_tools_model_audit_ModelAudit03_FR.png[4]
+
+En double-cliquant sur l'une des erreurs du rapport, vous obtiendrez une description détaillée de l'erreur ainsi que les conseils pour la corriger.
+
+.La fenêtre Détail du problème
+image::images/Modeler-_modeler_handy_tools_model_audit_ModelAudit04_FR.png[5]
+
+*Note*: Si vous cliquez sur les élemsnts listés dans la fenêtre Détail du problème, Modelio les sélectionnera dans la vue Modèle, ce qui rend plus aisée encore la correction des problèmes.
+
+

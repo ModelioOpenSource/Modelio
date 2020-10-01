@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension id="diagram.state" point="org.eclipse.e4.workbench.model">
+      <fragment uri="e4model/diagram_state_editor.e4xmi"/>
+      <processor beforefragment="true" class="org.modelio.uml.statediagram.editor.plugin.StateProcessor"/>
+   </extension>
+
+   <extension point="org.modelio.app.diagram.editor.inputprovider">
+      <inputprovider class="org.modelio.uml.statediagram.editor.editor.StateDiagramEditorInputProvider"/>
+   </extension>
+
+	<extension point="org.modelio.app.diagram.editor.toolregistry">
+		<tools>
+			<creationtool id="CREATE_STATE" label="%State.label" tooltip="%State.tooltip" interactor="node">
+				<context metaclass="Standard.State" />
+			</creationtool>
+			<creationtool id="CREATE_REGION" label="%Region.label" tooltip="%Region.tooltip" interactor="node">
+			    <context metaclass="Standard.Region" />
+			</creationtool>
+			<creationtool id="CREATE_INTERNALTRANSITION" interactor="point" label="%InternalTransition.label" tooltip="%InternalTransition.tooltip">
+				<context metaclass="Standard.InternalTransition" dependency="State.Internal"/>
+		    </creationtool>
+			<creationtool id="CREATE_TRANSITION" label="%Transition.label" tooltip="%Transition.tooltip" interactor="link">
+				<context metaclass="Standard.Transition" router="TRANSITION_ROUTINGMODE"/>
+			</creationtool>
+			<creationtool id="CREATE_FORKPSEUDOSTATE" interactor="point" label="%ForkPseudoState.label" tooltip="%ForkPseudoState.tooltip">
+		    	<context metaclass="Standard.ForkPseudoState"/>
+			</creationtool>
+			<creationtool id="CREATE_CHOICEPSEUDOSTATE" interactor="point" label="%ChoicePseudoState.label" tooltip="%ChoicePseudoState.tooltip">
+				<context metaclass="Standard.ChoicePseudoState"/>
+			</creationtool>
+			<creationtool id="CREATE_DEEPHISTORYPSEUDOSTATE" interactor="point" label="%DeepHistoryPseudoState.label" tooltip="%DeepHistoryPseudoState.tooltip">
+				<context metaclass="Standard.DeepHistoryPseudoState"/>
+			</creationtool>
+			<creationtool id="CREATE_ENTRYPOINTPSEUDOSTATE" interactor="point" label="%EntryPointPseudoState.label" tooltip="%EntryPointPseudoState.tooltip">
+				<context dependency="State.EntryPoint" metaclass="Standard.EntryPointPseudoState"/>
+			</creationtool>
+			<creationtool id="CREATE_EXITPOINTPSEUDOSTATE" interactor="point" label="%ExitPointPseudoState.label" tooltip="%ExitPointPseudoState.tooltip">
+				<context dependency="State.ExitPoint" metaclass="Standard.ExitPointPseudoState"/>
+			</creationtool>
+			<creationtool id="CREATE_INITIALPSEUDOSTATE" interactor="point" label="%InitialPseudoState.label" tooltip="%InitialPseudoState.tooltip">
+				<context metaclass="Standard.InitialPseudoState"/>
+			</creationtool>
+			<creationtool id="CREATE_JOINPSEUDOSTATE" interactor="point" label="%JoinPseudoState.label" tooltip="%JoinPseudoState.tooltip">
+				<context metaclass="Standard.JoinPseudoState"/>
+			</creationtool>
+			<creationtool id="CREATE_JUNCTIONPSEUDOSTATE" interactor="point" label="%JunctionPseudoState.label" tooltip="%JunctionPseudoState.tooltip">
+				<context metaclass="Standard.JunctionPseudoState"/>
+			</creationtool>
+			<creationtool id="CREATE_SHALLOWHISTORYPSEUDOSTATE" interactor="point" label="%ShallowHistoryPseudoState.label" tooltip="%ShallowHistoryPseudoState.tooltip">
+				<context metaclass="Standard.ShallowHistoryPseudoState"/>
+			</creationtool>
+			<creationtool id="CREATE_TERMINATEPSEUDOSTATE" interactor="point" label="%TerminatePseudoState.label" tooltip="%TerminatePseudoState.tooltip">
+				<context  metaclass="Standard.TerminatePseudoState"/>
+			</creationtool>
+			<creationtool id="CREATE_FINALSTATE" interactor="point" label="%FinalState.label" tooltip="%FinalState.tooltip">
+				<context metaclass="Standard.FinalState"/>
+			</creationtool>
+			<creationtool id="CREATE_CONNECTIONPOINTREFERENCE" interactor="point" label="%ConnectionPointReference.label" tooltip="%ConnectionPointReference.tooltip">
+				<context metaclass="Standard.ConnectionPointReference"/>
+			</creationtool>
+		</tools>
+   </extension>
+
+
+	<extension point="org.modelio.platform.model.view.template">
+		<viewtemplate id="StateDiagramTemplate" class="org.modelio.uml.statediagram.editor.contributor.StateDiagramTemplate"/>
+	</extension>
+
+   	<extension point="org.modelio.app.creation.wizard.contributor">
+		<wizard
+				categoryId = "%ContributorCategoryType.UML"
+				categoryLabel = "%ContributorCategoryLabel.UML"
+				categoryIcon = "./icons/uml.png"
+				class="org.modelio.uml.statediagram.editor.contributor.StateDiagramCreationContributor"
+				label = "%CreationWizard.State.Name"
+				details = "%CreationWizard.State.Details"
+				information = "%CreationWizard.State.Information"
+				helpUrl = "HELP_URL"
+				previewImage = "images/statediagrampreview400x300.png"
+				modelViewTemplateId = "StateDiagramTemplate">
+		</wizard>
+	</extension>
+
+    <extension name="State drop extension" point="org.modelio.app.diagram.editor.droppolicy.extensions">
+    	<droppolicyextension class="org.modelio.uml.statediagram.editor.elements.statediagram.StateDiagramDropEditPolicyExtension">
+    		<scope editorId="org.modelio.uml.statediagram.editor.StateDiagramEditorID"/>
+    	</droppolicyextension>
+    </extension>
+
+    <extension
+          point="org.modelio.app.diagram.editor.palette">
+       <palette
+             id="org.modelio.uml.statediagram.editor.StateDiagramEditorID">
+          <palette_group
+                collapsible="false"
+                label="main">
+             <selection_tool default="true"/>
+             <marquee_tool/>
+             <universal_link_tool/>
+          </palette_group>
+          <palette_group label="%StatePaletteGroup.State" initialState="open">
+             <creation_tool id="CREATE_STATE"/>
+             <creation_tool id="CREATE_REGION"/>
+             <creation_tool id="CREATE_INTERNALTRANSITION"/>
+             <creation_tool id="CREATE_TRANSITION"/>
+             <creation_tool id="CREATE_INITIALPSEUDOSTATE"/>
+             <creation_tool id="CREATE_TERMINATEPSEUDOSTATE"/>
+             <creation_tool id="CREATE_ENTRYPOINTPSEUDOSTATE"/>
+             <creation_tool id="CREATE_EXITPOINTPSEUDOSTATE"/>
+             <creation_tool id="CREATE_FORKPSEUDOSTATE"/>
+             <creation_tool id="CREATE_JOINPSEUDOSTATE"/>
+             <creation_tool id="CREATE_JUNCTIONPSEUDOSTATE"/>
+             <creation_tool id="CREATE_CHOICEPSEUDOSTATE"/>
+             <creation_tool id="CREATE_DEEPHISTORYPSEUDOSTATE"/>
+             <creation_tool id="CREATE_SHALLOWHISTORYPSEUDOSTATE"/>
+             <creation_tool id="CREATE_CONNECTIONPOINTREFERENCE"/>
+             <creation_tool id="CREATE_FINALSTATE"/>
+          </palette_group>
+          <palette_group label="%StatePaletteGroup.Common">
+             <creation_tool id="CREATE_NOTE"/>
+             <creation_tool id="CREATE_CONSTRAINT"/>
+             <creation_tool id="CREATE_EXTERNDOCUMENT"/>
+             <creation_tool id="CREATE_DEPENDENCY"/>
+             <creation_tool id="CREATE_TRACEABILITY"/>
+
+             <creation_tool id="CREATE_RELATED_DIAGRAM_LINK"/>
+          </palette_group>
+          <palette_group label="%StatePaletteGroup.Drawings">
+             <creation_tool id="CREATE_DRAWING_LINE"/>
+             <creation_tool id="CREATE_DRAWING_TEXT"/>
+             <creation_tool id="CREATE_DRAWING_ELLIPSE"/>
+             <creation_tool id="CREATE_DRAWING_RECTANGLE"/>
+          </palette_group>
+       </palette>
+    </extension>
+
+</plugin>

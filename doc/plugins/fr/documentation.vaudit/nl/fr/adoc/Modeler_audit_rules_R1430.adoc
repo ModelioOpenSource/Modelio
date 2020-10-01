@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1430]]
+
+[[r1430]]
+= R1430
+
+[[Résume]]
+
+[[résume]]
+===== Résume
+
+Les multiplicités d'un rôle d'association doivent être cohérentes. La multiplicité minimum ne peut être '*' et elle ne peut être supérieure à la multiplicité maximum.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Il apparaît évident qu'une valeur minimum doive être inférieure à une valeur maximum. De plus si la valeur minimum est '*', la valeur maximum ne peut pas être supérieure.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une multiplicité minimum qui est supérieure à la multiplicité maximum ou bien égale à '*', vous devez changer l'une des deux valeurs afin que la multiplicité minimum soit bien inférieure à la multiplicité maximum.
+
+

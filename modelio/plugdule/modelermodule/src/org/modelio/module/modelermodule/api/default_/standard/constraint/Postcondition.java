@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.constraint;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("0cfb1227-3745-4c76-8e1a-0c23d0f7a8f4")
 public class Postcondition {
-    @objid ("8319a273-c87d-4d43-8c13-6c1468921c6b")
+    @objid ("95fa0ae7-0221-4621-92cc-e776a8219200")
     public static final String STEREOTYPE_NAME = "postcondition";
 
     /**
      * The underlying {@link Constraint} represented by this proxy, never null.
      */
-    @objid ("791d6814-9b62-41df-bea0-c2b58527bbaa")
+    @objid ("b6bb26bc-de97-4e76-8301-f1cbc212f3d0")
     protected final Constraint elt;
 
     /**
-     * Tells whether a {@link Postcondition proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << postcondition >>. 
+     * Tells whether a {@link Postcondition proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << postcondition >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("6995cec8-775f-4cfb-8fa1-0f817c3ab70a")
+    @objid ("515db978-8dbe-4691-874b-676061759225")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Constraint) && ((Constraint) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Postcondition.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Postcondition {
      * 
      * @return a {@link Postcondition} proxy on the created {@link Constraint}.
      */
-    @objid ("7eed8a03-a556-4a49-bee4-37134a5a70fb")
+    @objid ("e6df380e-e9f5-4c50-89d6-c88c8d60d4c1")
     public static Postcondition create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Constraint");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Postcondition.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Postcondition {
     }
 
     /**
-     * Tries to instantiate a {@link Postcondition} proxy from a {@link Constraint} stereotyped << postcondition >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Postcondition} proxy from a {@link Constraint} stereotyped << postcondition >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Constraint
      * @return a {@link Postcondition} proxy or <i>null</i>.
      */
-    @objid ("05e4f065-9ebf-48e0-8225-7503936d11de")
+    @objid ("4af37719-1064-419d-aa5a-5824b1d551c1")
     public static Postcondition instantiate(Constraint obj) {
         return Postcondition.canInstantiate(obj) ? new Postcondition(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Postcondition {
      * @return a {@link Postcondition} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("e1b87b5a-ba4c-4cee-8c73-7ac9ea26f66d")
+    @objid ("39f34ee8-90a3-4ef6-9c0a-11f291a691e5")
     public static Postcondition safeInstantiate(Constraint obj) throws IllegalArgumentException {
         if (Postcondition.canInstantiate(obj))
         	return new Postcondition(obj);
@@ -112,7 +112,7 @@ public class Postcondition {
         	throw new IllegalArgumentException("Postcondition: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("d2a65b53-014a-4b08-b81c-49ef93c0d821")
+    @objid ("15dc6578-5bb0-4936-ab13-64331b9aa1ea")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Postcondition {
      * Get the underlying {@link Constraint}. 
      * @return the Constraint represented by this proxy, never null.
      */
-    @objid ("03cb32cd-ff43-4724-924d-706c2f2bb133")
+    @objid ("fd1c635e-e92e-4182-b1c7-c7f460c9fdf5")
     public Constraint getElement() {
         return this.elt;
     }
 
-    @objid ("ae0881a9-9fbe-4b69-91ee-9c3605691d13")
+    @objid ("e10a7505-5868-4fb2-ad9b-50db96d89621")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("97d6b013-5edc-4fc7-aa43-2e284e5b6757")
+    @objid ("0062300d-e710-4682-a78b-8001cb340503")
     protected Postcondition(Constraint elt) {
         this.elt = elt;
     }
 
     @objid ("889980ab-e2c4-4755-bd2a-5c65867bd2d2")
     public static final class MdaTypes {
-        @objid ("506c34a1-832c-4355-816f-309575d82fdc")
+        @objid ("004f6500-47ab-4b07-b832-48a5620eabca")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("9436edfc-61ed-428d-ab89-20d02c149855")
+        @objid ("0228e929-54ff-40c3-abbe-a1faa0b76356")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("b8df32b7-ddc7-4b7d-ae2b-df74d07801fb")
+        @objid ("c4372425-5741-4e76-b448-ab9357eab67f")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("5d9ae138-b288-45f4-8d25-64b79e28ef29")
+        @objid ("b1e73619-703f-43c5-8f09-123c0e23fdcb")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00000000-0000-9c46-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

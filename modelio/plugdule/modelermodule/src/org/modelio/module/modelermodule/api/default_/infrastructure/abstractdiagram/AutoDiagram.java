@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.abstractdiagram;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("b410fcf6-31df-4c16-b0e5-ff41e19d9852")
 public class AutoDiagram {
-    @objid ("8f669b42-c02c-4e8d-8fab-2321319b6a47")
+    @objid ("22e63a7a-9cf6-4a91-a27d-6e1898b0feb0")
     public static final String STEREOTYPE_NAME = "AutoDiagram";
 
     /**
      * The underlying {@link AbstractDiagram} represented by this proxy, never null.
      */
-    @objid ("fcc6dcad-35ed-47a5-b4a1-d1830f1bb4d7")
+    @objid ("57e1ebd6-60d6-48c1-9556-7bc7197856a6")
     protected final AbstractDiagram elt;
 
     /**
-     * Tells whether a {@link AutoDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link AbstractDiagram} stereotyped << AutoDiagram >>. 
+     * Tells whether a {@link AutoDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link AbstractDiagram} stereotyped << AutoDiagram >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("4baa0307-493b-466d-bf0c-02350c7ae44f")
+    @objid ("c8b9fa88-3741-4254-b1d8-e2b33e89b1a5")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof AbstractDiagram) && ((AbstractDiagram) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, AutoDiagram.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class AutoDiagram {
      * 
      * @return a {@link AutoDiagram} proxy on the created {@link AbstractDiagram}.
      */
-    @objid ("8a17a7a5-cc45-42dc-81bc-6033f7f8a70f")
+    @objid ("acd1200a-e6e9-4399-b6b7-8b31d8a6dd40")
     public static AutoDiagram create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("AbstractDiagram");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, AutoDiagram.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class AutoDiagram {
     }
 
     /**
-     * Tries to instantiate a {@link AutoDiagram} proxy from a {@link AbstractDiagram} stereotyped << AutoDiagram >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link AutoDiagram} proxy from a {@link AbstractDiagram} stereotyped << AutoDiagram >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a AbstractDiagram
      * @return a {@link AutoDiagram} proxy or <i>null</i>.
      */
-    @objid ("838e712b-bc19-4285-b742-ed22035b8271")
+    @objid ("26192001-97dd-4032-af2b-37c95dbe7279")
     public static AutoDiagram instantiate(AbstractDiagram obj) {
         return AutoDiagram.canInstantiate(obj) ? new AutoDiagram(obj) : null;
     }
@@ -104,7 +104,7 @@ public class AutoDiagram {
      * @return a {@link AutoDiagram} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("a4d1d3ba-6aca-4f04-b9f2-f83cafe90226")
+    @objid ("bdeafaae-4724-4a56-8287-eb445afc5e94")
     public static AutoDiagram safeInstantiate(AbstractDiagram obj) throws IllegalArgumentException {
         if (AutoDiagram.canInstantiate(obj))
         	return new AutoDiagram(obj);
@@ -112,7 +112,7 @@ public class AutoDiagram {
         	throw new IllegalArgumentException("AutoDiagram: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("9d5e86b9-9fa3-4e6a-9bcd-5850bce7bb9f")
+    @objid ("6d0f5d86-b29e-4ebb-9ea7-254e47d6c95c")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class AutoDiagram {
      * Get the underlying {@link AbstractDiagram}. 
      * @return the AbstractDiagram represented by this proxy, never null.
      */
-    @objid ("fe888354-1621-4741-b9d9-20b5a8a814b0")
+    @objid ("6907f5b3-395c-41ba-a69b-5044f397a89c")
     public AbstractDiagram getElement() {
         return this.elt;
     }
 
-    @objid ("902286ec-1f3b-46d7-a1a4-ae907f0725c3")
+    @objid ("96eec34e-96f4-4454-9778-294d8d4380a0")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("7a44853d-2616-44de-bdfa-17f2b2393be3")
+    @objid ("81b062b7-113d-44f2-bdf7-d03dfa4f3b91")
     protected AutoDiagram(AbstractDiagram elt) {
         this.elt = elt;
     }
 
     @objid ("1d38733b-2cc3-4edc-aec0-6c87d5b6b705")
     public static final class MdaTypes {
-        @objid ("f52a7172-c2c5-4fe9-b300-690c8104bb5a")
+        @objid ("be61005b-0936-4803-84cb-cc1bfcec5a50")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("7a909543-216f-4d8f-8e16-0613dbf15ad3")
+        @objid ("dbfdfbe2-473f-41f4-aed6-6a9d86e4236c")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("e719dc6f-d19c-4f95-bc08-25c0e0c8cd72")
+        @objid ("df692e88-0a32-49bf-bfd3-0813c51a8040")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("aa08c5fd-5a96-4be1-81ea-0f88ca9bec16")
+        @objid ("57eb647b-8af2-4537-8016-b8c9ee0328f2")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "8fb43b1c-7819-11e1-a4f1-002564c97630");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

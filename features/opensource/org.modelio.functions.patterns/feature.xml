@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.functions.patterns"
          label="Function Patterns"
-         version="4.0.1.qualifier"
+         version="4.1.0.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -33,7 +33,7 @@ GPL
 <requires>
 </requires>
 
-<plugin id="org.modelio.patterns"
+<plugin id="org.modelio.app.patterns"
         download-size="0"
         install-size="0"
         version="0.0.0"

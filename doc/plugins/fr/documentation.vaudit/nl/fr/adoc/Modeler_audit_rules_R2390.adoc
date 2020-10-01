@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2390]]
+
+[[r2390]]
+= R2390
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Un constructeur ne peut pas avoir de paramètres de retour.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un constructeur est une méthode qui instancie un _Classifier_, et ne retourne rien.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Supprimez le paramètre de retour.
+* Retirez le stéréotype constructeur de votre méthode et faites-en une méthode de classe.
+
+

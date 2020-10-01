@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("429f7033-665a-4704-999e-c1f22086cd88")
 public class UML2Signal {
-    @objid ("2f1b2724-b71c-449f-af47-c543361c6a9f")
+    @objid ("6dfd3dc6-ded2-468f-8109-b1548b2d2082")
     public static final String STEREOTYPE_NAME = "UML2Signal";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("0132a8bd-c31f-4822-ba13-37df8235b737")
+    @objid ("554d7d9d-db28-4541-9dc4-b120e9b4ba10")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link UML2Signal proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2Signal >>. 
+     * Tells whether a {@link UML2Signal proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2Signal >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("3617ac1c-fd67-481b-94da-5bf6791697f2")
+    @objid ("c37815e8-b565-4e96-8c1a-a1afe6bd9fe5")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2Signal.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class UML2Signal {
      * 
      * @return a {@link UML2Signal} proxy on the created {@link Dependency}.
      */
-    @objid ("2576ffd5-c3ea-4c98-a8c2-a5dd4927ea33")
+    @objid ("e92deeb3-21fe-400e-9308-6b2b8f016598")
     public static UML2Signal create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2Signal.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class UML2Signal {
     }
 
     /**
-     * Tries to instantiate a {@link UML2Signal} proxy from a {@link Dependency} stereotyped << UML2Signal >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2Signal} proxy from a {@link Dependency} stereotyped << UML2Signal >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link UML2Signal} proxy or <i>null</i>.
      */
-    @objid ("6723ac9f-99ac-47cc-a2ee-2fd7aa56169f")
+    @objid ("773353ad-16a0-4a2f-9087-5ae57a6edde9")
     public static UML2Signal instantiate(Dependency obj) {
         return UML2Signal.canInstantiate(obj) ? new UML2Signal(obj) : null;
     }
@@ -103,7 +103,7 @@ public class UML2Signal {
      * @return a {@link UML2Signal} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("19cd65f3-52f7-42aa-a9c8-7f6b4b45144b")
+    @objid ("a81860ad-2a74-4c7a-a936-3a0d505c38ca")
     public static UML2Signal safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (UML2Signal.canInstantiate(obj))
         	return new UML2Signal(obj);
@@ -111,7 +111,7 @@ public class UML2Signal {
         	throw new IllegalArgumentException("UML2Signal: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("ccd309ee-c2f0-4a60-a588-829b7201325a")
+    @objid ("285e9741-5d4c-465a-8e8a-5a9ff00dbac6")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class UML2Signal {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("e0e45551-75b7-412b-81dd-dac44368269b")
+    @objid ("90e6bb10-ee91-4495-9a14-a720f7cfea73")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("b1fd56dc-7348-4968-8570-9cd7dd3c2c0f")
+    @objid ("8b29ce80-08a5-4632-a30e-c0d8be42e5e9")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("f2418454-bb56-43df-9c69-24c46a0b80ab")
+    @objid ("403373ed-69f4-4cad-9438-e9ddfc9bb831")
     protected UML2Signal(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("1ae6c789-5ffa-46c0-b0ad-50c587da8536")
     public static final class MdaTypes {
-        @objid ("52cc53e5-67e4-40e2-b3b8-722fb9b89f76")
+        @objid ("062deccc-900f-478f-955d-8bf8dbb05b89")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("dbaa74cc-7c97-4c77-a8da-a190566b2601")
+        @objid ("e3df8a92-6e26-4cf4-b3c7-6c4877238f7e")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("14d3061d-b572-4d84-92c7-687b6e2a13ac")
+        @objid ("b776b5ac-e1dc-40d9-bd80-372df351429c")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("2afda586-4a5e-43e3-ac0a-7032955e5af7")
+        @objid ("3a2088eb-293d-4540-8d66-000a4f26993f")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "33ea7558-fb93-11df-8b5e-0027103f347c");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

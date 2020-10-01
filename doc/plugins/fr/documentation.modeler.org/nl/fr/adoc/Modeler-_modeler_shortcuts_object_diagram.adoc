@@ -1,0 +1,23 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de création dans les diagrammes d'objets
+
+Il existe deux types de raccourcis :
+
+* Un raccourci pour activer l'outil de création comme si on cliquait sur une icône dans la palette d'un diagramme,
+* Un raccourci pour créer et démasquer un élément directement dans un diagramme.
+
+
+[%header]
+|===
+2+|Activer l'outil de création  2+| Créer un élément
+|*Raccourci*|*Outil activé*|*Shortcut*|*Elément créé*
+|N |Note |CTRL-N CTRL-N |Note
+|A |Lien d'attribut |CTRL-N CTRL-A |Lien d'attribut
+|I |Instance |CTRL-N CTRL-I |Instance
+|L |Lien |CTRL-N CTRL-L |Lien
+|R |Diagramme lié |CTRL-N CTRL-R |Diagramme lié
+|ESPACE |Lien |CTRL-N CTRL-ESPACE |Lien
+|===
+

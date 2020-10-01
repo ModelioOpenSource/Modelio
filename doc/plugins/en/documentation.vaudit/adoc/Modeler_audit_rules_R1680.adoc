@@ -1,0 +1,34 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1680]]
+
+[[r1680]]
+= R1680
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+For a _Call_-type _Event_, the 'Called operation' field must be defined, whereas the 'Instanciated signal' must be empty.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An _Event_ is the specification of a specific occurrence at a specific point in space and time.
+
+A _Call_-type _Event_ is meant to call an operation, and cannot instantiate a _Signal_ at the same time.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Add a reference to an _Operation_, if the _Event_ doesn't have one.
+
+An _Event_ instantiating a _Signal_ should be a _Signal_-type _Event_.
+
+

@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.artifact;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("f3a3ea94-499f-4c05-bb6a-3566db79f132")
 public class Mail {
-    @objid ("53a13384-46d6-4ac1-b1d4-652d212ccdb1")
+    @objid ("3cde969b-a227-472b-8837-38e03bd1cf44")
     public static final String STEREOTYPE_NAME = "mail";
 
     /**
      * The underlying {@link Artifact} represented by this proxy, never null.
      */
-    @objid ("6c568b46-9974-4655-a6ab-90223b03d670")
+    @objid ("77472bf2-a786-4c6b-8a0b-01b68634a01f")
     protected final Artifact elt;
 
     /**
-     * Tells whether a {@link Mail proxy} can be instantiated from a {@link MObject} checking it is a {@link Artifact} stereotyped << mail >>. 
+     * Tells whether a {@link Mail proxy} can be instantiated from a {@link MObject} checking it is a {@link Artifact} stereotyped << mail >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("f808c236-c731-45cd-894d-de8c5a00cd51")
+    @objid ("3d105c2c-0524-4c66-966a-f793fda075dc")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Artifact) && ((Artifact) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Mail.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Mail {
      * 
      * @return a {@link Mail} proxy on the created {@link Artifact}.
      */
-    @objid ("4b5cbbad-6d74-4e98-ba54-f4b625c7b3b9")
+    @objid ("293cb9b9-d3ac-4df3-87e9-d825c704bb65")
     public static Mail create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Artifact");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Mail.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Mail {
     }
 
     /**
-     * Tries to instantiate a {@link Mail} proxy from a {@link Artifact} stereotyped << mail >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Mail} proxy from a {@link Artifact} stereotyped << mail >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Artifact
      * @return a {@link Mail} proxy or <i>null</i>.
      */
-    @objid ("d904cd30-db9f-4725-8188-d2de3ee7d0e3")
+    @objid ("b467ede0-87c1-4252-92e9-780eecbe2709")
     public static Mail instantiate(Artifact obj) {
         return Mail.canInstantiate(obj) ? new Mail(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Mail {
      * @return a {@link Mail} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("ae4ac1ad-7b6f-4093-a166-87336db70b1c")
+    @objid ("819950d4-a42b-4a8d-9d44-eda62b69a3a8")
     public static Mail safeInstantiate(Artifact obj) throws IllegalArgumentException {
         if (Mail.canInstantiate(obj))
         	return new Mail(obj);
@@ -112,7 +112,7 @@ public class Mail {
         	throw new IllegalArgumentException("Mail: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("d71c6adb-ae91-4171-bbe5-e9a99cab02a7")
+    @objid ("3111d780-35b2-4468-a63c-4dbdd2d17ac4")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Mail {
      * Get the underlying {@link Artifact}. 
      * @return the Artifact represented by this proxy, never null.
      */
-    @objid ("0bbb78c8-6661-414f-8764-5a66530c41e0")
+    @objid ("8eb720a5-4093-4ea5-bc2f-ebd9785f216e")
     public Artifact getElement() {
         return this.elt;
     }
 
-    @objid ("7157047d-fe0c-4765-9140-4ce1f1d3ab8b")
+    @objid ("c2491156-9a13-4b53-a6b0-dbbd562b5a07")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("93a07990-bb7b-4f5b-b696-06d76204d407")
+    @objid ("433ec77e-1434-472d-9762-ba4711744bd0")
     protected Mail(Artifact elt) {
         this.elt = elt;
     }
 
     @objid ("d81ebae2-b027-4736-b68a-a9c31925809d")
     public static final class MdaTypes {
-        @objid ("0e8709f8-a03b-4785-add1-0cae93dca936")
+        @objid ("92609a14-0ce4-440e-8755-b21c3510ad69")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("b5a9b72d-9958-4629-ace7-23c6917a6cd6")
+        @objid ("53f662a8-b71f-43c6-8750-5351b3a0bede")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("b3d54d5a-604f-4680-930e-c8a8793f2c4a")
+        @objid ("3a70e5b7-7b13-4e2f-8d42-d10cbad77e90")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("27437be6-3e53-4ae1-83bd-377c005396ad")
+        @objid ("70ecadeb-d67a-4092-b805-cb5b28944f45")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "74d7cf69-58eb-48e4-b71a-e5bb0f7570f7");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

@@ -1,0 +1,128 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Modelio Maven Plugin User Guide
+
+The Modelio Maven Plugin allows the Modelio tool to be automated on a specified project, and provides some Modelio module related features.
+
+The Modelio Maven Plugin gets the parameter values that will be used from the plugin configuration specified in the pom.
+
+== Goal overview
+
+The Modelio MavenPlugin has six goals, divided into two categories:
+
+* Modelio related goals:
+** <<Modeler-_modeler_maven_plugin_Create-project.adoc#,create-project>> creates a new Modelio project.
+** <<Modeler-_modeler_maven_plugin_Generate-modelio-javadoc.adoc#,generate-modelio-javadoc>> generates the Javadoc files for the Modelio project. It executes the "Generate Javadoc" command from Java Designer.
+** <<Modeler-_modeler_maven_plugin_Generate-modelio-sources.adoc#,generate-modelio-sources>> generates Java sources from a Modelio project with Java Designer on GitHub (https://github.com/ModelioOpenSource/ExtensionsForModelio#java-designer).
+** <<Modeler-_modeler_maven_plugin_Update-modelio-model.adoc#,update-modelio-model>> updates the model with SVN Teamwork Manager in a Modelio project.
+* Module related goals:
+** <<Modeler-_modeler_maven_plugin_Module-configuration.adoc#,module-configuration>> updates the content of the module.xml file, in a module development project (https://github.com/ModelioOpenSource/Modelio/wiki/Module-Developer-Guide-Index).
+** <<Modeler-_modeler_maven_plugin_Module-validation.adoc#,module-validation>> checks the content of the module.xml file, in a module development project (https://github.com/ModelioOpenSource/Modelio/wiki/Module-Developer-Guide-Index).
+
+
+[[usage]]
+== Usage
+
+The Modelio Maven Plugin uses the Modelio tool. The following examples describe the basic usage of the Plugin.
+
+To update your Modelio project from SVN, and then generate the Java sources and Javadoc:
+
+[source,xml]
+----
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.modelio</groupId>
+        <artifactId>modelio-maven-plugin</artifactId>
+        <version>3.0.0.00</version>
+        <executions>
+
+          <execution>
+            <id>GenerateJavaSources</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate-modelio-sources</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>GenerateJavadoc</id>
+            <goals>
+              <goal>generate-modelio-javadoc</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <modelioDir>H:\modelio-install\</modelioDir>
+          <workspaceDir>H:\modelio-workspace</workspaceDir>
+          <projectName>TestProject</projectName>
+          <updateBeforeGeneration>true</updateBeforeGeneration>
+        </configuration>
+      </plugin>
+    ...
+  </build>
+  ...
+</project>
+----
+
+In a module development project, complete and validate the module.xml file:
+
+[source,xml]
+----
+<project>...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.modelio</groupId>
+        <artifactId>modelio-maven-plugin</artifactId>
+        <version>3.0.0.00</version>
+        <executions>
+          <execution>
+            <id>ModuleValidation</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>module-validation</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>ResourceManagement</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>module-configuration</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <moduleFile>${project.basedir}/src/main/conf/module.xml</moduleFile>
+        </configuration>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+----
+
+
+[[where-to-find-this-plugin]]
+== Where to find this plugin
+
+In your pom.xml file, add the following code to use the Modelio repository:
+
+[source,xml]
+----
+<project>
+  ...
+  <pluginRepositories>
+    <pluginRepository>
+      <id>modelio</id>
+      <url>http://repository.modelio.org</url>
+    </pluginRepository>
+    ...
+  </pluginRepositories>
+  ...
+</project>
+----
+
+

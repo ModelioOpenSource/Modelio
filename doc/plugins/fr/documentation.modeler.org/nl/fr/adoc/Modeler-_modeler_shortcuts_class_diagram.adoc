@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Raccourcis de création dans les diagrammes de classes
+
+Il existe deux types de raccourcis :
+
+* Un raccourci pour activer l'outil de création comme si on cliquait sur une icône dans la palette d'un diagramme,
+* Un raccourci pour créer et démasquer un élément directement dans un diagramme.
+
+
+[%header]
+|===
+2+|Activer l'outil de création  2+| Créer un élément
+|*Raccourci*|*Outil activé*|*Shortcut*|*Elément créé*
+|A |Attribut |CTRL-N CTRL-A |Attribut
+|C |Classe |CTRL-N CTRL-C |Classe
+|D |Datatype |CTRL-N CTRL-D |Datatype
+|E |Enumération |CTRL-N CTRL-E |Enumération
+|I |Interface |CTRL-N CTRL-I |Interface
+|N |Note |CTRL-N CTRL-N |Note
+|O |Opération |CTRL-N CTRL-O |Opération
+|P |Package |CTRL-N CTRL-P |Package
+|S |Signal |CTRL-N CTRL-S |Signal
+|B |Binding ||
+|G |Généralisation ||
+|R |Diagramme lié ||
+|U |Usage ||
+|ESPACE |Association ||
+|===

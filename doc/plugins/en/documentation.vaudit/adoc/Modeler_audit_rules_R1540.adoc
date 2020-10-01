@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1540]]
+
+[[r1540]]
+= R1540
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _BindableInstance_'s _RepresentedFeatures_ must not reference themselves, directly or indirectly.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+For example, if we have three _BindableInstances_ 'A', 'B' and 'C', where 'A' represents 'B', 'B' represents 'C' and 'C' represents 'A', in the end 'A' indirectly represents 'C' and 'C' represents 'A', which is wrong.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Make sure there are no cycles when representing elements in parts and _Ports_.
+
+

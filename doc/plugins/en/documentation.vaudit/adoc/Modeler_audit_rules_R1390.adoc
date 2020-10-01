@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1390]]
+
+[[r1390]]
+= R1390
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The upper boundary value of the _InputPin_ does not match the maximum multiplicity of the _Attribute_ it represents.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_UML constraint_: The type, ordering, and multiplicity of an _InputPin_ must be the same as the corresponding _Attribute_ of the _Signal_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+When you get an R1390 error, verify that the incriminated _Pin_ and _Attribute_ have the same upper boundary and maximum multiplicity value.
+
+

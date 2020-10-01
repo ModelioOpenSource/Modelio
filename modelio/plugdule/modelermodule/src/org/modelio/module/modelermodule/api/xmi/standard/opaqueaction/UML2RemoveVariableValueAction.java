@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.opaqueaction;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("d8be3f15-859f-4f75-bcf6-706f60bc54c9")
 public class UML2RemoveVariableValueAction {
-    @objid ("120ea96d-526e-4c6d-8711-e15f4c62d5be")
+    @objid ("34aec7e7-6a7f-4934-beb8-fb9544a63923")
     public static final String STEREOTYPE_NAME = "UML2RemoveVariableValueAction";
 
     /**
      * The underlying {@link OpaqueAction} represented by this proxy, never null.
      */
-    @objid ("82c23399-89f6-4628-9c37-e4a9f7853a16")
+    @objid ("ce99d0c4-e9e3-4f0a-8608-32bb8f64b463")
     protected final OpaqueAction elt;
 
     /**
-     * Tells whether a {@link UML2RemoveVariableValueAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2RemoveVariableValueAction >>. 
+     * Tells whether a {@link UML2RemoveVariableValueAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2RemoveVariableValueAction >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("e28360ed-4e70-4c50-8800-cac8f630afe7")
+    @objid ("a6b1237f-8bca-46d0-95f2-2feecc233ee4")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof OpaqueAction) && ((OpaqueAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2RemoveVariableValueAction.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class UML2RemoveVariableValueAction {
      * 
      * @return a {@link UML2RemoveVariableValueAction} proxy on the created {@link OpaqueAction}.
      */
-    @objid ("105d25eb-ec65-4c7e-9a15-a2919d76cccc")
+    @objid ("5504cc9d-cbb9-49e9-81d0-05d81dc41649")
     public static UML2RemoveVariableValueAction create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("OpaqueAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2RemoveVariableValueAction.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class UML2RemoveVariableValueAction {
     }
 
     /**
-     * Tries to instantiate a {@link UML2RemoveVariableValueAction} proxy from a {@link OpaqueAction} stereotyped << UML2RemoveVariableValueAction >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2RemoveVariableValueAction} proxy from a {@link OpaqueAction} stereotyped << UML2RemoveVariableValueAction >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a OpaqueAction
      * @return a {@link UML2RemoveVariableValueAction} proxy or <i>null</i>.
      */
-    @objid ("7748820d-901a-46e3-aafc-6408e704883f")
+    @objid ("4ae227b8-4733-4ac5-ab9e-0af2875b0eef")
     public static UML2RemoveVariableValueAction instantiate(OpaqueAction obj) {
         return UML2RemoveVariableValueAction.canInstantiate(obj) ? new UML2RemoveVariableValueAction(obj) : null;
     }
@@ -104,7 +104,7 @@ public class UML2RemoveVariableValueAction {
      * @return a {@link UML2RemoveVariableValueAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("1c2e441f-822d-4f1b-8d64-caa5a948f165")
+    @objid ("84cca2cc-8869-4d02-b701-4439243924a1")
     public static UML2RemoveVariableValueAction safeInstantiate(OpaqueAction obj) throws IllegalArgumentException {
         if (UML2RemoveVariableValueAction.canInstantiate(obj))
         	return new UML2RemoveVariableValueAction(obj);
@@ -112,7 +112,7 @@ public class UML2RemoveVariableValueAction {
         	throw new IllegalArgumentException("UML2RemoveVariableValueAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("095c5b10-2876-407e-a316-a32781f046a6")
+    @objid ("5c94f7de-8b57-4f09-92be-68d6eb5876d2")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class UML2RemoveVariableValueAction {
      * Get the underlying {@link OpaqueAction}. 
      * @return the OpaqueAction represented by this proxy, never null.
      */
-    @objid ("9cb00a14-c335-434c-80b6-6241cf41c231")
+    @objid ("45652ba9-2e73-4281-8368-a6b1ce724ea8")
     public OpaqueAction getElement() {
         return this.elt;
     }
 
-    @objid ("de49bf20-24f3-4071-977f-2efb79b87c9c")
+    @objid ("fcc3f08d-494e-4d4a-9af7-f0fa3ed8bfc2")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("ccec94a0-35b4-400b-b4e5-e59c8b12622f")
+    @objid ("90d227b0-04dd-446d-8355-011dca67500e")
     protected UML2RemoveVariableValueAction(OpaqueAction elt) {
         this.elt = elt;
     }
 
     @objid ("4788dd43-ab73-4535-a12f-facdd8ad949a")
     public static final class MdaTypes {
-        @objid ("22646a51-6564-448f-b49c-1db322d42c2d")
+        @objid ("a5839410-089d-42d8-8ad2-781d32c69080")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("00064824-e9d9-4e45-8ba5-a220a794ede9")
+        @objid ("ab7ba619-c110-4d8a-9398-01b1a9a74571")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("69d3d3ef-8cd7-45c9-a577-6bc807b89908")
+        @objid ("9651b90e-4a0e-466d-b0db-baba4b6a804d")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("a09fe37b-2111-4dc1-ad7c-a1dde5fe9486")
+        @objid ("c9d37a89-7adc-46f3-b448-4d7d58ea6ebd")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "435869cb-c2fd-11de-8ac8-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

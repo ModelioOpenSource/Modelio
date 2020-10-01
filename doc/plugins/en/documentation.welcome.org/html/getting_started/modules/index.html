@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Modelio - Quick Start Guide</title>
+    <link rel="stylesheet" href="../../style.css" type="text/css" />
+</head>
+
+<body>
+	<div id="container">
+		<div id="header">
+			<a href= "../../Index.html"><img src="../../images/header.jpg"  alt="header" title="Header" /></a>
+		</div>
+		<div id="content">
+			<div id="pages_nav">
+				<img src="gettingstarted.png" usemap="#MAPNAME"/>
+				
+				<map name = "MAPNAME">
+					<area name="MAPNAME" shape="rect" coords="25,85,60,120" href="../index.html" title="Start" />
+					<area name="MAPNAME" shape="rect" coords="103,20,218,85" href="../Open_a_project/index.html" title="Open a project"/>
+					<area name="MAPNAME" shape="rect" coords="103,115,218,180" href="../Create_a_project/index.html" title="Create a project"/>
+					<area name="MAPNAME" shape="rect" coords="265,148,345,212" href="../model/index.html" title="Model"/>
+					<area name="MAPNAME" shape="rect" coords="360,148,440,212" href="../librairies/index.html" title="Libraries"/>
+					<area name="MAPNAME" shape="rect" coords="455,148,537,212" href="../modules/index.html" title="Modules"/>
+					<area name="MAPNAME" shape="rect" coords="600,68,713,132" href="../Create_elements/index.html" title="Create elements"/>
+					<area name="MAPNAME" shape="rect" coords="600,148,713,212" href="../Generate_documentation/index.html" title="Generate documentation"/>
+					<area name="MAPNAME" shape="rect" coords="730,68,840,132" href="../Draw_diagrams/index.html" title="Draw diagrams"/>
+					<area name="MAPNAME" shape="rect" coords="730,148,840,212" href="../Generate_code/index.html" title="Generate code"/>
+					<area name="MAPNAME" shape="rect" coords="248,85,550,226" href="../Project_configuration/index.html" title="Project configuration"/>
+					<area name="MAPNAME" shape="rect" coords="585,5,855,226" href="../Production/index.html" title="Production"/>
+				</map>
+			</div>
+			
+			<div class="navigation">
+				<a href="../librairies/index.html" class="nav_prev" ><img src="../../images/previous.png" /></a> <a href="../Production/index.html"  class="nav_next"><img src="../../images/next.png" /></a>
+			</div>
+			
+			<div id="content_wrap">
+				<h2>Managing Modelio modules</h2>
+				
+				<p>
+				Some functionnalities are brought by specific modules (Code generation, documentation, etc.). Modules are addons that can be plugged to Modelio to extends its capabilities.<br/>
+				Example: to generate Java code from a UML model, you need to deploy the Java Designer module.
+				</p>
+				
+				<p><b>Where can I get Modelio modules?</b><br/>
+				Modelio modules can be downloaded from the <a href="http://www.modeliosoft.com/en/modelio-store/type/free.html">Modelio online store</a>.</p>
+				
+				<p><b>How do I make the modules available to Modelio?</b><br/>
+				The downloaded modules have to be stored in the Modelio Modules Catalog.<br/>
+				
+					<center>
+						<img src="QSGM3_ModulesCatalog.png" />
+					</center>
+				</p>
+				<small><i>The Modelio Modules Catalog</i></small>
+				<p>Steps
+					<ol>
+						<li>Run the "Configuration / Modules catalog..." command</li>
+						<li>In the Modules catalog window, click on "Add a module to the catalog..." and use the file browser to select the modules (*.jmdac files)</li>
+						<li>Click on "Close" button when your catalog is up-to-date</li>
+					</ol>
+				</p>
+
+				<b>Deploying a module in the current project</b><br/>
+				To deploy a module from the catalog in the project, use the Project configuration window:
+				<center>
+					<img src="QSGM3_ProjConfModules.png" />
+				</center>
+			</div>
+			<p>
+				Key:
+				<ol>
+					<li>List of modules available to the project</li>
+					<li>List of modules contained in the modules catalog</li>
+					<li>Expand/Shrink catalog view button</li>
+					<li>Selected module properties</li>
+				</ol>
+			</p>
+			<p>
+				Steps:
+				<ol>
+					<li>Expand the Catalog view by clicking on the <img src="maximize.png" /> button</li>
+					<li>Select a module in the catalog</li>
+					<li>Click on the <img src="add.png" /> button to add the module in the project modules list</li>
+					<li>The project's modules can be activated and deactivated by checking/unchecking their tickbox</li>
+					<li>Modules parameters can be edited in the Project's modules parameters view</li>
+					<li>A module can be removed from the Project's modules list. To do so, select the module and click on <img src="delete.png" /> the button</li>
+				</ol>
+			</p>
+			<div class="navigation">
+				<a href="../librairies/index.html" class="nav_prev" ><img src="../../images/previous.png" /></a> <a href="../Production/index.html"  class="nav_next"><img src="../../images/next.png" /></a>
+			</div>
+
+		</div>
+		
+		<div id="footer">
+			<div id="copyright">
+				Copyright Modeliosoft 2008-2020.<br/>
+			</div>
+		</div>
+	</div>
+	
+ 	
+</body>
+</html>

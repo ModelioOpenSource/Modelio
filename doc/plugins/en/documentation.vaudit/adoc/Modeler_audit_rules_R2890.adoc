@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2890]]
+
+[[r2890]]
+= R2890
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _Communication link_ cannot have the same _Actor_ or _Use Case_ at both ends.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+_Communication links_ with the same _Actor_ or _Use Case_ at both ends do not have any meaning in UML.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Delete the _Communication link_, or change its destination.
+
+

@@ -1,0 +1,25 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= module-validation
+
+== Full name
+
+org.modelio:modelio-maven-plugin:4.1.0.00:module-validation
+
+== Description
+
+Validates the contents of a module definition file, module.xml, before packaging a module.
+
+Binds by default to the validate phase.
+
+== Optional parameters
+
+[cols=",,,",options="header",]
+|=========================================================================
+|Name |Type |Since |Description
+|moduleFile |File |2.2.0.01 |Location of the file to generate UIDs into. +
+The default value is "res/module.xml".
+|=========================================================================
+
+

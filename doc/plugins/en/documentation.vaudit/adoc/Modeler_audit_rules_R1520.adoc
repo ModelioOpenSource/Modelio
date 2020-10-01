@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1520]]
+
+[[r1520]]
+= R1520
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The name of a _BindableInstance_ must be unique in its _Classifier_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Having multiple parts with the same name is forbidden by the UML language.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Make sure the names of your parts are unique in their owning _Classifier_.
+
+

@@ -41,9 +41,9 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.core.ModelioEnv;
 import org.modelio.app.ui.plugin.AppUi;
-import org.modelio.utils.i18n.BundledMessages;
+import org.modelio.platform.core.ModelioEnv;
+import org.modelio.platform.utils.i18n.BundledMessages;
 import org.modelio.version.ModelioVersion;
 
 @objid ("00449c9c-cc35-1ff2-a7f4-001ec947cd2a")

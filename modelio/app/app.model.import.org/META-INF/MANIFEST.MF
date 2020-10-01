@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: App Model Import
 Bundle-SymbolicName: org.modelio.app.model.import;singleton:=true
 Bundle-Localization: plugin
-Bundle-Version: 4.0.1.qualifier
+Bundle-Version: 4.1.0.qualifier
 Bundle-Activator: org.modelio.app.model.imp.plugin.AppModelImportOrg
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime,
@@ -11,21 +11,21 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.ui.services,
  org.eclipse.e4.core.di,
  org.eclipse.ui.workbench,
- org.modelio.ui,
+ org.modelio.platform.ui,
  org.modelio.core.project,
- org.modelio.utils,
+ org.modelio.platform.utils,
  org.modelio.core.session,
- org.modelio.app.project.core,
- org.modelio.metamodel.emfapi,
+ org.modelio.platform.project,
+ org.modelio.core.metamodel.api,
  org.modelio.core.session,
  org.modelio.core.kernel,
- org.modelio.model.browser.view,
- org.modelio.model.browser.view.ext,
- org.modelio.core.ui,
+ org.modelio.app.model.browser.view,
+ org.modelio.app.model.browser.view.ext_org,
+ org.modelio.platform.model.ui,
  org.eclipse.core.expressions,
  org.modelio.core.project.data,
  org.modelio.core.utils,
- org.modelio.app.core
+ org.modelio.platform.core
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
  res/

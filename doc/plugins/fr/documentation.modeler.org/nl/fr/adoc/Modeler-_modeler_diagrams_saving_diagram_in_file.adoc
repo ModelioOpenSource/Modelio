@@ -1,0 +1,17 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Sauvegarder-un-diagramme-dans-un-fichier]]
+
+[[sauvegarder-un-diagramme-dans-un-fichier]]
+= Sauvegarder un diagramme dans un fichier
+
+Pour sauvegarder le contenu d'un diagramme dans un fichier, il suffit de suivre les étapes suivantes :
+
+* Cliquez sur l'icône image:images/Modeler-_modeler_diagrams_saving_diagram_in_file_save_image.png[2] dans la barre d'outils du diagramme. La fenêtre "Enregistrer sous" apparaît alors.
+* Dans la fenêtre "Enregistrer sous", sélectionnez le répertoire où vous voulez enregistrer votre diagramme, puis choisissez un nom et un type de fichier.
+* Cliquez sur "Enregistrer" pour valider.
+
+*Note :* Lors de la sauvegarde d'un diagramme dans un fichier, vous devez saisir le nom et l'extension du fichier.
+
+

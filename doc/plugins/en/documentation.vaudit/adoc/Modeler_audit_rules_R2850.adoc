@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2850]]
+
+[[r2850]]
+= R2850
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An element cannot have a «usage» _Dependency_ towards itself.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A «usage» _Dependency_ means an element uses another element; therefore an element using itself has no sense.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have an element that uses itself, you should delete the _Dependency_ or change its destination.
+
+

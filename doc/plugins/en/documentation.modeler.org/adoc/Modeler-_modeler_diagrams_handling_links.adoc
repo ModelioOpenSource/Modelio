@@ -1,0 +1,53 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Handling-links]]
+
+[[handling-links]]
+= Handling links
+
+[[Moving-a-link-or-a-part-of-a-link]]
+
+[[moving-a-link-or-a-part-of-a-link]]
+===== Moving a link or a part of a link
+
+Simple links with no intermediate points can be moved by clicking on the link, holding down the left mouse button, moving the link to the desired new position and releasing the mouse button.
+
+For links with one or more intermediate points, you can move each individual part of the link.
+
+[[Moving-a-link-end-or-intermediate-point]]
+
+[[moving-a-link-end-or-intermediate-point]]
+===== Moving a link end or intermediate point
+
+To move a link end or an intermediate point, simply left-click on the corresponding point which you wish to move, and drag it to the new position. When you release the left mouse button, the link end (or intermediate point) is repositioned.
+
+When moving a link end, additional intermediate points can be added to a link in the usual way (by left-clicking).
+
+*Note:* If you try to move a link end to an unauthorized position, the concerned element will be highlighted in red.
+
+[[Redrawing-a-link]]
+
+[[redrawing-a-link]]
+===== Redrawing a link
+
+If you want to redraw a link, you have two ways of activating the "Redraw link" command:
+
+* either simply click using the middle mouse button on the end of the link
+* or right-click on the link to open the context menu and run the "Redraw link" command
+
+The graphic representation of the link then disappears, leaving you free to redraw the path of the link as you wish.
+
+[[Modifying-link-values]]
+
+[[modifying-link-values]]
+===== Modifying link values
+
+If you want to enter or modify values for a link, you can do this directly in the diagram by pressing *F2* or double-clicking on a label.
+
+.Directly entering a value for an association
+image::images/Modeler-_modeler_diagrams_handling_links_EditRole.png[2]
+
+Link values can also be entered or changed in the Element view on the link.
+
+

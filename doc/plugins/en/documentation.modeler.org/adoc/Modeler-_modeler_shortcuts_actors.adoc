@@ -1,0 +1,21 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Shortcuts on actors in Modelio diagrams
+
+The following table presents the keyboard shortcuts that can be used to unmask certain elements associated with or belonging to the actor selected in the diagram.
+
+[%header]
+|=================================
+|Unmasked element |Shortcuts
+|Communications |SHIFT + L
+|Constraints |SHIFT + N
+|Notes |SHIFT + N
+|Element imports |SHIFT + U
+|Package imports |SHIFT + U
+|Parent generalizations |SHIFT + G
+|Child generalizations |g
+|Attributes |SHIFT + A
+|Operations |SHIFT + O
+|Dependencies |SHIFT + D
+|=================================

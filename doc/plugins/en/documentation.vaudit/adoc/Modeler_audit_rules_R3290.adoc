@@ -1,0 +1,40 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3290]]
+
+[[r3290]]
+= R3290
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+A _SequenceFlow_ must exist to support _DataAssociations_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+In BPMN, two ways of transfering _DataObject_ exist:
+
+image::images/Modeler_audit_rules_R3290_sequenceflow.png[image]
+
+Making the _SequenceFlow_ explicitely carry the _DataObject_ through a visual shortcut ;
+
+image::images/Modeler_audit_rules_R3290_dataassociations.png[image]
+
+Directly using _DataAssociations_;
+
+In both cases, the _SequenceFlow_ existence is mandatory.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Create a _SequenceFlow_ between the _BPMN elements_ transfering a _DataObject_ through _DataAssociations_.
+
+

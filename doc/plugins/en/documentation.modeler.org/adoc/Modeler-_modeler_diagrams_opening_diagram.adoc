@@ -1,0 +1,23 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Opening-a-diagram]]
+
+[[opening-a-diagram]]
+= Opening a diagram
+
+There are 3 ways of opening a diagram :
+
+1.  Double-click on its icon image:images/Modeler-_modeler_diagrams_opening_diagram_DiagramIcon.png[3] in the "Model" view.
+2.  Double-click on its icon image:images/Modeler-_modeler_diagrams_opening_diagram_DiagramIcon.png[3] in the "Diagrams" view.
+3.  Double-click on its shortcut icon image:images/Modeler-_modeler_diagrams_opening_diagram_DiagramShortcut.png[4] in a user folder in the "Diagrams" view.
+
+*Note:* If the diagram is already open, its tab in the diagram edition view is brought to the foreground.
+
+.Information on opening diagrams
+image::images/Modeler-_modeler_diagrams_opening_diagram_OpenDiagram.png[image]
+
+
+
+
+

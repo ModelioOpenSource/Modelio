@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.modelio.app.diagram.editor.droppolicy.extensions" name="Drop policy extensions" schema="schema/org.modelio.app.diagram.editor.droppolicy.extensions.exsd"/>
+   <extension-point id="org.modelio.app.diagram.editor.flyout" name="Diagram editor flyout panel providers" schema="schema/org.modelio.app.diagram.editor.flyout.exsd"/>
+   <extension-point id="org.modelio.app.diagram.editor.inputprovider" name="Diagram input provider" schema="schema/org.modelio.app.diagram.editor.inputprovider.exsd"/>
+   <extension-point id="org.modelio.app.diagram.editor.palette" name="Diagram palette" schema="schema/org.modelio.app.diagram.editor.palette.exsd"/>
+   <extension-point id="org.modelio.app.diagram.editor.toolregistry" name="Diagram tool registry" schema="schema/org.modelio.app.diagram.editor.toolregistry.exsd"/>
+
+   <extension id="id1" point="org.eclipse.e4.workbench.model">
+      <processor beforefragment="true" class="org.modelio.diagram.editor.plugin.DiagramElementsProcessor" />
+      <processor beforefragment="true" class="org.modelio.diagram.editor.plugin.DiagramEditorsManager"/>
+      <processor beforefragment="true" class="org.modelio.diagram.editor.context.ModuleMenuCreator"/>
+   </extension>
+
+	<extension point="org.modelio.app.diagram.editor.toolregistry">
+		<tools>
+	        <creationtool id="CREATE_NOTE" label="%Note.label" tooltip="%Note.tooltip"  interactor="linkedNode">
+				<context metaclass="Infrastructure.Note"/>
+			</creationtool>
+			<creationtool id="CREATE_EXTERNDOCUMENT" label="%Document.label" tooltip="%Document.tooltip"  interactor="linkedNode" >
+				<context metaclass="Infrastructure.Document" />
+			</creationtool>
+	        <creationtool id="CREATE_RELATED_DIAGRAM_LINK" label="%RelatedDiagramLink.label" tooltip="%RelatedDiagramLink.tooltip" interactor="linkedNode" icon="icons/relateddiagram.png">
+				<context metaclass="Infrastructure.Dependency" dependency="ModelElement.DependsOnDependency" stereotype="related_diagram" router="DEPENDENCY_CONNECTIONROUTER"/>
+			</creationtool>
+			<creationtool id="CREATE_DEPENDENCY" label="%Dependency.label" tooltip="%Dependency.tooltip" interactor="link" >
+				<context metaclass="Infrastructure.Dependency" router="DEPENDENCY_ROUTINGMODE"/>
+			</creationtool>
+		</tools>
+   </extension>
+
+<extension point="org.eclipse.e4.workbench.model"  id="modelContribution">
+      <fragment uri="e4model/diagram.editor.e4xmi"/>
+</extension>
+
+<extension point="org.eclipse.core.expressions.definitions">
+		<definition id="org.modelio.diagram.editor.corexp.is-gmlink.id">
+			<test property="org.modelio.diagram.editor.corexp.is-gmlink"/>
+		</definition>
+		<definition id="org.modelio.diagram.editor.corexp.is-gmnode.id">
+        	<test property="org.modelio.diagram.editor.corexp.is-gmnode"/>
+		</definition>
+		<definition id="org.modelio.diagram.editor.corexp.is-gmnsu.id">
+        	<test property="org.modelio.diagram.editor.corexp.is-gmnsu"/>
+		</definition>
+		<definition id="org.modelio.diagram.editor.corexp.is-gmdiagramview.id">
+        	<test property="org.modelio.diagram.editor.corexp.is-gmdiagramview"/>
+		</definition>
+		<definition id="org.modelio.diagram.editor.corexp.is-gmnodedrawing.id">
+     <with
+           variable="org.eclipse.ui.selection">
+        <iterate
+              ifEmpty="false"
+              operator="or">
+           <adapt
+                 type="org.modelio.diagram.elements.drawings.core.IGmDrawing">
+           </adapt>
+        </iterate>
+     </with>
+		</definition>
+  <definition
+        id="org.modelio.diagram.editor.corexp.has-gmmodel.id">
+     <with
+           variable="org.eclipse.ui.selection">
+        <iterate
+              ifEmpty="false"
+              operator="or">
+           <adapt
+                 type="org.modelio.diagram.elements.core.model.GmModel">
+           </adapt>
+        </iterate>
+     </with>
+  </definition>
+</extension>
+
+<extension point="org.eclipse.core.expressions.propertyTesters">
+		<propertyTester
+			class="org.modelio.diagram.editor.corexp.GmTester"
+			id="org.modelio.diagram.editor.corexp.GmTester.id"
+			namespace="org.modelio.diagram.editor.corexp"
+			properties="is-gmlink, is-gmnode, is-gmnsu, is-gmdiagramview"
+			type="org.eclipse.jface.viewers.ISelection">
+		</propertyTester>
+</extension>
+
+
+</plugin>

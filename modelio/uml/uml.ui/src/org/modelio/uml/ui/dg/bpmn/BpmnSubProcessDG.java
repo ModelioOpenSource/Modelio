@@ -20,13 +20,16 @@
 
 package org.modelio.uml.ui.dg.bpmn;
 
+import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess.GmBpmnSubProcessPrimaryNode;
+import org.modelio.bpmn.diagram.editor.elements.workflow.GmWorkflow;
 import org.modelio.diagram.api.dg.DGFactory;
 import org.modelio.diagram.api.dg.common.PortContainerDG;
 import org.modelio.diagram.api.services.DiagramHandle;
-import org.modelio.diagram.editor.bpmn.elements.bpmnsubprocess.GmBpmnSubProcessPrimaryNode;
+import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 
 /**
@@ -47,7 +50,14 @@ public class BpmnSubProcessDG extends PortContainerDG {
     @Override
     protected List<IDiagramNode> getPrimaryChildrenNodes() {
         GmBpmnSubProcessPrimaryNode mainNode = (GmBpmnSubProcessPrimaryNode) getPrimaryNode();
-        return DGFactory.getInstance().getDiagramNodes(this.diagramHandle, mainNode.getInnerZone().getVisibleChildren());
+        GmCompositeNode innerZone = mainNode.getInnerZone();
+        for (GmNodeModel visibleChild : innerZone.getVisibleChildren()) {
+            if (visibleChild instanceof GmWorkflow) {
+                GmWorkflow contentsArea = (GmWorkflow) visibleChild;
+                return DGFactory.getInstance().getDiagramNodes(this.diagramHandle, contentsArea.getChildren());
+            }
+        }
+        return Collections.emptyList();
     }
 
 }

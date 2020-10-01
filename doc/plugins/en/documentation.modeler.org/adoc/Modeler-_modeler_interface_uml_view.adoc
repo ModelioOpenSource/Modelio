@@ -1,0 +1,49 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= The Model view
+
+.The Model view
+image::images/Modeler-_modeler_interface_uml_view_ModelView.png[2]
+
+*Key :*
+
+1. Model explorer tab.
+2. Local work model.
+3. Model elements.
+4. Deployed model component (local library)
+
+===== Main Model explorer commands
+
+*From the explorer contextual menu:*
+
+* *Create a diagram or a matrix* [image:images/Modeler-_modeler_interface_uml_view_creationwizard.png[33] – Create a diagram or matrix...] : Launch a creation wizard to create a diagram or a matrix of your choice (see <<Modeler-_modeler_diagrams_creating_diagram.adoc#,Creating a diagram>> for more details)...
+* *Create an element* [image:images/Modeler-_modeler_interface_uml_view_uml.png[13] – Create element] : Creates the element of your choice under the selected element.
+* *Add stereotype(s) on an element* [image:images/Modeler-_modeler_interface_uml_view_addStereotype_16.png[15] – Add stereotype(s)...] : Adds one or several stereotypes to the selected element.
+* *Create a stereotype* [image:images/Modeler-_modeler_interface_uml_view_createstereotype.png[14] – Create stereotype...] : Creates a new stereotype (see <<Modeler-_modeler_mda_services_basic.adoc#,Basic level – Creating a stereotype>> for more details).
+* *Delete an element* [image:images/Modeler-_modeler_interface_uml_view_delete.png[19] – Delete element / *Del* key] : Deletes the selected element.
+* *Cut an element* [image:images/Modeler-_modeler_interface_uml_view_cut_16.png[16] – Cut element / *Ctrl+X* key] : Cuts the selected element.
+* *Copy an element* [image:images/Modeler-_modeler_interface_uml_view_copy_16.png[17] – Copy element / *Ctrl+C* key] : Copies the selected element.
+* *Paste an element* [image:images/Modeler-_modeler_interface_uml_view_paste_16.png[18] – Paste element / *Ctrl+V* key] : Pastes the copied element.
+* *Launch a macro* [image:images/Modeler-_modeler_interface_uml_view_scriptcatalog.png[34] – Macros] : Launches a chosen macro (see <<Modeler-_modeler_modelio_settings_macros_catalog.adoc#,Macros catalog>> for more details)...
+* *Create/Edit/Export/Launch a Pattern* [image:images/Modeler-_modeler_interface_uml_view_Pattern16.png[36] – Patterns] : Create/Edit/Export or launches a Pattern.
+* *Check model consistency* [image:images/Modeler-_modeler_interface_uml_view_check.png[22] – Check model] : Checks model consistency recursively from the selected element.
+* *Launch an XMI Import/Export* [image:images/Modeler-_modeler_interface_uml_view_XMI.png[24] – XMI] : Launches an XMI Import/Export recursively from the selected element (see <<Xmi_intro.adoc#,Modelio XMI Import/Export>> for more details)...
+* *Create/edit/package a Model component* [image:images/Modeler-_modeler_interface_uml_view_createramc.png[23] – Model Components] : Creates, edits or packages a Model Component (see <<Modeler-_modeler_local_libraries_model_components_development.adoc#,Developing and packaging model components>> for more details)...
+* *Import a model* [image:images/Modeler-_modeler_interface_uml_view_importmodel.png[27]] : Launches a model import (see <<Modeler-_modeler_managing_projects_importing_elements.adoc#,Importing elements from existing projects>> for more details)...
+
+*From the explorer toolbar:*
+
+* *Collapse all* [image:images/Modeler-_modeler_interface_uml_view_collapse_all.gif[4]] : Collapses all elements and shows only the root package.
+* *Skip back* [image:images/Modeler-_modeler_interface_uml_view_back.gif[5]] : Skips back through the history of the elements you have selected.
+* *Skip forward* [image:images/Modeler-_modeler_interface_uml_view_forward.gif[6]] : Skips forward through the history of the elements you have selected.
+* *Open new explorer* [image:images/Modeler-_modeler_interface_uml_view_explorer.png[7]] : Opens a new explorer whose root element is the selected element.
+* *Create sibling element* [image:images/Modeler-_modeler_interface_uml_view_sibling.gif[8]] : Creates a sibling element of the selected element. Sibling elements are elements of the same type as the selected element and at the same level in the model hierarchy.
+* *Create clone* [image:images/Modeler-_modeler_interface_uml_view_clone.gif[9]] : Creates a clone of the selected element. Clones are exact copies of their origin elements. They have the same properties and the same contents.
+* *Move up* [image:images/Modeler-_modeler_interface_uml_view_up.gif[10]] : Moves the selected element up in the model structure.
+* *Move down* [image:images/Modeler-_modeler_interface_uml_view_down.gif[11]] : Moves the selected element down in the model structure.
+* *Select as root* [image:images/Modeler-_modeler_interface_uml_view_select_as_root.gif[12]] : Displays only the selected element and its contents. Click again to switch back to the classic view.
+
+*Note:* For more information, see "<<Modeler-_modeler_building_models_creating_elements_cmcommand.adoc#,Creating elements using the context menu commands>>".
+
+

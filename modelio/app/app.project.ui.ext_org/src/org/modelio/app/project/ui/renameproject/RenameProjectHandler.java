@@ -33,12 +33,12 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.project.core.creation.ProjectNameValidator;
-import org.modelio.app.project.core.services.IProjectService;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.gproject.data.project.ProjectDescriptor;
-import org.modelio.ui.swt.ColoredInputDialog;
+import org.modelio.platform.project.creation.ProjectNameValidator;
+import org.modelio.platform.project.services.IProjectService;
+import org.modelio.platform.ui.swt.ColoredInputDialog;
 import org.modelio.vbasic.files.FileUtils;
 
 @objid ("281be588-2e35-4212-9e18-499fbc511ac7")

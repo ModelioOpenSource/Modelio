@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1580]]
+
+[[r1580]]
+= R1580
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Les _Attributes_, _Associations_ et _Operations_ ne peuvent pas être simultanément '_abstract'_ et '_class'_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Le statut '_class'_ d'un _Attribute_, d'une Association, ou d'une _Operation_ les rend _static_, ce qui signifie qu'une seule instance peut exister à un moment donné.
+
+Le statut '_abstract'_, par définition, stipule qu'un élément ne peut être instancié. Les deux statuts sont donc incompatibles et ne peuvent pas être vrais en même temps.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Vous devez choisir entre l'un de ces deux statuts.
+
+

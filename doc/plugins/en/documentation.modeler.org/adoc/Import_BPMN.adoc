@@ -1,0 +1,64 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Importing-a-model-in-BPMN-format]]
+
+[[importing-a-model-in-bpmn-format]]
+= Importing a model in BPMN format
+
+[[Introduction]]
+
+[[introduction]]
+===== Introduction
+
+The Modelio BPMN Import service is used to import a BPMN model form a `*`.bpmn file. It also allows to update an existing and previously imported BPMN model based on an updated `*`.bpmn file.
+
+During the import process, you can choose to keep the ID of the elements declared in the imported file, or to generate new Modelio ID. If you choose to keep the original elements id, you must keep in mind that these ID must be unique. Otherwise, you will be exposed to unexpected errors during the import process.
+
+[[Importing-a-BPMN-Model]]
+
+[[importing-a-bpmn-model]]
+===== Importing a BPMN Model
+
+To import a BPMN model form a *.bpmn file:
+
+* Select a root package in the project explorer.
+* Use the *Import/Export > Import > Import BPMN* contextual command.
+
+image::images/Import_BPMN_bpmn_import_1.png[image]
+
+.The BPMN import process
+image::images/Import_BPMN_bpmn_import_2.png[image]
+
+*Steps:*
+
+1. Click on the work model root package +
+2. Run the *Import/Export > Import > BPMN Import* command +
+3. Browse your file system to the BPMN file to import +
+4. Choose whether or not to keep the imported elements IDs +
+5. Click on *OK* to validate and launch the import
+
+[[Update-a-BPMN-Model]]
+
+[[update-a-bpmn-model]]
+===== Update a BPMN Model
+
+To update an existing BPMN model based on an updated *.bpmn file:
+
+* Select the BPMN model (image:images/Import_BPMN_bpmnbehavior.png[image]) to update in the project explorer.
+* Use the *Import/Export > Import > Import BPMN* contextual command.
+
+image::images/Import_BPMN_bpmn_import_3.png[image]
+
+.Updating a BPMN Model
+image::images/Import_BPMN_bpmn_import_2.png[image]
+
+*Steps:*
+
+1. Click on the BPMN root package image:images/Import_BPMN_bpmnbehavior.png[image]
+2. Run the *Import/Export > Import > BPMN Import* command
+3. Browse your file system to the BPMN file to import
+4. Choose whether or not to keep the imported elements IDs
+5. Click on *OK* to validate and launch the update
+
+

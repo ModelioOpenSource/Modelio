@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2170]]
+
+[[r2170]]
+= R2170
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The name of a _Behavior_ must be unique in its _NameSpace_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+Having duplicate names can be confusing.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Rename any element with a duplicate name, or move one of them into another _NameSpace_.
+
+

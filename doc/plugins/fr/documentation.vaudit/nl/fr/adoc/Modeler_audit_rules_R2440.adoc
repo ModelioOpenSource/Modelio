@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2440]]
+
+[[r2440]]
+= R2440
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Opération_ ne peut pas appartenir à une _Enumération_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Enumération_ ne peut contenir que des littéraux.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Supprimez l'opération ou déplacez-la dans une classe de service.
+* Désactivez cette règle si vous programmez en Java 1.5 ou plus.
+* Le module Java Designer reverse les méthodes des énumérations dans des notes de code spécifiques.
+
+

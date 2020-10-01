@@ -40,10 +40,10 @@ import org.modelio.api.module.parameter.impl.ParameterModel;
 import org.modelio.api.module.parameter.impl.PasswordParameterModel;
 import org.modelio.api.module.parameter.impl.StringParameterModel;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.core.ui.treetable.combo.LabelsComboBoxCellEditor;
-import org.modelio.core.ui.treetable.directory.DirectoryCellEditor;
-import org.modelio.core.ui.treetable.file.FileCellEditor;
-import org.modelio.core.ui.treetable.number.IntegerCellEditor;
+import org.modelio.platform.model.ui.treetable.combo.LabelsComboBoxCellEditor;
+import org.modelio.platform.model.ui.treetable.directory.DirectoryCellEditor;
+import org.modelio.platform.model.ui.treetable.file.FileCellEditor;
+import org.modelio.platform.model.ui.treetable.number.IntegerCellEditor;
 
 /**
  * StyleEditingSupport provides EditingSupport implementation for the StyleViewer.

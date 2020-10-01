@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.dependency;
 
@@ -49,24 +49,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("fd03066d-0a51-4fb7-9404-e4fdea747c28")
 public class UML2ProtocolConformance {
-    @objid ("7882e918-7c82-4fb4-9fde-183633cf7a0f")
+    @objid ("c8934ed0-327a-467b-94da-9b098383174c")
     public static final String STEREOTYPE_NAME = "UML2ProtocolConformance";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("133c4ebe-b9ac-48f2-be13-693aa7d17d61")
+    @objid ("d38d95c8-3666-4740-a51f-46cd0fdaaa6f")
     protected final Dependency elt;
 
     /**
-     * Tells whether a {@link UML2ProtocolConformance proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2ProtocolConformance >>. 
+     * Tells whether a {@link UML2ProtocolConformance proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2ProtocolConformance >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("eeef0d55-3d79-4114-a6d4-76da6cefbce6")
+    @objid ("5ab25da5-7480-4d02-b7df-4d0709ebac9f")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ProtocolConformance.STEREOTYPE_NAME));
     }
@@ -76,7 +76,7 @@ public class UML2ProtocolConformance {
      * 
      * @return a {@link UML2ProtocolConformance} proxy on the created {@link Dependency}.
      */
-    @objid ("26d5785e-c232-4634-ad17-60e3a6eb79ec")
+    @objid ("958d21bb-2e2b-46d6-acf8-b3f3e2a56348")
     public static UML2ProtocolConformance create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ProtocolConformance.STEREOTYPE_NAME);
@@ -84,13 +84,13 @@ public class UML2ProtocolConformance {
     }
 
     /**
-     * Tries to instantiate a {@link UML2ProtocolConformance} proxy from a {@link Dependency} stereotyped << UML2ProtocolConformance >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link UML2ProtocolConformance} proxy from a {@link Dependency} stereotyped << UML2ProtocolConformance >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a Dependency
      * @return a {@link UML2ProtocolConformance} proxy or <i>null</i>.
      */
-    @objid ("4f9f1c62-6b23-4742-9efd-d4127ac7500e")
+    @objid ("9fd851b7-541f-4a13-a3b8-6d19a3d5001a")
     public static UML2ProtocolConformance instantiate(Dependency obj) {
         return UML2ProtocolConformance.canInstantiate(obj) ? new UML2ProtocolConformance(obj) : null;
     }
@@ -103,7 +103,7 @@ public class UML2ProtocolConformance {
      * @return a {@link UML2ProtocolConformance} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("20dc8b03-8e6c-4409-870b-c4e4fdfcb708")
+    @objid ("84771242-94a5-4df3-a7cc-9c11544b3a6c")
     public static UML2ProtocolConformance safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (UML2ProtocolConformance.canInstantiate(obj))
         	return new UML2ProtocolConformance(obj);
@@ -111,7 +111,7 @@ public class UML2ProtocolConformance {
         	throw new IllegalArgumentException("UML2ProtocolConformance: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("aa65672b-ef00-4c0d-a4c6-c18288c62104")
+    @objid ("3e7b2092-c3e1-4beb-80fd-e0a13e75e062")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,34 +131,34 @@ public class UML2ProtocolConformance {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("25c2a6a0-0096-48cd-acaf-0127f07d5882")
+    @objid ("0f57ba85-510d-4dd6-9e13-3ae031a17d64")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("6acfcd3c-a232-4f1c-a26a-cf54117db9b9")
+    @objid ("8760568c-3428-44a7-a7c3-5c32ae5777ad")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("1d50647b-6c2b-49f7-9c4a-867465f8a228")
+    @objid ("52db1a3c-5f5d-4762-9ba4-7ca58bf9559b")
     protected UML2ProtocolConformance(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("04468c8e-8b2c-41f7-86f3-27c6af364806")
     public static final class MdaTypes {
-        @objid ("8db747ae-3d87-47e8-b894-6eca1577d3d0")
+        @objid ("44ba738a-a237-4a72-863c-a184b441f5de")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("0ad4ed72-5075-49b2-b494-4154d71289a9")
+        @objid ("e9cc8ca8-55e4-4616-a54f-90e6fa2bea33")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("88fadd86-e7c2-48ea-ba99-b33ad88e9d83")
+        @objid ("d8575e82-be2b-4a99-9694-7bbe9da4b905")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("074571b4-2435-48af-b46e-5d916669fd20")
+        @objid ("b0658c3f-2163-4702-bf27-889bfba57a12")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "3edfb381-5d0d-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

@@ -1,0 +1,34 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2240]]
+
+[[r2240]]
+= R2240
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Il ne peut y avoir de cycle de dépendance inter-package/inter-component.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les cycles de dépendances doivent être évités car ils sont signes d'un mauvais design.
+
+Par exemple un _Package_ P1 dépend d'un _Package_ P2 si une classe P1.C1 dérive, importe ou a une association vers une classe C2.P2.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez des cycles de dépendance, vous devriez revoir votre design.
+
+Utilisez le " Diagramme d'impact " du module d'Analyse pour avoir une vue des dépendances.
+
+

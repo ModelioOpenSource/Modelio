@@ -1,0 +1,37 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1100]]
+
+[[r1100]]
+= R1100
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Si une _ActivityPartition_ représente une _Part_ et est contenue dans une _ActivityPartition_, alors cette super _ActivityPartition_ doit représenter le _Classifier_ contenant la _Part_, ou une _Part_ typée par ce _Classifier_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Si une _ActivityPartition_ représente une _Part_ et est contenue par une autre _ActivityPartition_, alors la _Part_ doit faire partie d'un _Classifier_ représenté par la super _ActivityPartition_ ou d'un _Classifier_ qui est le type de la _Part_ représentée par la super _ActivityPartition_.
+
+*Exemple :*
+
+image::images/Modeler_audit_rules_R1100_modeler_fig_1100.gif[image]
+
+* Les deux _ActivityPartition_ "Development" (représentant la _Part_ "Developers") et "Support" (représentant la _Part_ "Technicians") sont valides car leur super _ActivityPartition_ "IT Service" représente une _Part_ qui est typée par le _Classifier_ "ITService", qui contient les _Parts_ "Developers" er "Technicians".
+* Les _ActivityPartition_ "Recruitment" (représentant la _Part_ "Recruiters") et "Management" (représentant la _Part_ Managers) sont invalides car leur super ActivityPartition représente le _Classifier_ "ManagementService", qui ne contient pas les _Parts_ "Recruiters" et "Managers".
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous rencontrez une erreur R1100, cela indique une incohérence entre l'organisation de vos _ActivityPartition_ et la structuration des _Classifier_ et des _Part_ qu'elles représentent. La solution consiste en général à réorganiser les _ActivityPartition_ pour respecter le design exprimé par la structuration des _Classifier_ et des _Part_ ou à modifier le design des _Classifier_ et des _Part_ représentées pour respecter la répartition des responsabilités exprimée par l'organisation des _ActivityPartition_.
+
+

@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.usecasedependency;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("09cedb92-5f5a-40aa-a318-488613b0c1ef")
 public class Include {
-    @objid ("0fa47ad7-65bf-4a5b-b240-64631e5b8f3b")
+    @objid ("9d3a69dd-1a05-47ec-aafc-e3184a4f13d0")
     public static final String STEREOTYPE_NAME = "include";
 
     /**
      * The underlying {@link UseCaseDependency} represented by this proxy, never null.
      */
-    @objid ("e8acb3cc-22ed-4a2a-ba1b-394a4557edf6")
+    @objid ("493e7223-14ab-47d8-b855-ce71e69a13ad")
     protected final UseCaseDependency elt;
 
     /**
-     * Tells whether a {@link Include proxy} can be instantiated from a {@link MObject} checking it is a {@link UseCaseDependency} stereotyped << include >>. 
+     * Tells whether a {@link Include proxy} can be instantiated from a {@link MObject} checking it is a {@link UseCaseDependency} stereotyped << include >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("6d695828-bc7a-4897-b14b-151e779c6be5")
+    @objid ("c0b07b15-2184-4ac3-adc5-14304034b2c2")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof UseCaseDependency) && ((UseCaseDependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Include.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Include {
      * 
      * @return a {@link Include} proxy on the created {@link UseCaseDependency}.
      */
-    @objid ("e6253776-3f7e-4690-a9bc-1fb73a59247a")
+    @objid ("fdd27f7c-909d-44fe-9711-e56ee4405ff1")
     public static Include create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("UseCaseDependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Include.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Include {
     }
 
     /**
-     * Tries to instantiate a {@link Include} proxy from a {@link UseCaseDependency} stereotyped << include >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Include} proxy from a {@link UseCaseDependency} stereotyped << include >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a UseCaseDependency
      * @return a {@link Include} proxy or <i>null</i>.
      */
-    @objid ("948ba7a9-5cf3-47f9-9d29-93c19c1ec742")
+    @objid ("efd66229-23bb-4f88-92a7-96f8ed5319ae")
     public static Include instantiate(UseCaseDependency obj) {
         return Include.canInstantiate(obj) ? new Include(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Include {
      * @return a {@link Include} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("1d92e5cd-6cd3-48d2-93ab-3a5dee49c44b")
+    @objid ("e8ea8f2c-11f0-482e-85a2-73069bfdfce4")
     public static Include safeInstantiate(UseCaseDependency obj) throws IllegalArgumentException {
         if (Include.canInstantiate(obj))
         	return new Include(obj);
@@ -112,7 +112,7 @@ public class Include {
         	throw new IllegalArgumentException("Include: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("347ecebd-26f5-4f27-982f-08d0c346cb17")
+    @objid ("ffdd897b-013b-41b8-a891-c240e95fb5ba")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Include {
      * Get the underlying {@link UseCaseDependency}. 
      * @return the UseCaseDependency represented by this proxy, never null.
      */
-    @objid ("bfcb1f4e-1b03-4bb1-a354-efe93501b881")
+    @objid ("75b69552-ab89-4ce2-8be1-5c6832f854b9")
     public UseCaseDependency getElement() {
         return this.elt;
     }
 
-    @objid ("e05fabad-1fc4-46c6-94bd-e57a8f0b8784")
+    @objid ("7bdd7894-a676-4016-bfdd-fde1170706cd")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("a2de6300-a0f5-40b5-910a-97218fa96d60")
+    @objid ("fa17c56d-222a-449f-90a8-7628540c638a")
     protected Include(UseCaseDependency elt) {
         this.elt = elt;
     }
 
     @objid ("9d68d730-b7bb-41e7-a89a-ad9aad3c697c")
     public static final class MdaTypes {
-        @objid ("167fdf16-072a-422d-83f7-de44afa9e82e")
+        @objid ("57f2cf1f-a020-4aec-b1a2-49ba80ffe5a9")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("c93a0229-add1-401a-927d-82b8a9b6dcfc")
+        @objid ("b518fc6c-26db-4706-bc60-cafa3df0839b")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("8ff7fb66-e191-49e8-b599-0afbe06262fd")
+        @objid ("dfd8c3c4-e33f-47dc-aded-844d82654b3b")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("f21d2aee-0132-4061-9562-54de21233c7e")
+        @objid ("40b20916-3151-4235-a19a-10543aa49038")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00000000-0000-9c49-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

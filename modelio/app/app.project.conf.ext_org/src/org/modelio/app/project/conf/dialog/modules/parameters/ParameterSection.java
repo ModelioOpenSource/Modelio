@@ -35,10 +35,10 @@ import org.modelio.api.module.IModule;
 import org.modelio.app.project.conf.dialog.modules.parameters.standard.DefaultParameterPanelProvider;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.gproject.module.GModule;
-import org.modelio.mda.infra.service.IModuleManagementService;
-import org.modelio.mda.infra.service.IRTModule.ModuleRuntimeState;
-import org.modelio.mda.infra.service.IRTModule;
-import org.modelio.ui.panel.IPanelProvider;
+import org.modelio.platform.mda.infra.service.IModuleManagementService;
+import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
+import org.modelio.platform.mda.infra.service.IRTModule;
+import org.modelio.platform.ui.panel.IPanelProvider;
 
 /**
  * Manage the modules parameters.

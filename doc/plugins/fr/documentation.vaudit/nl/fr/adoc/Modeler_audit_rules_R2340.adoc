@@ -1,0 +1,31 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2340]]
+
+[[r2340]]
+= R2340
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Operation_ redéfinie doit appartenir a une _Interface_ implémentée ou à une _Class_ parent de l'opération qui la redéfinit.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Operation_ ne peut redéfinir qu'une _Operation_ d'un _Classifier_ parent ou d'une _Interface_ implémentée.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+* Supprimez la redéfinition d'opération si cela n'était pas voulue.
+* Implémentez l'interface ou héritez du classifier qui contient la méthode redéfinie.
+
+

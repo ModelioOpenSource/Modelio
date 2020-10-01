@@ -1,0 +1,24 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Utiliser-des-raccourcis]]
+
+[[utiliser-des-raccourcis]]
+= Utiliser des raccourcis
+
+Les principaux raccourcis clavier disponibles avec Modelio sont les suivants :
+
+* *Ctrl+A* dans la vue d'édition des diagrammes : Sélectionne tous les éléments du diagramme.
+* *Ctrl+C* dans les vues explorateur : Copie les éléments sélectionnés.
+* *Ctrl+D* dans les vues explorateur : Déplace l'élément sélectionné d'un niveau vers le bas.
+* *Ctrl+M* dans la vue d'édition des diagrammes : Masque l'élément sélectionné.
+* *Ctrl+S* dans la vue d'édition des diagrammes et les vues explorateur : Effectue une opération de sauvegarde.
+* *Ctrl+U* dans les vues explorateur : Déplace l'élément sélectionné d'un niveau vers le haut.
+* *Ctrl+V* dans les vues explorateur : Colle l'élément sélectionné.
+* *Ctrl+X* dans les vues explorateur : Coupe l'élément sélectionné.
+* *Ctrl+Y* dans la vue d'édition des diagrammes et les vues explorateur : Refait la dernière opération annulée.
+* *Ctrl+Z* dans la vue d'édition des diagrammes et les vues explorateur : Annule la dernière opération.
+* *Ctrl+Alt+clic* sur une association dans les vues explorateur : sélectionne l'autre extrémité de l'association.
+* */* dans la vue d'édition des diagrammes : Change à l'échelle 1:1.
+
+

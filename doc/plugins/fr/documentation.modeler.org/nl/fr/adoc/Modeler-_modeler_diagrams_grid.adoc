@@ -1,0 +1,13 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Activer-la-grille]]
+
+[[activer-la-grille]]
+= Activer la grille
+
+La grille vous facilite l'alignement précis des éléments présents dans les diagrammes Modelio.
+
+Pour activer la grille dans un diagramme, utilisez les cases à cocher "Grille – Afficher" et "Griller – Activer" dans l'onglet "Symbole" du diagramme, ou bien cliquer sur l'icône image:images/Modeler-_modeler_diagrams_grid_grid.png[2] dans la barre d'outils du diagramme.
+
+

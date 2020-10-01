@@ -1,0 +1,35 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1460]]
+
+[[r1460]]
+= R1460
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une association publique venant d'un Classifier publique ne peut cibler un Classifier privé ou protégé.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une classe utilisant une association publique vers une classe privée n'aura pas accès à la classe cible.
+
+Le code Java ou C++ généré à partir d'une telle association donnera probablement des erreurs à la compilation.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Vous pouvez :
+
+* changer la visibilité de l'_association_ en privée. Il est généralement recommandé de fixer la visibilité de tous les attributs et associations en privé.
+* changer la visibilité de la classe cible en publique.
+
+

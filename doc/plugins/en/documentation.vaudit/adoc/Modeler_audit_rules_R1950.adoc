@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1950]]
+
+[[r1950]]
+= R1950
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+_Messages_ of the 'reply' type cannot invoke an _Operation_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+In UML 2.3, a 'reply' type _Message_ is a reply from an _Operation_ call, so it cannot call another _Operation_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+If you have a 'reply' _Message_ invoking an _Operation_, change the _Message_ kind, or remove the invocation.
+
+

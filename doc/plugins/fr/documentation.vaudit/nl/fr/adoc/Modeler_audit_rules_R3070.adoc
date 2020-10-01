@@ -1,0 +1,32 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R3070]]
+
+[[r3070]]
+= R3070
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une _Dependency_ de type «derive» doit partir d'un _UseCase_ ou d'un _Requirement_ et cibler un _Requirement_.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Une _Dependency_ de type «derive» lie un _Requirement_ dérivé à un _Requirement_ source. Une analyse est généralement requise pour déterminer les
+
+différents niveaux de dérivation d'un _Requirement_. Il y a souvent une correspondance directe entre les _Requirements_ dérivés et les niveaux hiérarchiques d'un système.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez une _Dependency_ de type «derive» qui ne relie pas un _UseCase_ ou un _Requirement_ à un _Requirement_, vous devriez la supprimer.
+
+

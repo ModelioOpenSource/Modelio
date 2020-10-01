@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2880]]
+
+[[r2880]]
+= R2880
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+There cannot be any cycles for _inclusion relationship_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+A cycle is forbidden for an _inclusion relationship_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Delete one of the _inclusion relationship_ of the cycle.
+
+

@@ -1,0 +1,15 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[MDA-modeling-in-Modelio-Modeler]]
+
+[[mda-modeling-in-modelio-modeler]]
+= MDA modeling in Modelio Modeler
+
+Modelio provides a complete range of MDA services, split into three categories:
+
+* <<Modeler-_modeler_mda_services_basic.adoc#,Basic stereotype creation directly in the "Model" view>>.
+* <<Modeler-_modeler_mda_services_advanced.adoc#,Advanced profile and stereotype creation and definition of note types and tagged value types>>.
+* Expert Modelio module development with Eclipse. This expert mode is presented in a dedicated guide.
+
+

@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2580]]
+
+[[r2580]]
+= R2580
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Une région ne peut avoir plus d'un état de type DeepHistory.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Un état de type historique représente le dernier état dans lequel l'objet se trouvait avant que la transition quitte cet état. Quand une transition retourne vers cet état, l'objet retrouve l'état défini par l'état historique. Il ne peut donc y avoir plus d'un état de ce type.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez besoin d'un deuxième état de type historique, vous devriez envisager d'ajouter une région à votre état, et de déplacer le deuxième état historique dans cette région.
+
+

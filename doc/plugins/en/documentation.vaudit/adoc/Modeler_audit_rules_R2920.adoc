@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2920]]
+
+[[r2920]]
+= R2920
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+An _Extension Point_ can only be referenced by an _extension relationship_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+An _Extension Point_ is a feature of a _Use Case_ that identifies a point where the behavior of a Use Case can be augmented with elements of another (extending) _Use Case_. Therefore, only _extension relationship_ can reference an _Extension Point_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+Replace the incriminated _inclusion relationship_ with an _extension relationship_.
+
+

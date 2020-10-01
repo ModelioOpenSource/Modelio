@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.modelio.platform.mda.infra.dynamicmodel" name="Dynamic model loader" schema="schema/org.modelio.platform.mda.infra.dynamicmodel.exsd"/>
+
+   <extension-point id="org.modelio.platform.mda.infra.classloaders" name="Module classloaders" schema="schema/org.modelio.platform.mda.infra.classloaders.exsd"/>
+   <extension-point id="org.modelio.platform.mda.infra.plugin_module" name="Module plugin" schema="schema/org.modelio.platform.mda.infra.plugin_module.exsd"/>
+
+   <extension id="id2" point="org.eclipse.e4.workbench.model">
+      <processor beforefragment="false" class="org.modelio.platform.mda.infra.service.impl.ModuleServiceInitializer"/>
+   </extension>
+</plugin>

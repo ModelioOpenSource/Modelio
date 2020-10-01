@@ -26,13 +26,13 @@ import org.eclipse.swt.graphics.Image;
 import org.modelio.audit.extension.IAuditConfigurationPlan;
 import org.modelio.audit.preferences.model.AuditCategory;
 import org.modelio.audit.preferences.model.AuditRule;
-import org.modelio.core.ui.swt.images.MetamodelImageService;
 import org.modelio.metamodel.uml.behavior.activityModel.Activity;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
 import org.modelio.metamodel.uml.statik.Class;
+import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 import org.modelio.uml.ui.plugin.UmlUi;
 
 @objid ("d43c27a2-9ad2-4882-ad3c-259940feabed")

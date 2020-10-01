@@ -1,0 +1,41 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[Introducing-Modelio-XMI-ImportExport]]
+
+[[introducing-modelio-xmi-importexport]]
+= Introducing Modelio XMI Import/Export
+
+[[Introduction]]
+
+[[introduction]]
+===== Introduction
+
+Modelio XMI Import/Export lets you exchange UML2 models (and not BPMN models) between tools that support the import/export of XMI files. The supported formats are XMI EMF-UML2 v3.0.0, OMG2.1.1, OMG2.2, OMG2.3 and OMG2.4.1.
+
+Modelio XMI Import/Export provides four commands:
+
+* <<Xmi_importing.adoc#,Model import>>
+* <<Xmi_exporting.adoc#,Model export>>
+* <<Xmi_importing_profile.adoc#,Profile import>>
+* <<Xmi_exporting_profile.adoc#,Profile export>>
+
+You can configure these commands through dedicated <<Xmi_config.adoc#,parameters>>.
+
+[[Model-consistency]]
+
+[[model-consistency]]
+===== Model consistency
+
+Modelio permanently guarantees the consistency of the models you build, meaning that models exported from Modelio will be consistent with the UML2 norm.
+
+However, if the models you import do not fully satisfy Modelio's consistency checks, any problem detected will be displayed by the Modelio audit. If a block error is detected, the import will be aborted.
+
+[[Restrictions]]
+
+[[restrictions]]
+===== Restrictions
+
+The current version of Modelio XMI Import/Export does not provide coverage of the entire UML2 standard. For more information, please see the <<Xmi_coverage.adoc#,Coverage of UML2>> section of this user guide.
+
+

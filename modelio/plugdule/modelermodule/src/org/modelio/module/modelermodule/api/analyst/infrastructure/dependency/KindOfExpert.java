@@ -15,11 +15,24 @@
  * 
  */
 
+/*
+ * WARNING: GENERATED FILE - DO NOT EDIT
+ * Module: ModelerModule v9.1.00
+
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.api.modelio.model.scope.ElementScope;
 import org.modelio.api.module.mda.IMdaExpert;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
+import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
@@ -32,8 +45,8 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * </p>
  * <table summary="Creation rules" border="1">
  * <tr>
- * <th>Possible source</th>
- * <th>Possible target</th>
+ *   <th>Possible source</th>
+ *   <th>Possible target</th>
  * </tr>
  * <tr><td>Term</td><td>Term</td></tr>
  * 
@@ -41,46 +54,85 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("ec4987e6-4dff-4c71-a4c2-c5758549b3e1")
 public class KindOfExpert implements IMdaExpert {
-    @objid ("0d3f928e-b9c0-46a2-ba7b-c4eedf34aab6")
+    @objid ("72774d71-f594-463a-8121-64063a83bb78")
     @Override
-    public boolean canSource(final Stereotype linkStereotype, final MClass linkMetaclass, final MClass fromMetaclass) {
+    public boolean canSource(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return (fromMetaclass.hasBase(metamodel.getMClass("Analyst.Term")));
     }
 
-    @objid ("756abb24-3cc9-47c0-93e9-37be82d47961")
+    @objid ("dcdcd6af-eab8-4f3d-a1e2-99d7331973bc")
     @Override
-    public boolean canSource(final Stereotype linkStereotype, final MObject linkElement, final MObject fromElement) {
+    public boolean canSource(Stereotype linkStereotype, MObject linkElement, MObject fromElement) {
         MMetamodel metamodel = linkElement.getMClass().getMetamodel();
         return (fromElement.getMClass().hasBase(metamodel.getMClass("Analyst.Term")));
     }
 
-    @objid ("0d55191d-866e-4e4f-8c4e-dc7c4f42799c")
+    @objid ("6772d063-133f-4d20-9354-45a648740ecb")
     @Override
-    public boolean canTarget(final Stereotype linkStereotype, final MClass linkMetaclass, final MClass toMetaclass) {
+    public boolean canSource(ElementScope linkScope, MObject fromElement) {
+        MMetamodel metamodel = linkScope.getMetaclass().getMetamodel();
+        return (fromElement.getMClass().hasBase(metamodel.getMClass("Analyst.Term")));
+    }
+
+    @objid ("2baa79d2-9767-412b-b8ee-36174071d1a8")
+    @Override
+    public boolean canTarget(Stereotype linkStereotype, MClass linkMetaclass, MClass toMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return (toMetaclass.hasBase(metamodel.getMClass("Analyst.Term")));
     }
 
-    @objid ("81385e5b-6b44-4601-8c3e-4c8e8063a5d6")
+    @objid ("fd29be29-0a76-4277-ac1e-c1c5b89220a3")
     @Override
-    public boolean canTarget(final Stereotype linkStereotype, final MObject linkElement, final MObject toElement) {
+    public boolean canTarget(Stereotype linkStereotype, MObject linkElement, MObject toElement) {
         MMetamodel metamodel = linkElement.getMClass().getMetamodel();
         return (toElement.getMClass().hasBase(metamodel.getMClass("Analyst.Term")));
     }
 
-    @objid ("8ad27475-7235-4fad-ab60-1e9807f0da60")
+    @objid ("debc49a7-056b-4706-830c-30cb57ee568e")
     @Override
-    public boolean canLink(final Stereotype linkStereotype, final MClass linkMetaclass, final MClass fromMetaclass, final MClass toMetaclass) {
+    public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass, MClass toMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return ((fromMetaclass.hasBase(metamodel.getMClass("Analyst.Term"))) && (toMetaclass.hasBase(metamodel.getMClass("Analyst.Term"))));
     }
 
-    @objid ("919a66c8-da97-4bb1-8458-d1fc7cd96421")
+    @objid ("de5686f7-acdf-44b2-af8b-d8b362b9f62b")
     @Override
-    public boolean canLink(final Stereotype linkStereotype, final MClass linkMetaclass, final MObject fromElement, final MObject toElement) {
+    public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MObject fromElement, MObject toElement) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return ((fromElement.getMClass().hasBase(metamodel.getMClass("Analyst.Term"))) && (toElement.getMClass().hasBase(metamodel.getMClass("Analyst.Term"))));
+    }
+
+    @objid ("4f205688-3aab-4191-b93b-5eee055e8322")
+    @Override
+    public Collection<MClass> getPossibleSourceMetaclasses(Stereotype linkStereotype, MClass targetMetaclass) {
+        MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
+        Set<MClass> metaclasses = new HashSet<>();
+        if ((targetMetaclass.hasBase(metamodel.getMClass("Analyst.Term")))) {
+        	MClass mc = metamodel.getMClass("Analyst.Term");
+        	metaclasses.add(mc);
+        	metaclasses.addAll(mc.getSub(true));
+        }
+        return metaclasses;
+    }
+
+    @objid ("3e7fb0c5-72ab-46c7-af51-e4f7abe53ea5")
+    @Override
+    public Collection<MClass> getPossibleTargetMetaclasses(Stereotype linkStereotype, MClass sourceMetaclass) {
+        MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
+        Set<MClass> metaclasses = new HashSet<>();
+        if ((sourceMetaclass.hasBase(metamodel.getMClass("Analyst.Term")))) {
+        	MClass mc = metamodel.getMClass("Analyst.Term");
+        	metaclasses.add(mc);
+        	metaclasses.addAll(mc.getSub(true));
+        }
+        return metaclasses;
+    }
+
+    @objid ("84c00a1b-05e2-404c-9dcf-d0fc244716c7")
+    @Override
+    public boolean isMultiple(Stereotype linkStereotype) {
+        return false;
     }
 
 }

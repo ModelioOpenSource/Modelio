@@ -17,9 +17,9 @@
 
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.0.07
+ * Module: ModelerModule v9.1.00
 
- * This file was generated on 2/6/19 2:07 PM by Modelio Studio.
+ * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.elementimport;
 
@@ -50,24 +50,24 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("46045e22-e2ca-4093-b989-b9b9bfb21781")
 public class Friend {
-    @objid ("ed91938f-845b-4dba-a6e2-864dff61ab53")
+    @objid ("3848c6fd-f78b-445f-9e2e-5ed74a5ec4cf")
     public static final String STEREOTYPE_NAME = "friend";
 
     /**
      * The underlying {@link ElementImport} represented by this proxy, never null.
      */
-    @objid ("0bcab6b4-6f8d-4042-879b-d287a2106f7b")
+    @objid ("274c50cf-0258-4086-a12e-f1e1533c007d")
     protected final ElementImport elt;
 
     /**
-     * Tells whether a {@link Friend proxy} can be instantiated from a {@link MObject} checking it is a {@link ElementImport} stereotyped << friend >>. 
+     * Tells whether a {@link Friend proxy} can be instantiated from a {@link MObject} checking it is a {@link ElementImport} stereotyped << friend >>.
      * <p>
-     * The method returns <i>false</i> if the instantiation cannot be carried out.
+     * The method returns <code>false</code> if the instantiation cannot be carried out.
      * 
      * @param elt a model object
-     * @return <i>true</i> if the instantiation can be carried out else <i>false</i>.
+     * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("0c1841c5-04e3-4779-871e-8f737d83b259")
+    @objid ("04eae222-2f4f-4262-a7b8-71223d88b3c6")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof ElementImport) && ((ElementImport) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Friend.STEREOTYPE_NAME));
     }
@@ -77,7 +77,7 @@ public class Friend {
      * 
      * @return a {@link Friend} proxy on the created {@link ElementImport}.
      */
-    @objid ("765b42a1-5988-4743-9da0-46d6cfecea99")
+    @objid ("222ca442-a6f0-4c71-814e-825c16a5aa2b")
     public static Friend create() {
         ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("ElementImport");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Friend.STEREOTYPE_NAME);
@@ -85,13 +85,13 @@ public class Friend {
     }
 
     /**
-     * Tries to instantiate a {@link Friend} proxy from a {@link ElementImport} stereotyped << friend >>checking its metaclass and its stereotype. 
+     * Tries to instantiate a {@link Friend} proxy from a {@link ElementImport} stereotyped << friend >> checking its metaclass and its stereotype. 
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
      * @param obj a ElementImport
      * @return a {@link Friend} proxy or <i>null</i>.
      */
-    @objid ("d9ff38f5-1003-4598-a4dc-4917516ef738")
+    @objid ("80dce694-70d1-4c3d-9d54-22970a507942")
     public static Friend instantiate(ElementImport obj) {
         return Friend.canInstantiate(obj) ? new Friend(obj) : null;
     }
@@ -104,7 +104,7 @@ public class Friend {
      * @return a {@link Friend} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("74714321-01d9-4139-9299-6df3556d09c7")
+    @objid ("f944b33b-8d29-4b61-8ded-e9741e3e9d55")
     public static Friend safeInstantiate(ElementImport obj) throws IllegalArgumentException {
         if (Friend.canInstantiate(obj))
         	return new Friend(obj);
@@ -112,7 +112,7 @@ public class Friend {
         	throw new IllegalArgumentException("Friend: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("0b3b10c2-555b-485f-9069-716ed468eaca")
+    @objid ("61cd74fa-79a6-4445-ad7b-413f4e7440d2")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,34 +132,34 @@ public class Friend {
      * Get the underlying {@link ElementImport}. 
      * @return the ElementImport represented by this proxy, never null.
      */
-    @objid ("2c110107-9e71-42a4-8548-e200295cb9a7")
+    @objid ("f933ada3-87a0-49c9-8fd8-d4e8e6afad05")
     public ElementImport getElement() {
         return this.elt;
     }
 
-    @objid ("7b3ffc2a-2ab1-4ea4-b7fd-a92ec874baf6")
+    @objid ("3ae0375b-5ff6-4cfe-a386-07cfebbed431")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("eb9a9041-3699-4f7a-ace9-172b6d5d445f")
+    @objid ("96a669fe-fa24-4e87-a4fd-daff27652d2f")
     protected Friend(ElementImport elt) {
         this.elt = elt;
     }
 
     @objid ("e4135690-595b-43d4-b1e7-11c556195a6c")
     public static final class MdaTypes {
-        @objid ("535fc4ff-9050-42ec-baf7-ba232a5b2f21")
+        @objid ("96680288-30c9-4683-8d4a-a801d6aa0246")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("e06447ad-9ca3-4579-8363-6c67aa13d6fc")
+        @objid ("5a41ccae-c987-4ea6-851b-3acc0347bbc3")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("b2258dec-9e81-4875-b085-34035fb8ba21")
+        @objid ("6cb486c4-b495-4f5a-a585-e4e48350ee1d")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("7fa37790-acca-494a-a254-67ffa7441cbd")
+        @objid ("59f8f3ea-b6cb-4baf-bb4c-def373e2e8d8")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01ca-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");

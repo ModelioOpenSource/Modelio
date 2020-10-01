@@ -1,0 +1,29 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+= Creation shortcuts in Class diagrams
+
+Two kind of shortcuts are available:
+
+* to activate a creation tool as if clicking on the diagram palette.
+* to directly create and unmask an element in the diagram.
+
+[%header]
+|===
+2+|Activate creation tool  2+| Created element
+|*Shortcut*|*Activated tool*|*Shortcut*|*Created element*
+|A |Attribute |CTRL-N CTRL-A |Attribute
+|C |Class |CTRL-N CTRL-C |Class
+|D |Datatype |CTRL-N CTRL-D |Datatype
+|E |Enumeration |CTRL-N CTRL-E |Enumeration
+|I |Interface |CTRL-N CTRL-I |Interface
+|N |Note |CTRL-N CTRL-N |Note
+|O |Operation |CTRL-N CTRL-O |Operation
+|P |Package |CTRL-N CTRL-P |Package
+|S |Signal |CTRL-N CTRL-S |Signal
+|B |Binding ||
+|G |Generalization ||
+|R |Related Diagram ||
+|U |Usage ||
+|SPACE |Association ||
+|===

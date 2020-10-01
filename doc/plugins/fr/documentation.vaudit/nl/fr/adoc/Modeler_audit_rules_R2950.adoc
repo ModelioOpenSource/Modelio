@@ -1,0 +1,30 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R2950]]
+
+[[r2950]]
+= R2950
+
+[[Résumé]]
+
+[[résumé]]
+===== Résumé
+
+Toutes les _Transitions_ sortant d'un nœud de séparation doivent aller vers des _Regions_ différentes.
+
+[[Détails]]
+
+[[détails]]
+===== Détails
+
+Les _Regions_ d'un _State_ orthogonal étant concurrentes, chaque _Transition_ sortant d'un nœud de séparation devrait arriver dans une _Region_ différente.
+
+[[Conseils]]
+
+[[conseils]]
+===== Conseils
+
+Si vous avez plusieurs _Transitions_ arrivant sur une même _Region_, supprimez l'une des _Transitions_ ou déplacez les _States_ ciblés dans une autre _Region_.
+
+

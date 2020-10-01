@@ -1,0 +1,34 @@
+// Disable all captions for figures.
+:!figure-caption:
+
+[[R1170]]
+
+[[r1170]]
+= R1170
+
+[[Summary]]
+
+[[summary]]
+===== Summary
+
+The target _Pin_ of a _CallOperationAction_ must be typed by the _Classifier_ which owns the called _Operation_.
+
+[[Details]]
+
+[[details]]
+===== Details
+
+The target _Pin_ of a _CallOperationAction_ must be typed by the _Classifier_ which owns the called _Operation_.
+
+The target _Pin_ represents the target object to which the request is sent. The _Classifier_ of the target object is used to dynamically determine the behaviour to invoke. This object constitutes the context of the execution of
+
+the _Operation_.
+
+[[Tips]]
+
+[[tips]]
+===== Tips
+
+When you get a R1170 warning, check that the target _Pin_ of the incriminated _CallOperationAction_ is typed by the _Classifier_ defining the _Operation_ referenced by the _CallOperationAction_.
+
+
