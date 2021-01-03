@@ -59,7 +59,7 @@ the Modelio tool, as well as modeling or standards such as UML, SOA,
 BPM, ...) or a developer (someone with some knowledge of programming)
 
 For more information, visit our community web page :
-image:https://www.modelio.org/community/get-involved.html[https://www.modelio.org/community/get-involved.html]
+https://www.modelio.org/community/get-involved.html[https://www.modelio.org/community/get-involved.html]
 
 
 == Quick Start Guide
