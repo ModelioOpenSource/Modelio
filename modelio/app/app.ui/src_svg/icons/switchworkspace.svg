@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="24"
+   height="24"
+   viewBox="0 0 6.35 6.35"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="workspace.svg"
+   inkscape:export-filename="C:\diskH\Graphisme\Works\Modelio\Flat icons\modelio.app\app.project.ui\icons\workspace.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="32.958333"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     units="px"
+     inkscape:window-width="1280"
+     inkscape:window-height="961"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4485" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="lignes"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <path
+       style="fill:#1469ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 2.9104167,2.38125 H 5.0270834 V 2.6458333 H 2.9104167 Z"
+       id="path4506"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\diskH\Graphisme\Works\Modelio\Flat icons\modelio.app\app.project.ui\icons\path4506.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#1469ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 0.52916666,2.9104166 h 0.26458333 v 2.38125 H 2.38125 V 5.5562499 H 0.52916666 Z"
+       id="path4523"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     style="display:inline"
+     inkscape:label="Project copy"
+     id="g4504"
+     inkscape:groupmode="layer"
+     transform="translate(0,-6.35)">
+    <path
+       style="fill:#fda12c;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.05968767px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 0.26458333,7.4083333 v 1.8520834 l 2.38124997,0 v -1.5875 l -1.0583333,0 L 1.4589674,7.4511786 C 1.3440007,7.2528521 1.2511373,7.14375 1.0583333,7.14375 H 0.52916667 c -0.26458334,0 -0.26458334,0.2645833 -0.26458334,0.2645833 z"
+       id="path4500"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccszcc" />
+    <path
+       style="display:inline;fill:#fda12c;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.05968767px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 2.1166667,10.31875 v 1.852083 h 2.38125 v -1.5875 H 3.4395834 L 3.3110508,10.361595 C 3.1960841,10.163269 3.1032207,10.054167 2.9104167,10.054167 H 2.38125 c -0.2645833,0 -0.2645833,0.264583 -0.2645833,0.264583 z"
+       id="path4500-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccszcc" />
+    <path
+       style="fill:#1469ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 4.7625,11.641667 1.3229167,0 v 0.264583 l -1.3229167,0 z"
+       id="path4506-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\diskH\Graphisme\Works\Modelio\Flat icons\modelio.app\app.project.ui\icons\path4506.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>

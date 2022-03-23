@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='slf4j/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1541683545051'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='3'>
+    <artifact classifier='osgi.bundle' id='slf4j.simple' version='1.7.25'>
+      <properties size='5'>
+        <property name='artifact.size' value='15257'/>
+        <property name='download.size' value='15257'/>
+        <property name='download.md5' value='722bb90689aecc523e3fe317e1f0984b'/>
+        <property name='download.checksum.md5' value='722bb90689aecc523e3fe317e1f0984b'/>
+        <property name='download.checksum.sha-256' value='0966e86fffa5be52d3d9e7b89dd674d98a03eed0a454fbaf7c1bd9493bd9d874'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='slf4j.api' version='1.7.25'>
+      <properties size='5'>
+        <property name='artifact.size' value='41203'/>
+        <property name='download.size' value='41203'/>
+        <property name='download.md5' value='caafe376afb7086dcbee79f780394ca3'/>
+        <property name='download.checksum.md5' value='caafe376afb7086dcbee79f780394ca3'/>
+        <property name='download.checksum.sha-256' value='18c4a0095d5c1da6b817592e767bb23d29dd2f560ad74df75ff3961dbde25b79'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='slf4j.log4j12' version='1.7.25'>
+      <properties size='5'>
+        <property name='artifact.size' value='12244'/>
+        <property name='download.size' value='12244'/>
+        <property name='download.md5' value='7f16ba3b1ab6a781c3f6887eae7b608d'/>
+        <property name='download.checksum.md5' value='7f16ba3b1ab6a781c3f6887eae7b608d'/>
+        <property name='download.checksum.sha-256' value='ddb343954deb6f046f862606c534178730c02ed23d0b7f6ca1012c1e3fa74273'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

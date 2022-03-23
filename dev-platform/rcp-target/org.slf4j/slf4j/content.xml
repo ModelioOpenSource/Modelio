@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.2.0'?>
+<repository name='slf4j/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1541683545052'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='3'>
+    <unit id='slf4j.log4j12' version='1.7.25' singleton='false' generation='2'>
+      <update id='slf4j.log4j12' range='[0.0.0,1.7.25)' severity='0'/>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='slf4j-log4j12'/>
+        <property name='org.eclipse.equinox.p2.description' value='SLF4J LOG4J-12 Binding'/>
+        <property name='org.eclipse.equinox.p2.provider' value='SLF4J.ORG'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='slf4j.log4j12' version='1.7.25'/>
+        <provided namespace='osgi.bundle' name='slf4j.log4j12' version='1.7.25'/>
+        <provided namespace='java.package' name='org.slf4j.impl' version='1.7.25'/>
+        <provided namespace='osgi.identity' name='slf4j.log4j12' version='1.7.25'>
+          <properties size='1'>
+            <property name='type' value='osgi.fragment'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='slf4j.api' version='1.7.25'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='slf4j.api' range='0.0.0'/>
+        <required namespace='java.package' name='org.slf4j' range='1.7.25'/>
+        <required namespace='java.package' name='org.slf4j.spi' range='1.7.25'/>
+        <required namespace='java.package' name='org.slf4j.helpers' range='1.7.25'/>
+        <required namespace='java.package' name='org.slf4j.event' range='1.7.25'/>
+        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.5))'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='slf4j.log4j12' version='1.7.25'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: slf4j.log4j12&#xA;Bundle-Version: 1.7.25&#xA;Fragment-Host: slf4j.api&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='slf4j.api' version='1.7.25' singleton='false' generation='2'>
+      <update id='slf4j.api' range='[0.0.0,1.7.25)' severity='0'/>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='slf4j-api'/>
+        <property name='org.eclipse.equinox.p2.description' value='The slf4j API'/>
+        <property name='org.eclipse.equinox.p2.provider' value='SLF4J.ORG'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='slf4j.api' version='1.7.25'/>
+        <provided namespace='osgi.bundle' name='slf4j.api' version='1.7.25'/>
+        <provided namespace='java.package' name='org.slf4j' version='1.7.25'/>
+        <provided namespace='java.package' name='org.slf4j.spi' version='1.7.25'/>
+        <provided namespace='java.package' name='org.slf4j.helpers' version='1.7.25'/>
+        <provided namespace='java.package' name='org.slf4j.event' version='1.7.25'/>
+        <provided namespace='osgi.identity' name='slf4j.api' version='1.7.25'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='java.package' name='org.slf4j.impl' range='1.6.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.5))'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='slf4j.api' version='1.7.25'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: slf4j.api&#xA;Bundle-Version: 1.7.25&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='slf4j.simple' version='1.7.25' singleton='false' generation='2'>
+      <update id='slf4j.simple' range='[0.0.0,1.7.25)' severity='0'/>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='slf4j-simple'/>
+        <property name='org.eclipse.equinox.p2.description' value='SLF4J Simple binding'/>
+        <property name='org.eclipse.equinox.p2.provider' value='SLF4J.ORG'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='slf4j.simple' version='1.7.25'/>
+        <provided namespace='osgi.bundle' name='slf4j.simple' version='1.7.25'/>
+        <provided namespace='java.package' name='org.slf4j.impl' version='1.7.25'/>
+        <provided namespace='osgi.identity' name='slf4j.simple' version='1.7.25'>
+          <properties size='1'>
+            <property name='type' value='osgi.fragment'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='slf4j.api' version='1.7.25'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='slf4j.api' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='slf4j.api' range='0.0.0'/>
+        <required namespace='java.package' name='org.slf4j' range='1.7.25'/>
+        <required namespace='java.package' name='org.slf4j.spi' range='1.7.25'/>
+        <required namespace='java.package' name='org.slf4j.helpers' range='1.7.25'/>
+        <required namespace='java.package' name='org.slf4j.event' range='1.7.25'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.5))'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='slf4j.simple' version='1.7.25'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: slf4j.simple&#xA;Bundle-Version: 1.7.25&#xA;Fragment-Host: slf4j.api&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

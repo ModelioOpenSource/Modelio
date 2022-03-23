@@ -1,0 +1,927 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio - FREE Community Edition 7.0.2.746 (http://www.liquid-technologies.com)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="3.8" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Module">
+    <xs:annotation>
+      <xs:documentation>Definition of a Module.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="ClassPath" type="_MultiPathes" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Profiles">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Profile">
+                <xs:annotation>
+                  <xs:documentation>Definition of a Profile</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Stereotype">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string">
+                            <xs:annotation>
+                              <xs:documentation>An i18n key used to look into module resources for the translated element's description.</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="Icon">
+                            <xs:complexType>
+                              <xs:attribute name="path" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="Image">
+                            <xs:complexType>
+                              <xs:attribute name="path" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:choice minOccurs="0" maxOccurs="1">
+                            <xs:element minOccurs="0" maxOccurs="1" name="PropertyTable" type="_PropertyTableDefinition" />
+                            <xs:element minOccurs="0" maxOccurs="1" name="TagTypes">
+                              <xs:complexType>
+                                <xs:sequence>
+                                  <xs:element minOccurs="0" maxOccurs="unbounded" name="TagType" type="_TagType" />
+                                </xs:sequence>
+                              </xs:complexType>
+                            </xs:element>
+                          </xs:choice>
+                          <xs:element minOccurs="0" maxOccurs="1" name="NoteTypes">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="NoteType" type="_NoteType" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="ExternDocumentTypes">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="ExternDocumentType" type="_ExternDocumentType" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="Constraints">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="Constraint" type="_LinkConstraint" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="Extensions">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="StereotypeRef" type="_StereotypeRef" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string" use="required">
+                          <xs:annotation>
+                            <xs:documentation>The identifier of the Stereotype. Must be unique for the module.</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="metaclass" type="xs:string" use="required">
+                          <xs:annotation>
+                            <xs:documentation>MetaClass whose instances can be annotated by the current Stereotype.</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="owner-stereotype" type="xs:string" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>Id of the Stereotype to be extended.
+When &lt;&lt; A &gt;&gt; extends &lt;&lt; B &gt;&gt;, an element having the &lt;&lt; A &gt;&gt; stereotype is also be considered as having the &lt;&lt; B &gt;&gt; stereotype, making all its tags and notes available.</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="is-hidden" type="xs:string" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>Indicates whether or not this stereotype will be visible for manual addition/suppression by the user.</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="label" type="xs:string" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>The stereotype label key used to look into module resources for the translated stereotype label.</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="uid" type="xs:string" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>This field holds the Modelio UUID for the object. This uid must conform to Modelio UUID format and be guranteed to be unique. If you package the module using Maven, this value will be automatically filled with a valid and guaranteed identifier during the first packaging of the module. DO NOT MODIFY this value once it has been filled by Maven.</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute default="false" name="is-abstract" type="xs:boolean" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>Tells if the stereotype is abstract.
+
+Abstract stereotypes may not be applied to elements and must serve only as base stereotype for child ones.</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="MetaclassReference">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:choice minOccurs="0" maxOccurs="1">
+                            <xs:element minOccurs="0" maxOccurs="1" name="PropertyTable" type="_PropertyTableDefinition" />
+                            <xs:element minOccurs="0" maxOccurs="1" name="TagTypes">
+                              <xs:complexType>
+                                <xs:sequence>
+                                  <xs:element minOccurs="0" maxOccurs="unbounded" name="TagType" type="_TagType" />
+                                </xs:sequence>
+                              </xs:complexType>
+                            </xs:element>
+                          </xs:choice>
+                          <xs:element minOccurs="0" maxOccurs="1" name="NoteTypes">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="NoteType" type="_NoteType" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="ExternDocumentTypes">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="ExternDocumentType" type="_ExternDocumentType" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="uid" type="xs:string" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>This field holds the Modelio UUID for the object. This uid must conform to Modelio UUID format and be guranteed to be unique. If you package the module using Maven, this value will be automatically filled with a valid and guaranteed identifier during the first packaging of the module. DO NOT MODIFY this value once it has been filled by Maven.</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="metaclass" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Extensions">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="StereotypeRef" type="_StereotypeRef" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="uid" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>This field holds the Modelio UUID for the object. This uid must conform to Modelio UUID format and be guranteed to be unique. If you package the module using Maven, this value will be automatically filled with a valid and guaranteed identifier during the first packaging of the module. DO NOT MODIFY this value once it has been filled by Maven.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="id" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>Name fo the profile. Must be unique for the module.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PropertyTypes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="PropertyType">
+                <xs:complexType>
+                  <xs:complexContent mixed="false">
+                    <xs:extension base="_PropertyType" />
+                  </xs:complexContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="Parameters">
+          <xs:annotation>
+            <xs:documentation>This section defines the parameters of the module.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter">
+                <xs:annotation>
+                  <xs:documentation>Definition of a Parameter of the Module.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence minOccurs="0" maxOccurs="1">
+                    <xs:element minOccurs="0" maxOccurs="1" name="Enumeration" type="_Enumeration" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>The identifier of the parameter. Must be unique for the module.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="group" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>Indicates in which group the parameter is to be displayed in the GUI. Sharing the same value between several parameters will group them.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="uid" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>This field holds the Modelio UUID for the object. This uid must conform to Modelio UUID format and be guaranteed to be unique. When packaging the module using Maven, this value will be automatically filled with a valid and guaranteed identifier during the first packaging of the module. DO NOT MODIFY this value once it has been filled by Maven.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="type" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>The type of the parameter chosen among the following values: Boolean, Color, Directory, Enum, File, Integer, Password, String</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Boolean" />
+                        <xs:enumeration value="Color" />
+                        <xs:enumeration value="Directory" />
+                        <xs:enumeration value="Enum" />
+                        <xs:enumeration value="File" />
+                        <xs:enumeration value="Integer" />
+                        <xs:enumeration value="Password" />
+                        <xs:enumeration value="String" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="default-value" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>The default value for the parameter. Default values are set during the first installation of the module in a Modelio project. The string must be compatible with the type of the parameter.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="label" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>The label displayed in thhe GUI for the parameter. This value follows the %I18n convention, ie if it starts by a '%' character, the value is used as a lookup key in the module I18n property files.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="Gui">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="Commands">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Command" type="_Command" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="Tools">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Tool" type="_Tool" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="ContextualMenu">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="CommandRef">
+                      <xs:complexType>
+                        <xs:complexContent mixed="false">
+                          <xs:extension base="_CommandRef" />
+                        </xs:complexContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute default="MODULE" name="category" use="optional">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="MODULE" />
+                        <xs:enumeration value="ELEMENT" />
+                        <xs:enumeration value="DIAGRAM" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="Diagrams">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="DiagramType">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="Palette">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="ToolRef">
+                                  <xs:complexType>
+                                    <xs:complexContent mixed="false">
+                                      <xs:extension base="_ToolRef" />
+                                    </xs:complexContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="keepBasePalette" type="xs:boolean" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="Wizard">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="1" maxOccurs="unbounded" name="Scope" type="_Scope" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="Handler" type="_Handler" />
+                              </xs:sequence>
+                              <xs:attribute name="label" type="xs:string" use="required" />
+                              <xs:attribute name="icon" type="xs:string" use="optional" />
+                              <xs:attribute name="information" type="xs:string" use="optional" />
+                              <xs:attribute name="details" type="xs:string" use="optional" />
+                              <xs:attribute name="help-url" type="xs:string" use="optional" />
+                              <xs:attribute name="preview-image" type="xs:string" use="optional" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Handler" type="_Handler" />
+                        </xs:sequence>
+                        <xs:attribute name="base-diagram" type="xs:string" use="required" />
+                        <xs:attribute name="stereotype" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Matrices">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="MatrixType">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="X">
+                            <xs:complexType>
+                              <xs:complexContent mixed="false">
+                                <xs:extension base="_Handler" />
+                              </xs:complexContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Y" type="_Handler" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="Z" type="_Handler" />
+                          <xs:element name="Val" type="_Handler" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="Wizard">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="1" maxOccurs="unbounded" name="Scope" type="_Scope" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="Handler" type="_Handler" />
+                              </xs:sequence>
+                              <xs:attribute name="label" type="xs:string" use="required" />
+                              <xs:attribute name="icon" type="xs:string" use="optional" />
+                              <xs:attribute name="information" type="xs:string" use="optional" />
+                              <xs:attribute name="details" type="xs:string" use="optional" />
+                              <xs:attribute name="help-url" type="xs:string" use="optional" />
+                              <xs:attribute name="preview-image" type="xs:string" use="optional" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required" />
+                        <xs:attribute name="stereotype" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="Views">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="PropertyPage">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="CommandRef">
+                            <xs:complexType>
+                              <xs:complexContent mixed="false">
+                                <xs:extension base="_CommandRef" />
+                              </xs:complexContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required">
+                          <xs:annotation>
+                            <xs:documentation>The identifier of the property page. Must be unique for the module.</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="class" type="xs:string" use="required" />
+                        <xs:attribute name="label" type="xs:string" use="optional" />
+                        <xs:attribute name="image" type="xs:string" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="Dependencies">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Required">
+                <xs:complexType>
+                  <xs:complexContent mixed="false">
+                    <xs:extension base="_Dependency" />
+                  </xs:complexContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Optional">
+                <xs:complexType>
+                  <xs:complexContent mixed="false">
+                    <xs:extension base="_Dependency" />
+                  </xs:complexContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="Resources">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="Styles">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Style">
+                      <xs:complexType>
+                        <xs:attribute name="id" type="xs:string" use="required" />
+                        <xs:attribute name="path" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="DocFiles" type="_MultiPathes" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Macros">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Macro">
+                      <xs:complexType>
+                        <xs:attribute name="id" type="xs:string" use="required" />
+                        <xs:attribute name="path" type="xs:string" use="required" />
+                        <xs:attribute default="false" name="published" type="xs:boolean" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="Patterns">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Pattern">
+                      <xs:complexType>
+                        <xs:attribute name="id" type="xs:string" use="required" />
+                        <xs:attribute name="path" type="xs:string" use="required" />
+                        <xs:attribute default="false" name="published" type="xs:boolean" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="DocTemplates">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="DocTemplate">
+                      <xs:complexType>
+                        <xs:attribute name="id" type="xs:string" use="required" />
+                        <xs:attribute name="path" type="xs:string" use="required" />
+                        <xs:attribute default="false" name="published" type="xs:boolean" use="optional" />
+                        <xs:attribute default="en" name="lang" use="optional">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="en" />
+                              <xs:enumeration value="fr" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="MetamodelFragments">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="MetamodelFragment">
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:string" use="required" />
+                  <xs:attribute name="version" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>One of:
+- Box
+- AttachedBox
+- Link
+- Multilink
+- a qualified Java class name. The class must implement ????</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="class" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>One of:
+- Box
+- AttachedBox
+- Link
+- Multilink
+- a qualified Java class name. The class must implement ????</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="vendor" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>One of:
+- Box
+- AttachedBox
+- Link
+- Multilink
+- a qualified Java class name. The class must implement ????</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="vendor-version" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>One of:
+- Box
+- AttachedBox
+- Link
+- Multilink
+- a qualified Java class name. The class must implement ????</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>The identifier of the Module. Used as an identifier, must be unique.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="class" type="xs:string" use="required" />
+      <xs:attribute name="binaryversion" type="xs:string" use="required" />
+      <xs:attribute name="version" type="xs:string" use="required" />
+      <xs:attribute default="3" name="schema-level" type="xs:unsignedInt" />
+      <xs:attribute name="uid" type="xs:string" use="optional" />
+      <xs:attribute name="author" type="xs:string" use="optional" />
+      <xs:attribute name="image" type="xs:string" use="optional" />
+      <xs:attribute name="url" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="_Command">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Scope" type="_Scope" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Handler" type="_Handler" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The identifier of the command. Must be unique for the module.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="label" type="xs:string" use="optional" />
+    <xs:attribute name="tooltip" type="xs:string" use="optional" />
+    <xs:attribute name="image" type="xs:string" use="optional" />
+    <xs:attribute name="group" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>deprecated (see CommandRef)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="modify-model" type="xs:string" use="optional" />
+    <xs:attribute name="group-image" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>deprecated (see CommandRef)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="_CommandRef">
+    <xs:attribute name="refid" type="xs:string" use="required" />
+    <xs:attribute name="group" type="xs:string" use="optional" />
+    <xs:attribute name="group-image" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="_LinkConstraint">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element minOccurs="1" maxOccurs="1" name="SourceScope" type="_Scope" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TargetScope" type="_Scope" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_Dependency">
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The identifier of the required module.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="version" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="_Enumeration">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Literal">
+        <xs:complexType>
+          <xs:complexContent mixed="false">
+            <xs:extension base="_Literal" />
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_ExternDocumentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>An i18n key used to look into module resources for the translated element's description.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Extensions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="StereotypeRef" type="_StereotypeRef" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The identifier of the ExternDocumentType. Must be unique for the module.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="uid" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>This field holds the Modelio UUID for the object. This uid must conform to Modelio UUID format and be guranteed to be unique. If you package the module using Maven, this value will be automatically filled with a valid and guaranteed identifier during the first packaging of the module. DO NOT MODIFY this value once it has been filled by Maven.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="label" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>The document type label key used to look into module resources for the translated stereotype label.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="is-hidden" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Indicates whether or not this document type will be visible for manual addition/suppression by the user.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="_Handler">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HParameter">
+        <xs:complexType>
+          <xs:attribute name="name" type="xs:string" use="required" />
+          <xs:attribute name="value" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="class" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>One of:
+- Box
+- AttachedBox
+- Link
+- Multilink
+- a qualified Java class name. The class must implement ????</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="_Literal">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>An i18n key used to look into module resources for the translated element's description.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Extensions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="StereotypeRef" type="_StereotypeRef" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="value" type="xs:string" use="required" />
+    <xs:attribute name="label" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="_MultiPathes">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PathEntry">
+        <xs:complexType>
+          <xs:attribute name="path" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_NoteType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>An i18n key used to look into module resources for the translated element's description.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Extensions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="StereotypeRef" type="_StereotypeRef" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The identifier of the NoteType. Must be unique for the module.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="label" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>The note type label key used to look into module resources for the translated stereotype label.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="is-hidden" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Indicates whether or not this note type will be visible for manual addition/suppression by the user.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="uid" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>This field holds the Modelio UUID for the object. This uid must conform to Modelio UUID format and be guranteed to be unique. If you package the module using Maven, this value will be automatically filled with a valid and guaranteed identifier during the first packaging of the module. DO NOT MODIFY this value once it has been filled by Maven.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute default="text/plain" name="mime-type" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="_PropertyDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="TypeRef">
+        <xs:complexType>
+          <xs:attribute name="id" type="xs:string" use="required">
+            <xs:annotation>
+              <xs:documentation>Reference (name) of the type.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter">
+        <xs:complexType>
+          <xs:attribute name="name" type="xs:string" use="required" />
+          <xs:attribute name="value" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The identifier of the property definition. Must be unique for the module.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="label" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>This label is the name of the PropertyType as it is displayed to the end-user. Follows the %I18n convention.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="default-value" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>The default value for properties of this type.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute default="true" name="is-editable" type="xs:boolean" />
+    <xs:attribute name="uid" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>This field holds the Modelio UUID for the object. This uid must conform to Modelio UUID format and be guranteed to be unique. If you package the module using Maven, this value will be automatically filled with a valid and guaranteed identifier during the first packaging of the module. DO NOT MODIFY this value once it has been filled by Maven.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="_PropertyTableDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>An i18n key used to look into module resources for the translated element's description.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="PropertyDefinition" type="_PropertyDefinition" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Extensions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="StereotypeRef" type="_StereotypeRef" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The identifier of the property table definition. Must be unique for the module.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="label" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>The property table label key used to look into module resources for the translated stereotype label.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="uid" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>This field holds the Modelio UUID for the object. This uid must conform to Modelio UUID format and be guranteed to be unique. If you package the module using Maven, this value will be automatically filled with a valid and guaranteed identifier during the first packaging of the module. DO NOT MODIFY this value once it has been filled by Maven.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="_PropertyType">
+    <xs:sequence minOccurs="0" maxOccurs="1">
+      <xs:element minOccurs="0" maxOccurs="1" name="Enumeration" type="_Enumeration" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>An i18n key used to look into module resources for the translated element's description.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Extensions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="StereotypeRef" type="_StereotypeRef" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The identifier of the property type Must be unique for the module.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Boolean" />
+          <xs:enumeration value="Date" />
+          <xs:enumeration value="Element" />
+          <xs:enumeration value="Float" />
+          <xs:enumeration value="Integer" />
+          <xs:enumeration value="MultiText" />
+          <xs:enumeration value="RichText" />
+          <xs:enumeration value="Text" />
+          <xs:enumeration value="Time" />
+          <xs:enumeration value="Unsigned" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="uid" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>This field holds the Modelio UUID for the object. This uid must conform to Modelio UUID format and be guranteed to be unique. If you package the module using Maven, this value will be automatically filled with a valid and guaranteed identifier during the first packaging of the module. DO NOT MODIFY this value once it has been filled by Maven.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ishidden" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The identifier of the property type Must be unique for the module.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="_Scope">
+    <xs:attribute name="metaclass" type="xs:string" use="optional" />
+    <xs:attribute name="stereotype" type="xs:string" use="optional" />
+    <xs:attribute default="true" name="withSubClasses" type="xs:boolean" />
+    <xs:attribute default="true" name="withSubStereotypes" type="xs:boolean" />
+  </xs:complexType>
+  <xs:complexType name="_StereotypeRef">
+    <xs:attribute name="uid" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="_TagType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>An i18n key used to look into module resources for the translated element's description.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Extensions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="StereotypeRef" type="_StereotypeRef" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The identifier of the TagType. Must be unique for the module.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="uid" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>This field holds the Modelio UUID for the object. This uid must conform to Modelio UUID format and be guranteed to be unique. If you package the module using Maven, this value will be automatically filled with a valid and guaranteed identifier during the first packaging of the module. DO NOT MODIFY this value once it has been filled by Maven.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="label" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>The tag type label key used to look into module resources for the translated stereotype label.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="parameter-card" type="xs:string" use="optional" />
+    <xs:attribute name="is-hidden" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Indicates whether or not this tag type will be visible for manual addition/suppression by the user.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="is-signed" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="_ToolRef">
+    <xs:attribute name="refid" type="xs:string" use="required" />
+    <xs:attribute default="default" name="group" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="_Tool">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Scope-source" type="_Scope">
+        <xs:annotation>
+          <xs:documentation>Used for Link like interaction only.
+The accepted element for starting thhe link.
+</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Scope-target" type="_Scope">
+        <xs:annotation>
+          <xs:documentation>The accepted element for the interaction.
+Usable for Boxes and Links</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="Handler" type="_Handler" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The identifier of the command. Must be unique for the module.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="label" type="xs:string" use="optional" />
+    <xs:attribute name="tooltip" type="xs:string" use="optional" />
+    <xs:attribute name="image" type="xs:string" use="optional" />
+  </xs:complexType>
+</xs:schema>
